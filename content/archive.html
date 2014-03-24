@@ -1,0 +1,12 @@
+---
+title: Archives
+---
+
+<% sorted_articles[0, 3].each do |post| %>
+<div class="post-archives">
+  <article>
+    <span><%= post[:created_at].strftime(format="%Y-%m-%d") %></span>
+    <span><%= link_to post[:title], post.path %></span>
+  </article>
+</div>
+<% end %>

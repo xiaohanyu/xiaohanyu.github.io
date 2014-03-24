@@ -2,6 +2,11 @@
 # before nanoc starts compiling.
 # encoding: utf-8
 
+include Nanoc3::Helpers::Blogging
+include Nanoc3::Helpers::Tagging
+include Nanoc3::Helpers::Rendering
+include Nanoc3::Helpers::LinkTo
+
 module Nanoc::Filters
 
   class PandocSystem < Nanoc::Filter
