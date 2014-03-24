@@ -5,11 +5,6 @@ source "https://rubygems.org"
 gem 'adsf'
 gem 'guard-nanoc'
 
-# pandoc
-gem 'pandoc-ruby'
-
-# for command line commands
-gem "systemu"
-
 # debugging
 gem 'pry'
+gem 'pry-debugger'

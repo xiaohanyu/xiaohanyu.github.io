@@ -22,7 +22,9 @@ compile '*' do
   if item.binary?
     # don't filter binary items
   else
+    pandoc_formats = ["org", "md", "markdown"]
     filter :erb
+    filter :pandoc_system if pandoc_formats.index(item[:extension])
     layout 'default'
   end
 end
