@@ -1,0 +1,11 @@
+*~
+\#*\#
+.\#*
+
+output
+tmp
+.bundle
+
+.sass-cache
+vendor/local
+crash.log
