@@ -5,7 +5,7 @@ title: Categories
 <% articles_by_attribute(:categories).each do |category, post_list| %>
 <div class="post-archives">
   <article>
-    <h4><%= category %>(<%= post_list.length %>)</h4>
+    <h4 id=<%= category.downcase %>><%= category %>(<%= post_list.length %>)</h4>
     <ul>
       <% post_list.each do |post| %>
       <li><%= link_to post[:title], post.path %></li>

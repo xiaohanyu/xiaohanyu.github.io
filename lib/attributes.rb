@@ -24,12 +24,12 @@ module Attributes
   # Find all articles with a specific attribute.
   #
   # :call-seq:
-  #   articles_with_attribute(key, value, posts) -> array
+  #   articles_with_attribute(key, attrib, posts) -> array
   #
   # By default all articles are checked. Pass in an array to limit the
   # search to a subset of articles.
-  def articles_with_attribute(key, value, posts=articles)
-    posts.select { |article| article[key].include? (value) }
+  def articles_with_attribute(key, attrib, posts=articles)
+    posts.select { |article| article[key].include? (attrib) }
   end
   memoize :articles_with_attribute
 
@@ -48,6 +48,15 @@ module Attributes
     attribs.sort_by { |attrib, post_list | post_list.length }.reverse
   end
   memoize :articles_by_attribute
+
+  def link_attribute(key, attrib)
+    case key
+    when :categories
+      "<a href=/categories/index.html##{attrib.downcase}>#{attrib}</a>"
+    when :tags
+      "<a href=/tags/index.html##{attrib.downcase}>#{attrib}</a>"
+    end
+  end
 
 end
 

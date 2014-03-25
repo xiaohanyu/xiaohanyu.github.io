@@ -6,14 +6,14 @@
   <%= get_date @item[:created_at] %>
   <h4>Categories</h4>
   <ul class="tag_box">
-    <% @item[:categories].each do |cat| %>
-    <li><%= cat %></li>
+    <% @item[:categories].each do |category| %>
+    <li><%= link_attribute(:categories, category)%></li>
     <% end %>
   </ul>
   <h4>Tags</h4>
   <ul class="tag_box">
     <% @item[:tags].each do |tag| %>
-    <li><%= tag %></li>
+    <li><%= link_attribute(:tags, tag)%></li>
     <% end %>
   </ul>
 </aside>
