@@ -16,7 +16,7 @@ module Nanoc::Filters
     def run(content, params = {})
       if item[:extension] == 'org'
         `pandoc --mathjax -f org -t html < #{item.raw_filename}`
-      elsif ["md", "markdown"].index(item[:extension])
+      elsif ["md", "markdown"].include?(item[:extension])
         `pandoc --mathjax -f markdown -t html < #{item.raw_filename}`
       end
     end
