@@ -14,21 +14,20 @@
 #   item, use the pattern "/about/*/"; "/about/*" will also select the parent,
 #   because "*" matches zero or more characters.
 
+pandoc_formats = ["org", "md", "markdown"]
+
 # The base javascript and stylesheet files
 compile %r{/assets/*/} do
 end
 
 compile %r{/posts/*} do
-  pandoc_formats = ["org", "md", "markdown"]
   filter :erb
-  filter :pandoc_system if pandoc_formats.include?(item[:extension])
+  filter :pandoc_html if pandoc_formats.include?(item[:extension])
   layout 'post'
   layout 'default'
 end
 
 compile %r{/posts/*}, :rep => :pdf do
-  # pandoc_formats = ["org", "md", "markdown"]
-  # filter :pandoc_system if pandoc_formats.include?(item[:extension])
   filter :pandoc_pdf
 end
 
