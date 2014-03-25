@@ -18,6 +18,14 @@
 compile %r{/assets/*/} do
 end
 
+compile %r{/posts/*} do
+  pandoc_formats = ["org", "md", "markdown"]
+  filter :erb
+  filter :pandoc_system if pandoc_formats.include?(item[:extension])
+  layout 'post'
+  layout 'default'
+end
+
 compile '*' do
   if item.binary?
     # don't filter binary items

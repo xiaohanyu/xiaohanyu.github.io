@@ -37,7 +37,7 @@
     <div class="wrapper">
       <div class="box">
         <div class="row row-offcanvas row-offcanvas-left">
-          <!-- sidebar -->
+          <!-- side navbar -->
           <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
 
             <ul class="nav">
@@ -63,7 +63,7 @@
               <li><a href="/about.html"><i class="glyphicon glyphicon-user"></i></a></li>
             </ul>
           </div>
-          <!-- /sidebar -->
+          <!-- /side navbar -->
 
           <!-- main right col -->
           <div class="column col-sm-10 col-xs-11" id="main">
@@ -75,17 +75,7 @@
                     <h4><%= @item[:title] %></h4>
                   </div>
                   <div class="panel-body">
-                    <article class="col-sm-9">
-                      <%= yield %>
-                    </article>
-                    <aside class="col-sm-3">
-                      <h4>Published</h4>
-                      <%= @item[:created_at] %>
-                      <h4>Categories</h4>
-                      <%= @item[:categories] %>
-                      <h4>Tags</h4>
-                      <%= @item[:tags] %>
-                    </aside>
+                    <%= yield %>
                   </div>
                 </div>
 

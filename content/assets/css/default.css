@@ -399,3 +399,11 @@ small.text-muted {
     padding-left: 3px;
   }
 }
+
+/* post sidebar */
+.tag_box {
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
+  overflow: hidden;
+}

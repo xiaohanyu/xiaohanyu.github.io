@@ -2,10 +2,10 @@
 title: Archives
 ---
 
-<% sorted_articles[0, 3].each do |post| %>
+<% sorted_articles[0, 10].each do |post| %>
 <div class="post-archives">
   <article>
-    <span><%= post[:created_at].strftime(format="%Y-%m-%d") %></span>
+    <span><%= get_date post[:created_at] %></span>
     <span><%= link_to post[:title], post.path %></span>
   </article>
 </div>
