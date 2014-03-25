@@ -15,9 +15,9 @@ module Nanoc::Filters
 
     def run(content, params = {})
       if item[:extension] == 'org'
-        `pandoc -f org -t html < #{item.raw_filename}`
+        `pandoc --mathjax -f org -t html < #{item.raw_filename}`
       elsif ["md", "markdown"].index(item[:extension])
-        `pandoc -f markdown -t html < #{item.raw_filename}`
+        `pandoc --mathjax -f markdown -t html < #{item.raw_filename}`
       end
     end
 
