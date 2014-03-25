@@ -5,6 +5,10 @@ source "https://rubygems.org"
 gem 'adsf'
 gem 'guard-nanoc'
 
+# for nanoc check sub command
+gem 'nokogiri'
+gem 'w3c_validators'
+
 # debugging
 gem 'pry'
 gem 'pry-debugger'
