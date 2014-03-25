@@ -26,6 +26,12 @@ compile %r{/posts/*} do
   layout 'default'
 end
 
+compile %r{/posts/*}, :rep => :pdf do
+  # pandoc_formats = ["org", "md", "markdown"]
+  # filter :pandoc_system if pandoc_formats.include?(item[:extension])
+  filter :pandoc_pdf
+end
+
 compile '*' do
   if item.binary?
     # don't filter binary items
@@ -45,6 +51,10 @@ route '/posts/*' do
   y, m, d, slug = /([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)/.match(item.identifier).captures
 
   "/#{y}/#{m}/#{d}/#{slug}/index.html"
+end
+
+route '/posts/*/', :rep => :pdf do
+  item.identifier.chop + '.' + 'pdf'
 end
 
 route '*' do

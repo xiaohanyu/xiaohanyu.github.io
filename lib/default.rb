@@ -23,6 +23,26 @@ module Nanoc::Filters
 
   end
 
+  class PandocPdf < Nanoc::Filter
+    identifier :pandoc_pdf
+    type :text => :binary
+
+    require 'tempfile'
+
+    def run(content, params = {})
+      temp_pdf_file = Tempfile.new(['nanoc_temp_pdf_file', '.pdf'], '/tmp')
+
+      if item[:extension] == 'org'
+        `pandoc --mathjax -f org -t latex < #{item.raw_filename} -o #{temp_pdf_file.path}`
+      elsif ["md", "markdown"].include?(item[:extension])
+        `pandoc --mathjax -f markdown -t latex < #{item.raw_filename} -o #{temp_pdf_file.path}`
+      end
+
+      FileUtils.mv(temp_pdf_file, output_filename)
+    end
+
+  end
+
 end
 
 def get_date(datetime)
