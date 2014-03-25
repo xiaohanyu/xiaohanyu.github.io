@@ -27,8 +27,10 @@ compile %r{/posts/*} do
   layout 'default'
 end
 
-compile %r{/posts/*}, :rep => :pdf do
-  filter :pandoc_pdf
+if @config[:generate_pdf]
+  compile %r{/posts/*}, :rep => :pdf do
+    filter :pandoc_pdf
+  end
 end
 
 compile '*' do
@@ -37,7 +39,7 @@ compile '*' do
   else
     pandoc_formats = ["org", "md", "markdown"]
     filter :erb
-    filter :pandoc_system if pandoc_formats.include?(item[:extension])
+    filter :pandoc_html if pandoc_formats.include?(item[:extension])
     layout 'default'
   end
 end
@@ -52,8 +54,10 @@ route '/posts/*' do
   "/#{y}/#{m}/#{d}/#{slug}/index.html"
 end
 
-route '/posts/*/', :rep => :pdf do
-  item.identifier.chop + '.' + 'pdf'
+if @config[:generate_pdf]
+  route '/posts/*/', :rep => :pdf do
+    item.identifier.chop + '.' + 'pdf'
+  end
 end
 
 route '*' do
