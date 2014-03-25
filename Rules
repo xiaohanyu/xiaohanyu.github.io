@@ -16,8 +16,12 @@
 
 pandoc_formats = ["org", "md", "markdown"]
 
-# The base javascript and stylesheet files
-compile %r{/assets/*/} do
+preprocess do
+  create_github_cname
+end
+
+# Don't filter or layout assets, cname.
+compile %r{^/(cname|assets)} do
 end
 
 compile %r{/posts/*} do
@@ -42,6 +46,10 @@ compile '*' do
     filter :pandoc_html if pandoc_formats.include?(item[:extension])
     layout 'default'
   end
+end
+
+route '/cname/' do
+  '/CNAME'
 end
 
 route '/assets/*/' do
