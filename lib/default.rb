@@ -24,3 +24,7 @@ module Nanoc::Filters
   end
 
 end
+
+def get_date(datetime)
+  datetime.strftime(format="%Y-%m-%d")
+end

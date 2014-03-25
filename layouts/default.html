@@ -41,12 +41,15 @@
           <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
 
             <ul class="nav">
-          	  <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+          	  <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-arrow-right"></i></a></li>
             </ul>
 
             <ul class="nav hidden-xs" id="lg-menu">
               <li><a href="/"><i class="glyphicon glyphicon-home"></i> Home</a></li>
               <li><a href="/archive/index.html"><i class="glyphicon glyphicon-list"></i> Archive</a></li>
+              <li><a href="/categories/index.html"><i class="glyphicon glyphicon-th"></i> Categories</a></li>
+              <li><a href="/tags/index.html"><i class="glyphicon glyphicon-tags"></i> Tags</a></li>
+              <li><a href="/wiki/index.html"><i class="glyphicon glyphicon-pencil"></i> Wiki</a></li>
               <li><a href="/about/index.html"><i class="glyphicon glyphicon-user"></i> About</a></li>
             </ul>
 
@@ -54,6 +57,9 @@
             <ul class="nav visible-xs" id="xs-menu">
               <li><a href="/"><i class="glyphicon glyphicon-home"></i></a></li>
               <li><a href="/archive.html"><i class="glyphicon glyphicon-list"></i></a></li>
+              <li><a href="/categories/index.html"><i class="glyphicon glyphicon-th"></i></a></li>
+              <li><a href="/tags/index.html"><i class="glyphicon glyphicon-tags"></i></a></li>
+              <li><a href="/wiki/index.html"><i class="glyphicon glyphicon-pencil"></i></a></li>
               <li><a href="/about.html"><i class="glyphicon glyphicon-user"></i></a></li>
             </ul>
           </div>
@@ -73,6 +79,12 @@
                       <%= yield %>
                     </article>
                     <aside class="col-sm-3">
+                      <h4>Published</h4>
+                      <%= @item[:created_at] %>
+                      <h4>Categories</h4>
+                      <%= @item[:categories] %>
+                      <h4>Tags</h4>
+                      <%= @item[:tags] %>
                     </aside>
                   </div>
                 </div>
@@ -114,5 +126,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript"
             src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="/assets/js/default.js">
+    </script>
   </body>
 </html>
