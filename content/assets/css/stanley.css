@@ -269,3 +269,18 @@ div.post-list ul {
   padding: 0px;
   margin: 0 0 10px 20px;
 }
+
+/* back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 2em;
+    right: 70px;
+    color: #000000;
+    background-color: rgba(176, 176, 176, 0.5);
+    padding: 1em;
+    display: none;
+}
+
+.back-to-top:hover {
+    background-color: rgba(106, 106, 106, 0.8);
+}
