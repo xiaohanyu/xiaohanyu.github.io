@@ -234,14 +234,6 @@ bt {
   opacity: 0.5;
 }
 
-/* glyphicon Configuration */
-
-.glyphicon {
-  font-size: 40px;
-  color: #299ecb;
-}
-
-
 /* bootstrap panel */
 .panel {
   box-shadow: 3px 3px 5px rgba(0,0,0,.65);
@@ -269,7 +261,7 @@ ul.tag-box li a {
   border-radius: 2px;
   margin: 0 5px 0 0;
   display: inline-block;
-  background-color: rgba(41, 158, 203, 0.2);
+  background-color: rgba(176, 176, 176, 0.2);
   color: #555555;
 }
 
