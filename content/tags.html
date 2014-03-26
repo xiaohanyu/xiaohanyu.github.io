@@ -3,7 +3,7 @@ title: Tags
 ---
 
 <% articles_by_attribute(:tags).each do |tag, post_list| %>
-<div class="post-archives">
+<div class="post-list">
   <article>
     <h4 id=<%= tag.downcase %>><%= tag%>(<%= post_list.length %>)</h4>
     <ul>

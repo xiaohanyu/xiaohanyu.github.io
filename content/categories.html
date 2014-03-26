@@ -3,7 +3,7 @@ title: Categories
 ---
 
 <% articles_by_attribute(:categories).each do |category, post_list| %>
-<div class="post-archives">
+<div class="post-list">
   <article>
     <h4 id=<%= category.downcase %>><%= category %>(<%= post_list.length %>)</h4>
     <ul>

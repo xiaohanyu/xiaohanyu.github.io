@@ -272,3 +272,8 @@ ul.tag-box li a {
   background-color: rgba(41, 158, 203, 0.2);
   color: #555555;
 }
+
+div.post-list ul {
+  padding: 0px;
+  margin: 0 0 10px 20px;
+}
