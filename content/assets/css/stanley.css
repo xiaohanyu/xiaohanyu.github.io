@@ -37,9 +37,8 @@ h1 {
 
 /* Paragraph & Typographic */
 p {
-  line-height: 28px;
-  margin-bottom: 25px;
-  font-size: 16px;
+  line-height: 1.5em;
+  margin-bottom: 1.2em;
 }
 
 .centered {
@@ -237,6 +236,14 @@ bt {
 /* bootstrap panel */
 .panel {
   box-shadow: 3px 3px 5px rgba(0,0,0,.65);
+}
+
+.panel > .panel-heading {
+  padding: 10px 20px;
+}
+
+.panel > .panel-body {
+  padding: 20px;
 }
 
 .row > aside {
