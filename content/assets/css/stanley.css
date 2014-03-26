@@ -28,6 +28,13 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
 }
 
+article.post h1,
+article.post h2,
+article.post h3,
+article.post h4 {
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 5px;
+}
 
 /* Paragraph & Typographic */
 p {
