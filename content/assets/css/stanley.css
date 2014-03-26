@@ -48,7 +48,7 @@ p {
 
 /* Links */
 a {
-  color: #299ecb;
+  color: #3498db;
   word-wrap: break-word;
 
   -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -95,7 +95,7 @@ hr {
 /* } */
 
 .navbar-inverse {
-  background-color: #299ecb;
+  background-color: #3498db;
   border-color: #299fff;
 }
 
@@ -122,7 +122,7 @@ hr {
 }
 
 .progress-bar-theme {
-  background-color: #299ecb;
+  background-color: #3498db;
 }
 
 
