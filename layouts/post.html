@@ -23,15 +23,15 @@
 
   <aside class="col-sm-3">
     <h4>Published</h4>
-    <%= get_date @item[:created_at] %>
+    <date><%= get_date @item[:created_at] %></date>
     <h4>Categories</h4>
-    <ul class="tag_box">
+    <ul class="tag-box">
       <% @item[:categories].each do |category| %>
       <li><%= link_attribute(:categories, category)%></li>
       <% end %>
     </ul>
     <h4>Tags</h4>
-    <ul class="tag_box">
+    <ul class="tag-box">
       <% @item[:tags].each do |tag| %>
       <li><%= link_attribute(:tags, tag)%></li>
       <% end %>
