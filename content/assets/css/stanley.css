@@ -34,11 +34,14 @@ h1 {
 }
 
 
-
 /* Paragraph & Typographic */
 p {
   line-height: 1.5em;
-  margin-bottom: 1.2em;
+  margin-bottom: 0.8em;
+}
+
+ul, ol {
+  line-height: 1.5em;
 }
 
 .centered {
