@@ -3,12 +3,12 @@ title: Tags
 ---
 
 <% articles_by_attribute(:tags).each do |tag, post_list| %>
-<div class="post-archives">
+<div class="post-list">
   <article>
-    <h4 id=<%= tag.downcase %>><%= tag%>(<%= post_list.length %>)</h4>
+    <h3 id=<%= tag.downcase %>><%= tag%>(<%= post_list.length %>)</h3>
     <ul>
       <% post_list.each do |post| %>
-      <li><%= link_to post[:title], post.path %></li>
+      <li><%= link_to post[:title].titleize, post.path %></li>
       <% end %>
     </ul>
   </article>
