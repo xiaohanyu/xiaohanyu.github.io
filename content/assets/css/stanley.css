@@ -22,14 +22,10 @@ body {
 
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', Georgia, 'KaiTi', 'Adobe Kaiti Std', 'STKaiti', serif;
   font-weight: 700;
   color: #333;
-}
-
-h1 {
-  font-size: 35px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 10px 0;
 }
 
 
@@ -44,7 +40,7 @@ ul, ol {
 }
 
 li {
-  margin: 8px 0px;
+  margin: 3px 0px;
 }
 
 .centered {
@@ -88,7 +84,6 @@ hr {
   padding: 0;
 }
 
-
 .navbar {
   margin-bottom: 0px;
   letter-spacing: 1px;
@@ -99,11 +94,10 @@ hr {
   margin: 0px 0px;
 }
 
-
-/* .navbar-inverse { */
-/* 	padding-bottom: 70px; */
-/* 	padding-top: 70px; */
-/* } */
+.navbar-inverse {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
 
 .navbar-inverse {
   background-color: #3498db;
@@ -120,7 +114,7 @@ hr {
 
 .navbar-brand {
   font-weight: 700;
-  font-size: 1.8em;
+  font-size: 2em;
   letter-spacing: 2px;
   font-family: Georgia, 'KaiTi', 'Adobe Kaiti Std', 'STKaiti', serif;
 }
@@ -252,11 +246,11 @@ bt {
 }
 
 .panel > .panel-heading {
-  padding: 10px 20px;
+  padding: 10px 30px;
 }
 
 .panel > .panel-body {
-  padding: 20px;
+  padding: 30px;
 }
 
 .row > aside {
