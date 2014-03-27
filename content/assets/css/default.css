@@ -335,6 +335,12 @@ aside h5 {
   margin: 10px 0;
 }
 
+aside h3:first-of-type,
+aside h4:first-of-type,
+aside h5:first-of-type {
+  margin-top: 0;
+}
+
 div.post-list > article h3 > span {
   color: #bbbbbb;
   font-size: 0.7em;
