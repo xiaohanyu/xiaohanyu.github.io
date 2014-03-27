@@ -27,13 +27,13 @@
     <h4>Categories</h4>
     <ul class="tag-box">
       <% @item[:categories].each do |category| %>
-      <li><%= link_attribute(:categories, category)%></li>
+      <li><%= link_attribute(:categories, category) %></li>
       <% end %>
     </ul>
     <h4>Tags</h4>
     <ul class="tag-box">
       <% @item[:tags].each do |tag| %>
-      <li><%= link_attribute(:tags, tag)%></li>
+      <li><%= link_attribute(:tags, tag) %></li>
       <% end %>
     </ul>
   </aside>

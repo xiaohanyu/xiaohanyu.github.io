@@ -6,7 +6,10 @@ title: Categories
   <article class="col-sm-9">
     <% articles_by_attribute(:categories).each do |category, post_list| %>
     <section>
-      <h3 id=<%= category.downcase %>><%= category %>(<%= post_list.length %>)</h3>
+      <h3 id=<%= category.downcase %>>
+        <%= category %>
+        <span><%= post_list.length %><span>
+      </h3>
       <ul>
         <% post_list.each do |post| %>
         <li><%= link_to post[:title].titleize, post.path %></li>
