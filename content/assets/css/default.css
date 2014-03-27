@@ -346,3 +346,11 @@ div.post-list > article h3 > span {
   font-size: 0.7em;
   vertical-align: text-top;
 }
+
+.align-left {
+  float: left;
+}
+
+.align-right {
+  float: right;
+}

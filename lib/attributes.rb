@@ -49,13 +49,21 @@ module Attributes
   end
   memoize :articles_by_attribute
 
-  def link_attribute(key, attrib)
+  def link_attribute(key, attrib, post_length=true)
     attribs = articles_by_attribute(key)
     case key
     when :categories
-      "<a href=/categories/index.html##{attrib.downcase}>#{attrib.titleize}<span>#{attribs[attrib.titleize].length}</span></a>"
+      if post_length
+        "<a href=/categories/index.html##{attrib.downcase}>#{attrib.titleize}<span>#{attribs[attrib.titleize].length}</span></a>"
+      else
+        "<a href=/categories/index.html##{attrib.downcase}>#{attrib.titleize}</a>"
+      end
     when :tags
-      "<a href=/tags/index.html##{attrib.downcase}>#{attrib.titleize}<span>#{attribs[attrib.titleize].length}</span></a>"
+      if post_length
+        "<a href=/tags/index.html##{attrib.downcase}>#{attrib.titleize}<span>#{attribs[attrib.titleize].length}</span></a>"
+      else
+        "<a href=/tags/index.html##{attrib.downcase}>#{attrib.titleize}</a>"
+      end
     end
   end
 
