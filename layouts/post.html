@@ -4,32 +4,42 @@
 
     <hr>
 
+    <ul class="pager">
+      <li class="previous"><a href="#">&larr; Older</a></li>
+      <li>
+        <a id="show_disqus_comments" onclick='toggle_disqus()'>Show Disqus Comments</a></li>
+      <li class="next"><a href="#">Newer &rarr;</a></li>
+    </ul>
+
     <div id="disqus_thread"></div>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
     <script type="text/javascript">
-     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-     var disqus_shortname = '<%= @site.config[:disqus][:username] %>'; // required: replace example with your forum shortname
-
-     /* * * DON'T EDIT BELOW THIS LINE * * */
-     (function() {
-       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
+     function toggle_disqus (event) {
+       $.ajaxSetup({cache:true});
+       $.getScript("http://<%= @site.config[:disqus][:username] %>.disqus.com/embed.js");
+       $.ajaxSetup({cache:false});
+       setTimeout(function () {
+         $("#show_disqus_comments").fadeOut(3000);
+       }, 1000);
+     }
     </script>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
   </article>
 
   <aside class="col-sm-3">
     <h4>Published</h4>
     <date><%= get_date @item[:created_at] %></date>
+
     <h4>Categories</h4>
     <ul class="tag-box">
       <% @item[:categories].each do |category| %>
       <li><%= link_attribute(:categories, category) %></li>
       <% end %>
     </ul>
+
     <h4>Tags</h4>
     <ul class="tag-box">
       <% @item[:tags].each do |tag| %>
