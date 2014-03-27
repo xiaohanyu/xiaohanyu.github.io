@@ -2,15 +2,27 @@
 title: Tags
 ---
 
-<% articles_by_attribute(:tags).each do |tag, post_list| %>
 <div class="post-list">
-  <article>
-    <h3 id=<%= tag.downcase %>><%= tag%>(<%= post_list.length %>)</h3>
-    <ul>
-      <% post_list.each do |post| %>
-      <li><%= link_to post[:title].titleize, post.path %></li>
+  <article class="col-sm-9">
+    <% articles_by_attribute(:tags).each do |tag, post_list| %>
+    <section>
+      <h3 id=<%= tag.downcase %>><%= tag%>(<%= post_list.length %>)</h3>
+      <ul>
+        <% post_list.each do |post| %>
+        <li><%= link_to post[:title].titleize, post.path %></li>
+        <% end %>
+      </ul>
+    </section>
+    <% end %>
+  </article>
+
+  <aside class="col-sm-3">
+    <ul class="nav nav-pills nav-stacked" role="menu">
+      <% all_attributes(:tags).each do |tag| %>
+      <li role="presentation">
+        <%= link_attribute(:tags, tag) %>
+      </li>
       <% end %>
     </ul>
-  </article>
+  </aside>
 </div>
-<% end %>

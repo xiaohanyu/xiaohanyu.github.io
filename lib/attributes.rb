@@ -15,7 +15,7 @@ module Attributes
     attribs = []
     posts.each do |article|
       next if article[key].nil?
-      attribs << article[key]
+      attribs << article[key].map { |e| e.titleize }
     end
     attribs.flatten.compact.sort.uniq
   end
@@ -29,7 +29,7 @@ module Attributes
   # By default all articles are checked. Pass in an array to limit the
   # search to a subset of articles.
   def articles_with_attribute(key, attrib, posts=articles)
-    posts.select { |article| article[key].include? (attrib) }
+    posts.select { |post| post[key].map{ |e| e.titleize }.include? (attrib) }
   end
   memoize :articles_with_attribute
 
@@ -41,20 +41,21 @@ module Attributes
   #  By default all articles are checked. Pass in an array to limit the
   # search to a subset of articles.
   def articles_by_attribute(key, posts=articles)
-    attribs = []
+    attribs = {}
     all_attributes(key).each do |attrib|
-      attribs << [attrib, articles_with_attribute(key, attrib)]
+      attribs.merge!({attrib => articles_with_attribute(key, attrib)})
     end
-    attribs.sort_by { |attrib, post_list | post_list.length }.reverse
+    attribs
   end
   memoize :articles_by_attribute
 
   def link_attribute(key, attrib)
+    attribs = articles_by_attribute(key)
     case key
     when :categories
-      "<a href=/categories/index.html##{attrib.downcase}>#{attrib}</a>"
+      "<a href=/categories/index.html##{attrib.downcase}>#{attrib.titleize}<span>#{attribs[attrib.titleize].length}</span></a>"
     when :tags
-      "<a href=/tags/index.html##{attrib.downcase}>#{attrib}</a>"
+      "<a href=/tags/index.html##{attrib.downcase}>#{attrib.titleize}<span>#{attribs[attrib.titleize].length}</span></a>"
     end
   end
 

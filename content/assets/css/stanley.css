@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Lora', Georgia, 'KaiTi', 'Adobe Kaiti Std', 'STKaiti', serif;
   font-weight: 700;
   color: #333;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 article.post h1,
@@ -33,7 +33,7 @@ article.post h2,
 article.post h3,
 article.post h4 {
   border-bottom: 1px solid #dddddd;
-  padding-bottom: 5px;
+  padding-bottom: 8px;
 }
 
 /* Paragraph & Typographic */
@@ -268,12 +268,15 @@ ul.tag-box {
   display: block;
   padding: 0;
   margin: 0;
+  font-family: Inconsolata, Menlo,'Ubuntu Mono', monospace
 }
+
 ul.tag-box li {
   list-style: none;
   margin: 5px 0px;
   padding: 0;
 }
+
 ul.tag-box li a {
   font-size: 14px;
   padding: 3px 6px;
@@ -286,6 +289,13 @@ ul.tag-box li a {
   color: #555555;
 }
 
+ul.tag-box li a span,
+ul.nav li a span {
+  vertical-align: super;
+  font-size: 0.7em;
+  margin-left: 2px;
+}
+
 div.post-list ul {
   padding: 0px;
   margin: 0 0 10px 20px;
@@ -295,7 +305,7 @@ div.post-list ul {
 .back-to-top {
     position: fixed;
     bottom: 2em;
-    right: 70px;
+    right: 10px;
     color: #000000;
     background-color: rgba(176, 176, 176, 0.5);
     padding: 1em;
@@ -304,4 +314,21 @@ div.post-list ul {
 
 .back-to-top:hover {
     background-color: rgba(106, 106, 106, 0.8);
+}
+
+/* for categories/tags/archives page style */
+div.post-list > aside {
+  padding-left: 0;
+  padding-right: 0;
+  border-left: 1px solid #dddddd;
+}
+
+div.post-list > aside > ul {
+  margin: 0;
+}
+
+aside h3,
+aside h4,
+aside h5 {
+  margin: 10px 0;
 }
