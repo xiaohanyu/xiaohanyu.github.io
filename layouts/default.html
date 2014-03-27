@@ -23,7 +23,7 @@
 
     <!-- Custom -->
     <link rel="stylesheet" type="text/css" href="/assets/css/pandoc-code-highlight.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/stanley.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -77,7 +77,7 @@
       <div class="container">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h1><%= @item[:title].titleize %></h1>
+            <h1 style="display: inline-block"><%= @item[:title].titleize %></h1>
           </div>
           <div class="panel-body">
             <%= yield %>
@@ -90,18 +90,25 @@
     <footer id="footer">
       <div class="container">
         <div class="row">
-		  <div class="col-lg-6">
+          <div class="col-lg-4">
+            <hgroup>
+              <h1 style="color: white">行者无疆 始于足下</h1>
+              <h4>行走 思考 在路上</h4>
+            </hgroup>
+		  </div><!-- /col-lg-4 -->
+
+		  <div class="col-lg-4">
 			<h4>Links</h4>
 			<p>
 			  <a href="#">Github</a><br/>
 			  <a href="#">Douban</a>
 			</p>
-		  </div><!-- /col-lg-6 -->
+		  </div><!-- /col-lg-4 -->
 
-		  <div class="col-lg-6">
+		  <div class="col-lg-4">
 			<h4>About <%= @site.config[:meta_data][:title] %></h4>
             <p class="text-muted">Copyright © Xiao Hanyu 2014 - Powered by <a href="http://nanoc.ws/">Nanoc</a></p>
-		  </div><!-- /col-lg-6 -->
+		  </div><!-- /col-lg-4 -->
         </div>
       </div>
     </footer>
