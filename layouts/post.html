@@ -5,10 +5,11 @@
     <hr>
 
     <ul class="pager">
-      <li class="previous"><a href="#">&larr; Older</a></li>
+      <li class="previous"><%= previous_link %></li>
       <li>
-        <a id="show_disqus_comments" onclick='toggle_disqus()'>Show Disqus Comments</a></li>
-      <li class="next"><a href="#">Newer &rarr;</a></li>
+        <a id="show_disqus_comments" onclick='toggle_disqus()'>Show Disqus Comments</a>
+      </li>
+      <li class="next"><%= next_link %></li>
     </ul>
 
     <div id="disqus_thread"></div>
@@ -24,8 +25,6 @@
        }, 1000);
      }
     </script>
-
-
 
   </article>
 
