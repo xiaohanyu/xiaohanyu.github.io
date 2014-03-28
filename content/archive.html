@@ -27,16 +27,16 @@ title: Archives
       <div class="timeline-footer">
         <p>
           <span class="align-left">
-          Categories:
+          Categories:&nbsp;
           <% post[:categories].each do |category| %>
-          <%= link_attribute(:categories, category, false) %>
+          <%= link_attribute(:categories, category, false) %>&nbsp;
           <% end %>
           </span>
           &nbsp;
           <span class="align-right">
-          Tags:
+          Tags:&nbsp;
           <% post[:tags].each do |tag| %>
-          <%= link_attribute(:tags, tag, false) %>
+          <%= link_attribute(:tags, tag, false) %>&nbsp;
           <% end %>
           </span>
         </p>
