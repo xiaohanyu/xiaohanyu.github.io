@@ -90,25 +90,26 @@
     <footer id="footer">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4">
-            <hgroup>
-              <h1 style="color: white">行者无疆 始于足下</h1>
-              <h4>行走 思考 在路上</h4>
-            </hgroup>
-		  </div><!-- /col-lg-4 -->
-
-		  <div class="col-lg-4">
-			<h4>Links</h4>
+		  <div class="col-sm-3">
+			<h3>Links</h3>
 			<p>
 			  <a href="#">Github</a><br/>
 			  <a href="#">Douban</a>
 			</p>
-		  </div><!-- /col-lg-4 -->
+		  </div><!-- /col-sm-3 -->
 
-		  <div class="col-lg-4">
-			<h4>About <%= @site.config[:meta_data][:title] %></h4>
-            <p class="text-muted">Copyright © Xiao Hanyu 2014 - Powered by <a href="http://nanoc.ws/">Nanoc</a></p>
-		  </div><!-- /col-lg-4 -->
+          <div class="col-sm-6">
+            <hgroup>
+              <h1 style="color: white">行者无疆 始于足下</h1>
+              <h3>行走 思考 在路上</h3>
+            </hgroup>
+		  </div><!-- /col-sm-6 -->
+
+		  <div class="col-sm-3">
+			<h3>About <%= @site.config[:meta_data][:title] %></h3>
+            <p>Copyright © Xiao Hanyu 2014</p>
+            <p>Powered by <a href="http://nanoc.ws/">Nanoc</a></p>
+		  </div><!-- /col-sm-3 -->
         </div>
       </div>
     </footer>

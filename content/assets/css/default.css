@@ -171,10 +171,12 @@ hr {
   color: white;
 }
 
+#footer h1,
+#footer h2,
+#footer h3,
 #footer h4 {
   color: white;
-  text-transform: uppercase;
-  padding-bottom: 20px;
+  text-transform: capitalize;
 }
 
 
