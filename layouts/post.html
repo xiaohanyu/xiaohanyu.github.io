@@ -6,12 +6,15 @@
 
     <ul class="pager">
       <li class="previous"><%= previous_link %></li>
+      <% unless @item[:disable_disqus] %>
       <li>
         <a id="show_disqus_comments" onclick='toggle_disqus()'>Show Disqus Comments</a>
       </li>
+      <% end %>
       <li class="next"><%= next_link %></li>
     </ul>
 
+    <% unless @item[:disable_disqus] %>
     <div id="disqus_thread"></div>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
@@ -25,6 +28,7 @@
        }, 1000);
      }
     </script>
+    <% end %>
 
   </article>
 
