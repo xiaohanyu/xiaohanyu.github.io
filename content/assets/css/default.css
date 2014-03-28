@@ -304,17 +304,18 @@ div.post-list ul {
 
 /* back to top button */
 .back-to-top {
-    position: fixed;
-    bottom: 2em;
-    right: 10px;
-    color: #000000;
-    background-color: rgba(176, 176, 176, 0.5);
-    padding: 1em;
-    display: none;
+  z-index: 200;
+  position: fixed;
+  bottom: 2em;
+  right: 10px;
+  color: #000000;
+  background-color: rgba(176, 176, 176, 0.5);
+  padding: 1em;
+  display: none;
 }
 
 .back-to-top:hover {
-    background-color: rgba(106, 106, 106, 0.8);
+  background-color: rgba(106, 106, 106, 0.8);
 }
 
 /* for categories/tags/archives page style */
