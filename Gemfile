@@ -1,6 +1,9 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
+# nanoc plugins
+gem 'nanoc-toolbox'
+
 # basic requirement
 gem 'adsf'
 gem 'guard-nanoc'

@@ -117,6 +117,10 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <% if @site.config[:ga_tracking_code] %>
+    <%= ga_tracking_snippet %>
+    <% end %>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

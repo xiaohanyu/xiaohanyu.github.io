@@ -9,6 +9,8 @@ text_extensions: [ 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'h
 output_dir: output
 generate_pdf: false
 
+ga_tracking_code: UA-49528621-1
+
 disqus:
   username: 'xiaohanyu'
 
@@ -17,7 +19,7 @@ github:
 
 meta_data:
   # Default title, that is added to an item's own title
-  title: Foolish
+  title: 行者无疆 始于足下
 
   # Default author of a page
   author: Xiao Hanyu

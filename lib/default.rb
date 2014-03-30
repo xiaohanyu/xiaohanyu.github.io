@@ -3,10 +3,13 @@
 # before nanoc starts compiling.
 # encoding: utf-8
 
+require 'nanoc/toolbox'
+
 include Nanoc3::Helpers::Blogging
 include Nanoc3::Helpers::Tagging
 include Nanoc3::Helpers::Rendering
 include Nanoc3::Helpers::LinkTo
+include Nanoc::Toolbox::Helpers::GoogleAnalytics
 
 class String
   def titleize
