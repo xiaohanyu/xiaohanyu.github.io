@@ -28,10 +28,10 @@
     <!-- Custom -->
     <% if @config[:debug] %>
     <% for file in @config[:stylesheets] %>
-    <link rel="stylesheet" type="text/css" href="/assets/css/<%= File.basename(file, ".*") %>.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/<%= File.basename(file, '.*') %>.css">
     <% end %>
     <% else %>
-    <link rel="stylesheet" type="text/css" href="/assets/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/all.min.css">
     <% end %>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -126,10 +126,11 @@
 
     <% if @config[:debug] %>
     <% for file in @config[:scripts] %>
-    <script src="/assets/js/<%= file %>"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/css/<%= File.basename(file, ".*") %>.css">
+    <script src="/assets/js/<%= File.basename(file, '.*') %>.js"></script>
     <% end %>
     <% else %>
-    <script src="/assets/js/all.js"></script>
+    <script src="/assets/js/all.min.js"></script>
     <% end %>
   </body>
 </html>

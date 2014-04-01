@@ -3,6 +3,7 @@
 # before nanoc starts compiling.
 # encoding: utf-8
 
+require 'nanoc/cachebuster'
 require 'nanoc/toolbox'
 
 include Nanoc3::Helpers::Blogging
@@ -10,6 +11,7 @@ include Nanoc3::Helpers::Tagging
 include Nanoc3::Helpers::Rendering
 include Nanoc3::Helpers::LinkTo
 include Nanoc3::Helpers::XMLSitemap
+include Nanoc::Helpers::CacheBusting
 include Nanoc::Toolbox::Helpers::GoogleAnalytics
 
 class NilClass

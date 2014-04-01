@@ -9,6 +9,9 @@ gem 'typogruby'
 gem 'rainpress'
 gem 'uglifier'
 
+# busting web browser's cache when js/css file changes.
+gem 'nanoc-cachebuster'
+
 # basic requirement
 gem 'adsf'
 gem 'guard-nanoc'
