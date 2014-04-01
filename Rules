@@ -19,6 +19,7 @@ pandoc_formats = ["org", "md", "markdown"]
 preprocess do
   create_github_cname
   create_sitemap
+  create_atom
 end
 
 # Don't filter or layout assets, cname.
@@ -26,6 +27,10 @@ compile %r{^/(cname|assets)} do
 end
 
 compile %r{/sitemap/} do
+  filter :erb
+end
+
+compile %r{/atom/} do
   filter :erb
 end
 
@@ -65,6 +70,10 @@ route '/cname/' do
 end
 
 route '/sitemap/' do
+  item.identifier.chop + '.xml'
+end
+
+route '/atom/' do
   item.identifier.chop + '.xml'
 end
 

@@ -14,3 +14,11 @@ def create_sitemap
                              {},
                              '/sitemap/')
 end
+
+def create_atom
+  content = "<%= atom_feed :title => '#{@site.config[:meta_data][:title]}' , :author_name => '#{@site.config[:meta_data][:author]}', :author_uri => '#{@site.config[:base_url]}', :limit => 10 %>"
+
+  @items << Nanoc3::Item.new(content,
+                             {:extension => 'xml', :is_hidden => true},
+                             '/atom/')
+end
