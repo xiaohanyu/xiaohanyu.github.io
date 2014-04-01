@@ -41,6 +41,7 @@ end
 compile %r{/posts/*} do
   filter :erb
   filter :pandoc_html if pandoc_formats.include?(item[:extension])
+  filter :typogruby
   layout 'post'
   layout 'panel'
   layout 'default'
@@ -64,6 +65,7 @@ compile '*' do
     pandoc_formats = ["org", "md", "markdown"]
     filter :erb
     filter :pandoc_html if pandoc_formats.include?(item[:extension])
+    filter :typogruby
     layout 'panel'
     layout 'default'
   end

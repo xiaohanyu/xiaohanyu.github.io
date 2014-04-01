@@ -3,6 +3,7 @@ source "https://rubygems.org"
 
 # nanoc plugins
 gem 'nanoc-toolbox'
+gem 'typogruby'
 
 # basic requirement
 gem 'adsf'
