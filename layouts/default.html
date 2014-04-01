@@ -74,14 +74,7 @@
     <!-- content -->
     <div class="grey">
       <div class="container">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h1 style="display: inline-block"><%= @item[:title].titleize %></h1>
-          </div>
-          <div class="panel-body">
-            <%= yield %>
-          </div>
-        </div>
+        <%= yield %>
       </div>
       <a href="#" class="btn back-to-top btn-dark btn-fixed-bottom"> <span class="glyphicon glyphicon-chevron-up"></span> </a>
     </div>
