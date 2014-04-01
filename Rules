@@ -30,6 +30,10 @@ compile %r{/sitemap/} do
   filter :erb
 end
 
+compile %r{/robots/} do
+  filter :erb
+end
+
 compile %r{/atom/} do
   filter :erb
 end
@@ -97,6 +101,8 @@ route '*' do
   if item.binary?
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
+  elsif item[:path]
+    item[:path]
   else
     # Write item with identifier /foo/ to /foo/index.html
     item.identifier + 'index.html'
