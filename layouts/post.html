@@ -8,7 +8,7 @@
       <li class="previous"><%= previous_link %></li>
       <% unless @item[:disable_disqus] %>
       <li>
-        <a id="show_disqus_comments" onclick='toggle_disqus()'>Show Disqus Comments</a>
+        <a id="show-disqus-comments" onclick='toggle_disqus()'>Show Disqus Comments</a>
       </li>
       <% end %>
       <li class="next"><%= next_link %></li>
@@ -24,7 +24,7 @@
        $.getScript("http://<%= @site.config[:disqus][:username] %>.disqus.com/embed.js");
        $.ajaxSetup({cache:false});
        setTimeout(function () {
-         $("#show_disqus_comments").fadeOut(3000);
+         $("#show-disqus-comments").fadeOut(3000);
        }, 1000);
      }
     </script>

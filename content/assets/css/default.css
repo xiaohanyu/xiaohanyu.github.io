@@ -357,3 +357,7 @@ div.post-list > article h3 > span {
 .align-right {
   float: right;
 }
+
+#show-disqus-comments {
+  cursor: default;
+}
