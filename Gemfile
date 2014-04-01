@@ -8,6 +8,9 @@ gem 'nanoc-toolbox'
 gem 'adsf'
 gem 'guard-nanoc'
 
+# require by Nanoc::Helpers::XMLSitemap
+gem 'builder'
+
 # for nanoc check sub command
 gem 'nokogiri'
 gem 'w3c_validators'

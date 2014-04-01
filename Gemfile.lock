@@ -3,6 +3,7 @@ GEM
   specs:
     adsf (1.2.0)
       rack (>= 1.0.0)
+    builder (3.2.2)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     celluloid-io (0.15.0)
@@ -72,6 +73,7 @@ PLATFORMS
 
 DEPENDENCIES
   adsf
+  builder
   guard-nanoc
   nanoc-toolbox
   nokogiri

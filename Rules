@@ -18,16 +18,27 @@ pandoc_formats = ["org", "md", "markdown"]
 
 preprocess do
   create_github_cname
+  create_sitemap
 end
 
 # Don't filter or layout assets, cname.
 compile %r{^/(cname|assets)} do
 end
 
+compile %r{/sitemap/} do
+  filter :erb
+end
+
 compile %r{/posts/*} do
   filter :erb
   filter :pandoc_html if pandoc_formats.include?(item[:extension])
   layout 'post'
+  layout 'panel'
+  layout 'default'
+end
+
+compile %r{/about/|/wiki/} do
+  filter :erb
   layout 'default'
 end
 
@@ -44,12 +55,17 @@ compile '*' do
     pandoc_formats = ["org", "md", "markdown"]
     filter :erb
     filter :pandoc_html if pandoc_formats.include?(item[:extension])
+    layout 'panel'
     layout 'default'
   end
 end
 
 route '/cname/' do
   '/CNAME'
+end
+
+route '/sitemap/' do
+  item.identifier.chop + '.xml'
 end
 
 route '/assets/*/' do

@@ -8,3 +8,9 @@ def create_github_cname
                              {:is_hidden => true},
                              '/cname/')
 end
+
+def create_sitemap
+  @items << Nanoc3::Item.new("<%= xml_sitemap %>",
+                             {},
+                             '/sitemap/')
+end
