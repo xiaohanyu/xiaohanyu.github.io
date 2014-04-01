@@ -18,6 +18,7 @@ pandoc_formats = ["org", "md", "markdown"]
 
 preprocess do
   create_github_cname
+  create_robots_txt
   create_sitemap
   create_atom
 end
@@ -36,15 +37,7 @@ end
 compile %r{^/(cname|assets)} do
 end
 
-compile %r{/sitemap/} do
-  filter :erb
-end
-
-compile %r{/robots/} do
-  filter :erb
-end
-
-compile %r{/atom/} do
+compile %r{/sitemap/|/atom/|/robots/} do
   filter :erb
 end
 
@@ -88,12 +81,12 @@ route '/cname/' do
   '/CNAME'
 end
 
-route '/sitemap/' do
+route %r{/sitemap/|/atom/} do
   item.identifier.chop + '.xml'
 end
 
-route '/atom/' do
-  item.identifier.chop + '.xml'
+route '/robots/' do
+  item.identifier.chop + '.txt'
 end
 
 route '/assets/css/*' do
