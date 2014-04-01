@@ -5,6 +5,10 @@ source "https://rubygems.org"
 gem 'nanoc-toolbox'
 gem 'typogruby'
 
+# js/css minify
+gem 'rainpress'
+gem 'uglifier'
+
 # basic requirement
 gem 'adsf'
 gem 'guard-nanoc'

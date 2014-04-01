@@ -26,8 +26,13 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/pandoc-code-highlight.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
+    <% if @config[:debug] %>
+    <% for file in @config[:stylesheets] %>
+    <link rel="stylesheet" type="text/css" href="/assets/css/<%= File.basename(file, ".*") %>.css">
+    <% end %>
+    <% else %>
+    <link rel="stylesheet" type="text/css" href="/assets/css/all.css">
+    <% end %>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -118,7 +123,13 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript"
             src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="/assets/js/default.js">
-    </script>
+
+    <% if @config[:debug] %>
+    <% for file in @config[:scripts] %>
+    <script src="/assets/js/<%= file %>"></script>
+    <% end %>
+    <% else %>
+    <script src="/assets/js/all.js"></script>
+    <% end %>
   </body>
 </html>

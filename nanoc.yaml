@@ -19,6 +19,19 @@ disqus:
 github:
   cname: 'www.xiaohanyu.me'
 
+# if true, don't concatenate scripts
+debug: false
+
+# your script filenames without extension
+scripts:
+  - default
+
+# your stylesheets files without extension
+stylesheets:
+  - default
+  - pandoc-code-highlight
+  - timeline
+
 meta_data:
   # Default title, that is added to an item's own title
   title: 行者无疆 始于足下
