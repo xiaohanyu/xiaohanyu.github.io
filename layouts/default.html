@@ -5,6 +5,10 @@
 <!--[if IE 9 ]>    <html lang="<%= @site.config[:meta_data][:lang] %>" class="no-js ie ie9 lte9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="<%= @site.config[:meta_data][:lang] %>" class="no-js" manifest="/cache.manifest"> <!--<![endif]-->
   <head>
+    <% if @site.config[:ga_tracking_code] %>
+    <%= ga_tracking_snippet %>
+    <% end %>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><%= @item[:title] %> &bull; <%= @site.config[:meta_data][:title] %></title>
@@ -109,10 +113,6 @@
     <!--[if lt IE 8]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <% if @site.config[:ga_tracking_code] %>
-    <%= ga_tracking_snippet %>
-    <% end %>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
