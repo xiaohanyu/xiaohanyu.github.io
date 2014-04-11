@@ -41,6 +41,13 @@ compile %r{/sitemap/|/atom/|/robots/} do
   filter :erb
 end
 
+compile '/404/' do
+  filter :erb
+  filter :typogruby
+  layout 'simple'
+  filter :cache_buster
+end
+
 compile %r{/posts/*} do
   filter :erb
   filter :pandoc_html if pandoc_formats.include?(item[:extension])
@@ -83,6 +90,10 @@ end
 
 route %r{/sitemap/|/atom/} do
   item.identifier.chop + '.xml'
+end
+
+route '/404/' do
+  '/404.html'
 end
 
 route '/robots/' do

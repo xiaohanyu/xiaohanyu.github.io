@@ -194,7 +194,11 @@ hr {
   background-color: #ffffff;
 }
 
-
+.blue {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #3498db;
+}
 
 /* Blog Date*/
 bd {
@@ -360,4 +364,54 @@ div.post-list > article h3 > span {
 
 #show-disqus-comments {
   cursor: default;
+}
+
+body.page404 {
+  background: url('/assets/img/world_map.svg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #3498db;
+}
+
+.page404 > .container {
+  font-family: Monaco, Oxygen, Lora, sans-serif;
+  padding-top: 80px;
+  color: white;
+  /* letter-spacing: 1px; */
+}
+
+.page404 > .container > div {
+  display: table;
+  margin: auto auto;
+}
+
+.page404 > .container span {
+  display: table-cell;
+  vertical-align: top;
+  font-size: 400px;
+  line-height: 400px;
+}
+
+.page404 > .container img {
+  width: 320px;
+  height: 400px;
+}
+
+.page404 .take-me-home span {
+  font-size: 30px;
+  line-height: 50px;
+  padding-top: 30px;
+}
+
+.page404 .take-me-home a {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.page404 .take-me-home a:hover,
+.page404 .take-me-home a:focus {
+  color: #7b7b7b;
 }
