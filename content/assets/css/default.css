@@ -108,7 +108,7 @@ hr {
 
 .navbar-inverse {
   background-color: #3498db;
-  border-color: #299fff;
+  border-color: #3498db;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -363,7 +363,7 @@ div.post-list > article h3 > span {
 }
 
 #show-disqus-comments {
-  cursor: default;
+  cursor: pointer;
 }
 
 body.page404 {
