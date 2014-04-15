@@ -54,6 +54,8 @@ compile %r{/posts/*} do
   filter :typogruby
   layout 'post'
   layout 'panel'
+  layout 'container'
+  layout 'grey'
   layout 'default'
   filter :cache_buster
 end
@@ -79,6 +81,8 @@ compile '*' do
     filter :pandoc_html if pandoc_formats.include?(item[:extension])
     filter :typogruby
     layout 'panel'
+    layout 'container'
+    layout 'grey'
     layout 'default'
     filter :cache_buster
   end
