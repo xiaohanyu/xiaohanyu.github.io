@@ -37,9 +37,3 @@ http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/fonts/glyphicons-h
 # JQuery
 http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js
 http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.map
-
-# Local css and js
-/assets/css/pandoc-code-highlight.css
-/assets/css/default.css
-/assets/css/timeline.css
-/assets/js/default.js

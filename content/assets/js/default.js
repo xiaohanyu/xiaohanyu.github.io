@@ -2,7 +2,6 @@ $(document).ready (function () {
   $("table:not([class])").addClass("table table-striped table-hover");
 });
 
-
 $(document).ready(function() {
   /* off-canvas sidebar toggle */
   $('[data-toggle=offcanvas]').click(function() {
@@ -76,4 +75,34 @@ $(document).ready(function() {
     }
     $(document).mousemove(mouse);
   }
+});
+
+function get_random_int(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function json_to_quote(data) {
+  var random = get_random_int(0, data.length - 1);
+  word = data[random];
+  quote = "";
+  if(typeof word["content"] === 'string') {
+    quote = '<p>' + word["content"] + '</p>';
+  }
+  else {                      // an array of strings
+    for(var i = 0; i < word["content"].length; i++)
+      quote += '<p>' + word["content"][i] + '</p>';
+  }
+  quote += '<footer>' + word["author"];
+  quote += " <cite> &lt" + word["from"] + "&gt </cite>";
+  return quote;
+}
+
+$(document).ready(function () {
+  $.getJSON("/quotes/words-cn.json", function(data) {
+    $("#words-cn").html(json_to_quote(data));
+  });
+
+  $.getJSON("/quotes/words-en.json", function(data) {
+    $("#words-en").html(json_to_quote(data));
+  });
 });

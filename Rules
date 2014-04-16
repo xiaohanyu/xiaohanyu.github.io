@@ -60,6 +60,10 @@ compile %r{/posts/*} do
   filter :cache_buster
 end
 
+compile %r{/quotes/*} do
+  filter :yaml_2_json
+end
+
 compile %r{/about/|/wiki/} do
   filter :erb
   layout 'default'
@@ -90,6 +94,10 @@ end
 
 route '/cname/' do
   '/CNAME'
+end
+
+route %r{/quotes/*} do
+  item.identifier.chop + '.json'
 end
 
 route %r{/sitemap/|/atom/} do
