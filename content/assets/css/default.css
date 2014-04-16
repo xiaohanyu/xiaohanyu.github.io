@@ -446,3 +446,12 @@ body.page404 {
 	font-weight: 800;
 	padding: 3px 10px 2px;
 }
+
+#code .col-md-3 {
+  border-left: 2px solid #dddddd;
+}
+
+#travel img {
+  width: 90%;
+  height: 90%;
+}
