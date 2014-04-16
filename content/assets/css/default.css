@@ -157,14 +157,14 @@ hr {
 #ww {
   padding-top: 70px;
   padding-bottom: 70px;
-  background-color: #f2f2f2;
+  background-color: #f0f0f0;
 }
 
 
 #footer {
   background-color: #2f2f2f;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 #footer p {
