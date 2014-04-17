@@ -455,3 +455,7 @@ body.page404 {
   width: 90%;
   height: 90%;
 }
+
+del {
+  color: #888888;
+}
