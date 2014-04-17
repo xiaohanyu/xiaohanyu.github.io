@@ -3,7 +3,7 @@
 <!--[if IE 7 ]>    <html lang="<%= @site.config[:meta_data][:lang] %>" class="no-js ie ie7 lte7 lte8 lte9"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="<%= @site.config[:meta_data][:lang] %>" class="no-js ie ie8 lte8 lte9"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="<%= @site.config[:meta_data][:lang] %>" class="no-js ie ie9 lte9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="<%= @site.config[:meta_data][:lang] %>" class="no-js" manifest="/cache.manifest"> <!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="<%= @site.config[:meta_data][:lang] %>" class="no-js"> <!--<![endif]-->
   <head>
     <% if @site.config[:ga_tracking_code] %>
     <%= ga_tracking_snippet %>
