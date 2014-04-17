@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie ie6 lte7 lte8 lte9"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie ie7 lte7 lte8 lte9"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie ie8 lte8 lte9"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie ie9 lte9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    
+    <script type="text/javascript">        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-49528621-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s  = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+</script>
+    
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Build Static Site With Nanoc &bull; 行者无疆 始于足下</title>
+    <meta name="keywords" value="nanoc, org-mode, static-site">
+    <meta name="description" value="Undescribed website.">
+    <meta name="copyright" value="Copyright © Xiao Hanyu 2014 - Powered by Ruby, Nanoc and Emacs Org-mode.">
+    <meta name="author" value="Xiao Hanyu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+    <link rel="alternate" title="行者无疆 始于足下 Atom feed"  type="application/atom+xml" href="">
+
+    <!-- Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom -->
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/all-cb8af8ac03a.min.css">
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script> -->
+  </head>
+  <body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            行者无疆 始于足下
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/categories/index.html">Categories</a></li>
+            <li><a href="/tags/index.html">Tags</a></li>
+            <li><a href="/atom.xml">Subscribe</a></li>
+            <li><a href="/about/index.html">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+              <ul class="dropdown-menu" style="padding:12px;">
+                <form class="form-inline" target="_blank" method="get" action="http://google.com/search">
+                  <input type="hidden" value="site:www.xiaohanyu.me" name="q">
+                  <input type="text" class="form-control pull-left" placeholder="Search" name="q">
+                </form>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- content -->
+    <div class="grey pt">
+  <div class="container">
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 style="display: inline-block">Build Static Site With Nanoc</h1>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+  <article class="col-sm-9 post">
+    <p>org-mode&nbsp;org-site</p>
+<p>nanoc&nbsp;hakyll</p>
+<p>pandoc</p>
+
+
+    <hr>
+
+    <ul class="pager">
+      <li class="previous"><a class="previous" title="New Blog, New Start" href="/2014/04/16/new-blog-new-start/">&larr; Prev</a></li>
+      
+      <li>
+        <a id="show-disqus-comments" onclick='toggle_disqus()'>Show Disqus Comments</a>
+      </li>
+      
+      <li class="next"></li>
+    </ul>
+
+    
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    <script type="text/javascript">
+     function toggle_disqus (event) {
+       $.ajaxSetup({cache:true});
+       $.getScript("http://xiaohanyu.disqus.com/embed.js");
+       $.ajaxSetup({cache:false});
+       setTimeout(function () {
+         $("#show-disqus-comments").fadeOut(3000);
+       }, 1000);
+     }
+    </script>
+    
+
+  </article>
+
+  <aside class="col-sm-3">
+    <h4>Published</h4>
+    <date>2014-04-19</date>
+
+    <h4>Categories</h4>
+    <ul class="tag-box">
+      
+      <li><a href=/categories/index.html#tech>Tech<span>1</span></a></li>
+      
+    </ul>
+
+    <h4>Tags</h4>
+    <ul class="tag-box">
+      
+      <li><a href=/tags/index.html#nanoc>Nanoc<span>1</span></a></li>
+      
+      <li><a href=/tags/index.html#pandoc>Pandoc<span>1</span></a></li>
+      
+    </ul>
+  </aside>
+</div>
+
+  </div>
+</div>
+
+</div>
+
+</div>
+
+    <a href="#" class="btn back-to-top btn-dark btn-fixed-bottom"> <span class="glyphicon glyphicon-chevron-up"></span> </a>
+
+    <footer id="footer">
+      <div class="container">
+        <div class="row centered">
+            <p>
+              Xiao Hanyu 2014 -
+              Powered by <a href="http://nanoc.ws/">Nanoc</a>, <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> -
+              Licensed under
+              <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+            </p>
+      </div>
+    </footer>
+
+    <!--[if lt IE 8]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/assets/js/all-cb120e2b7c8.min.js"></script>
+    
+  </body>
+</html>

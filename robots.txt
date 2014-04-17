@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /assets
+Allow: /assets/img
+Sitemap: http://www.xiaohanyu.me/sitemap.xml
