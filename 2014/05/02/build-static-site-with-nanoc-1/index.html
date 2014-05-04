@@ -20,7 +20,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tags &bull; 行者无疆 始于足下</title>
+    <title>Build Static Site with Nanoc (I) &bull; 行者无疆 始于足下</title>
     <meta name="keywords" value="nanoc, org-mode, static-site">
     <meta name="description" value="Undescribed website.">
     <meta name="copyright" value="Copyright © Xiao Hanyu 2014 - Powered by Ruby, Nanoc and Emacs Org-mode.">
@@ -88,100 +88,69 @@
   <div class="container">
   <div class="panel panel-default">
   <div class="panel-heading">
-    <h1 style="display: inline-block">Tags</h1>
+    <h1 style="display: inline-block">Build Static Site With Nanoc (I)</h1>
   </div>
   <div class="panel-body">
-    <div class="post-list">
-  <article class="col-sm-9">
+    <div class="row">
+  <article class="col-sm-9 post">
     
-    <section>
-      <h3 id=blog>
-        Blog
-        <span>1</span>
-      </h3>
-      <ul>
-        
-        <li><a href="/2014/04/16/new-blog-new-start/">New Blog, New&nbsp;Start</a></li>
-        
-      </ul>
-    </section>
+
+    <hr>
+
+    <ul class="pager">
+      <li class="previous"><a class="previous" title="New Blog, New Start" href="/2014/04/16/new-blog-new-start/">&larr; Prev</a></li>
+      
+      <li>
+        <a id="show-disqus-comments" onclick='toggle_disqus()'>Show Disqus Comments</a>
+      </li>
+      
+      <li class="next"></li>
+    </ul>
+
     
-    <section>
-      <h3 id=emacs>
-        Emacs
-        <span>1</span>
-      </h3>
-      <ul>
-        
-        <li><a href="/2014/05/04/build-static-site-with-nanoc-1/">Build Static Site With Nanoc&nbsp;(I)</a></li>
-        
-      </ul>
-    </section>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    <script type="text/javascript">
+     function toggle_disqus (event) {
+       $.ajaxSetup({cache:true});
+       $.getScript("http://xiaohanyu.disqus.com/embed.js");
+       $.ajaxSetup({cache:false});
+       setTimeout(function () {
+         $("#show-disqus-comments").fadeOut(3000);
+       }, 1000);
+     }
+    </script>
     
-    <section>
-      <h3 id=nanoc>
-        Nanoc
-        <span>1</span>
-      </h3>
-      <ul>
-        
-        <li><a href="/2014/05/04/build-static-site-with-nanoc-1/">Build Static Site With Nanoc&nbsp;(I)</a></li>
-        
-      </ul>
-    </section>
-    
-    <section>
-      <h3 id=pandoc>
-        Pandoc
-        <span>1</span>
-      </h3>
-      <ul>
-        
-        <li><a href="/2014/05/04/build-static-site-with-nanoc-1/">Build Static Site With Nanoc&nbsp;(I)</a></li>
-        
-      </ul>
-    </section>
-    
-    <section>
-      <h3 id=ruby>
-        Ruby
-        <span>1</span>
-      </h3>
-      <ul>
-        
-        <li><a href="/2014/05/04/build-static-site-with-nanoc-1/">Build Static Site With Nanoc&nbsp;(I)</a></li>
-        
-      </ul>
-    </section>
-    
+
   </article>
 
   <aside class="col-sm-3">
-    <ul class="nav nav-pills nav-stacked" role="menu">
+    <h4>Published</h4>
+    <date>2014-05-03</date>
+
+    <h4>Categories</h4>
+    <ul class="tag-box">
       
-      <li role="presentation">
-        <a href=/tags/index.html#blog>Blog<span>1</span></a>
-      </li>
+      <li><a href=/categories/index.html#technology>Technology<span>1</span></a></li>
       
-      <li role="presentation">
-        <a href=/tags/index.html#emacs>Emacs<span>1</span></a>
-      </li>
+    </ul>
+
+    <h4>Tags</h4>
+    <ul class="tag-box">
       
-      <li role="presentation">
-        <a href=/tags/index.html#nanoc>Nanoc<span>1</span></a>
-      </li>
+      <li><a href=/tags/index.html#nanoc>Nanoc<span>1</span></a></li>
       
-      <li role="presentation">
-        <a href=/tags/index.html#pandoc>Pandoc<span>1</span></a>
-      </li>
+      <li><a href=/tags/index.html#ruby>Ruby<span>1</span></a></li>
       
-      <li role="presentation">
-        <a href=/tags/index.html#ruby>Ruby<span>1</span></a>
-      </li>
+      <li><a href=/tags/index.html#pandoc>Pandoc<span>1</span></a></li>
+      
+      <li><a href=/tags/index.html#emacs>Emacs<span>1</span></a></li>
       
     </ul>
   </aside>
 </div>
+
   </div>
 </div>
 

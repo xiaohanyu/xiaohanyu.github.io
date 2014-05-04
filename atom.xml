@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://www.xiaohanyu.me/</id>
   <title>行者无疆 始于足下</title>
-  <updated>2014-04-16T20:00:00Z</updated>
+  <updated>2014-05-04T20:00:00Z</updated>
   <link rel="alternate" href="http://www.xiaohanyu.me/"/>
   <link rel="self" href="http://www.xiaohanyu.me/atom.xml"/>
   <author>
@@ -10,27 +10,229 @@
     <uri>http://www.xiaohanyu.me</uri>
   </author>
   <entry>
+    <id>tag:www.xiaohanyu.me,2014-05-05:/2014/05/04/build-static-site-with-nanoc-1/</id>
+    <title type="html">Build Static Site with Nanoc (I)</title>
+    <published>2014-05-04T20:00:00Z</published>
+    <updated>2014-05-04T20:00:00Z</updated>
+    <link rel="alternate" href="http://www.xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/"/>
+    <content type="html">&lt;p&gt;07年我开始学会上网，那时候写 blog 应该还是一件相当时髦的事情。而我个人，作为一枚外表木讷闷骚，内心感情丰富的三好有为青年，自然对 blog 保持着强烈的好奇心，从一路转载，到絮叨自嗨，四五年坚持下来，总算找到了一点 blog 的感觉。所谓“工欲善其行，必先利其器”，头上顶了“书写是为了更好的思考”这面响当当的思想大旗，手头自然也希望能升级下一直以来残破不勘凑合能用的写作工具。于是祭出几年前刚开始折腾 Linux 时的那份耐性，断续折腾一年有余，总算略有小成。本文（及后续文章）尝试记录下这个 blog&amp;nbsp;的一些技术细节，希望对后来人有所启发。&lt;/p&gt;
+&lt;h2&gt;Why&amp;nbsp;Static?&lt;/h2&gt;
+&lt;p&gt;最原始的 blog 应该就是纯静态的个人主页，后来 blog 开始火的时候，各种线上平台一统天下，而对于有点折腾能力的人来说， &lt;a href="https://wordpress.org/"&gt;WordPress&lt;/a&gt; 则一支独秀。现如今，在 GitHub 当道的年代，由 &lt;a href="https://pages.github.com/"&gt;GitHub Pages&lt;/a&gt; 及其工具链 &lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;/&lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt; 所组成的生态系统，则在程序员的圈子里吸引了足够的眼球和人气，也宣告着所谓 &lt;a href="http://staticsitegenerators.net/"&gt;static site generator&lt;/a&gt;（本文简称为&lt;span class="caps"&gt;SSG&lt;/span&gt;）在某种程度上的回归。&lt;/p&gt;
+&lt;p&gt;So, why&amp;nbsp;static?&lt;/p&gt;
+&lt;p&gt;从技术上来讲，传统的 blog 就是一个简化的 &lt;a href="http://en.wikipedia.org/wiki/Content_management_system"&gt;&lt;span class="caps"&gt;CMS&lt;/span&gt;&lt;/a&gt; 系统。相较于 &lt;span class="caps"&gt;CMS&lt;/span&gt; ， blog 更多的是个人开放给外界的一个展示窗口，并不需要太多的交互和额外的用户注册管理系统（如各种bbs/forum/group等），&amp;nbsp;其主要技术特性是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;面向个人&lt;/li&gt;
+&lt;li&gt;页面排版较为简单&lt;/li&gt;
+&lt;li&gt;内容管理相对单一，基本上以 post&amp;nbsp;为主&lt;/li&gt;
+&lt;li&gt;需求模块较少，基本上就是Comments, Categories, Tags,&amp;nbsp;Archives&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;显然，动用各种 dynamic 语言和各种高大上的 &lt;span class="caps"&gt;SQL&lt;/span&gt; 数据库来实现这么几条简单的 blog 平台需求，有些牛刀杀鸡之嫌。在这方面， &lt;span class="caps"&gt;SSG&lt;/span&gt; 所遵循的 fast, lightweight, easy-deployment 是很有优势的。最简单的 blog 完全可以只是一个 post list 页面。但是纯静态的 blog 又太简陋了，因此需要通过一些 hack 的手段，在 static 的页面上加入一些 dynamic 的东西， 这个 hack 的手段，就是各种 &lt;span class="caps"&gt;SSG&lt;/span&gt; 中所谓的 compile&amp;nbsp;步骤。&lt;/p&gt;
+&lt;p&gt;compile 步骤是所有 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的核心，它的设计好坏决定了一个 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的品质。大体上讲， &lt;span class="caps"&gt;SSG&lt;/span&gt;&amp;nbsp;的工作方式如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;格式转换：&lt;/strong&gt; 扫描所有 post ， 进行初步 compile（这步 compile 主要作用是进行格式转换，比如 markdown/textile -&amp;gt; html&amp;nbsp;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;汇总metadata：&lt;/strong&gt; 汇总所有 post 的 metadata （比如 tag/category 可以用来做反向映射，datetime 可以用来给 post 进行排序），这些 metadata 信息可以在 template&amp;nbsp;渲染的时候访问。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;渲染模板：&lt;/strong&gt; 根据相应的 layout 规则，将 compile 后的 content 以及已有的 metadata 信息渲染成相应的页面 （比如每篇 post 都需要有 navbar 和 footbar， 这可以设定一下基础的页面 layout，包含公用的页面元素，然后通过模板继承或组合的方式，将 post 的内容以及相应的 metadata 信息渲染到这个 layout 中合适的位置，这就形成了你最终看到的 static page&amp;nbsp;）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span class="caps"&gt;SSG&lt;/span&gt; 最终会生成一坨静态的 html/css/js 文件，只要将其上传托管起来，所谓的 static site 就算大功告成了。不需要配置数据库，也不需要装什么 php/python(wsgi)/WordPress ，怎么样，够简单吧？ 与static site 部署简单相对的就是本地写作环境搭建的复杂，多数情况下，你需要至少掌握一门编程语言的工具链，从头到尾搭建一套完整的写作环境；你需要自己设计前端，页面排版（layout）；你还需要找到自己钟意的 Editor 和自己喜欢的 &lt;a href="http://en.wikipedia.org/wiki/Comparison_of_document_markup_languages"&gt;document markup language&lt;/a&gt; 。选择意味着纠结，也意味着灵活。 &lt;strong&gt;没有了浏览器的牵绊，你可以在自己钟爱的 Editor&amp;nbsp;里运指如飞，畅写欲言。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;不同的 &lt;span class="caps"&gt;SSG&lt;/span&gt; 有不同的设计侧重点，有的提供内建的 out-of-box 的主题（ &lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt; 基本上千篇一律），有的只提供机制（ &lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt; ）;有的只支持一种模板语言（ &lt;a href="http://ruhoh.com/"&gt;Ruhoh&lt;/a&gt; 默认支持 &lt;a href="http://mustache.github.io/"&gt;mustache&lt;/a&gt; ），有的只提供机制（ &lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt; ）;有的只支持一种标记语言（多数默认支持 &lt;a href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; ），有的只提供机制（ &lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt;&amp;nbsp;）;&lt;/p&gt;
+&lt;p&gt;相较于广大人民群众，程序员群体对于 blog&amp;nbsp;平台往往还有一些特别的需求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;没有代码高亮是不能忍的&lt;/li&gt;
+&lt;li&gt;能支持数学公式的话就很高大上&lt;/li&gt;
+&lt;li&gt;没有版本控制你叫我怎么活？&lt;/li&gt;
+&lt;li&gt;不能一键 deploy，自动 compile/refresh&amp;nbsp;，还叫程序员吗？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class="caps"&gt;SSG&lt;/span&gt; 的先天不足在于，传统 blog 平台所必须的一些模块，如 Comments, Search 等必须借助第三方的服务来实现。比如 Comments 可以用 &lt;a href="https://disqus.com/"&gt;Disqus&lt;/a&gt; ， 而 Search 可以用 google site&amp;nbsp;search。&lt;/p&gt;
+&lt;p&gt;总得来说， &lt;span class="caps"&gt;SSG&lt;/span&gt; 的门槛还是比较高的。高效灵活的背后，是耐心和时间。这或许就是 hack&amp;nbsp;的乐趣所在吧。&lt;/p&gt;
+&lt;h2&gt;Org-mode&lt;/h2&gt;
+&lt;p&gt;我选择 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的第一个标准就是必须支持 &lt;a href="http://orgmode.org/"&gt;org-mode&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
+&lt;p&gt;Why&amp;nbsp;org-mode?&lt;/p&gt;
+&lt;p&gt;其实 &lt;a href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; 是相当好的文档标记语言，绝大多数 &lt;span class="caps"&gt;SSG&lt;/span&gt; 对 Markdown 都有良好的支持。多数线上服务如 GitHub 、 Stackoverflow 也是以 Markdown 为默认文档标记语言。 Markdown 的生态圈也相当繁荣， 有很多优秀的线上线下的 Editor&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;。不过 Markdown 的先天不足在于， 其设计初衷导致 Markdown 的标准过于简单，功能不够，而各方英雄为了一已之私，不得不提出各种 Markdown 扩展来满足自己的日常需求。这样看来， Markdown 生态圈一片繁荣百花争春的背后，实则是一片混乱，没有一个统一的标准，容易“厂商锁定”。所有的扩展 Markdown 语言之中， &lt;a href="https://help.github.com/articles/github-flavored-markdown"&gt;GitHub Flavored Markdown&lt;/a&gt; 和 &lt;a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown"&gt;Pandoc&amp;#8217;s markdown&lt;/a&gt; 是比较不错的。特别是 Pandoc&amp;#8217;s Markdown，功能完善、规范、强大，如果你不是我这样的 org-mode 死忠，那么我强烈推荐你用 Pandoc&amp;#8217;s&amp;nbsp;Markdown。&lt;/p&gt;
+&lt;p&gt;而我之所以离不开 org-mode ，其一在于我个人患有严重的 Emacs 依赖症，其二是 &lt;a href="http://orgmode.org/worg/org-contrib/babel/"&gt;org-babel&lt;/a&gt; ，一个你用上了就再也离不开的东西。 org-babel 让简单静态的文档变成了完整的 live 的 workflow ，关于这点，学术界甚至有一些专门的 &lt;a href="http://orgmode.org/worg/org-papers.html"&gt;Papers&lt;/a&gt; 论述。限于篇幅，不在这里展开讨论。 Emacs 配上 org-mode&amp;nbsp;，更如香车搭上美女，快感连连，高潮不断也。&lt;/p&gt;
+&lt;p&gt;但是很不幸，对 org-mode 的坚持让我被迫放弃了一大半的 &lt;span class="caps"&gt;SSG&lt;/span&gt; 。事实上，在我刚开始着手调研 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的时候，没有一个 &lt;span class="caps"&gt;SSG&lt;/span&gt; 提供对 org-mode 的良好支持。 org-mode 本身有一个非常原始并且极其难用的 &lt;a href="http://orgmode.org/manual/Publishing.html"&gt;org-publish&lt;/a&gt; ，稍加配置也可以当成一个原始的 &lt;span class="caps"&gt;SSG&lt;/span&gt; 来用。还有一些 &lt;a href="http://orgmode.org/worg/org-blog-wiki.html"&gt;Emacs packages&lt;/a&gt; ，基于 org-publish， 可以用来生成 static site，但是大多数都非常难用。 &lt;a href="http://renard.github.io/o-blog/"&gt;o-blog&lt;/a&gt; 看上去很漂亮，但是我始终没有搞明白怎么用。后来又尝试了下 &lt;a href="https://github.com/kelvinh/org-page"&gt;org-page&lt;/a&gt; ，还提了几个 patch ，但终究也不是很满意。于是就只能自己操刀，开始写 &lt;a href="https://github.com/xiaohanyu/org-site"&gt;org-site&lt;/a&gt;&amp;nbsp;。断续写了一个月，出来一个原型，但最终还是放弃：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Elisp 写起来并不是很happy，没有 namespace&amp;nbsp;是一大硬伤。&lt;/li&gt;
+&lt;li&gt;Org-mode 的代码设计并没有为开放式的 &lt;span class="caps"&gt;API&lt;/span&gt; 做过考虑。理论上，我可以把 Emacs org-mode 当成一个文档格式转换器，将 org-mode 转换成 html/pdf ，但是由于 Emacs 的特殊性，很多 Elisp &lt;span class="caps"&gt;API&lt;/span&gt; 都是以 Emacs &lt;a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Buffers.html"&gt;buffer&lt;/a&gt; 而不是 file 为操作对象，这就让我必须写很多的 wrapper 代码，然后通过类似于 &lt;code&gt;(with-temp-buffer (do-some-thing))&lt;/code&gt;&amp;nbsp;的手段来绕过这个限制。&lt;/li&gt;
+&lt;li&gt;org-publish &lt;span class="caps"&gt;API&lt;/span&gt;&amp;nbsp;依赖很多全局变量，写起来很别扭，经常要去翻原代码才能搞明白某个变量的意思。&lt;/li&gt;
+&lt;li&gt;org-mode 7.x 和 8.x&amp;nbsp;之间变动很大，代码兼容性维护任重道远。&lt;/li&gt;
+&lt;li&gt;org-mode 生成的 html 模块性太差，需要用各种 regexp 提取有用的 body/&lt;a href="http://en.wikipedia.org/wiki/Table_of_contents"&gt;&lt;span class="caps"&gt;TOC&lt;/span&gt;&lt;/a&gt; 并过滤掉不需要的 header/footer&amp;nbsp;，不美。&lt;/li&gt;
+&lt;li&gt;一个优秀的 &lt;span class="caps"&gt;SSG&lt;/span&gt; ，除了格式转换，还需要很多配套的模块，比如自动检测文件改动、自动编译、灵活的路由规则等，而这些用 Elisp&amp;nbsp;实现起来都很麻烦。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;至此，自动动手丰衣足食的计划宣告破产，被迫寻找并尝试 hack 一些成型的 &lt;span class="caps"&gt;SSG&lt;/span&gt; ，来支持 org-mode 写作。我最终的选择是 &lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
+&lt;h2&gt;Nanoc&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt; 是我用过的所有 &lt;span class="caps"&gt;SSG&lt;/span&gt; 中最为灵活，也是使用门槛最高的一个。 Nanoc 官方的入门 &lt;a href="http://nanoc.ws/docs/tutorial/"&gt;Tutorial&lt;/a&gt; 中明确说明，你必须 &amp;quot;have a basic understanding of Ruby and command line&amp;quot;， 才有可能玩得通 Nanoc 。在我个人看来， Nanoc 的设计基本上严格遵循了 Unix 中 &amp;quot;Provide mechanism, not policy&amp;quot; 的哲学。用软件工程的术语来说， Nanoc 提供的是 library ，而非一套成型的 &lt;span class="caps"&gt;SSG&lt;/span&gt; 软件。 Nanoc 既不限定你所用的文档标记语言 &amp;#8212; 你可以用 Markdown/Textile/Org-mode ，也不指定相应的编译规则，更不提供默认的 out-of-box&amp;nbsp;的主题样式。总之，一切要自己来，学习曲线颇为陡峭，但学成之后可以随心所欲。&lt;/p&gt;
+&lt;p&gt;Nanoc 创造了自己的术语体系，每个概念相互独立又彼此联系。理解了这些术语也就理解了 nanoc&amp;nbsp;的工作原理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;item: 是 nanoc 要处理的实体。一个 item 可以是 html/css/markdown&amp;nbsp;等文本文件，也可以是图片，还可以是你自己凭空创造出来的虚拟文件。&lt;/li&gt;
+&lt;li&gt;rule: 决定 nanoc 处理 item 的步骤。 rule 分为两种， compilation rule 和 routing rule 。 其中 compilation rule 又分为 filter rule 和 layout rule 。 filter rule 一般用于文档格式转换，而 layout rule 则用于页面布局排版。 routing rule 决定 item 在 compile 之后在 output&amp;nbsp;中的路径。&lt;/li&gt;
+&lt;li&gt;helper: 一些辅助代码，用于扩展 nanoc&amp;nbsp;。&lt;/li&gt;
+&lt;li&gt;metadata: 元信息。 nanoc 对于每个 item 可附加的 metadata 没有任何限制。典型的 metadata 可以是 tag/category/datatime&amp;nbsp;。&lt;/li&gt;
+&lt;li&gt;representation: 可以理解为输出格式。比如，同一个 item 可以同时 compile 为 html/pdf 两种格式。每种格式可以用自己独立的 rule&amp;nbsp;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可以说， nanoc 为 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的领域制定了一套相当棒的 standard 。事实上， 确实有人仿照着 nanoc 的 standard ，用 Haskell 重新实现了 nanoc ，这就是 &lt;a href="http://jaspervdj.be/hakyll/"&gt;hakyll&lt;/a&gt;&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; 。我曾经短暂尝试过 hakyll ，但最终放弃，回到了 nanoc 的怀抱。而这基本上要归功于 Ruby&amp;nbsp;。&lt;/p&gt;
+&lt;h2&gt;Ruby&lt;/h2&gt;
+&lt;p&gt;我并不是某一门编程语言的死忠。如果让我用一个字来形容 Ruby ，那就是“舒服”。是的， &lt;a href="http://en.wikipedia.org/wiki/Yukihiro_Matsumoto"&gt;Matz&lt;/a&gt; 没有骗你， Ruby 是写起来相当舒服的一门语言。 Ruby 的包管理机制 &lt;a href="http://bundler.io/"&gt;bundler&lt;/a&gt; + &lt;a href="https://rubygems.org/"&gt;gem&lt;/a&gt; 是我用过的所有包管理器中最先进最好用的， 比之于什么 Python 的 &lt;a href="http://www.virtualenv.org/en/latest/"&gt;virtualenv&lt;/a&gt; + &lt;a href="http://www.pip-installer.org/en/latest/"&gt;pip&lt;/a&gt; 之流要好用太多。至于 Haskell 的 &lt;a href="http://www.haskell.org/cabal/"&gt;cabal&lt;/a&gt; 基本上就是个奇葩的存在，连基本的 uninstall 功能都没有（是不是想起了 Python 的 &lt;code&gt;easy_install&lt;/code&gt; ？），更不用提类似于 virtualenv/sandbox 这类先进功能了。不过这些都还可以忍受， Haskell 的 cabal 最蛋疼最奇葩的一点就是，好好的用着 &lt;code&gt;cabal install&lt;/code&gt; ，说不定哪一天就会蹦出来各种莫名其妙的依赖问题， &lt;a href="http://en.wikipedia.org/wiki/Dependency_hell"&gt;dependency hell&lt;/a&gt; ， 唯一的解决办法就是 &lt;code&gt;rm -rf $HOME/.cabal&lt;/code&gt; ， 然后重装然后祈祷……而 Haskell 又是一门编译型的静态语言，这就使得装 package&amp;nbsp;的时间很长，令人不快。&lt;/p&gt;
+&lt;p&gt;语言层面， Ruby 中内置的 regexp （对比下 Python 的 &lt;code&gt;re.compile&lt;/code&gt; ） 强大易用；其完整的对 lambda/block 的支持（对比下 Python 中阉割的 lambda ），能让每一个有点 Lisp 基础的人找到熟悉的感觉； Ruby 从 Unix Shell 以及 Perl 中借鉴而来的很多小聪明如 &lt;a href="http://en.wikipedia.org/wiki/Here_document"&gt;here document&lt;/a&gt;/&lt;a href="http://en.wikipedia.org/wiki/String_interpolation"&gt;string interpolation&lt;/a&gt;/command interpolation(Ruby backticks)， 使 Ruby 超越了 Python/Perl/Shell ，成为写 quick and dirty 的 Unix Script 的上上之选； Ruby 社区一些极富创造力的一些 package 如 &lt;a href="http://rake.rubyforge.org/"&gt;rake&lt;/a&gt;/&lt;a href="https://github.com/guard/guard"&gt;guard&lt;/a&gt; ，则让你的 hack&amp;nbsp;之旅充满了快乐。&lt;/p&gt;
+&lt;p&gt;尽管 Ruby 这样那样好，但是 Haskell 社区有一枚神器，让人欲罢不能，这就是文档格式转换的瑞士军刀 &amp;#8212; &lt;a href="http://johnmacfarlane.net/pandoc/"&gt;Pandoc&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
+&lt;h2&gt;Pandoc&lt;/h2&gt;
+&lt;p&gt;文档格式转换一直是一大难题，究其原因，是在于不同的文档格式有不同的表现能力和设计侧重点。比如原始的 Markdown 格式没有 table （表格）的支持，你怎么把 html 转换成 Markdown ? 反过来， html 中的 form 转换成其它格式，又该如何表现？ Microsoft Word 2003及之前版本的文档格式都是二进制且没有公开的文档格式标准， 想要完整的支持这种格式需要做大量的反向工程（ &lt;a href="https://www.openoffice.org/"&gt;OpenOffice&lt;/a&gt; 和 &lt;a href="https://www.libreoffice.org/"&gt;LibreOffice&lt;/a&gt;&amp;nbsp;干的就是这事，可想这工作量）。&lt;/p&gt;
+&lt;p&gt;文档格式转换的软件千千万万，但是多数都只是 ad-hoc 的办法， pandoc 的创新之处在于发明了一种中间格式（ &lt;a href="http://johnmacfarlane.net/pandoc/scripting.html"&gt;json-formatted &lt;span class="caps"&gt;AST&lt;/span&gt;&lt;/a&gt;&amp;nbsp;），即先将原始文档格式先解析并转换成这种中间格式，然后经过系列处理转换成目标文档格式，从而提供了大一统的解决方案。&lt;/p&gt;
+&lt;pre class="example"&gt;&lt;code&gt;                         source format
+                              ↓
+                           (pandoc)
+                              ↓
+                      JSON-formatted AST
+                              ↓
+                           (filter)
+                              ↓
+                      JSON-formatted AST
+                              ↓
+                           (pandoc)
+                              ↓
+                        target format
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pandoc 对于每种支持的输入格式，都提供了完整的 parser （ pandoc 中叫做 reader ），通过 parser 将输入文档转换成结构化 json 格式的 &lt;a href="http://en.wikipedia.org/wiki/Abstract_syntax_tree"&gt;&lt;span class="caps"&gt;AST&lt;/span&gt;&lt;/a&gt; 。然后我们可以根据自己的需求，写一些脚本来操作 pandoc &lt;span class="caps"&gt;AST&lt;/span&gt; ，再转换成最终的输出目标格式（ Pandoc 中叫做 writer ）。Pandoc 把这个操作 &lt;span class="caps"&gt;AST&lt;/span&gt; 的程序脚本叫做 &lt;a href="http://johnmacfarlane.net/pandoc/scripting.html#json-filters"&gt;filter&lt;/a&gt; ，借助 filter ，理论上可以实现非常丰富的功能。至于调用 filter 的方法，最简单的是通过 Unix&amp;nbsp;管道操作，比如：&lt;/p&gt;
+&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;&lt;span class="kw"&gt;pandoc&lt;/span&gt; -f SOURCEFORMAT -t json &lt;span class="kw"&gt;|&lt;/span&gt; &lt;span class="kw"&gt;runhaskell&lt;/span&gt; filter.hs &lt;span class="kw"&gt;|&lt;/span&gt; &lt;span class="kw"&gt;pandoc&lt;/span&gt; -f json -t TARGETFORMAT&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pandoc 的首选格式语言是 Markdown 。为了弥补 Markdown 的先天不足， pandoc 在原始 Markdown 的基础上增加了许多有用的扩展。通过这些扩展， &lt;a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown"&gt;Pandoc&amp;#8217;s markdown&lt;/a&gt;&amp;nbsp;自成一套完备、规范、通用、强大的文档标记语言。&lt;/p&gt;
+&lt;p&gt;Pandoc 在 &lt;span class="caps"&gt;1.12.3.2&lt;/span&gt; 版本之前是不支持 org-mode 作为输入格式的。这也让我头疼了许久。我最原始的想法是将 Emacs 当成一个 org-mode 的文档格式转换器，定制 emacs org-mode filter 集成到 nanoc&amp;nbsp;：&lt;/p&gt;
+&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;  &lt;span class="kw"&gt;module&lt;/span&gt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filters&lt;/span&gt;
+
+
+    &lt;span class="kw"&gt;class&lt;/span&gt; &lt;span class="dt"&gt;OrgModeHtml&lt;/span&gt; &amp;lt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filter&lt;/span&gt;
+      identifier &lt;span class="st"&gt;:org_mode_html&lt;/span&gt;
+      type &lt;span class="st"&gt;:text&lt;/span&gt; =&amp;gt; &lt;span class="st"&gt;:text&lt;/span&gt;
+
+
+      require &lt;span class="st"&gt;&amp;#39;systemu&amp;#39;&lt;/span&gt;
+      require &lt;span class="st"&gt;&amp;#39;tempfile&amp;#39;&lt;/span&gt;
+
+
+      &lt;span class="kw"&gt;def&lt;/span&gt; run(content, params = {})
+        &lt;span class="co"&gt;# Run command&lt;/span&gt;
+
+
+        tmp_org_file = &lt;span class="dt"&gt;Tempfile&lt;/span&gt;.new(&lt;span class="st"&gt;&amp;#39;nanoc_tmp_org_file&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;/tmp&amp;#39;&lt;/span&gt;)
+        tmp_org_file &amp;lt;&amp;lt; content
+        tmp_org_file.close(&lt;span class="dv"&gt;nil&lt;/span&gt;)
+
+
+        elisp_code =&lt;span class="ot"&gt; %{&lt;/span&gt;
+&lt;span class="st"&gt;  (progn&lt;/span&gt;
+&lt;span class="st"&gt;    (require &amp;#39;org)&lt;/span&gt;
+&lt;span class="st"&gt;    (find-file-read-only &amp;quot;&lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;tmp_org_file.path&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;)&lt;/span&gt;
+&lt;span class="st"&gt;    (org-mode)&lt;/span&gt;
+&lt;span class="st"&gt;    (if (version&amp;lt; org-version &amp;quot;8.0&amp;quot;)&lt;/span&gt;
+&lt;span class="st"&gt;        (progn&lt;/span&gt;
+&lt;span class="st"&gt;          (setq org-export-html-postamble nil)&lt;/span&gt;
+&lt;span class="st"&gt;          (org-export-as-html 3))&lt;/span&gt;
+&lt;span class="st"&gt;      (progn&lt;/span&gt;
+&lt;span class="st"&gt;        (setq org-html-postamble nil)&lt;/span&gt;
+&lt;span class="st"&gt;        (org-html-export-as-html)))&lt;/span&gt;
+&lt;span class="st"&gt;    (message &amp;quot;%s&amp;quot; (buffer-string)))&lt;/span&gt;
+&lt;span class="st"&gt;  &lt;/span&gt;&lt;span class="ot"&gt;}&lt;/span&gt;
+
+
+        cmd = [&lt;span class="st"&gt;&amp;#39;emacs&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;-Q&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;--batch&amp;#39;&lt;/span&gt;,
+               &lt;span class="st"&gt;&amp;#39;--eval&amp;#39;&lt;/span&gt;, elisp_code]
+
+
+        stdout = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+        stderr = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+        status = systemu(cmd,
+                         &lt;span class="st"&gt;&amp;#39;stdout&amp;#39;&lt;/span&gt; =&amp;gt; stdout,
+                         &lt;span class="st"&gt;&amp;#39;stderr&amp;#39;&lt;/span&gt; =&amp;gt; stderr)
+
+
+        &lt;span class="co"&gt;# Show errors&lt;/span&gt;
+        &lt;span class="kw"&gt;unless&lt;/span&gt; status.success?
+          &lt;span class="dt"&gt;$stderr&lt;/span&gt;.puts stderr
+          raise &lt;span class="st"&gt;&amp;quot;Emacs org-mode filter failed with status &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;status&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;&lt;/span&gt;
+        &lt;span class="kw"&gt;end&lt;/span&gt;
+
+
+        &lt;span class="co"&gt;# Get result&lt;/span&gt;
+        body = &lt;span class="ot"&gt;/&amp;lt;body&amp;gt;.*&amp;lt;\/body&amp;gt;/m&lt;/span&gt;.match(stderr)
+        body[&lt;span class="dv"&gt;0&lt;/span&gt;]
+      &lt;span class="kw"&gt;end&lt;/span&gt;
+
+
+    &lt;span class="kw"&gt;end&lt;/span&gt;
+
+
+  &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这段代码的大体思路是将 emacs 当成 elisp 的解释器，喂给其一段 elisp 代码，调用 org-mode 的 export 功能 （ org-mode 7.x 版本中调用 &lt;code&gt;(org-export-as-html)&lt;/code&gt; ， 8.x 版本中调用 &lt;code&gt;(org-html-export-as-html)&lt;/code&gt; ），然后再通过 regexp 正则匹配的方式提取出 html 中的 body 部分作为 nanoc filter&amp;nbsp;的返回值。显而易见，这段代码冗长，乏味，别扭，不美。&lt;/p&gt;
+&lt;p&gt;好在我生逢其时，英雄出世， &lt;a href="http://zeitlens.com/"&gt;Albert Krewinkel&lt;/a&gt; 大手笔横空祭出几个 patch ，给 pandoc 提供了一个完备的 org-reader ，把我感动得一塌糊涂，我还特别写了封邮件感谢人家。一番 &lt;code&gt;cabal install&lt;/code&gt; 之后， pandoc 总算能支持 org-mode&amp;nbsp;作为其输入格式了，很完美。&lt;/p&gt;
+&lt;p&gt;最后要解决的问题就是 pandoc 和 nanoc 的集成。 nanoc 本身有一个内建的 &lt;code&gt;Nanoc::Filters::Pandoc&lt;/code&gt; ，调用的是 &lt;a href="https://github.com/alphabetum/pandoc-ruby"&gt;PandocRuby&lt;/a&gt; 。但是 nanoc 本身的 &lt;span class="caps"&gt;API&lt;/span&gt; 和 PandocRuby &lt;span class="caps"&gt;API&lt;/span&gt; 并不是很匹配，无法传递一些参数来启用 pandoc 的某些高级特性 （参考 &lt;a href="http://stackoverflow.com/questions/14646741/nanoc-how-can-i-pass-options-to-pandoc-ruby"&gt;stackoverflow&lt;/a&gt; ）。万般无奈之下，只能自己动手，重写一个 nanoc pandoc filter，完整代码参考 &lt;a href="https://gist.github.com/xiaohanyu/9866531"&gt;github gist&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
+&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;  &lt;span class="kw"&gt;module&lt;/span&gt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filters&lt;/span&gt;
+
+
+    &lt;span class="kw"&gt;class&lt;/span&gt; &lt;span class="dt"&gt;PandocHtml&lt;/span&gt; &amp;lt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filter&lt;/span&gt;
+      identifier &lt;span class="st"&gt;:pandoc_html&lt;/span&gt;
+      type &lt;span class="st"&gt;:text&lt;/span&gt; =&amp;gt; &lt;span class="st"&gt;:text&lt;/span&gt;
+
+
+      &lt;span class="kw"&gt;def&lt;/span&gt; run(content, params = {})
+        input_format = &lt;span class="kw"&gt;case&lt;/span&gt; item[&lt;span class="st"&gt;:extension&lt;/span&gt;]
+                       &lt;span class="kw"&gt;when&lt;/span&gt; &lt;span class="st"&gt;&amp;#39;org&amp;#39;&lt;/span&gt;
+                         &lt;span class="st"&gt;&amp;#39;org&amp;#39;&lt;/span&gt;
+                       &lt;span class="kw"&gt;when&lt;/span&gt; &lt;span class="st"&gt;&amp;#39;md&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;
+                         &lt;span class="st"&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;
+                       &lt;span class="kw"&gt;end&lt;/span&gt;
+
+
+        &lt;span class="st"&gt;`pandoc --mathjax -f &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;input_format&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt; -t html5 &amp;lt; &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;item.raw_filename&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;`&lt;/span&gt;
+      &lt;span class="kw"&gt;end&lt;/span&gt;
+
+
+    &lt;span class="kw"&gt;end&lt;/span&gt;
+
+
+  &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;代码思路很简单，就是通过 Ruby backticks 直接调用 pandoc ，然后将 pandoc 命令的 stdout 作为 nanoc filter 的返回值。通过进一步配置， nanoc 可以调用 pandoc 同时生成 html 和 pdf ，这样一来，同样的文章，即可以线上浏览，也可以打印下载，得益于 pandoc 的优秀设计， html 和 pdf&amp;nbsp;版本的文章具有一致出色的排版效果。&lt;/p&gt;
+&lt;p&gt;至此，核心的技术问题已经基本解决，剩下的就是前端设计了，这是我的弱项，为了能让这个 blog 有一个“不那么难看”的样式，我特别花时间学习系统地学习了下 &lt;span class="caps"&gt;HTML5&lt;/span&gt; 和&amp;nbsp;&lt;span class="caps"&gt;CSS3&lt;/span&gt;。这部分内容冗长乏味，非核心所在，下篇再表。&lt;/p&gt;
+&lt;h2&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lt;&lt;a href="http://freemind.pluskid.org/technology/the-unbearable-madness-of-static-blog-generators/"&gt;The Unbearable Madness of Static Blog Generators&lt;/a&gt;&amp;gt;， pluskid 的 blog ，重点介绍了 ruhoh&amp;nbsp;。&lt;/li&gt;
+&lt;li&gt;&amp;lt;&lt;a href="http://clarkdave.net/2012/02/building-a-static-blog-with-nanoc/"&gt;Building a static blog with nanoc&lt;/a&gt;&amp;gt;， nanoc 入门教程，简洁明了&amp;nbsp;。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;nanoc powered&amp;nbsp;的网站包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://developer.github.com/"&gt;GitHub Developer&amp;nbsp;Site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://guides.spreecommerce.com/api/"&gt;Spree Commerce &lt;span class="caps"&gt;API&lt;/span&gt;&amp;nbsp;site&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="caps"&gt;SSG&lt;/span&gt; 名录大全： &lt;a href="http://staticsitegenerators.net/"&gt;http://staticsitegenerators.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&lt;a href="http://kelvinh.github.io/blog/2012/11/27/growth-process-of-org-page/"&gt;Org-page的成长史&lt;/a&gt;&amp;gt;，介绍了基于 org-mode 的 &lt;span class="caps"&gt;SSG&lt;/span&gt;&amp;nbsp;。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;section class="footnotes"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn1"&gt;&lt;p&gt;线上 Editor ： &lt;a href="http://dillinger.io/"&gt;Dillinger&lt;/a&gt;/&lt;a href="https://stackedit.io/"&gt;StackEdit&lt;/a&gt; ；线下 Editor ： &lt;a href="http://mouapp.com/"&gt;Mou&lt;/a&gt; 。&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn2"&gt;&lt;p&gt;这其中有个八卦， hakyll 的作者 &lt;a href="http://jaspervdj.be/"&gt;Jasper&lt;/a&gt; 和 nanoc 的作者 &lt;a href="http://stoneship.org/"&gt;Denis Defreyne&lt;/a&gt; 在生活中是好朋友。而在某一年的 April fools&amp;#8217; day， Denis 写了篇 &amp;lt;&lt;a href="http://nanoc.ws/the-road-to-nanoc-4-0/"&gt;The road to nanoc &lt;span class="caps"&gt;4.0&lt;/span&gt;&lt;/a&gt;&amp;gt; ， 大意是要用 haskell 重写 nanoc 。&lt;a href="#fnref2"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+  </entry>
+  <entry>
     <id>tag:www.xiaohanyu.me,2014-04-17:/2014/04/16/new-blog-new-start/</id>
     <title type="html">New Blog, New Start</title>
     <published>2014-04-16T20:00:00Z</published>
     <updated>2014-04-16T20:00:00Z</updated>
     <link rel="alternate" href="http://www.xiaohanyu.me/2014/04/16/new-blog-new-start/"/>
-    <content type="html">&lt;div class="quote"&gt;
+    <content type="html">&lt;blockquote&gt;
 &lt;p&gt;书写是为了更好的思考。&lt;/p&gt;
-&amp;#8211;&amp;nbsp;刘未鹏
-&lt;/div&gt;
+&lt;p&gt;&amp;#8211;&amp;nbsp;刘未鹏&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;刚上大学的时候，我给高中同桌发短信咨询&lt;span class="caps"&gt;QQ&lt;/span&gt;该怎么用，他回了一条“计算机的教育要从娃娃抓起”……那时候我刚刚学会如何从控制面板里面卸载软件，刚刚学会收发 Email ，写 blog&amp;nbsp;对我来说是一件相当时髦的事情啊。&lt;/p&gt;
 &lt;p&gt;最开始用的是线上服务，什么 Dreamhost/&lt;span class="caps"&gt;DNS&lt;/span&gt;/WordPress 对于当时的我来说是难以逾越的技术难题。大概有一年多的时间，我在百度空间，和讯博客，博客园， &lt;a href="http://en.wikipedia.org/wiki/Windows_Live_Spaces"&gt;Windows Live Spaces&lt;/a&gt; 等各种 blog 平台上写（ &lt;del&gt;转载&lt;/del&gt; ）文章，玩（ &lt;del&gt;自嗨&lt;/del&gt; ）得不亦乐乎。后来咱不是会写点小程序了嘛，就希望能找个支持代码高亮，并且广告要少些的博客平台。无意间找到了 &lt;a href="http://www.is-programmer.com/"&gt;is-programmer&lt;/a&gt;&amp;nbsp;，试用了下，很不错，就在那里安了家，迄已五年。&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://cnlox.is-programmer.com/"&gt;行者无疆 始于足下&lt;/a&gt;，这个 blog 基本上忠实地记录了我个人学习计算机的历程（ &lt;del&gt;基本上是瞎折腾&lt;/del&gt; ）。最开始是学习（ &lt;del&gt;折腾&lt;/del&gt; ） Linux/LaTeX ，后来忙于学业 （Open&lt;span class="caps"&gt;GL&lt;/span&gt;/Assembly），再后来开始实习（终于学会了&lt;span class="caps"&gt;SSH&lt;/span&gt;/&lt;span class="caps"&gt;SCP&lt;/span&gt;/Shell Script，掩面），疲于奔命，总算天幸顺利毕业，进入百度，后来偷得浮生，后来一夜之间……五年时间，不长不短，对于 &lt;a href="http://blog.watashi.ws/"&gt;天才选手&lt;/a&gt; ，五年可以从无到有，站到世界之颠。对于我辈俗人，五年时间，也许刚刚够敲开计算机世界的大门吧。 五年来如果说有什么成就，就是始终没有离开 Open Source。这种坚持终于让我在去年收获了 200+ 个 github star，也让我进了 OpenStack 的贡献者名单。想想自己写的代码能够跑在别人的机器上， make the world a better place，还是很开心的。是谁说过，&amp;lt;&lt;a href="http://book.douban.com/subject/4006425/"&gt;我是一只 &lt;span class="caps"&gt;IT&lt;/span&gt; 小小鸟&lt;/a&gt;&amp;gt;。&lt;/p&gt;
-&lt;div class="quote"&gt;
-认真的写作有如雕刻。
-&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;认真的写作有如雕刻。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;工作以后， blog 更新的频率大幅下降， 每篇 blog 的长度却大幅提高，随之而来的就是每篇 blog 写作时间的水涨船高。一方面美其名曰“工作忙（ &lt;del&gt;其实是懒&lt;/del&gt; ）”，另一方面，自己偶尔回翻下自己以前的文章，个中观点语句，常感羞愧难当。因此每次写作，总是有些诚惶诚恐，咬文嚼字，条分缕析，大耗体力，唯恐贻笑大方。&lt;/p&gt;
 &lt;p&gt;写作有如登山，一日风睛，柳暗花明，辛苦求索的背后，是对自己生活的反思和锤炼。我常常在认真的写作中发现自己的思想盲点，正如行者登山，辛苦自不必说，孤独也是常态，只是这辛苦孤独之外，常常会伴随着山重水复般的壮丽风景。&lt;/p&gt;
 &lt;p&gt;大概在一年前，我开始着手寻找新的 blog 平台， &lt;a href="http://www.is-programmer.com/"&gt;is-programmer&lt;/a&gt; 对新手程序员而言是相当好的 blog 的平台，但是已经越来越无法满足我的需求，因此我将我的注意力转到了所谓的 static blog/site generator 上。这个折腾的过程一波三折，高潮不断，快感连连，折腾的结果就是你现在看到的新的 &lt;a href="http://xiaohanyu.me"&gt;行者无疆 始于足下&lt;/a&gt;&amp;nbsp;。其中的技术细节繁复冗长，我会再写一篇文章加以详述。&lt;/p&gt;
-&lt;div class="quote"&gt;
-行走 思考&amp;nbsp;在路上
-&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;行走 思考&amp;nbsp;在路上&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;New blog, new start.&amp;nbsp;“身体与心灵，总要有一个在路上”，自勉。&lt;/p&gt;
 </content>
   </entry>
