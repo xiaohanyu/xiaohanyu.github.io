@@ -19,12 +19,12 @@
 &lt;h2&gt;Why&amp;nbsp;Static?&lt;/h2&gt;
 &lt;p&gt;最原始的 blog 应该就是纯静态的个人主页，后来 blog 开始火的时候，各种线上平台一统天下，而对于有点折腾能力的人来说， &lt;a href="https://wordpress.org/"&gt;WordPress&lt;/a&gt; 则一支独秀。现如今，在 GitHub 当道的年代，由 &lt;a href="https://pages.github.com/"&gt;GitHub Pages&lt;/a&gt; 及其工具链 &lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;/&lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt; 所组成的生态系统，则在程序员的圈子里吸引了足够的眼球和人气，也宣告着所谓 &lt;a href="http://staticsitegenerators.net/"&gt;static site generator&lt;/a&gt;（本文简称为&lt;span class="caps"&gt;SSG&lt;/span&gt;）在某种程度上的回归。&lt;/p&gt;
 &lt;p&gt;So, why&amp;nbsp;static?&lt;/p&gt;
-&lt;p&gt;从技术上来讲，传统的 blog 就是一个简化的 &lt;a href="http://en.wikipedia.org/wiki/Content_management_system"&gt;&lt;span class="caps"&gt;CMS&lt;/span&gt;&lt;/a&gt; 系统。相较于 &lt;span class="caps"&gt;CMS&lt;/span&gt; ， blog 更多的是个人开放给外界的一个展示窗口，并不需要太多的交互和额外的用户注册管理系统（如各种bbs/forum/group等），&amp;nbsp;其主要技术特性是：&lt;/p&gt;
+&lt;p&gt;从技术上来讲，传统的 blog 就是一个简化的 &lt;a href="http://en.wikipedia.org/wiki/Content_management_system"&gt;&lt;span class="caps"&gt;CMS&lt;/span&gt;&lt;/a&gt; 系统。相较于 &lt;span class="caps"&gt;CMS&lt;/span&gt; ， blog 更多的是个人开放给外界的一个展示窗口，并不需要太多的交互和额外的用户注册管理系统（如各种 bbs/forum/group 等），&amp;nbsp;其主要技术特性是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;面向个人&lt;/li&gt;
 &lt;li&gt;页面排版较为简单&lt;/li&gt;
 &lt;li&gt;内容管理相对单一，基本上以 post&amp;nbsp;为主&lt;/li&gt;
-&lt;li&gt;需求模块较少，基本上就是Comments, Categories, Tags,&amp;nbsp;Archives&lt;/li&gt;
+&lt;li&gt;需求模块较少，基本上就是 Comments, Categories, Tags,&amp;nbsp;Archives&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;显然，动用各种 dynamic 语言和各种高大上的 &lt;span class="caps"&gt;SQL&lt;/span&gt; 数据库来实现这么几条简单的 blog 平台需求，有些牛刀杀鸡之嫌。在这方面， &lt;span class="caps"&gt;SSG&lt;/span&gt; 所遵循的 fast, lightweight, easy-deployment 是很有优势的。最简单的 blog 完全可以只是一个 post list 页面。但是纯静态的 blog 又太简陋了，因此需要通过一些 hack 的手段，在 static 的页面上加入一些 dynamic 的东西， 这个 hack 的手段，就是各种 &lt;span class="caps"&gt;SSG&lt;/span&gt; 中所谓的 compile&amp;nbsp;步骤。&lt;/p&gt;
 &lt;p&gt;compile 步骤是所有 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的核心，它的设计好坏决定了一个 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的品质。大体上讲， &lt;span class="caps"&gt;SSG&lt;/span&gt;&amp;nbsp;的工作方式如下：&lt;/p&gt;
@@ -97,24 +97,19 @@
 &lt;p&gt;Pandoc 在 &lt;span class="caps"&gt;1.12.3.2&lt;/span&gt; 版本之前是不支持 org-mode 作为输入格式的。这也让我头疼了许久。我最原始的想法是将 Emacs 当成一个 org-mode 的文档格式转换器，定制 emacs org-mode filter 集成到 nanoc&amp;nbsp;：&lt;/p&gt;
 &lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;  &lt;span class="kw"&gt;module&lt;/span&gt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filters&lt;/span&gt;
 
-
     &lt;span class="kw"&gt;class&lt;/span&gt; &lt;span class="dt"&gt;OrgModeHtml&lt;/span&gt; &amp;lt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filter&lt;/span&gt;
       identifier &lt;span class="st"&gt;:org_mode_html&lt;/span&gt;
       type &lt;span class="st"&gt;:text&lt;/span&gt; =&amp;gt; &lt;span class="st"&gt;:text&lt;/span&gt;
 
-
       require &lt;span class="st"&gt;&amp;#39;systemu&amp;#39;&lt;/span&gt;
       require &lt;span class="st"&gt;&amp;#39;tempfile&amp;#39;&lt;/span&gt;
-
 
       &lt;span class="kw"&gt;def&lt;/span&gt; run(content, params = {})
         &lt;span class="co"&gt;# Run command&lt;/span&gt;
 
-
         tmp_org_file = &lt;span class="dt"&gt;Tempfile&lt;/span&gt;.new(&lt;span class="st"&gt;&amp;#39;nanoc_tmp_org_file&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;/tmp&amp;#39;&lt;/span&gt;)
         tmp_org_file &amp;lt;&amp;lt; content
         tmp_org_file.close(&lt;span class="dv"&gt;nil&lt;/span&gt;)
-
 
         elisp_code =&lt;span class="ot"&gt; %{&lt;/span&gt;
 &lt;span class="st"&gt;  (progn&lt;/span&gt;
@@ -131,10 +126,8 @@
 &lt;span class="st"&gt;    (message &amp;quot;%s&amp;quot; (buffer-string)))&lt;/span&gt;
 &lt;span class="st"&gt;  &lt;/span&gt;&lt;span class="ot"&gt;}&lt;/span&gt;
 
-
         cmd = [&lt;span class="st"&gt;&amp;#39;emacs&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;-Q&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;--batch&amp;#39;&lt;/span&gt;,
                &lt;span class="st"&gt;&amp;#39;--eval&amp;#39;&lt;/span&gt;, elisp_code]
-
 
         stdout = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
         stderr = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
@@ -142,22 +135,18 @@
                          &lt;span class="st"&gt;&amp;#39;stdout&amp;#39;&lt;/span&gt; =&amp;gt; stdout,
                          &lt;span class="st"&gt;&amp;#39;stderr&amp;#39;&lt;/span&gt; =&amp;gt; stderr)
 
-
         &lt;span class="co"&gt;# Show errors&lt;/span&gt;
         &lt;span class="kw"&gt;unless&lt;/span&gt; status.success?
           &lt;span class="dt"&gt;$stderr&lt;/span&gt;.puts stderr
           raise &lt;span class="st"&gt;&amp;quot;Emacs org-mode filter failed with status &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;status&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;&lt;/span&gt;
         &lt;span class="kw"&gt;end&lt;/span&gt;
 
-
         &lt;span class="co"&gt;# Get result&lt;/span&gt;
         body = &lt;span class="ot"&gt;/&amp;lt;body&amp;gt;.*&amp;lt;\/body&amp;gt;/m&lt;/span&gt;.match(stderr)
         body[&lt;span class="dv"&gt;0&lt;/span&gt;]
       &lt;span class="kw"&gt;end&lt;/span&gt;
 
-
     &lt;span class="kw"&gt;end&lt;/span&gt;
-
 
   &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这段代码的大体思路是将 emacs 当成 elisp 的解释器，喂给其一段 elisp 代码，调用 org-mode 的 export 功能 （ org-mode 7.x 版本中调用 &lt;code&gt;(org-export-as-html)&lt;/code&gt; ， 8.x 版本中调用 &lt;code&gt;(org-html-export-as-html)&lt;/code&gt; ），然后再通过 regexp 正则匹配的方式提取出 html 中的 body 部分作为 nanoc filter&amp;nbsp;的返回值。显而易见，这段代码冗长，乏味，别扭，不美。&lt;/p&gt;
@@ -165,11 +154,9 @@
 &lt;p&gt;最后要解决的问题就是 pandoc 和 nanoc 的集成。 nanoc 本身有一个内建的 &lt;code&gt;Nanoc::Filters::Pandoc&lt;/code&gt; ，调用的是 &lt;a href="https://github.com/alphabetum/pandoc-ruby"&gt;PandocRuby&lt;/a&gt; 。但是 nanoc 本身的 &lt;span class="caps"&gt;API&lt;/span&gt; 和 PandocRuby &lt;span class="caps"&gt;API&lt;/span&gt; 并不是很匹配，无法传递一些参数来启用 pandoc 的某些高级特性 （参考 &lt;a href="http://stackoverflow.com/questions/14646741/nanoc-how-can-i-pass-options-to-pandoc-ruby"&gt;stackoverflow&lt;/a&gt; ）。万般无奈之下，只能自己动手，重写一个 nanoc pandoc filter，完整代码参考 &lt;a href="https://gist.github.com/xiaohanyu/9866531"&gt;github gist&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
 &lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;  &lt;span class="kw"&gt;module&lt;/span&gt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filters&lt;/span&gt;
 
-
     &lt;span class="kw"&gt;class&lt;/span&gt; &lt;span class="dt"&gt;PandocHtml&lt;/span&gt; &amp;lt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filter&lt;/span&gt;
       identifier &lt;span class="st"&gt;:pandoc_html&lt;/span&gt;
       type &lt;span class="st"&gt;:text&lt;/span&gt; =&amp;gt; &lt;span class="st"&gt;:text&lt;/span&gt;
-
 
       &lt;span class="kw"&gt;def&lt;/span&gt; run(content, params = {})
         input_format = &lt;span class="kw"&gt;case&lt;/span&gt; item[&lt;span class="st"&gt;:extension&lt;/span&gt;]
@@ -179,13 +166,10 @@
                          &lt;span class="st"&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;
                        &lt;span class="kw"&gt;end&lt;/span&gt;
 
-
         &lt;span class="st"&gt;`pandoc --mathjax -f &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;input_format&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt; -t html5 &amp;lt; &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;item.raw_filename&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;`&lt;/span&gt;
       &lt;span class="kw"&gt;end&lt;/span&gt;
 
-
     &lt;span class="kw"&gt;end&lt;/span&gt;
-
 
   &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;代码思路很简单，就是通过 Ruby backticks 直接调用 pandoc ，然后将 pandoc 命令的 stdout 作为 nanoc filter 的返回值。通过进一步配置， nanoc 可以调用 pandoc 同时生成 html 和 pdf ，这样一来，同样的文章，即可以线上浏览，也可以打印下载，得益于 pandoc 的优秀设计， html 和 pdf&amp;nbsp;版本的文章具有一致出色的排版效果。&lt;/p&gt;

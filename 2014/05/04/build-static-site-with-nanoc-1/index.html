@@ -97,12 +97,12 @@
 <h2>Why&nbsp;Static?</h2>
 <p>最原始的 blog 应该就是纯静态的个人主页，后来 blog 开始火的时候，各种线上平台一统天下，而对于有点折腾能力的人来说， <a href="https://wordpress.org/">WordPress</a> 则一支独秀。现如今，在 GitHub 当道的年代，由 <a href="https://pages.github.com/">GitHub Pages</a> 及其工具链 <a href="http://jekyllrb.com/">Jekyll</a>/<a href="http://octopress.org/">Octopress</a> 所组成的生态系统，则在程序员的圈子里吸引了足够的眼球和人气，也宣告着所谓 <a href="http://staticsitegenerators.net/">static site generator</a>（本文简称为<span class="caps">SSG</span>）在某种程度上的回归。</p>
 <p>So, why&nbsp;static?</p>
-<p>从技术上来讲，传统的 blog 就是一个简化的 <a href="http://en.wikipedia.org/wiki/Content_management_system"><span class="caps">CMS</span></a> 系统。相较于 <span class="caps">CMS</span> ， blog 更多的是个人开放给外界的一个展示窗口，并不需要太多的交互和额外的用户注册管理系统（如各种bbs/forum/group等），&nbsp;其主要技术特性是：</p>
+<p>从技术上来讲，传统的 blog 就是一个简化的 <a href="http://en.wikipedia.org/wiki/Content_management_system"><span class="caps">CMS</span></a> 系统。相较于 <span class="caps">CMS</span> ， blog 更多的是个人开放给外界的一个展示窗口，并不需要太多的交互和额外的用户注册管理系统（如各种 bbs/forum/group 等），&nbsp;其主要技术特性是：</p>
 <ul>
 <li>面向个人</li>
 <li>页面排版较为简单</li>
 <li>内容管理相对单一，基本上以 post&nbsp;为主</li>
-<li>需求模块较少，基本上就是Comments, Categories, Tags,&nbsp;Archives</li>
+<li>需求模块较少，基本上就是 Comments, Categories, Tags,&nbsp;Archives</li>
 </ul>
 <p>显然，动用各种 dynamic 语言和各种高大上的 <span class="caps">SQL</span> 数据库来实现这么几条简单的 blog 平台需求，有些牛刀杀鸡之嫌。在这方面， <span class="caps">SSG</span> 所遵循的 fast, lightweight, easy-deployment 是很有优势的。最简单的 blog 完全可以只是一个 post list 页面。但是纯静态的 blog 又太简陋了，因此需要通过一些 hack 的手段，在 static 的页面上加入一些 dynamic 的东西， 这个 hack 的手段，就是各种 <span class="caps">SSG</span> 中所谓的 compile&nbsp;步骤。</p>
 <p>compile 步骤是所有 <span class="caps">SSG</span> 的核心，它的设计好坏决定了一个 <span class="caps">SSG</span> 的品质。大体上讲， <span class="caps">SSG</span>&nbsp;的工作方式如下：</p>
@@ -175,24 +175,19 @@
 <p>Pandoc 在 <span class="caps">1.12.3.2</span> 版本之前是不支持 org-mode 作为输入格式的。这也让我头疼了许久。我最原始的想法是将 Emacs 当成一个 org-mode 的文档格式转换器，定制 emacs org-mode filter 集成到 nanoc&nbsp;：</p>
 <pre class="sourceCode ruby"><code class="sourceCode ruby">  <span class="kw">module</span> <span class="dt">Nanoc</span>::<span class="dt">Filters</span>
 
-
     <span class="kw">class</span> <span class="dt">OrgModeHtml</span> &lt; <span class="dt">Nanoc</span>::<span class="dt">Filter</span>
       identifier <span class="st">:org_mode_html</span>
       type <span class="st">:text</span> =&gt; <span class="st">:text</span>
 
-
       require <span class="st">&#39;systemu&#39;</span>
       require <span class="st">&#39;tempfile&#39;</span>
-
 
       <span class="kw">def</span> run(content, params = {})
         <span class="co"># Run command</span>
 
-
         tmp_org_file = <span class="dt">Tempfile</span>.new(<span class="st">&#39;nanoc_tmp_org_file&#39;</span>, <span class="st">&#39;/tmp&#39;</span>)
         tmp_org_file &lt;&lt; content
         tmp_org_file.close(<span class="dv">nil</span>)
-
 
         elisp_code =<span class="ot"> %{</span>
 <span class="st">  (progn</span>
@@ -209,10 +204,8 @@
 <span class="st">    (message &quot;%s&quot; (buffer-string)))</span>
 <span class="st">  </span><span class="ot">}</span>
 
-
         cmd = [<span class="st">&#39;emacs&#39;</span>, <span class="st">&#39;-Q&#39;</span>, <span class="st">&#39;--batch&#39;</span>,
                <span class="st">&#39;--eval&#39;</span>, elisp_code]
-
 
         stdout = <span class="st">&#39;&#39;</span>
         stderr = <span class="st">&#39;&#39;</span>
@@ -220,22 +213,18 @@
                          <span class="st">&#39;stdout&#39;</span> =&gt; stdout,
                          <span class="st">&#39;stderr&#39;</span> =&gt; stderr)
 
-
         <span class="co"># Show errors</span>
         <span class="kw">unless</span> status.success?
           <span class="dt">$stderr</span>.puts stderr
           raise <span class="st">&quot;Emacs org-mode filter failed with status </span><span class="ot">#{</span>status<span class="ot">}</span><span class="st">&quot;</span>
         <span class="kw">end</span>
 
-
         <span class="co"># Get result</span>
         body = <span class="ot">/&lt;body&gt;.*&lt;\/body&gt;/m</span>.match(stderr)
         body[<span class="dv">0</span>]
       <span class="kw">end</span>
 
-
     <span class="kw">end</span>
-
 
   <span class="kw">end</span></code></pre>
 <p>这段代码的大体思路是将 emacs 当成 elisp 的解释器，喂给其一段 elisp 代码，调用 org-mode 的 export 功能 （ org-mode 7.x 版本中调用 <code>(org-export-as-html)</code> ， 8.x 版本中调用 <code>(org-html-export-as-html)</code> ），然后再通过 regexp 正则匹配的方式提取出 html 中的 body 部分作为 nanoc filter&nbsp;的返回值。显而易见，这段代码冗长，乏味，别扭，不美。</p>
@@ -243,11 +232,9 @@
 <p>最后要解决的问题就是 pandoc 和 nanoc 的集成。 nanoc 本身有一个内建的 <code>Nanoc::Filters::Pandoc</code> ，调用的是 <a href="https://github.com/alphabetum/pandoc-ruby">PandocRuby</a> 。但是 nanoc 本身的 <span class="caps">API</span> 和 PandocRuby <span class="caps">API</span> 并不是很匹配，无法传递一些参数来启用 pandoc 的某些高级特性 （参考 <a href="http://stackoverflow.com/questions/14646741/nanoc-how-can-i-pass-options-to-pandoc-ruby">stackoverflow</a> ）。万般无奈之下，只能自己动手，重写一个 nanoc pandoc filter，完整代码参考 <a href="https://gist.github.com/xiaohanyu/9866531">github gist</a>&nbsp;。</p>
 <pre class="sourceCode ruby"><code class="sourceCode ruby">  <span class="kw">module</span> <span class="dt">Nanoc</span>::<span class="dt">Filters</span>
 
-
     <span class="kw">class</span> <span class="dt">PandocHtml</span> &lt; <span class="dt">Nanoc</span>::<span class="dt">Filter</span>
       identifier <span class="st">:pandoc_html</span>
       type <span class="st">:text</span> =&gt; <span class="st">:text</span>
-
 
       <span class="kw">def</span> run(content, params = {})
         input_format = <span class="kw">case</span> item[<span class="st">:extension</span>]
@@ -257,13 +244,10 @@
                          <span class="st">&#39;markdown&#39;</span>
                        <span class="kw">end</span>
 
-
         <span class="st">`pandoc --mathjax -f </span><span class="ot">#{</span>input_format<span class="ot">}</span><span class="st"> -t html5 &lt; </span><span class="ot">#{</span>item.raw_filename<span class="ot">}</span><span class="st">`</span>
       <span class="kw">end</span>
 
-
     <span class="kw">end</span>
-
 
   <span class="kw">end</span></code></pre>
 <p>代码思路很简单，就是通过 Ruby backticks 直接调用 pandoc ，然后将 pandoc 命令的 stdout 作为 nanoc filter 的返回值。通过进一步配置， nanoc 可以调用 pandoc 同时生成 html 和 pdf ，这样一来，同样的文章，即可以线上浏览，也可以打印下载，得益于 pandoc 的优秀设计， html 和 pdf&nbsp;版本的文章具有一致出色的排版效果。</p>
