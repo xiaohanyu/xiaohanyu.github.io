@@ -2,13 +2,100 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://www.xiaohanyu.me/</id>
   <title>行者无疆 始于足下</title>
-  <updated>2014-05-04T20:00:00Z</updated>
+  <updated>2014-07-25T20:00:00Z</updated>
   <link rel="alternate" href="http://www.xiaohanyu.me/"/>
   <link rel="self" href="http://www.xiaohanyu.me/atom.xml"/>
   <author>
     <name>Xiao Hanyu</name>
     <uri>http://www.xiaohanyu.me</uri>
   </author>
+  <entry>
+    <id>tag:www.xiaohanyu.me,2014-07-26:/2014/07/25/build-static-site-with-nanoc-2/</id>
+    <title type="html">Build Static Site with Nanoc (II)</title>
+    <published>2014-07-25T20:00:00Z</published>
+    <updated>2014-07-25T20:00:00Z</updated>
+    <link rel="alternate" href="http://www.xiaohanyu.me/2014/07/25/build-static-site-with-nanoc-2/"/>
+    <content type="html">&lt;p&gt;&lt;a href="http://www.xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/"&gt;上篇&lt;/a&gt;主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog&amp;nbsp;本身的一些设计。&lt;/p&gt;
+&lt;h2&gt;Bootstrap&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt; 现在大概已经成为像我一样的半吊子前端写网站的标配了吧，简单，明了，快捷，简直是为我这种人量身定做的。最开始我也是想一切自己动手，奈何还是没有禁住 Bootstrap 各种漂亮主题及插件的诱惑，最终还是不能免俗，从了 Bootstrap&amp;nbsp;。&lt;/p&gt;
+&lt;p&gt;其实类似于 Bootstrap 的前端框架还是有一些的，比如 &lt;a href="http://foundation.zurb.com/"&gt;Foundation&lt;/a&gt; 和 &lt;a href="http://semantic-ui.com/"&gt;Semantic &lt;span class="caps"&gt;UI&lt;/span&gt;&lt;/a&gt; 。 Semantic &lt;span class="caps"&gt;UI&lt;/span&gt; 甚至在其官方主页上指出了 Bootstrap 命名规则的混乱。不过 Bootstrap 最大的优势在于它的普及(&lt;del&gt;烂大街&lt;/del&gt;)，这种普及甚至使得 Bootstrap&amp;nbsp;成了一个平台。&lt;/p&gt;
+较好的 Bootstrap&amp;nbsp;主题和模板：
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://startbootstrap.com/"&gt;http://startbootstrap.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://wrapbootstrap.com/"&gt;https://wrapbootstrap.com/&lt;/a&gt;&amp;nbsp;，很多收费&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.blacktie.co/"&gt;http://www.blacktie.co/&lt;/a&gt; ，似乎是由个人设计师设计维护的 Bootstrap&amp;nbsp;主题站，质量都很不错&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://bootswatch.com/"&gt;http://bootswatch.com/&lt;/a&gt; ，免费的 &lt;span class="caps"&gt;CSS&lt;/span&gt; 主题文件，使用简单，替换原有 Bootstrap 的 &lt;span class="caps"&gt;CSS&lt;/span&gt;&amp;nbsp;文件即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;另外， &lt;a href="http://bootsnipp.com/"&gt;Bootsnipp&lt;/a&gt; 提供了非常全面的各种有用的基于 Bootstrap 的 code snippets 和设计元素。本 blog 的 timeline 类型的 Archives&amp;nbsp;页面就来源于此。&lt;/p&gt;
+&lt;h2&gt;&lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt;&amp;nbsp;compress&lt;/h2&gt;
+&lt;p&gt;&lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; compress/minify 应该是前端开发的基本常识了。 nanoc 中提供了 &lt;a href="http://nanoc.ws/docs/api/Nanoc/Filters/Rainpress.html"&gt;rainpress&lt;/a&gt; 和 &lt;a href="http://nanoc.ws/docs/api/Nanoc/Filters/UglifyJS.html"&gt;uglify_js&lt;/a&gt; 两个 filter，分别用于 &lt;span class="caps"&gt;CSS&lt;/span&gt; 和 &lt;span class="caps"&gt;JS&lt;/span&gt; 文件的压缩。但实际中，我们往往会有多个 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; 文件，而我们希望能将其压缩成单个 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; 文件。这方面 nanoc 没有提供内置的解决方案。好在 Google 是万能的，完美的&lt;a href="http://jakoblaegdsmand.com/blog/2012/12/minifying-js-and-css-in-nanoc/"&gt;解决方案&lt;/a&gt;也是存在的，感谢 &lt;a href="http://jakoblaegdsmand.com/"&gt;Jakob&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
+&lt;p&gt;Jakob 的 blog 写得浅显易懂，其主要的优点是可以通过 &lt;code&gt;nanoc.yml&lt;/code&gt; 中的 &lt;code&gt;debug&lt;/code&gt; 选项来启停 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt;&amp;nbsp;的压缩。具体的原理和代码我就不再这里重复了，看博文吧。&lt;/p&gt;
+&lt;h2&gt;nanoc-cachebuster&lt;/h2&gt;
+&lt;p&gt;我们已经解决了 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; 的压缩问题，还差一步，就可以形成 nanoc static site frontend 的完美解决方案，那就是我们离不开的 cache 。这个 cache 主要是浏览器端的 cache 。Cache 是个好东西，只是有时会给开发人员造成一些小麻烦。比如我们修改 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; 文件并且 push 到“线上”的时候，在一定时间段内浏览器并不会请求最新的 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; 文件，而是会使用已有的尚未过期的 cache 中的 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; 文件，这就使得我们没有办法实时地看到 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; 修改后的前端效果。解决方案就是在开发时绕过 cache ，让浏览器每次都请求最新的 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; 文件。这有两种办法，一是在浏览器端，可以强制刷新或者直接禁用浏览器的 cache ，但是这种方案的局限性在于，每种浏览器都有自己的设置方法，并且做为开发人员，你没有办法保证你的用户都禁用 cache ；第二种办法就是在服务器端做一些手脚，这就是 &lt;a href="http://webassets.readthedocs.org/en/latest/expiring.html"&gt;cache busting&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
+&lt;p&gt;Cache busting 的原理是每次修改 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; 文件后，通过在 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; 的文件名上加入一个版本号或者类似的手段，来保证浏览器请求的都是最新的 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; 文件，这样就能确保 &lt;span class="caps"&gt;JS&lt;/span&gt;/&lt;span class="caps"&gt;CSS&lt;/span&gt; 的效果能够实时地起到作用。 Nanoc 有一个 &lt;a href="http://avdgaag.github.io/nanoc-cachebuster/"&gt;nanoc-cachebuster&lt;/a&gt; ，其作者写了一篇详细的 &lt;a href="http://arjanvandergaag.nl/blog/nanoc-cachebuster.html"&gt;post&lt;/a&gt; 来阐述 nanoc-cachebuster&amp;nbsp;的实现原理，我就不再多言了。&lt;/p&gt;
+&lt;h2&gt;Font&amp;nbsp;Selection&lt;/h2&gt;
+&lt;p&gt;就观感上来讲，除了基本的版面设计，字体选择是第二重要的因素。你至少要知道&lt;a href="http://zh.wikipedia.org/wiki/%25E8%25A1%25AC%25E7%25BA%25BF%25E4%25BD%2593"&gt;衬线字体&lt;/a&gt;和&lt;a href="http://zh.wikipedia.org/wiki/%25E6%2597%25A0%25E8%25A1%25AC%25E7%25BA%25BF%25E4%25BD%2593"&gt;无衬线字体&lt;/a&gt;的基本概念。而在 Web 上应用这些概念，你还需要了解一些有关以 &lt;a href="http://en.wikipedia.org/wiki/Web_typography"&gt;web font&lt;/a&gt; 的一些知识。关于这点我就不展开写了，任何一本不错的 &lt;span class="caps"&gt;CSS&lt;/span&gt; 书籍都会用一章的内容来详细讲解字体以及 web font 的概念。我个人的选择是 &lt;a href="https://www.google.com/fonts/specimen/Lora"&gt;Lora&lt;/a&gt; ，灵感来自于 &lt;a href="http://bootswatch.com/readable/"&gt;bootswatch readable theme&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
+&lt;p&gt;这里还有两个小技巧，和大家分享。一是在 &lt;span class="caps"&gt;CSS&lt;/span&gt; 中，字体的样式是依照 &lt;code&gt;font-family&lt;/code&gt;&amp;nbsp;的值以及相应的字体本身的特性决定的。比如：&lt;/p&gt;
+&lt;pre class="sourceCode css"&gt;&lt;code class="sourceCode css"&gt;body &lt;span class="kw"&gt;{&lt;/span&gt;
+  &lt;span class="kw"&gt;background-color:&lt;/span&gt; &lt;span class="dt"&gt;#ffffff&lt;/span&gt;&lt;span class="kw"&gt;;&lt;/span&gt;
+  &lt;span class="kw"&gt;font-family:&lt;/span&gt; &lt;span class="st"&gt;&amp;#39;Lora&amp;#39;&lt;/span&gt;, Georgia, &lt;span class="st"&gt;&amp;#39;Times New Roman&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;SimSun&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;Microsoft YaHei&amp;#39;&lt;/span&gt;, &lt;span class="dt"&gt;serif&lt;/span&gt;&lt;span class="kw"&gt;;&lt;/span&gt;
+&lt;span class="kw"&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里指定 &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; 的字体为 Lora ，但是 Lora 本身是一款英文字体，对于汉字是“无能为力”的，因此如果 &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; 中有汉字的话，浏览器会按照 &lt;code&gt;font-family&lt;/code&gt; 所指定的值依次找下去，直到找到一款从 web 上加载的或者系统中已经存在的汉字字体。另外，在 Chrome 和 Firefox 的 Developer Tools 中可以看到浏览器渲染页面时所使用的字体的细节，具体参考 &lt;a href="http://stackoverflow.com/questions/884177/how-can-i-determine-what-font-a-browser-is-actually-using-to-render-some-text"&gt;StackOverflow&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
+&lt;h2&gt;Third-party&amp;nbsp;Plugins&lt;/h2&gt;
+&lt;p&gt;由于静态站点本身并没有数据库之类的标配的本地存储，因此像评论、站内搜索，以及统计这类功能需要借助第三方的服务。站内搜索比较简单，直接调用 Google 的 &lt;code&gt;site:www.xiaohanyu.me&lt;/code&gt;&amp;nbsp;搜索即可：&lt;/p&gt;
+&lt;pre class="sourceCode html"&gt;&lt;code class="sourceCode html"&gt;&lt;span class="kw"&gt;&amp;lt;form&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;form-inline&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; target=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; method=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;get&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; action=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://google.com/search&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="kw"&gt;&amp;lt;input&lt;/span&gt;&lt;span class="ot"&gt; type=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; value=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;site:www.xiaohanyu.me&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; name=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;q&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="kw"&gt;&amp;lt;input&lt;/span&gt;&lt;span class="ot"&gt; type=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;form-control pull-left&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; placeholder=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;Search&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; name=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;q&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;至于评论系统，我用的也就是现今最流行的第三方评论系统 &lt;a href="https://disqus.com/"&gt;Disqus&lt;/a&gt; 了。其安装设置非常简单，不再赘述。使用体验也不错。但是由于国内网络的原因， Disqus 加载的时候还是需要 2-4 秒的时间，因此我写了个 &lt;span class="caps"&gt;JS&lt;/span&gt; 函数，来按需加载 Disqus 评论。与此同时，我还在每篇 post 的 metadata 里面设置了新的属性： &lt;code&gt;disable_disqus&lt;/code&gt; ，这样如果 &lt;code&gt;disable_disqus&lt;/code&gt; 为真，那么相应的 post&amp;nbsp;就是禁用评论的。&lt;/p&gt;
+&lt;p&gt;最后就是站点统计，最简单的就是传统 Blog 上的网站访问计数。这个我用的是 &lt;a href="http://www.google.com/analytics/"&gt;Google Analytics&lt;/a&gt;&amp;nbsp;，很强大，安装配置也很简单，同样不再赘述。&lt;/p&gt;
+&lt;h2&gt;Atom/Sitemap/Robots.txt&lt;/h2&gt;
+&lt;p&gt;除了以上，一个有节操有品味的网站还应该配备 atom/sitemap/robots.txt 。在 nanoc 中，这三种的解决方案是差不多的。以 atom 为例， nanoc3 内置的 &lt;a href="http://nanoc.ws/docs/api/Nanoc/Helpers/Blogging.html"&gt;Blogging&lt;/a&gt; 辅助模块提供了基本的 atom 生成函数 &lt;a href="http://nanoc.ws/docs/api/Nanoc/Helpers/Blogging.html#atom_feed-instance_method"&gt;atom_feed&lt;/a&gt; ，我们需要做的就是动态创建一个 nanoc item ，而这个 item 的任务就是生成实际的 &lt;code&gt;atom.xml&lt;/code&gt; 文件。 nanoc 支持 &lt;a href="http://nanoc.ws/docs/basics/"&gt;preprocess&lt;/a&gt; ，我们可以在 nanoc compile&amp;nbsp;之前做一些准备工作：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Rules&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;preprocess &lt;span class="kw"&gt;do&lt;/span&gt;
+  create_github_cname
+  create_robots_txt
+  create_sitemap
+  create_atom
+&lt;span class="kw"&gt;end&lt;/span&gt;
+
+compile &lt;span class="ot"&gt;%r{/sitemap/|/atom/|/robots/}&lt;/span&gt; &lt;span class="kw"&gt;do&lt;/span&gt;
+  filter &lt;span class="st"&gt;:erb&lt;/span&gt;
+&lt;span class="kw"&gt;end&lt;/span&gt;
+
+route &lt;span class="ot"&gt;%r{/sitemap/|/atom/}&lt;/span&gt; &lt;span class="kw"&gt;do&lt;/span&gt;
+  item.identifier.chop + &lt;span class="st"&gt;&amp;#39;.xml&amp;#39;&lt;/span&gt;
+&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在 &lt;code&gt;create_atom&lt;/code&gt; 函数中，我们动态创建一个 &lt;a href="http://nanoc.ws/docs/api/Nanoc/Item.html"&gt;nanoc item&lt;/a&gt; （所谓动态创建的 item 就是这个 item 在实际的文件系统中没有相对应的文件）。这样的 preprocess 之后， nanoc compile 会按照指定的规则来处理生成 atom 的 item ，最终生成所需的 &lt;code&gt;atom.xml&lt;/code&gt;&amp;nbsp;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;lib/preprocessors.rb&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; create_atom
+  content = &amp;lt;&amp;lt;&lt;span class="kw"&gt;EOS&lt;/span&gt;
+&lt;span class="ot"&gt;&amp;lt;%= atom_feed \&lt;/span&gt;
+&lt;span class="ot"&gt;:title =&amp;gt; &amp;#39;#{@site&lt;/span&gt;.config[&lt;span class="st"&gt;:meta_data&lt;/span&gt;][&lt;span class="st"&gt;:title&lt;/span&gt;]&lt;span class="ot"&gt;}&amp;#39;,&lt;/span&gt;
+&lt;span class="ot"&gt;:author_name =&amp;gt; &amp;#39;#{@site&lt;/span&gt;.config[&lt;span class="st"&gt;:meta_data&lt;/span&gt;][&lt;span class="st"&gt;:author&lt;/span&gt;]&lt;span class="ot"&gt;}&amp;#39;,&lt;/span&gt;
+&lt;span class="ot"&gt;:author_uri =&amp;gt; &amp;#39;#{@site&lt;/span&gt;.config[&lt;span class="st"&gt;:base_url&lt;/span&gt;]&lt;span class="ot"&gt;}&amp;#39;,&lt;/span&gt;
+&lt;span class="ot"&gt;:limit =&amp;gt; 10 %&amp;gt;&lt;/span&gt;
+&lt;span class="ot"&gt;EOS&lt;/span&gt;
+
+&lt;span class="ot"&gt;  @items &amp;lt;&amp;lt; Nanoc3::Item.new(content,&lt;/span&gt;
+&lt;span class="ot"&gt;                             {:extension =&amp;gt; &amp;#39;xml&amp;#39;, :is_hidden =&amp;gt; true},&lt;/span&gt;
+&lt;span class="ot"&gt;                             &amp;#39;/atom/&amp;#39;)&lt;/span&gt;
+&lt;span class="ot"&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Cute&amp;nbsp;Things&lt;/h2&gt;
+&lt;p&gt;除此之外，我还设计了一些有趣的小东西，当然，如果您是资深的前端工程师，那么可以直接忽略这一节，我怕班门弄斧，贻笑大方。&lt;/p&gt;
+&lt;p&gt;一是我给每篇 post 加上了 next 和 previous 的 link button， &lt;del&gt;当然如果有一天我的文章写的足够好能让人流连忘返的话&lt;/del&gt; ，这两个 button 或许是有用的。具体的技术细节可以参考 &lt;a href="https://ecarmi.org/writing/next-previous-links-nanoc/"&gt;这里&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
+&lt;p&gt;二是我在页面上加了一个 &lt;strong&gt;back-to-top&lt;/strong&gt; 的 button ，这样在页面滚了一点进度时， back-to-top button 会出现在右下角，然后你可以点击这个 button&amp;nbsp;回到页面的最顶端。&lt;/p&gt;
+&lt;p&gt;三是我参考一些成型的设计，给自己的 blog 设计了一个还算满意的 &lt;a href="http://www.xiaohanyu.me/does-not-exist"&gt;404 page&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
+&lt;p&gt;最后，我在 &lt;a href="http://www.xiaohanyu.me/does-not-exist"&gt;about page&lt;/a&gt; 中加入了一些 random quotes 的小把戏，这样每次访问/刷新 about page 的时候，你看到的 quotes 都是随机的。至于原理，暂且不表 ^_^&amp;nbsp;。&lt;/p&gt;
+&lt;h2&gt;总结&lt;/h2&gt;
+&lt;p&gt;以上，大概记录了我个人建站的基本过程，从基本的技术选型，到版式字体的设计，以及一些 nanoc&amp;nbsp;的小技巧，希望对您有用。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:www.xiaohanyu.me,2014-05-05:/2014/05/04/build-static-site-with-nanoc-1/</id>
     <title type="html">Build Static Site with Nanoc (I)</title>
@@ -19,7 +106,7 @@
 &lt;h2&gt;Why&amp;nbsp;Static?&lt;/h2&gt;
 &lt;p&gt;最原始的 blog 应该就是纯静态的个人主页，后来 blog 开始火的时候，各种线上平台一统天下，而对于有点折腾能力的人来说， &lt;a href="https://wordpress.org/"&gt;WordPress&lt;/a&gt; 则一支独秀。现如今，在 GitHub 当道的年代，由 &lt;a href="https://pages.github.com/"&gt;GitHub Pages&lt;/a&gt; 及其工具链 &lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;/&lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt; 所组成的生态系统，则在程序员的圈子里吸引了足够的眼球和人气，也宣告着所谓 &lt;a href="http://staticsitegenerators.net/"&gt;static site generator&lt;/a&gt;（本文简称为&lt;span class="caps"&gt;SSG&lt;/span&gt;）在某种程度上的回归。&lt;/p&gt;
 &lt;p&gt;So, why&amp;nbsp;static?&lt;/p&gt;
-&lt;p&gt;从技术上来讲，传统的 blog 就是一个简化的 &lt;a href="http://en.wikipedia.org/wiki/Content_management_system"&gt;&lt;span class="caps"&gt;CMS&lt;/span&gt;&lt;/a&gt; 系统。相较于 &lt;span class="caps"&gt;CMS&lt;/span&gt; ， blog 更多的是个人开放给外界的一个展示窗口，并不需要太多的交互和额外的用户注册管理系统（如各种 bbs/forum/group 等），&amp;nbsp;其主要技术特性是：&lt;/p&gt;
+从技术上来讲，传统的 blog 就是一个简化的 &lt;a href="http://en.wikipedia.org/wiki/Content_management_system"&gt;&lt;span class="caps"&gt;CMS&lt;/span&gt;&lt;/a&gt; 系统。相较于 &lt;span class="caps"&gt;CMS&lt;/span&gt; ， blog 更多的是个人开放给外界的一个展示窗口，并不需要太多的交互和额外的用户注册管理系统（如各种 bbs/forum/group 等），&amp;nbsp;其主要技术特性是：
 &lt;ul&gt;
 &lt;li&gt;面向个人&lt;/li&gt;
 &lt;li&gt;页面排版较为简单&lt;/li&gt;
@@ -27,7 +114,7 @@
 &lt;li&gt;需求模块较少，基本上就是 Comments, Categories, Tags,&amp;nbsp;Archives&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;显然，动用各种 dynamic 语言和各种高大上的 &lt;span class="caps"&gt;SQL&lt;/span&gt; 数据库来实现这么几条简单的 blog 平台需求，有些牛刀杀鸡之嫌。在这方面， &lt;span class="caps"&gt;SSG&lt;/span&gt; 所遵循的 fast, lightweight, easy-deployment 是很有优势的。最简单的 blog 完全可以只是一个 post list 页面。但是纯静态的 blog 又太简陋了，因此需要通过一些 hack 的手段，在 static 的页面上加入一些 dynamic 的东西， 这个 hack 的手段，就是各种 &lt;span class="caps"&gt;SSG&lt;/span&gt; 中所谓的 compile&amp;nbsp;步骤。&lt;/p&gt;
-&lt;p&gt;compile 步骤是所有 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的核心，它的设计好坏决定了一个 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的品质。大体上讲， &lt;span class="caps"&gt;SSG&lt;/span&gt;&amp;nbsp;的工作方式如下：&lt;/p&gt;
+compile 步骤是所有 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的核心，它的设计好坏决定了一个 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的品质。大体上讲， &lt;span class="caps"&gt;SSG&lt;/span&gt;&amp;nbsp;的工作方式如下：
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;格式转换：&lt;/strong&gt; 扫描所有 post ， 进行初步 compile（这步 compile 主要作用是进行格式转换，比如 markdown/textile -&amp;gt; html&amp;nbsp;）。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;汇总metadata：&lt;/strong&gt; 汇总所有 post 的 metadata （比如 tag/category 可以用来做反向映射，datetime 可以用来给 post 进行排序），这些 metadata 信息可以在 template&amp;nbsp;渲染的时候访问。&lt;/li&gt;
@@ -35,7 +122,7 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;span class="caps"&gt;SSG&lt;/span&gt; 最终会生成一坨静态的 html/css/js 文件，只要将其上传托管起来，所谓的 static site 就算大功告成了。不需要配置数据库，也不需要装什么 php/python(wsgi)/WordPress ，怎么样，够简单吧？ 与static site 部署简单相对的就是本地写作环境搭建的复杂，多数情况下，你需要至少掌握一门编程语言的工具链，从头到尾搭建一套完整的写作环境；你需要自己设计前端，页面排版（layout）；你还需要找到自己钟意的 Editor 和自己喜欢的 &lt;a href="http://en.wikipedia.org/wiki/Comparison_of_document_markup_languages"&gt;document markup language&lt;/a&gt; 。选择意味着纠结，也意味着灵活。 &lt;strong&gt;没有了浏览器的牵绊，你可以在自己钟爱的 Editor&amp;nbsp;里运指如飞，畅写欲言。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;不同的 &lt;span class="caps"&gt;SSG&lt;/span&gt; 有不同的设计侧重点，有的提供内建的 out-of-box 的主题（ &lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt; 基本上千篇一律），有的只提供机制（ &lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt; ）;有的只支持一种模板语言（ &lt;a href="http://ruhoh.com/"&gt;Ruhoh&lt;/a&gt; 默认支持 &lt;a href="http://mustache.github.io/"&gt;mustache&lt;/a&gt; ），有的只提供机制（ &lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt; ）;有的只支持一种标记语言（多数默认支持 &lt;a href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; ），有的只提供机制（ &lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt;&amp;nbsp;）;&lt;/p&gt;
-&lt;p&gt;相较于广大人民群众，程序员群体对于 blog&amp;nbsp;平台往往还有一些特别的需求：&lt;/p&gt;
+相较于广大人民群众，程序员群体对于 blog&amp;nbsp;平台往往还有一些特别的需求：
 &lt;ul&gt;
 &lt;li&gt;没有代码高亮是不能忍的&lt;/li&gt;
 &lt;li&gt;能支持数学公式的话就很高大上&lt;/li&gt;
@@ -49,7 +136,7 @@
 &lt;p&gt;Why&amp;nbsp;org-mode?&lt;/p&gt;
 &lt;p&gt;其实 &lt;a href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; 是相当好的文档标记语言，绝大多数 &lt;span class="caps"&gt;SSG&lt;/span&gt; 对 Markdown 都有良好的支持。多数线上服务如 GitHub 、 Stackoverflow 也是以 Markdown 为默认文档标记语言。 Markdown 的生态圈也相当繁荣， 有很多优秀的线上线下的 Editor&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;。不过 Markdown 的先天不足在于， 其设计初衷导致 Markdown 的标准过于简单，功能不够，而各方英雄为了一已之私，不得不提出各种 Markdown 扩展来满足自己的日常需求。这样看来， Markdown 生态圈一片繁荣百花争春的背后，实则是一片混乱，没有一个统一的标准，容易“厂商锁定”。所有的扩展 Markdown 语言之中， &lt;a href="https://help.github.com/articles/github-flavored-markdown"&gt;GitHub Flavored Markdown&lt;/a&gt; 和 &lt;a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown"&gt;Pandoc&amp;#8217;s markdown&lt;/a&gt; 是比较不错的。特别是 Pandoc&amp;#8217;s Markdown，功能完善、规范、强大，如果你不是我这样的 org-mode 死忠，那么我强烈推荐你用 Pandoc&amp;#8217;s&amp;nbsp;Markdown。&lt;/p&gt;
 &lt;p&gt;而我之所以离不开 org-mode ，其一在于我个人患有严重的 Emacs 依赖症，其二是 &lt;a href="http://orgmode.org/worg/org-contrib/babel/"&gt;org-babel&lt;/a&gt; ，一个你用上了就再也离不开的东西。 org-babel 让简单静态的文档变成了完整的 live 的 workflow ，关于这点，学术界甚至有一些专门的 &lt;a href="http://orgmode.org/worg/org-papers.html"&gt;Papers&lt;/a&gt; 论述。限于篇幅，不在这里展开讨论。 Emacs 配上 org-mode&amp;nbsp;，更如香车搭上美女，快感连连，高潮不断也。&lt;/p&gt;
-&lt;p&gt;但是很不幸，对 org-mode 的坚持让我被迫放弃了一大半的 &lt;span class="caps"&gt;SSG&lt;/span&gt; 。事实上，在我刚开始着手调研 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的时候，没有一个 &lt;span class="caps"&gt;SSG&lt;/span&gt; 提供对 org-mode 的良好支持。 org-mode 本身有一个非常原始并且极其难用的 &lt;a href="http://orgmode.org/manual/Publishing.html"&gt;org-publish&lt;/a&gt; ，稍加配置也可以当成一个原始的 &lt;span class="caps"&gt;SSG&lt;/span&gt; 来用。还有一些 &lt;a href="http://orgmode.org/worg/org-blog-wiki.html"&gt;Emacs packages&lt;/a&gt; ，基于 org-publish， 可以用来生成 static site，但是大多数都非常难用。 &lt;a href="http://renard.github.io/o-blog/"&gt;o-blog&lt;/a&gt; 看上去很漂亮，但是我始终没有搞明白怎么用。后来又尝试了下 &lt;a href="https://github.com/kelvinh/org-page"&gt;org-page&lt;/a&gt; ，还提了几个 patch ，但终究也不是很满意。于是就只能自己操刀，开始写 &lt;a href="https://github.com/xiaohanyu/org-site"&gt;org-site&lt;/a&gt;&amp;nbsp;。断续写了一个月，出来一个原型，但最终还是放弃：&lt;/p&gt;
+但是很不幸，对 org-mode 的坚持让我被迫放弃了一大半的 &lt;span class="caps"&gt;SSG&lt;/span&gt; 。事实上，在我刚开始着手调研 &lt;span class="caps"&gt;SSG&lt;/span&gt; 的时候，没有一个 &lt;span class="caps"&gt;SSG&lt;/span&gt; 提供对 org-mode 的良好支持。 org-mode 本身有一个非常原始并且极其难用的 &lt;a href="http://orgmode.org/manual/Publishing.html"&gt;org-publish&lt;/a&gt; ，稍加配置也可以当成一个原始的 &lt;span class="caps"&gt;SSG&lt;/span&gt; 来用。还有一些 &lt;a href="http://orgmode.org/worg/org-blog-wiki.html"&gt;Emacs packages&lt;/a&gt; ，基于 org-publish， 可以用来生成 static site，但是大多数都非常难用。 &lt;a href="http://renard.github.io/o-blog/"&gt;o-blog&lt;/a&gt; 看上去很漂亮，但是我始终没有搞明白怎么用。后来又尝试了下 &lt;a href="https://github.com/kelvinh/org-page"&gt;org-page&lt;/a&gt; ，还提了几个 patch ，但终究也不是很满意。于是就只能自己操刀，开始写 &lt;a href="https://github.com/xiaohanyu/org-site"&gt;org-site&lt;/a&gt;&amp;nbsp;。断续写了一个月，出来一个原型，但最终还是放弃：
 &lt;ul&gt;
 &lt;li&gt;Elisp 写起来并不是很happy，没有 namespace&amp;nbsp;是一大硬伤。&lt;/li&gt;
 &lt;li&gt;Org-mode 的代码设计并没有为开放式的 &lt;span class="caps"&gt;API&lt;/span&gt; 做过考虑。理论上，我可以把 Emacs org-mode 当成一个文档格式转换器，将 org-mode 转换成 html/pdf ，但是由于 Emacs 的特殊性，很多 Elisp &lt;span class="caps"&gt;API&lt;/span&gt; 都是以 Emacs &lt;a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Buffers.html"&gt;buffer&lt;/a&gt; 而不是 file 为操作对象，这就让我必须写很多的 wrapper 代码，然后通过类似于 &lt;code&gt;(with-temp-buffer (do-some-thing))&lt;/code&gt;&amp;nbsp;的手段来绕过这个限制。&lt;/li&gt;
@@ -61,7 +148,7 @@
 &lt;p&gt;至此，自动动手丰衣足食的计划宣告破产，被迫寻找并尝试 hack 一些成型的 &lt;span class="caps"&gt;SSG&lt;/span&gt; ，来支持 org-mode 写作。我最终的选择是 &lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
 &lt;h2&gt;Nanoc&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt; 是我用过的所有 &lt;span class="caps"&gt;SSG&lt;/span&gt; 中最为灵活，也是使用门槛最高的一个。 Nanoc 官方的入门 &lt;a href="http://nanoc.ws/docs/tutorial/"&gt;Tutorial&lt;/a&gt; 中明确说明，你必须 &amp;quot;have a basic understanding of Ruby and command line&amp;quot;， 才有可能玩得通 Nanoc 。在我个人看来， Nanoc 的设计基本上严格遵循了 Unix 中 &amp;quot;Provide mechanism, not policy&amp;quot; 的哲学。用软件工程的术语来说， Nanoc 提供的是 library ，而非一套成型的 &lt;span class="caps"&gt;SSG&lt;/span&gt; 软件。 Nanoc 既不限定你所用的文档标记语言 &amp;#8212; 你可以用 Markdown/Textile/Org-mode ，也不指定相应的编译规则，更不提供默认的 out-of-box&amp;nbsp;的主题样式。总之，一切要自己来，学习曲线颇为陡峭，但学成之后可以随心所欲。&lt;/p&gt;
-&lt;p&gt;Nanoc 创造了自己的术语体系，每个概念相互独立又彼此联系。理解了这些术语也就理解了 nanoc&amp;nbsp;的工作原理：&lt;/p&gt;
+Nanoc 创造了自己的术语体系，每个概念相互独立又彼此联系。理解了这些术语也就理解了 nanoc&amp;nbsp;的工作原理：
 &lt;ul&gt;
 &lt;li&gt;item: 是 nanoc 要处理的实体。一个 item 可以是 html/css/markdown&amp;nbsp;等文本文件，也可以是图片，还可以是你自己凭空创造出来的虚拟文件。&lt;/li&gt;
 &lt;li&gt;rule: 决定 nanoc 处理 item 的步骤。 rule 分为两种， compilation rule 和 routing rule 。 其中 compilation rule 又分为 filter rule 和 layout rule 。 filter rule 一般用于文档格式转换，而 layout rule 则用于页面布局排版。 routing rule 决定 item 在 compile 之后在 output&amp;nbsp;中的路径。&lt;/li&gt;
@@ -95,96 +182,96 @@
 &lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;&lt;span class="kw"&gt;pandoc&lt;/span&gt; -f SOURCEFORMAT -t json &lt;span class="kw"&gt;|&lt;/span&gt; &lt;span class="kw"&gt;runhaskell&lt;/span&gt; filter.hs &lt;span class="kw"&gt;|&lt;/span&gt; &lt;span class="kw"&gt;pandoc&lt;/span&gt; -f json -t TARGETFORMAT&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Pandoc 的首选格式语言是 Markdown 。为了弥补 Markdown 的先天不足， pandoc 在原始 Markdown 的基础上增加了许多有用的扩展。通过这些扩展， &lt;a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown"&gt;Pandoc&amp;#8217;s markdown&lt;/a&gt;&amp;nbsp;自成一套完备、规范、通用、强大的文档标记语言。&lt;/p&gt;
 &lt;p&gt;Pandoc 在 &lt;span class="caps"&gt;1.12.3.2&lt;/span&gt; 版本之前是不支持 org-mode 作为输入格式的。这也让我头疼了许久。我最原始的想法是将 Emacs 当成一个 org-mode 的文档格式转换器，定制 emacs org-mode filter 集成到 nanoc&amp;nbsp;：&lt;/p&gt;
-&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;  &lt;span class="kw"&gt;module&lt;/span&gt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filters&lt;/span&gt;
+&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;span class="kw"&gt;module&lt;/span&gt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filters&lt;/span&gt;
 
-    &lt;span class="kw"&gt;class&lt;/span&gt; &lt;span class="dt"&gt;OrgModeHtml&lt;/span&gt; &amp;lt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filter&lt;/span&gt;
-      identifier &lt;span class="st"&gt;:org_mode_html&lt;/span&gt;
-      type &lt;span class="st"&gt;:text&lt;/span&gt; =&amp;gt; &lt;span class="st"&gt;:text&lt;/span&gt;
+  &lt;span class="kw"&gt;class&lt;/span&gt; &lt;span class="dt"&gt;OrgModeHtml&lt;/span&gt; &amp;lt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filter&lt;/span&gt;
+    identifier &lt;span class="st"&gt;:org_mode_html&lt;/span&gt;
+    type &lt;span class="st"&gt;:text&lt;/span&gt; =&amp;gt; &lt;span class="st"&gt;:text&lt;/span&gt;
 
-      require &lt;span class="st"&gt;&amp;#39;systemu&amp;#39;&lt;/span&gt;
-      require &lt;span class="st"&gt;&amp;#39;tempfile&amp;#39;&lt;/span&gt;
+    require &lt;span class="st"&gt;&amp;#39;systemu&amp;#39;&lt;/span&gt;
+    require &lt;span class="st"&gt;&amp;#39;tempfile&amp;#39;&lt;/span&gt;
 
-      &lt;span class="kw"&gt;def&lt;/span&gt; run(content, params = {})
-        &lt;span class="co"&gt;# Run command&lt;/span&gt;
+    &lt;span class="kw"&gt;def&lt;/span&gt; run(content, params = {})
+      &lt;span class="co"&gt;# Run command&lt;/span&gt;
 
-        tmp_org_file = &lt;span class="dt"&gt;Tempfile&lt;/span&gt;.new(&lt;span class="st"&gt;&amp;#39;nanoc_tmp_org_file&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;/tmp&amp;#39;&lt;/span&gt;)
-        tmp_org_file &amp;lt;&amp;lt; content
-        tmp_org_file.close(&lt;span class="dv"&gt;nil&lt;/span&gt;)
+      tmp_org_file = &lt;span class="dt"&gt;Tempfile&lt;/span&gt;.new(&lt;span class="st"&gt;&amp;#39;nanoc_tmp_org_file&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;/tmp&amp;#39;&lt;/span&gt;)
+      tmp_org_file &amp;lt;&amp;lt; content
+      tmp_org_file.close(&lt;span class="dv"&gt;nil&lt;/span&gt;)
 
-        elisp_code =&lt;span class="ot"&gt; %{&lt;/span&gt;
-&lt;span class="st"&gt;  (progn&lt;/span&gt;
-&lt;span class="st"&gt;    (require &amp;#39;org)&lt;/span&gt;
-&lt;span class="st"&gt;    (find-file-read-only &amp;quot;&lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;tmp_org_file.path&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;)&lt;/span&gt;
-&lt;span class="st"&gt;    (org-mode)&lt;/span&gt;
-&lt;span class="st"&gt;    (if (version&amp;lt; org-version &amp;quot;8.0&amp;quot;)&lt;/span&gt;
-&lt;span class="st"&gt;        (progn&lt;/span&gt;
-&lt;span class="st"&gt;          (setq org-export-html-postamble nil)&lt;/span&gt;
-&lt;span class="st"&gt;          (org-export-as-html 3))&lt;/span&gt;
+      elisp_code =&lt;span class="ot"&gt; %{&lt;/span&gt;
+&lt;span class="st"&gt;(progn&lt;/span&gt;
+&lt;span class="st"&gt;  (require &amp;#39;org)&lt;/span&gt;
+&lt;span class="st"&gt;  (find-file-read-only &amp;quot;&lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;tmp_org_file.path&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;)&lt;/span&gt;
+&lt;span class="st"&gt;  (org-mode)&lt;/span&gt;
+&lt;span class="st"&gt;  (if (version&amp;lt; org-version &amp;quot;8.0&amp;quot;)&lt;/span&gt;
 &lt;span class="st"&gt;      (progn&lt;/span&gt;
-&lt;span class="st"&gt;        (setq org-html-postamble nil)&lt;/span&gt;
-&lt;span class="st"&gt;        (org-html-export-as-html)))&lt;/span&gt;
-&lt;span class="st"&gt;    (message &amp;quot;%s&amp;quot; (buffer-string)))&lt;/span&gt;
-&lt;span class="st"&gt;  &lt;/span&gt;&lt;span class="ot"&gt;}&lt;/span&gt;
+&lt;span class="st"&gt;        (setq org-export-html-postamble nil)&lt;/span&gt;
+&lt;span class="st"&gt;        (org-export-as-html 3))&lt;/span&gt;
+&lt;span class="st"&gt;    (progn&lt;/span&gt;
+&lt;span class="st"&gt;      (setq org-html-postamble nil)&lt;/span&gt;
+&lt;span class="st"&gt;      (org-html-export-as-html)))&lt;/span&gt;
+&lt;span class="st"&gt;  (message &amp;quot;%s&amp;quot; (buffer-string)))&lt;/span&gt;
+&lt;span class="ot"&gt;}&lt;/span&gt;
 
-        cmd = [&lt;span class="st"&gt;&amp;#39;emacs&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;-Q&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;--batch&amp;#39;&lt;/span&gt;,
-               &lt;span class="st"&gt;&amp;#39;--eval&amp;#39;&lt;/span&gt;, elisp_code]
+      cmd = [&lt;span class="st"&gt;&amp;#39;emacs&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;-Q&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;--batch&amp;#39;&lt;/span&gt;,
+             &lt;span class="st"&gt;&amp;#39;--eval&amp;#39;&lt;/span&gt;, elisp_code]
 
-        stdout = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
-        stderr = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
-        status = systemu(cmd,
-                         &lt;span class="st"&gt;&amp;#39;stdout&amp;#39;&lt;/span&gt; =&amp;gt; stdout,
-                         &lt;span class="st"&gt;&amp;#39;stderr&amp;#39;&lt;/span&gt; =&amp;gt; stderr)
+      stdout = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+      stderr = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+      status = systemu(cmd,
+                       &lt;span class="st"&gt;&amp;#39;stdout&amp;#39;&lt;/span&gt; =&amp;gt; stdout,
+                       &lt;span class="st"&gt;&amp;#39;stderr&amp;#39;&lt;/span&gt; =&amp;gt; stderr)
 
-        &lt;span class="co"&gt;# Show errors&lt;/span&gt;
-        &lt;span class="kw"&gt;unless&lt;/span&gt; status.success?
-          &lt;span class="dt"&gt;$stderr&lt;/span&gt;.puts stderr
-          raise &lt;span class="st"&gt;&amp;quot;Emacs org-mode filter failed with status &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;status&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;&lt;/span&gt;
-        &lt;span class="kw"&gt;end&lt;/span&gt;
-
-        &lt;span class="co"&gt;# Get result&lt;/span&gt;
-        body = &lt;span class="ot"&gt;/&amp;lt;body&amp;gt;.*&amp;lt;\/body&amp;gt;/m&lt;/span&gt;.match(stderr)
-        body[&lt;span class="dv"&gt;0&lt;/span&gt;]
+      &lt;span class="co"&gt;# Show errors&lt;/span&gt;
+      &lt;span class="kw"&gt;unless&lt;/span&gt; status.success?
+        &lt;span class="dt"&gt;$stderr&lt;/span&gt;.puts stderr
+        raise &lt;span class="st"&gt;&amp;quot;Emacs org-mode filter failed with status &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;status&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;&lt;/span&gt;
       &lt;span class="kw"&gt;end&lt;/span&gt;
 
+      &lt;span class="co"&gt;# Get result&lt;/span&gt;
+      body = &lt;span class="ot"&gt;/&amp;lt;body&amp;gt;.*&amp;lt;\/body&amp;gt;/m&lt;/span&gt;.match(stderr)
+      body[&lt;span class="dv"&gt;0&lt;/span&gt;]
     &lt;span class="kw"&gt;end&lt;/span&gt;
 
-  &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;span class="kw"&gt;end&lt;/span&gt;
+
+&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这段代码的大体思路是将 emacs 当成 elisp 的解释器，喂给其一段 elisp 代码，调用 org-mode 的 export 功能 （ org-mode 7.x 版本中调用 &lt;code&gt;(org-export-as-html)&lt;/code&gt; ， 8.x 版本中调用 &lt;code&gt;(org-html-export-as-html)&lt;/code&gt; ），然后再通过 regexp 正则匹配的方式提取出 html 中的 body 部分作为 nanoc filter&amp;nbsp;的返回值。显而易见，这段代码冗长，乏味，别扭，不美。&lt;/p&gt;
 &lt;p&gt;好在我生逢其时，英雄出世， &lt;a href="http://zeitlens.com/"&gt;Albert Krewinkel&lt;/a&gt; 大手笔横空祭出几个 patch ，给 pandoc 提供了一个完备的 org-reader ，把我感动得一塌糊涂，我还特别写了封邮件感谢人家。一番 &lt;code&gt;cabal install&lt;/code&gt; 之后， pandoc 总算能支持 org-mode&amp;nbsp;作为其输入格式了，很完美。&lt;/p&gt;
 &lt;p&gt;最后要解决的问题就是 pandoc 和 nanoc 的集成。 nanoc 本身有一个内建的 &lt;code&gt;Nanoc::Filters::Pandoc&lt;/code&gt; ，调用的是 &lt;a href="https://github.com/alphabetum/pandoc-ruby"&gt;PandocRuby&lt;/a&gt; 。但是 nanoc 本身的 &lt;span class="caps"&gt;API&lt;/span&gt; 和 PandocRuby &lt;span class="caps"&gt;API&lt;/span&gt; 并不是很匹配，无法传递一些参数来启用 pandoc 的某些高级特性 （参考 &lt;a href="http://stackoverflow.com/questions/14646741/nanoc-how-can-i-pass-options-to-pandoc-ruby"&gt;stackoverflow&lt;/a&gt; ）。万般无奈之下，只能自己动手，重写一个 nanoc pandoc filter，完整代码参考 &lt;a href="https://gist.github.com/xiaohanyu/9866531"&gt;github gist&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
-&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;  &lt;span class="kw"&gt;module&lt;/span&gt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filters&lt;/span&gt;
+&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;span class="kw"&gt;module&lt;/span&gt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filters&lt;/span&gt;
 
-    &lt;span class="kw"&gt;class&lt;/span&gt; &lt;span class="dt"&gt;PandocHtml&lt;/span&gt; &amp;lt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filter&lt;/span&gt;
-      identifier &lt;span class="st"&gt;:pandoc_html&lt;/span&gt;
-      type &lt;span class="st"&gt;:text&lt;/span&gt; =&amp;gt; &lt;span class="st"&gt;:text&lt;/span&gt;
+  &lt;span class="kw"&gt;class&lt;/span&gt; &lt;span class="dt"&gt;PandocHtml&lt;/span&gt; &amp;lt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filter&lt;/span&gt;
+    identifier &lt;span class="st"&gt;:pandoc_html&lt;/span&gt;
+    type &lt;span class="st"&gt;:text&lt;/span&gt; =&amp;gt; &lt;span class="st"&gt;:text&lt;/span&gt;
 
-      &lt;span class="kw"&gt;def&lt;/span&gt; run(content, params = {})
-        input_format = &lt;span class="kw"&gt;case&lt;/span&gt; item[&lt;span class="st"&gt;:extension&lt;/span&gt;]
-                       &lt;span class="kw"&gt;when&lt;/span&gt; &lt;span class="st"&gt;&amp;#39;org&amp;#39;&lt;/span&gt;
-                         &lt;span class="st"&gt;&amp;#39;org&amp;#39;&lt;/span&gt;
-                       &lt;span class="kw"&gt;when&lt;/span&gt; &lt;span class="st"&gt;&amp;#39;md&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;
-                         &lt;span class="st"&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;
-                       &lt;span class="kw"&gt;end&lt;/span&gt;
+    &lt;span class="kw"&gt;def&lt;/span&gt; run(content, params = {})
+      input_format = &lt;span class="kw"&gt;case&lt;/span&gt; item[&lt;span class="st"&gt;:extension&lt;/span&gt;]
+                     &lt;span class="kw"&gt;when&lt;/span&gt; &lt;span class="st"&gt;&amp;#39;org&amp;#39;&lt;/span&gt;
+                       &lt;span class="st"&gt;&amp;#39;org&amp;#39;&lt;/span&gt;
+                     &lt;span class="kw"&gt;when&lt;/span&gt; &lt;span class="st"&gt;&amp;#39;md&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;
+                       &lt;span class="st"&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;
+                     &lt;span class="kw"&gt;end&lt;/span&gt;
 
-        &lt;span class="st"&gt;`pandoc --mathjax -f &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;input_format&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt; -t html5 &amp;lt; &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;item.raw_filename&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;`&lt;/span&gt;
-      &lt;span class="kw"&gt;end&lt;/span&gt;
-
+      &lt;span class="st"&gt;`pandoc --mathjax -f &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;input_format&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt; -t html5 &amp;lt; &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;item.raw_filename&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;`&lt;/span&gt;
     &lt;span class="kw"&gt;end&lt;/span&gt;
 
-  &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;span class="kw"&gt;end&lt;/span&gt;
+
+&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;代码思路很简单，就是通过 Ruby backticks 直接调用 pandoc ，然后将 pandoc 命令的 stdout 作为 nanoc filter 的返回值。通过进一步配置， nanoc 可以调用 pandoc 同时生成 html 和 pdf ，这样一来，同样的文章，即可以线上浏览，也可以打印下载，得益于 pandoc 的优秀设计， html 和 pdf&amp;nbsp;版本的文章具有一致出色的排版效果。&lt;/p&gt;
 &lt;p&gt;至此，核心的技术问题已经基本解决，剩下的就是前端设计了，这是我的弱项，为了能让这个 blog 有一个“不那么难看”的样式，我特别花时间学习系统地学习了下 &lt;span class="caps"&gt;HTML5&lt;/span&gt; 和&amp;nbsp;&lt;span class="caps"&gt;CSS3&lt;/span&gt;。这部分内容冗长乏味，非核心所在，下篇再表。&lt;/p&gt;
 &lt;h2&gt;Reference&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&amp;lt;&lt;a href="http://freemind.pluskid.org/technology/the-unbearable-madness-of-static-blog-generators/"&gt;The Unbearable Madness of Static Blog Generators&lt;/a&gt;&amp;gt;， pluskid 的 blog ，重点介绍了 ruhoh&amp;nbsp;。&lt;/li&gt;
 &lt;li&gt;&amp;lt;&lt;a href="http://clarkdave.net/2012/02/building-a-static-blog-with-nanoc/"&gt;Building a static blog with nanoc&lt;/a&gt;&amp;gt;， nanoc 入门教程，简洁明了&amp;nbsp;。&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;nanoc powered&amp;nbsp;的网站包括：&lt;/p&gt;
+&lt;li&gt;nanoc powered&amp;nbsp;的网站包括：
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://developer.github.com/"&gt;GitHub Developer&amp;nbsp;Site&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://guides.spreecommerce.com/api/"&gt;Spree Commerce &lt;span class="caps"&gt;API&lt;/span&gt;&amp;nbsp;site&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class="caps"&gt;SSG&lt;/span&gt; 名录大全： &lt;a href="http://staticsitegenerators.net/"&gt;http://staticsitegenerators.net/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&amp;lt;&lt;a href="http://kelvinh.github.io/blog/2012/11/27/growth-process-of-org-page/"&gt;Org-page的成长史&lt;/a&gt;&amp;gt;，介绍了基于 org-mode 的 &lt;span class="caps"&gt;SSG&lt;/span&gt;&amp;nbsp;。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&amp;lt;&lt;a href="http://kelvinh.github.io/blog/2012/11/27/growth-process-of-org-page/"&gt;Org-page的成长史&lt;/a&gt;&amp;gt;，介绍了基于 org-mode 的 &lt;span class="caps"&gt;SSG&lt;/span&gt;&amp;nbsp;。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;section class="footnotes"&gt;
 &lt;hr /&gt;
