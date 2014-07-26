@@ -8,11 +8,11 @@
 
 So, why static?
 
-从技术上来讲，传统的 blog 就是一个简化的 [[http://en.wikipedia.org/wiki/Content_management_system][CMS]] 系统。相较于 CMS ， blog 更多的是个人开放给外界的一个展示窗口，并不需要太多的交互和额外的用户注册管理系统（如各种bbs/forum/group等）， 其主要技术特性是：
+从技术上来讲，传统的 blog 就是一个简化的 [[http://en.wikipedia.org/wiki/Content_management_system][CMS]] 系统。相较于 CMS ， blog 更多的是个人开放给外界的一个展示窗口，并不需要太多的交互和额外的用户注册管理系统（如各种 bbs/forum/group 等）， 其主要技术特性是：
 - 面向个人
 - 页面排版较为简单
 - 内容管理相对单一，基本上以 post 为主
-- 需求模块较少，基本上就是Comments, Categories, Tags, Archives
+- 需求模块较少，基本上就是 Comments, Categories, Tags, Archives
 
 显然，动用各种 dynamic 语言和各种高大上的 SQL 数据库来实现这么几条简单的 blog 平台需求，有些牛刀杀鸡之嫌。在这方面， SSG 所遵循的 fast, lightweight, easy-deployment 是很有优势的。最简单的 blog 完全可以只是一个 post list 页面。但是纯静态的 blog 又太简陋了，因此需要通过一些 hack 的手段，在 static 的页面上加入一些 dynamic 的东西， 这个 hack 的手段，就是各种 SSG 中所谓的 compile 步骤。
 
@@ -109,60 +109,60 @@ Pandoc 的首选格式语言是 Markdown 。为了弥补 Markdown 的先天不�
 Pandoc 在 1.12.3.2 版本之前是不支持 org-mode 作为输入格式的。这也让我头疼了许久。我最原始的想法是将 Emacs 当成一个 org-mode 的文档格式转换器，定制 emacs org-mode filter 集成到 nanoc ：
 
 #+BEGIN_SRC ruby
-  module Nanoc::Filters
+module Nanoc::Filters
 
-    class OrgModeHtml < Nanoc::Filter
-      identifier :org_mode_html
-      type :text => :text
+  class OrgModeHtml < Nanoc::Filter
+    identifier :org_mode_html
+    type :text => :text
 
-      require 'systemu'
-      require 'tempfile'
+    require 'systemu'
+    require 'tempfile'
 
-      def run(content, params = {})
-        # Run command
+    def run(content, params = {})
+      # Run command
 
-        tmp_org_file = Tempfile.new('nanoc_tmp_org_file', '/tmp')
-        tmp_org_file << content
-        tmp_org_file.close(nil)
+      tmp_org_file = Tempfile.new('nanoc_tmp_org_file', '/tmp')
+      tmp_org_file << content
+      tmp_org_file.close(nil)
 
-        elisp_code = %{
-  (progn
-    (require 'org)
-    (find-file-read-only "#{tmp_org_file.path}")
-    (org-mode)
-    (if (version< org-version "8.0")
-        (progn
-          (setq org-export-html-postamble nil)
-          (org-export-as-html 3))
+      elisp_code = %{
+(progn
+  (require 'org)
+  (find-file-read-only "#{tmp_org_file.path}")
+  (org-mode)
+  (if (version< org-version "8.0")
       (progn
-        (setq org-html-postamble nil)
-        (org-html-export-as-html)))
-    (message "%s" (buffer-string)))
-  }
+        (setq org-export-html-postamble nil)
+        (org-export-as-html 3))
+    (progn
+      (setq org-html-postamble nil)
+      (org-html-export-as-html)))
+  (message "%s" (buffer-string)))
+}
 
-        cmd = ['emacs', '-Q', '--batch',
-               '--eval', elisp_code]
+      cmd = ['emacs', '-Q', '--batch',
+             '--eval', elisp_code]
 
-        stdout = ''
-        stderr = ''
-        status = systemu(cmd,
-                         'stdout' => stdout,
-                         'stderr' => stderr)
+      stdout = ''
+      stderr = ''
+      status = systemu(cmd,
+                       'stdout' => stdout,
+                       'stderr' => stderr)
 
-        # Show errors
-        unless status.success?
-          $stderr.puts stderr
-          raise "Emacs org-mode filter failed with status #{status}"
-        end
-
-        # Get result
-        body = /<body>.*<\/body>/m.match(stderr)
-        body[0]
+      # Show errors
+      unless status.success?
+        $stderr.puts stderr
+        raise "Emacs org-mode filter failed with status #{status}"
       end
 
+      # Get result
+      body = /<body>.*<\/body>/m.match(stderr)
+      body[0]
     end
 
   end
+
+end
 #+END_SRC
 
 这段代码的大体思路是将 emacs 当成 elisp 的解释器，喂给其一段 elisp 代码，调用 org-mode 的 export 功能 （ org-mode 7.x 版本中调用 =(org-export-as-html)= ， 8.x 版本中调用 =(org-html-export-as-html)= ），然后再通过 regexp 正则匹配的方式提取出 html 中的 body 部分作为 nanoc filter 的返回值。显而易见，这段代码冗长，乏味，别扭，不美。
@@ -172,26 +172,26 @@ Pandoc 在 1.12.3.2 版本之前是不支持 org-mode 作为输入格式的。�
 最后要解决的问题就是 pandoc 和 nanoc 的集成。 nanoc 本身有一个内建的 =Nanoc::Filters::Pandoc= ，调用的是 [[https://github.com/alphabetum/pandoc-ruby][PandocRuby]] 。但是 nanoc 本身的 API 和 PandocRuby API 并不是很匹配，无法传递一些参数来启用 pandoc 的某些高级特性 （参考 [[http://stackoverflow.com/questions/14646741/nanoc-how-can-i-pass-options-to-pandoc-ruby][stackoverflow]] ）。万般无奈之下，只能自己动手，重写一个 nanoc pandoc filter，完整代码参考 [[https://gist.github.com/xiaohanyu/9866531][github gist]] 。
 
 #+BEGIN_SRC ruby
-  module Nanoc::Filters
+module Nanoc::Filters
 
-    class PandocHtml < Nanoc::Filter
-      identifier :pandoc_html
-      type :text => :text
+  class PandocHtml < Nanoc::Filter
+    identifier :pandoc_html
+    type :text => :text
 
-      def run(content, params = {})
-        input_format = case item[:extension]
-                       when 'org'
-                         'org'
-                       when 'md', 'markdown'
-                         'markdown'
-                       end
+    def run(content, params = {})
+      input_format = case item[:extension]
+                     when 'org'
+                       'org'
+                     when 'md', 'markdown'
+                       'markdown'
+                     end
 
-        `pandoc --mathjax -f #{input_format} -t html5 < #{item.raw_filename}`
-      end
-
+      `pandoc --mathjax -f #{input_format} -t html5 < #{item.raw_filename}`
     end
 
   end
+
+end
 #+END_SRC
 
 代码思路很简单，就是通过 Ruby backticks 直接调用 pandoc ，然后将 pandoc 命令的 stdout 作为 nanoc filter 的返回值。通过进一步配置， nanoc 可以调用 pandoc 同时生成 html 和 pdf ，这样一来，同样的文章，即可以线上浏览，也可以打印下载，得益于 pandoc 的优秀设计， html 和 pdf 版本的文章具有一致出色的排版效果。
