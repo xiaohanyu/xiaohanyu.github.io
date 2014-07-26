@@ -21,8 +21,12 @@ class NilClass
 end
 
 class String
+  def upcase?
+    match(/\p{Lower}/) == nil
+  end
+
   def titleize
-    split(/(\W)/).map(&:capitalize).join
+    split(/(\W)/).map { |w| w.upcase? ? w : w.capitalize }.join
   end
 end
 
