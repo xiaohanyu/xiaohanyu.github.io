@@ -106,9 +106,3 @@ $(document).ready(function () {
     $("#words-en").html(json_to_quote(data));
   });
 });
-
-$(document).ready(function () {
-  $("div.quote").each (function () {
-    $(this).replaceWith("<blockquote>" + $(this).text() + "</blockquote>");
-  });
-});
