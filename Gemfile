@@ -1,6 +1,8 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
+gem 'nanoc'
+
 # nanoc plugins
 gem 'nanoc-toolbox'
 gem 'typogruby'
@@ -14,7 +16,6 @@ gem 'nanoc-cachebuster'
 
 # basic requirement
 gem 'adsf'
-gem 'guard-nanoc'
 
 # require by Nanoc::Helpers::XMLSitemap
 gem 'builder'
@@ -24,5 +25,8 @@ gem 'nokogiri'
 gem 'w3c_validators'
 
 # debugging
-gem 'pry'
-gem 'pry-debugger'
+group :development do
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'guard-nanoc'
+end
