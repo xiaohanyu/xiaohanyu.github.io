@@ -17,7 +17,7 @@ disqus:
   username: 'xiaohanyu'
 
 github:
-  cname: 'www.xiaohanyu.me'
+  cname: 'xiaohanyu.me'
 
 # if true, don't concatenate scripts
 debug: false

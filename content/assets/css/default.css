@@ -46,6 +46,11 @@ p {
   margin-bottom: 0.8em;
 }
 
+blockquote p {
+  line-height: 1.3em;
+  margin-bottom: 0.3em;
+}
+
 ul, ol {
   line-height: 1.6em;
 }
