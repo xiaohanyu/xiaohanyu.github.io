@@ -11,7 +11,7 @@ generate_pdf: false
 
 ga_tracking_code: UA-49528621-1
 
-base_url: http://www.xiaohanyu.me
+base_url: http://xiaohanyu.me
 
 disqus:
   username: 'xiaohanyu'
