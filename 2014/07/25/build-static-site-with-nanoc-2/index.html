@@ -93,7 +93,7 @@
   <div class="panel-body">
     <div class="row">
   <article class="col-sm-9 post">
-    <p><a href="http://www.xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/">上篇</a>主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog&nbsp;本身的一些设计。</p>
+    <p><a href="http://xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/">上篇</a>主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog&nbsp;本身的一些设计。</p>
 <h2>Bootstrap</h2>
 <p><a href="http://getbootstrap.com/">Bootstrap</a> 现在大概已经成为像我一样的半吊子前端写网站的标配了吧，简单，明了，快捷，简直是为我这种人量身定做的。最开始我也是想一切自己动手，奈何还是没有禁住 Bootstrap 各种漂亮主题及插件的诱惑，最终还是不能免俗，从了 Bootstrap&nbsp;。</p>
 <p>其实类似于 Bootstrap 的前端框架还是有一些的，比如 <a href="http://foundation.zurb.com/">Foundation</a> 和 <a href="http://semantic-ui.com/">Semantic <span class="caps">UI</span></a> 。 Semantic <span class="caps">UI</span> 甚至在其官方主页上指出了 Bootstrap 命名规则的混乱。不过 Bootstrap 最大的优势在于它的普及(<del>烂大街</del>)，这种普及甚至使得 Bootstrap&nbsp;成了一个平台。</p>
@@ -120,9 +120,9 @@
 <span class="kw">}</span></code></pre>
 <p>这里指定 <code>&lt;body&gt;</code> 的字体为 Lora ，但是 Lora 本身是一款英文字体，对于汉字是“无能为力”的，因此如果 <code>&lt;body&gt;</code> 中有汉字的话，浏览器会按照 <code>font-family</code> 所指定的值依次找下去，直到找到一款从 web 上加载的或者系统中已经存在的汉字字体。另外，在 Chrome 和 Firefox 的 Developer Tools 中可以看到浏览器渲染页面时所使用的字体的细节，具体参考 <a href="http://stackoverflow.com/questions/884177/how-can-i-determine-what-font-a-browser-is-actually-using-to-render-some-text">StackOverflow</a>&nbsp;。</p>
 <h2>Third-party&nbsp;Plugins</h2>
-<p>由于静态站点本身并没有数据库之类的标配的本地存储，因此像评论、站内搜索，以及统计这类功能需要借助第三方的服务。站内搜索比较简单，直接调用 Google 的 <code>site:www.xiaohanyu.me</code>&nbsp;搜索即可：</p>
+<p>由于静态站点本身并没有数据库之类的标配的本地存储，因此像评论、站内搜索，以及统计这类功能需要借助第三方的服务。站内搜索比较简单，直接调用 Google 的 <code>site:xiaohanyu.me</code>&nbsp;搜索即可：</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;form</span><span class="ot"> class=</span><span class="st">&quot;form-inline&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="ot"> method=</span><span class="st">&quot;get&quot;</span><span class="ot"> action=</span><span class="st">&quot;http://google.com/search&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;hidden&quot;</span><span class="ot"> value=</span><span class="st">&quot;site:www.xiaohanyu.me&quot;</span><span class="ot"> name=</span><span class="st">&quot;q&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;hidden&quot;</span><span class="ot"> value=</span><span class="st">&quot;site:xiaohanyu.me&quot;</span><span class="ot"> name=</span><span class="st">&quot;q&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> class=</span><span class="st">&quot;form-control pull-left&quot;</span><span class="ot"> placeholder=</span><span class="st">&quot;Search&quot;</span><span class="ot"> name=</span><span class="st">&quot;q&quot;</span><span class="kw">&gt;</span>
 <span class="kw">&lt;/form&gt;</span></code></pre>
 <p>至于评论系统，我用的也就是现今最流行的第三方评论系统 <a href="https://disqus.com/">Disqus</a> 了。其安装设置非常简单，不再赘述。使用体验也不错。但是由于国内网络的原因， Disqus 加载的时候还是需要 2-4 秒的时间，因此我写了个 <span class="caps">JS</span> 函数，来按需加载 Disqus 评论。与此同时，我还在每篇 post 的 metadata 里面设置了新的属性： <code>disable_disqus</code> ，这样如果 <code>disable_disqus</code> 为真，那么相应的 post&nbsp;就是禁用评论的。</p>
@@ -168,8 +168,8 @@ route <span class="ot">%r{/sitemap/|/atom/}</span> <span class="kw">do</span>
 <p>除此之外，我还设计了一些有趣的小东西，当然，如果您是资深的前端工程师，那么可以直接忽略这一节，我怕班门弄斧，贻笑大方。</p>
 <p>一是我给每篇 post 加上了 next 和 previous 的 link button， <del>当然如果有一天我的文章写的足够好能让人流连忘返的话</del> ，这两个 button 或许是有用的。具体的技术细节可以参考 <a href="https://ecarmi.org/writing/next-previous-links-nanoc/">这里</a>&nbsp;。</p>
 <p>二是我在页面上加了一个 <strong>back-to-top</strong> 的 button ，这样在页面滚了一点进度时， back-to-top button 会出现在右下角，然后你可以点击这个 button&nbsp;回到页面的最顶端。</p>
-<p>三是我参考一些成型的设计，给自己的 blog 设计了一个还算满意的 <a href="http://www.xiaohanyu.me/does-not-exist">404 page</a>&nbsp;。</p>
-<p>最后，我在 <a href="http://www.xiaohanyu.me/does-not-exist">about page</a> 中加入了一些 random quotes 的小把戏，这样每次访问/刷新 about page 的时候，你看到的 quotes 都是随机的。至于原理，暂且不表 ^_^&nbsp;。</p>
+<p>三是我参考一些成型的设计，给自己的 blog 设计了一个还算满意的 <a href="http://xiaohanyu.me/does-not-exist">404 page</a>&nbsp;。</p>
+<p>最后，我在 <a href="http://wxiaohanyu.me/about/index.html">about page</a> 中加入了一些 random quotes 的小把戏，这样每次访问/刷新 about page 的时候，你看到的 quotes 都是随机的。至于原理，暂且不表 ^_^&nbsp;。</p>
 <h2>总结</h2>
 <p>以上，大概记录了我个人建站的基本过程，从基本的技术选型，到版式字体的设计，以及一些 nanoc&nbsp;的小技巧，希望对您有用。</p>
 

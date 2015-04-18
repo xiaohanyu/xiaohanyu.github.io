@@ -170,7 +170,7 @@
     <published>2014-07-25T20:00:00Z</published>
     <updated>2014-07-25T20:00:00Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/2014/07/25/build-static-site-with-nanoc-2/"/>
-    <content type="html">&lt;p&gt;&lt;a href="http://www.xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/"&gt;上篇&lt;/a&gt;主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog&amp;nbsp;本身的一些设计。&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;a href="http://xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/"&gt;上篇&lt;/a&gt;主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog&amp;nbsp;本身的一些设计。&lt;/p&gt;
 &lt;h2&gt;Bootstrap&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt; 现在大概已经成为像我一样的半吊子前端写网站的标配了吧，简单，明了，快捷，简直是为我这种人量身定做的。最开始我也是想一切自己动手，奈何还是没有禁住 Bootstrap 各种漂亮主题及插件的诱惑，最终还是不能免俗，从了 Bootstrap&amp;nbsp;。&lt;/p&gt;
 &lt;p&gt;其实类似于 Bootstrap 的前端框架还是有一些的，比如 &lt;a href="http://foundation.zurb.com/"&gt;Foundation&lt;/a&gt; 和 &lt;a href="http://semantic-ui.com/"&gt;Semantic &lt;span class="caps"&gt;UI&lt;/span&gt;&lt;/a&gt; 。 Semantic &lt;span class="caps"&gt;UI&lt;/span&gt; 甚至在其官方主页上指出了 Bootstrap 命名规则的混乱。不过 Bootstrap 最大的优势在于它的普及(&lt;del&gt;烂大街&lt;/del&gt;)，这种普及甚至使得 Bootstrap&amp;nbsp;成了一个平台。&lt;/p&gt;
@@ -197,9 +197,9 @@
 &lt;span class="kw"&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这里指定 &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; 的字体为 Lora ，但是 Lora 本身是一款英文字体，对于汉字是“无能为力”的，因此如果 &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; 中有汉字的话，浏览器会按照 &lt;code&gt;font-family&lt;/code&gt; 所指定的值依次找下去，直到找到一款从 web 上加载的或者系统中已经存在的汉字字体。另外，在 Chrome 和 Firefox 的 Developer Tools 中可以看到浏览器渲染页面时所使用的字体的细节，具体参考 &lt;a href="http://stackoverflow.com/questions/884177/how-can-i-determine-what-font-a-browser-is-actually-using-to-render-some-text"&gt;StackOverflow&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
 &lt;h2&gt;Third-party&amp;nbsp;Plugins&lt;/h2&gt;
-&lt;p&gt;由于静态站点本身并没有数据库之类的标配的本地存储，因此像评论、站内搜索，以及统计这类功能需要借助第三方的服务。站内搜索比较简单，直接调用 Google 的 &lt;code&gt;site:www.xiaohanyu.me&lt;/code&gt;&amp;nbsp;搜索即可：&lt;/p&gt;
+&lt;p&gt;由于静态站点本身并没有数据库之类的标配的本地存储，因此像评论、站内搜索，以及统计这类功能需要借助第三方的服务。站内搜索比较简单，直接调用 Google 的 &lt;code&gt;site:xiaohanyu.me&lt;/code&gt;&amp;nbsp;搜索即可：&lt;/p&gt;
 &lt;pre class="sourceCode html"&gt;&lt;code class="sourceCode html"&gt;&lt;span class="kw"&gt;&amp;lt;form&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;form-inline&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; target=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; method=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;get&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; action=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://google.com/search&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="kw"&gt;&amp;lt;input&lt;/span&gt;&lt;span class="ot"&gt; type=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; value=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;site:www.xiaohanyu.me&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; name=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;q&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="kw"&gt;&amp;lt;input&lt;/span&gt;&lt;span class="ot"&gt; type=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; value=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;site:xiaohanyu.me&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; name=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;q&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;
   &lt;span class="kw"&gt;&amp;lt;input&lt;/span&gt;&lt;span class="ot"&gt; type=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;form-control pull-left&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; placeholder=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;Search&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; name=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;q&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;
 &lt;span class="kw"&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;至于评论系统，我用的也就是现今最流行的第三方评论系统 &lt;a href="https://disqus.com/"&gt;Disqus&lt;/a&gt; 了。其安装设置非常简单，不再赘述。使用体验也不错。但是由于国内网络的原因， Disqus 加载的时候还是需要 2-4 秒的时间，因此我写了个 &lt;span class="caps"&gt;JS&lt;/span&gt; 函数，来按需加载 Disqus 评论。与此同时，我还在每篇 post 的 metadata 里面设置了新的属性： &lt;code&gt;disable_disqus&lt;/code&gt; ，这样如果 &lt;code&gt;disable_disqus&lt;/code&gt; 为真，那么相应的 post&amp;nbsp;就是禁用评论的。&lt;/p&gt;
@@ -245,8 +245,8 @@ route &lt;span class="ot"&gt;%r{/sitemap/|/atom/}&lt;/span&gt; &lt;span class="k
 &lt;p&gt;除此之外，我还设计了一些有趣的小东西，当然，如果您是资深的前端工程师，那么可以直接忽略这一节，我怕班门弄斧，贻笑大方。&lt;/p&gt;
 &lt;p&gt;一是我给每篇 post 加上了 next 和 previous 的 link button， &lt;del&gt;当然如果有一天我的文章写的足够好能让人流连忘返的话&lt;/del&gt; ，这两个 button 或许是有用的。具体的技术细节可以参考 &lt;a href="https://ecarmi.org/writing/next-previous-links-nanoc/"&gt;这里&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
 &lt;p&gt;二是我在页面上加了一个 &lt;strong&gt;back-to-top&lt;/strong&gt; 的 button ，这样在页面滚了一点进度时， back-to-top button 会出现在右下角，然后你可以点击这个 button&amp;nbsp;回到页面的最顶端。&lt;/p&gt;
-&lt;p&gt;三是我参考一些成型的设计，给自己的 blog 设计了一个还算满意的 &lt;a href="http://www.xiaohanyu.me/does-not-exist"&gt;404 page&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
-&lt;p&gt;最后，我在 &lt;a href="http://www.xiaohanyu.me/does-not-exist"&gt;about page&lt;/a&gt; 中加入了一些 random quotes 的小把戏，这样每次访问/刷新 about page 的时候，你看到的 quotes 都是随机的。至于原理，暂且不表 ^_^&amp;nbsp;。&lt;/p&gt;
+&lt;p&gt;三是我参考一些成型的设计，给自己的 blog 设计了一个还算满意的 &lt;a href="http://xiaohanyu.me/does-not-exist"&gt;404 page&lt;/a&gt;&amp;nbsp;。&lt;/p&gt;
+&lt;p&gt;最后，我在 &lt;a href="http://wxiaohanyu.me/about/index.html"&gt;about page&lt;/a&gt; 中加入了一些 random quotes 的小把戏，这样每次访问/刷新 about page 的时候，你看到的 quotes 都是随机的。至于原理，暂且不表 ^_^&amp;nbsp;。&lt;/p&gt;
 &lt;h2&gt;总结&lt;/h2&gt;
 &lt;p&gt;以上，大概记录了我个人建站的基本过程，从基本的技术选型，到版式字体的设计，以及一些 nanoc&amp;nbsp;的小技巧，希望对您有用。&lt;/p&gt;
 </content>
