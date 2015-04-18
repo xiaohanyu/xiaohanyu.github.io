@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.xiaohanyu.me/</loc>
+    <loc>http://xiaohanyu.me/</loc>
     <lastmod>2015-04-04</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaohanyu.me/about/</loc>
+    <loc>http://xiaohanyu.me/about/</loc>
     <lastmod>2015-04-04</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaohanyu.me/assets/img/compass.svg</loc>
+    <loc>http://xiaohanyu.me/assets/img/compass.svg</loc>
     <lastmod>2015-04-04</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaohanyu.me/assets/img/gravatar.svg</loc>
+    <loc>http://xiaohanyu.me/assets/img/gravatar.svg</loc>
     <lastmod>2015-04-04</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaohanyu.me/assets/img/world_map.svg</loc>
+    <loc>http://xiaohanyu.me/assets/img/world_map.svg</loc>
     <lastmod>2015-04-04</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaohanyu.me/categories/</loc>
+    <loc>http://xiaohanyu.me/categories/</loc>
     <lastmod>2015-04-04</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaohanyu.me/favicon.ico</loc>
+    <loc>http://xiaohanyu.me/favicon.ico</loc>
     <lastmod>2015-04-04</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaohanyu.me/2014/04/16/new-blog-new-start/</loc>
+    <loc>http://xiaohanyu.me/2014/04/16/new-blog-new-start/</loc>
     <lastmod>2015-04-09</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/</loc>
+    <loc>http://xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/</loc>
     <lastmod>2015-04-09</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaohanyu.me/2014/07/25/build-static-site-with-nanoc-2/</loc>
+    <loc>http://xiaohanyu.me/2014/07/25/build-static-site-with-nanoc-2/</loc>
     <lastmod>2015-04-09</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaohanyu.me/2015/04/10/2014-summary/</loc>
-    <lastmod>2015-04-10</lastmod>
+    <loc>http://xiaohanyu.me/2015/04/10/2014-summary/</loc>
+    <lastmod>2015-04-11</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaohanyu.me/tags/</loc>
+    <loc>http://xiaohanyu.me/tags/</loc>
     <lastmod>2015-04-04</lastmod>
   </url>
 </urlset>

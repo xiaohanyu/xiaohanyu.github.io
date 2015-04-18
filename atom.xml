@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>http://www.xiaohanyu.me/</id>
+  <id>http://xiaohanyu.me/</id>
   <title>行者无疆 始于足下</title>
   <updated>2015-04-10T20:00:00Z</updated>
-  <link rel="alternate" href="http://www.xiaohanyu.me/"/>
-  <link rel="self" href="http://www.xiaohanyu.me/atom.xml"/>
+  <link rel="alternate" href="http://xiaohanyu.me/"/>
+  <link rel="self" href="http://xiaohanyu.me/atom.xml"/>
   <author>
     <name>Xiao Hanyu</name>
-    <uri>http://www.xiaohanyu.me</uri>
+    <uri>http://xiaohanyu.me</uri>
   </author>
   <entry>
-    <id>tag:www.xiaohanyu.me,2015-04-11:/2015/04/10/2014-summary/</id>
+    <id>tag:xiaohanyu.me,2015-04-11:/2015/04/10/2014-summary/</id>
     <title type="html">2014，漫步</title>
     <published>2015-04-10T20:00:00Z</published>
     <updated>2015-04-10T20:00:00Z</updated>
-    <link rel="alternate" href="http://www.xiaohanyu.me/2015/04/10/2014-summary/"/>
+    <link rel="alternate" href="http://xiaohanyu.me/2015/04/10/2014-summary/"/>
     <content type="html">&lt;p&gt;“亡羊补牢，未为迟也”， 15 年已然过了三分之一，而我才开始憋 14 年的年终总结，想来必是颓废日久，点墨已尽的缘故。 Anyway, better late than never&amp;nbsp;。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://cnlox.is-programmer.com/posts/31605.html"&gt;再见，2011&lt;/a&gt;&lt;/li&gt;
@@ -165,11 +165,11 @@
 </content>
   </entry>
   <entry>
-    <id>tag:www.xiaohanyu.me,2014-07-26:/2014/07/25/build-static-site-with-nanoc-2/</id>
+    <id>tag:xiaohanyu.me,2014-07-26:/2014/07/25/build-static-site-with-nanoc-2/</id>
     <title type="html">Build Static Site with Nanoc (II)</title>
     <published>2014-07-25T20:00:00Z</published>
     <updated>2014-07-25T20:00:00Z</updated>
-    <link rel="alternate" href="http://www.xiaohanyu.me/2014/07/25/build-static-site-with-nanoc-2/"/>
+    <link rel="alternate" href="http://xiaohanyu.me/2014/07/25/build-static-site-with-nanoc-2/"/>
     <content type="html">&lt;p&gt;&lt;a href="http://www.xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/"&gt;上篇&lt;/a&gt;主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog&amp;nbsp;本身的一些设计。&lt;/p&gt;
 &lt;h2&gt;Bootstrap&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt; 现在大概已经成为像我一样的半吊子前端写网站的标配了吧，简单，明了，快捷，简直是为我这种人量身定做的。最开始我也是想一切自己动手，奈何还是没有禁住 Bootstrap 各种漂亮主题及插件的诱惑，最终还是不能免俗，从了 Bootstrap&amp;nbsp;。&lt;/p&gt;
@@ -252,11 +252,11 @@ route &lt;span class="ot"&gt;%r{/sitemap/|/atom/}&lt;/span&gt; &lt;span class="k
 </content>
   </entry>
   <entry>
-    <id>tag:www.xiaohanyu.me,2014-05-05:/2014/05/04/build-static-site-with-nanoc-1/</id>
+    <id>tag:xiaohanyu.me,2014-05-05:/2014/05/04/build-static-site-with-nanoc-1/</id>
     <title type="html">Build Static Site with Nanoc (I)</title>
     <published>2014-05-04T20:00:00Z</published>
     <updated>2014-05-04T20:00:00Z</updated>
-    <link rel="alternate" href="http://www.xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/"/>
+    <link rel="alternate" href="http://xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/"/>
     <content type="html">&lt;p&gt;07年我开始学会上网，那时候写 blog 应该还是一件相当时髦的事情。而我个人，作为一枚外表木讷闷骚，内心感情丰富的三好有为青年，自然对 blog 保持着强烈的好奇心，从一路转载，到絮叨自嗨，四五年坚持下来，总算找到了一点 blog 的感觉。所谓“工欲善其行，必先利其器”，头上顶了“书写是为了更好的思考”这面响当当的思想大旗，手头自然也希望能升级下一直以来残破不勘凑合能用的写作工具。于是祭出几年前刚开始折腾 Linux 时的那份耐性，断续折腾一年有余，总算略有小成。本文（及后续文章）尝试记录下这个 blog&amp;nbsp;的一些技术细节，希望对后来人有所启发。&lt;/p&gt;
 &lt;h2&gt;Why&amp;nbsp;Static?&lt;/h2&gt;
 &lt;p&gt;最原始的 blog 应该就是纯静态的个人主页，后来 blog 开始火的时候，各种线上平台一统天下，而对于有点折腾能力的人来说， &lt;a href="https://wordpress.org/"&gt;WordPress&lt;/a&gt; 则一支独秀。现如今，在 GitHub 当道的年代，由 &lt;a href="https://pages.github.com/"&gt;GitHub Pages&lt;/a&gt; 及其工具链 &lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;/&lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt; 所组成的生态系统，则在程序员的圈子里吸引了足够的眼球和人气，也宣告着所谓 &lt;a href="http://staticsitegenerators.net/"&gt;static site generator&lt;/a&gt;（本文简称为&lt;span class="caps"&gt;SSG&lt;/span&gt;）在某种程度上的回归。&lt;/p&gt;
@@ -438,11 +438,11 @@ Nanoc 创造了自己的术语体系，每个概念相互独立又彼此联系�
 </content>
   </entry>
   <entry>
-    <id>tag:www.xiaohanyu.me,2014-04-17:/2014/04/16/new-blog-new-start/</id>
+    <id>tag:xiaohanyu.me,2014-04-17:/2014/04/16/new-blog-new-start/</id>
     <title type="html">New Blog, New Start</title>
     <published>2014-04-16T20:00:00Z</published>
     <updated>2014-04-16T20:00:00Z</updated>
-    <link rel="alternate" href="http://www.xiaohanyu.me/2014/04/16/new-blog-new-start/"/>
+    <link rel="alternate" href="http://xiaohanyu.me/2014/04/16/new-blog-new-start/"/>
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;书写是为了更好的思考。&lt;/p&gt;
 &lt;p&gt;&amp;#8211;&amp;nbsp;刘未鹏&lt;/p&gt;
