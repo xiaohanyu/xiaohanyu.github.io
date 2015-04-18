@@ -1,6 +1,6 @@
 #+TITLE: Build Static Site with Nanoc (II)
 
-[[http://www.xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/][上篇]]主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog 本身的一些设计。
+[[http://xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/][上篇]]主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog 本身的一些设计。
 
 ** Bootstrap
 
@@ -45,11 +45,11 @@ body {
 
 ** Third-party Plugins
 
-由于静态站点本身并没有数据库之类的标配的本地存储，因此像评论、站内搜索，以及统计这类功能需要借助第三方的服务。站内搜索比较简单，直接调用 Google 的 =site:www.xiaohanyu.me= 搜索即可：
+由于静态站点本身并没有数据库之类的标配的本地存储，因此像评论、站内搜索，以及统计这类功能需要借助第三方的服务。站内搜索比较简单，直接调用 Google 的 =site:xiaohanyu.me= 搜索即可：
 
 #+BEGIN_SRC html
 <form class="form-inline" target="_blank" method="get" action="http://google.com/search">
-  <input type="hidden" value="site:www.xiaohanyu.me" name="q">
+  <input type="hidden" value="site:xiaohanyu.me" name="q">
   <input type="text" class="form-control pull-left" placeholder="Search" name="q">
 </form>
 #+END_SRC
@@ -110,9 +110,9 @@ end
 
 二是我在页面上加了一个 *back-to-top* 的 button ，这样在页面滚了一点进度时， back-to-top button 会出现在右下角，然后你可以点击这个 button 回到页面的最顶端。
 
-三是我参考一些成型的设计，给自己的 blog 设计了一个还算满意的 [[http://www.xiaohanyu.me/does-not-exist][404 page]] 。
+三是我参考一些成型的设计，给自己的 blog 设计了一个还算满意的 [[http://xiaohanyu.me/does-not-exist][404 page]] 。
 
-最后，我在 [[http://www.xiaohanyu.me/does-not-exist][about page]] 中加入了一些 random quotes 的小把戏，这样每次访问/刷新 about page 的时候，你看到的 quotes 都是随机的。至于原理，暂且不表 ^_^ 。
+最后，我在 [[http://wxiaohanyu.me/about/index.html][about page]] 中加入了一些 random quotes 的小把戏，这样每次访问/刷新 about page 的时候，你看到的 quotes 都是随机的。至于原理，暂且不表 ^_^ 。
 
 ** 总结
 
