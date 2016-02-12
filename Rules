@@ -1,162 +1,55 @@
 #!/usr/bin/env ruby
-# -*- coding: utf-8 -*-
+# coding: utf-8
 
 # A few helpful tips about the Rules file:
 #
 # * The string given to #compile and #route are matching patterns for
-#   identifiers--not for paths. Therefore, you can't match on extension.
+#   identifiers--not for paths. Therefore, you can’t match on extension.
 #
 # * The order of rules is important: for each item, only the first matching
 #   rule is applied.
 #
-# * Item identifiers start and end with a slash (e.g. "/about/" for the file
-#   "content/about.html"). To select all children, grandchildren, … of an
-#   item, use the pattern "/about/*/"; "/about/*" will also select the parent,
-#   because "*" matches zero or more characters.
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
 
-pandoc_formats = ["org", "md", "markdown"]
-
-preprocess do
-  create_github_cname
-  create_robots_txt
-  create_sitemap
-  create_atom
-end
-
-compile '/assets/css/*' do
-  filter :erb
-  filter :rainpress if File.basename(item[:content_filename], ".*") == 'all'
-end
-
-compile '/assets/js/*' do
-  filter :erb
-  filter :uglify_js if File.basename(item[:content_filename], ".*") == 'all'
-end
-
-# Don't filter or layout assets, cname.
-compile %r{^/(cname|assets)} do
-end
-
-compile %r{/sitemap/|/atom/|/robots/} do
-  filter :erb
-end
-
-compile '/404/' do
-  filter :erb
-  filter :typogruby
-  layout 'simple'
-  filter :cache_buster
-end
-
-compile %r{/posts/*} do
-  filter :pandoc_html if pandoc_formats.include?(item[:extension])
-  filter :typogruby
-  layout 'post'
-  layout 'panel'
-  layout 'container'
-  layout 'grey'
-  layout 'default'
-  filter :cache_buster
-end
-
-compile %r{/quotes/*} do
-  filter :yaml_2_json
-end
-
-compile %r{/about/|/wiki/} do
-  filter :erb
-  layout 'default'
-  filter :cache_buster
-end
-
-if @config[:generate_pdf]
-  compile %r{/posts/*}, :rep => :pdf do
-    filter :pandoc_pdf
+compile '/posts/**/*' do
+  case item[:extension]
+  when /slim|html/
+    filter :slim
+  when /md|markdown/
+    filter :kramdown
+    layout '/wiki.*'
   end
+  layout item[:layout] || '/default.*'
 end
 
-compile '*' do
+passthrough '/assets/**/*'
+
+compile '**/*' do
   if item.binary?
     # don't filter binary items
   else
-    pandoc_formats = ["org", "md", "markdown"]
-    filter :erb
-    filter :pandoc_html if pandoc_formats.include?(item[:extension])
-    filter :typogruby
-    layout 'panel'
-    layout 'container'
-    layout 'grey'
-    layout 'default'
-    filter :cache_buster
+    case item[:extension]
+    when /slim|html/
+      filter :slim
+    when /md|markdown/
+      filter :kramdown
+    end
+    layout item[:layout] || '/default.*'
   end
 end
 
-route '/cname/' do
-  '/CNAME'
-end
-
-route %r{/quotes/*} do
-  item.identifier.chop + '.json'
-end
-
-route %r{/sitemap/|/atom/} do
-  item.identifier.chop + '.xml'
-end
-
-route '/404/' do
-  '/404.html'
-end
-
-route '/robots/' do
-  item.identifier.chop + '.txt'
-end
-
-route '/assets/css/*' do
-  # if not debug mode, only let all.css through
-  fp = fingerprint(item[:filename])
-  unless @config[:debug]
-    item.identifier.chop + fp + '.min.css' if File.basename(item[:content_filename], ".*") == 'all'
-  else
-    item.identifier.chop + fp + '.css'
-  end
-end
-
-route '/assets/js/*' do
-  # if not debug mode, only let all.js through
-  fp = fingerprint(item[:filename])
-  unless @config[:debug]
-    item.identifier.chop + fp + '.min.js' if File.basename(item[:content_filename], ".*") == 'all'
-  else
-    item.identifier.chop + fp + '.js'
-  end
-end
-
-route '/assets/*/' do
-  item.identifier.chop + '.' + item[:extension]
-end
-
-route '/posts/*' do
-  y, m, d, slug = /([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)/.match(item.identifier).captures
-
-  "/#{y}/#{m}/#{d}/#{slug}/index.html"
-end
-
-if @config[:generate_pdf]
-  route '/posts/*/', :rep => :pdf do
-    item.identifier.chop + '.' + 'pdf'
-  end
-end
-
-route '*' do
-  if item.binary?
-    # Write item with identifier /foo/ to /foo.ext
-    item.identifier.chop + '.' + item[:extension]
-  elsif item[:path]
-    item[:path]
+route '**/*' do
+  case item[:extension]
+  when /slim|html|md|markdown/
+    # Write item with identifier /foo/ to /foo.css
+    item.identifier.without_ext + '.html'
   else
     # Write item with identifier /foo/ to /foo/index.html
-    item.identifier + 'index.html'
+    item.identifier.to_s
   end
 end
 
-layout '*', :erb
+layout '**/*', :slim

@@ -1,7 +1,8 @@
-# A sample Gemfile
 source "https://rubygems.org"
 
 gem 'nanoc'
+
+gem 'slim'
 
 # nanoc plugins
 gem 'nanoc-toolbox'
@@ -14,19 +15,17 @@ gem 'uglifier'
 # busting web browser's cache when js/css file changes.
 gem 'nanoc-cachebuster'
 
-# basic requirement
+# basic requirement for `nanoc view` command
 gem 'adsf'
 
 # require by Nanoc::Helpers::XMLSitemap
 gem 'builder'
 
-# for nanoc check sub command
-gem 'nokogiri'
-gem 'w3c_validators'
-
 # debugging
 group :development do
+  gem 'rake'
   gem 'pry'
   gem 'pry-byebug'
   gem 'guard-nanoc'
+  gem 'guard-bundler', :require => false
 end
