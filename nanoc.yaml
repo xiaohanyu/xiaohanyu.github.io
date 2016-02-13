@@ -89,7 +89,7 @@ checks:
     #   exclude_files: ['blog/page']
     exclude_files: []
 
-meta_data:
+meta:
   # Default title, that is added to an item's own title
   title: 行者无疆 始于足下
 
@@ -97,16 +97,16 @@ meta_data:
   author: Xiao Hanyu
 
   # E-mail address used in contact information, etc.
-  author_email: xiaohanyu1988@gmail.com
+  email: xiaohanyu1988@gmail.com
 
   # Default keywords to use when an item does not specify its own
-  keywords: 'nanoc, org-mode, static-site'
+  keywords: blog, nanoc, pandoc, emacs, org-mode, static-site
 
   # Default description to use when an item does not specify its own
-  description: Undescribed website.
+  description: Personal website of Xiao Hanyu
 
   # Copyright line used in the document header meta tag.
-  copyright: "Copyright © Xiao Hanyu 2014 - Powered by Ruby, Nanoc and Emacs Org-mode."
+  copyright: Copyright © Xiao Hanyu 2014 - Powered by Nanoc and Pandoc.
 
   # Tracking code for Google Analytics. Specifying this will include the
   # tracking code in your site's head section.
