@@ -25,8 +25,6 @@ compile '/posts/**/*' do
   layout item[:layout] || '/default.*'
 end
 
-passthrough '/assets/**/*'
-
 compile '**/*' do
   if item.binary?
     # don't filter binary items
@@ -40,6 +38,12 @@ compile '**/*' do
     layout item[:layout] || '/default.*'
   end
 end
+
+route '/assets/favicons/**/*' do
+  '/' + item.identifier.to_s.split('/')[-1]
+end
+
+passthrough '/assets/**/*'
 
 route '**/*' do
   case item[:extension]
