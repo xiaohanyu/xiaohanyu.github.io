@@ -36,6 +36,8 @@ $(document).ready(function() {
 // for bootstrap timeline, see
 // http://bootsnipp.com/snippets/featured/timeline-21-with-images-and-responsive
 $(document).ready(function(){
+  $('.ui.sidebar').sidebar('attach events', '.toggle.item', 'toggle')
+
   var my_posts = $("[rel=tooltip]");
 
   var size = $(window).width();

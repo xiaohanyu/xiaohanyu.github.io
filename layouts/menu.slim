@@ -1,9 +1,22 @@
-.ui.teal.pointing.menu
+<!-- Sidebar Menu -->
+.ui.vertical.inverted.labeled.icon.sidebar.menu
+  a.item href="/"
+    i.home.icon
+    | 行者无疆 始于足下
+  a.item href="/categories.html"
+    i.film.icon
+    | Categories
+  a.item href="/tags.html"
+    i.film.icon
+    | Tags
+  a.item href="/about.html"
+    i.help.circle.icon
+    | About
+
+<!-- Page Contents -->
+
+.ui.blue.fixed.large.inverted.menu
   .ui.container
-    a.brand href="index.html"
-      img src="/assets/image/gravatar.svg" width="28em"
-    .right.menu
-      a.item href="/categories/index.html" Categories
-      a.item href="/tags/index.html" Tags
-      a.item href="/atom.xml" Subscribe
-      a.item href="/about/index.html" About
+    a.toggle.item
+      i.sidebar.icon
+    a.item href="/" 行者无疆 始于足下

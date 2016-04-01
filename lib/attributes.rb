@@ -1,5 +1,5 @@
 module Attributes
-  extend Nanoc::Memoization
+  extend Nanoc::Int::Memoization
 
   # Collect all attributes from articles
   #
