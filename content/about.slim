@@ -1,10 +1,189 @@
-#features.feature.alternate.ui.stripe.vertical.segment
-  .ui.three.column.equal.height.center.aligned.divided.relaxed.stackable.page.grid
-    .ui.top.left.attached.label Features
+.ui.vertical.center.aligned.stripe.segment
+  .ui.text.container
+    img.logo src="/static/image/gravatar.svg"
+
+    h1 About Hanyu
+
+    p Hi! My name is <b>Xiao Hanyu</b>(aka <b>@xiaohanyu</b> elsewhere).
+
+    p I <a href="http://github.com/xiaohanyu">code</a>,
+      <a href="http://book.douban.com/people/xiaohanyu/collect">read</a>
+      and <a href="/">write</a>.
+
+.ui.vertical.stripe.alternative.segment
+  .ui.grid.stackable.text.container
     .row
       .column
-        h2.ui.icon.header Typography First
+        h2 Code
+        p As a programmer, I appreciate the idea of <a href="http://en.wikipedia.org/wiki/Open_source">Open Source</a> and respect those smart hackers who made great contributions to open source community.
+        p All my open source projects can be found on <a href="http://github.com/xiaohanyu">Github</a>, they're all under GPL license unless declared under another license.
+    .row
+      .ui.three.column.divided.stackable.grid
+        .row
+          .column
+            h4
+              a href="http://github.com/xiaohanyu/oh-my-emacs" oh-my-emacs
+            iframe src="http://ghbtns.com/github-btn.html?user=xiaohanyu&repo=oh-my-emacs&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"
+            iframe src="http://ghbtns.com/github-btn.html?user=xiaohanyu&repo=oh-my-emacs&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"
+            hr
+            p Keywords: <b>Emacs</b>, <b>Tools</b>
+            p Provide an awesome, out-of-box, literate dotemacs for both newbies and nerds.
+          .column
+            h4
+              a href="http://github.com/xiaohanyu/oh-my-laptop" oh-my-laptop
+            iframe src="http://ghbtns.com/github-btn.html?user=xiaohanyu&repo=oh-my-laptop&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"
+            iframe src="http://ghbtns.com/github-btn.html?user=xiaohanyu&repo=oh-my-laptop&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"
+            hr
+            p Keywords: <b>Ansible</b>, <b>Tools</b>
+            p Provide some easy to use ansbile playbooks to turn your laptop to awesome
+          .column
+            h4
+              a href="http://github.com/xiaohanyu/ac-geiser" ac-geiser
+            iframe src="http://ghbtns.com/github-btn.html?user=xiaohanyu&repo=ac-geiser&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"
+            iframe src="http://ghbtns.com/github-btn.html?user=xiaohanyu&repo=ac-geiser&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"
+            hr
+            p Keywords: <b>Emacs</b>, <b>Scheme</b>
+            p Emacs auto-complete backend for geiser.
+
+.ui.vertical.stripe.segment
+  .ui.grid.stackable.text.container
+    .row
       .column
-        h2.ui.icon.header Professional Advices
+        h2 Skills
+        p I like making tools to make the world a better place (hopefully). In order to live up to laziness---first one of the the <a href="http://en.wikipedia.org/wiki/Larry_Wall#Virtues_of_a_programmer">Three Virtues of a Programmer</a>, I'd like to use every possible tools to make it work, no matter whether it's Python or Ruby, Emacs or Vim, Arch or Ubuntu, etc.
+    .row
+      .eight.wide.column
+        h3 Languages
+        .ui.blue.progress data-percent="90"
+          .bar
+            .ui.inverted.blue.label Python
+        .ui.blue.progress data-percent="90"
+          .bar
+            .ui.inverted.blue.label Bash
+        .ui.teal.progress data-percent="70"
+          .bar
+            .ui.inverted.teal.label C/C++
+        .ui.green.progress data-percent="60"
+          .bar
+            .ui.inverted.green.label Java
+        .ui.green.progress data-percent="60"
+          .bar
+            .ui.inverted.green.label Emacs Lisp
+        .ui.orange.progress data-percent="50"
+          .bar
+            .ui.inverted.orange.label Mathematica
+        .ui.orange.progress data-percent="50"
+          .bar
+            .ui.inverted.orange.label Ruby
+        .ui.orange.progress data-percent="50"
+          .bar
+            .ui.inverted.orange.label JavaScript
+        .ui.orange.progress data-percent="50"
+          .bar
+            .ui.inverted.orange.label HTML/CSS
+        h3 Typography
+        .ui.blue.progress data-percent="80"
+          .bar
+            .ui.inverted.blue.label <span class="tex">T<sub>e</sub>X</span>
+        .ui.teal.progress data-percent="60"
+          .bar
+            .ui.inverted.teal.label Pandoc
+      .eight.wide.column
+        h3 DevOps
+        .ui.blue.progress data-percent="90"
+          .bar
+            .ui.inverted.blue.label Emacs/Vim
+        .ui.blue.progress data-percent="90"
+          .bar
+            .ui.inverted.blue.label Linux
+        .ui.blue.progress data-percent="90"
+          .bar
+            .ui.inverted.blue.label Git/Github
+        .ui.blue.progress data-percent="90"
+          .bar
+            .ui.inverted.blue.label Vagrant
+        .ui.teal.progress data-percent="70"
+          .bar
+            .ui.inverted.teal.label Ansible
+        .ui.teal.progress data-percent="70"
+          .bar
+            .ui.inverted.teal.label Jenkins
+        .ui.green.progress data-percent="60"
+          .bar
+            .ui.inverted.green.label Docker
+        h3 Web
+        .ui.blue.progress data-percent="90"
+          .bar
+            .ui.inverted.blue.label Django
+        .ui.teal.progress data-percent="70"
+          .bar
+            .ui.inverted.teal.label Semantic-UI/Bootstrap
+        .ui.teal.progress data-percent="70"
+          .bar
+            .ui.inverted.teal.label Nginx
+        .ui.teal.progress data-percent="70"
+          .bar
+            .ui.inverted.teal.label HTTP/RESTful/RAML/Swagger
+        .ui.orange.progress data-percent="50"
+          .bar
+            .ui.inverted.orange.label Flask
+        .ui.orange.progress data-percent="50"
+          .bar
+            .ui.inverted.orange.label PostgreSQL
+
+.ui.vertical.stripe.alternative.segment
+  .ui.grid.stackable.text.container
+    .row
       .column
-        h2.ui.icon.header Multiple Templates
+        h2 Read
+    .row
+      .eight.wide.column
+        h3 Words
+        blockquote
+          p Pascal is for building pyramids--imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms--imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.
+          footer Alan J. Perlis, foreword for <cite title="Structure and Interpretation of Computer Programs">SICP</cite>
+      .eight.wide.column
+        h4 只言片语
+        blockquote
+          p 死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。
+          footer 刘慈欣 《三体》
+    .row
+      .column
+        p I like reading. Your time is limited, so is your life. Great books open a new world for you. Reading great books feels like having a conversation with a great mind face to face. Books I've read and highly recommended to you (mostly in Chinese):
+
+.ui.vertical.stripe.segment
+  .ui.grid.stackable.text.container
+    .row
+      .column
+        h2 Travel
+        p I used to be an enthusiastic traveler. Long time ago, I traveled all over China with only one bicycle. Just like reading, travel opens a new world to man who traveled little before.
+        p Man lives to explore the world.
+    .row.center.aligned
+      .eight.wide.column
+        img src="/static/image/tibet.jpg"
+      .eight.wide.column
+        img src="/static/image/qinghai.jpg"
+
+.ui.vertical.stripe.alternative.segment
+  .ui.grid.stackable.text.container
+    .row
+      .column
+        h2 Contact
+    .row
+      .eight.wide.column
+        blockquote
+          p Connected, but alone?
+          footer Sherry Turkle, <cite><a href="http://www.ted.com/talks/sherry_turkle_alone_together">TED.com</a></cite>
+        p Email: <a href="mailto:xiaohanyu1988@gmail.com">xiaohanyu1988@gmail.com</a>
+        p Social:
+        ul
+          li
+            a href="http://github.com/xiaohanyu" Github
+          li
+            a href="http://www.douban.com/people/xiaohanyu" Douban(in Chinese)
+      .eight.wide.column
+        blockquote
+          p We are drowning in information but starved for knowledge.
+          footer <cite><a href="http://www.naisbitt.com/">John Naisbitt</a></cite>
+        p I'm living in Hangzhou, China. Currently, I'm a freelance web developer, looking for potential opportunities to work with smart people. Here's my <b><a href="https://github.com/xiaohanyu/resume/blob/master/xiaohanyu_resume.pdf?raw=true">resume</a></b>.
+        p I do not use IM/SNS very often. The most convenient way to contact me is sending me emails. I will response in 3 days in general.
