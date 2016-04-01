@@ -39,11 +39,11 @@ compile '**/*' do
   end
 end
 
-route '/assets/favicons/**/*' do
+route '/static/favicons/**/*' do
   '/' + item.identifier.to_s.split('/')[-1]
 end
 
-passthrough '/assets/**/*'
+passthrough '/static/**/*'
 
 route '**/*' do
   case item[:extension]
