@@ -50,3 +50,11 @@
 .font-fang-song {
     font-family: Baskerville, "Times New Roman", "Liberation Serif", STFangsong, FangSong, FangSong_GB2312, "CWTEX\-F", serif;
 }
+
+body {
+    -moz-font-feature-settings:"onum" 1, "pnum" 1, "afrc" 1, "kern" 1, "liga" 1, "dlig" 1;
+    -ms-font-feature-settings:"onum" 1, "pnum" 1, "afrc" 1, "kern" 1, "liga" 1, "dlig" 1;
+    -o-font-feature-settings:"onum" 1, "pnum" 1, "afrc" 1, "kern" 1, "liga" 1, "dlig" 1;
+    -webkit-font-feature-settings:"onum" 1, "pnum" 1, "afrc" 1, "kern" 1, "liga" 1, "dlig" 1;
+    font-feature-settings:"onum" 1, "pnum" 1, "afrc" 1, "kern" 1, "liga" 1, "dlig" 1;
+}
