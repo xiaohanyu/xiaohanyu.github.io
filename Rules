@@ -19,6 +19,7 @@ route '/static/favicons/**/*' do
 end
 
 passthrough '/static/**/*'
+passthrough '/humans.txt'
 
 compile '/posts/**/*' do
   case item[:extension]
