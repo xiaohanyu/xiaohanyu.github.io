@@ -23,7 +23,7 @@ passthrough '/humans.txt'
 
 compile '/posts/**/*' do
   case item[:extension]
-  when /slim|html/
+  when /slim/
     filter :slim
   when /md|markdown|org/
     filter :pandoc, args: [:mathjax, {:to => :html5}, :toc]
@@ -41,18 +41,15 @@ compile '**/*' do
     when /md|markdown|org/
       filter :pandoc, args: [:mathjax, {:to => :html5}, :toc]
     end
-    end
     layout item[:layout] || '/default.*'
   end
 end
 
 route '**/*' do
   case item[:extension]
-  when /slim|html|md|markdown|org/
-    # Write item with identifier /foo/ to /foo.css
-    item.identifier.without_ext + '.html'
+  when /slim|md|markdown|org/
+    item.identifier.without_ext + '/index.html'
   else
-    # Write item with identifier /foo/ to /foo/index.html
     item.identifier.to_s
   end
 end
