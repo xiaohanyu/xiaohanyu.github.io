@@ -52,6 +52,7 @@ GEM
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    pandoc-ruby (1.0.0)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -91,6 +92,7 @@ DEPENDENCIES
   nanoc
   nanoc-cachebuster
   nanoc-toolbox
+  pandoc-ruby
   pry
   pry-byebug
   rainpress

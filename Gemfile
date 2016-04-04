@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem 'nanoc'
 
 gem 'slim'
+gem 'pandoc-ruby'
 
 # nanoc plugins
 gem 'nanoc-toolbox'

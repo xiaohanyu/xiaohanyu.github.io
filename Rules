@@ -25,9 +25,8 @@ compile '/posts/**/*' do
   case item[:extension]
   when /slim|html/
     filter :slim
-  when /md|markdown/
-    filter :kramdown
-    layout '/wiki.*'
+  when /md|markdown|org/
+    filter :pandoc, args: [:mathjax, {:to => :html5}, :toc]
   end
   layout item[:layout] || '/default.*'
 end
@@ -39,8 +38,9 @@ compile '**/*' do
     case item[:extension]
     when /slim|html/
       filter :slim
-    when /md|markdown/
-      filter :kramdown
+    when /md|markdown|org/
+      filter :pandoc, args: [:mathjax, {:to => :html5}, :toc]
+    end
     end
     layout item[:layout] || '/default.*'
   end
@@ -48,7 +48,7 @@ end
 
 route '**/*' do
   case item[:extension]
-  when /slim|html|md|markdown/
+  when /slim|html|md|markdown|org/
     # Write item with identifier /foo/ to /foo.css
     item.identifier.without_ext + '.html'
   else
