@@ -7,7 +7,7 @@ img.logo {
     background: #F8F8F8;
 }
 
-.ui.vertical.stripe {
+.ui.vertical.stripe.segment {
     padding: 4em 0em;
 }
 
@@ -19,7 +19,7 @@ img.logo {
     clear: both;
 }
 
-.footer.segment {
+footer {
     padding: 2em 0em;
 }
 
