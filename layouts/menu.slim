@@ -1,8 +1,14 @@
-nav.ui.large.borderless.menu
+menu.ui.borderless.menu
   .ui.container
     a.item href="/"
       img src="/static/image/gravatar-black.svg"
+    a.item href="/archives" Archives
+    a.item href="/categories" Categories
+    a.item href="/tags" Tags
+    a.item href="/about" About
     .right.menu
-      a.item href="/archives" Archives
       a.item href="https://github.com/xiaohanyu" Github
-      a.item href="/about" About
+      a.item href="/atom.xml" RSS
+      .ui.transparent.icon.input
+        input type="text" placeholder="Search..."
+        i.search.icon
