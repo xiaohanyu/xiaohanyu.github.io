@@ -1,26 +1,23 @@
-.ui.stackable.container
-  .ui.very.padded.segment.post
-    article.ui.stackable.divided.grid
-      header.row.post-head
-        .column
-          h1.font-kai
-            == @item[:title]
-          hr
-      .row.post-body
-        section.twelve.wide.column
-          == yield
-        aside.four.wide.column
-          .ui.small.header Published
-          date
-            == @item[:created_at].to_date
+header.row.post-head
+  .column
+    h1.font-kai
+      == @item[:title]
+    hr
+.row.post-body
+  section.twelve.wide.column
+    == yield
+  aside.four.wide.column
+    .ui.small.header Published
+    date
+      == @item[:created_at].to_date
 
-          .ui.small.header Category
-          .ui.list
-            .item
-              .ui.label = @item[:category]
+    .ui.small.header Category
+    .ui.list
+      .item
+        .ui.label = @item[:category]
 
-          .ui.small.header Tags
-          .ui.list
-            - @item[:tags].each do |tag|
-              .item
-                .ui.label = tag
+    .ui.small.header Tags
+    .ui.list
+      - @item[:tags].each do |tag|
+        .item
+          .ui.label = tag

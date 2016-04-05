@@ -34,7 +34,16 @@ compile '/posts/**/*' do
     filter :slim
   when /md|markdown|org/
     filter :pandoc, args: [:mathjax, {:from => pandoc_ext_from[ext], :to => :html5}, :toc]
-    layout '/post.*'
+  end
+  layout '/post.*'
+  layout '/content.*'
+  layout item[:layout] || '/default.*'
+end
+
+compile '/about.*' do
+  case item[:extension]
+  when /slim|html/
+    filter :slim
   end
   layout item[:layout] || '/default.*'
 end
@@ -49,6 +58,7 @@ compile '**/*' do
     when /md|markdown|org/
       filter :pandoc, args: [:mathjax, {:from => pandoc_ext_from[ext], :to => :html5}, :toc]
     end
+    layout '/content.*'
     layout item[:layout] || '/default.*'
   end
 end
