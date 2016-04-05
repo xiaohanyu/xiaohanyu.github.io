@@ -1,3 +1,15 @@
-.ui.vertical.stripe.segment
-  .ui.text.container
-    == yield
+.ui.stackable.container
+  .ui.very.padded.segment.post
+    .ui.stackable.divided.grid
+      .row
+        .column
+          h1.font-kai
+            == @item[:title]
+          hr
+      .row
+        .twelve.wide.column
+          == yield
+        .four.wide.column
+          h3 Published
+          date
+            == @item[:created_at]

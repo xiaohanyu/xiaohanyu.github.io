@@ -84,15 +84,18 @@ blockquote .small:before {
 }
 
 .ui.post.segment {
-    padding: 3em 0
-}
-
-.ui.post.segment {
     -moz-font-feature-settings:"onum" 0;
     -ms-font-feature-settings:"onum" 0;
     -o-font-feature-settings:"onum" 0;
     -webkit-font-feature-settings:"onum" 0;
-    font-feature-settings:"onum" 0
+    font-feature-settings:"onum" 0;
+    box-shadow: 3px 3px 5px rgba(0,0,0,.65);
+    margin: 2em 0 3em 0;
+    padding-top: 2.5em;
+}
+
+.ui.post .row .column {
+    height: 100%
 }
 
 body {
