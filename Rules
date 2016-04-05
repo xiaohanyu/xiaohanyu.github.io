@@ -14,6 +14,12 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+pandoc_ext_from = {
+  'org'      => :org,
+  'md'       => :markdown,
+  'markdown' => :markdown
+}
+
 route '/static/favicons/**/*' do
   '/' + item.identifier.to_s.split('/')[-1]
 end
@@ -22,11 +28,13 @@ passthrough '/static/**/*'
 passthrough '/humans.txt'
 
 compile '/posts/**/*' do
-  case item[:extension]
+  ext = item[:extension]
+  case ext
   when /slim/
     filter :slim
   when /md|markdown|org/
-    filter :pandoc, args: [:mathjax, {:to => :html5}, :toc]
+    filter :pandoc, args: [:mathjax, {:from => pandoc_ext_from[ext], :to => :html5}, :toc]
+    layout '/post.*'
   end
   layout item[:layout] || '/default.*'
 end
@@ -39,7 +47,7 @@ compile '**/*' do
     when /slim|html/
       filter :slim
     when /md|markdown|org/
-      filter :pandoc, args: [:mathjax, {:to => :html5}, :toc]
+      filter :pandoc, args: [:mathjax, {:from => pandoc_ext_from[ext], :to => :html5}, :toc]
     end
     layout item[:layout] || '/default.*'
   end
