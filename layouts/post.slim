@@ -1,12 +1,12 @@
 .ui.stackable.container
   .ui.very.padded.segment.post
     .ui.stackable.divided.grid
-      .row
+      .row.post-title
         .column
           h1.font-kai
             == @item[:title]
           hr
-      .row
+      .row.post-body
         .twelve.wide.column
           == yield
         .four.wide.column
