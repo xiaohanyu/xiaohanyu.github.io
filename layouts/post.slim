@@ -5,11 +5,10 @@
         .column
           h1.font-kai
             == @item[:title]
-          hr
       .row.post-body
         section.twelve.wide.column
           == yield
         aside.four.wide.column
-          h3 Published
+          .ui.sub.header Published
           date
-            == @item[:created_at]
+            == @item[:created_at].to_date
