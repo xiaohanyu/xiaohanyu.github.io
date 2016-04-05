@@ -20,7 +20,7 @@ img.logo {
 }
 
 footer {
-    padding: 2em 0em;
+    margin: 1em 0em;
 }
 
 /* blockquote styles comes from bootstrap */
@@ -104,6 +104,8 @@ body {
 
 .ui.menu {
     border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 0
 }
 
 hr {
