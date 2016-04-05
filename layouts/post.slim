@@ -1,15 +1,15 @@
 .ui.stackable.container
   .ui.very.padded.segment.post
-    .ui.stackable.divided.grid
-      .row.post-title
+    article.ui.stackable.divided.grid
+      header.row.post-title
         .column
           h1.font-kai
             == @item[:title]
           hr
       .row.post-body
-        .twelve.wide.column
+        section.twelve.wide.column
           == yield
-        .four.wide.column
+        aside.four.wide.column
           h3 Published
           date
             == @item[:created_at]
