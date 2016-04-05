@@ -84,11 +84,11 @@ blockquote .small:before {
 }
 
 .ui.post.segment {
-    -moz-font-feature-settings:"onum" 0;
-    -ms-font-feature-settings:"onum" 0;
-    -o-font-feature-settings:"onum" 0;
-    -webkit-font-feature-settings:"onum" 0;
-    font-feature-settings:"onum" 0;
+    -moz-font-feature-settings: "onum" 0;
+    -ms-font-feature-settings: "onum" 0;
+    -o-font-feature-settings: "onum" 0;
+    -webkit-font-feature-settings: "onum" 0;
+    font-feature-settings: "onum" 0;
     box-shadow: 3px 3px 5px rgba(0,0,0,.65);
     margin: 1.5em 0 2.5em 0;
     padding-top: 2em;
@@ -98,8 +98,25 @@ blockquote .small:before {
     height: 100%
 }
 
+.ui.post > .ui.grid > .row.post-head {
+    padding-bottom: .5em
+}
+
 .ui.post > .ui.grid > .row.post-body {
     padding-top: 0
+}
+
+.ui.post > .ui.grid > .row.post-body > aside {
+    font-feature-settings: "smcp" 1
+}
+
+.ui.post > .ui.grid > .row.post-body > aside > .ui.header {
+    margin-bottom: 0.1em;
+}
+
+.ui.post > .ui.grid > .row.post-body > aside > .ui.list {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 body {
