@@ -4,7 +4,7 @@ img.logo {
 }
 
 .ui.alternative.segment {
-    background: #F8F8F8;
+    background: #FFFFFF;
 }
 
 .ui.vertical.stripe.segment {
@@ -47,7 +47,8 @@ blockquote .small {
     display: block;
     font-size: 80%;
     line-height: 1.428571429;
-    color: #999
+    color: #999;
+    padding: 0;
 }
 
 blockquote footer:before,
@@ -80,4 +81,24 @@ blockquote .small:before {
 
 .tex, .latex, .tex sub, .latex sub {
     font-size: 1em;
+}
+
+.ui.post.segment {
+    padding: 3em 0
+}
+
+.ui.post.segment {
+    -moz-font-feature-settings:"onum" 0;
+    -ms-font-feature-settings:"onum" 0;
+    -o-font-feature-settings:"onum" 0;
+    -webkit-font-feature-settings:"onum" 0;
+    font-feature-settings:"onum" 0
+}
+
+body {
+    background-color: #F8F8F8
+}
+
+.ui.menu {
+    border-radius: 0;
 }
