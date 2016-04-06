@@ -1,15 +1,16 @@
-header.row.post-head
+header.row
   .column
     h1.font-kai Archives
     hr
-.row.post-body
+.row
   section.twelve.wide.column
-    .ui.very.relaxed.large.list
-      - sorted_articles.each do |article|
-        li.item
-          i.paint.brush.icon
-          .content
-            .font-kai == link_to(article[:title], article.path)
-            .description
-              | Posted in
-              ==< article[:created_at].to_date()
+    - sorted_articles.group_by { |article| article[:created_at].to_date.year }.each_pair do |year, articles|
+      h2.ui.dividing.header == year
+      .ui.relaxed.large.list
+        - articles.each do |article|
+          li.item
+            i.paint.brush.icon
+            .content
+              .title.font-kai == link_to(article[:title], article.path)
+              .description
+                ==< article[:created_at].to_date()
