@@ -94,6 +94,18 @@ blockquote .small:before {
     padding-top: 2em;
 }
 
+.ui.menu,
+h1,
+h2,
+h3,
+aside {
+    -moz-font-feature-settings: "smcp" 1, "onum" 1;
+    -ms-font-feature-settings: "smcp" 1, "onum" 1;
+    -o-font-feature-settings: "smcp" 1, "onum" 1;
+    -webkit-font-feature-settings: "smcp" 1, "onum" 1;
+    font-feature-settings: "smcp" 1, "onum" 1
+}
+
 .ui.article .row .column {
     height: 100%
 }
@@ -104,10 +116,6 @@ blockquote .small:before {
 
 .ui.article > .ui.grid > .row.article-body {
     padding-top: 0
-}
-
-.ui.article > .ui.grid > .row.article-body > aside {
-    font-feature-settings: "smcp" 1
 }
 
 .ui.article > .ui.grid > .row.article-body > aside > .ui.header {
