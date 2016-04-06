@@ -14,10 +14,16 @@ header.row.article-head
     .ui.small.header Category
     .ui.list
       .item
-        .ui.label = @item[:category]
+        a href="/categories##{@item[:category].downcase}"
+          .ui.label
+            = @item[:category]
+            sup == articles_with_attribute(:category, @item[:category]).length
 
     .ui.small.header Tags
     .ui.list
       - @item[:tags].each do |tag|
         .item
-          .ui.label = tag
+          a href="/tags##{tag.downcase}"
+            .ui.label
+              = tag
+              sup == articles_with_attribute(:tags, tag).length
