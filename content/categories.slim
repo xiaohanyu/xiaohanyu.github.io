@@ -1,8 +1,8 @@
-header.row
+header.row.article-head
   .column
     h1.font-kai Categories
     hr
-.row
+.row.article-body
   section.twelve.wide.column
     - articles_by_attribute(:category).each_pair do |category, articles|
       h3.ui.header id=category.downcase
@@ -13,3 +13,7 @@ header.row
           li.item
             .content
               .title.font-kai == link_to(article[:title], article.path)
+  aside.four.wide.column
+    .ui.vertical.secondary.menu
+      - all_attributes(:category).each do |category|
+          == link_attribute(:category, category)
