@@ -1,0 +1,15 @@
+header.row
+  .column
+    h1.font-kai Tags
+    hr
+.row
+  section.twelve.wide.column
+    - articles_by_attribute(:tags).each_pair do |tag, articles|
+      h3.ui.header id=tag.downcase
+        == tag
+        sup == articles.length
+      .ui.bulleted.list
+        - articles.each do |article|
+          li.item
+            .content
+              .title.font-kai == link_to(article[:title], article.path)

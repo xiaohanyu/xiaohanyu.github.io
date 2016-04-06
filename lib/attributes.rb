@@ -14,8 +14,14 @@ module Attributes
   def all_attributes(key, posts=articles)
     attribs = []
     posts.each do |article|
-      next if article[key].nil?
-      attribs << article[key].map { |e| e.titleize }
+      case article[key]
+      when NilClass
+        next
+      when String
+        attribs << article[key].titleize
+      when Array
+        attribs << article[key].map { |e| e.titleize }
+      end
     end
     attribs.flatten.compact.sort.uniq
   end
@@ -29,7 +35,14 @@ module Attributes
   # By default all articles are checked. Pass in an array to limit the
   # search to a subset of articles.
   def articles_with_attribute(key, attrib, posts=articles)
-    posts.select { |post| post[key].map{ |e| e.titleize }.include? (attrib) }
+    posts.select do |post|
+      case post[key]
+      when String
+        post[key].titleize == attrib
+      when Array
+        post[key].map{ |e| e.titleize }.include? (attrib)
+      end
+    end
   end
   memoize :articles_with_attribute
 
@@ -38,7 +51,7 @@ module Attributes
   # :call-seq:
   #   articles_by_attribute(key, posts) -> [[attrib, array]]
   #
-  #  By default all articles are checked. Pass in an array to limit the
+  # By default all articles are checked. Pass in an array to limit the
   # search to a subset of articles.
   def articles_by_attribute(key, posts=articles)
     attribs = {}
@@ -52,17 +65,17 @@ module Attributes
   def link_attribute(key, attrib, post_length=true)
     attribs = articles_by_attribute(key)
     case key
-    when :categories
+    when :category
       if post_length
-        "<a href=/categories/index.html##{attrib.downcase}>#{attrib.titleize}<span>#{attribs[attrib.titleize].length}</span></a>"
+        "<a href=/categories##{attrib.downcase}>#{attrib.titleize}<span>#{attribs[attrib.titleize].length}</span></a>"
       else
-        "<a href=/categories/index.html##{attrib.downcase}>#{attrib.titleize}</a>"
+        "<a href=/categories##{attrib.downcase}>#{attrib.titleize}</a>"
       end
     when :tags
       if post_length
-        "<a href=/tags/index.html##{attrib.downcase}>#{attrib.titleize}<span>#{attribs[attrib.titleize].length}</span></a>"
+        "<a href=/tags##{attrib.downcase}>#{attrib.titleize}<span>#{attribs[attrib.titleize].length}</span></a>"
       else
-        "<a href=/tags/index.html##{attrib.downcase}>#{attrib.titleize}</a>"
+        "<a href=/tags##{attrib.downcase}>#{attrib.titleize}</a>"
       end
     end
   end
