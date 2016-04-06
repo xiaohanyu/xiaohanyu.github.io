@@ -83,7 +83,7 @@ blockquote .small:before {
     font-size: 1em;
 }
 
-.ui.post.segment {
+.ui.article.segment {
     -moz-font-feature-settings: "onum" 0;
     -ms-font-feature-settings: "onum" 0;
     -o-font-feature-settings: "onum" 0;
@@ -94,27 +94,27 @@ blockquote .small:before {
     padding-top: 2em;
 }
 
-.ui.post .row .column {
+.ui.article .row .column {
     height: 100%
 }
 
-.ui.post > .ui.grid > .row.post-head {
-    padding-bottom: .5em
+.ui.article > .ui.grid > .row.article-head {
+    padding-bottom: 1em
 }
 
-.ui.post > .ui.grid > .row.post-body {
+.ui.article > .ui.grid > .row.article-body {
     padding-top: 0
 }
 
-.ui.post > .ui.grid > .row.post-body > aside {
+.ui.article > .ui.grid > .row.article-body > aside {
     font-feature-settings: "smcp" 1
 }
 
-.ui.post > .ui.grid > .row.post-body > aside > .ui.header {
+.ui.article > .ui.grid > .row.article-body > aside > .ui.header {
     margin-bottom: 0.1em;
 }
 
-.ui.post > .ui.grid > .row.post-body > aside > .ui.list {
+.ui.article > .ui.grid > .row.article-body > aside > .ui.list {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
 }
