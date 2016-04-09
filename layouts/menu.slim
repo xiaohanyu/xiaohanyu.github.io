@@ -7,9 +7,12 @@ nav.ui.borderless.menu
     a.item href="/tags" Tags
     a.item href="/about" About
     .right.menu
-      .ui.transparent.left.icon.input
-        input type="text" placeholder="Search..."
-        i.search.icon
+      .item
+        form.ui.form target="_blank" method="get" action="https://www.google.com/search"
+          input type="hidden" value="site:xiaohanyu.me" name="q"
+          .ui.transparent.left.icon.input
+            input type="text" placeholder="Search..." name="q"
+            i.search.icon
       a.item href="https://github.com/xiaohanyu"
         i.github.icon
       a.item href="/atom.xml"
