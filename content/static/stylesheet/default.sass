@@ -1,0 +1,129 @@
+// Basic style for some HTML elements
+body
+  background-color: #F8F8F8
+
+footer
+  margin: 1em 0em
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid #ccc
+  margin: 1em 0
+  padding: 0
+
+// blockquote styles comes from bootstrap
+blockquote
+  padding: 10px 20px
+  margin: 0 0 20px
+  border-left: 5px solid #eee
+  p
+    line-height: 1.2em
+    margin-bottom: 0.3em
+    &:last-child
+      margin-bottom: 0
+  ul:last-child,
+  ol:last-child
+    margin-bottom: 0
+  footer,
+  small,
+  .small
+    display: block
+    font-size: 80%
+    line-height: 1.428571429
+    color: #999
+    padding: 0
+  footer:before,
+  small:before,
+  .small:before
+    content: "\2014 \00A0"
+
+img.logo
+  width: 200px
+  margin: 3em 0 1em
+
+// Styles for semantic-ui elements
+.ui
+  &.alternative.segment
+    background: #FFFFFF
+  &.vertical.stripe.segment
+    padding: 4em 0em
+
+.ui
+  &.menu
+    border-radius: 0
+    box-shadow: none
+    margin-bottom: 0
+    -moz-font-feature-settings: "smcp" 1, "onum" 1
+    -ms-font-feature-settings: "smcp" 1, "onum" 1
+    -o-font-feature-settings: "smcp" 1, "onum" 1
+    -webkit-font-feature-settings: "smcp" 1, "onum" 1
+    font-feature-settings: "smcp" 1, "onum" 1
+
+.ui
+  &.progress
+    margin: 1em 0
+    .ui.label
+      font-size: 0.8rem
+
+.ui.article
+  &.segment
+    -moz-font-feature-settings: "onum" 0
+    -ms-font-feature-settings: "onum" 0
+    -o-font-feature-settings: "onum" 0
+    -webkit-font-feature-settings: "onum" 0
+    font-feature-settings: "onum" 0
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.65)
+    margin: 1.5em 0 2.5em 0
+    padding-top: 2em
+  .row .column
+    height: 100%
+  > .ui.grid > .row
+    &.article-head
+      padding-bottom: 1em
+    &.article-body
+      padding-top: 0
+      > aside > .ui
+        &.header
+          margin-bottom: 0.2em
+        &.list
+          margin-top: 0.5em
+          margin-bottom: 0.5em
+
+// Enable smallcaps and oldstyle-number OpenType features
+h1,
+h2,
+h3,
+aside
+  -moz-font-feature-settings: "smcp" 1, "onum" 1
+  -ms-font-feature-settings: "smcp" 1, "onum" 1
+  -o-font-feature-settings: "smcp" 1, "onum" 1
+  -webkit-font-feature-settings: "smcp" 1, "onum" 1
+  font-feature-settings: "smcp" 1, "onum" 1
+
+
+// TeX and LaTeX Logo in HTML
+.tex sub
+  text-transform: uppercase
+  top: auto
+  bottom: auto
+
+.latex
+  sub,
+  sup
+    text-transform: uppercase
+    top: auto
+    bottom: auto
+
+.tex sub,
+.latex sub
+  vertical-align: -0.5ex
+  margin-left: -0.1667em
+  margin-right: -0.125em
+
+.tex,
+.latex,
+.tex sub,
+.latex sub
+  font-size: 1em
