@@ -27,3 +27,7 @@ header.row.article-head
             .ui.label
               = tag
               sup == articles_with_attribute(:tags, tag).length
+    .ui.small.header Links
+    .ui.small.two.item.menu
+      == previous_link
+      == next_link
