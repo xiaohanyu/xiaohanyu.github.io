@@ -121,6 +121,8 @@ checks:
     #   exclude_files: ['blog/page']
     exclude_files: []
 
+base_url: http://xiaohanyu.me
+
 meta:
   # Default title, that is added to an item's own title
   title: 行者无疆 始于足下

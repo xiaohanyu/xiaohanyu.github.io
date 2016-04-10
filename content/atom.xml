@@ -1,0 +1,6 @@
+<%= atom_feed \
+    :title       => @config[:meta][:title],
+    :author_name => @config[:meta][:author],
+    :author_uri  => @config[:base_url],
+    :limit       => 10
+%>
