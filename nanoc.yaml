@@ -4,9 +4,36 @@
 string_pattern_type: glob
 
 # A list of file extensions that Nanoc will consider to be textual rather than
-# binary. If an item with an extension not in this list is found,  the file
+# binary. If an item with an extension not in this list is found, the file
 # will be considered as binary.
-text_extensions: [ 'adoc', 'asciidoc', 'atom', 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 'mustache', 'org', 'php', 'rb', 'rdoc', 'sass', 'scss', 'slim', 'txt', 'xhtml', 'xml' ]
+text_extensions:
+  - adoc
+  - asciidoc
+  - atom
+  - coffee
+  - css
+  - erb
+  - haml
+  - handlebars
+  - hb
+  - htm
+  - html
+  - js
+  - less
+  - markdown
+  - md
+  - ms
+  - mustache
+  - org
+  - php
+  - rb
+  - rdoc
+  - sass
+  - scss
+  - slim
+  - txt
+  - xhtml
+  - xml
 
 # The path to the directory where all generated files will be written to. This
 # can be an absolute path starting with a slash, but it can also be path
@@ -17,7 +44,8 @@ output_dir: output
 # server when a directory is requested. Usually, index files are named
 # “index.html”, but depending on the web server, this may be something else,
 # such as “default.htm”. This list is used by Nanoc to generate pretty URLs.
-index_filenames: [ 'index.html' ]
+index_filenames:
+  - index.html
 
 # Whether or not to generate a diff of the compiled content when compiling a
 # site. The diff will contain the differences between the compiled content
@@ -32,7 +60,11 @@ prune:
   # Which files and directories you want to exclude from pruning. If you version
   # your output directory, you should probably exclude VCS directories such as
   # .git, .svn etc.
-  exclude: [ '.git', '.hg', '.svn', 'CVS' ]
+  exclude:
+    - .git
+    - .hg
+    - .svn
+    - CVS
 
 # The data sources where Nanoc loads its data from. This is an array of
 # hashes; each array element represents a single data source. By default,
@@ -100,17 +132,10 @@ meta:
   email: xiaohanyu1988@gmail.com
 
   # Default keywords to use when an item does not specify its own
-  keywords: blog, nanoc, pandoc, emacs, org-mode, static-site
+  keywords: web development, programming, typeface, typography
 
   # Default description to use when an item does not specify its own
-  description: Personal website of Xiao Hanyu
+  description: 行者无疆，始于足下——行走，思考，在路上
 
   # Copyright line used in the document header meta tag.
   copyright: Copyright © Xiao Hanyu 2014 - Powered by Nanoc and Pandoc.
-
-  # Tracking code for Google Analytics. Specifying this will include the
-  # tracking code in your site's head section.
-  ga_tracking_code:
-
-  # Language code of the site's content. Used in HTML attributes.
-  lang: 'en'
