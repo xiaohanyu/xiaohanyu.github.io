@@ -34,6 +34,7 @@ end
 
 passthrough '/static/**/*'
 passthrough '/humans.txt'
+passthrough '/robots.txt'
 
 compile '/posts/**/*' do
   ext = item[:extension]
