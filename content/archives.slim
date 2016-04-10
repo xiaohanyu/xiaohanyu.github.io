@@ -5,15 +5,16 @@ header.row.article-head
 .row.article-body
   section.eleven.wide.column
     - sorted_articles.group_by { |article| article[:created_at].to_date.year }.each_pair do |year, articles|
-      h2.ui.dividing.header style="font-feature-settings: 'onum' 1" == year
-      .ui.relaxed.list
-        - articles.each do |article|
-          li.item
-            i.paint.brush.icon
-            .content
-              .title.font-kai == link_to(article[:title], article.path)
-              .description
-                ==< article[:created_at].to_date()
+      .ui.vertical.segment
+        h2.ui.header style="font-feature-settings: 'onum' 1" == year
+        .ui.relaxed.list
+          - articles.each do |article|
+            li.item
+              i.paint.brush.icon
+              .content
+                .title.font-kai == link_to(article[:title], article.path)
+                .description
+                  ==< article[:created_at].to_date()
   aside.five.wide.column
     blockquote
       p 天上星，亮晶晶，永灿烂，长安宁
