@@ -46,3 +46,15 @@ def next_link
     link_to("Next", post.path, :class => "item", :title => title)
   end
 end
+
+def get_quotes(lang)
+  require 'json'
+  require 'yaml'
+
+  case lang
+  when :en
+    JSON.dump(YAML::load(@items['/quotes/words-en.txt'].raw_content))
+  when :cn
+    JSON.dump(YAML::load(@items['/quotes/words-cn.txt'].raw_content))
+  end
+end

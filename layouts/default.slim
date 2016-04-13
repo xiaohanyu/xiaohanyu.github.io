@@ -3,6 +3,7 @@ html
   head
     == render '/header.*'
   body lang == (@item[:lang] || 'cn')
+    div#quotes style="display: none" data-quotes-cn=get_quotes(:cn) data-quotes-en=get_quotes(:en)
     #content
       == render '/menu.*'
       == yield

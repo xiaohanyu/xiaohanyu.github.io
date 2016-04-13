@@ -7,7 +7,7 @@ function json_to_quote(data) {
   var random = get_random_int(0, data.length - 1);
   var word = data[random];
   var quote = "";
-  if(typeof word["content"] === 'string') {
+  if (typeof word["content"] === 'string') {
     quote = '<p>' + word["content"];
   }
   else {                      // an array of strings
@@ -22,17 +22,7 @@ function json_to_quote(data) {
 $(document).ready(function() {
   $('.ui.progress').progress();
 
-  var word_random = get_random_int(0, 1);
+  $(".words-cn").html(json_to_quote($('#quotes').data('quotes-cn')));
 
-  $.getJSON("/quotes/words-cn.json", function(data) {
-    $("#words-cn").html(json_to_quote(data));
-    if (word_random === 1)
-      $("#words").html(json_to_quote(data));
-  });
-
-  $.getJSON("/quotes/words-en.json", function(data) {
-    $("#words-en").html(json_to_quote(data));
-    if (word_random === 0)
-      $("#words").html(json_to_quote(data));
-  });
+  $(".words-en").html(json_to_quote($('#quotes').data('quotes-en')));
 });

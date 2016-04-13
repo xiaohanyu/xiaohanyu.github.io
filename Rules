@@ -49,10 +49,6 @@ compile '/posts/**/*' do
   layout item[:layout] || '/default.*'
 end
 
-compile '/quotes/**/*' do
-  filter :yaml_to_json
-end
-
 compile '/{index,about}.*' do
   case item[:extension]
   when /slim|html/
@@ -82,10 +78,6 @@ end
 
 route '/index.*' do
   item.identifier.without_ext + '.html'
-end
-
-route '/quotes/**/*' do
-  item.identifier.without_ext + '.json'
 end
 
 route '**/*' do
