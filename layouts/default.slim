@@ -1,8 +1,8 @@
 doctype html
-html lang="zh-Hans"
+html
   head
     == render '/header.*'
-  body
+  body lang == (@item[:lang] || 'cn')
     #content
       == render '/menu.*'
       == yield
