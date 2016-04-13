@@ -13,7 +13,7 @@ lang: cn
         section.eleven.wide.column
           - sorted_articles.each do |article|
             .ui.vertical.segment
-              h2.ui.header.ver
+              h2.ui.header
                 == link_to(article[:title], article.path)
                 .sub.header
                   == article[:created_at].to_date
