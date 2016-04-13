@@ -3,11 +3,11 @@ nav.ui.borderless.menu lang='en'
     a.item href="/"
       img src="/static/image/gravatar-black.svg"
     a.item href="/archives" Archives
-    a.item href="/categories" Categories
-    a.item href="/tags" Tags
+    a.item.desktop-only href="/categories" Categories
+    a.item.desktop-only href="/tags" Tags
     a.item href="/about" About
     .right.menu
-      .item
+      .item.desktop-only
         form.ui.form target="_blank" method="get" action="https://www.google.com/search"
           input type="hidden" value="site:xiaohanyu.me" name="q"
           .ui.transparent.left.icon.input
@@ -15,5 +15,5 @@ nav.ui.borderless.menu lang='en'
             i.search.icon
       a.item href="https://github.com/xiaohanyu"
         i.github.icon
-      a.item href="/atom.xml"
+      a.item.desktop-only href="/atom.xml"
         i.feed.icon
