@@ -36,12 +36,13 @@ hr
 
 /* blockquote styles comes from bootstrap
 blockquote
-  padding: 10px 20px
+  padding: 0.6rem 1rem 0.4rem
   margin: 0 0 20px
-  border-left: 5px solid #eee
+  border-left: 3px solid #eee
   p
     line-height: 1.2rem
     margin-bottom: 0.3rem
+    text-align: start !important
     &:last-child
       margin-bottom: 0
   ul:last-child,
@@ -50,6 +51,7 @@ blockquote
   footer,
   small,
   .small
+    margin-bottom: 0.5rem
     display: block
     font-size: 80%
     line-height: 1.428571429
@@ -110,12 +112,13 @@ img
       padding-bottom: 1rem
     &.article-body
       padding-top: 0
-      > aside > .ui
-        &.header
-          margin-bottom: 0.2rem
-        &.list
-          margin-top: 0.5rem
-          margin-bottom: 0.5rem
+      > aside
+        > .ui
+          &.header
+            margin-bottom: 0.2rem
+          &.list
+            margin-top: 0.5rem
+            margin-bottom: 0.5rem
       .ui.header a
         color: inherit
 
