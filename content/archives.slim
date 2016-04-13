@@ -11,7 +11,7 @@ header.row.article-head
   section.eleven.wide.column
     - sorted_articles.group_by { |article| article[:created_at].to_date.year }.each_pair do |year, articles|
       .ui.vertical.segment
-        h2.ui.header style="font-feature-settings: 'onum' 1" == year
+        h2.ui.header == year
         .ui.relaxed.list
           - articles.each do |article|
             li.item
