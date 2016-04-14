@@ -4,5 +4,6 @@ footer.ui.center.aligned.container lang='en'
 
 script src="/static/dist/semantic-ui/semantic.min.js"
 script src="/static/javascript/ga.js"
-script src="/static/javascript/disqus.js"
 script src="/static/javascript/default.js"
+- if @item.identifier.to_s.start_with? '/posts'
+  script src="/static/javascript/disqus.js"
