@@ -1,0 +1,16 @@
+# -*- mode: yaml; fill-column: 800 -*-
+
+- content:
+    - Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.
+  author: Alan J. Perlis
+  from: foreword for <a href="http://mitpress.mit.edu/sicp/">SICP</a>
+
+- content:
+    - "When you don't create things, you become defined by your tastes rather than ability. your tastes only narrow & exclude people. so create."
+  author: why the luck stuff
+  from: <a href="http://whymirror.github.io/">http://whymirror.github.io/</a>
+
+- content:
+    - In theory, there is no difference between theory and practice. But, in practice, there is.
+  author: Jan L. A. van de Snepscheut
+  from: <a href="http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut">Wikipedia</a>
