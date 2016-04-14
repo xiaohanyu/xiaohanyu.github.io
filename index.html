@@ -1,286 +1,170 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie ie6 lte7 lte8 lte9"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie ie7 lte7 lte8 lte9"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie ie8 lte8 lte9"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie ie9 lte9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<html>
   <head>
-    
-    <script type="text/javascript">        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-49528621-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s  = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-</script>
-    
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>行走 思考 在路上 &bull; 行者无疆 始于足下</title>
-    <meta name="keywords" value="nanoc, org-mode, static-site">
-    <meta name="description" value="Undescribed website.">
-    <meta name="copyright" value="Copyright © Xiao Hanyu 2014 - Powered by Ruby, Nanoc and Emacs Org-mode.">
-    <meta name="author" value="Xiao Hanyu">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
-
-    <link rel="alternate" title="行者无疆 始于足下 Atom feed"  type="application/atom+xml" href="">
-
-    <!-- Bootstrap -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom -->
-    
-    <link rel="stylesheet" type="text/css" href="/assets/css/all-cb8af8ac03a.min.css">
-    
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script> -->
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57" />
+    <link href="/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60" />
+    <link href="/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
+    <link href="/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+    <link href="/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
+    <link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+    <link href="/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
+    <link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+    <link href="/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-194x194.png" rel="icon" sizes="194x194" type="image/png" />
+    <link href="/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png" />
+    <link href="/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#2d89ef" name="msapplication-TileColor" />
+    <meta content="/mstile-144x144.png" name="msapplication-TileImage" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>行者无疆 始于足下</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
   </head>
-  <body>
-
-    <!-- Static navbar -->
-    <nav class="navbar navbar-inverse navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">
-            行者无疆 始于足下
-          </a>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. your tastes only narrow &amp; exclude people. so create.&quot;],&quot;author&quot;:&quot;why the luck stuff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/categories/index.html">Categories</a></li>
-            <li><a href="/tags/index.html">Tags</a></li>
-            <li><a href="/atom.xml">Subscribe</a></li>
-            <li><a href="/about/index.html">About</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
-              <ul class="dropdown-menu" style="padding:12px;">
-                <form class="form-inline" target="_blank" method="get" action="http://google.com/search">
-                  <input type="hidden" value="site:xiaohanyu.me" name="q">
-                  <input type="text" class="form-control pull-left" placeholder="Search" name="q">
-                </form>
-              </ul>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
+      </nav><div class="ui stackable container">
+        <div class="ui very padded segment article">
+          <article class="ui stackable divided grid">
+            <header class="row article-head">
+              <div class="column">
+                <h1>
+                  行者无疆 始于足下
+                </h1>
+                <hr />
+              </div>
+            </header>
+            <div class="row article-body">
+              <section class="eleven wide column">
+                <div class="ui vertical segment">
+                  <h2 class="ui header">
+                    <a href="/posts/2015-04-10-2014-summary/">2014，漫步</a>
+                    <div class="sub header">
+                      2015-04-11
+                    </div>
+                  </h2>
+                  <p>“亡羊补牢，未为迟也”，15 年已然过了三分之一，而我才开始憋 14 年的年终总结，想来必是颓废日久，点墨已尽的缘故。Anyway, better late than never。</p>
+                  <ul>
+                  <li><a href="http://cnlox.is-programmer.com/posts/31605.html">再见，2011</a></li>
+                  <li><a href="http://cnlox.is-programmer.com/posts/37030.html">2012，静水深流</a></li>
+                  <li><a href="http://cnlox.is-programmer.com/posts/43206.html">2013，青春绝版</a></li>
+                  </ul>
+                  <p>自 11 年毕业后开始养成写年终总结的习惯。时过四载，本人依旧无功无业，闲散江湖。所赖家妻不弃，下嫁与我，如此，14 年才总算没有白过。</p>
+                  <blockquote>
+                  <p>很多事来不及思考</p>
+                  <p>就这样自然发生了</p>
+                  <p>在丰富多彩的路上</p>
+                  <p>注定经历风雨</p>
+                  <p>让它自然地来吧</p>
+                  <p>让它悄然地去吧</p>
+                  <p>就这样微笑地看着自己</p>
+                  <p>漫步在这人生里</p>
+                  <p>yeah 当往事悄然走远</p>
+                  <p>只留下清澈的心</p>
+                  <p>yeah 让我们相互温暖</p>
+                  <p>漫步在这阳光里</p>
+                  </blockquote>
+                  
+                  <div class="ui tiny basic button">
+                    <a href="/posts/2015-04-10-2014-summary/">Read More…</a>
+                  </div>
+                </div>
+                <div class="ui vertical segment">
+                  <h2 class="ui header">
+                    <a href="/posts/2014-07-25-build-static-site-with-nanoc-2/">Build Static Site with Nanoc (II)</a>
+                    <div class="sub header">
+                      2014-07-26
+                    </div>
+                  </h2>
+                  <p><a href="http://xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/">上篇</a>主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog 本身的一些设计。</p>
+                  <p><a href="http://getbootstrap.com/">Bootstrap</a> 现在大概已经成为像我一样的半吊子前端写网站的标配了吧，简单，明了，快捷，简直是为我这种人量身定做的。最开始我也是想一切自己动手，奈何还是没有禁住 Bootstrap 各种漂亮主题及插件的诱惑，最终还是不能免俗，从了 Bootstrap。</p>
+                  <p>其实类似于 Bootstrap 的前端框架还是有一些的，比如 <a href="http://foundation.zurb.com/">Foundation</a> 和 <a href="http://semantic-ui.com/">Semantic UI</a> 。Semantic UI 甚至在其官方主页上指出了 Bootstrap 命名规则的混乱。不过 Bootstrap 最大的优势在于它的普及(<del>烂大街</del>)，这种普及甚至使得 Bootstrap 成了一个平台。</p>
+                  
+                  <div class="ui tiny basic button">
+                    <a href="/posts/2014-07-25-build-static-site-with-nanoc-2/">Read More…</a>
+                  </div>
+                </div>
+                <div class="ui vertical segment">
+                  <h2 class="ui header">
+                    <a href="/posts/2014-05-04-build-static-site-with-nanoc-1/">Build Static Site with Nanoc (I)</a>
+                    <div class="sub header">
+                      2014-05-05
+                    </div>
+                  </h2>
+                  <p>07 年我开始学会上网，那时候写 blog 应该还是一件相当时髦的事情。而我个人，作为一枚外表木讷闷骚，内心感情丰富的三好有为青年，自然对 blog 保持着强烈的好奇心，从一路转载，到絮叨自嗨，四五年坚持下来，总算找到了一点 blog 的感觉。所谓“工欲善其行，必先利其器”，头上顶了“书写是为了更好的思考”这面响当当的思想大旗，手头自然也希望能升级下一直以来残破不勘凑合能用的写作工具。于是祭出几年前刚开始折腾 Linux 时的那份耐性，断续折腾一年有余，总算略有小成。本文（及后续文章）尝试记录下这个 blog 的一些技术细节，希望对后来人有所启发。</p>
+                  <p>最原始的 blog 应该就是纯静态的个人主页，后来 blog 开始火的时候，各种线上平台一统天下，而对于有点折腾能力的人来说， <a href="https://wordpress.org/">WordPress</a> 则一支独秀。现如今，在 GitHub 当道的年代，由 <a href="https://pages.github.com/">GitHub Pages</a> 及其工具链 <a href="http://jekyllrb.com/">Jekyll</a>/<a href="http://octopress.org/">Octopress</a> 所组成的生态系统，则在程序员的圈子里吸引了足够的眼球和人气，也宣告着所谓 <a href="http://staticsitegenerators.net/">static site generator</a>（本文简称为 SSG）在某种程度上的回归。</p>
+                  <p>So, why static?</p>
+                  
+                  <div class="ui tiny basic button">
+                    <a href="/posts/2014-05-04-build-static-site-with-nanoc-1/">Read More…</a>
+                  </div>
+                </div>
+                <div class="ui vertical segment">
+                  <h2 class="ui header">
+                    <a href="/posts/2014-04-16-new-blog-new-start/">New Blog, New Start</a>
+                    <div class="sub header">
+                      2014-04-17
+                    </div>
+                  </h2>
+                  <blockquote>
+                  <p>书写是为了更好的思考。</p>
+                  <p>— 刘未鹏</p>
+                  </blockquote>
+                  <p>刚上大学的时候，我给高中同桌发短信咨询 QQ 该怎么用，他回了一条“计算机的教育要从娃娃抓起”……那时候我刚刚学会如何从控制面板里面卸载软件，刚刚学会收发 Email，写 blog 对我来说是一件相当时髦的事情啊。</p>
+                  <p>最开始用的是线上服务，什么 Dreamhost/DNS/WordPress 对于当时的我来说是难以逾越的技术难题。大概有一年多的时间，我在百度空间，和讯博客，博客园， <a href="http://en.wikipedia.org/wiki/Windows_Live_Spaces">Windows Live Spaces</a> 等各种 blog 平台上写（ <del>转载</del> ）文章，玩（ <del>自嗨</del> ）得不亦乐乎。后来咱不是会写点小程序了嘛，就希望能找个支持代码高亮，并且广告要少些的博客平台。无意间找到了 <a href="http://www.is-programmer.com/">is-programmer</a> ，试用了下，很不错，就在那里安了家，迄已五年。</p>
+                  <p><a href="http://cnlox.is-programmer.com/">行者无疆 始于足下</a>，这个 blog 基本上忠实地记录了我个人学习计算机的历程。最开始是学习 Linux/LaTeX，后来忙于学业 （OpenGL/Assembly），再后来开始实习（终于学会了 SSH/SCP/Shell Script，掩面），疲于奔命，总算天幸顺利毕业，进入百度，后来偷得浮生，后来一夜之间……五年时间，不长不短，对于 <a href="http://blog.watashi.ws/">天才选手</a> ，五年可以从无到有，站到世界之颠。对于我辈俗人，五年时间，也许刚刚够敲开计算机世界的大门吧。 五年来如果说有什么成就，就是始终没有离开 Open Source。这种坚持终于让我在去年收获了 200+ 个 github star，也让我进了 OpenStack 的贡献者名单。想想自己写的代码能够跑在别人的机器上，make the world a better place，还是很开心的。是谁说过，«<a href="http://book.douban.com/subject/4006425/">我是一只 IT 小小鸟</a>»。</p>
+                  
+                  <div class="ui tiny basic button">
+                    <a href="/posts/2014-04-16-new-blog-new-start/">Read More…</a>
+                  </div>
+                </div>
+              </section>
+              <aside class="five wide column">
+                <blockquote class="words-cn"></blockquote>
+              </aside>
+            </div>
+          </article>
+        </div>
       </div>
-    </nav>
-
-    <!-- content -->
-    <div class="grey pt">
-  <div class="container">
-  <div class="panel panel-default">
-  <div class="panel-heading">
-    <h1 style="display: inline-block">行走 思考 在路上</h1>
-  </div>
-  <div class="panel-body">
-    
-<ul class="timeline">
-  
-  
-  <li>
-  
-    <div class="timeline-badge primary">
-      <a><i class="glyphicon glyphicon-record" rel="tooltip" title="2015-04-11"></i></a>
     </div>
-    <div class="timeline-panel">
-      <div class="timeline-heading">
-        <h3>
-          <a href="/2015/04/10/2014-summary/">2014，漫步</a>
-          <small class="align-right">2015-04-11</small>
-        </h3>
-      </div>
-      <div class="timeline-body">
-        <p>Summary of my&nbsp;2014</p>
-      </div>
-      <div class="timeline-footer">
+    <div id="footer">
+      <footer class="ui center aligned container" lang="en">
+        <hr />
         <p>
-          <span class="align-left">
-          Categories:&nbsp;
-          
-          <a href=/categories/index.html#life>Life</a>&nbsp;
-          
-          </span> &nbsp;
-          <span class="align-right">
-          Tags:&nbsp;
-          
-          <a href=/tags/index.html#summary>Summary</a>&nbsp;
-          
-          <a href=/tags/index.html#travel>Travel</a>&nbsp;
-          
-          </span>
+          Copyright © 2014–2016 by Xiao Hanyu. All Rights Reserved.
         </p>
-      </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
     </div>
-  </li>
-  
-  
-  <li class="timeline-inverted">
-  
-    <div class="timeline-badge primary">
-      <a><i class="glyphicon glyphicon-record" rel="tooltip" title="2014-07-26"></i></a>
-    </div>
-    <div class="timeline-panel">
-      <div class="timeline-heading">
-        <h3>
-          <a href="/2014/07/25/build-static-site-with-nanoc-2/">Build Static Site With Nanoc&nbsp;(<span class="caps">II</span>)</a>
-          <small class="align-right">2014-07-26</small>
-        </h3>
-      </div>
-      <div class="timeline-body">
-        <p>Some details about the frontend work for this&nbsp;site.</p>
-      </div>
-      <div class="timeline-footer">
-        <p>
-          <span class="align-left">
-          Categories:&nbsp;
-          
-          <a href=/categories/index.html#technology>Technology</a>&nbsp;
-          
-          </span> &nbsp;
-          <span class="align-right">
-          Tags:&nbsp;
-          
-          <a href=/tags/index.html#nanoc>Nanoc</a>&nbsp;
-          
-          <a href=/tags/index.html#bootstrap>Bootstrap</a>&nbsp;
-          
-          </span>
-        </p>
-      </div>
-    </div>
-  </li>
-  
-  
-  <li>
-  
-    <div class="timeline-badge primary">
-      <a><i class="glyphicon glyphicon-record" rel="tooltip" title="2014-05-05"></i></a>
-    </div>
-    <div class="timeline-panel">
-      <div class="timeline-heading">
-        <h3>
-          <a href="/2014/05/04/build-static-site-with-nanoc-1/">Build Static Site With Nanoc&nbsp;(I)</a>
-          <small class="align-right">2014-05-05</small>
-        </h3>
-      </div>
-      <div class="timeline-body">
-        <p>Introduction to general rules about how to build a static site with nanoc, together with some internal details about how this blog was built, such as Emacs with org-mode, pandoc,&nbsp;etc.</p>
-      </div>
-      <div class="timeline-footer">
-        <p>
-          <span class="align-left">
-          Categories:&nbsp;
-          
-          <a href=/categories/index.html#technology>Technology</a>&nbsp;
-          
-          </span> &nbsp;
-          <span class="align-right">
-          Tags:&nbsp;
-          
-          <a href=/tags/index.html#nanoc>Nanoc</a>&nbsp;
-          
-          <a href=/tags/index.html#ruby>Ruby</a>&nbsp;
-          
-          <a href=/tags/index.html#pandoc>Pandoc</a>&nbsp;
-          
-          <a href=/tags/index.html#emacs>Emacs</a>&nbsp;
-          
-          </span>
-        </p>
-      </div>
-    </div>
-  </li>
-  
-  
-  <li class="timeline-inverted">
-  
-    <div class="timeline-badge primary">
-      <a><i class="glyphicon glyphicon-record" rel="tooltip" title="2014-04-17"></i></a>
-    </div>
-    <div class="timeline-panel">
-      <div class="timeline-heading">
-        <h3>
-          <a href="/2014/04/16/new-blog-new-start/">New Blog, New&nbsp;Start</a>
-          <small class="align-right">2014-04-17</small>
-        </h3>
-      </div>
-      <div class="timeline-body">
-        <p>Introduction to new blog, new start. Say goodbye to old&nbsp;blog.</p>
-      </div>
-      <div class="timeline-footer">
-        <p>
-          <span class="align-left">
-          Categories:&nbsp;
-          
-          <a href=/categories/index.html#life>Life</a>&nbsp;
-          
-          </span> &nbsp;
-          <span class="align-right">
-          Tags:&nbsp;
-          
-          <a href=/tags/index.html#blog>Blog</a>&nbsp;
-          
-          </span>
-        </p>
-      </div>
-    </div>
-  </li>
-  
-  <li class="clearfix" style="float: none;"></li>
-</ul>
-
-  </div>
-</div>
-
-</div>
-
-</div>
-
-    <a href="#" class="btn back-to-top btn-dark btn-fixed-bottom"> <span class="glyphicon glyphicon-chevron-up"></span> </a>
-
-    <footer id="footer">
-      <div class="container">
-        <div class="row centered">
-            <p>
-              Xiao Hanyu 2014 -
-              Powered by <a href="http://nanoc.ws/">Nanoc</a>, <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> -
-              Licensed under
-              <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
-            </p>
-      </div>
-    </footer>
-
-    <!--[if lt IE 8]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript"
-            src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
-    <script src="/assets/js/all-cb120e2b7c8.min.js"></script>
-    
   </body>
 </html>
