@@ -108,5 +108,6 @@ pre {
 }
 
 .footnotes > hr {
-  border-top: dashed 1px #ccc;
+  border-top: dashed 1px #DDD;
+  border-bottom: none;
 }
