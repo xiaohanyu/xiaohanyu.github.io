@@ -58,7 +58,7 @@ yeah 让我们相互温暖
 
 长尊父母，谓之奈何也。
 
-我记得在婚礼当日，我们站在门口迎客，却迎来断续不绝的乞丐打着竹板过来跟我们讨喜钱---原来他们也算定吉日黄道，喜事多金。
+我记得在婚礼当日，我们站在门口迎客，却迎来断续不绝的乞丐打着竹板过来跟我们讨喜钱——原来他们也算定吉日黄道，喜事多金。
 
 亦乐亦苦？
 
@@ -70,7 +70,7 @@ yeah 让我们相互温暖
 
 ** 工作
 
-这一年，工作上依然是散漫无边，除了仰仗朋友介绍一些私活赚了点养家糊口的钱，几乎毫无建树。年底曾短暂加入一个创业团队负责人员招聘技术选型等初期工作，但是最终一败涂地，悻悻退出。工作几年来，我一直努力在 DevOps, Web Framework, Programming Languages 方面广泛涉猎，力求融汇兼通---尚不敢妄想“贯通”一词。一方面，我并不想过早地把自己的职业规划限定于一个狭窄的领域内，另一方面，我常常能在广泛的阅读和跨领域的思考中迸发出很多灵感，这带给我很多的快乐。
+这一年，工作上依然是散漫无边，除了仰仗朋友介绍一些私活赚了点养家糊口的钱，几乎毫无建树。年底曾短暂加入一个创业团队负责人员招聘技术选型等初期工作，但是最终一败涂地，悻悻退出。工作几年来，我一直努力在 DevOps, Web Framework, Programming Languages 方面广泛涉猎，力求融汇兼通——尚不敢妄想“贯通”一词。一方面，我并不想过早地把自己的职业规划限定于一个狭窄的领域内，另一方面，我常常能在广泛的阅读和跨领域的思考中迸发出很多灵感，这带给我很多的快乐。
 
 就我个人而言，我发现自己很难在某一方面成为顶尖，比如编程，我根本就不是一个顶尖的算法工程师或系统工程师；比如设计，我恐怕也只是刚刚入了前端开发的门；再如写作，我写的东西无非是自我记录日常反省，尚无他长。我的专长可能在于，我可以将这几方面融合，并以工程师的耐心配以变通，调教出一些还不错的成果。
 
@@ -81,7 +81,7 @@ yeah 让我们相互温暖
 important thing in the world I could be working on right now, and if you are
 not working on that why aren't you?"
 
---- [[https://en.wikipedia.org/wiki/Taren_Stinebrickner-Kauffman][Taren Stinebrickner-Kauffman]] describing her partner, [[https://en.wikipedia.org/wiki/Aaron_Swartz][Aaron Swartz]]
+— [[https://en.wikipedia.org/wiki/Taren_Stinebrickner-Kauffman][Taren Stinebrickner-Kauffman]] describing her partner, [[https://en.wikipedia.org/wiki/Aaron_Swartz][Aaron Swartz]]
 #+END_QUOTE
 
 专业方面，这一年在 Clojure/Haskell/Ruby/JavaScript 方面均有所涉猎，但是所研甚浅，并且尚无机会加以实践，因此所得有限；前半年花了很多时间在系统性地学习前端开发和字体设计的一些基础知识，最终总算能用 Bootstrap 做出还算过得去的网站（比如本博客）；后半年曾花了很长时间思考实践 HTTP RESTful API 的设计以及前后端的对接实现，这方面倒是颇有心得。Open Source 方面，我依旧在很好地维护着 [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]] ，目前 oh-my-emacs 已经是世界上最好的 dotemacs 项目之一，并在全球范围内逐渐形成了自己的用户群。有几次我去 Github 上处理 issues，却发现 oh-my-emacs 用户之间已经讨论完毕并给出了很好的解决方案，我所能做的就是将用户的讨论提炼精简，写在 oh-my-emacs 里面。可见即便是一个原理很简单的项目，将其做到极致，或许也会有莫大的价值。
@@ -218,7 +218,7 @@ not working on that why aren't you?"
 
 想来还是北京三年过于闷宅，锻炼有限，得此报应。好在事情尚未进展到不可逆转的地步。不过慢性病的特点在于发病慢，恢复也慢。因此要想完全恢复，怕是要打场持久战。
 
-工科男做事的方法就是工程化---调研、规划、对比，方方面面考虑周全。为了控制病痛恢复健康，14 年下半年主要在如下方面做了很多努力：
+工科男做事的方法就是工程化——调研、规划、对比，方方面面考虑周全。为了控制病痛恢复健康，14 年下半年主要在如下方面做了很多努力：
 
 - 系统性地学习基础健身知识，阅读完成了 3 本入门的健身书籍
 - 7 - 9 月份系统性地进行家中无器械健身训练，循序渐进，对比效果
@@ -231,15 +231,15 @@ not working on that why aren't you?"
 
 #+BEGIN_QUOTE
 Imagine life as a game in which you are juggling some five balls in the
-air. You name them---work, family, health, friends and spirit---and you're
+air. You name them—work, family, health, friends and spirit—and you're
 keeping all of these in the air. You will soon understand that work is a rubber
-ball. If you drop it, it will bounce back. But the other four balls---family,
-health, friends and spirit---are made of glass. If you drop one of these, they
+ball. If you drop it, it will bounce back. But the other four balls—family,
+health, friends and spirit—are made of glass. If you drop one of these, they
 will be irrevocably scuffed, marked, nicked, damaged or even shattered. They
 will never be the same. You must understand that and strive for balance in your
 life.
 
---- [[https://en.wikipedia.org/wiki/Brian_Dyson][Brian Dyson]]
+— [[https://en.wikipedia.org/wiki/Brian_Dyson][Brian Dyson]]
 #+END_QUOTE
 
 ** 养猫
@@ -248,7 +248,7 @@ life.
 
 说实话，两只土猫长得并不好看，远逊于纯种猫；其中那只小臭猫，长得尤其丑，又丑、又臭、又馋、又笨、又胆小，并且还总是莫名其妙地受伤。最开始我们一点也不喜欢它。可是看它那臭笨滑稽楚楚可怜的样子看得多了以后，也就默默认可了它。
 
-妞本来是反对我养猫的，嫌麻烦。但是精诚所致金石为开，当我负担了所有的铲屎工作和卫生清洁后，妞也就默许了。再后来生活日久，感情日深，一家人总算其乐融融。每个寂静的夜，读书写码，一妞二喵相伴，常让我有“生活惬意如此，夫复何求”的感慨。每天晨光初现，两只喵就会在你耳边，徘徊盘旋，逮住机会就亲你一口，呼呼呼呼地把你弄醒---当然，我睡得沉，经常毫无知觉，而妞则经常被亲醒，无可奈何。
+妞本来是反对我养猫的，嫌麻烦。但是精诚所致金石为开，当我负担了所有的铲屎工作和卫生清洁后，妞也就默许了。再后来生活日久，感情日深，一家人总算其乐融融。每个寂静的夜，读书写码，一妞二喵相伴，常让我有“生活惬意如此，夫复何求”的感慨。每天晨光初现，两只喵就会在你耳边，徘徊盘旋，逮住机会就亲你一口，呼呼呼呼地把你弄醒——当然，我睡得沉，经常毫无知觉，而妞则经常被亲醒，无可奈何。
 
 我自称为猫“爸爸”，称妞为猫“妈妈”，有时“爸爸妈妈”地叫得频繁，妞就问我是不是真想“封山育林，播种造人”了，我但莞尔。半年多来，我负责它们饮食起居，给它们洗澡上药，逗它们开心，也喝止它们惹祸，细想起来，还真和养个孩子差不多呢。
 
