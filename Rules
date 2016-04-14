@@ -33,6 +33,7 @@ route '/static/**/*.sass' do
 end
 
 passthrough '/static/**/*'
+passthrough '/quotes/**/*'
 passthrough '/humans.txt'
 passthrough '/robots.txt'
 
