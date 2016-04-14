@@ -9,12 +9,12 @@
 - content:
     - 死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。
   author: 刘慈欣
-  from: 三体
+  from: 地球往事
 
 - content:
     - 我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。
   author: 卢昌海
-  from: www.changhai.org
+  from: <a href="http://www.changhai.org">http://www.changhai.org</a>
 
 - content:
     - 我宁愿游荡在你身边
@@ -29,7 +29,7 @@
 - content:
     - 在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。
   author: 刘慈欣
-  from: 三体
+  from: 地球往事
 
 - content:
     - 天下唯庸人无咎无誉。
