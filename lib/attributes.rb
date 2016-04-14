@@ -67,15 +67,15 @@ module Attributes
     case key
     when :category
       if post_length
-        "<a class=\"item\" href=\"/categories##{attrib.downcase}\">#{attrib.titleize}<sup>#{attribs[attrib.titleize].length}</sup></a>"
+        "<a class=\"item\" href=\"/categories/##{attrib.downcase}\">#{attrib.titleize}<sup>#{attribs[attrib.titleize].length}</sup></a>"
       else
-        "<a class=\"item\" href=\"/categories##{attrib.downcase}\">#{attrib.titleize}</a>"
+        "<a class=\"item\" href=\"/categories/##{attrib.downcase}\">#{attrib.titleize}</a>"
       end
     when :tags
       if post_length
-        "<a class=\"item\" href=\"/tags##{attrib.downcase}\">#{attrib.titleize}<sup>#{attribs[attrib.titleize].length}</sup></a>"
+        "<a class=\"item\" href=\"/tags/##{attrib.downcase}\">#{attrib.titleize}<sup>#{attribs[attrib.titleize].length}</sup></a>"
       else
-        "<a class=\"item\" href=\"/tags##{attrib.downcase}\">#{attrib.titleize}</a>"
+        "<a class=\"item\" href=\"/tags/##{attrib.downcase}\">#{attrib.titleize}</a>"
       end
     end
   end
