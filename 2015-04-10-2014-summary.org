@@ -64,7 +64,7 @@ yeah 让我们相互温暖
 
 婚礼之于我们，更多是为了满足父母虚荣演一场戏罢了。现实不允许我们造一个日光倾城的大梦，我们所能做的，只是在两代亲朋、两块地域、两种风俗之间辛苦周旋，不求华丽出彩，但求顺利过关。没有新马泰蜜月旅行，没有大房子装修一新，送走所有亲朋后，我们回到杭州，回到自己租住的十几平米的小房子里，休整一天，然后她去上班，我也去上班。
 
-[[/static/image/2014-xibeixing-dajiaoya.jpg]]
+[[static/image/2014-xibeixing-dajiaoya.jpg]]
 
 [[http://oh-my-love.xiaohanyu.me/][所谓相行，即是人生]]。
 
@@ -103,10 +103,10 @@ not working on that why aren't you?"
 这一年年中，我和妞两个人，手里攥着 16 张火车票，千山万水，从太原、平遥，到延安、西安，到张掖、敦煌，一路向西，转了好大一圈。
 
 #+CAPTION: oh my love
-[[/static/image/2014-xibeixing-binggou.jpg]]
+[[static/image/2014-xibeixing-binggou.jpg]]
 
 #+CAPTION: 嘉峪关
-[[/static/image/2014-xibeixing-jiayuguan.jpg]]
+[[static/image/2014-xibeixing-jiayuguan.jpg]]
 
 #+BEGIN_QUOTE
 毕业季
@@ -210,7 +210,7 @@ not working on that why aren't you?"
 
 #+CAPTION: 2012. 阳春三月北京植物园
 
-[[/static/image/2012-beijing-zhiwuyuan.jpg]]
+[[static/image/2012-beijing-zhiwuyuan.jpg]]
 
 ** 健身
 
@@ -253,7 +253,7 @@ life.
 我自称为猫“爸爸”，称妞为猫“妈妈”，有时“爸爸妈妈”地叫得频繁，妞就问我是不是真想“封山育林，播种造人”了，我但莞尔。半年多来，我负责它们饮食起居，给它们洗澡上药，逗它们开心，也喝止它们惹祸，细想起来，还真和养个孩子差不多呢。
 
 #+CAPTION: 小木和小鱼
-[[/static/image/2014-cat.jpg]]
+[[static/image/2014-cat.jpg]]
 
 ** 散财
 
