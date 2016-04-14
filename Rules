@@ -32,7 +32,12 @@ route '/static/**/*.sass' do
   item.identifier.without_ext + '.css'
 end
 
+route '/posts/static/**/*' do
+  item.identifier.to_s.sub('/posts', '')
+end
+
 passthrough '/static/**/*'
+passthrough '/posts/static/**/*'
 passthrough '/quotes/**/*'
 passthrough '/humans.txt'
 passthrough '/robots.txt'
