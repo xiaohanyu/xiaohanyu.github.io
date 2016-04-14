@@ -36,6 +36,10 @@ route '/posts/static/**/*' do
   item.identifier.to_s.sub('/posts', '')
 end
 
+route '/nojekyll' do
+  '/.nojekyll'
+end
+
 passthrough '/static/**/*'
 passthrough '/posts/static/**/*'
 passthrough '/quotes/**/*'
