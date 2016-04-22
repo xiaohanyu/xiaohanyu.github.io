@@ -6,7 +6,7 @@
   from: foreword for <a href="http://mitpress.mit.edu/sicp/">SICP</a>
 
 - content:
-    - "When you don't create things, you become defined by your tastes rather than ability. your tastes only narrow & exclude people. so create."
+    - "When you don't create things, you become defined by your tastes rather than ability. Your tastes only narrow & exclude people. So create."
   author: why the luck stuff
   from: <a href="http://whymirror.github.io/">http://whymirror.github.io/</a>
 
