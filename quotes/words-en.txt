@@ -14,3 +14,8 @@
     - In theory, there is no difference between theory and practice. But, in practice, there is.
   author: Jan L. A. van de Snepscheut
   from: <a href="http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut">Wikipedia</a>
+
+- content:
+    - The future has already arrived. It is just not evenly distributed yet.
+  author: William Gibson
+  from: <a href="https://en.wikiquote.org/wiki/William_Gibson">Wikiquote</a>
