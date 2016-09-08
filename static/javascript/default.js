@@ -21,6 +21,15 @@ function json_to_quote(data) {
   return quote;
 }
 
+function show_disqus_comments(event) {
+  $.ajaxSetup({cache: true});
+  $.getScript("http://xiaohanyu.disqus.com/embed.js");
+  $.ajaxSetup({cache: false});
+  setTimeout(function () {
+    $('#show-disqus-comments').parent().fadeOut(3000);
+  });
+}
+
 $(document).ready(function() {
   $('.ui.progress').progress();
 
