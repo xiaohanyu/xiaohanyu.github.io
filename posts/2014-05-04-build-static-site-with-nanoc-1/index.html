@@ -139,7 +139,7 @@ JSON-formatted AST
   target format
 </code></pre>
 <p>Pandoc 对于每种支持的输入格式，都提供了完整的 parser（pandoc 中叫做 reader），通过 parser 将输入文档转换成结构化 json 格式的 <a href="http://en.wikipedia.org/wiki/Abstract_syntax_tree">AST</a> 。然后我们可以根据自己的需求，写一些脚本来操作 pandoc AST，再转换成最终的输出目标格式（Pandoc 中叫做 writer）。Pandoc 把这个操作 AST 的程序脚本叫做 <a href="http://johnmacfarlane.net/pandoc/scripting.html#json-filters">filter</a> ，借助 filter，理论上可以实现非常丰富的功能。至于调用 filter 的方法，最简单的是通过 Unix 管道操作，比如：</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pandoc</span> -f SOURCEFORMAT -t json <span class="kw">|</span> <span class="kw">runhaskell</span> filter.hs <span class="kw">|</span> <span class="kw">pandoc</span> -f json -t TARGETFORMAT</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">pandoc</span> -f SOURCEFORMAT -t json <span class="kw">|</span> <span class="ex">runhaskell</span> filter.hs <span class="kw">|</span> <span class="ex">pandoc</span> -f json -t TARGETFORMAT</code></pre></div>
 <p>Pandoc 的首选格式语言是 Markdown。为了弥补 Markdown 的先天不足，pandoc 在原始 Markdown 的基础上增加了许多有用的扩展。通过这些扩展， <a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown">Pandoc's markdown</a> 自成一套完备、规范、通用、强大的文档标记语言。</p>
 <p>Pandoc 在 1.12.3.2 版本之前是不支持 org-mode 作为输入格式的。这也让我头疼了许久。我最原始的想法是将 Emacs 当成一个 org-mode 的文档格式转换器，定制 emacs org-mode filter 集成到 nanoc：</p>
 <div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">module</span> <span class="dt">Nanoc</span>::<span class="dt">Filters</span>
