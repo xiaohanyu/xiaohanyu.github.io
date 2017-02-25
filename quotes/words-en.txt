@@ -7,7 +7,7 @@
 
 - content:
     - "When you don't create things, you become defined by your tastes rather than ability. Your tastes only narrow & exclude people. So create."
-  author: why the luck stuff
+  author: why the luck stiff
   from: <a href="http://whymirror.github.io/">http://whymirror.github.io/</a>
 
 - content:
@@ -19,3 +19,8 @@
     - The future has already arrived. It is just not evenly distributed yet.
   author: William Gibson
   from: <a href="https://en.wikiquote.org/wiki/William_Gibson">Wikiquote</a>
+
+- content:
+    - There are many ways of trying to understand programs. People often rely too much on one way, which is called "debugging" and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.
+  author: Robin Milner
+  from: foreword for <a href="http://www.ccs.neu.edu/home/matthias/BTML/">The Little MLer</a>
