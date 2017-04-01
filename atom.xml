@@ -22,7 +22,7 @@
 &lt;p&gt;三年间睡了 80% 的自然醒，做了 15% 的饭，熬了 5% 的夜；平均每年任性两次说走就走的旅行；做了各种各样但实际上都不怎么样的项目，服务了北京、长沙、香港、加拿大等各地的客户；读了几百本书看了几百部电影；唯一不变的，应该就是那永远空空如也的钱包了。&lt;/p&gt;
 &lt;p&gt;看上去还不错？也许吧。但自由职业的最大弊端在于，你的认真你的态度客户看不到，甚至根本就不想去看。单元测试？代码风格检查？更好的文档？规范的 Git Commit？别逗了……事实是，这些东西很好，但是，nobody cares。客户想要的，更多的是物美价廉。&lt;/p&gt;
 &lt;p&gt;职业生涯终归不能在散碎的项目中消磨殆尽。&lt;/p&gt;
-&lt;p&gt;我能做什么？我擅长做什么？我喜欢做什么？什么样的事情是我能做且有可能做好但是别人不能做或者想做也有可能做不好的事呢？What's the difference between the world with and without you?&lt;/p&gt;
+&lt;p&gt;我能做什么？我擅长做什么？我喜欢做什么？什么样的事情是我能做且有可能做好但是别人不能做或者想做也有可能做不好的事呢？What’s the difference between the world with and without you?&lt;/p&gt;
 &lt;p&gt;我不是一个优秀的后端工程师，因为我从未有机会直面过大规模的生产系统；我也不是一个合格的前端工程师，你现在看到的还算干净整洁的页面是我花了无数时间一点一点 Google 打磨出来的；我也不是一个设计师，虽然上个月才买了套正版的 Adobe CC，来补习一些设计基础。&lt;/p&gt;
 &lt;p&gt;“你可以去搞大数据人工智能呀！”&lt;/p&gt;
 &lt;p&gt;“别逗了，我已经十年没有碰过数学了好不好！”&lt;/p&gt;
@@ -69,9 +69,9 @@
 &lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2015-04-10-2014-summary/"&gt;2014，漫步&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;这一年技术上进步有限，收入上更是微薄，唯一值得一提的，也许是自己未来的路在渐渐明晰——接私活赚小钱逍遥一时并非长久之计，去企业找工作按部就班亦非心之所向，远程自由独立开发看上去自由潇洒，实则是一条小众且孤独的路，特别是在接近三十而立的年龄，看着自己的同龄人要么已经 PHD 毕业 Paper 在手，要么已经在大小企业里晋升技术专家，心里难免会有一丝恐慌。&lt;/p&gt;
-&lt;p&gt;我能做什么？我擅长做什么？我喜欢做什么？什么样的事情是我能做且有可能做好但是别人不能做或者想做也有可能做不好的事呢？What's the difference between the world with and without you?&lt;/p&gt;
+&lt;p&gt;我能做什么？我擅长做什么？我喜欢做什么？什么样的事情是我能做且有可能做好但是别人不能做或者想做也有可能做不好的事呢？What’s the difference between the world with and without you?&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;When you don't create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp;amp; exclude people. So create.&lt;/p&gt;
+&lt;p&gt;When you don’t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp;amp; exclude people. So create.&lt;/p&gt;
 &lt;p&gt;— why the luck stiff «http://whymirror.github.io/»&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id="工作"&gt;工作&lt;/h2&gt;
@@ -266,7 +266,7 @@
 &lt;p&gt;就我个人而言，我发现自己很难在某一方面成为顶尖，比如编程，我根本就不是一个顶尖的算法工程师或系统工程师；比如设计，我恐怕也只是刚刚入了前端开发的门；再如写作，我写的东西无非是自我记录日常反省，尚无他长。我的专长可能在于，我可以将这几方面融合，并以工程师的耐心配以变通，调教出一些还不错的成果。&lt;/p&gt;
 &lt;p&gt;说到底， &lt;strong&gt;手艺人，耐心和变通乃生身立命之本。&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&amp;quot;You literally ought to be asking yourself all the time what is the most important thing in the world I could be working on right now, and if you are not working on that why aren't you?&amp;quot;&lt;/p&gt;
+&lt;p&gt;“You literally ought to be asking yourself all the time what is the most important thing in the world I could be working on right now, and if you are not working on that why aren’t you?”&lt;/p&gt;
 &lt;p&gt;— &lt;a href="https://en.wikipedia.org/wiki/Taren_Stinebrickner-Kauffman"&gt;Taren Stinebrickner-Kauffman&lt;/a&gt; describing her partner, &lt;a href="https://en.wikipedia.org/wiki/Aaron_Swartz"&gt;Aaron Swartz&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;专业方面，这一年在 Clojure/Haskell/Ruby/JavaScript 方面均有所涉猎，但是所研甚浅，并且尚无机会加以实践，因此所得有限；前半年花了很多时间在系统性地学习前端开发和字体设计的一些基础知识，最终总算能用 Bootstrap 做出还算过得去的网站（比如本博客）；后半年曾花了很长时间思考实践 HTTP RESTful API 的设计以及前后端的对接实现，这方面倒是颇有心得。Open Source 方面，我依旧在很好地维护着 &lt;a href="https://github.com/xiaohanyu/oh-my-emacs"&gt;oh-my-emacs&lt;/a&gt; ，目前 oh-my-emacs 已经是世界上最好的 dotemacs 项目之一，并在全球范围内逐渐形成了自己的用户群。有几次我去 Github 上处理 issues，却发现 oh-my-emacs 用户之间已经讨论完毕并给出了很好的解决方案，我所能做的就是将用户的讨论提炼精简，写在 oh-my-emacs 里面。可见即便是一个原理很简单的项目，将其做到极致，或许也会有莫大的价值。&lt;/p&gt;
@@ -351,7 +351,7 @@
 &lt;/ul&gt;
 &lt;p&gt;在这种全方位立体化多角度的打击下，我的肩颈背痛总算有所收敛。在此奉劝各位程序员朋友，工作失去随时找，健康失去不再来。有时间我会再写一篇《程序员健康指南》，记录下我在这方面的心得。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Imagine life as a game in which you are juggling some five balls in the air. You name them—work, family, health, friends and spirit—and you're keeping all of these in the air. You will soon understand that work is a rubber ball. If you drop it, it will bounce back. But the other four balls—family, health, friends and spirit—are made of glass. If you drop one of these, they will be irrevocably scuffed, marked, nicked, damaged or even shattered. They will never be the same. You must understand that and strive for balance in your life.&lt;/p&gt;
+&lt;p&gt;Imagine life as a game in which you are juggling some five balls in the air. You name them—work, family, health, friends and spirit—and you’re keeping all of these in the air. You will soon understand that work is a rubber ball. If you drop it, it will bounce back. But the other four balls—family, health, friends and spirit—are made of glass. If you drop one of these, they will be irrevocably scuffed, marked, nicked, damaged or even shattered. They will never be the same. You must understand that and strive for balance in your life.&lt;/p&gt;
 &lt;p&gt;— &lt;a href="https://en.wikipedia.org/wiki/Brian_Dyson"&gt;Brian Dyson&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id="养猫"&gt;养猫&lt;/h2&gt;
@@ -497,7 +497,7 @@ route &lt;span class="ot"&gt;%r{/sitemap/|/atom/}&lt;/span&gt; &lt;span class="k
 &lt;h2 id="org-mode"&gt;Org-mode&lt;/h2&gt;
 &lt;p&gt;我选择 SSG 的第一个标准就是必须支持 &lt;a href="http://orgmode.org/"&gt;org-mode&lt;/a&gt; 。&lt;/p&gt;
 &lt;p&gt;Why org-mode?&lt;/p&gt;
-&lt;p&gt;其实 &lt;a href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; 是相当好的文档标记语言，绝大多数 SSG 对 Markdown 都有良好的支持。多数线上服务如 GitHub、Stackoverflow 也是以 Markdown 为默认文档标记语言。Markdown 的生态圈也相当繁荣， 有很多优秀的线上线下的 Editor&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;。不过 Markdown 的先天不足在于， 其设计初衷导致 Markdown 的标准过于简单，功能不够，而各方英雄为了一已之私，不得不提出各种 Markdown 扩展来满足自己的日常需求。这样看来，Markdown 生态圈一片繁荣百花争春的背后，实则是一片混乱，没有一个统一的标准，容易“厂商锁定”。所有的扩展 Markdown 语言之中， &lt;a href="https://help.github.com/articles/github-flavored-markdown"&gt;GitHub Flavored Markdown&lt;/a&gt; 和 &lt;a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown"&gt;Pandoc's markdown&lt;/a&gt; 是比较不错的。特别是 Pandoc's Markdown，功能完善、规范、强大，如果你不是我这样的 org-mode 死忠，那么我强烈推荐你用 Pandoc's Markdown。&lt;/p&gt;
+&lt;p&gt;其实 &lt;a href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; 是相当好的文档标记语言，绝大多数 SSG 对 Markdown 都有良好的支持。多数线上服务如 GitHub、Stackoverflow 也是以 Markdown 为默认文档标记语言。Markdown 的生态圈也相当繁荣， 有很多优秀的线上线下的 Editor&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;。不过 Markdown 的先天不足在于， 其设计初衷导致 Markdown 的标准过于简单，功能不够，而各方英雄为了一已之私，不得不提出各种 Markdown 扩展来满足自己的日常需求。这样看来，Markdown 生态圈一片繁荣百花争春的背后，实则是一片混乱，没有一个统一的标准，容易“厂商锁定”。所有的扩展 Markdown 语言之中， &lt;a href="https://help.github.com/articles/github-flavored-markdown"&gt;GitHub Flavored Markdown&lt;/a&gt; 和 &lt;a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown"&gt;Pandoc’s markdown&lt;/a&gt; 是比较不错的。特别是 Pandoc’s Markdown，功能完善、规范、强大，如果你不是我这样的 org-mode 死忠，那么我强烈推荐你用 Pandoc’s Markdown。&lt;/p&gt;
 &lt;p&gt;而我之所以离不开 org-mode，其一在于我个人患有严重的 Emacs 依赖症，其二是 &lt;a href="http://orgmode.org/worg/org-contrib/babel/"&gt;org-babel&lt;/a&gt; ，一个你用上了就再也离不开的东西。org-babel 让简单静态的文档变成了完整的 live 的 workflow，关于这点，学术界甚至有一些专门的 &lt;a href="http://orgmode.org/worg/org-papers.html"&gt;Papers&lt;/a&gt; 论述。限于篇幅，不在这里展开讨论。Emacs 配上 org-mode，更如香车搭上美女，快感连连，高潮不断也。&lt;/p&gt;
 &lt;p&gt;但是很不幸，对 org-mode 的坚持让我被迫放弃了一大半的 SSG。事实上，在我刚开始着手调研 SSG 的时候，没有一个 SSG 提供对 org-mode 的良好支持。org-mode 本身有一个非常原始并且极其难用的 &lt;a href="http://orgmode.org/manual/Publishing.html"&gt;org-publish&lt;/a&gt; ，稍加配置也可以当成一个原始的 SSG 来用。还有一些 &lt;a href="http://orgmode.org/worg/org-blog-wiki.html"&gt;Emacs packages&lt;/a&gt; ，基于 org-publish， 可以用来生成 static site，但是大多数都非常难用。 &lt;a href="http://renard.github.io/o-blog/"&gt;o-blog&lt;/a&gt; 看上去很漂亮，但是我始终没有搞明白怎么用。后来又尝试了下 &lt;a href="https://github.com/kelvinh/org-page"&gt;org-page&lt;/a&gt; ，还提了几个 patch，但终究也不是很满意。于是就只能自己操刀，开始写 &lt;a href="https://github.com/xiaohanyu/org-site"&gt;org-site&lt;/a&gt; 。断续写了一个月，出来一个原型，但最终还是放弃：&lt;/p&gt;
 &lt;ul&gt;
@@ -510,7 +510,7 @@ route &lt;span class="ot"&gt;%r{/sitemap/|/atom/}&lt;/span&gt; &lt;span class="k
 &lt;/ul&gt;
 &lt;p&gt;至此，自动动手丰衣足食的计划宣告破产，被迫寻找并尝试 hack 一些成型的 SSG，来支持 org-mode 写作。我最终的选择是 &lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt; 。&lt;/p&gt;
 &lt;h2 id="nanoc"&gt;Nanoc&lt;/h2&gt;
-&lt;p&gt;&lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt; 是我用过的所有 SSG 中最为灵活，也是使用门槛最高的一个。Nanoc 官方的入门 &lt;a href="http://nanoc.ws/docs/tutorial/"&gt;Tutorial&lt;/a&gt; 中明确说明，你必须 &amp;quot;have a basic understanding of Ruby and command line&amp;quot;， 才有可能玩得通 Nanoc。在我个人看来，Nanoc 的设计基本上严格遵循了 Unix 中 &amp;quot;Provide mechanism, not policy&amp;quot; 的哲学。用软件工程的术语来说，Nanoc 提供的是 library，而非一套成型的 SSG 软件。Nanoc 既不限定你所用的文档标记语言 --- 你可以用 Markdown/Textile/Org-mode，也不指定相应的编译规则，更不提供默认的 out-of-box 的主题样式。总之，一切要自己来，学习曲线颇为陡峭，但学成之后可以随心所欲。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt; 是我用过的所有 SSG 中最为灵活，也是使用门槛最高的一个。Nanoc 官方的入门 &lt;a href="http://nanoc.ws/docs/tutorial/"&gt;Tutorial&lt;/a&gt; 中明确说明，你必须 “have a basic understanding of Ruby and command line”， 才有可能玩得通 Nanoc。在我个人看来，Nanoc 的设计基本上严格遵循了 Unix 中 “Provide mechanism, not policy” 的哲学。用软件工程的术语来说，Nanoc 提供的是 library，而非一套成型的 SSG 软件。Nanoc 既不限定你所用的文档标记语言 — 你可以用 Markdown/Textile/Org-mode，也不指定相应的编译规则，更不提供默认的 out-of-box 的主题样式。总之，一切要自己来，学习曲线颇为陡峭，但学成之后可以随心所欲。&lt;/p&gt;
 &lt;p&gt;Nanoc 创造了自己的术语体系，每个概念相互独立又彼此联系。理解了这些术语也就理解了 nanoc 的工作原理：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;item: 是 nanoc 要处理的实体。一个 item 可以是 html/css/markdown 等文本文件，也可以是图片，还可以是你自己凭空创造出来的虚拟文件。&lt;/li&gt;
@@ -523,7 +523,7 @@ route &lt;span class="ot"&gt;%r{/sitemap/|/atom/}&lt;/span&gt; &lt;span class="k
 &lt;h2 id="ruby"&gt;Ruby&lt;/h2&gt;
 &lt;p&gt;我并不是某一门编程语言的死忠。如果让我用一个字来形容 Ruby，那就是“舒服”。是的， &lt;a href="http://en.wikipedia.org/wiki/Yukihiro_Matsumoto"&gt;Matz&lt;/a&gt; 没有骗你，Ruby 是写起来相当舒服的一门语言。Ruby 的包管理机制 &lt;a href="http://bundler.io/"&gt;bundler&lt;/a&gt; + &lt;a href="https://rubygems.org/"&gt;gem&lt;/a&gt; 是我用过的所有包管理器中最先进最好用的， 比之于什么 Python 的 &lt;a href="http://www.virtualenv.org/en/latest/"&gt;virtualenv&lt;/a&gt; + &lt;a href="http://www.pip-installer.org/en/latest/"&gt;pip&lt;/a&gt; 之流要好用太多。至于 Haskell 的 &lt;a href="http://www.haskell.org/cabal/"&gt;cabal&lt;/a&gt; 基本上就是个奇葩的存在，连基本的 uninstall 功能都没有（是不是想起了 Python 的 &lt;code&gt;easy_install&lt;/code&gt; ？），更不用提类似于 virtualenv/sandbox 这类先进功能了。不过这些都还可以忍受，Haskell 的 cabal 最蛋疼最奇葩的一点就是，好好的用着 &lt;code&gt;cabal install&lt;/code&gt; ，说不定哪一天就会蹦出来各种莫名其妙的依赖问题， &lt;a href="http://en.wikipedia.org/wiki/Dependency_hell"&gt;dependency hell&lt;/a&gt; ， 唯一的解决办法就是 &lt;code&gt;rm -rf $HOME/.cabal&lt;/code&gt; ， 然后重装然后祈祷……而 Haskell 又是一门编译型的静态语言，这就使得装 package 的时间很长，令人不快。&lt;/p&gt;
 &lt;p&gt;语言层面，Ruby 中内置的 regexp（对比下 Python 的 &lt;code&gt;re.compile&lt;/code&gt; ） 强大易用；其完整的对 lambda/block 的支持（对比下 Python 中阉割的 lambda），能让每一个有点 Lisp 基础的人找到熟悉的感觉；Ruby 从 Unix Shell 以及 Perl 中借鉴而来的很多小聪明如 &lt;a href="http://en.wikipedia.org/wiki/Here_document"&gt;here document&lt;/a&gt;/&lt;a href="http://en.wikipedia.org/wiki/String_interpolation"&gt;string interpolation&lt;/a&gt;/command interpolation(Ruby backticks)， 使 Ruby 超越了 Python/Perl/Shell，成为写 quick and dirty 的 Unix Script 的上上之选；Ruby 社区一些极富创造力的一些 package 如 &lt;a href="http://rake.rubyforge.org/"&gt;rake&lt;/a&gt;/&lt;a href="https://github.com/guard/guard"&gt;guard&lt;/a&gt; ，则让你的 hack 之旅充满了快乐。&lt;/p&gt;
-&lt;p&gt;尽管 Ruby 这样那样好，但是 Haskell 社区有一枚神器，让人欲罢不能，这就是文档格式转换的瑞士军刀 --- &lt;a href="http://johnmacfarlane.net/pandoc/"&gt;Pandoc&lt;/a&gt; 。&lt;/p&gt;
+&lt;p&gt;尽管 Ruby 这样那样好，但是 Haskell 社区有一枚神器，让人欲罢不能，这就是文档格式转换的瑞士军刀 — &lt;a href="http://johnmacfarlane.net/pandoc/"&gt;Pandoc&lt;/a&gt; 。&lt;/p&gt;
 &lt;h2 id="pandoc"&gt;Pandoc&lt;/h2&gt;
 &lt;p&gt;文档格式转换一直是一大难题，究其原因，是在于不同的文档格式有不同的表现能力和设计侧重点。比如原始的 Markdown 格式没有 table（表格）的支持，你怎么把 html 转换成 Markdown ? 反过来，html 中的 form 转换成其它格式，又该如何表现？Microsoft Word 2003 及之前版本的文档格式都是二进制且没有公开的文档格式标准， 想要完整的支持这种格式需要做大量的反向工程（ &lt;a href="https://www.openoffice.org/"&gt;OpenOffice&lt;/a&gt; 和 &lt;a href="https://www.libreoffice.org/"&gt;LibreOffice&lt;/a&gt; 干的就是这事，可想这工作量）。&lt;/p&gt;
 &lt;p&gt;文档格式转换的软件千千万万，但是多数都只是 ad-hoc 的办法，pandoc 的创新之处在于发明了一种中间格式（&lt;a href="http://johnmacfarlane.net/pandoc/scripting.html"&gt;json-formatted AST&lt;/a&gt;），即先将原始文档格式先解析并转换成这种中间格式，然后经过系列处理转换成目标文档格式，从而提供了大一统的解决方案。&lt;/p&gt;
@@ -543,7 +543,7 @@ JSON-formatted AST
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Pandoc 对于每种支持的输入格式，都提供了完整的 parser（pandoc 中叫做 reader），通过 parser 将输入文档转换成结构化 json 格式的 &lt;a href="http://en.wikipedia.org/wiki/Abstract_syntax_tree"&gt;AST&lt;/a&gt; 。然后我们可以根据自己的需求，写一些脚本来操作 pandoc AST，再转换成最终的输出目标格式（Pandoc 中叫做 writer）。Pandoc 把这个操作 AST 的程序脚本叫做 &lt;a href="http://johnmacfarlane.net/pandoc/scripting.html#json-filters"&gt;filter&lt;/a&gt; ，借助 filter，理论上可以实现非常丰富的功能。至于调用 filter 的方法，最简单的是通过 Unix 管道操作，比如：&lt;/p&gt;
 &lt;div class="sourceCode"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;&lt;span class="ex"&gt;pandoc&lt;/span&gt; -f SOURCEFORMAT -t json &lt;span class="kw"&gt;|&lt;/span&gt; &lt;span class="ex"&gt;runhaskell&lt;/span&gt; filter.hs &lt;span class="kw"&gt;|&lt;/span&gt; &lt;span class="ex"&gt;pandoc&lt;/span&gt; -f json -t TARGETFORMAT&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Pandoc 的首选格式语言是 Markdown。为了弥补 Markdown 的先天不足，pandoc 在原始 Markdown 的基础上增加了许多有用的扩展。通过这些扩展， &lt;a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown"&gt;Pandoc's markdown&lt;/a&gt; 自成一套完备、规范、通用、强大的文档标记语言。&lt;/p&gt;
+&lt;p&gt;Pandoc 的首选格式语言是 Markdown。为了弥补 Markdown 的先天不足，pandoc 在原始 Markdown 的基础上增加了许多有用的扩展。通过这些扩展， &lt;a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown"&gt;Pandoc’s markdown&lt;/a&gt; 自成一套完备、规范、通用、强大的文档标记语言。&lt;/p&gt;
 &lt;p&gt;Pandoc 在 1.12.3.2 版本之前是不支持 org-mode 作为输入格式的。这也让我头疼了许久。我最原始的想法是将 Emacs 当成一个 org-mode 的文档格式转换器，定制 emacs org-mode filter 集成到 nanoc：&lt;/p&gt;
 &lt;div class="sourceCode"&gt;&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;span class="kw"&gt;module&lt;/span&gt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filters&lt;/span&gt;
 
@@ -640,7 +640,7 @@ JSON-formatted AST
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id="fn1"&gt;&lt;p&gt;线上 Editor： &lt;a href="http://dillinger.io/"&gt;Dillinger&lt;/a&gt;/&lt;a href="https://stackedit.io/"&gt;StackEdit&lt;/a&gt; ；线下 Editor： &lt;a href="http://mouapp.com/"&gt;Mou&lt;/a&gt; 。&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id="fn2"&gt;&lt;p&gt;这其中有个八卦，hakyll 的作者 &lt;a href="http://jaspervdj.be/"&gt;Jasper&lt;/a&gt; 和 nanoc 的作者 &lt;a href="http://stoneship.org/"&gt;Denis Defreyne&lt;/a&gt; 在生活中是好朋友。而在某一年的 April fools' day，Denis 写了篇 &amp;lt;&lt;a href="http://nanoc.ws/the-road-to-nanoc-4-0/"&gt;The road to nanoc 4.0&lt;/a&gt;&amp;gt; ， 大意是要用 haskell 重写 nanoc。&lt;a href="#fnref2"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn2"&gt;&lt;p&gt;这其中有个八卦，hakyll 的作者 &lt;a href="http://jaspervdj.be/"&gt;Jasper&lt;/a&gt; 和 nanoc 的作者 &lt;a href="http://stoneship.org/"&gt;Denis Defreyne&lt;/a&gt; 在生活中是好朋友。而在某一年的 April fools’ day，Denis 写了篇 &amp;lt;&lt;a href="http://nanoc.ws/the-road-to-nanoc-4-0/"&gt;The road to nanoc 4.0&lt;/a&gt;&amp;gt; ， 大意是要用 haskell 重写 nanoc。&lt;a href="#fnref2"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </content>

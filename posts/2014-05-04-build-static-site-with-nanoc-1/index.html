@@ -94,7 +94,7 @@
 <h2 id="org-mode">Org-mode</h2>
 <p>我选择 SSG 的第一个标准就是必须支持 <a href="http://orgmode.org/">org-mode</a> 。</p>
 <p>Why org-mode?</p>
-<p>其实 <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> 是相当好的文档标记语言，绝大多数 SSG 对 Markdown 都有良好的支持。多数线上服务如 GitHub、Stackoverflow 也是以 Markdown 为默认文档标记语言。Markdown 的生态圈也相当繁荣， 有很多优秀的线上线下的 Editor<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。不过 Markdown 的先天不足在于， 其设计初衷导致 Markdown 的标准过于简单，功能不够，而各方英雄为了一已之私，不得不提出各种 Markdown 扩展来满足自己的日常需求。这样看来，Markdown 生态圈一片繁荣百花争春的背后，实则是一片混乱，没有一个统一的标准，容易“厂商锁定”。所有的扩展 Markdown 语言之中， <a href="https://help.github.com/articles/github-flavored-markdown">GitHub Flavored Markdown</a> 和 <a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown">Pandoc's markdown</a> 是比较不错的。特别是 Pandoc's Markdown，功能完善、规范、强大，如果你不是我这样的 org-mode 死忠，那么我强烈推荐你用 Pandoc's Markdown。</p>
+<p>其实 <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> 是相当好的文档标记语言，绝大多数 SSG 对 Markdown 都有良好的支持。多数线上服务如 GitHub、Stackoverflow 也是以 Markdown 为默认文档标记语言。Markdown 的生态圈也相当繁荣， 有很多优秀的线上线下的 Editor<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。不过 Markdown 的先天不足在于， 其设计初衷导致 Markdown 的标准过于简单，功能不够，而各方英雄为了一已之私，不得不提出各种 Markdown 扩展来满足自己的日常需求。这样看来，Markdown 生态圈一片繁荣百花争春的背后，实则是一片混乱，没有一个统一的标准，容易“厂商锁定”。所有的扩展 Markdown 语言之中， <a href="https://help.github.com/articles/github-flavored-markdown">GitHub Flavored Markdown</a> 和 <a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown">Pandoc’s markdown</a> 是比较不错的。特别是 Pandoc’s Markdown，功能完善、规范、强大，如果你不是我这样的 org-mode 死忠，那么我强烈推荐你用 Pandoc’s Markdown。</p>
 <p>而我之所以离不开 org-mode，其一在于我个人患有严重的 Emacs 依赖症，其二是 <a href="http://orgmode.org/worg/org-contrib/babel/">org-babel</a> ，一个你用上了就再也离不开的东西。org-babel 让简单静态的文档变成了完整的 live 的 workflow，关于这点，学术界甚至有一些专门的 <a href="http://orgmode.org/worg/org-papers.html">Papers</a> 论述。限于篇幅，不在这里展开讨论。Emacs 配上 org-mode，更如香车搭上美女，快感连连，高潮不断也。</p>
 <p>但是很不幸，对 org-mode 的坚持让我被迫放弃了一大半的 SSG。事实上，在我刚开始着手调研 SSG 的时候，没有一个 SSG 提供对 org-mode 的良好支持。org-mode 本身有一个非常原始并且极其难用的 <a href="http://orgmode.org/manual/Publishing.html">org-publish</a> ，稍加配置也可以当成一个原始的 SSG 来用。还有一些 <a href="http://orgmode.org/worg/org-blog-wiki.html">Emacs packages</a> ，基于 org-publish， 可以用来生成 static site，但是大多数都非常难用。 <a href="http://renard.github.io/o-blog/">o-blog</a> 看上去很漂亮，但是我始终没有搞明白怎么用。后来又尝试了下 <a href="https://github.com/kelvinh/org-page">org-page</a> ，还提了几个 patch，但终究也不是很满意。于是就只能自己操刀，开始写 <a href="https://github.com/xiaohanyu/org-site">org-site</a> 。断续写了一个月，出来一个原型，但最终还是放弃：</p>
 <ul>
@@ -107,7 +107,7 @@
 </ul>
 <p>至此，自动动手丰衣足食的计划宣告破产，被迫寻找并尝试 hack 一些成型的 SSG，来支持 org-mode 写作。我最终的选择是 <a href="http://nanoc.ws/">Nanoc</a> 。</p>
 <h2 id="nanoc">Nanoc</h2>
-<p><a href="http://nanoc.ws/">Nanoc</a> 是我用过的所有 SSG 中最为灵活，也是使用门槛最高的一个。Nanoc 官方的入门 <a href="http://nanoc.ws/docs/tutorial/">Tutorial</a> 中明确说明，你必须 &quot;have a basic understanding of Ruby and command line&quot;， 才有可能玩得通 Nanoc。在我个人看来，Nanoc 的设计基本上严格遵循了 Unix 中 &quot;Provide mechanism, not policy&quot; 的哲学。用软件工程的术语来说，Nanoc 提供的是 library，而非一套成型的 SSG 软件。Nanoc 既不限定你所用的文档标记语言 --- 你可以用 Markdown/Textile/Org-mode，也不指定相应的编译规则，更不提供默认的 out-of-box 的主题样式。总之，一切要自己来，学习曲线颇为陡峭，但学成之后可以随心所欲。</p>
+<p><a href="http://nanoc.ws/">Nanoc</a> 是我用过的所有 SSG 中最为灵活，也是使用门槛最高的一个。Nanoc 官方的入门 <a href="http://nanoc.ws/docs/tutorial/">Tutorial</a> 中明确说明，你必须 “have a basic understanding of Ruby and command line”， 才有可能玩得通 Nanoc。在我个人看来，Nanoc 的设计基本上严格遵循了 Unix 中 “Provide mechanism, not policy” 的哲学。用软件工程的术语来说，Nanoc 提供的是 library，而非一套成型的 SSG 软件。Nanoc 既不限定你所用的文档标记语言 — 你可以用 Markdown/Textile/Org-mode，也不指定相应的编译规则，更不提供默认的 out-of-box 的主题样式。总之，一切要自己来，学习曲线颇为陡峭，但学成之后可以随心所欲。</p>
 <p>Nanoc 创造了自己的术语体系，每个概念相互独立又彼此联系。理解了这些术语也就理解了 nanoc 的工作原理：</p>
 <ul>
 <li>item: 是 nanoc 要处理的实体。一个 item 可以是 html/css/markdown 等文本文件，也可以是图片，还可以是你自己凭空创造出来的虚拟文件。</li>
@@ -120,7 +120,7 @@
 <h2 id="ruby">Ruby</h2>
 <p>我并不是某一门编程语言的死忠。如果让我用一个字来形容 Ruby，那就是“舒服”。是的， <a href="http://en.wikipedia.org/wiki/Yukihiro_Matsumoto">Matz</a> 没有骗你，Ruby 是写起来相当舒服的一门语言。Ruby 的包管理机制 <a href="http://bundler.io/">bundler</a> + <a href="https://rubygems.org/">gem</a> 是我用过的所有包管理器中最先进最好用的， 比之于什么 Python 的 <a href="http://www.virtualenv.org/en/latest/">virtualenv</a> + <a href="http://www.pip-installer.org/en/latest/">pip</a> 之流要好用太多。至于 Haskell 的 <a href="http://www.haskell.org/cabal/">cabal</a> 基本上就是个奇葩的存在，连基本的 uninstall 功能都没有（是不是想起了 Python 的 <code>easy_install</code> ？），更不用提类似于 virtualenv/sandbox 这类先进功能了。不过这些都还可以忍受，Haskell 的 cabal 最蛋疼最奇葩的一点就是，好好的用着 <code>cabal install</code> ，说不定哪一天就会蹦出来各种莫名其妙的依赖问题， <a href="http://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a> ， 唯一的解决办法就是 <code>rm -rf $HOME/.cabal</code> ， 然后重装然后祈祷……而 Haskell 又是一门编译型的静态语言，这就使得装 package 的时间很长，令人不快。</p>
 <p>语言层面，Ruby 中内置的 regexp（对比下 Python 的 <code>re.compile</code> ） 强大易用；其完整的对 lambda/block 的支持（对比下 Python 中阉割的 lambda），能让每一个有点 Lisp 基础的人找到熟悉的感觉；Ruby 从 Unix Shell 以及 Perl 中借鉴而来的很多小聪明如 <a href="http://en.wikipedia.org/wiki/Here_document">here document</a>/<a href="http://en.wikipedia.org/wiki/String_interpolation">string interpolation</a>/command interpolation(Ruby backticks)， 使 Ruby 超越了 Python/Perl/Shell，成为写 quick and dirty 的 Unix Script 的上上之选；Ruby 社区一些极富创造力的一些 package 如 <a href="http://rake.rubyforge.org/">rake</a>/<a href="https://github.com/guard/guard">guard</a> ，则让你的 hack 之旅充满了快乐。</p>
-<p>尽管 Ruby 这样那样好，但是 Haskell 社区有一枚神器，让人欲罢不能，这就是文档格式转换的瑞士军刀 --- <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> 。</p>
+<p>尽管 Ruby 这样那样好，但是 Haskell 社区有一枚神器，让人欲罢不能，这就是文档格式转换的瑞士军刀 — <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> 。</p>
 <h2 id="pandoc">Pandoc</h2>
 <p>文档格式转换一直是一大难题，究其原因，是在于不同的文档格式有不同的表现能力和设计侧重点。比如原始的 Markdown 格式没有 table（表格）的支持，你怎么把 html 转换成 Markdown ? 反过来，html 中的 form 转换成其它格式，又该如何表现？Microsoft Word 2003 及之前版本的文档格式都是二进制且没有公开的文档格式标准， 想要完整的支持这种格式需要做大量的反向工程（ <a href="https://www.openoffice.org/">OpenOffice</a> 和 <a href="https://www.libreoffice.org/">LibreOffice</a> 干的就是这事，可想这工作量）。</p>
 <p>文档格式转换的软件千千万万，但是多数都只是 ad-hoc 的办法，pandoc 的创新之处在于发明了一种中间格式（<a href="http://johnmacfarlane.net/pandoc/scripting.html">json-formatted AST</a>），即先将原始文档格式先解析并转换成这种中间格式，然后经过系列处理转换成目标文档格式，从而提供了大一统的解决方案。</p>
@@ -140,7 +140,7 @@ JSON-formatted AST
 </code></pre>
 <p>Pandoc 对于每种支持的输入格式，都提供了完整的 parser（pandoc 中叫做 reader），通过 parser 将输入文档转换成结构化 json 格式的 <a href="http://en.wikipedia.org/wiki/Abstract_syntax_tree">AST</a> 。然后我们可以根据自己的需求，写一些脚本来操作 pandoc AST，再转换成最终的输出目标格式（Pandoc 中叫做 writer）。Pandoc 把这个操作 AST 的程序脚本叫做 <a href="http://johnmacfarlane.net/pandoc/scripting.html#json-filters">filter</a> ，借助 filter，理论上可以实现非常丰富的功能。至于调用 filter 的方法，最简单的是通过 Unix 管道操作，比如：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">pandoc</span> -f SOURCEFORMAT -t json <span class="kw">|</span> <span class="ex">runhaskell</span> filter.hs <span class="kw">|</span> <span class="ex">pandoc</span> -f json -t TARGETFORMAT</code></pre></div>
-<p>Pandoc 的首选格式语言是 Markdown。为了弥补 Markdown 的先天不足，pandoc 在原始 Markdown 的基础上增加了许多有用的扩展。通过这些扩展， <a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown">Pandoc's markdown</a> 自成一套完备、规范、通用、强大的文档标记语言。</p>
+<p>Pandoc 的首选格式语言是 Markdown。为了弥补 Markdown 的先天不足，pandoc 在原始 Markdown 的基础上增加了许多有用的扩展。通过这些扩展， <a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown">Pandoc’s markdown</a> 自成一套完备、规范、通用、强大的文档标记语言。</p>
 <p>Pandoc 在 1.12.3.2 版本之前是不支持 org-mode 作为输入格式的。这也让我头疼了许久。我最原始的想法是将 Emacs 当成一个 org-mode 的文档格式转换器，定制 emacs org-mode filter 集成到 nanoc：</p>
 <div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">module</span> <span class="dt">Nanoc</span>::<span class="dt">Filters</span>
 
@@ -237,7 +237,7 @@ JSON-formatted AST
 <hr />
 <ol>
 <li id="fn1"><p>线上 Editor： <a href="http://dillinger.io/">Dillinger</a>/<a href="https://stackedit.io/">StackEdit</a> ；线下 Editor： <a href="http://mouapp.com/">Mou</a> 。<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>这其中有个八卦，hakyll 的作者 <a href="http://jaspervdj.be/">Jasper</a> 和 nanoc 的作者 <a href="http://stoneship.org/">Denis Defreyne</a> 在生活中是好朋友。而在某一年的 April fools' day，Denis 写了篇 &lt;<a href="http://nanoc.ws/the-road-to-nanoc-4-0/">The road to nanoc 4.0</a>&gt; ， 大意是要用 haskell 重写 nanoc。<a href="#fnref2">↩</a></p></li>
+<li id="fn2"><p>这其中有个八卦，hakyll 的作者 <a href="http://jaspervdj.be/">Jasper</a> 和 nanoc 的作者 <a href="http://stoneship.org/">Denis Defreyne</a> 在生活中是好朋友。而在某一年的 April fools’ day，Denis 写了篇 &lt;<a href="http://nanoc.ws/the-road-to-nanoc-4-0/">The road to nanoc 4.0</a>&gt; ， 大意是要用 haskell 重写 nanoc。<a href="#fnref2">↩</a></p></li>
 </ol>
 </section>
 
