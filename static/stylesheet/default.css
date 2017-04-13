@@ -5,12 +5,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  background-color: #F8F8F8; }
+  background-image: url("/static/image/common/squairy_light.png") !important;
+  background-repeat: repeat !important; }
 
 footer {
   margin: 1rem 0; }
   footer.center.aligned p {
     text-align: center; }
+  footer.ui.vertical.segment {
+    padding: 2rem 0; }
 
 ul,
 ol {
@@ -21,21 +24,11 @@ p {
   [lang='cn'] p {
     text-align: justify; }
 
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-bottom: 3px double #EEE;
-  margin: 1rem 0;
-  padding: 0; }
-  hr.plain {
-    border-bottom: 1px solid #DDD; }
-
 /* blockquote styles comes from bootstrap */
 blockquote {
   padding: 0.6rem 1rem 0.4rem;
   margin: 0 0 0.8rem;
-  border-left: 3px solid #eee; }
+  border-left: 3px solid #009fda; }
   blockquote p {
     line-height: 1.2rem;
     margin-bottom: 0.3rem;
@@ -73,18 +66,13 @@ img {
     width: 8em;
     margin-top: 0.5em; }
 
-/* Styles for sremantic-ui elrements */
-.ui.alternative.segment {
-  background: #FFFFFF; }
+/* Styles for semantic-ui elrements */
 .ui.vertical.stripe.segment {
   padding: 4rem 0; }
-.ui.vertical.segment:first-child {
-  padding-top: 0; }
-.ui.vertical.segment {
-  padding: 2rem 0; }
+  .ui.vertical.stripe.segment:nth-of-type(even) {
+    background-color: rgba(128, 128, 128, 0.08); }
 
 .ui.menu {
-  border-radius: 0;
   box-shadow: none;
   margin-bottom: 0;
   -moz-font-feature-settings: "smcp" 0, "onum" 0;
@@ -115,9 +103,16 @@ img {
   margin: 1.5rem 0 2.5rem 0;
   padding-top: 2rem; }
 .ui.article > .ui.grid > .row.article-head {
-  padding-bottom: 1rem; }
+  padding-top: 1.5rem; }
 .ui.article > .ui.grid > .row.article-body {
-  padding-top: 0; }
+  padding-top: 0rem; }
+  .ui.article > .ui.grid > .row.article-body .ui.vertical.segment:first-child {
+    padding-top: 0; }
+  .ui.article > .ui.grid > .row.article-body .ui.vertical.segment:last-child {
+    padding-bottom: 0; }
+  .ui.article > .ui.grid > .row.article-body .ui.vertical.segment {
+    padding-top: 2rem;
+    padding-bottom: 2rem; }
   .ui.article > .ui.grid > .row.article-body > aside {
     display: table; }
     .ui.article > .ui.grid > .row.article-body > aside > .ui.header {
@@ -125,16 +120,14 @@ img {
     .ui.article > .ui.grid > .row.article-body > aside > .ui.list {
       margin-top: 0.5rem;
       margin-bottom: 0.5rem; }
-  .ui.article > .ui.grid > .row.article-body .ui.header a {
-    color: inherit; }
 
 /* Enable smallcaps and oldstyle-number OpenType features for English */
 [lang='en'] {
-  -moz-font-feature-settings: "smcp" 0, "onum" 1;
-  -ms-font-feature-settings: "smcp" 0, "onum" 1;
-  -o-font-feature-settings: "smcp" 0, "onum" 1;
-  -webkit-font-feature-settings: "smcp" 0, "onum" 1;
-  font-feature-settings: "smcp" 0, "onum" 1; }
+  -moz-font-feature-settings: "smcp" 0, "onum" 0;
+  -ms-font-feature-settings: "smcp" 0, "onum" 0;
+  -o-font-feature-settings: "smcp" 0, "onum" 0;
+  -webkit-font-feature-settings: "smcp" 0, "onum" 0;
+  font-feature-settings: "smcp" 0, "onum" 0; }
 
 /* Disable smallcaps and oldstyle-number OpenType features for Chinese */
 [lang='cn'] {

@@ -32,7 +32,6 @@ function show_disqus_comments(event) {
 
 $(document).ready(function() {
   $('.ui.progress').progress();
-
   $(".words-cn").html(json_to_quote($('#quotes').data('quotes-cn')));
 
   $(".words-en").html(json_to_quote($('#quotes').data('quotes-en')));

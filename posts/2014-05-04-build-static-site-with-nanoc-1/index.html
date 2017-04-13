@@ -7,24 +7,11 @@
     <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
     <meta content="web development, programming, typeface, typography" name="keywords" />
     <meta content="Xiao Hanyu" name="author" />
-    <link href="/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57" />
-    <link href="/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60" />
-    <link href="/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
-    <link href="/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
-    <link href="/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
-    <link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
-    <link href="/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
-    <link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
-    <link href="/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
     <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
-    <link href="/favicon-194x194.png" rel="icon" sizes="194x194" type="image/png" />
-    <link href="/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png" />
-    <link href="/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png" />
     <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
-    <meta content="#2d89ef" name="msapplication-TileColor" />
-    <meta content="/mstile-144x144.png" name="msapplication-TileImage" />
     <meta content="#ffffff" name="theme-color" />
     <title>Build Static Site with Nanoc (I)</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
@@ -55,10 +42,10 @@
   <div class="ui very padded segment article">
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
-    <h1>
+    <h1 class="ui header">
       Build Static Site with Nanoc (I)
     </h1>
-    <hr />
+    <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
@@ -241,7 +228,7 @@ JSON-formatted AST
 </ol>
 </section>
 
-    <hr />
+    <div class="ui divider"></div>
     <div class="ui small one item menu">
       <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
     </div>
@@ -315,11 +302,12 @@ JSON-formatted AST
 </div>
     </div>
     <div id="footer">
-      <footer class="ui center aligned container">
-        <hr />
-        <p>
-          Copyright © 2014–2016 by Xiao Hanyu, licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
-        </p>
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
       </footer>
       <script src="/static/dist/semantic-ui/semantic.min.js"></script>
       <script src="/static/javascript/ga.js"></script>
