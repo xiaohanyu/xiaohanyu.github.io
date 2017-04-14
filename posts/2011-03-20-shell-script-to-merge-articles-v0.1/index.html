@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>万方学位论文pdf合并脚本v0.1</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;},{&quot;content&quot;:[&quot;沧海横流，血肉横飞，方显出英雄本色，当年万源保卫战，敌军在不到 30 华里的地面上，使用兵力竞达九十个团，数量十倍于红军，谁能记清当时打了多少次恶仗？每天要牺牲多少人？他却是不多的幸存者之一。而眼前，一切都沉寂了，流逝了。那惊心动魄的枪声，那撕肝裂肺的呐喊，那悲痛欲绝的咒骂和呻吟，那狼藉遍野的残肢断骨和头颅，那千疮百孔仍迎风飘扬的军旗；都沉寂了，流逝了，无影无踪了，犹如做了一场梦……&quot;],&quot;author&quot;:&quot;都梁&quot;,&quot;from&quot;:&quot;亮剑&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      万方学位论文pdf合并脚本v0.1
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>古人云：天下文章一大抄。整个三月，浙江大学CS开题报告热火朝天，其中各种纠结与不解、各种困惑与混乱、各种word/tex模版纷争，不再详述。23号提交论文，但时至此刻，我刚刚Google Translate了一片水文搞定了外文翻译，修改了学院bug百出的latex模版，搞定了开题报告的格式，至于剩下的3500字，尚无着落，痛苦不堪，心慌也。</p>
+<p>废话少说，今天晚上去万方数据库校内镜像下载学位论文，岂知万方这个财主极其抠门猥琐，不但很多有价值的学术论文无法下载，可以下载的论文也是一个zip压缩包，然后里面几十到上百个pdf不等……看一篇完整的学位论文要打开几十个pdf，莫说是我，就是我的x201i，也该累死了……</p>
+<p>一个典型的万方学位论文zip压缩包目录结构如下：</p>
+<pre class="example"><code>lox &gt;&gt;&gt; tree IPTV机顶盒GUI子系统的研究与实现 
+IPTV机顶盒GUI子系统的研究与实现
+├── default.htm
+├── Images
+│   ├── ball.gif
+lox &gt;&gt;&gt; tree -L 3 -p -N | grep &#39;\[d&#39; 
+└── [drwxrwxr-x]  wanfang
+    ├── [drwxrwxr-x]  IPTV机顶盒GUI子系统的研究与实现
+    │   ├── [drwxrwxr-x]  Images
+    │   └── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  Tools设计与实现
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  基于QtEmbedded的图形用户界面移植
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  基于嵌入式Linux智能手机GUI平台的研究与实现
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  基于消息通信机制嵌入式GUI的研究与实现
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  嵌入式Linux图形用户界面的研究与开发
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  嵌入式uGUI的研究与实现
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  嵌入式系统轻量化GUI框架的设计与实现
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    └── [drwxrwxr-x]  面向数字家电产品的GUI框架的设计与实现
+        ├── [drwxrwxr-x]  Images
+        ├── [drwxrwxr-x]  Paper
+│   ├── bg.gif
+│   ├── folder.gif
+│   ├── H.gif
+│   ├── I.gif
+│   ├── L.gif
+│   ├── nfolder.gif
+│   ├── ofolder.gif
+lox &gt;&gt;&gt; tree IPTV机顶盒GUI子系统的研究与实现 
+IPTV机顶盒GUI子系统的研究与实现
+├── default.htm
+├── Images
+│   ├── ball.gif
+│   ├── bg.gif
+│   ├── folder.gif
+│   ├── H.gif
+│   ├── I.gif
+│   ├── L.gif
+│   ├── nfolder.gif
+│   ├── ofolder.gif
+│   └── T.gif
+└── Paper
+    └── pdf
+        ├── d0447950001.pdf
+        ├── d0447950002.pdf
+        ├── d0447950003.pdf
+        ├── d0447950004.pdf
+        ├── d0447950005.pdf
+        ├── d0447950006.pdf
+        ├── d0447950007.pdf
+        ├── d0447950008.pdf
+        ├── d0447950009.pdf
+        ├── d044795wz.pdf
+        ├── d044795zye.pdf
+        ├── fm.htm
+        ├── index.htm
+        ├── iptv.pdf
+        ├── left.htm
+        ├── ml.htm
+        └── single_merged_pdf.pdf
+
+3 directories, 28 files
+</code></pre>
+<p>所有的pdf文档在./Paper/pdf目录下，并且必有一个xxxxwz.pdf和一个xxxxzye.pdf文件，剩下的pdf文件基本上内容顺序和编号顺序一致，但是不排除有页码重叠的状况。</p>
+<p>想到的办法就是找CLI工具，将这些pdf合并成一份完整的论文。Archlinux下：pacman -Ss pdf，结合Google，得到几个相关的pdf工具：</p>
+<ul>
+<li>pdfedit</li>
+<li>ghostscript</li>
+<li>pdftk</li>
+<li>poppler</li>
+</ul>
+<p><a href="http://pdfedit.petricek.net/en/index.html">pdfedit</a>是图形化的pdf edit(编辑)工具，显然不符合CLI自动化处理的要求。而且看界面是基于QT3.x的，编辑功能应该是很强大的。具体可以看pdfedit的<a href="http://pdfedit.petricek.net/en/screenshots.html">Screenshots</a>。不过这与本文无关了。</p>
+<p><a href="http://pages.cs.wisc.edu/~ghost/">ghostscript</a> is an interpreter for the PostScript language。<a href="http://linuxtoy.org/archives/how-to-merge-multiple-pdfs.html">linuxtoy</a>给出了一种合并pdf方法，我尝试了一下，但是万方本身的pdf是加密的，直接转换会出现莫名其妙的错误，所以这种方法最终失败。</p>
+<p><a href="http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">pdftk</a>是一个十分强大的pdf工具，按照官方的说法，pdftk可以用来：</p>
+<ul>
+<li>Merge PDF Documents</li>
+<li>Split PDF Pages into a New Document</li>
+<li>Rotate PDF Pages or Documents</li>
+<li>Decrypt Input as Necessary (Password Required)</li>
+<li>Encrypt Output as Desired</li>
+<li>Fill PDF Forms with FDF Data or XFDF Data and/or Flatten Forms</li>
+<li>Apply a Background Watermark or a Foreground Stamp</li>
+<li>Report on PDF Metrics such as Metadata, Bookmarks, and Page Labels</li>
+<li>Update PDF Metadata</li>
+<li>Attach Files to PDF Pages or the PDF Document</li>
+<li>Unpack PDF Attachments</li>
+<li>Burst a PDF Document into Single Pages</li>
+<li>Uncompress and Re-Compress Page Streams</li>
+<li>Repair Corrupted PDF (Where Possible)</li>
+</ul>
+<p>可以用pdftk 1.pdf 2.pdf 3.pdf cat output 123.pdf的方式来<a href="http://www.pdflabs.com/docs/pdftk-cli-examples/">合并pdf</a>，但是由于万方pdf的特殊加密，用pdftk合并时，会出现“OWNER PASSWORD REQUIRED”的失败提示。所以成功合并pdf的最关键问题就是去掉万方pdf加密。</p>
+<p>幸运的是，我在<a href="http://townx.org/blog/elliot/removing-password-pdf-linux">townx</a>找到了解决方法，感谢万能的Google。剩下的任务，就是Shell Script的天地了。</p>
+<p>至于Shell Script，已经好久没有摆弄，很多写法已经生疏，好在半年前在华数淘宝写的脚本还在，打开浏览了下，照葫芦画瓢，倒也没有遇到太大困难。完整的脚本如下：</p>
+<pre class="example"><code>#!/usr/bin/env bash
+
+################################################################################
+# Purpose:  Merge pdf file downloaded from Wanfang dissertation database
+#               (http://g.wanfangdata.com.cn/)
+# Author:   Xiao Hanyu(xiaohanyu1988@gmail.com)
+# Depends:
+#       pdftk:              merge multiple pdf files, pdftk is also a useful pdf 
+#                               manipulation tools
+#       ps2pdf/pdftops:     pdf --&gt; ps then ps --&gt; pdf to remove encryption 
+################################################################################
+
+function usage
+{
+    cat &lt;&lt; EOF
+`basename $0`: A utility to merge encryted pdf files into one single pdf
+
+Usage:      `basename $0` [Options]
+Example:    
+            `basename $0` -f &quot;file1.pdf file2.pdf&quot; -o merged.pdf
+            `basename $0` -d input_pdf_dir -o merged.pdf
+            `basename $0` -d input_pdf_dir
+Options:
+    -f:     set the input pdf file list
+    -d:     set the input pdf directory
+    -o:     set the output pdf filename
+    -h:     show this help
+EOF
+}
+
+function merge_pdfs
+{
+    echo &quot;######## Convert begin!! ########&quot;
+    for pdf in $pdf_list
+    do
+        ## do not use pdf_name = `basename $pdf .pdf` 
+        ## since basename will remove the directory prefix of $pdf
+        pdf_name=`echo $pdf | sed -e &quot;s/\.pdf//&quot;`
+
+        ## add some animation ^_^
+        echo -n &quot;$pdf_name.pdf ----&gt;&gt; $pdf_name.ps &quot;
+        pdftops $pdf_name.pdf $pdf_name.ps
+
+        echo &quot;----&gt;&gt; $pdf_name.pdf&quot;
+        ps2pdf $pdf_name.ps $pdf_name.pdf
+        rm -rf $pdf_name.ps
+    done
+    echo &quot;######## Convert end!! ########&quot;
+
+    echo &quot;######## Merge begin!! ########&quot;
+    pdftk $pdf_list cat output $pdf_merge
+    echo &quot;######## Merge success, open $pdf_merge to see the result. Bye!! ########&quot;
+}
+
+while getopts &quot;d:f:o:h&quot; arg
+do 
+    case $arg in
+        d)
+            pdf_dir=$OPTARG
+            pdf_list=`ls $pdf_dir/*pdf`
+            ;;
+        f) 
+            pdf_list=$OPTARG
+            ;;
+        o) 
+            pdf_merge=$OPTARG
+            ;;
+        h)  
+            usage
+            exit 0
+            ;;
+        ?)
+            echo &quot;!!Wrong command options&quot;
+            usage
+            exit 1
+            ;;
+    esac
+done
+
+# if pdf_dir is not set yet, then it&#39;s set to default(that is, current directory)
+pdf_dir=${pdf_dir:-&quot;.&quot;}
+
+# set default output pdf filename, plus $pdf_dir prefix
+pdf_merge=&quot;${pdf_dir}/${pdf_merge:-&quot;single_merged_pdf.pdf&quot;}&quot;
+merge_pdfs
+</code></pre>
+<p>脚本结构还是很简单的：</p>
+<ul>
+<li>参数解析采用bash内置的getopts，暂时只支持短选项；</li>
+<li>有一个帮助说明函数function usage{}；</li>
+<li>关键函数是function merge_pdfs{}，尤其需要注意目录名和文件名的处理；</li>
+</ul>
+<p>调用方法如function usage{}里面所示：</p>
+<ul>
+<li>./wanfang_pdf_merge.sh -d pdf_dir</li>
+<li>./wanfang_pdf_merge.sh -d . -o merged_pdf.pdf</li>
+<li>./wanfang_pdf_merge.sh -f “dir1/pdf1.pdf dir2/pdf2.pdf” -o output/merged_pdf.pdf</li>
+</ul>
+<p>测试：</p>
+<p><img src="file:///user_files/cnlox/Image/screenshots/wanfang_merge_pdf_test1.png" /></p>
+<p>在这个基础脚本上进一步封装下，比如，对于如下的目录结构：</p>
+<pre class="example"><code>lox &gt;&gt;&gt; tree -L 3 -p -N | grep &#39;\[d&#39; 
+└── [drwxrwxr-x]  wanfang
+    ├── [drwxrwxr-x]  IPTV机顶盒GUI子系统的研究与实现
+    │   ├── [drwxrwxr-x]  Images
+    │   └── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  Tools设计与实现
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  基于QtEmbedded的图形用户界面移植
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  基于嵌入式Linux智能手机GUI平台的研究与实现
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  基于消息通信机制嵌入式GUI的研究与实现
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  嵌入式Linux图形用户界面的研究与开发
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  嵌入式uGUI的研究与实现
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    ├── [drwxrwxr-x]  嵌入式系统轻量化GUI框架的设计与实现
+    │   ├── [drwxrwxr-x]  Images
+    │   ├── [drwxrwxr-x]  Paper
+    └── [drwxrwxr-x]  面向数字家电产品的GUI框架的设计与实现
+        ├── [drwxrwxr-x]  Images
+        ├── [drwxrwxr-x]  Paper
+</code></pre>
+<p>我们的封装脚本命令如下：</p>
+<pre class="example"><code>for pdf_dir in `tree wanfang -ipNf | grep &#39;\[d&#39; | grep &#39;pdf&#39; | awk &#39;{print $2}&#39;`
+do              
+    ~/tools/wanfang_pdf_merge.sh -d $pdf_dir
+done
+</code></pre>
+<p>接下来喝咖啡！！！</p>
+<p><img src="file:///user_files/cnlox/Image/screenshots/wanfang_merge_pdf_test2.png" /></p>
+<p>咖啡喝完后，我们来看一下结果：</p>
+<pre class="example"><code>lox &gt;&gt;&gt; tree -ipNf  | grep &#39;single&#39;
+[-rw-rw-r--]  ./wanfang/IPTV机顶盒GUI子系统的研究与实现/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/Tools设计与实现/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/Tools设计与实现/Paper/pdf/single_merged_pdf.ps
+[-rw-rw-r--]  ./wanfang/基于QtEmbedded的图形用户界面移植/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/基于嵌入式Linux智能手机GUI平台的研究与实现/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/基于消息通信机制嵌入式GUI的研究与实现/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/嵌入式Linux图形用户界面的研究与开发/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/嵌入式uGUI的研究与实现/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/嵌入式系统轻量化GUI框架的设计与实现/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/面向数字家电产品的GUI框架的设计与实现/Paper/pdf/single_merged_pdf.pdf
+</code></pre>
+<p>大功告成！！！</p>
+<p>接下来的任务是：</p>
+<p>    写论文！！！！！！！！！！</p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2011-03-20</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#linux">
+          <div class="ui label">
+            Linux<sup>17</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#pdftk">
+          <div class="ui label">
+            PDFtk<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#pdfedit">
+          <div class="ui label">
+            PDFEdit<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#poppler">
+          <div class="ui label">
+            Poppler<sup>1</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/25455.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="Mac OS X遭遇记" href="/posts/2011-03-10-first-time-to-mac-os-x/">Prev</a><a class="item" title="行者无疆cn小传——人生在于有目的地折腾" href="/posts/2011-03-21-self-story/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>

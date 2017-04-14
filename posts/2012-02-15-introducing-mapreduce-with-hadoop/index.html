@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>闲谈MapReduce(1): Hadoop初探</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;},{&quot;content&quot;:[&quot;沧海横流，血肉横飞，方显出英雄本色，当年万源保卫战，敌军在不到 30 华里的地面上，使用兵力竞达九十个团，数量十倍于红军，谁能记清当时打了多少次恶仗？每天要牺牲多少人？他却是不多的幸存者之一。而眼前，一切都沉寂了，流逝了。那惊心动魄的枪声，那撕肝裂肺的呐喊，那悲痛欲绝的咒骂和呻吟，那狼藉遍野的残肢断骨和头颅，那千疮百孔仍迎风飘扬的军旗；都沉寂了，流逝了，无影无踪了，犹如做了一场梦……&quot;],&quot;author&quot;:&quot;都梁&quot;,&quot;from&quot;:&quot;亮剑&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      闲谈MapReduce(1): Hadoop初探
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p><span id="table-of-contents"></span></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p><span id="text-table-of-contents"></span></p>
+<ul>
+<li><em>1 缘起</em></li>
+<li><em>2 抽象漏洞（兼谈数学和计算机工程）</em></li>
+<li><em>3 Let’s Go</em></li>
+<li><em>4 Hadoop</em></li>
+</ul>
+<div id="outline-container-1" class="outline-2">
+
+<h2 id="sec-1">1 缘起</h2>
+<div id="text-1" class="outline-text-2">
+
+<p>MapReduce是这几年IT界很热的一个名词，从某种意义上讲，MapReduce引领了当代海量数据处理的趋势和潮流。与IT界的其他名词一样，MapReduce听起来也是个很玄乎的名词，MapReduce？Map？Reduce？如果你是一名初级Coder，那么你可能从某处知道，Map的翻译是映射，Reduce的翻译是归约。MapReduce就是映射归约，是一种数据并行处理的一种编程模型。如果很不幸，你不是一名光荣的Coder，只是中国网民大军中的五万万分之一<sup><em>1</em></sup>，那么没关系，MapReduce离你并不遥远，有一个名词你一定很熟悉，那就是——云计算。关于云计算，互联网上有一个经典笑话，“中国一留学生去美国打工的当过报童，不带计算器，习惯动作抬头望天时心算找零。顾客大为惊讶，纷纷掏出计算器验证，皆无误，也抬头望天，惊恐问：“云计算？”不过云计算的真正含义，用工程师的语言，准确地定义，应当是“超大规模的，可扩展的，低成本，但是高可靠性的服务器集群系统”<sup><em>2</em></sup>。</p>
+<p>从大的层面上来讲，云计算并不仅仅是MapReduce，MapReduce只是云计算的一个技术性开端，或者说，是互联网的发展需求推动技术的发展进步，最后由Google临门一脚创造出来的一种处理海量数据的并行编程模型。真正的云计算包含诸如IDC建设、海量存储、网络规划、商业模式、网络安全等等诸多技术的难题，还有很多被一些所谓的专家炒作起来的社会意义。不过本系列文章并不打算探讨这些过于宏大的主题，我本人也没有这样的水准和资格来说三到四。本系列文章的目的只有一个，那就是搞明白，MapReduce中的Map和Reduce，到底源自何处<sup><em>3</em></sup>？</p>
+<p>我第一次听说MapReduce这个名词，是在2010年9月，那时百度来浙大宣讲，顺带开了一个<a href="http://proxy3.zju88.net/agent/thread.do?id=CS-4c90acfa-9ec9d42102e73a42f7c03a2fcbb20589&amp;page=0&amp;bd=CS&amp;bp=0&amp;m=0">技术讲座</a>，主讲人<a href="http://www.zdxb.zju.edu.cn/article/show_article_one.php?article_id=4086">徐串</a>曾是Google中国编程挑战赛冠军。当然，讲座内容我是听不懂的，随心记下来的几个技术名词，至今为止，还能记住的，只剩下MapReduce了。后来面试百度运维部，期间和面试官聊到我暑期实习在华数淘宝做的一个视频转码入库系统，面试官大概觉得这个系统有点分布式的意思，因此题目结束的时候给了我一个建议，就是让我学习下MapReduce。再后来，阴差阳错，我进入了百度的分布式运维小组学习Hadoop运维，学习MapReduce就成了一个身不由己的任务。</p>
+<p>在百度的半年，我初步接触了大规模Hadoop集群（3000个节点的规模）的运维工作。但比较讽刺的是，运维Hadoop集群的我，自身并没有写过多少真正的MapReduce程序，对Hadoop的理解也浅尝辄止。而我也始终没有搞明白，好端端的一个程序，为什么要按照MapReduce这样别扭的模型重构运行？</p>
+<p>大概是看了Paul Graham的<a href="http://book.douban.com/subject/6021440/">《黑客与画家》</a>后，我开始正式认真学习Lisp这门语言，至今已有小半年时间，这期间我利用业余时间，和最近一个月的休假时间，基本上看完了Paul Graham的<a href="http://book.douban.com/subject/1456906/">《ANSI Common Lisp》</a>和<a href="http://book.douban.com/subject/1432683/">《On Lisp》</a>，<a href="http://book.douban.com/subject/1148282/">《SICP》</a>太难，我穷尽脑力至今也只窥得前面三章，做了100道习题左右，不过即便如此，也令我受益匪浅<sup><em>4</em></sup>。半年Lisp的学习让我搞明白了MapReduce中，Map和Reduce的来龙去脉。这个问题我Google了很久，但是始终没有一个满意的答案，现如今，我自己找到了满意的答案。</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+
+<h2 id="sec-2">2 抽象漏洞（兼谈数学和计算机工程）</h2>
+<div id="text-2" class="outline-text-2">
+
+<p>在正式开始我们的探险之旅前，我们还面临这一个问题，那就是，这次探险的必要性在哪里？既然MapReduce已然为我们提供了成熟的理论编程模型，Hadoop生态圈也给我们提供了一整套成熟的工程实现，我们为什么还要纠缠这些学究般的历史问题？我的解答是， <strong>一个学科的历史往往就是这个学科的本身</strong> 。无论是一门编程语言、编程范式、编程模型，或者IT业的任何一项新技术新名词，在学习的过程中，一定要搞明白：</p>
+<ul>
+<li>它解决了什么样的技术问题？当时的历史背景是什么？还有没有类似的（可能没有流行起来的）解决方案？</li>
+<li>它的引入带来了哪些新的问题？</li>
+<li>它的优点是什么？什么样的问题一定会手到禽来？</li>
+<li>它的不足是什么？什么样的问题是它解决不了的？</li>
+</ul>
+<p>这就好比解一道很难数学题，如果光告诉你一个正确的数字，那么这个数字对你来说一点意义都没有；如果进一步，告诉你标准的解题过程，那么你可能会对这个题目有一个粗浅的认识；如果有那么一个白痴，不但告诉你正确的答案和解题过程，还把他的演算纸送给了你，并热切地给你讲解他在解题过程中碰到了哪些问题和陷阱，是怎样解决怎样解决问题怎样规规避这些陷阱的，那么你对这道题目的理解则会大大加深，日后再碰到同样类型的问题就会轻车熟路，手到拈来。 <strong>从某种意义上而言，一个完整的解题的探寻过程才是一个题目所具有的全部信息价值，扔掉这些而仅仅记住一个解题结果或者一个标准的解题证明，无疑是买椟还珠</strong> <sup><em>5</em></sup> 。但是比较可悲的是，计算机是一个年轻的学科，所以专门讲述计算机历史的书籍并不像数学史书籍一般汗牛充栋。</p>
+<p>从另一个角度上讲，计算机和数学的都是一座不断分层的抽象大厦。数学是从基本的整数，到数系的扩充，到微积分的诞生，到非欧几何等等宏大的诗篇；而计算机则是从最基本的与非门，到bit、byte、word，到汇编、c、高级语言，到设计模式、分布式等等现代工业的大厦和基础。“计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决<sup><em>6</em></sup>”，不过很不幸， <strong>计算机的抽象和数学的抽象有一个本质的不同，那就是计算机的抽象是有漏洞的</strong> ，这就是<a href="http://en.wikipedia.org/wiki/Leaky_abstraction#The_Law_of_Leaky_Abstractions">抽象漏洞法则</a>：All non-trivial abstractions, to some degree, are leaky。在数学领域，我们从来不用担心说某个定理“因为空调故障的原因宕机了，或者因为内存吃紧运行特别缓慢，似乎是发生内存泄漏了”，等等诸如此类的各种各样令人头疼的问题。这条法则深刻的影响了计算机软件和数学定理的生产过程——在计算机中，我们不可能找到一个能困惑世间智者358年的谜<sup><em>7</em></sup>；在数学领域，我们也不可能找到一个耗费人类5000万人年人力的定理<sup><em>8</em></sup>。 <strong>如果说，基于抽象的数学，考验的是人类大脑思考深度的极限，那么同样是基于抽象，并且脱胎于数学的计算机工程，挑战的就是人类大脑思考广度的极限</strong> ——软件工程中瓶瓶罐罐的细节太多了，所以大凡软件开发，走的都是兵团作战的策略；而数学就不一样，“10个产妇无法在一个月内生出孩子<sup><em>9</em></sup>”，数学领域中辉煌定理的产出，往往依靠少数几个，甚至单个天才数学家的苦苦思索和灵感涌现。</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+
+<h2 id="sec-3">3 Let’s Go</h2>
+<div id="text-3" class="outline-text-2">
+
+<p>以上，废话了这么多，所要强调的无非就是，了解MapReduce的来龙去脉，对于写出更好的MapReduce程序，甚至将来拨开层层抽象，解决MapReduce的底层问题，乃至改善MapReduce，都是大有裨益的。不过，在正式踏上我们的探险旅程之前，我们需要检查一下手头的“装备”是否合格，很简单：</p>
+<ul>
+<li>你需要一台*nix系统，最好是GNU Linux，苹果也行，如果实在不方便，Windows下装个Cygwin也还能凑合；</li>
+<li>你需要有一定的编程经验，包括但不仅限于C、Java、Bash、Python，如果再对Lisp或者Scheme有一定了解就更好了（别急，本系列文章对Lisp做一个简要的介绍）；</li>
+<li>你需要了解一些常见的*nix软件开发工具，包括但不限于Vim的使用、Ant和Make构建工具、Git和SVN版本控制软件；</li>
+<li>你需要对POSIX系统标准有一定了解，包括但不限于*nix的文件系统结构、用户属组、文件权限、管道等等。</li>
+</ul>
+<p>Now, Let’s Go!</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+
+<h2 id="sec-4">4 Hadoop</h2>
+<div id="text-4" class="outline-text-2">
+
+<p>行文至此，相信众位读者已经知晓了云计算的一些基础概念，最起码知道了所谓Google技术的三驾马车是什么，如果能看过Hadoop代码中WordCount的例子并能看懂的话，那你简直是太天才了。为了保证我们的探险顺利进行，我们需要一套开源的MapReduce平台实现来验证我们的学习成果，Hadoop是不二选择。关于Hadoop本身有太多太多的资料，因此我在这里就不再劳心劳力的copy别人的劳动成果了。推荐以下三本书，作为Hadoop的入门：</p>
+<ul>
+<li><a href="http://book.douban.com/subject/3220004/">《Hadoop: The Definitive Guide》</a></li>
+<li><a href="http://book.douban.com/subject/4049942/">《Hadoop in Action》</a></li>
+<li><a href="http://book.douban.com/subject/3529886/">《Pro Hadoop》</a></li>
+</ul>
+<p>我们所要做的，就是在本机的*nix系统下，搭建一个demo的伪分布式运行的Hadoop平台。我采用的Hadoop版本是Hadoop 0.20，这个版本比较稳定，最新的Hadoop 1.0添加了很多新的特性，这些特性对于我们的探险并没有特别的作用，而且我也不甚了解。当然，本文的重点并不是Hadoop，所以我并不会带你去分析HDFS的源代码，告诉你如何打Patch（我也不会，嘿嘿）。本文的重点在于MapReduce的来龙去脉。</p>
+<ul>
+<li>首先本机*nix上存在jdk和ssh，并找到相应的$JAVA_HOME</li>
+<li>首先是建立本机用户到自身的ssh信任关系，步骤大致如下：</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">➜  <span class="ex">~</span>  <span class="fu">ssh-keygen</span> 
+<span class="ex">Generating</span> public/private rsa key pair.
+<span class="ex">Enter</span> file in which to save the key (/home/lox/.ssh/id_rsa)<span class="bu">:</span> 
+<span class="ex">/home/lox/.ssh/id_rsa</span> already exists.
+<span class="ex">Overwrite</span> (y/n)<span class="ex">?</span> y
+<span class="ex">Enter</span> passphrase (empty for no passphrase)<span class="bu">:</span> 
+<span class="ex">Enter</span> same passphrase again: 
+<span class="ex">Your</span> identification has been saved in /home/lox/.ssh/id_rsa.
+<span class="ex">Your</span> public key has been saved in /home/lox/.ssh/id_rsa.pub.
+<span class="ex">The</span> key fingerprint is:
+<span class="ex">19</span>:3f:55:84:99:d2:1e:c6:42:d0:39:6f:3e:83:84:21 lox@lox-pad
+<span class="ex">The</span> key<span class="st">&#39;s randomart image is:</span>
+<span class="st">+--[ RSA 2048]----+</span>
+<span class="st">|        .+.+ =o  |</span>
+<span class="st">|      E . * O.   |</span>
+<span class="st">|       ..o B..   |</span>
+<span class="st">|        .+..+    |</span>
+<span class="st">|        S.o+     |</span>
+<span class="st">|          ..+    |</span>
+<span class="st">|             o   |</span>
+<span class="st">+-----------------+</span>
+<span class="st">➜  ~  cp .ssh/id_rsa.pub .ssh/authorized_keys </span>
+<span class="st">➜  ~  chmod 700 .ssh </span>
+<span class="st">➜  ~  chmod 600 .ssh/authorized_keys </span>
+<span class="st">➜  ~  ssh lox@localhost</span></code></pre></div>
+<ul>
+<li>下载hadoop v0.20，解压缩到一个目录，我的目录结构如下，其中tmp/hadoop-data作为hdfs数据存放目录（包括伪分布式运行的namenode和datanode的数据），tmp/hadoop-v20作为$HADOOP_HOME</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">➜  <span class="ex">~</span>  <span class="ex">tree</span> -L 1 tmp/hadoop-data tmp/hadoop-v20 
+<span class="ex">tmp/hadoop-data</span>
+<span class="ex">tmp/hadoop-v20</span>
+├── <span class="ex">bin</span>
+├── <span class="ex">build.xml</span>
+├── <span class="ex">CHANGES.txt</span>
+├── <span class="ex">conf</span>
+├── <span class="ex">conf.origin</span>
+├── <span class="ex">conf.pseudo</span>
+├── <span class="ex">conf.standalone</span>
+├── <span class="ex">contrib</span>
+├── <span class="ex">docs</span>
+├── <span class="ex">hadoop-0.20.3-dev-ant.jar</span>
+├── <span class="ex">hadoop-0.20.3-dev-core.jar</span>
+├── <span class="ex">hadoop-0.20.3-dev-examples.jar</span>
+├── <span class="ex">hadoop-0.20.3-dev-streaming.jar</span>
+├── <span class="ex">hadoop-0.20.3-dev-test.jar</span>
+├── <span class="ex">hadoop-0.20.3-dev-tools.jar</span>
+├── <span class="ex">ivy</span>
+├── <span class="ex">ivy.xml</span>
+├── <span class="ex">lib</span>
+├── <span class="ex">LICENSE.txt</span>
+├── <span class="ex">logs</span>
+├── <span class="ex">NOTICE.txt</span>
+├── <span class="ex">README.txt</span>
+├── <span class="ex">src</span>
+└── <span class="ex">webapps</span></code></pre></div>
+<ul>
+<li><p>修改hadoop的配置文件分别如下：</p>
+<ul>
+<li>hadoop-env.sh，重点修改下$JAVA_HOME，指向SUN JDK或者OpenJDK的目录，Hadoop官方建议采用SUN（现在是Oracle啦）的JDK。</li>
+<li>core-site.xml</li>
+<li>hdfs-site.xml</li>
+<li>mapred-site.xml</li>
+</ul></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">hadoop-env.sh</span>
+
+<span class="ex">...</span>
+<span class="ex">...</span>
+
+<span class="co"># The java implementation to use.  Required.</span>
+<span class="co"># export JAVA_HOME=/opt/java</span>
+<span class="bu">export</span> <span class="va">JAVA_HOME=</span>/usr/lib/jvm/java-7-openjdk
+
+<span class="ex">...</span>
+<span class="ex">...</span></code></pre></div>
+<pre class="example"><code>core-site.xml
+
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;
+
+&lt;!-- Put site-specific property overrides in this file. --&gt;
+
+&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.default.name&lt;/name&gt;
+        &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.trash.interval&lt;/name&gt;
+        &lt;value&gt;1440&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+        &lt;value&gt;/home/lox/tmp/hadoop-data/tmp&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuratione&gt;
+</code></pre>
+<pre class="example"><code>hdfs-site.xml
+
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;
+
+&lt;!-- Put site-specific property overrides in this file. --&gt;
+
+&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.replication&lt;/name&gt;
+        &lt;value&gt;1&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.name.dir&lt;/name&gt;
+        &lt;value&gt;/home/lox/tmp/hadoop-data/name&lt;/value&gt;
+        &lt;final&gt;true&lt;/final&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.data.dir&lt;/name&gt;
+        &lt;value&gt;/home/lox/tmp/hadoop-data/data&lt;/value&gt;
+        &lt;final&gt;true&lt;/final&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<pre class="example"><code>mapred-site.xml
+
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;
+
+&lt;!-- Put site-specific property overrides in this file. --&gt;
+
+&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapred.job.tracker&lt;/name&gt;
+        &lt;value&gt;localhost:9001&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapred.tasktracker.map.tasks.maximum&lt;/name&gt;
+        &lt;value&gt;5&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapred.tasktracker.reduce.tasks.maximum&lt;/name&gt;
+        &lt;value&gt;5&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapred.child.java.opts&lt;/name&gt;
+        &lt;value&gt;-Xmx512m&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<ul>
+<li>启动hadoop，如果能用Hadoop FS Shell做一些常规的mkdir和ls操作，Hadoop搭建就算大功告成了：</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">➜  <span class="ex">~</span>  <span class="ex">hadoop</span> namenode -format 
+<span class="ex">12/02/15</span> 00:07:23 INFO namenode.NameNode: STARTUP_MSG: 
+<span class="ex">/************************************************************</span>
+<span class="ex">STARTUP_MSG</span>: Starting NameNode
+<span class="ex">STARTUP_MSG</span>:   host = lox-pad/127.0.0.1
+<span class="ex">STARTUP_MSG</span>:   args = [-format]
+<span class="ex">STARTUP_MSG</span>:   version = 0.20.3-dev
+<span class="ex">STARTUP_MSG</span>:   build = http://svn.apache.org/repos/asf/hadoop/common/tags/release-0.20.2 -r 916569<span class="kw">;</span> <span class="ex">compiled</span> by <span class="st">&#39;lox&#39;</span> on Wed Nov  9 23:40:01 CST 2011
+<span class="ex">************************************************************/</span>
+<span class="ex">Re-format</span> filesystem in /home/lox/tmp/hadoop-data/name ? (Y or N) <span class="ex">y</span>
+<span class="ex">Format</span> aborted in /home/lox/tmp/hadoop-data/name
+<span class="ex">12/02/15</span> 00:07:25 INFO namenode.NameNode: SHUTDOWN_MSG: 
+<span class="ex">/************************************************************</span>
+<span class="ex">SHUTDOWN_MSG</span>: Shutting down NameNode at lox-pad/127.0.0.1
+<span class="ex">************************************************************/</span>
+➜  <span class="ex">~</span>  <span class="ex">start-all.sh</span> 
+<span class="ex">starting</span> namenode, logging to /home/lox/tmp/hadoop-v20/bin/../logs/hadoop-lox-namenode-lox-pad.out
+<span class="ex">localhost</span>: starting datanode, logging to /home/lox/tmp/hadoop-v20/bin/../logs/hadoop-lox-datanode-lox-pad.out
+<span class="ex">localhost</span>: starting secondarynamenode, logging to /home/lox/tmp/hadoop-v20/bin/../logs/hadoop-lox-secondarynamenode-lox-pad.out
+<span class="ex">starting</span> jobtracker, logging to /home/lox/tmp/hadoop-v20/bin/../logs/hadoop-lox-jobtracker-lox-pad.out
+<span class="ex">localhost</span>: starting tasktracker, logging to /home/lox/tmp/hadoop-v20/bin/../logs/hadoop-lox-tasktracker-lox-pad.out
+➜  <span class="ex">~</span>  <span class="ex">jps</span>   
+<span class="ex">21061</span> JobTracker
+<span class="ex">20852</span> DataNode
+<span class="ex">21255</span> Jps
+<span class="ex">20977</span> SecondaryNameNode
+<span class="ex">20764</span> NameNode
+<span class="ex">21156</span> TaskTracker
+➜  <span class="ex">~</span>  <span class="ex">hadoop</span> fs -mkdir /tmp/this-is-a-test-dir
+➜  <span class="ex">~</span>  <span class="ex">hadoop</span> fs -ls /tmp
+<span class="ex">Found</span> 1 items
+<span class="ex">drwxr-xr-x</span>   - lox supergroup          0 2012-02-15 00:08 /tmp/this-is-a-test-dir
+➜  <span class="ex">~</span>  </code></pre></div>
+<p>好了。基础工作已经准备好，在接下来的旅程中，我会初步讲解一下Hadoop的基本概念和使用方法，进而转入Lisp（Scheme）函数式编程的美妙世界，带你逐本溯源，领略一下原生态的Map和Reduce到底是什么模样，并且会顺带谈到一些我在Lisp学习过程中领略到的别样风景，包括但不限于Java的反射、序列化等一些高级特性，XML、JSON的数据语言的特性特点等等。敬请期待！</p>
+<p>–</p>
+</div>
+
+</div>
+
+<p><span id="footnotes"></span></p>
+<h2 id="footnotes" class="footnotes">Footnotes:</h2>
+<p><span id="text-footnotes"></span> <sup><em>1</em></sup> <a href="http://tech.163.com/special/cnnic29/">第29次中国互联网络发展状况统计报告</a>显示，2012年初，中国网民共计5.13亿。</p>
+<p><sup><em>2</em></sup> 关于这个定义的出处可以参考<a href="http://www.tektalk.org">弯曲评论</a>上一篇非常好的关于云计算的科普文章“<a href="http://www.tektalk.org/2010/03/23/云里雾里云计算-【1】云计算解决什么问题？/">云里雾里云计算</a>”，本文不打算探讨云计算的社会意义、产业变革、安全等过于宏大的主题（其实我对这些一点都不了解）。</p>
+<p><sup><em>3</em></sup> MapReduce的第一篇论文<a href="http://research.google.com/archive/mapreduce.html">“MapReduce: Simplified Data Processing on Large Clusters”</a>曾写到：“Our abstraction is inspired by the map and reduce primitives present in Lisp and many other functional languages.”可见，MapReduce的思想来自于古老的Lisp语言。</p>
+<p><sup><em>4</em></sup> 广告一下，在我有限的阅读经历中，<a href="http://book.douban.com/subject/1148282/">《SICP》</a>是我读过的计算机书籍中最棒的一本，没有之一。如果能认真做完这本书里面的356道题目，绝对会让你对编程本质的理解有一个脱胎换骨般的提高。<a href="https://bitbucket.org/xiaohanyu/learning_sicp/">这里</a>有我个人的部分习题解答代码和学习笔记。</p>
+<p><sup><em>5</em></sup> 关于这一点，刘未鹏的<a href="http://mindhacks.cn/2008/07/07/the-importance-of-knowing-why/">《知其所以然》</a>系列文章里有更好的解读，我就不再重复了。</p>
+<p><sup><em>6</em></sup> 参考<a href="http://book.douban.com/subject/3652388/">程序员的自我修养</a>。</p>
+<p><sup><em>7</em></sup> 参考<a href="http://book.douban.com/subject/1322358/">费马大定理 : 一个困惑了世间智者358年的谜</a>。</p>
+<p><sup><em>8</em></sup> 据<a href="http://book.douban.com/subject/1909192/">《Unix编程艺术》</a>的序言里的脚注：“从1969年到2003年，35年世间并不短。以这期间众多Unix站点数量的历史曲线来估算，人们在Unix系统的开发方面投入了约5000万人年”。</p>
+<p><sup><em>9</em></sup> 这原本是<a href="http://en.wikipedia.org/wiki/Brooks&#39;s_law">Brooks’s Law</a>的一种观点。</p>
+<p> </p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2012-02-14</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#cloudcomputing">
+          <div class="ui label">
+            CloudComputing<sup>3</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#scheme">
+          <div class="ui label">
+            Scheme<sup>2</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#mapreduce">
+          <div class="ui label">
+            MapReduce<sup>2</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#lisp">
+          <div class="ui label">
+            Lisp<sup>4</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#hadoop">
+          <div class="ui label">
+            Hadoop<sup>3</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/32110.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="打造高效的工作环境(1)：Why Windows Sucks" href="/posts/2012-02-05-effective-work-why-windows-sucks/">Prev</a><a class="item" title="打造高效的工作环境(2): 高效的文件管理" href="/posts/2012-02-27-effective-work-with-file-management/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>流水帐</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;},{&quot;content&quot;:[&quot;沧海横流，血肉横飞，方显出英雄本色，当年万源保卫战，敌军在不到 30 华里的地面上，使用兵力竞达九十个团，数量十倍于红军，谁能记清当时打了多少次恶仗？每天要牺牲多少人？他却是不多的幸存者之一。而眼前，一切都沉寂了，流逝了。那惊心动魄的枪声，那撕肝裂肺的呐喊，那悲痛欲绝的咒骂和呻吟，那狼藉遍野的残肢断骨和头颅，那千疮百孔仍迎风飘扬的军旗；都沉寂了，流逝了，无影无踪了，犹如做了一场梦……&quot;],&quot;author&quot;:&quot;都梁&quot;,&quot;from&quot;:&quot;亮剑&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      流水帐
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>4、5号从上海回来后，我自己的cpu就一直在以100%的负载在运行，每天平均睡不到7个小时，两周不到经历了各种事情，需要做个总结，否则下次再做总结恐怕写不下了。总结的风格依然是流水帐，技术加生活。<br />
+<br />
+6号上班做了一个30+页的ppt，对自己两个月的实习成果做一个总结，系统描述了整个视频生产系统的设计、编程实现、工具使用细节等等，晚上部门会议做了报告，效果还不错。7、8两天写出了自己人生的第一个Python脚本，脚本的功能是分析nginx访问日志，提取用户信息，判断某个用户是否完整看完了某个视频等等，形象化一点，就是把类似于下面的log：</p>
+<pre class="example"><code>172.24.106.236 - - [01/Sep/2010:17:57:54 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.237 - - [01/Sep/2010:17:57:56 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+116.247.116.238 - - [01/Sep/2010:17:58:11 +0800] &quot;GET /video/super_mpg_video/demo/taohua.f4v HTTP/1.1&quot; 200 867480 &quot;http://110.75.2.195/player/thvp/thVideoPlayer.swf?video=http://110.75.2.195/video/super_mpg_video/demo/taohua.f4v&quot; &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Tablet PC 2.0)&quot; &quot;-&quot;
+172.24.106.236 - - [01/Sep/2010:17:58:24 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.237 - - [01/Sep/2010:17:58:26 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+116.247.116.238 - - [01/Sep/2010:17:58:53 +0800] &quot;GET /video/super_mpg_video/demo/taohua.f4v HTTP/1.1&quot; 200 2097152 &quot;http://110.75.2.195/player/thvp/thVideoPlayer.swf?video=http://110.75.2.195/video/super_mpg_video/demo/taohua.f4v&quot; &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Tablet PC 2.0)&quot; &quot;-&quot;
+172.24.106.236 - - [01/Sep/2010:17:58:55 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.237 - - [01/Sep/2010:17:58:56 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.236 - - [01/Sep/2010:17:59:25 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.237 - - [01/Sep/2010:17:59:26 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.236 - - [01/Sep/2010:17:59:55 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.237 - - [01/Sep/2010:17:59:56 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.236 - - [01/Sep/2010:18:00:25 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.237 - - [01/Sep/2010:18:00:26 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+59.42.126.48 - - [01/Sep/2010:18:00:51 +0800] &quot;GET /video/super_mpg_video/20100826/moribingdu/moribingdu.f4v?th_key=4c7e3d82;1a7b6ebe;8292192f571cb7bbed3024e3998b5631&amp;start=46582231&amp;end=67158965 HTTP/1.1&quot; 200 771638 &quot;http://110.75.2.195/player/thvp/thVideoPlayer.swf?video=http://110.75.2.195/video/super_mpg_video/20100826/moribingdu/moribingdu.f4v&amp;th_key=&quot; &quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322)&quot; &quot;-&quot;
+172.24.106.236 - - [01/Sep/2010:18:00:55 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.237 - - [01/Sep/2010:18:00:56 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.236 - - [01/Sep/2010:18:01:25 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.237 - - [01/Sep/2010:18:01:26 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+116.247.116.238 - - [01/Sep/2010:18:01:43 +0800] &quot;GET /video/super_mpg_video/demo/taohua.f4v?start=20998492&amp;end=41622742 HTTP/1.1&quot; 200 20624263 &quot;http://110.75.2.195/player/thvp/thVideoPlayer.swf?video=http://110.75.2.195/video/super_mpg_video/demo/taohua.f4v&quot; &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Tablet PC 2.0)&quot; &quot;-&quot;
+172.24.106.236 - - [01/Sep/2010:18:01:55 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+172.24.106.237 - - [01/Sep/2010:18:01:56 +0800] &quot;-&quot; 400 0 &quot;-&quot; &quot;-&quot; &quot;-&quot;
+</code></pre>
+<p>转换成相应形象化的显示：</p>
+<p><img src="file:///user_files/cnlox/Image/python/result.png" /><br />
+<br />
+整个Python Script大概170多行，同时封装了几十行的Shell Script，算法是自己拍脑袋想出来的，具体描述可以另外写一篇技术文章了。脚本成形的过程渐渐体会到了Python的方便，结合了脚本语言的便捷性和高级语言的强大性，实乃居家旅行打家劫舍养家糊口之利器也。<br />
+<br />
+9、10两天请假。9号睡了个小懒觉，然后去了趟校医院又开了一个星期的药，花掉100大洋左右，午饭后和同学会首，三人打车去西溪北园，准备<a href="http://www.shumo.com/2010cumcm.html">CUMCM 2010</a>。到了那边也没什么事情，下午3点半左右又走回玉泉，拿了实习记录本，去找导师签字。到了导师公司又等了半个小时，跟导师汇报下暑假实习的情况和自己要找工作的打算，简单谈了谈，骗了个90分回来。晚饭在西溪北园食堂吃的，饭后想到布袋也住在北园，约好去看她，巧的是碰到了哈哈、小包、破船一行，他们前脚刚要走，我后脚就跟过来了。由于布袋还要导尿，不太方便，我就一个人在北园里面转了几圈，买了个大西瓜和几桶泡面——西瓜给布袋，泡面是自己的。与布袋聊了有两个小时吧，听了她在千岛湖训练的很多故事，以及体制内运动员训练的一些内幕，加上他们从千岛湖逃窜的惊险一幕，走之前和布袋掰了手腕——当然我是不会输的，不过布袋的力气已经非常出色了，我敢说一般的男生不是她的对手；享受了阿姨自制的酸奶，一袋乳酸菌，放入保温瓶，自然发酵，有点西藏酸奶的味道，赞的。<br />
+<br />
+11号早晨8点多拿到了CUMCM 2010的题目，A题是一道看似简单但非常复杂的几何计算题，B题就一句话——让你评估一下上海世博会的影响力。我倾向于选B题，因为看起来A题不太难——事实证明这个看起来不太难的结论是错误的，而且发挥余地有限；而B题的话只要找准一个切入点，成功的概率非常的大，即便不济，结果也总能忽悠出来的，不会太差。但是另外两名队友经过深思熟虑还是倾向于A题，于是少数服从多数，开始搞A题。第一天还是比较顺利的，我们顺利地解决了第一问，而第二问显然也是基于第一问的，这让我们每个人都面带笑容进入了梦乡——如此下去，第二天晚上就可以搞定第二问，第三天就有一整天的时间来写论文。<br />
+<br />
+三人的分工基本上是这样，解题思路由三人共同商讨，然后lyf负责算积分表达式，ly负责matlab编程和主要的数据拟合，我对LaTeX比较熟，所以除了解题思路和简单的数据处理，主要是看文档、写文档。<br />
+<br />
+第一天的乐观到了第二天的傍晚就变成了焦虑——第二问的积分表达式由于过于复杂以致无法积出来，ly和lyf用matlab算这个符号积分会卡住，我说matlab的符号计算比较弱，于是我在linux平台上找到了著名的符号运算软件<a href="http://maxima.sourceforge.net/">maxima</a>，简单配置了<a href="http://people.ku.edu/~syliu/shredderyin/wiki/EmacsImaxima.html">Emacs+imaxima</a>，来算这个积分，maxima比较智能，会给你一些提示，比如提示你某个变量是positive, negative or zero? 因为这个变量值不同积分结果也不同。总之积分表达式很复杂，我用maxima算，不同的条件算出来也不一样，有时候算出来竟然是个复数！探索良久，符号积分的方法宣告失败，于是我们转而研究能否用数值积分的方法来算出一部分数据，打表拟合，然后根据拟合的结果判定拟合曲线和实际数据的相似性，确定最后的方程参数。但数值积分是一个比较棘手的东西，除了调用已有数学软件的方法，我们没有能力自己去写。ly和lyf研究matlab，我则找到了maxima的数值积分方法romberg，但是最后也宣告失败，至此，已经是第二天晚上10点多了……士气开始变的低落，ly躺在床上，lyf上网看看别的东西，我也在打酱油般地继续着一些无谓的探索——对于A题，我们已经黔驴技穷，换B题，还剩一天一夜，但是也有些来不及了——更重要的是大家都不太想做下去了。<br />
+<br />
+12号早晨大家都睡到自然醒，心情也不是太好——毕竟没有做出题目是件挺没面子的事情。我提议我们上午再按照打表的方法重新计算一下，然后大家随便算算，到中午基本上就彻底放弃了……于是乎我们就解脱了——ly开始玩一些网页小游戏，lyf上网或者单机游戏，我呢，看完了《当幸福来窍门》，修改了一下午自己的简历，找Ouka帮忙挑了挑刺，投了华为、网易等四五家公司。<br />
+<br />
+13号早晨老师打来电话，问我们论文咋么还不交，我们就坦白交代了说自己没有做出来，论文也没有写，于是我们的CUMCM 2010打酱油之旅就这样结束了。顺便提下这里提供的盒饭还是很不错的，虽然题目没有做出来，但还是赚了三天的伙食——太邪恶了……<br />
+<br />
+离开西溪后冒着小雨骑车到了公司，刚好赶上早会。然后就开始了工作——看，角色转换如此之快。晚上google的宣讲会加现场笔试，七点半到达现场，果然人山人海。8点挤到了位子，开始笔试。笔试总共10道选择和3道编程算法题目，时间是90分钟。选择题大概记得的几道：</p>
+<ol>
+<li>以下各种排序种哪几种是稳定排序？</li>
+<li>二叉树的前序、中序和后序遍历中，已知哪两种可以唯一却确定一棵二叉树？</li>
+<li>{1, 2, 3, …, 20}集合中，挑选出3个数字，使得这3个数字不完全相邻，如{1, 2, 3}, {4, 5, 6}，有多少种挑法？</li>
+<li>32位机器表示的有符号数最小值是多少？</li>
+<li>Unix文件的一道题目？</li>
+<li>1024!的结尾有多少个零？</li>
+<li>c语言指针的一道题？</li>
+<li>数组中寻找中位数的算法复杂度是多少？</li>
+<li>访问内存性能的一道题目。</li>
+<li>忘了……</li>
+</ol>
+<p>剩下的3道编程题目，第一道题目是编程求两个数组集合A[m], B[n]的交集；第二道是离散事件模拟，内容和严老那本经典的<a href="http://book.douban.com/subject/2024655/">《数据结构——c语言版》</a>第3章栈和队列的最后一节一样；第三道应该是桶排序，就是给定n个数，大小均在[1, n^2-1]，在保证时间最优的前提下尽可能地优化空间。<br />
+<br />
+google笔试的结果就是我理所当然的被bs了，虽然我觉得答得还算凑合吧，不过连面试的机会都不给，这个招聘也显得有点酱油的味道了——当然，比如像今年的百度之星冠军hh，据说连google的面试官都称之为大牛了，这是另类。<br />
+<br />
+剩下的时间主要是借工作的时间学习，修炼秘密武器，看完了<a href="http://www.w3cschool.cn/index.html">w3c school</a>上的大部分教程，重点是关于XML的，XSL、XPath、XQuery、DTD、Schema等等，研究了<a href="http://baike.baidu.com/view/40801.htm">Unicode编码</a>的基本知识（UTF-8、UTF-16、UTF-32，Big-Endian，Little-Endian等），研究了<a href="http://www.python-excel.org/">python读写excel</a>文件的几个模块（xlrd, xlwt, xlutils, <a href="http://sourceforge.net/projects/pyexcelerator/">pyexcelerator</a>）和python有关xml的一些模块（<a href="http://codespeak.net/lxml/">lxml</a>, <a href="http://www.librelogiciel.com/software/jaxml/action_Presentation">jaxml</a>等），基本完成了<a href="http://book.douban.com/subject/3243372/">《Learning Python》</a>，除了Class看得比较少，剩下的就是熟悉一些常用的mobule，多写写Python脚本，有时间再了解了解Python知名的开发框架，差不多了，剩下的按需学习。</p>
+<p>14号是好友Ouka同志的22岁生日，四年前的今日我拿到了化学竞赛的一等奖，收到Ouka祝福短信和亲切指导若干，四年后的今日，我在公司实习，趁午休时间简单改了个小程序，一程序员间独特的方式送出我的生日祝福。Happy Ouka, Fight Ouka。<br />
+<br />
+17号中午回到玉泉，参加了网易有道搜索的机试，两道题，两个小时，zoj平台，20个测试点，总分270，有点类似于NOI，是按照score排名的。结果还是不错的，许久为碰c++，还是拿下了260分，整场50人排名15%左右吧。两道题目如下：</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>奇偶矩阵</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>————–</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>Time Limit: 1 Second      Memory Limit: 32768 KB</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>————–</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td>给定一个N行，M列的正整数组成的矩阵，求其中的一个子矩阵，使得奇数的个数与偶数的个数差值的绝对值最大</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Input</strong></td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td>每个文件包含一个测试数据。第一行是两个整数，N,M 表示矩阵的大小 1&lt;=N,M&lt;=100。 接下来N行，每行M个正整数，对应为矩阵中的元素，所有的数不超过2^30。</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Output</strong></td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td>输出包含一行，为子矩阵中奇数个数与偶数个数差值绝对值的最大值。</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Sample Input</strong></td>
+</tr>
+<tr class="odd">
+<td>#+BEGIN<sub>EXAMPLE</sub></td>
+</tr>
+<tr class="even">
+<td>3 3</td>
+</tr>
+<tr class="odd">
+<td>1 2 3</td>
+</tr>
+<tr class="even">
+<td>3 2 1</td>
+</tr>
+<tr class="odd">
+<td>1 1 1</td>
+</tr>
+<tr class="even">
+<td>#+END<sub>EXAMPLE</sub></td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Sample Output</strong></td>
+</tr>
+<tr class="odd">
+<td>#+BEGIN<sub>EXAMPLE</sub></td>
+</tr>
+<tr class="even">
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>#+END<sub>EXAMPLE</sub></td>
+</tr>
+<tr class="even">
+<td>最大和</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td>————–</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td>Time Limit: 5 Seconds      Memory Limit: 32768 KB</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td>————–</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>给定两个整数数组分别为A，B。你可以从A，B中分别挑选一个数，将他们的乘积作为你的得分。你可以挑选任意次，但是每个数只能被挑选一次。 求你最后所能得到的分值和的最大值，你的初始分数为0</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Input</strong></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>每个文件包含一个测试数据。 第一行是一个正整数N，为数组A的长度。 第二行为N个整数，分别为A中的元素。 第三行是一个正整数M，为数组B的长度。 第四行为M个整数，分别为B中的元素。 1&lt;=M,N&lt;=10^6</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>输出结果包含一行，为你所能得到的最大的分之和。A，B中的数及最后的结果均不超过2^30</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Sample Input</strong></td>
+</tr>
+<tr class="even">
+<td>#+BEGIN<sub>EXAMPLE</sub></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+</tr>
+<tr class="even">
+<td>3 2 6 1</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+</tr>
+<tr class="even">
+<td>2 6 3</td>
+</tr>
+<tr class="odd">
+<td>#+END<sub>EXAMPLE</sub></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Sample Output</strong></td>
+</tr>
+<tr class="even">
+<td>#+BEGIN<sub>EXAMPLE</sub></td>
+</tr>
+<tr class="odd">
+<td>49</td>
+</tr>
+<tr class="even">
+<td>#+END<sub>EXAMPLE</sub></td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td>————–</td>
+</tr>
+</tbody>
+</table>
+<p>第一提看上去比较悬，但仔细一想其实是个最大子段和的问题，核心算法可以参考<a href="http://blog.csdn.net/dangwenliang/archive/2010/07/17/5741615.aspx">ZOJ 1074</a>——我就是这么干的……应用之前需要预处理，就是扫描下整个矩阵，然后用1表示奇数而用-1表示偶数，最后算“矩阵的最大子段和”，这样做下来基本上可以通过4-5个测试点，弥补的方法就是对称性，考虑到奇数和偶数的平等性，用-1表示奇数而用1表示偶数再算一下。整个程序如下：</p>
+<pre class="example"><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;math.h&gt;
+
+#define size 102
+
+int DP(int a[],int n);
+
+int main(void)
+{
+    int m, n;
+    int i, j, k;
+    int he;
+    int max1, max2;
+
+    int a[size][size];
+    int b[size][size];
+    int sum1[size];
+    int sum2[size];
+
+    scanf(&quot;%d%d&quot;,&amp;m, &amp;n);
+
+    for(i = 1; i &lt;= m; i++)
+        for(j = 1; j &lt;= n; j++)
+        {
+            scanf(&quot;%d&quot;,&amp;a[i][j]);
+
+            if (a[i][j] % 2 == 0)
+            {
+                a[i][j] = -1;
+                b[i][j] = 1;
+            }
+            else
+            {
+                a[i][j] = 1;
+                b[i][j] = -1;
+            }
+        }
+
+    max1 = max2 = -200000000;
+
+    for(i = 1; i &lt;= m; i++)
+    {
+        memset(sum1, 0, sizeof(sum1));
+
+        for(j = i; j &lt;= m; j++)
+        {
+            for(k = 1 ; k &lt;= n ; k++)
+                sum1[k] += a[j][k];
+
+            he = DP(sum1, n);
+
+            if(he &gt; max1) 
+                max1 = he;
+        }
+    }
+
+    for(i = 1; i &lt;= m; i++)
+    {
+        memset(sum2, 0, sizeof(sum2));
+
+        for(j = i; j &lt;= m; j++)
+        {
+            for(k = 1 ; k &lt;= n ; k++)
+                sum2[k] += b[j][k];
+
+            he = DP(sum2, n);
+
+            if(he &gt; max2) 
+                max2 = he;
+        }
+    }
+
+    if (max1 &gt; max2)
+        printf(&quot;%d\n&quot;,max1);
+    else
+        printf(&quot;%d\n&quot;, max2);
+    return 0;
+}
+
+int DP(int a[],int n)               
+{
+    int i, f[101];
+    int max = -200000000; 
+
+    for(i = 2, f[1] = a[1]; i &lt;= n; i++)
+    {
+        if (f[i - 1] &gt; 0)         
+            f[i] = f[i - 1] + a[i];         
+        else
+            f[i] = a[i];              
+
+        if (f[i] &gt; max)               
+            max = f[i];
+    }
+
+    return max;
+}
+</code></pre>
+<p>第二题的思路比较清晰了，需要注意的是负数的情况，考虑四个正数<img src="file:///user_files/cnlox/epics/2724f9a41830f20f519c4b3445076c606d3de5d6.png" />，显然<img src="file:///user_files/cnlox/epics/70f8a4f2a582e855dcf82cf88928db68767848ae.png" />，就是要得到最大值，大大相乘优先。如果遇到负数，负负为正是可以考虑的，正负相乘则需要舍弃。按照这个原则进行排序、分割，在处理下去就不难了。有一个Test Case是Segmentation Fault，最后找到原因了，可惜没有时间了，程序如下：</p>
+<pre class="example"><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+#include &lt;functional&gt;
+using namespace std;
+
+int main()
+{
+    int m, n;
+    vector&lt;int&gt; a;
+    vector&lt;int&gt; b;
+
+    int i, j;
+    int item;
+    int s, sum;
+    int ai, bi;
+
+    cin &gt;&gt; m;
+    for (i = 0; i &lt; m; i++)
+    {
+        cin &gt;&gt; item;
+        a.push_back(item);
+    }
+
+    cin &gt;&gt; n;
+    for (j = 0; j &lt; n; j++)
+    {
+        cin &gt;&gt; item;
+        b.push_back(item);
+    }
+
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+
+    for(i = 0; i &lt; a.size(); i++)
+    {
+        if (a[i] &gt;= 0)
+        {
+            ai = i;
+            break;
+        }
+    }
+
+    for(i = 0; i &lt; b.size(); i++)
+    {
+        if (b[i] &gt;= 0)
+        {
+            bi = i;
+            break;
+        }
+    }
+
+    sum = 0;
+    for(i = 0, j = 0; (i &lt; ai) &amp;&amp; (j &lt; bi); i++, j++)
+    {
+        sum += a[i] * b[j];
+    }
+
+    for(i = a.size() - 1, j = b.size() - 1; (i &gt;= ai) &amp;&amp; (j &gt;= bi); i--, j--)
+    {
+        sum += a[i] * b[j];
+    }
+
+    cout &lt;&lt; sum &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre>
+<p>最后的结果还是不错的，这也让我感到惊喜，好久都没有如此开心过了，期待面试通知。</p>
+<p>另外，现在所在的实习公司已经有了口头上的offer，给我一个月的时间考虑，在实习结束之前给答复，待遇和淘宝应届是差不多的，而且创业阶段，发展空间还是非常大的，我在部门也受到重视，我相信继续实习一年，毕业后我会处于一个比较高的起点，这样的结果，对于我这么一个挂科达到两位数的刚毕业的本科来说，应该算很不多的了，但是我还是在犹豫。老实说我还是想去大的公司体验两年，体验下大的平台和大的气质；妈妈每次打电话都让我回北京，家近、方便。所以我还在继续投简历。</p>
+<p>18号下去2:00-3:00，百度大牛<a href="http://forum.netbig.com/bbscs/read.bbscs?bid=1&amp;id=7011392">徐串</a>的技术讲座；19号下午2:00，百度内推小型见面会；20号晚6:30，MSTC主席pluskid大神的小课堂，各种大牛，膜拜。</p>
+<p>除了这些，印度宝莱坞的电影《三个傻瓜》前前后后看了4遍，哭笑中带来人生的思考；看了《当幸福来敲门》，我喜欢那种“He must have a nice pants”的自信；看了柴静的《面对面》——李连杰“壹基金危机”，“侠之大者，为国为民”，李连杰当之无愧；“方向对了，就不怕路远”，加油吧，Lox!</p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2010-09-18</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#life">
+          <div class="ui label">
+            Life<sup>44</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#xml">
+          <div class="ui label">
+            XML<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#python">
+          <div class="ui label">
+            Python<sup>4</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#google">
+          <div class="ui label">
+            Google<sup>1</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/21343.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="8月的总结" href="/posts/2010-09-01-2010-08-summary/">Prev</a><a class="item" title="新鲜热乎刚出炉的网易笔经" href="/posts/2010-09-29-interview-on-netease/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>Emacs as a Python IDE</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;},{&quot;content&quot;:[&quot;沧海横流，血肉横飞，方显出英雄本色，当年万源保卫战，敌军在不到 30 华里的地面上，使用兵力竞达九十个团，数量十倍于红军，谁能记清当时打了多少次恶仗？每天要牺牲多少人？他却是不多的幸存者之一。而眼前，一切都沉寂了，流逝了。那惊心动魄的枪声，那撕肝裂肺的呐喊，那悲痛欲绝的咒骂和呻吟，那狼藉遍野的残肢断骨和头颅，那千疮百孔仍迎风飘扬的军旗；都沉寂了，流逝了，无影无踪了，犹如做了一场梦……&quot;],&quot;author&quot;:&quot;都梁&quot;,&quot;from&quot;:&quot;亮剑&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      Emacs as a Python IDE
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>赋闲脱产的半年里，自己用C++/Java/Lisp胡乱写了几万行的代码，到了现在的公司，给OpenStack项目贴牛皮藓，反倒是Python用得最多。作为公司里面唯一的Emacser（没准也是 公司里JJ最长的吧，<a href="http://www.douban.com/note/232209060/">笑</a>），我一直致力于在Emacs平台上折腾出一套顺手的Python开发环境，所幸有些小心得，付诸纸面，以飨大家。</p>
+<p><span id="table-of-contents"></span></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p><span id="text-table-of-contents"></span></p>
+<ul>
+<li><p><em>1 Python.el的选择</em></p>
+<ul>
+<li><em>1.1 ipython集成</em></li>
+</ul></li>
+<li><em>2 Emacs补全：Pymacs和Ropemacs</em></li>
+<li><p><em>3 virtualenv</em></p>
+<ul>
+<li><em>3.1 virtualenvwrapper</em></li>
+<li><em>3.2 virtualenv.el</em></li>
+</ul></li>
+<li><p><em>4 Miscs</em></p></li>
+</ul>
+<div id="outline-container-1" class="outline-2">
+
+<h2 id="sec-1">1 Python.el的选择</h2>
+<div id="text-1" class="outline-text-2">
+
+<p>Emacs的python-mode有两套，一个是Emacs官方提供的python.el，另外一套是Python社区提供的python-mode.el。不过python.el和python-mode.el都有各种各样的小问题，python.el似乎是无法正确处理python的docstring，而python-mode.el的menu项太过繁杂，而且很多menu无法正确工作。这里用到的python.el来自于<a href="https://github.com/fgallina/python.el" class="uri">https://github.com/fgallina/python.el</a>，细节可以参考水木社区的<a href="http://ar.newsmth.net/thread-4c0bb9b270679d-1.html">讨论</a>。</p>
+<p>安装方法可以参考项目主页的README，我自己针对<a href="https://github.com/dimitri/el-get">el-get</a>做了一个recipe，这样以后更新装卸都会方便很多，recipe如下：</p>
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="bu">:name</span> python
+       :website <span class="st">&quot;https://github.com/fgallina/python.el&quot;</span>
+       :description <span class="st">&quot;improved python.el from Fabián Ezequiel Gallina&quot;</span>
+       <span class="bu">:type</span> github
+       :pkgname <span class="st">&quot;fgallina/python.el&quot;</span>)</code></pre></div>
+<p>不过这个patch并没有被el-get接收，限于时间精力，我没有再去细究el-get撰写recipe的规范。</p>
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+
+<h3 id="sec-1-1">1.1 ipython集成</h3>
+<div id="text-1-1" class="outline-text-3">
+
+<p>交互式的开发是python/ruby/lisp这类动态语言的重要特性，它让程序员从“编码-编译-运行-调试“的程序开发工程链中解放出来，从老旧的批处理是开发过渡到现代的交互式开发。如果你用过<a href="http://v.youku.com/v_show/id_XMjYxNjM4MDQ0.html">slime</a>，你就会知道，交互式的开发不仅仅是一种开发模式，slime也不仅仅是一种工具，而是一种编程的革命。Emacs集成ipython，虽然没有slime那么强大，但是对于提高开发效率还是有莫大的帮助的。幸运的是，fgalling/python.el是支持ipython的。关于fgalling/python.el的参考设置如下：</p>
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(add-to-list &#39;load-path (expand-file-name                                                                        
+                         <span class="st">&quot;~/.emacs.d/el-get/python&quot;</span>))                                                            
+(<span class="kw">require</span> &#39;python)                                                                                                
+(add-to-list &#39;auto-mode-alist &#39;(<span class="st">&quot;</span>\\<span class="st">.py</span>\\<span class="st">&#39;&quot;</span> . python-mode))                                                       
+(<span class="kw">setq</span>                                                                                                            
+ python-shell-interpreter <span class="st">&quot;ipython2&quot;</span>                                                                             
+ python-shell-interpreter-args <span class="st">&quot;&quot;</span>                                                                                
+ python-shell-prompt-regexp <span class="st">&quot;In </span>\\<span class="st">[[0-9]+</span>\\<span class="st">]: &quot;</span>                                                                  
+ python-shell-prompt-output-regexp <span class="st">&quot;Out</span>\\<span class="st">[[0-9]+</span>\\<span class="st">]: &quot;</span>                                                           
+ python-shell-completion-setup-code                                                                              
+ <span class="st">&quot;from IPython.core.completerlib import module_completion&quot;</span>                                                       
+ python-shell-completion-module-string-code                                                                      
+ <span class="st">&quot;&#39;;&#39;.join(module_completion(&#39;&#39;&#39;%s&#39;&#39;&#39;))</span>\n<span class="st">&quot;</span>                                                                       
+ python-shell-completion-string-code                                                                             
+ <span class="st">&quot;&#39;;&#39;.join(get_ipython().Completer.all_completions(&#39;&#39;&#39;%s&#39;&#39;&#39;))</span>\n<span class="st">&quot;</span>)</code></pre></div>
+<p>常用快捷键：</p>
+<ul>
+<li>C-c C-z: (python-shell-switch-to-shell)，切换至ipython解释器</li>
+<li>C-c C-c: (python-shell-send-buffer &amp;optional ARG)，发送整个buffer内容到ipython解释器运行</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+
+<h2 id="sec-2">2 Emacs补全：Pymacs和Ropemacs</h2>
+<div id="text-2" class="outline-text-2">
+
+<p>语言补全一直是Vim/Emacs这类上古“IDE”的弱项，每种语言都有自己的补全插件、配置方法和版本差异，而网上资料、特别是中文资料，或是陈旧潦草，或是语焉不详，常常让初学者们不知所措。本文所载内容恐怕两年左右就会过时，诸位看官高贤注意鉴别……</p>
+<p>Emacs下的通用补全插件大概就是<a href="http://cx4a.org/software/auto-complete">auto-complete</a>和<a href="http://capitaomorte.github.com/yasnippet/">yasnippet</a>了，前者可以做出基于buffer分词的补全，后者可以基于特定编程语言语法结构的补全。不过基于语义的补全，Emacs+Python下用的是pymacs和ropemacs。需要安装的有</p>
+<ul>
+<li>pymacs</li>
+<li>rope</li>
+<li>ropemacs</li>
+<li>ropemode</li>
+</ul>
+<p>以上均可通过el-get安装。如若使用过程中出现莫名问题，不要纠缠，有可能是版本问题，无妨试验下用apt-get/pacman/yum安装。我本机上的配置如下：</p>
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span class="co">;;; pymacs, rope and ropemacs</span>
+(add-to-list &#39;load-path <span class="st">&quot;~/.emacs.d/el-get/pymacs&quot;</span>)
+(<span class="kw">require</span> &#39;pymacs)
+
+(<span class="kw">setq</span> pymacs-load-path &#39;(<span class="st">&quot;~/.emacs.d/el-get/rope&quot;</span>
+                         <span class="st">&quot;~/.emacs.d/el-get/ropemacs&quot;</span>))
+
+<span class="co">;; Initialize Pymacs</span>
+(autoload &#39;pymacs-apply <span class="st">&quot;pymacs&quot;</span>)
+(autoload &#39;pymacs-call <span class="st">&quot;pymacs&quot;</span>)
+(autoload &#39;pymacs-eval <span class="st">&quot;pymacs&quot;</span> <span class="kw">nil</span> <span class="kw">t</span>)
+(autoload &#39;pymacs-exec <span class="st">&quot;pymacs&quot;</span> <span class="kw">nil</span> <span class="kw">t</span>)
+(autoload &#39;pymacs-load <span class="st">&quot;pymacs&quot;</span> <span class="kw">nil</span> <span class="kw">t</span>)
+<span class="co">;; Initialize Rope                                                                                             </span>
+(pymacs-load <span class="st">&quot;ropemacs&quot;</span> <span class="st">&quot;rope-&quot;</span>)
+(<span class="kw">setq</span> ropemacs-enable-autoimport <span class="kw">t</span>)</code></pre></div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+
+<h2 id="sec-3">3 virtualenv</h2>
+<div id="text-3" class="outline-text-2">
+
+<p><a href="http://www.virtualenv.org/en/latest/index.html">virtualenv</a>是Python的sandbox（沙盒）。那么什么是sandbox呢？</p>
+<p>在日常开发中我们常常碰到这样的场景：</p>
+<ul>
+<li>需要针对不同的python library做测试（兼容性、性能等）</li>
+<li>需要多人共享一台开发机</li>
+</ul>
+<p>可是：</p>
+<ul>
+<li>并不是所有人都有向系统PYTHONPATH安装python library的权限</li>
+<li>我们常常需要同时安装多个不同版本的python library</li>
+</ul>
+<p>而virtualenv通过一些脚本，通过软连接和修改环境变量的方式，提供了一个轻量级的虚拟python环境，在这里面个人可以按照自己意愿任意装卸配置library，也可以针对不同版本的library创建不同的virtualenv，方便的很。</p>
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+
+<h3 id="sec-3-1">3.1 virtualenvwrapper</h3>
+<div id="text-3-1" class="outline-text-3">
+
+<p>virtualenv默认是在当前目录下建立一个.venv目录，但是这样有一个问题，就是virtualenv本身的管理很不方便，因为需要记忆不同的.venv的存放位置、具体用途等等。<a href="http://www.doughellmann.com/projects/virtualenvwrapper/">virtualenvwrapper</a>则通过一些python和shell脚本，在virtualenv的基础上建立了一层抽象，实现了对virtualenv本身的统一管理。virtualenvwrapper会默认在$HOME/.virtualenvs目录下创建所有的virtualenv。</p>
+<p>virtualenv和virtualenvwrapper均可以通过python pip安装：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">pip</span> install virtualenv virtualenvwrapper</code></pre></div>
+<p>常用命令：</p>
+<ul>
+<li>mkvirtualenv venv_name: 建立一个新的virtualenv，</li>
+<li>workon venv_name: 切换到venv_name这个virtualenv</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+
+<h3 id="sec-3-2">3.2 virtualenv.el</h3>
+<div id="text-3-2" class="outline-text-3">
+
+<p><a href="https://github.com/aculich/virtualenv.el">virtualenv.el</a>可以配合Emacs集成virtualenv，可以通过el-get安装。virtualenv.el需要virtualenv和virtualenvwrapper。</p>
+<p>配置：</p>
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span class="co">;; virtualenv support</span>
+(add-to-list &#39;load-path (expand-file-name
+                         <span class="st">&quot;~/.emacs.d/el-get/virtualenv&quot;</span>))
+(<span class="kw">require</span> &#39;virtualenv)</code></pre></div>
+<p>常用命令：</p>
+<ul>
+<li>M-x virtualenv-workon: 切换virtualenv</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+
+<h2 id="sec-4">4 Miscs</h2>
+<div id="text-4" class="outline-text-2">
+
+<p>一些hook设置:</p>
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(add-hook &#39;python-mode-hook
+          (<span class="kw">lambda</span> ()
+            (ropemacs-mode)
+            (global-set-key (kbd <span class="st">&quot;RET&quot;</span>) &#39;newline-and-indent)
+            (auto-fill-mode <span class="dv">1</span>)
+            (virtualenv-minor-mode <span class="dv">1</span>)))</code></pre></div>
+<p>除了以上，Emacs中和Python开发有关的插件还可以有pylint、pep8、pyflakes等，参考文章：</p>
+<ul>
+<li><a href="http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/">Configuring Emacs as a Python IDE</a></li>
+<li><a href="http://www.enigmacurry.com/2008/05/09/emacs-as-a-powerful-python-ide/">Emacs as a powerful Python IDE</a></li>
+<li><a href="http://hide1713.wordpress.com/2009/01/30/setup-perfect-python-environment-in-emacs/">Setup Perfect Python Environment In Emacs</a></li>
+<li><a href="http://www.saltycrane.com/blog/2010/05/my-emacs-python-environment/">My Emacs Python environment</a></li>
+</ul>
+<p>以上，抛砖引玉，希望能够对刚刚接触Linux/Python/Emacs的朋友有些许帮助。</p>
+</div>
+
+</div>
+
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2012-10-07</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#emacs">
+          <div class="ui label">
+            Emacs<sup>7</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#emacs">
+          <div class="ui label">
+            Emacs<sup>14</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#python">
+          <div class="ui label">
+            Python<sup>4</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/35867.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="读行记：孤单是一个人的狂欢" href="/posts/2012-09-24-read-and-travel-lonely-and-happily/">Prev</a><a class="item" title="陪床记" href="/posts/2013-01-10-for-my-father/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>

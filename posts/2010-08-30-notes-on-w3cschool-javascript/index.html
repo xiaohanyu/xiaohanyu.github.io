@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>w3cschool javascript 笔记(1)</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;},{&quot;content&quot;:[&quot;沧海横流，血肉横飞，方显出英雄本色，当年万源保卫战，敌军在不到 30 华里的地面上，使用兵力竞达九十个团，数量十倍于红军，谁能记清当时打了多少次恶仗？每天要牺牲多少人？他却是不多的幸存者之一。而眼前，一切都沉寂了，流逝了。那惊心动魄的枪声，那撕肝裂肺的呐喊，那悲痛欲绝的咒骂和呻吟，那狼藉遍野的残肢断骨和头颅，那千疮百孔仍迎风飘扬的军旗；都沉寂了，流逝了，无影无踪了，犹如做了一场梦……&quot;],&quot;author&quot;:&quot;都梁&quot;,&quot;from&quot;:&quot;亮剑&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      w3cschool javascript 笔记(1)
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p><span id="table-of-contents"></span></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p><span id="text-table-of-contents"></span></p>
+<ul>
+<li><p><em>1 简介</em></p>
+<ul>
+<li><em>1.1 什么是Javascript</em></li>
+<li><em>1.2 真实的名称是ECMAScript</em></li>
+</ul></li>
+<li><em>2 如何实现JavaScript</em></li>
+<li><em>3 把JavaScript放置到何处</em></li>
+<li><p><em>4 JavaScript语句</em></p>
+<ul>
+<li><em>4.1 JavaScript语句</em></li>
+</ul></li>
+<li><em>5 JavaScript注释</em></li>
+<li><em>6 JavaScript变量</em></li>
+<li><em>7 JavaScript运算符</em></li>
+<li><em>8 JavaScript比较和逻辑运算符</em></li>
+<li><em>9 JavaScript If…Else语句</em></li>
+<li><p><em>10 JavaScript消息框</em></p>
+<ul>
+<li><em>10.1 警告框</em></li>
+<li><em>10.2 确认框</em></li>
+<li><em>10.3 提示框</em></li>
+</ul></li>
+<li><p><em>11 JavaScript函数</em></p>
+<ul>
+<li><em>11.1 JavaScript函数</em></li>
+<li><p><em>11.2 如何定义函数</em></p>
+<ul>
+<li><em>11.2.1 创建函数的语法：</em></li>
+<li><em>11.2.2 JavaScript变量的生存期</em></li>
+</ul></li>
+</ul></li>
+<li><em>12 JavaScript For循环</em></li>
+<li><em>13 JavaScript While循环</em></li>
+<li><em>14 JavaScript Break和Continue语句</em></li>
+<li><em>15 JavaScript事件</em></li>
+<li><em>16 JavaScript Try…Catch语句</em></li>
+<li><em>17 JavaScript特殊字符</em></li>
+<li><em>18 JavaScript指导方针</em></li>
+<li><em>19 JavaScript对象简介</em></li>
+<li><p><em>20 JavaScript字符串(String)对象</em></p>
+<ul>
+<li><em>20.1 String对象的方法</em></li>
+<li><em>20.2 String对象的属性</em></li>
+</ul></li>
+<li><p><em>21 JavaScript Date（日期）对象</em></p>
+<ul>
+<li><em>21.1 Date对象的方法</em></li>
+</ul></li>
+<li><p><em>22 JavaScript数组</em></p>
+<ul>
+<li><em>22.1 Array对象的方法</em></li>
+</ul></li>
+<li><p><em>23 JavaScript Boolean（逻辑）对象</em></p>
+<ul>
+<li><em>23.1 Boolean对象的方法</em></li>
+</ul></li>
+<li><em>24 JavaScript Math（算数）对象</em></li>
+<li><p><em>25 JavaScript HTML DOM对象</em></p>
+<ul>
+<li><em>25.1 HTML DOM对象</em></li>
+</ul></li>
+</ul>
+<div id="outline-container-1" class="outline-2">
+
+<h2 id="sec-1">1 简介</h2>
+<p><span id="text-1"></span>  </p>
+<div id="outline-container-1.1" class="outline-3">
+
+<h3 id="sec-1.1">1.1 什么是Javascript</h3>
+<p><span id="text-1.1"></span></p>
+<ul>
+<li>JavaScript被设计用来向HTML页面添加交互行为。</li>
+<li>JavaScript是一种脚本语言（脚本语言是一种轻量级的编程语言）。</li>
+<li>JavaScript由数行可执行计算机代码组成。</li>
+<li>JavaScript通常被直接嵌入 HTML 页面。</li>
+<li>JavaScript是一种解释性语言（就是说，代码执行不进行预编译）。</li>
+<li>所有的人无需购买许可证均可使用JavaScript。</li>
+</ul>
+</div>
+
+<div id="outline-container-1.2" class="outline-3">
+
+<h3 id="sec-1.2">1.2 真实的名称是ECMAScript</h3>
+<p><span id="text-1.2"></span></p>
+<ul>
+<li>JavaScript的正式名称是“ECMAScript”。这个标准由ECMA组织发展和维护。</li>
+<li>ECMA-262是正式的JavaScript标准。这个标准基于JavaScript(Netscape)和JScript(Microsoft)。</li>
+<li>Netscape(Navigator 2.0)的Brendan Eich发明了这门语言，从1996年开始，已经出现在所有的Netscape和Microsoft浏览器中。</li>
+<li>ECMA-262的开发始于1996年，在1997年7月，ECMA会员大会采纳了它的首个版本。</li>
+<li>在1998年，该标准成为了国际ISO标准(ISO/IEC 16262)。</li>
+<li>这个标准仍然处于发展之中。</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+
+<h2 id="sec-2">2 如何实现JavaScript</h2>
+<p><span id="text-2"></span></p>
+<ul>
+<li>&lt;script&gt;标签嵌入JavaScript</li>
+<li><p>与老的浏览器打交道：</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+&lt;!--
+document.write(&quot;Hello World!&quot;);
+//--&gt;
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+</ul>
+</div>
+
+<div id="outline-container-3" class="outline-2">
+
+<h2 id="sec-3">3 把JavaScript放置到何处</h2>
+<p><span id="text-3"></span></p>
+<ul>
+<li><p>位于 head 部分的脚本：当脚本被调用时，或者当事件被触发时，脚本就会被执行。当你把脚本放置到 head 部分后，就可以确保在需要使用脚本之前，它已经被载入了。</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+....
+&lt;/script&gt;
+&lt;/head&gt;
+....
+</code></pre></li>
+<li><p>位于 body 部分的脚本：在页面载入时脚本就会被执行。当你把脚本放置于 body 部分后，它就会生成页面的内容。</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+....
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+<li><p>使用外部JavaScript</p>
+<ul>
+<li>&lt;script src=“javascript.js”&gt;….&lt;script&gt;</li>
+<li>您可以把 .js 文件放到网站目录中通常存放脚本的子目录中，这样更容易管理和维护。</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-4" class="outline-2">
+
+<h2 id="sec-4">4 JavaScript语句</h2>
+<p><span id="text-4"></span>  </p>
+<div id="outline-container-4.1" class="outline-3">
+
+<h3 id="sec-4.1">4.1 JavaScript语句</h3>
+<p><span id="text-4.1"></span></p>
+<ul>
+<li>浏览器把行末作为语句的结尾</li>
+<li>分号是可选的，通过使用分号，可以在一行中写多条语句。</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+
+<h2 id="sec-5">5 JavaScript注释</h2>
+<p><span id="text-5"></span></p>
+<ul>
+<li>单行注释：//comments</li>
+<li>多行注释：/*comments*/</li>
+</ul>
+</div>
+
+<div id="outline-container-6" class="outline-2">
+
+<h2 id="sec-6">6 JavaScript变量</h2>
+<p><span id="text-6"></span></p>
+<ul>
+<li>变量对大小写敏感（y和Y是两个不同的变量）</li>
+<li>变量必须以字母或下划线开始</li>
+<li>可以通过var语句来声明JavaScript变量</li>
+<li>可以在声明它们时向变量赋值</li>
+<li><p>如果您所赋值的变量还未进行过声明，该变量会自动声明</p>
+<ul>
+<li><p>这些语句：</p>
+<pre class="example"><code>x=5;
+carname=&quot;Volvo&quot;; 
+</code></pre></li>
+<li><p>与这些语句的效果相同：</p>
+<pre class="example"><code>var x=5;
+var carname=&quot;Volvo&quot;; 
+</code></pre></li>
+</ul></li>
+<li><p>如果您再次声明了JavaScript变量，该变量也不会丢失其原始值。</p></li>
+</ul>
+</div>
+
+<div id="outline-container-7" class="outline-2">
+
+<h2 id="sec-7">7 JavaScript运算符</h2>
+<p><span id="text-7"></span></p>
+<ul>
+<li>如果把数字与字符串相加，结果将成为字符串。</li>
+</ul>
+</div>
+
+<div id="outline-container-8" class="outline-2">
+
+<h2 id="sec-8">8 JavaScript比较和逻辑运算符</h2>
+<p><span id="text-8"></span></p>
+<ul>
+<li>==：等于</li>
+<li>===：全等</li>
+</ul>
+</div>
+
+<div id="outline-container-9" class="outline-2">
+
+<h2 id="sec-9">9 JavaScript If…Else语句</h2>
+<p><span id="text-9"></span></p>
+<ul>
+<li>if</li>
+<li>if … else</li>
+<li>if … else if … else</li>
+<li>switch</li>
+</ul>
+</div>
+
+<div id="outline-container-10" class="outline-2">
+
+<h2 id="sec-10">10 JavaScript消息框</h2>
+<p><span id="text-10"></span>  </p>
+<div id="outline-container-10.1" class="outline-3">
+
+<h3 id="sec-10.1">10.1 警告框</h3>
+<p><span id="text-10.1"></span></p>
+<ul>
+<li>警告框经常用于确保用户可以得到某些信息。</li>
+<li>当警告框出现后，用户需要点击确定按钮才能继续进行操作。</li>
+<li>alert(“文本”)</li>
+</ul>
+</div>
+
+<div id="outline-container-10.2" class="outline-3">
+
+<h3 id="sec-10.2">10.2 确认框</h3>
+<p><span id="text-10.2"></span></p>
+<ul>
+<li>确认框用于使用户可以验证或者接受某些信息。</li>
+<li>当确认框出现后，用户需要点击确定或者取消按钮才能继续进行操作。</li>
+<li>如果用户点击确认，那么返回值为true。如果用户点击取消，那么返回值为false。</li>
+<li>confirm(“文本”)</li>
+</ul>
+</div>
+
+<div id="outline-container-10.3" class="outline-3">
+
+<h3 id="sec-10.3">10.3 提示框</h3>
+<p><span id="text-10.3"></span></p>
+<ul>
+<li>提示框经常用于提示用户在进入页面前输入某个值。</li>
+<li>当提示框出现后，用户需要输入某个值，然后点击确认或取消按钮才能继续操纵。</li>
+<li>如果用户点击确认，那么返回值为输入的值。如果用户点击取消，那么返回值为null。</li>
+<li>prompt(“文本”, “默认值”)</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-11" class="outline-2">
+
+<h2 id="sec-11">11 JavaScript函数</h2>
+<p><span id="text-11"></span>  </p>
+<div id="outline-container-11.1" class="outline-3">
+
+<h3 id="sec-11.1">11.1 JavaScript函数</h3>
+<p><span id="text-11.1"></span></p>
+<ul>
+<li>将脚本编写为函数，就可以避免页面载入时执行该脚本。</li>
+<li>函数包含着一些代码，这些代码只能被事件激活，或者在函数被调用时才会执行。</li>
+<li>函数在页面起始位置定义，即 &lt;head&gt; 部分。</li>
+</ul>
+</div>
+
+<div id="outline-container-11.2" class="outline-3">
+
+<h3 id="sec-11.2">11.2 如何定义函数</h3>
+<p><span id="text-11.2"></span>  </p>
+<div id="outline-container-11.2.1" class="outline-4">
+
+<ol>
+<li><p>11.2.1 创建函数的语法：</p>
+<p><span id="text-11.2.1"></span></p>
+<pre class="example"><code>function func(var1, var2, ...)
+{
+    \\statements
+}
+</code></pre>
+</div>
+
+<div id="outline-container-11.2.2" class="outline-4">
+</li>
+<li><p>11.2.2 JavaScript变量的生存期</p>
+<p><span id="text-11.2.2"></span></p>
+<ul>
+<li>全局变量</li>
+<li>局部变量</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-12" class="outline-2">
+</li>
+</ol>
+<h2 id="sec-12">12 JavaScript For循环</h2>
+<p><span id="text-12"></span></p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+var i=0
+for (i=0;i&lt;=10;i++)
+{
+    document.write(&quot;The number is &quot; + i)
+    document.write(&quot;&lt;br /&gt;&quot;)
+}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</div>
+
+<div id="outline-container-13" class="outline-2">
+
+<h2 id="sec-13">13 JavaScript While循环</h2>
+<p><span id="text-13"></span></p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var i=0
+while (i&lt;=10)
+{
+    document.write(&quot;The number is &quot; + i)
+    document.write(&quot;&lt;br /&gt;&quot;)
+    i=i+1
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</div>
+
+<div id="outline-container-14" class="outline-2">
+
+<h2 id="sec-14">14 JavaScript Break和Continue语句</h2>
+<p><span id="text-14"></span></p>
+<ul>
+<li>break语句：使用break语句来终止循环。</li>
+<li>continue语句：使用continue语句来终止当前的循环，然后从下一个值继续执行。</li>
+</ul>
+<p>JavaScript For…In声明</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+var x
+var mycars = new Array()
+mycars[0] = &quot;Saab&quot;
+mycars[1] = &quot;Volvo&quot;
+mycars[2] = &quot;BMW&quot;
+
+for (x in mycars)
+{
+    document.write(mycars[x] + &quot;&lt;br /&gt;&quot;)
+}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</div>
+
+<div id="outline-container-15" class="outline-2">
+
+<h2 id="sec-15">15 JavaScript事件</h2>
+<p><span id="text-15"></span></p>
+<ul>
+<li><strong>事件是可以被JavaScript侦测到的行为。</strong></li>
+<li><p>事件举例：</p>
+<ul>
+<li>鼠标点击</li>
+<li>页面或图像载入</li>
+<li>鼠标悬浮于页面的某个热点之上</li>
+<li>在表单中选取输入框</li>
+<li>确认表单</li>
+<li>键盘按键</li>
+</ul></li>
+<li><p>JavaScript事件参考</p>
+<table>
+<thead>
+<tr class="header">
+<th>属性</th>
+<th>当以下情况发生时，出现此事件</th>
+<th>FF</th>
+<th>N</th>
+<th>IE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>onabort</td>
+<td>图像加载被中断</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>onblur</td>
+<td>元素失去焦点</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>onchange</td>
+<td>用户改变域的内容</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>onclick</td>
+<td>鼠标点击某个对象</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>ondblclick</td>
+<td>鼠标双击某个对象</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>onerror</td>
+<td>当加载文档或图像时发生某个错误</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>onfocus</td>
+<td>元素获得焦点</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>onkeydown</td>
+<td>某个键盘的键被按下</td>
+<td>1</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>onkeypress</td>
+<td>某个键盘的键被按下或按住</td>
+<td>1</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>onkeyup</td>
+<td>某个键盘的键被松开</td>
+<td>1</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>onload</td>
+<td>某个页面或图像被完成加载</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>onmousedown</td>
+<td>某个鼠标按键被按下</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>onmousemove</td>
+<td>鼠标被移动</td>
+<td>1</td>
+<td>6</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>onmouseout</td>
+<td>鼠标从某元素移开</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>onmouseover</td>
+<td>鼠标被移到某元素之上</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>onmouseup</td>
+<td>某个鼠标按键被松开</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>onreset</td>
+<td>重置按钮被点击</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>onresize</td>
+<td>窗口或框架被调整尺寸</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>onselect</td>
+<td>文本被选定</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>onsubmit</td>
+<td>提交按钮被点击</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>onunload</td>
+<td>用户退出页面</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+
+<div id="outline-container-16" class="outline-2">
+
+<h2 id="sec-16">16 JavaScript Try…Catch语句</h2>
+<p><span id="text-16"></span>  </p>
+</div>
+
+<div id="outline-container-17" class="outline-2">
+
+<h2 id="sec-17">17 JavaScript特殊字符</h2>
+<p><span id="text-17"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th>代码</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>'</td>
+<td>单引号</td>
+</tr>
+<tr class="even">
+<td>&quot;</td>
+<td>双引号</td>
+</tr>
+<tr class="odd">
+<td>&amp;</td>
+<td>和号</td>
+</tr>
+<tr class="even">
+<td><br />
+</td>
+<td>反斜杠</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>换行符</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>回车符</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>制表符</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>退格符</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>换页符</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-18" class="outline-2">
+
+<h2 id="sec-18">18 JavaScript指导方针</h2>
+<p><span id="text-18"></span></p>
+<ul>
+<li>JavaScript对大小写敏感</li>
+<li>JavaScript会忽略多余的空格</li>
+<li>您可以在文本字符串内部使用反斜杠对代码进行折行</li>
+</ul>
+</div>
+
+<div id="outline-container-19" class="outline-2">
+
+<h2 id="sec-19">19 JavaScript对象简介</h2>
+<p><span id="text-19"></span></p>
+<ul>
+<li>JavaScript是面向对象的编程语言(OOP)。</li>
+<li><p>对象拥有属性和方法。</p>
+<ul>
+<li>属性：属性指与对象有关的值。</li>
+<li>方法：方法指对象可以执行的行为（或者可以完成的功能）。</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-20" class="outline-2">
+
+<h2 id="sec-20">20 JavaScript字符串(String)对象</h2>
+<p><span id="text-20"></span></p>
+<ul>
+<li><p>计算字符串的长度</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+var txt=&quot;Hello World!&quot;
+document.write(txt.length)
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+<li><p>indexOf()方法</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+var str=&quot;Hello world!&quot;
+document.write(str.indexOf(&quot;Hello&quot;) + &quot;&lt;br /&gt;&quot;)
+document.write(str.indexOf(&quot;World&quot;) + &quot;&lt;br /&gt;&quot;)
+document.write(str.indexOf(&quot;world&quot;))
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+<li><p>match()方法</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+var str=&quot;Hello world!&quot;
+document.write(str.match(&quot;world&quot;) + &quot;&lt;br /&gt;&quot;)
+document.write(str.match(&quot;World&quot;) + &quot;&lt;br /&gt;&quot;)
+document.write(str.match(&quot;worlld&quot;) + &quot;&lt;br /&gt;&quot;)
+document.write(str.match(&quot;world!&quot;))
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+<li><p>replace()方法</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+var str=&quot;Visit Microsoft!&quot;
+document.write(str.replace(/Microsoft/,&quot;W3School&quot;))
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+</ul>
+<div id="outline-container-20.1" class="outline-3">
+
+<h3 id="sec-20.1">20.1 String对象的方法</h3>
+<p><span id="text-20.1"></span></p>
+<ul>
+<li>JavaScript的字符串是不可变的</li>
+<li><p>String类定义的方法都不能改变字符串的内容</p>
+<table>
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>描述</th>
+<th>FF</th>
+<th>N</th>
+<th>IE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>anchor()</td>
+<td>创建 HTML 锚。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>big()</td>
+<td>用大号字体显示字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>blink()</td>
+<td>显示闪动字符串。</td>
+<td>1</td>
+<td>2</td>
+<td> </td>
+</tr>
+<tr class="even">
+<td>bold()</td>
+<td>使用粗体显示字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>charAt()</td>
+<td>返回在指定位置的字符。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>charCodeAt()</td>
+<td>返回在指定的位置的字符的 Unicode 编码。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>concat()</td>
+<td>连接字符串。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>fixed()</td>
+<td>以打字机文本显示字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>fontcolor()</td>
+<td>使用指定的颜色来显示字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>fontsize()</td>
+<td>使用指定的尺寸来显示字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>fromCharCode()</td>
+<td>从字符编码创建一个字符串。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>indexOf()</td>
+<td>检索字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>italics()</td>
+<td>使用斜体显示字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>lastIndexOf()</td>
+<td>从后向前搜索字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>link()</td>
+<td>将字符串显示为链接。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>localeCompare()</td>
+<td>用本地特定的顺序来比较两个字符串。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>match()</td>
+<td>找到一个或多个正在表达式的匹配。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>replace()</td>
+<td>替换与正则表达式匹配的子串。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>search()</td>
+<td>检索与正则表达式相匹配的值。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>slice()</td>
+<td>提取字符串的片断，并在新的字符串中返回被提取的部分。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>small()</td>
+<td>使用小字号来显示字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>split()</td>
+<td>把字符串分割为字符串数组。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>strike()</td>
+<td>使用删除线来显示字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>sub()</td>
+<td>把字符串显示为下标。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>substr()</td>
+<td>从起始索引号提取字符串中指定数目的字符。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>substring()</td>
+<td>提取字符串中两个指定的索引号之间的字符。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>sup()</td>
+<td>把字符串显示为上标。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>toLocaleLowerCase()</td>
+<td>把字符串转换为小写。</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>toLocaleUpperCase()</td>
+<td>把字符串转换为大写。</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>toLowerCase()</td>
+<td>把字符串转换为小写。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>toUpperCase()</td>
+<td>把字符串转换为大写。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>toSource()</td>
+<td>代表对象的源代码。</td>
+<td>1</td>
+<td>4</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>toString()</td>
+<td>返回字符串。</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>valueOf()</td>
+<td>返回某个字符串对象的原始值</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+
+<div id="outline-container-20.2" class="outline-3">
+
+<h3 id="sec-20.2">20.2 String对象的属性</h3>
+<p><span id="text-20.2"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th>属性</th>
+<th>描述</th>
+<th>FF</th>
+<th>N</th>
+<th>IE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>constructor</td>
+<td>对创建该对象的函数的引用</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>length</td>
+<td>字符串的长度</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>prototype</td>
+<td>允许您向对象添加属性和方法</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<div id="outline-container-21" class="outline-2">
+
+<h2 id="sec-21">21 JavaScript Date（日期）对象</h2>
+<p><span id="text-21"></span></p>
+<ul>
+<li><p>返回当日的日期和时间</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+document.write(Date())
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+<li><p>getTime()</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+var minutes = 1000*60
+var hours = minutes*60
+var days = hours*24
+var years = days*365
+var d = new Date()
+var t = d.getTime()
+var y = t/years
+
+document.write(&quot;It&#39;s been: &quot; + y + &quot; years since 1970/01/01!&quot;)
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+</code></pre></li>
+<li><p>setFullYear()</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+var d = new Date()
+d.setFullYear(1992,10,3)
+document.write(d)
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+<li><p>toUTCString()</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+var d = new Date()
+document.write (d.toUTCString())
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+<li><p>时钟</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function startTime()
+{
+    var today=new Date()
+    var h=today.getHours()
+    var m=today.getMinutes()
+    var s=today.getSeconds()
+
+    // add a zero in front of numbers&lt;10
+    m=checkTime(m)
+    s=checkTime(s)
+    document.getElementById(&#39;txt&#39;).innerHTML=h+&quot;:&quot;+m+&quot;:&quot;+s
+    t=setTimeout(&#39;startTime()&#39;,500)
+}
+
+function checkTime(i)
+{
+    if (i&lt;10) 
+    {
+        i=&quot;0&quot; + i
+    }
+    return i
+}
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body onload=&quot;startTime()&quot;&gt;
+&lt;div id=&quot;txt&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+</ul>
+<div id="outline-container-21.1" class="outline-3">
+
+<h3 id="sec-21.1">21.1 Date对象的方法</h3>
+<p><span id="text-21.1"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>描述</th>
+<th>FF</th>
+<th>N</th>
+<th>IE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Date()</td>
+<td>返回当日的日期和时间</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>getDate()</td>
+<td>从Date对象返回一个月中的某一天 (1 ~ 31)</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>getDay()</td>
+<td>从Date对象返回一周中的某一天 (0 ~ 6)</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>getMonth()</td>
+<td>从Date对象返回月份 (0 ~ 11)</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>getFullYear()</td>
+<td>从Date对象以四位数字返回年份</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>getYear()</td>
+<td>从Date对象以两位或四位数字返回年份。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>getHours()</td>
+<td>返回Date对象的小时 (0 ~ 23)</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>getMinutes()</td>
+<td>返回Date对象的分钟 (0 ~ 59)</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>getSeconds()</td>
+<td>返回Date对象的秒数 (0 ~ 59))</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>getMilliseconds()</td>
+<td>返回Date对象的毫秒(0 ~ 999)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>getTime()</td>
+<td>返回 1970 年 1 月 1 日至今的毫秒数</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>getTimezoneOffset()</td>
+<td>返回本地时间与格林威治标准时间的分钟差 (GMT)</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>getUTCDate()</td>
+<td>根据世界时从Date对象返回月中的一天 (1 ~ 31)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>getUTCDay()</td>
+<td>根据世界时从Date对象返回周中的一天 (0 ~ 6)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>getUTCMonth()</td>
+<td>根据世界时从Date对象返回月份 (0 ~ 11)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>getUTCFullYear()</td>
+<td>根据世界时从Date对象返回四位数的年份</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>getUTCHours()</td>
+<td>根据世界时返回Date对象的小时 (0 ~ 23)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>getUTCMinutes()</td>
+<td>根据世界时返回Date对象的分钟 (0 ~ 59)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>getUTCSeconds()</td>
+<td>根据世界时返回Date对象的秒钟 (0 ~ 59)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>getUTCMilliseconds()</td>
+<td>根据世界时返回Date对象的毫秒(0 ~ 999)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>parse()</td>
+<td>返回1970年1月1日午夜到指定日期（字符串）的毫秒数</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>setDate()</td>
+<td>设置Date对象中月的某一天 (1 ~ 31))</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>setMonth()</td>
+<td>设置Date对象中月份 (0 ~ 11))</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>setFullYear()</td>
+<td>设置Date对象中的年份（四位数字）</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>setYear()</td>
+<td>设置Date对象中的年份（两位或四位数字）。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>setHours()</td>
+<td>设置Date对象中的小时 (0 ~ 23)</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>setMinutes()</td>
+<td>设置Date对象中的分钟 (0 ~ 59)</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>setSeconds()</td>
+<td>设置Date对象中的秒钟 (0 ~ 59)</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>setMilliseconds()</td>
+<td>设置Date对象中的毫秒 (0 ~ 999)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>setTime()</td>
+<td>通过向或从1970年1月1日午夜添加或减去指定数目的毫秒来计算日期和时间</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>setUTCDate()</td>
+<td>根据世界时设置Date对象中月份的一天 (1 ~ 31)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>setUTCMonth()</td>
+<td>根据世界时设置Date对象中的月份 (0 ~ 11)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>setUTCFullYear()</td>
+<td>根据世界时设置Date对象中年份（四位数字）</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>setUTCHours()</td>
+<td>根据世界时设置Date对象中小时 (0 ~ 23)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>setUTCMinutes()</td>
+<td>根据世界时设置Date对象中分钟 (0 ~ 59)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>setUTCSeconds()</td>
+<td>根据世界时设置Date对象中秒钟 (0 ~ 59)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>setUTCMilliseconds()</td>
+<td>根据世界时设置Date对象中毫秒S(0 ~ 999)</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>toSource()</td>
+<td>代表对象的源代码</td>
+<td>1</td>
+<td>4</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>toString()</td>
+<td>把Date对象转换为字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>toTimeString()</td>
+<td>把Date对象的时间部分转换为字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>toDateString()</td>
+<td>把Date对象的日期部分转换为字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>toGMTString()</td>
+<td>根据格林威治时间，把Date对象转换为字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>toUTCString()</td>
+<td>根据世界时，把Date对象转换为字符串。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>toLocaleString()</td>
+<td>根据本地时间格式，把Date对象转换为字符串。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>toLocaleTimeString()</td>
+<td>根据本地时间格式，把Date对象的时间部分转换为字符串</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>toLocaleDateString()</td>
+<td>根据本地时间格式，把Date对象的日期部分转换为字符串</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>UTC()</td>
+<td>根据世界时，获得一个日期，然后返回1970年1月1日午夜到该日期的毫秒数。</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>valueOf()</td>
+<td>返回Date对象的原始值。</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<div id="outline-container-22" class="outline-2">
+
+<h2 id="sec-22">22 JavaScript数组</h2>
+<p><span id="text-22"></span></p>
+<ul>
+<li><p>创建数组</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+var mycars = new Array()
+mycars[0] = &quot;Saab&quot;
+mycars[1] = &quot;Volvo&quot;
+mycars[2] = &quot;BMW&quot;
+
+for (i=0;i&lt;mycars.length;i++)
+{
+    document.write(mycars[i] + &quot;&lt;br /&gt;&quot;)
+}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+<li><p>For…In声明</p>
+<pre class="example"><code>&lt;html&gt;
+&lt;body&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var x
+var mycars = new Array()
+mycars[0] = &quot;Saab&quot;
+mycars[1] = &quot;Volvo&quot;
+mycars[2] = &quot;BMW&quot;
+
+for (x in mycars)
+{
+document.write(mycars[x] + &quot;&lt;br /&gt;&quot;)
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+</ul>
+<div id="outline-container-22.1" class="outline-3">
+
+<h3 id="sec-22.1">22.1 Array对象的方法</h3>
+<p><span id="text-22.1"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>描述</th>
+<th>FF</th>
+<th>N</th>
+<th>IE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>concat()</td>
+<td>连接两个或更多的数组，并返回结果。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>join()</td>
+<td>把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>pop()</td>
+<td>删除并返回数组的最后一个元素</td>
+<td>1</td>
+<td>4</td>
+<td>5.5</td>
+</tr>
+<tr class="even">
+<td>push()</td>
+<td>向数组的末尾添加一个或更多元素，并返回新的长度。</td>
+<td>1</td>
+<td>4</td>
+<td>5.5</td>
+</tr>
+<tr class="odd">
+<td>reverse()</td>
+<td>颠倒数组中元素的顺序。</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>shift()</td>
+<td>删除并返回数组的第一个元素</td>
+<td>1</td>
+<td>4</td>
+<td>5.5</td>
+</tr>
+<tr class="odd">
+<td>slice()</td>
+<td>从某个已有的数组返回选定的元素</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>sort()</td>
+<td>对数组的元素进行排序</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>splice()</td>
+<td>删除元素，并向数组添加新元素。</td>
+<td>1</td>
+<td>4</td>
+<td>5.5</td>
+</tr>
+<tr class="even">
+<td>toSource()</td>
+<td>代表对象的源代码</td>
+<td>1</td>
+<td>4</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>toString()</td>
+<td>把数组转换为字符串，并返回结果。</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>toLocaleString()</td>
+<td>把数组转换为本地数组，并返回结果。</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>unshift()</td>
+<td>向数组的开头添加一个或更多元素，并返回新的长度。</td>
+<td>1</td>
+<td>4</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>valueOf()</td>
+<td>返回数组对象的原始值</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<div id="outline-container-23" class="outline-2">
+
+<h2 id="sec-23">23 JavaScript Boolean（逻辑）对象</h2>
+<p><span id="text-23"></span></p>
+<ul>
+<li>Boolean 对象是 JavaScript 的一种基本数据类型。</li>
+<li>Boolean 对象是一个把布尔值打包的布尔对象。</li>
+</ul>
+<div id="outline-container-23.1" class="outline-3">
+
+<h3 id="sec-23.1">23.1 Boolean对象的方法</h3>
+<p><span id="text-23.1"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>描述</th>
+<th>FF</th>
+<th>N</th>
+<th>IE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>toSource()</td>
+<td>代表对象的源代码</td>
+<td>1</td>
+<td>4</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>toString()</td>
+<td>把逻辑值转换为字符串，并返回结果。</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>valueOf()</td>
+<td>返回Boolean对象的原始值</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<div id="outline-container-24" class="outline-2">
+
+<h2 id="sec-24">24 JavaScript Math（算数）对象</h2>
+<p><span id="text-24"></span></p>
+<ul>
+<li><p>JavaScript提供8种可被Math对象访问的算数值：</p>
+<table>
+<thead>
+<tr class="header">
+<th>含义</th>
+<th>算数值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>常数</td>
+<td>Math.E</td>
+</tr>
+<tr class="even">
+<td>圆周率</td>
+<td>Math.PI</td>
+</tr>
+<tr class="odd">
+<td>2的平方根</td>
+<td>Math.SQRT2</td>
+</tr>
+<tr class="even">
+<td>1/2的平方根</td>
+<td>Math.SQRT1<sub>2</sub></td>
+</tr>
+<tr class="odd">
+<td>2的自然对数</td>
+<td>Math.LN2</td>
+</tr>
+<tr class="even">
+<td>10的自然对数</td>
+<td>Math.LN10</td>
+</tr>
+<tr class="odd">
+<td>以2为底的e的对数</td>
+<td>Math.LOG2E</td>
+</tr>
+<tr class="even">
+<td>以10为底的e的对数</td>
+<td>Math.LOG10E</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+
+<div id="outline-container-25" class="outline-2">
+
+<h2 id="sec-25">25 JavaScript HTML DOM对象</h2>
+<div id="outline-container-25.1" class="outline-3">
+
+<h3 id="sec-25.1">25.1 HTML DOM对象</h3>
+<p><span id="text-25.1"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th>对象</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Window</td>
+<td>JavaScript层级中的顶层对象。Window对象表示浏览器窗口。</td>
+</tr>
+<tr class="even">
+<td>Navigator</td>
+<td>包含客户端浏览器的信息。</td>
+</tr>
+<tr class="odd">
+<td>Screen</td>
+<td>包含客户端显示屏的信息。</td>
+</tr>
+<tr class="even">
+<td>History</td>
+<td>包含了浏览器窗口访问过的 URL。</td>
+</tr>
+<tr class="odd">
+<td>Location</td>
+<td>包含了当前URL的信息。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<p><span id="postamble"></span>  </p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2010-08-30</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#web">
+          <div class="ui label">
+            Web<sup>5</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#javascript">
+          <div class="ui label">
+            JavaScript<sup>2</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/20887.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="一个Shell Script的诞生" href="/posts/2010-08-04-a-small-shell-script/">Prev</a><a class="item" title="8月的总结" href="/posts/2010-09-01-2010-08-summary/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>

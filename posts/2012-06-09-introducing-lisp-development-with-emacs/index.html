@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>走进Lisp的世界——兼谈Emacs下Lisp的开发环境（上）</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;},{&quot;content&quot;:[&quot;沧海横流，血肉横飞，方显出英雄本色，当年万源保卫战，敌军在不到 30 华里的地面上，使用兵力竞达九十个团，数量十倍于红军，谁能记清当时打了多少次恶仗？每天要牺牲多少人？他却是不多的幸存者之一。而眼前，一切都沉寂了，流逝了。那惊心动魄的枪声，那撕肝裂肺的呐喊，那悲痛欲绝的咒骂和呻吟，那狼藉遍野的残肢断骨和头颅，那千疮百孔仍迎风飘扬的军旗；都沉寂了，流逝了，无影无踪了，犹如做了一场梦……&quot;],&quot;author&quot;:&quot;都梁&quot;,&quot;from&quot;:&quot;亮剑&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      走进Lisp的世界——兼谈Emacs下Lisp的开发环境（上）
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p><span id="table-of-contents"></span></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p><span id="text-table-of-contents"></span></p>
+<ul>
+<li><em>1 磨刀不误砍柴工</em></li>
+<li><em>2 Emacs</em></li>
+<li><em>3 Slime</em></li>
+<li><em>4 Common Lisp</em></li>
+</ul>
+<div id="outline-container-1" class="outline-2">
+
+<h2 id="sec-1">1 磨刀不误砍柴工</h2>
+<div id="text-1" class="outline-text-2">
+
+<p>”工欲善其行，必先利其器“，<a href="http://blog.youxu.info/2008/03/10/tools-everywhere/">工具的强是无敌的</a>。 而判断一个工具是否值得学习，需要理性的分析学习成本和收益。简单地讲，如果学习一个工具的时间远远超出你使用这个工具的时间，那么这个工具就是不值得你去学的。注意， <strong>我并没有说这个工具本身不值得学，而是说它不值得你学</strong> 。同在互联网行业的人，你不可能建议UI设计师去学习Emacs/Vim，也不太可能去要求码农去学习Photoshop。</p>
+<p>编程几乎是一种纯脑力劳动，更确切的说，编程是人脑的一种思维运作。 <strong>高效的编程必然伴随着顺畅的思维运作，任何使你在编程中感觉到思维运作受阻的东西，都是你需要不断改进的东西，包括但不限于编程语言、算法和编程工具。</strong> 我在前面的的文章《<a href="http://cnlox.is-programmer.com/posts/33354.html">少即是多——兼谈对SNS的看法</a>》 也曾经写到：“深入的思考是容不得别人打扰的，一旦中断，思考的大厦就会崩塌，重建的过程往往循环往复、困难重重。这就是为什么聪明人只想和更聪明，至少是和自己一样聪明的人一起工作的原因，资深的Hacker更是如此，他们才没有耐心告诉你Apache该怎么配置呢。”</p>
+<p>简单的例子，作为码农，如果你不能流畅的阅读英文技术资料，那么你需要去提高下英文能力，考个TOFEL/GRE或许是个一劳永逸的办法；如果你的电脑配置不能顺畅的运行你需要用到的开发工具，那么攒钱换电脑或者增强配置吧， <strong>时间就是金钱，将珍贵的时间耗费在等待软件启动的过程中，这是对生命的一种亵渎</strong> ；如果你不能顺畅的实现各种基本数据结构和算法乃至于无法深入看一些技术书籍和自我学习深造，那么找本算法书吧，认认真真的将所有代码从头敲一遍，最好再做一些习题；如果你觉得C++的各种特性杂糅使你不堪重负，使得你在解决问题的时候不断地需要脱离问题本身而去关心实现细节的，那么你应该考虑下去学习几门新的编程语言，跳出语言的框架去寻找解决方案<sup><em>1</em></sup>。</p>
+<p>除了以上种种，最常见也最容易被广大码农忽略的，就是高效的文本编辑。很多人对此不以为然，鼓吹能力是最重要的，工具是次要的，甚至举出某某牛人用记事本编出某某牛软件的例子来自我麻醉，为自己的懒惰和不思进取提供理论支撑和YY的对象。后面我会说明，语言和工具对于编程工作而言起着至关重要的作用，如果将来有朝一日我去招人，我第一件事肯定问他是Emacs/Vim用得是否熟练，对于Emacs/Vim都没有听说过的人，我肯定是坚决不会要的。</p>
+<p>为什么高效的文本编辑如此重要？因为对于码农而言，最重要的工作就是写代码， <strong>而写代码本身可以看成是一种特化的文本编辑工作</strong> ，因此找一款看着舒心、用着称心的编辑器是很有必要的。我不止一次的想起，大三时光，某个实验室的角落，某某同学滚着鼠标寻找码海里的某个函数定义。他的滚轮每滚一格，我的心就咯噔一下；每次他滚了一大段又往回滚的时候，我的心就咯噔咯噔跳个不停。何必呢？即使你不知道emacs/vim，不知道source insight这样的工具，但你至少应该会Edit-&gt;Find吧。《<a href="http://book.douban.com/subject/3558788/">卓有成效的程序员</a>》 里面有几条非常重要的原则：</p>
+<ul>
+<li>Using the mouse less.</li>
+<li>Prefer typing over mousing.</li>
+<li>Typing is faster than navigation.</li>
+</ul>
+<p>总结起来，这三条原则的核心要旨就是快，快速定位到你想要到的地方，随心所欲，不为外物所阻。毕竟，“天下武功，无坚不破，唯快不破“。只有快，才能让思维的高速列车略偏方向而迅速纠偏，不至于偏离车道，走向“车毁人亡”的不归路。具体说来，我们编程是为了解决问题（思维的高速列车），但是很多时候我们不得不花时间和精力去处理诸如代码缩进、括号配对等非常琐碎的工作（偏离方向），而这些琐碎工作不仅会严重影响我们思维的顺畅性，更有甚者，它有时候会让我们忘了我们最初需要解决的问题（“车毁人亡”了）。<a href="http://v.youku.com/v_show/id_XMjMxNDg5MjQ4.html">这里</a>有一段<a href="https://github.com/capitaomorte/yasnippet">yasnippet</a>的demo视频， 是一个极佳的高效文本编辑的例子。比如我们写html代码，我们真正关心的问题应该是到底选用那个标签，至于这个标签该怎么缩进怎么配对怎么符合xhtml标准都不是也完全不应该是我们需要分心解决的问题；日常工作中诸如此类的例子还有很多很多。所有琐碎的小问题加起来，足以碎化你的思维，让你举步维艰。“没有NFS、Java和其他的技术还能活；但是如果没有Vi，简直没法活了”<sup><em>2</em></sup>，可见一个高效文本编辑器在优秀程序员心中的地位。</p>
+<p>废话好像有点多，接下来主要谈谈Emacs下Lisp开发环境的配置，几天的折腾碰到了很多大大小小的issue，一并记录下来，希望后来者能够少走点弯路。</p>
+<p>最后的最后，<a href="http://coolshell.cn/articles/3125.html">主流文本编辑器学习曲线</a>， 博君一笑。</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+
+<h2 id="sec-2">2 Emacs</h2>
+<div id="text-2" class="outline-text-2">
+
+<ul>
+<li>”Emacs是伪装成操作系统的编辑器<sup><em>3</em></sup>(emacs isn’t a text editor but more of an operating system that incidentally happens to include a text editor.)“。</li>
+<li>没错，Emacs就是一个操作系统，只是这个操作系统本身缺少类似于Vim这样高效的编辑器<sup><em>4</em></sup>。如果你去看下Emacs和Elisp合起来将近2000页的手册，你就会发现，emacs这货真不是一个编辑器这么简单，实在是一个以编辑器为核心构建起来的操作系统，有自己的编程语言(elisp)，API，API文档，window、frame……</li>
+<li>很多人说Emacs反Unix哲学的，因为Unix的哲学是提供简明的接口（这个接口主要是文本流），透过小工具的组合完成所有的工作。但Emacs似乎野心太大，妄图以一己之力完成从编程、上网、邮件、听音乐等所有的工作<sup><em>5</em></sup>。从某种意义上而言，这种说法是正确的。但是换一个角度，如果我们真的将Emacs看成一个类似于Unix这样的操作系统的话，那么Elisp之于Emacs就相当于C之于Unix；Emacs的各种插件扩展就相当于Unix下的各种小工具；Unix通过Shell管道将各种小工具粘合起来完成复杂的工作，而Emacs通过自己的Elisp环境将各种扩展插件整合起来，让他们完美合作，完成各种各样对编辑器而言几乎不可能的工作。从这个意义上而言，如果你真的把Emacs当做一种平台而不仅仅是一个编辑器的话，那么Unix的哲学和Emacs是不冲突的。因为Unix的哲学针对的是工具，而不是工具底层的平台，不是吗？</li>
+<li>可能你会问，Emacs到底能干些什么？Easy，除了Adobe能干的，Emacs都能干。具体而言，Emacs不擅长做图形图像视频音频方面的工作，这方面是Adobe CS系列软件的天下。而除了这些基于图形图像的工作， 其余 <strong>基于文本流的工作，Emacs都能干的不错</strong> <sup><em>6</em></sup>。</li>
+<li>如果你想看看Emacs到底长什么样，<a href="http://emacser.com/emacs.htm">emacser.com</a>一定会让你大开眼界。</li>
+<li>Ruby语言的创始人松本行弘在LibrePlanet 2012 conference上讲述了“<a href="http://www.slideshare.net/yukihiro_matz/how-emacs-changed-my-life">how emacs changed mylife</a>”。</li>
+<li>当然，Emacs并不是完美的，体型巨大、启动速度慢、Elispe的性能、多线程支持还有统一的扩展管理，这些一直被人诟病。</li>
+<li><p>关于启动速度，最常见的优化方法有三种：</p>
+<ul>
+<li>将el文件编译成elc文件，</li>
+<li>将许多插件由load转换成autoload。</li>
+<li><p>在Emacs首次启动时开启M-x server-mode，然后以后启动Emacs只需要emacsclient即可。我还做了几个懒人专用的alias：</p>
+<ul>
+<li>ecc=‘emacsclient -c’</li>
+<li>ecd=‘emacs –daemon’</li>
+<li>ect=‘emacsclient -nw’</li>
+<li>emacs=‘LC_CTYPE=zh_CN.UTF-8 emacs’<sup><em>7</em></sup></li>
+</ul></li>
+</ul></li>
+<li><p>Emacs作为一个老牌自由软件，以无限的可扩展性作为核心竞争力，但直到近年来才出现了一些比较好的扩展管理工具，细节可以参考<a href="http://blog.pluskid.org/?p=206">ELPA: Emacs Lisp Package Archive</a>、<a href="http://emacser.com/el-get.htm">GNU Emacs的终极扩展管理工具</a>。在此强烈推荐下<a href="https://github.com/dimitri/el-get">el-get</a>，结合eshell，让我在Emacs身上闻到了一丝<a href="http://en.wikipedia.org/wiki/Lisp_machine">Lisp Machine</a>的味道。</p>
+<ul>
+<li>eshell是可以直接调用Elisp函数的（这是我无意间发现的，惭愧），结合el-get，使得emacs扩展的安装可以像debian的apt-get一般简单。比如说，你可以通过如下的elisp代码“一键安装”auctex、auto-complete、cdlatex-mode、slime、yasnippet<sup><em>8</em></sup>：</li>
+</ul></li>
+</ul>
+<pre class="example"><code>(let ((softs &#39;(auctex auto-complete cdlatex-mode slime yasnippet)))
+  (dolist (obj softs)
+    (el-get-install obj)))
+</code></pre>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+
+<h2 id="sec-3">3 Slime</h2>
+<div id="text-3" class="outline-text-2">
+
+<ul>
+<li>学习计算机四年有余，用过的编程工具IDE环境没有上百也有一打，但从来没有任何一种编程环境，能够像Slime那样，让我印象深刻，彻底颠覆我的编程方法学和世界观。</li>
+<li>这种颠覆型的编程模型就是<a href="http://common-lisp.net/project/slime/">slime</a>的交互式编程。</li>
+<li>多数人都已经对C/C+<del>/Java这种编译型语言的构建模型见怪不怪了，对于C+</del> Template这种扭曲的所谓元编程模型和超长的编译时间也学会了忍耐，大不了去上个厕所、抽一颗烟，要么就去泡杯咖啡呗。可是很少有人去深入思考过，为什么我们要忍受冗长的编译过程？为什么我们只是随便更改几句代码，就要重新做一次完整的编译？如果你从来没有思考过这些问题，那么请尝试下Slime吧，或者python/ruby也好的，交互式的编程会颠覆你的编程理念。</li>
+<li><p>Paul Graham在它的《<a href="http://book.douban.com/subject/1456906/">Ansi Common Lisp</a>》用这样一段话来描述Lisp中的编程模型：“In purely functional code, you can test each function as you write it. If it returns the values you expect, you can be confident that it is correct. The added confidence, in the aggregate, makes a huge difference. You have instant turnaround when you make changes anywhere in a program. And this instant turnaround enables a whole new style of programming, much as the telephone, as compared to letters, enabled a new style of communication”</p>
+<ul>
+<li>我认为这段话强调的关键之处在于“instant turnaround”, 即快速的修改和反馈，更加生动和详细的描述可以参考Paul Graham的另一本Lisp广告书《<a href="http://book.douban.com/subject/6021440/">黑客与画家</a>》。</li>
+<li>想快速构建一个链表一棵树？没问题，在lisp中这些都可以用大一统的list来表示的。<a href="http://en.wikipedia.org/wiki/Alan_Perlis">Alan J. Perlis</a>在SICP的序言中曾写到：“It is better to have 100 functions operate on one data structure than 10 functions on 10 data structures”。如果你认真用C/C++/Java实现过链表和二叉树，你会发现两者的数据节点声明是一样的，都是一个data域和两个指针域。为什么会这样？很少有人深入想过这个问题。后续我会写文章，从Lisp的角度上探讨下这个问题。</li>
+<li>想快速测试某个函数的正确性和性能？没问题，开启slime然后C-c C-c即可，你再也不用像Java那样，先建立一个类、然后声明一个static function，最后在写JUnit测试，然后编译、运行（架屋叠床的设计<sup><em>9</em></sup>，OOP的风格也许并没有声称的那么美好）。<a href="http://en.wikipedia.org/wiki/Alan_Perlis">Alan J. Perlis</a>在SICP的序言中还写到：“Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.”</li>
+</ul></li>
+<li>关于Slime配置，如果你直到什么叫load-path、major-mode、mode-hook这些elisp概念的话，还是比较容易的。要么就只能照抄网上配置碰运气了。[[<a href="http://bc.tech.coop/blog/081209.html" class="uri">http://bc.tech.coop/blog/081209.html</a>][Understanding SLIME (Using Emacs and Lisp Cooperatively)]]是一篇极好的Slime资源，<a href="http://v.youku.com/v_show/id_XMjYxNjM4MDQ0.html">Quick Intro to Live Programming with Overtone</a>令人印象深刻，极为震撼。</li>
+<li><p>python/ruby这类动态语言可以用Slime吗？这点我没有找到太好的资料，slime的contrib目录里面有一个ruby文件，但是我目前还不会ruby，所以没有做过尝试；google上搜到的一些资料说python由于语言本身的限制并不能采用Slime的编程模式<sup><em>10</em></sup>，不过要彻底理解这些，恐怕要涉及到对各种编程语言的深入探讨，目前的我功力有限，恳请高手不吝赐教。</p>
+<ul>
+<li>不过像python/ruby/octave这类语言，在Emacs里面开个文件同时开个解释器边写边测也是可以的，关键字：<a href="http://www.masteringemacs.org/articles/2010/11/01/running-shells-in-emacs-overview">comint-mode</a>。</li>
+</ul></li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+
+<h2 id="sec-4">4 Common Lisp</h2>
+<div id="text-4" class="outline-text-2">
+
+<ul>
+<li>和c语言不同，Common Lisp的实现有很多<sup><em>11</em></sup>，我主要用的是<a href="http://www.sbcl.org/">SBCL</a> 和 <a href="http://ccl.clozure.com/">CCL</a> ，ArchLinux下的安装都比较简单，不再赘述。</li>
+<li><a href="http://www.quicklisp.org">Quicklisp</a> 是推荐的Lisp库管理工具，Quicklisp之于Common Lisp相当于cpan之于Perl.</li>
+<li>在Emacs中装好Slime后（推荐用el-get)，将下列代码放入SBCL的初始化文件.sbclrc或者CCL的初始化文件ccl-init.lisp中。启动SBCL或者CCL开启swank，然后在Emacs slime中用M-x slime-connect连接即可（swank可以是远程机器）。</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span class="co">;;; The following lines added by ql:add-to-init-file:</span>
+#-quicklisp
+(<span class="kw">let</span> ((quicklisp-init (<span class="kw">merge-pathnames</span> <span class="st">&quot;quicklisp/setup.lisp&quot;</span>
+                                       (<span class="kw">user-homedir-pathname</span>))))
+  (<span class="kw">when</span> (<span class="kw">probe-file</span> quicklisp-init)
+    (<span class="kw">load</span> quicklisp-init)))
+
+<span class="co">;;; swank for emacs slime to connect</span>
+(<span class="kw">load</span> <span class="st">&quot;~/.emacs.d/el-get/slime/swank-loader.lisp&quot;</span>)
+(swank-loader:init)
+(swank:create-server :port <span class="dv">4005</span> :dont-close <span class="kw">t</span>)</code></pre></div>
+<ul>
+<li>LispWorks公司为Common Lisp提供有一份非常详尽的<a href="http://www.lispworks.com/documentation/HyperSpec/Front/">HyperSpec</a> 文档，在ArchLinux中，你可以通过AUR来安装(yaourt -S cl-hyperspec)。</li>
+<li>Slime对HyperSpec提供了良好的支持：slime-hyperspec-lookup。配置好Emacs-w3m，就可以在Emacs通过w3m查询Common Lisp语言文档的，很方便。我的配置片段如下：</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(add-to-list &#39;load-path <span class="st">&quot;~/.emacs.d/el-get/emacs-w3m&quot;</span>)
+(<span class="kw">require</span> &#39;w3m-load)
+(<span class="kw">setq</span> browse-url-browser-function &#39;w3m)
+
+<span class="co">;; view common lisp hyperspec documentation</span>
+(global-set-key <span class="st">&quot;\C-ch&quot;</span> &#39;slime-hyperspec-lookup)
+(<span class="kw">setq</span> common-lisp-hyperspec-root <span class="st">&quot;file:/usr/share/doc/HyperSpec/&quot;</span>)</code></pre></div>
+<ul>
+<li><p>M-x slime-connect之后，几个常用的功能：</p>
+<ul>
+<li>C-c C-c: slime-compile-defun，编译当前光标所在处的表达式</li>
+<li>C-x C-e: slime-eval-last-expression，对last-expression进行求值</li>
+<li>M-.: slime-edit-definition，这条命令可以看到Common Lisp中的各种语言结构诸如defun、and、progn的源码，代码取决于你所用的Lisp实现，非常强大，是深入理解Lisp底层的良师益友。</li>
+</ul></li>
+<li><p>绝大多数Lisp实现均支持trace函数，可以用来跟踪递归过程，形象化地展示递归的运行机理，是深入学习理解递归的良好工具。比如下面的SBCL的REPL中的代码展示：</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">CL-USER&gt; (<span class="kw">defun</span><span class="fu"> just-return </span>(n) (<span class="kw">if</span> (<span class="kw">zerop</span> n) <span class="dv">0</span> (<span class="op">+</span> <span class="dv">1</span> (just-return (<span class="op">-</span> n <span class="dv">1</span>)))))
+
+JUST-RETURN
+CL-USER&gt; (<span class="kw">trace</span> just-return)
+
+(JUST-RETURN)
+CL-USER&gt; (just-return <span class="dv">5</span>)
+  <span class="dv">0</span>: (JUST-RETURN <span class="dv">5</span>)
+    <span class="dv">1</span>: (JUST-RETURN <span class="dv">4</span>)
+      <span class="dv">2</span>: (JUST-RETURN <span class="dv">3</span>)
+        <span class="dv">3</span>: (JUST-RETURN <span class="dv">2</span>)
+          <span class="dv">4</span>: (JUST-RETURN <span class="dv">1</span>)
+            <span class="dv">5</span>: (JUST-RETURN <span class="dv">0</span>)
+            <span class="dv">5</span>: JUST-RETURN returned <span class="dv">0</span>
+          <span class="dv">4</span>: JUST-RETURN returned <span class="dv">1</span>
+        <span class="dv">3</span>: JUST-RETURN returned <span class="dv">2</span>
+      <span class="dv">2</span>: JUST-RETURN returned <span class="dv">3</span>
+    <span class="dv">1</span>: JUST-RETURN returned <span class="dv">4</span>
+  <span class="dv">0</span>: JUST-RETURN returned <span class="dv">5</span>
+<span class="dv">5</span>
+CL-USER&gt; </code></pre></div>
+<ul>
+<li>书的话，伞哥的<a href="http://tianchunbinghe.blog.163.com/blog/static/7001200692314249376/">博客</a> 已经给出了很好的建议，我再加一本Paul Graham的《<a href="http://book.douban.com/subject/1456906/">Ansi Common Lisp</a>》,一本一本的看吧。“LISP is worth learning for a different reason — the profound enlightenment experience you will have when you finally get it. That experience will make you a better programmer for the rest of your days, even if you never actually use LISP itself a lot”<sup><em>12</em></sup>。</li>
+</ul>
+<p>差不多了，今天就写到这里，从早到晚写了一天了，累坏了，再写下去我估计读者也坚持不下来了。信息量太大，因此临时决定将文章拆成上下两篇，下篇我会谈谈Scheme/Clojure这两种Lisp方言开发环境的建立，并顺手谈谈Emacs和Maxima的集成。虽然Maxima本身并不是Lisp，但是其基于Lisp实现的事实，也让其与Emacs的联姻充满了浪漫主义的色彩，最近在深入学习算法分析，常常用到Maxima和LaTeX，十分快乐。敬请期待。</p>
+<p>–</p>
+<p><span id="footnotes"></span></p>
+<h2 id="footnotes" class="footnotes">Footnotes:</h2>
+<p><span id="text-footnotes"></span> <sup><em>1</em></sup> 《<a href="http://book.douban.com/subject/4743790/">The Joy of Clojure</a>》有这样一段 话：”Writing code is often a constant struggle against distraction, and every time a language requires you to think about syntax, operator precedence, or inheritance hierarchies, it exacerbates the problem. “任何反紧凑的语言，其繁杂的 语言特性往往会使得人们在解决问题的过程中脱离问题本身而陷入语言细节的泥沼，要么是 像C++那样到处是坑到处是禁忌到处是编程规范，要么是像Java那样到处是架屋叠床的类。 问题域和实现域是我最近常常思考的问题，其深度超越于编程语言的范畴，后续我会再写文 章深入探讨下这个主题。</p>
+<p><sup><em>2</em></sup> <a href="http://www.techcn.com.cn/index.php?doc-view-132647.html" class="uri">http://www.techcn.com.cn/index.php?doc-view-132647.html</a></p>
+<p><sup><em>3</em></sup> “The only thing the emacs OS lacks is a really good editor”，更多的八卦， <a href="http://www.reddit.com/r/programming/comments/ai71t/vlc_developers_have_started_working_on_a_video/c0holsd">这里</a>。</p>
+<p><sup><em>4</em></sup> 坦白的讲，如果以击键次数为标准，单单比较文本编辑的效率，我认为Vim的效率确实比 Emacs强很多。考虑可扩展性的话，我认为Emacs的elisp还是要比Vim的vimscript强很多的。</p>
+<p><sup><em>5</em></sup> <a href="http://www.ibm.com/developerworks/linux/tutorials/l-emacs/">Living in Emacs</a>， 这篇Emacs之所以如此出名，完全在于它起了一个好名字，简明扼要的给出了这篇教程的终 极目标。</p>
+<p><sup><em>6</em></sup> 不擅长干并不代表不能干，比如 <a href="http://www.reddit.com/r/programming/comments/ai71t/vlc_developers_have_started_working_on_a_vdeo/c0holsd">这里</a> 、<a href="http://www.gnu.org/software/emms/">这里</a>、 还有 <a href="http://www.emacswiki.org/emacs-ja/EmacsPlugin">这里</a>。</p>
+<p><sup><em>7</em></sup> 这个主要是解决Emacs中文输入法的问题，细节可以参考 <a href="http://blog.pluskid.org/?p=328">解决ibus在gVim/Emacs下不能使用的问题</a>、还有 <a href="https://www.csslayer.info/wordpress/fcitx-dev/input-method-env-story/">输入法 环境变量的故事</a>。</p>
+<p><sup><em>8</em></sup> 鉴于天朝网络的奇葩性，如果某些扩展无法安装，无妨追查下是否是网络问题。解决方案关 键字：ssh &amp;&amp; proxychains。</p>
+<p><sup><em>9</em></sup> 架屋叠床这么有创造力的词来源于 <a href="http://blog.csdn.net/myan/article/details/5928531">function/bind的救赎</a>， “尽 管如此，Java还是沾染上了“面向类设计”的癌症，基础类库里就有很多架床叠屋的设计……”</p>
+<p><sup><em>10</em></sup> <a href="http://www.reddit.com/r/programming/comments/7ij3j/why_there_is_no_slime_for_python_or_ruby_or/">Why there is no SLIME for Python (or Ruby or…)?</a></p>
+<p><sup><em>11</em></sup> [[<a href="http://tianchunbinghe.blog.163.com/blog/static/700120089175316746/" class="uri">http://tianchunbinghe.blog.163.com/blog/static/700120089175316746/</a>][All Common Lisp Implementations]]，伞哥的博客有很多关于Lisp极有价值的文章，他对Lisp的执着和 不断学习的精神也让我很是景仰。</p>
+<p><sup><em>12</em></sup> <a href="http://www.catb.org/~esr/faqs/hacker-howto.html">How to Become a Hacker</a></p>
+</div>
+
+</div>
+
+<p> </p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2012-06-09</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#emacs">
+          <div class="ui label">
+            Emacs<sup>7</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#emacs">
+          <div class="ui label">
+            Emacs<sup>14</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#lisp">
+          <div class="ui label">
+            Lisp<sup>4</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#slime">
+          <div class="ui label">
+            SLIME<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#sbcl">
+          <div class="ui label">
+            SBCL<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#ccl">
+          <div class="ui label">
+            CCL<sup>1</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/34114.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="打造高效的工作环境(番外篇1): windows/linux钗黛双收" href="/posts/2012-06-02-effective-work-with-both-windows-and-linux/">Prev</a><a class="item" title="Knight Rush——关于编程语言学习的一些思考" href="/posts/2012-06-26-knight-rush-about-learning-programming-languages/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>

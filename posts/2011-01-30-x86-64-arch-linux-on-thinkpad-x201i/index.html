@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>x86-64 Arch Linux on ThinkPad x201i</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;},{&quot;content&quot;:[&quot;沧海横流，血肉横飞，方显出英雄本色，当年万源保卫战，敌军在不到 30 华里的地面上，使用兵力竞达九十个团，数量十倍于红军，谁能记清当时打了多少次恶仗？每天要牺牲多少人？他却是不多的幸存者之一。而眼前，一切都沉寂了，流逝了。那惊心动魄的枪声，那撕肝裂肺的呐喊，那悲痛欲绝的咒骂和呻吟，那狼藉遍野的残肢断骨和头颅，那千疮百孔仍迎风飘扬的军旗；都沉寂了，流逝了，无影无踪了，犹如做了一场梦……&quot;],&quot;author&quot;:&quot;都梁&quot;,&quot;from&quot;:&quot;亮剑&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      x86-64 Arch Linux on ThinkPad x201i
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>前两天自用的Arch Linux系统出了点小问题，索性重新搞了一下，由i686迁移到x86-64平台。原先一直以为64位系统是高不可攀的贵族产品，后来才知道原来64位处理器最早是由AMD 1999年设计，几年前的Intel Core Duo早已经支持64位系统，只是软件产品和内存还跟不上，所以多数应用还是32位为主。</p>
+<p>OS版本用的是[[<a href="http://linuxtoy.org/archives/arch-linux-2010-05.html" class="uri">http://linuxtoy.org/archives/arch-linux-2010-05.html</a>][Arch Linux 2010.05]]，在mirrors.sohu.com上下载[[<a href="http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso" class="uri">http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso</a>][支持 32 位及 64 位架构的 Dual 映像]]，用UltraISO刻录硬盘镜像到U盘上。基本的安装过程不再赘述，[[<a href="https://wiki.archlinux.org/index.php/Beginners&#39;_Guide" class="uri">https://wiki.archlinux.org/index.php/Beginners'_Guide</a>][ArchWiki Beginner’s Guide]]讲的明明白白。唯一注意的是分区格式化的时候需要格外注意，不要把自己原先的系统搞丢——我曾经有过惨痛的教训，不过幸好那次做了数据备份。不过100G的东西备份还原也是件耗时耗力的工作啊^)^。</p>
+<p>基本系统装好后，装个Desktop Environment，然后再做一下系统美化和针对小黑的特殊配置。过程还是挺繁琐的，因此写下来做个备忘。先上张图，KDE4.6——我承认我越来越浮云了……</p>
+<p><a href="http://www.kde.org/announcements/4.6/">[[/user<sub>files</sub>/cnlox/Image/screenshots/kde4.6.png</a>]]</p>
+<p>最新的Xorg已经变得十分人性化，再也不需要手工配置恼人的xorg.conf，最新的Linux内核驱动也能自动识别鼠标和键盘，不会再出现进入图形界面却无法使用鼠标键盘的窘境——至少两年前是这样的。有个东西叫做<a href="http://en.wikipedia.org/wiki/Hardware_abstraction_layer">HAL</a>，最近又出来个evdev。总体而言Linux的驱动程序还是比较混乱的，hal、evdev、mesa、xorg、xf86、wayland、alsa、oss、pulseaudio等等，令人头大。</p>
+<p>字体用的是AUR里面打过ubuntu补丁的cairo-ubuntu、libxft-cairo、freetyp2-ubuntu以及WenQuanYi Micro Hei，加上次像素优化，效果还是不错，上图就是最好的说明。</p>
+<p>网络客户端抛弃了废柴的KDE的networkmanager，采用了<a href="http://wicd.sourceforge.net/">wicd</a>，可以根据地点自动链接不同的无线网，而且非常稳定，从不崩溃。安装过程可以参考<a href="https://wiki.archlinux.org/index.php/Wicd">ArchWiki Wicd</a>。关于蓝牙的配置，我用的是bluez和bluedevel，具体可以参考<a href="https://wiki.archlinux.org/index.php/Bluetooth">这里</a>。</p>
+<p>剩下的都是小黑的特别配置。这方面的Wiki配置零零总总，并没有统一的解决方案。<a href="http://www.thinkwiki.org/wiki/ThinkWiki">ThinkWik</a><a href="http://www.thinkwiki.org/wiki/ThinkWiki">i</a>是一个很好的去处，基本可以找到ThinkPad各个型号再主流Linux发行版上的安装配置。不过由此也看出开源软件的弊端——顶级的ThinkPad支持尚且如此繁琐，可见Linux真正要普及还有很长的路要走。废话少说，还是回到x201i上的设置吧。ThinkPad的设置主要有以下几处：</p>
+<ul>
+<li>电池电源控制</li>
+<li>trackpoint小红点</li>
+<li>Active Protection System，硬盘保护系统</li>
+<li>风扇控制</li>
+</ul>
+<p>电池的电源控制主要是用来延长电池寿命的。电池的充电次数是有限的，因此减少电池的冲放电次数是演唱电池寿命的关键。tp_smapi是针对ThinkPad的一组内核模块，可以通过AUR(yaourt -S tp_smapi)安装。对电源的保护主要是设置电源的冲放电阀值。比如我们设置[start_charge=40, end_charge=90]，意思就是当电池的电量低于40%的时候才开始充电，而一旦电量到达90%的时候就停止充电。举例说明，当我们野外需要频繁的野外工作时，如果不设置电池的充放电阀值[start_charge, end_charge]，那么我们的电量可能是这样的：95(battery, discharge)–&gt;80(AC power, charge)–&gt;100(battery, discharge)–&gt;70(AC power, charge)–&gt;93(battery, discharge)–&gt;70，而设置[start_charge=40, end_charge=90]后我们的电量变化就是这样的：95(battery, discharge)–&gt;80(AC power, but not charge)–&gt;80(battery, discharge)–&gt;50(AC power, but still not charge since 50 &gt;= 40)–&gt;50(battery, discharge)–&gt;27(If AC power now, charge, since 27 &gt;= 40, charge until battery = 90)。看明白了吗？估计没有。反正我也有点晕。ArchWiki上提供了一个封装的脚本set_bat_thresh：</p>
+<pre class="example"><code>#!/bin/bash
+#
+# Bash script for setting the battery thresholds on ThinkPads using the tp_smapi interface.
+# Written by Ignas Anikevicius (20/03/2010)
+
+#HELP TEXT
+if [ &quot;x$1&quot; == &quot;x--help&quot; -o &quot;x$1&quot; == &quot;x-h&quot; ]
+then
+  echo -e &quot;
+  WARNING!!! This script needs to be run as root in order to have effect!!!
+
+  Possible options are:
+    set_bat_thresh [BAT_N] [[LOWER] [UPPER]][--reset][-r] 
+
+    [BAT_N] number of the battery (can be either 0 or 1). 
+
+    LOWER - lower threshold.
+    UPPER - upper threshold .
+    [--reset] or [-r] sets the default thresholds. 
+
+  execute to see this text:
+    set_bat_thresh [--help][-h]
+&quot;
+  exit 0
+fi 
+
+if [ ! -d /sys/devices/platform/smapi ]; then
+  echo -e &quot;\nSMAPI interface is NOT installed.\nPlease load the module.\n&quot;
+  exit 0; fi
+
+#SETTING THRESHOLD VALUES
+if [ &quot;x$2&quot; == &quot;x--reset&quot; -o &quot;x$2&quot; == &quot;x-r&quot; ]
+then
+  LOWER=96
+  UPPER=100
+else
+  LOWER=$2
+  UPPER=$3
+fi
+
+#VALUE TESTING
+if [ ${LOWER} -ge ${UPPER} ]; then
+  echo -e &quot;\n  Please provide proper thresholds!!!  \n&quot;
+  exit 0
+fi
+
+#BATTERY NUMBER
+BAT_N=$1
+LOWER_F=&quot;/sys/devices/platform/smapi/BAT${BAT_N}/start_charge_thresh&quot;
+UPPER_F=&quot;/sys/devices/platform/smapi/BAT${BAT_N}/stop_charge_thresh&quot;
+
+#SETTING THE THRESHOLDS
+echo ${LOWER} &gt; ${LOWER_F}
+echo ${UPPER} &gt; ${UPPER_F} 
+
+#ECHOING THE STUFF
+echo -e &quot;\nSetting battery thresholds for Battery ${BAT_N}:
+  Threshold for charging to start: ${LOWER} 
+  Threshold for charging to stop: ${UPPER} 
+&quot;
+exit 0;
+</code></pre>
+<p>执行用：</p>
+<pre class="example"><code>set_bat_thresh 0 start_charge end_charge
+</code></pre>
+<p>至于trackpoint小红点，AUR里面有一个trackpoint脚本，用yaourt -S trackpoint安装，安装完毕将trackpoint加到/etc/rc.conf的DAEMONS里面。/etc/conf.d/trackpoint里面可以更改一些设置如：</p>
+<ul>
+<li>SPEED: 小红点光标移动速度。</li>
+<li>SENSITIVITY: 小红点敏感度。</li>
+<li>PRESS_TO_SELECT: 小红点单击功能。</li>
+</ul>
+<p>中键模拟用如下的脚本设置下(我也忘了是从哪里找到的了)：</p>
+<pre class="example"><code>xinput set-int-prop &quot;TPPS/2 IBM TrackPoint&quot; &quot;Evdev Wheel Emulation&quot; 8 1
+xinput set-int-prop &quot;TPPS/2 IBM TrackPoint&quot; &quot;Evdev Wheel Emulation Button&quot; 8 2
+</code></pre>
+<p>硬盘保护(Active Protection System)用的是AUR里面的HDAPS，参看<a href="https://wiki.archlinux.org/index.php/HDAPS">ArchWiki</a>，Applet用的是thinkhdaps，根据需要改下/etc/conf.d/hdapsd里面的设置，效果还不错，抱着笔记本在床上看电影的时候视频会一卡一卡的。</p>
+<p>风扇控制貌似不太不要，而且设置不好会影响散热效果，降低笔记本的寿命。这个功能主要目的貌似是使笔记本更安静些。用的软件包是AUR里面的tpfand和tpfan-admin，tpfand.conf是copy来的，参考<a href="http://forum.ubuntu.org.cn/viewtopic.php?t=286666">这里</a>。用了之后好像也没啥特别的效果。</p>
+<p>最后show下/etc/rc.conf里面的设置，日后重装的时候也好有个参考：</p>
+<pre class="example"><code>#
+# /etc/rc.conf - Main Configuration for Arch Linux
+#
+
+# -----------------------------------------------------------------------
+# LOCALIZATION
+# -----------------------------------------------------------------------
+#
+# LOCALE: available languages can be listed with the &#39;locale -a&#39; command
+# HARDWARECLOCK: set to &quot;UTC&quot; or &quot;localtime&quot;, any other value will result
+#   in the hardware clock being left untouched (useful for virtualization)
+# TIMEZONE: timezones are found in /usr/share/zoneinfo
+# KEYMAP: keymaps are found in /usr/share/kbd/keymaps
+# CONSOLEFONT: found in /usr/share/kbd/consolefonts (only needed for non-US)
+# CONSOLEMAP: found in /usr/share/kbd/consoletrans
+# USECOLOR: use ANSI color sequences in startup messages
+#
+LOCALE=&quot;en_US.UTF-8&quot;
+HARDWARECLOCK=&quot;localtime&quot;
+TIMEZONE=&quot;Asia/Shanghai&quot;
+KEYMAP=&quot;us&quot;
+CONSOLEFONT=
+CONSOLEMAP=
+USECOLOR=&quot;yes&quot;
+
+# -----------------------------------------------------------------------
+# HARDWARE
+# -----------------------------------------------------------------------
+#
+# MOD_AUTOLOAD: Allow autoloading of modules at boot and when needed
+# MOD_BLACKLIST: Prevent udev from loading these modules
+# MODULES: Modules to load at boot-up. Prefix with a ! to blacklist.
+#
+# NOTE: Use of &#39;MOD_BLACKLIST&#39; is deprecated. Please use ! in the MODULES array.
+#
+MOD_AUTOLOAD=&quot;yes&quot;
+#MOD_BLACKLIST=() #deprecated
+MODULES=(uinput tp_smapi thinkpad_acpi thinkpad_ec vboxdrv)
+
+# Scan for LVM volume groups at startup, required if you use LVM
+USELVM=&quot;no&quot;
+
+# -----------------------------------------------------------------------
+# NETWORKING
+# -----------------------------------------------------------------------
+#
+# HOSTNAME: Hostname of machine. Should also be put in /etc/hosts
+#
+HOSTNAME=&quot;lox-pad&quot;
+
+# Use &#39;ifconfig -a&#39; or &#39;ls /sys/class/net/&#39; to see all available interfaces.
+#
+# Interfaces to start at boot-up (in this order)
+# Declare each interface then list in INTERFACES
+#   - prefix an entry in INTERFACES with a ! to disable it
+#   - no hyphens in your interface names - Bash doesn&#39;t like it
+# 
+# DHCP:     Set your interface to &quot;dhcp&quot; (eth0=&quot;dhcp&quot;)
+# Wireless: See network profiles below
+#
+
+#Static IP example
+#eth0=&quot;eth0 192.168.0.2 netmask 255.255.255.0 broadcast 192.168.0.255&quot;
+eth0=&quot;dhcp&quot;
+INTERFACES=(!eth0)
+
+# Routes to start at boot-up (in this order)
+# Declare each route then list in ROUTES
+#   - prefix an entry in ROUTES with a ! to disable it
+#
+gateway=&quot;default gw 192.168.0.1&quot;
+ROUTES=(!gateway)
+
+# Enable these network profiles at boot-up.  These are only useful
+# if you happen to need multiple network configurations (ie, laptop users)
+#   - set to &#39;menu&#39; to present a menu during boot-up (dialog package required)
+#   - prefix an entry with a ! to disable it
+#
+# Network profiles are found in /etc/network.d
+#
+# This now requires the netcfg package
+#
+#NETWORKS=(main)
+
+# -----------------------------------------------------------------------
+# DAEMONS
+# -----------------------------------------------------------------------
+#
+# Daemons to start at boot-up (in this order)
+#   - prefix a daemon with a ! to disable it
+#   - prefix a daemon with a @ to start it up in the background
+#
+DAEMONS=(@syslog-ng @dbus !hal !network !netfs @acpid @tpfand @crond @hdapsd @laptop-mode @wicd @kdm bluetooth @trackpoint)
+</code></pre>
+<p>大概就这么多吧。都是些琐碎的东西，能用就好了。想想Linux的东西变动如此之快，有些东西是真的不必深究的。比如关于中键模拟有上面的方案，也有改xorg.conf的方案。比如hal这个东西，再比如X Window和未来的<a href="http://wayland.freedesktop.org/">Wayland</a>，比如ext4和<a href="http://en.wikipedia.org/wiki/Btrfs">btrfs</a>。想想自己走的也有些偏了，过于追求工具化的东西，倒是忽略了最本质的知识，如体系结构，算法等等。这就比如户外旅行，总是想方设法装一辆拉风的自行车，却很少去骑车领略旅行的真谛。四年，四年前的我还只会开机关机，四年后的我折腾系统小打小闹颇有一套，最本质的计算机基础却一塌糊涂。希望自己的折腾之旅到此位置吧。接下来的关键词是，lisp、tcp/ip，hadoop。</p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2011-01-30</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#linux">
+          <div class="ui label">
+            Linux<sup>17</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#x86_64">
+          <div class="ui label">
+            x86_64<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#archlinux">
+          <div class="ui label">
+            ArchLinux<sup>4</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#thinkpad">
+          <div class="ui label">
+            ThinkPad<sup>1</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/24172.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="Programming C#" href="/posts/2011-01-24-programming-c-sharp/">Prev</a><a class="item" title="Issues of Eclipse Helios with Hadoop" href="/posts/2011-01-31-issues-of-eclipse-helios-with-hadoop/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>

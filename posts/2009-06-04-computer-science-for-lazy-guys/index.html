@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>计算机是懒人的科学</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;},{&quot;content&quot;:[&quot;沧海横流，血肉横飞，方显出英雄本色，当年万源保卫战，敌军在不到 30 华里的地面上，使用兵力竞达九十个团，数量十倍于红军，谁能记清当时打了多少次恶仗？每天要牺牲多少人？他却是不多的幸存者之一。而眼前，一切都沉寂了，流逝了。那惊心动魄的枪声，那撕肝裂肺的呐喊，那悲痛欲绝的咒骂和呻吟，那狼藉遍野的残肢断骨和头颅，那千疮百孔仍迎风飘扬的军旗；都沉寂了，流逝了，无影无踪了，犹如做了一场梦……&quot;],&quot;author&quot;:&quot;都梁&quot;,&quot;from&quot;:&quot;亮剑&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      计算机是懒人的科学
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><h2 id="contents">Contents</h2>
+<div class="mulu">
+
+<p><a href="#sec1">序</a> <a href="#sec2">计算机是懒人的科学</a> <a href="#sec3">几个小软件</a> <a href="#sec4">Emacs</a> <a href="#sec5">Firefox</a> <a href="#sec6">LaTex</a> <a href="#sec7">让开发自动化</a> <a href="#sec8">原来生活可以更美好</a> <a href="#sec9">学习资源</a></p>
+</div>
+
+<h2 id="序"><span id="sec1"></span><a href="#sec1">序</a></h2>
+<p>折腾计算机两年多了，现在才算懂了点门道。从最开始的开机关机，到最初战战兢兢通宵装 xp系统，到Vmware带来的神奇，到luckweb的丰富，到Fedora 8的一丝不惑，再到 Ubuntu的博爱，我终于走进了GNU的大门。自由与开放的广阔世界，GNU，GNU is Not Unix， 我越发感到，这，就是我需要的世界。</p>
+<p>本文会教你：</p>
+<ul>
+<li>如何配置一个Ubuntu下完整，轻巧，高效的c(c++, Java)开发环境</li>
+<li>如何维护和保持代码和文档的一致性</li>
+<li>如何配置一个舒服的LaTex+CJK的文档办公环境</li>
+<li>如何高效的使用Ubuntu系统</li>
+<li>经典学习资源推荐</li>
+</ul>
+<p>本文不会教你：</p>
+<ul>
+<li>什么叫GNU， Ubuntu, Emacs……</li>
+<li>基本的Bash命令</li>
+<li>基本的Emacs，Vim操作</li>
+</ul>
+<h2 id="计算机是懒人的科学"><span id="sec2"></span><a href="#sec2">计算机是懒人的科学</a></h2>
+<p>计算机是懒人的科学。这点从计算机的发明就可以看的出来。众所周知，ENIAC的诞生是为 了计算，是为了弥补人脑的不足，减轻计算负担。</p>
+<p>为了批量的计算，人们发明了机器语言；</p>
+<p>为了简化机器语言，人们又发明了汇编语言；</p>
+<p>为了进一步简化，人们发明了c，写了Unix；</p>
+<p>为了更好的软件重构和代码重用，人们又发明了c++;</p>
+<p>人们发现c++简直太tmd的复杂了，于是就发明了Java。</p>
+<p>为了更好的维护程序文档，人们发明了docbook。</p>
+<p>为了更好的排版质量，Knuth大人冲冠一怒，整整十年，发明了伟大的Tex排版系统。</p>
+<p>后来Leslie　Lamport说：Knuth你那个Tex系统简直太tmd的难用了，于是他就写了个 LaTex，极大地简化了Tex的使用，使得一个初学者在半天的时间内也能排出具有国际水准的 文档来。</p>
+<p>后来中国人发现这LaTex先天不支持中文，于是就有人站出来发明了CCT，德国人还发明了 CJK(Chinese, Japanese, Korean)。</p>
+<p>后来人们又发现CJK生成字体太tmd的麻烦了，于是有勇士站出来，写了xetex，直接调用系 统字体，这下好了。世界清静了<sup><a href="file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.1">1</a></sup>。</p>
+<p>为了更高效的编辑文本，人们就发明了vim和Emacs。</p>
+<p>后来人们又给Emacs增添了很多乱七八糟的功能，于是Emacs成了一中生活。</p>
+<p>人们发现文件管理真是件无聊的事情，于是就发明了sh脚本语言。</p>
+<p>人们发现程序的Api文档撰写麻烦死了，于是Java有了Javadoc，C++有了Doxygen<sup><a href="file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.2">2</a></sup></p>
+<p>再后来的后来，cnlox发现Emacs muse这个记笔记的好东西，于是就用muse写了这么一篇东 西，记录下来最近的一些心得和学习笔记。^_^</p>
+<h2 id="几个小软件"><span id="sec3"></span><a href="#sec3">几个小软件</a></h2>
+<h3 id="yakuake"><a href="http://yakuake.uv.ro/">yakuake</a></h3>
+<p>用*nix的人进入系统第一件事往往就是开一个terminal，然后在那里打开Emacs，开firefox 等等。yakuake的使用十分方便，初次安装完毕后，默认用F12键调出，像一幕卷帘挂在屏幕 上，不用的时候，F12调走，自动隐藏，既不占用任务栏，又免除了Alt+Tab切换的麻烦。</p>
+<pre class="example"><code>sudo apt-get install yakuake
+</code></pre>
+<h3 id="gnome-do"><a href="http://do.davebsd.com/">gnome-do</a></h3>
+<p>Mac下有QuickSilver，Windows下有Launchy，三个程序的设计思想是差不多的，就是程序的 快速启动器，免除从菜单中搜索的麻烦。谁用谁知道。</p>
+<pre class="example"><code>sudo apt-get install gnome-do
+</code></pre>
+<h3 id="dwww"><a href="http://packages.debian.org/sid/dwww">dwww</a></h3>
+<p>我想信大多数玩linuxer都是爱折腾不安分的人。Ubuntu虽然打着博爱的口号，其易用性堪 比Windows，依然难免会遇到各种各样的问题，此时程序本身的文档就成了最好的解决问题 的良师益友。</p>
+<pre class="example"><code>sudo apt-get install dwww info2www swish++
+</code></pre>
+<p>安装完后打开浏览器访问<a href="http://localhost/dwww" class="uri">http://localhost/dwww</a> 或者直接在终端调用即可<sup><a href="file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.3">3</a></sup>。</p>
+<p>顺便提一下，dhelp和devhelp也是类似的软件，大家可以装着用用。</p>
+<h3 id="nautilus-open-terminal">nautilus-open-terminal</h3>
+<p>在nautilus中管理文件时，常常会希望在当前位置开个终端，以前的方法是：开终端－cd到 当前目录，不过有了nautilus-open-terminal后，打开终端后pwd就是当前目录，非常方便。</p>
+<pre class="example"><code>sudo apt-get install nautilus-open-terminal
+</code></pre>
+<h2 id="emacs"><span id="sec4"></span><a href="#sec4">Emacs</a></h2>
+<p>这个话题太沉重，我现在还不动elisp，无法进行太过详细的描述，先列下一个单子，容以 后慢慢到来：</p>
+<ul>
+<li>gnus</li>
+<li>ecb</li>
+<li>emms</li>
+<li>ibuffer</li>
+<li>imaxima</li>
+<li>gnuplot</li>
+<li>cc-mode</li>
+<li>jde</li>
+<li>cscope</li>
+<li>muse</li>
+<li>dired</li>
+<li>auctex</li>
+<li>outline-mode</li>
+<li>eshell</li>
+<li>version control</li>
+<li>planner</li>
+<li>Emacs Make A Computer Slow……</li>
+</ul>
+<h2 id="firefox"><span id="sec5"></span><a href="#sec5">Firefox</a></h2>
+<p>Emacs和<a href="http://www.mozilla.com/">Firefox</a>是我在Ubuntu平台下应用最多的两个软件。具体我就不介绍了，都是可扩展 性极强的软件。推荐几个扩展吧：</p>
+<ul>
+<li><a href="http://firefox.exxile.net/aios/index.php">All-in-One Sidebar</a> 一体化工作条。</li>
+<li><a href="http://getfirebug.com/">Firebug</a> 网页开发工具。</li>
+<li><a href="https://addons.mozilla.org/zh-CN/firefox/addon/6366">FireGestures</a> 鼠标手势！</li>
+<li>DownThemAll 下载工具。</li>
+<li>Flashgot(not flashget^_^)</li>
+<li><a href="http://labs.mozilla.com/2008/08/introducing-ubiquity/">Ubiquity</a> 无所不在，统一。</li>
+</ul>
+<h2 id="latex"><span id="sec6"></span><a href="#sec6">LaTex</a></h2>
+<p>LaTex的中文化配置一直是件很麻烦的事情。尤其是在Linux下。在Windows下有CTex网站制 作的CTex套装，直接安装一般没有太大的问题。但是在<a href="file:///home/lox/muse/publish/myhtml/Ubuntu/index.html">Ubuntu</a>下，LaTex装完后一般并不能 直接用于中文，需要生成一堆的字体和配置一堆的参数，Baidu上随便一搜一大堆，下面是 我的配置方法:</p>
+<p>首先安装texlive套装，硬盘充裕的话安装全套支持好了,</p>
+<pre class="example"><code>sudo apt-get install texlive-full latex-beamer
+</code></pre>
+<p>然后安装cjk支持，</p>
+<pre class="example"><code>sudo apt-get install latex-cjk-all
+</code></pre>
+<p>其实现在已经可以使用中文了。</p>
+<pre class="example"><code>\documentclass{article}
+ \usepackage{CJK}
+ \begin{document}
+ \begin{CJK}{UTF8}{gbsn}
+ 欢迎来到CJK！这里使用的是CJK宏包里有的文鼎宋体。
+ \end{CJK}
+ \end{document}
+</code></pre>
+<p>但是gbsn字体过于简陋，比如说朱熔基的’熔’字就显示不出来，这怎么能行呢？ 而且现在有很多latex文档都是用LaTex＋CJK生成的，以后万一遇上这种情况，会很麻烦。 网上的方法多是自己编译字体配置参数，我看的头都大了。不过好在最后找到一种方法—— 网上搜索生成好的<a href="ftp://202.38.75.75/pub/linux_soft/texlive/YueWang-zhfonts-final_1.01.tar.bz2">YueWang-zhfonts-final_1.01.tar.bz2</a>，复制到主目录</p>
+<pre class="example"><code>sudo texhash
+</code></pre>
+<p>然后就看人品了。我那天下载字体包就下载了一个下午，都是下载到一半就停住了，不知道 怎么回事。</p>
+<p>下面是我写LaTex文档的一个简单模板，供大家参考。</p>
+<pre class="example"><code>\documentclass[a4paper, 11pt, openany]{article}
+ \usepackage[top=2.5cm, bottom=3cm, left=2cm, right=2cm]{geometry}
+                                      % 控制页边距
+ \usepackage{enumerate}               % 控制项目列表
+ \usepackage{multicol}                % 多栏显示
+
+ \usepackage{graphicx}
+
+ \usepackage{indentfirst}
+ \usepackage[perpage,symbol]{footmisc}% 脚注控制
+ \usepackage[sf]{titlesec}            % 控制标题
+ \usepackage{titletoc}                % 控制目录
+ \usepackage{fancyhdr}                % 页眉页脚
+ \usepackage{type1cm}                 % 控制字体大小
+ \usepackage{indentfirst}             % 首行缩进
+ \usepackage{makeidx}                 % 建立索引
+ \usepackage{textcomp}                % 千分号等特殊符号
+ \usepackage{layouts}                 % 打印当前页面格式
+ \usepackage{bbding}                  % 一些特殊符号
+ \usepackage{cite}                    % 支持引用
+ \usepackage{color,xcolor}            % 支持彩色文本、底色、文本框等
+ \usepackage{listings}                % 粘贴源代码
+ \lstloadlanguages{}                  % 所要粘贴代码的编程语言
+
+ %%%%设置listings宏包的一些全局样式%%%%
+ %%%%参见http://hi.baidu.com/shawpinlee/blog/item/9ec431cbae28e41cbe09e6e4.html%%%%
+ \lstset{numbers=left,
+ numberstyle=\tiny,
+ keywordstyle=\color{blue!70}, commentstyle=\color{red!50!green!50!blue!50},
+ frame=shadowbox,
+ rulesepcolor=\color{red!20!green!20!blue!20},
+ escapechar=`,
+ xleftmargin=2em,xrightmargin=2em, aboveskip=1em,
+ breaklines,                          %这条命令可以让LaTeX自动将长的代码行换行排版
+ extendedchars=false                  %这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题
+ }
+
+ \usepackage{latexsym}
+ \usepackage{amsmath}                 % AMS LaTeX宏包
+ \usepackage{amssymb}                 % 用来排版漂亮的数学公式
+ \usepackage{amsbsy}
+ \usepackage{amsthm}
+ \usepackage{amsfonts}
+ \usepackage{mathrsfs}                % 英文花体字体
+ \usepackage{bm}                      % 数学公式中的黑斜体
+ \usepackage{relsize}                 % 调整公式字体大小：\mathsmaller, \mathlarger
+ \usepackage{caption2}                % 浮动图形和表格标题样式
+
+ \usepackage{CJKutf8}
+ \makeindex                           % 生成索引
+ \pagestyle{fancy}                    % 页眉页脚风格
+ %\fancyhf{}                           % 清空当前页眉页脚的默认设置
+
+
+ \usepackage{CJK}
+ \begin{document}
+ \begin{CJK*}{UTF8}{song}
+ \CJKindent
+ \sloppy\CJKspace                     % 中英文混排的断行
+ \CJKtilde                            % 重新定义~，用~隔开中英文
+
+ %%%%%%%%%% 一些新定义 %%%%%%%%%%
+ \newcommand{\song}{\CJKfamily{song}} % 宋体
+ \newcommand{\hei}{\CJKfamily{hei}}   % 黑体
+ \newcommand{\fs}{\CJKfamily{fs}}     % 仿宋
+ \newcommand{\kai}{\CJKfamily{kai}}   % 楷体
+
+ %%%%%%%%%% 定理类环境的定义 %%%%%%%%%%
+ %% 必须在导入中文环境之后
+ \newtheorem{example}{例}             % 整体编号
+ \newtheorem{algorithm}{算法}
+ \newtheorem{theorem}{定理}[section]  % 按 section 编号
+ \newtheorem{definition}{定义}
+ \newtheorem{axiom}{公理}
+ \newtheorem{property}{性质}
+ \newtheorem{proposition}{命题}
+ \newtheorem{lemma}{引理}
+ \newtheorem{corollary}{推论}
+ \newtheorem{remark}{注解}
+ \newtheorem{condition}{条件}
+ \newtheorem{conclusion}{结论}
+ \newtheorem{assumption}{假设}
+
+ %%%%%%%%%% 一些重定义 %%%%%%%%%%
+ %% 必须在导入中文环境之后
+ \renewcommand{\contentsname}{目录}     % 将Contents改为目录
+ \renewcommand{\abstractname}{摘\ \ 要} % 将Abstract改为摘要
+ \renewcommand{\refname}{参考文献}       % 将References改为参考文献
+ \renewcommand{\indexname}{索引}
+ \renewcommand{\figurename}{图}
+ \renewcommand{\tablename}{表}
+ \renewcommand{\appendixname}{附录}
+ \renewcommand{\proofname}{\hei 证明}
+ \renewcommand{\algorithm}{\hei 算法}
+
+ %%%%%%%%%% 重定义字号命令 %%%%%%%%%%
+ \newcommand{\yihao}{\fontsize{26pt}{36pt}\selectfont}       % 一号, 1.4倍行距
+ \newcommand{\erhao}{\fontsize{22pt}{28pt}\selectfont}       % 二号, 1.25倍行距
+ \newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}      % 小二, 单倍行距
+ \newcommand{\sanhao}{\fontsize{16pt}{24pt}\selectfont}      % 三号, 1.5倍行距
+ \newcommand{\xiaosan}{\fontsize{15pt}{22pt}\selectfont}     % 小三, 1.5倍行距
+ \newcommand{\sihao}{\fontsize{14pt}{21pt}\selectfont}       % 四号, 1.5倍行距
+ \newcommand{\bansi}{\fontsize{13pt}{19.5pt}\selectfont}     % 半四, 1.5倍行距
+ \newcommand{\xiaosi}{\fontsize{12pt}{18pt}\selectfont}      % 小四, 1.5倍行距
+ \newcommand{\dawu}{\fontsize{11pt}{11pt}\selectfont}        % 大五, 单倍行距
+ \newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}   % 五号, 单倍行距
+
+ %%%%%%%%%% 论文标题、作者等 %%%%%%%%%%
+ \title{\LaTeX测试文档}
+ \author{Lox Freeman}
+ \date{2009年5月31日}
+ \maketitle
+ \tableofcontents
+
+ 这是\LaTeX中文文档。
+ \newpage
+ \end{CJK*}
+ \end{document}
+</code></pre>
+<h2 id="让开发自动化"><span id="sec7"></span><a href="#sec7">让开发自动化</a></h2>
+<h3 id="git">git</h3>
+<p>git是一种分布式版本控制工具，是Linus为了管理Linux内核源代码而发明的版本控制工具。 什么是git？为什么用git？这个问题我解释不清楚。网上已经有了答案，请看<a href="http://linuxtoy.org/docs/guide/ch28s02.html">这里</a>。</p>
+<h3 id="doxygen">doxygen</h3>
+<p>Java有Javadoc作为API文档声称工具，C++呢？没错，就是大名鼎鼎的doxygen。</p>
+<pre class="example"><code>sudo apt-get install doxygen, doxygen-gui, doxymacs, doxygen-doc;
+</code></pre>
+<p>doxygen使用非常简单，首先进入源代码目录，运行doxywizard生成一个Doxyfile<sup><a href="file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.4">4</a></sup>，根据 个人需要钩选相应的选项，然后运行doxygen即可。具体的代码例子可以看doxygen自带的文 档<sup><a href="file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.5">5</a></sup>。<a href="http://www.fmddlmyy.cn/text21.html">这里</a>有个中文的入门介绍。简单的说，doxygen能够：</p>
+<ul>
+<li>保持代码和Api文档的一致性。</li>
+<li>支持多种格式(latex, html, pdf, docbook, chm<sup><a href="file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.6">6</a></sup>)等格式文档的输出。</li>
+<li>支持多种语言。</li>
+<li>支持风格多样的注解方式(Javadoc风格，QTdoc风格)。</li>
+<li>支持多种编程语言(c, c++, Java, Python等等)。</li>
+<li>支持函数调用图和类继承图等图形的生成。</li>
+</ul>
+<p>有了这个，以后写大程序的API文档就简单多了。^_^。</p>
+<h2 id="原来生活可以更美好"><span id="sec8"></span><a href="#sec8">原来生活可以更美好</a></h2>
+<pre class="example"><code>sudo apt-get install sl tree fortunes
+</code></pre>
+<p>Enjoy them.</p>
+<h2 id="学习资源"><span id="sec9"></span><a href="#sec9">学习资源</a></h2>
+<h3 id="latex-1">LaTex</h3>
+<ul>
+<li><a href="http://zzg34b.w3.c361.com/">LaTex编辑部</a> 非常好的在线学习资源。</li>
+<li><a href="http://tobi.oetiker.ch/lshort/lshort.pdf">lshort</a> 非常好的LaTex入门教材，看完了基本可以应付绝大部分的问题。</li>
+<li><a href="http://latex.yo2.cn/">LaTex学习</a> 非常好的LaTex学习博客。</li>
+<li><a href="http://www.ctan.org/get/info/lnotes/lnotes.pdf">lnotes</a> 中国人写的LaTex笔记，行文非常风趣，针对中文做了进一步讲解，推荐。</li>
+<li><a href="http://cohomo.blogbus.com/" class="uri">http://cohomo.blogbus.com/</a> 非常好的一个博客。</li>
+</ul>
+<h3 id="emacs-1"><a href="file:///home/lox/muse/publish/myhtml/Emacs/index.html">Emacs</a></h3>
+<ul>
+<li><a href="http://download.csdn.net/source/178380">Sams Teach Yourself Emacs in 24 Hours</a> 我觉得比Emacs manual更容易作为入门文档。</li>
+<li><a href="http://www.ibm.com/developerworks/search/searchResults.jsp?searchType=1&amp;searchSite=dWChina&amp;pageLang=zh&amp;langEncoding=UTF8&amp;searchScope=dW&amp;query=emacs&amp;Search.x=0&amp;Search.y=0&amp;Search=%25E6%2590%259C%25E7%25B4%25A2">IBM DeveloperWorks</a> 非常丰富的学习资源。</li>
+<li><a href="http://www.emacswiki.org/">Emacs Wiki</a> 建议先了解Emacs的基本知识后在看。</li>
+<li><a href="http://learn.tsinghua.edu.cn:8080/2005211356/">叶文彬的个人主页</a> 对Emacs卓有建树，难得。</li>
+<li><a href="http://people.ku.edu/%7Esyliu/shredderyin/">王垠的个人主页</a> 用GNU很大程度上是看了他的文章。</li>
+</ul>
+<h3 id="linux">Linux</h3>
+<ul>
+<li><a href="http://linuxtoy.org/docs/guide/">开源世界旅行手册</a> 推荐新手看，非常好的入门文档。</li>
+<li><a href="http://www.linuxgem.org/">LinuxGem</a> 简洁大方。</li>
+<li><a href="http://www.linuxsir.org/">LinuxSir</a> 不错的中文Linux论坛。</li>
+<li><a href="http://www.gentoo.org/doc/zh_cn/index.xml">Gentoo中文文档</a> Gentoo，Gentoo。</li>
+<li><a href="http://wiki.ubuntu.org.cn/index.php?title=%E9%A6%96%E9%A1%B5&amp;variant=zh-cn">Ubuntu中文wiki</a> 入门很不错。</li>
+</ul>
+<p>*Footnotes*</p>
+<p><a href="file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fnr.1">1.</a> 个人觉得xetex目前还不太成熟，网上很多东西还是基于LaTex+CJK的。</p>
+<p><a href="file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fnr.2">2.</a> 当然doxygen可以用于多种语言。</p>
+<p><a href="file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fnr.3">3.</a> dwww貌似不支持Arch，其余的我没有做过测试。欢迎指教。</p>
+<p><a href="file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fnr.4">4.</a> doxygen -g也可以生成Doxyfile，但是不如doxywizard直观方便。</p>
+<p><a href="file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fnr.5">5.</a> 运行dwww，搜索doxygen即可。</p>
+<p><a href="file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fnr.6">6.</a> chm是微软专有文档格式，Linux下只能查看，无法制作生成。</p>
+<p> </p>
+<p> </p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2009-06-03</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#linux">
+          <div class="ui label">
+            Linux<sup>17</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#ubuntu">
+          <div class="ui label">
+            Ubuntu<sup>3</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#latex">
+          <div class="ui label">
+            LaTeX<sup>4</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#emacs">
+          <div class="ui label">
+            Emacs<sup>14</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#firefox">
+          <div class="ui label">
+            Firefox<sup>1</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/8790.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="Archive" href="/archive">Archive</a><a class="item" title="Emacs org-mode 090809" href="/posts/2009-08-09-emacs-org-mode-090809/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>
