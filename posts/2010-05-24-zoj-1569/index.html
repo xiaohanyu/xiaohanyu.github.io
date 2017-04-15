@@ -49,9 +49,9 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>题意很明确，给定一个数列[tex]a_i(i = 0, 2, ⋯, n)[/tex]， 对于[tex]m[/tex]，求有多少个partial sum能被m整除，所谓partial sum是[tex]∑_{i = j}^<em>k</em> a_i, j, k ∈ 1, ⋯ n}[/tex]。</p>
-<p>想法也很简单。第一种方法是求出所有的partial sum，然后分别判断是否能被m整除，[tex]O(n^3)[/tex]的复杂度。</p>
-<p>第二种想法是设定[tex]<em>σ</em>_j = ∑_{i=0}^<em>j</em> a_i, j = 0, 1, 2, ⋯, n}, <em>δ</em>_{ij} = <em>σ</em>_j - <em>σ</em>_k = ∑_{i = k+1}^<em>j</em>a_i[/tex]，判断[tex]<em>δ</em>_{ij}[/tex]能否被[tex]m[/tex]整除。[tex]O(n^2)[/tex]复杂度。照此想法编程，确是TLE：</p>
+  <section class="twelve wide column"><p>题意很明确，给定一个数列 [tex]a_i(i = 0, 2, ⋯, n)[/tex]， 对于 [tex]m[/tex]，求有多少个 partial sum 能被 m 整除，所谓 partial sum 是 [tex]∑_{i = j}^<em>k</em> a_i, j, k ∈ 1, ⋯ n}[/tex]。</p>
+<p>想法也很简单。第一种方法是求出所有的 partial sum，然后分别判断是否能被 m 整除，[tex]O(n^3)[/tex]的复杂度。</p>
+<p>第二种想法是设定 [tex]<em>σ</em>_j = ∑_{i=0}^<em>j</em> a_i, j = 0, 1, 2, ⋯, n}, <em>δ</em>_{ij} = <em>σ</em>_j - <em>σ</em>_k = ∑_{i = k+1}^<em>j</em>a_i[/tex]，判断 [tex]<em>δ</em>_{ij}[/tex] 能否被 [tex]m[/tex] 整除。[tex]O(n^2)[/tex]复杂度。照此想法编程，确是 TLE：</p>
 <pre><code>#include &lt;stdio.h&gt;
 
 #define max_len 10001
@@ -97,12 +97,13 @@ int main(int argc, char *argv[])
     return 0;
 }
 </code></pre>
-<p>不得不另寻出路。依稀记得当初算法课上关于最大子段和的问题，其复杂度也是一点点从[tex]O(n^3) -&gt; O(n^2) -&gt; O(n log(n)) -&gt; O(n)[/tex]，在此百度如下两篇文章，茅塞顿开：</p>
+<p>不得不另寻出路。依稀记得当初算法课上关于最大子段和的问题，其复杂度也是一点点从 [tex]O(n^3) -&gt; O(n^2) -&gt; O(n log(n)) -&gt; O(n)[/tex]，在此百度如下两篇文章，茅塞顿开：</p>
 <ul>
 <li><a href="http://hi.baidu.com/hi_chf/blog/item/50017817903f0e11972b43e9.html" class="uri">http://hi.baidu.com/hi_chf/blog/item/50017817903f0e11972b43e9.html</a></li>
-<li><a href="http://bloodybat.blog.hexun.com/2788438_d.html" class="uri">http://bloodybat.blog.hexun.com/2788438_d.html</a></li>
+<li><p><a href="http://bloodybat.blog.hexun.com/2788438_d.html" class="uri">http://bloodybat.blog.hexun.com/2788438_d.html</a></p>
+大体思路是继续第二种想法，设 [tex]<em>ϕ</em>_j = <em>σ</em>_j </li>
 </ul>
-<p> 大体思路是继续第二种想法，设[tex]<em>ϕ</em>_j = <em>σ</em>_j  m[/tex]，如果存在[tex]j_k, k = 1, 2, ⋯, n[/tex]，那么[tex]<em>ϕ</em>_{j_k} - <em>ϕ</em>_{j_s}[/tex]表示一个符合条件的partial sum，此类partial sum可以利用组合数公式[tex]c(n, 2) = [/tex]求出。最后注意考虑0这个特殊数字的情况。程序参照上面两篇博客整理下，代码如下： </p>
+<p>m[/tex]，如果存在 [tex]j_k, k = 1, 2, ⋯, n[/tex]，那么 [tex]<em>ϕ</em>_{j_k} - <em>ϕ</em>_{j_s}[/tex] 表示一个符合条件的 partial sum，此类 partial sum 可以利用组合数公式 [tex]c(n, 2) = [/tex] 求出。最后注意考虑 0 这个特殊数字的情况。程序参照上面两篇博客整理下，代码如下：</p>
 <pre><code>#include &lt;string.h&gt;
 #include &lt;stdio.h&gt;
 

@@ -49,21 +49,21 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>在实验室睡了一宿。昨儿一激动改了/etc/make.conf：</p>
+  <section class="twelve wide column"><p>在实验室睡了一宿。昨儿一激动改了 /etc/make.conf：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">ACCEPT_KEYWORDS=</span><span class="st">&quot;~x86&quot;</span></code></pre></div>
-<p>主要是想体验一下传说中的gnome 2.30和gnome shell，探索半天才知道我原来的gentoo用的是stable version，这样一改就改成“以后要用testing version“。</p>
+<p>主要是想体验一下传说中的 gnome 2.30 和 gnome shell，探索半天才知道我原来的 Gentoo 用的是 stable version，这样一改就改成“以后要用 testing version“。</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> emerge -avuND world</code></pre></div>
-<p>这下好了，乖乖，总共有573个软件包要更新，需要下载1.7G的东西。天知道这1.7G的代码在我的本本上要编译多长时间。不过，量小非君子，无毒不丈夫，索性心一横，就输了yes，让本本自己在那边呼啸去了。</p>
-<p>编译到170左右个包时出现了麻烦，libmtp无法编译，我一看是因为其依赖的libpng是1.2版本的，而gentoo testing version的libpng是1.4版本的，这样来来回回搞了许久，终于在google上找到了<a href="https://forums.gentoo.org/viewtopic-t-827262.html">这篇文章</a>，暂且解决了这个问题。</p>
-<p>折腾期间又扫了一眼emerge man page，了解了几个有用的参数如：</p>
+<p>这下好了，乖乖，总共有 573 个软件包要更新，需要下载 1.7G 的东西。天知道这 1.7G 的代码在我的本本上要编译多长时间。不过，量小非君子，无毒不丈夫，索性心一横，就输了 yes，让本本自己在那边呼啸去了。</p>
+<p>编译到 170 左右个包时出现了麻烦，libmtp无法编译，我一看是因为其依赖的 libpng 是 1.2版本的，而 gentoo testing version 的libpng是 1.4 版本的，这样来来回回搞了许久，终于在 Google 上找到了 <a href="https://forums.gentoo.org/viewtopic-t-827262.html"> 这篇文章 </a>，暂且解决了这个问题。</p>
+<p>折腾期间又扫了一眼 emerge man page，了解了几个有用的参数如：</p>
 <ul>
 <li>–skip-first</li>
 <li>–keep-going</li>
 <li>–resume</li>
 </ul>
-<p>中途还有几个blocked的包，解决方法大概是先uninstall再reinstall，一般就行了；再不行看看USE参数，略微改一下，总之，元发行版，麻烦与灵活共存。</p>
-<p>编译的过程emacs死掉了，于是再也无法打开^~~^.…..就这能干看一些题目。zoj 1372，第一眼一看就是图论的题目。反正也是闲着，临阵磨枪，找来了算法导论，补补图论的基础知识。进一步了解了BFS和DFS，看懂了最小生成树的Prim算法，并参照着别人的代码，采用邻接矩阵的方式，还AC了。真实不容易啊。不过收获也是大大的。</p>
-<p>代码： </p>
+<p>中途还有几个 blocked 的包，解决方法大概是先 uninstall 再 reinstall，一般就行了；再不行看看 USE 参数，略微改一下，总之，元发行版，麻烦与灵活共存。</p>
+<p>编译的过程 Emacs 死掉了，于是再也无法打开 ^~~^.….. 就这能干看一些题目。zoj 1372，第一眼一看就是图论的题目。反正也是闲着，临阵磨枪，找来了算法导论，补补图论的基础知识。进一步了解了 BFS 和 DFS，看懂了最小生成树的 Prim 算法，并参照着别人的代码，采用邻接矩阵的方式，还 AC 了。真实不容易啊。不过收获也是大大的。</p>
+<p>代码：</p>
 <pre><code>#include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
     }
 
     return 0;
-} 
+} 
 </code></pre>
 
     <div class="ui divider"></div>

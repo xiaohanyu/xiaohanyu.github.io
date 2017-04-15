@@ -50,9 +50,9 @@
 </header>
 <div class="row article-body">
   <section class="twelve wide column"><p>两道题目表面上看起来很相似，解法是不一样的。</p>
-<p>1314的本质是给定数[tex]x, y[/tex]，问[tex]ax ( y), a = 1, 2, ⋯[/<em>t</em><em>e</em><em>x</em>]的周期是多少。依稀记得同余理论和不定方程的某些结论，我猜测周期应该是[tex][/tex]，自己验证了下也是对的。具体证明涉及到同余和不定方程，高中的基础全忘了，叹。</p>
-<p>程序ac一波三折，先是TLE，后来发现scanf()后面没有写!= EOF，可是这题也没说啥时算输入结束啊……看来是经验不足了；后来又是Presentation Error，仔细检查发现是四个空格输出成了五个空格……叹……</p>
-<p>代码： </p>
+<p>1314的本质是给定数 [tex]x, y[/tex]，问 [tex]ax ( y), a = 1, 2, ⋯[/<em>t</em><em>e</em><em>x</em>] 的周期是多少。依稀记得同余理论和不定方程的某些结论，我猜测周期应该是 [tex][/tex]，自己验证了下也是对的。具体证明涉及到同余和不定方程，高中的基础全忘了，叹。</p>
+<p>程序 ac 一波三折，先是 TLE，后来发现 scanf() 后面没有写 != EOF，可是这题也没说啥时算输入结束啊 …… 看来是经验不足了；后来又是 Presentation Error，仔细检查发现是四个空格输出成了五个空格 …… 叹 ……</p>
+<p>代码：</p>
 <pre><code>#include &lt;stdio.h&gt;
 
 int gcd(int a, int b)
@@ -81,11 +81,11 @@ int main(int argc, char *argv[])
     return 0;
 }
 </code></pre>
-<p>zoj 1278和zoj1314很像，于是我尝试着用zoj1314的方法去解决，我甚至求出了通项公式：<br />
+<p>zoj 1278和 zoj1314 很像，于是我尝试着用 zoj1314 的方法去解决，我甚至求出了通项公式：<br />
 <br />
 [tex]y_n = (Z^<em>n</em> − 1L + I ) M[/tex]</p>
-<p>后来发现不行，因为这个式子的增量不是线性常数，需要另觅他法。很无耻的参考了<a href="http://www.cppblog.com/superman/archive/2008/05/14/49856.html">这篇博客</a>，难得体会到了代码之美，用数组做标记（我不知道是不是该这样说，或者hash table？）的手法，某些时候确实很管用，需要进一步熟悉。</p>
-<p>代码贴一下吧……虽然是抄袭的^~~^：</p>
+<p>后来发现不行，因为这个式子的增量不是线性常数，需要另觅他法。很无耻的参考了 <a href="http://www.cppblog.com/superman/archive/2008/05/14/49856.html"> 这篇博客 </a>，难得体会到了代码之美，用数组做标记（我不知道是不是该这样说，或者 hash table？）的手法，某些时候确实很管用，需要进一步熟悉。</p>
+<p>代码贴一下吧 …… 虽然是抄袭的 ^~~^：</p>
 <pre><code>#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 using namespace std;

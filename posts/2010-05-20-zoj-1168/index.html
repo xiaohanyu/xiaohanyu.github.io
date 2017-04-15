@@ -49,15 +49,15 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>模拟递归问题。直接递归肯定不行，最容易想到的方法就是用数组模拟。中途遇到了一个问题，就是c++ iostream库的效率问题。用cin &gt;&gt; a &gt;&gt; b &gt;&gt; c时，TLE；换成scanf(“%d%d%d”, &amp;a, &amp;b, &amp;c)时，AC，时间80ms。<a href="http://acm.zju.edu.cn/onlinejudge/showProblemStatus.do?problemId=168">status</a>中最前面的都是60ms，看来优化空间不大。关于c库和c++库的输入输出，还有待研</p>
+  <section class="twelve wide column"><p>模拟递归问题。直接递归肯定不行，最容易想到的方法就是用数组模拟。中途遇到了一个问题，就是 c++ iostream 库的效率问题。用 cin &gt;&gt; a &gt;&gt; b &gt;&gt; c 时，TLE；换成 scanf(“%d%d%d”, &amp;a, &amp;b, &amp;c) 时，AC，时间 80ms。<a href="http://acm.zju.edu.cn/onlinejudge/showProblemStatus.do?problemId=168">status</a>中最前面的都是 60ms，看来优化空间不大。关于 c 库和 C++ 库的输入输出，还有待研</p>
 <pre><code>/**
  * @file   zoj1168.c
  * @author  &lt;lox@freelox&gt;
  * @date   Wed May 19 18:59:59 2010
  * 
- * @brief  zoj1168, 模拟问题。直接查表解决。
- * 但是需要注意的是，此题目用scanf系列，AC，时间80ms，用c++的cin流，则TLE，
- * 莫非cin和scanf真有那么大的时间消耗差别？
+ * @brief  zoj1168,  模拟问题。直接查表解决。
+ * 但是需要注意的是，此题目用 scanf 系列，AC，时间 80ms，用 C++ 的cin流，则 TLE，
+ * 莫非 cin 和scanf真有那么大的时间消耗差别？
  */
 
 

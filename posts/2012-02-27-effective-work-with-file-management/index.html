@@ -55,48 +55,46 @@
                 <h2 id="table-of-contents">Table of Contents</h2>
                 <p><span id="text-table-of-contents"></span></p>
                 <ul>
-                <li><p><em>1 为什么Windows的文件系统混乱、低效？</em></p>
+                <li><p><em>1 为什么 Windows 的文件系统混乱、低效？</em></p>
                 <ul>
-                <li><em>1.1 历史原因</em></li>
+                <li><em>1.1 历史原因 </em></li>
                 </ul></li>
-                <li><em>2 *nix文件系统的优势</em></li>
-                <li><p><em>3 一些个人的关于文件组织和管理的Tips</em></p>
+                <li><em>2 *nix 文件系统的优势 </em></li>
+                <li><p><em>3 一些个人的关于文件组织和管理的 Tips</em></p>
                 <ul>
-                <li><em>3.1 规范同一的文件命名</em></li>
-                <li><em>3.2 良好和谐的目录结构</em></li>
+                <li><em>3.1 规范同一的文件命名 </em></li>
+                <li><em>3.2 良好和谐的目录结构 </em></li>
                 </ul></li>
-                <li><p><em>4 接下来</em></p></li>
+                <li><p><em>4 接下来 </em></p></li>
                 </ul>
                 <div id="outline-container-1" class="outline-2">
                 
-                <h2 id="sec-1">1 为什么Windows的文件系统混乱、低效？</h2>
+                <h2 id="为什么-windows-的文件系统混乱低效">1 为什么 Windows 的文件系统混乱、低效？</h2>
                 <div id="text-1" class="outline-text-2">
                 
-                <p>让众位久等了！上篇[[<a href="http://cnlox.is-programmer.com/posts/31971.html" class="uri">http://cnlox.is-programmer.com/posts/31971.html</a>][Why Windows Sucks]]的吐槽文中，我曾谈到，Windows文件系统几点令我非常不喜欢的地方：</p>
+                <p>让众位久等了！上篇 [[<a href="http://cnlox.is-programmer.com/posts/31971.html" class="uri">http://cnlox.is-programmer.com/posts/31971.html</a>][Why Windows Sucks]] 的吐槽文中，我曾谈到，Windows文件系统几点令我非常不喜欢的地方：</p>
                 <ul>
                 <li>文件系统多盘拼，文件命名大小混</li>
-                <li>权限控制小烦躁，命令终端很废柴</li>
+                <li><p>权限控制小烦躁，命令终端很废柴</p>
+                <p>本篇我们稍微深入探讨一下这个话题，并由此引入我们接下来系列文章的主角，*nix。</p></li>
                 </ul>
-                <p>本篇我们稍微深入探讨一下这个话题，并由此引入我们接下来系列文章的主角，*nix。</p>
-                <p>上小学的时候我们就知道，Windows的第一个盘是C盘。如果你稍微研究下所谓“Windows提速优化”这类的教程，你就会知道C盘是所谓的系统盘，非常重要。如果你足够细心，并且有足够的耐力，那么你可能会学到：</p>
+                <p>上小学的时候我们就知道，Windows的第一个盘是 C 盘。如果你稍微研究下所谓“Windows提速优化”这类的教程，你就会知道 C 盘是所谓的系统盘，非常重要。如果你足够细心，并且有足够的耐力，那么你可能会学到：</p>
                 <ul>
-                <li>程序尽量不要装在C盘，影响系统运行速度</li>
-                <li>可以用工具将C盘里的“My Documents”（中文名是“我的文档”）里面的东西转移到别的盘里，这样可以节省很多系统盘的空间，“有可能”使得系统运行更加畅快</li>
-                <li>定期整理下磁盘碎片，清理下注册表，杀杀毒，可以提高系统运行速度</li>
-                </ul>
-                <p>但是你有没有想过：</p>
-                <ul>
-                <li>A盘和B盘哪里去了？</li>
-                <li>为什么我的系统有C、D、E三个盘而别人的系统除了C、D、E还有F，甚至还有Z盘？</li>
+                <li>程序尽量不要装在 C 盘，影响系统运行速度</li>
+                <li>可以用工具将 C 盘里的 “My Documents”（中文名是“我的文档”）里面的东西转移到别的盘里，这样可以节省很多系统盘的空间，“有可能”使得系统运行更加畅快</li>
+                <li><p>定期整理下磁盘碎片，清理下注册表，杀杀毒，可以提高系统运行速度</p>
+                <p>但是你有没有想过：</p></li>
+                <li>A盘和 B 盘哪里去了？</li>
+                <li>为什么我的系统有 C、D、E三个盘而别人的系统除了 C、D、E还有 F，甚至还有 Z 盘？</li>
                 <li>为什么一个电脑的文件系统要分为多个盘呢？</li>
                 <li>苹果系统需要整理磁盘碎片吗？</li>
                 <li>注册表到底是干嘛用的？</li>
-                <li>……</li>
+                <li><p>……</p></li>
                 </ul>
-                <p>事实上这个世界上本不该有这么多个为什么，一切的一切，源于Windows蹩脚的设计：</p>
+                <p>事实上这个世界上本不该有这么多个为什么，一切的一切，源于 Windows 蹩脚的设计：</p>
                 <ul>
-                <li>Windows的文件系统是多根的，这导致你几乎没有办法控制你的移动硬盘的挂载点，几乎没有办法进行chroot高级实验，几乎没有办法制定规范化的类似于*nix下的FHS标准</li>
-                <li><p>Windows的文件系统目录结构是极其混乱而不统一的，我引用一张表格<sup><em>1</em></sup>来对比说明下*nix和Windows两种文件系统的目录结构，你可以看到，*nix系统目录的命名都非常简洁规律，便于脚本自动化处理，而Windows的文件命名和目录结构像是一层层的石头胡乱堆砌的</p>
+                <li>Windows的文件系统是多根的，这导致你几乎没有办法控制你的移动硬盘的挂载点，几乎没有办法进行 chroot 高级实验，几乎没有办法制定规范化的类似于 *nix 下的 FHS 标准</li>
+                <li><p>Windows 的文件系统目录结构是极其混乱而不统一的，我引用一张表格 <sup><em>1</em></sup> 来对比说明下 *nix 和Windows两种文件系统的目录结构，你可以看到，*nix系统目录的命名都非常简洁规律，便于脚本自动化处理，而 Windows 的文件命名和目录结构像是一层层的石头胡乱堆砌的</p>
                 <table>
                 <thead>
                 <tr class="header">
@@ -112,9 +110,9 @@
                 <td>“WINNT” or “WINDOWS”another page on this site</td>
                 </tr>
                 <tr class="even">
-                <td> </td>
+                <td></td>
                 <td>/boot</td>
-                <td> </td>
+                <td></td>
                 </tr>
                 <tr class="odd">
                 <td>Executables</td>
@@ -122,24 +120,24 @@
                 <td>“Program Files”</td>
                 </tr>
                 <tr class="even">
-                <td> </td>
+                <td></td>
                 <td>/usr/lib</td>
-                <td> </td>
+                <td></td>
                 </tr>
                 <tr class="odd">
-                <td> </td>
+                <td></td>
                 <td>/usr/share</td>
-                <td> </td>
+                <td></td>
                 </tr>
                 <tr class="even">
-                <td> </td>
+                <td></td>
                 <td>/usr/doc</td>
-                <td> </td>
+                <td></td>
                 </tr>
                 <tr class="odd">
-                <td> </td>
+                <td></td>
                 <td>/usr/apps</td>
-                <td> </td>
+                <td></td>
                 </tr>
                 <tr class="even">
                 <td>Drivers</td>
@@ -157,9 +155,9 @@
                 <td>“Documents and Settings”</td>
                 </tr>
                 <tr class="odd">
-                <td> </td>
+                <td></td>
                 <td>/user</td>
-                <td> </td>
+                <td></td>
                 </tr>
                 <tr class="even">
                 <td>Log files</td>
@@ -178,9 +176,9 @@
                 </tr>
                 </tbody>
                 </table></li>
-                <li><p>Windows的系统文件命名非常混乱，不堪入目，正如“一千个读者心中就有一千个哈姆雷特”一样，一千个Windows C盘就有一千种的文件命名和目录结构，下面是我的正版Windows 7系统下的C盘目录：</p>
+                <li><p>Windows 的系统文件命名非常混乱，不堪入目，正如“一千个读者心中就有一千个哈姆雷特”一样，一千个 Windows C 盘就有一千种的文件命名和目录结构，下面是我的正版 Windows 7 系统下的 C 盘目录：</p>
                 <ul>
-                <li><p>Windows 7下的C盘：</p>
+                <li><p>Windows 7下的 C 盘：</p>
                 <ul>
                 <li>autoexec.bat</li>
                 <li>b7e61efa43ef263f987f6b2dbfe5b362</li>
@@ -235,17 +233,17 @@
                 <li>var</li>
                 </ul></li>
                 </ul></li>
-                <li><p>合理的文件结构组织和文件命名，对于自动脚本处理是非常重要的，譬如，如果一个文件名称为“My Documents”，那么在脚本处理中，如果不小心编码，这个文件就会被当成“My”和“Documents”两个文件处理。</p></li>
+                <li><p>合理的文件结构组织和文件命名，对于自动脚本处理是非常重要的，譬如，如果一个文件名称为 “My Documents”，那么在脚本处理中，如果不小心编码，这个文件就会被当成 “My” 和 “Documents”两个文件处理。</p></li>
                 </ul>
                 </div>
                 
                 <div id="outline-container-1.1" class="outline-3">
                 
-                <h3 id="sec-1.1">1.1 历史原因</h3>
+                <h3 id="历史原因">1.1 历史原因</h3>
                 <div id="text-1.1" class="outline-text-3">
                 
-                <p>当然，这种混乱是有一定历史原因的。细细讲来倒是很有意思的一件事情。话说MS80年代初只是主打做Basic语言解释器小的软件公司，后来IBM需要发展PC机，最开始找的是DEC公司的人，但是DEC的老总据说是非常忙，而私人飞机好像出了问题，于是就错过了和IBM的谈判，让MS拣了个大大的便宜。而MS呢，手头是没有成型的操作系统的，就从一个不知名的小公司里面花了5万刀买来了一个系统，并重新命名为MS-DOS，联合Intel和IBM做起了合伙生意，只是IBM没有想到的是，你来我往，几番周折，两个小弟弟MS和Intel成长了起来，在90年代中期其风头甚至盖过了IBM自己。其实谈起计算机的水平和资历，全世界也没有几个敢和IBM叫板的公司，当年IBM 360系统的横空出世，不仅开创了软件工程中众多的“人月神话”，更让无数黑客在360系统的熏陶下成长起来。扯远了，话说回来，MS-DOS呢，是一个非常蹩脚的操作系统，甚至连美国大学里的学生都瞧不惯，说微软是做小儿科系统的公司<sup><em>2</em></sup>。你想一想，90年代的时候，Richard Stevens的<a href="http://book.douban.com/subject/1692629/">APUE</a>都出第一版了，而MS-DOS大概才刚刚摆脱8个字符以下长度文件名的限制。后来呢，苹果抄袭Xerox，搞出了漂亮的GUI，这样一来，微软压力甚大，因为系统底层比不过Unix，表面层GUI又被苹果占了先机，危矣。怎么办好呢？微软开始一面搞Windows，一面联合IBM搞OS/2，同时明修栈道、暗度陈仓，从老的DEC公司挖来一批人开始默默地搞NT（号称“New Technology”的操作系统）。这样一直多战线并存的搞到了Windows 2000的横空出世。话说Windows 2000之所以叫Windows 2000，一方面是因为它是在2000年推出的，另一方面恐怕是搞出Windows 2000确实动用了MS 2000个以上的人力（我猜的，不过几千人的人力是有的）。至此呢，Windows开始一心搞NT。其实这样也好，美中不足的是NT为了兼容以前蹩脚操作系统，背上了很多沉重的历史包袱，这也导致Windows系统更新换代的速度特别的慢。Ubuntu半年推出一个新版本，Mac OS自动X后，10年光景，已经到了X.7的版本，每个版本都有大的提升，而微软闭门造车耗时五年的Vista，还有新进推出的Win7，奋战了这么多年，还是没能将XP第一的宝座纳入囊中，我看MS的系统是江郎才尽，再难突破了<sup><em>3</em></sup>。</p>
-                <p>而在微软系统的代代更新中，最苦命的算是一直追随MS的程序员了，掏着升级系统和硬件的银子不说，就连自己费尽力气学到的知识，从BASIC、到MS-DOS、到VC++、到MFC，到ASP，到ASP.NET，到C#，也随着微软系统的更新换代灰飞烟灭了……殊不知，*nix下的程序员，纵历风雨，我心永恒。靠着vi+gcc，我就能闯天下。</p>
+                <p>当然，这种混乱是有一定历史原因的。细细讲来倒是很有意思的一件事情。话说 MS80 年代初只是主打做 Basic 语言解释器小的软件公司，后来 IBM 需要发展 PC 机，最开始找的是 DEC 公司的人，但是 DEC 的老总据说是非常忙，而私人飞机好像出了问题，于是就错过了和 IBM 的谈判，让 MS 拣了个大大的便宜。而 MS 呢，手头是没有成型的操作系统的，就从一个不知名的小公司里面花了 5 万刀买来了一个系统，并重新命名为 MS-DOS，联合 Intel 和IBM做起了合伙生意，只是 IBM 没有想到的是，你来我往，几番周折，两个小弟弟 MS 和Intel成长了起来，在 90 年代中期其风头甚至盖过了 IBM 自己。其实谈起计算机的水平和资历，全世界也没有几个敢和 IBM 叫板的公司，当年 IBM 360 系统的横空出世，不仅开创了软件工程中众多的“人月神话”，更让无数黑客在 360 系统的熏陶下成长起来。扯远了，话说回来，MS-DOS呢，是一个非常蹩脚的操作系统，甚至连美国大学里的学生都瞧不惯，说微软是做小儿科系统的公司 <sup><em>2</em></sup>。你想一想，90年代的时候，Richard Stevens的 <a href="http://book.douban.com/subject/1692629/">APUE</a> 都出第一版了，而 MS-DOS 大概才刚刚摆脱 8 个字符以下长度文件名的限制。后来呢，苹果抄袭 Xerox，搞出了漂亮的 GUI，这样一来，微软压力甚大，因为系统底层比不过 UNIX，表面层 GUI 又被苹果占了先机，危矣。怎么办好呢？微软开始一面搞 Windows，一面联合 IBM 搞 OS/2，同时明修栈道、暗度陈仓，从老的 DEC 公司挖来一批人开始默默地搞 NT（号称 “New Technology” 的操作系统）。这样一直多战线并存的搞到了 Windows 2000 的横空出世。话说 Windows 2000 之所以叫 Windows 2000，一方面是因为它是在 2000 年推出的，另一方面恐怕是搞出 Windows 2000 确实动用了 MS 2000 个以上的人力（我猜的，不过几千人的人力是有的）。至此呢，Windows开始一心搞 NT。其实这样也好，美中不足的是 NT 为了兼容以前蹩脚操作系统，背上了很多沉重的历史包袱，这也导致 Windows 系统更新换代的速度特别的慢。Ubuntu半年推出一个新版本，Mac OS自动 X 后，10年光景，已经到了 X.7 的版本，每个版本都有大的提升，而微软闭门造车耗时五年的 Vista，还有新进推出的 Win7，奋战了这么多年，还是没能将 XP 第一的宝座纳入囊中，我看 MS 的系统是江郎才尽，再难突破了 <sup><em>3</em></sup>。</p>
+                <p>而在微软系统的代代更新中，最苦命的算是一直追随 MS 的程序员了，掏着升级系统和硬件的银子不说，就连自己费尽力气学到的知识，从 BASIC、到 MS-DOS、到 VC++、到 MFC，到 ASP，到 ASP.NET，到 C#，也随着微软系统的更新换代灰飞烟灭了 …… 殊不知，*nix下的程序员，纵历风雨，我心永恒。靠着 vi+gcc，我就能闯天下。</p>
                 </div>
                 
                 </div>
@@ -254,26 +252,26 @@
                 
                 <div id="outline-container-2" class="outline-2">
                 
-                <h2 id="sec-2">2 *nix文件系统的优势</h2>
+                <h2 id="nix文件系统的优势">2 *nix文件系统的优势</h2>
                 <div id="text-2" class="outline-text-2">
                 
-                <p>相较Windows，*nix的文件系统相对要规范的多，究其根源，在于*nix有一条非常重要的设计哲学，那就是：Everything in Unix is a file：</p>
+                <p>相较 Windows，*nix的文件系统相对要规范的多，究其根源，在于 *nix 有一条非常重要的设计哲学，那就是：Everything in Unix is a file：</p>
                 <ul>
-                <li><p>linux的文件系统是单根的，具有一种逻辑意义上的美感。可能有人会问，如果我们新插入一个移动硬盘，我没有盘符，怎么访问？这就是Windows的惯性思维。在Linux中，我们可以随意创建一个目录，然后通过mount命令将起挂载在这个目录点上。事实上有一个叫做fuse<sup><em>4</em></sup>的东西，允许你mount你想得到想不到的很多东西：</p>
+                <li><p>linux的文件系统是单根的，具有一种逻辑意义上的美感。可能有人会问，如果我们新插入一个移动硬盘，我没有盘符，怎么访问？这就是 Windows 的惯性思维。在 Linux 中，我们可以随意创建一个目录，然后通过 mount 命令将起挂载在这个目录点上。事实上有一个叫做 fuse<sup><em>4</em></sup> 的东西，允许你 mount 你想得到想不到的很多东西：</p>
                 <ul>
-                <li>见过PB级别的文件系统吗？我见过，在百度，我们通过hadoop的一个fuse模块，将几千台机器组成的PB级的HDFS文件系统挂载到单机硬盘节点上，对外提供ftp服务<sup><em>5</em></sup></li>
-                <li>你可以通过SSH挂载远程机器的文件系统<sup><em>6</em></sup></li>
-                <li>你还可以挂载一个ftp到本地系统<sup><em>7</em></sup></li>
-                <li>你甚至可以将你的Gmail挂载过来，当本地磁盘用<sup><em>8</em></sup></li>
+                <li>见过 PB 级别的文件系统吗？我见过，在百度，我们通过 Hadoop 的一个 FUSE 模块，将几千台机器组成的 PB 级的 HDFS 文件系统挂载到单机硬盘节点上，对外提供 ftp 服务 <sup><em>5</em></sup></li>
+                <li>你可以通过 SSH 挂载远程机器的文件系统 <sup><em>6</em></sup></li>
+                <li>你还可以挂载一个 ftp 到本地系统 <sup><em>7</em></sup></li>
+                <li>你甚至可以将你的 Gmail 挂载过来，当本地磁盘用 <sup><em>8</em></sup></li>
                 </ul></li>
-                <li>linux的文件命令和文件存放是很有规律的，稍微学习下，你就会知道/bin、/etc、/usr、/home目录的作用，并且，在所有的*nix环境下，都有这些统一规范的目录。</li>
-                <li><p><strong>linux为每个用户建立一个单独的/home/user主目录，所有用户相关的配置都存放在这个目录下，结合linux下所有几乎所有配置文件都是纯文本这样的特点，带来的好处就是极其简单实用的用户数据迁移过程</strong> ——当你系统崩溃重装的时候，只需要保留/home分区，不用做太多的配置，一切都在：</p>
+                <li>linux 的文件命令和文件存放是很有规律的，稍微学习下，你就会知道 /bin、/etc、/usr、/home目录的作用，并且，在所有的 *nix 环境下，都有这些统一规范的目录。</li>
+                <li><p>*linux为每个用户建立一个单独的 /home/user 主目录，所有用户相关的配置都存放在这个目录下，结合 Linux 下所有几乎所有配置文件都是纯文本这样的特点，带来的好处就是极其简单实用的用户数据迁移过程 * —— 当你系统崩溃重装的时候，只需要保留 /home 分区，不用做太多的配置，一切都在：</p>
                 <ul>
                 <li>原先的软件快捷键几乎保持不变</li>
-                <li>vim和emacs的配置不变</li>
+                <li>vim 和emacs的配置不变</li>
                 <li>甚至连桌面的壁纸都不会变</li>
                 </ul></li>
-                <li><p>linux中大量采用纯文本的配置文件，相比较于中央集权的注册表方式管理的配置文件， <strong>纯文本文件的好处在于通用性、直观性、可见性和易读性</strong> 。虽然文本配置格式多样，但是你已然可以使用你最擅长的工具（哪怕是OpenOffice也行）来查看甚至修改配置文件，并且可以根据个人需要讲这些配置文件放到诸如bitbucket这类SCM系统里面；而对于Windows的注册表，一旦损坏，除了少数几个专有的工具，你就只能双手一撒，重装系统，或者给微软打电话了。</p></li>
+                <li><p>linux 中大量采用纯文本的配置文件，相比较于中央集权的注册表方式管理的配置文件， *纯文本文件的好处在于通用性、直观性、可见性和易读性 * 。虽然文本配置格式多样，但是你已然可以使用你最擅长的工具（哪怕是 OpenOffice 也行）来查看甚至修改配置文件，并且可以根据个人需要讲这些配置文件放到诸如 bitbucket 这类 SCM 系统里面；而对于 Windows 的注册表，一旦损坏，除了少数几个专有的工具，你就只能双手一撒，重装系统，或者给微软打电话了。</p></li>
                 </ul>
                 </div>
                 
@@ -281,23 +279,23 @@
                 
                 <div id="outline-container-3" class="outline-2">
                 
-                <h2 id="sec-3">3 一些个人的关于文件组织和管理的Tips</h2>
+                <h2 id="一些个人的关于文件组织和管理的-tips">3 一些个人的关于文件组织和管理的 Tips</h2>
                 <div id="text-3" class="outline-text-2">
                 
-                <p>以上，都是关于Windows不好的吐槽以及*nix好的赞扬，没兴趣的看客可以直接忽略，因为下面的内容才是本篇文章的核心所在。</p>
-                <p>我曾经无数次在学校教室、宿舍和公司的办公桌上，看见各式人等电脑中，一个可怜单薄的桌面上，存放着从txt、doc、docx、ppt，到jpg、png，到rm、mkv，到rar，到“xxxx的快捷方式”等等五花八门的没有八十也有一百个之多的文件。那感觉就像是看到了五湖四海的人们睡到了一张星级宾馆的床上，令人心头一紧、后背发凉。我甚至可以感觉得到他们盯着屏幕、挪着鼠标、眯着双眼寻找某年某月某日的一份word文件的焦躁与辛苦。我甚至还能联想到，这样的人在生活中也多数是邋遢的，他们会随手丢弃东西，经常翻箱倒柜的去寻找某个久远的日子里的一个小物品。</p>
+                <p>以上，都是关于 Windows 不好的吐槽以及 *nix 好的赞扬，没兴趣的看客可以直接忽略，因为下面的内容才是本篇文章的核心所在。</p>
+                <p>我曾经无数次在学校教室、宿舍和公司的办公桌上，看见各式人等电脑中，一个可怜单薄的桌面上，存放着从 txt、doc、docx、ppt，到 jpg、png，到 rm、mkv，到 rar，到 “xxxx 的快捷方式” 等等五花八门的没有八十也有一百个之多的文件。那感觉就像是看到了五湖四海的人们睡到了一张星级宾馆的床上，令人心头一紧、后背发凉。我甚至可以感觉得到他们盯着屏幕、挪着鼠标、眯着双眼寻找某年某月某日的一份 word 文件的焦躁与辛苦。我甚至还能联想到，这样的人在生活中也多数是邋遢的，他们会随手丢弃东西，经常翻箱倒柜的去寻找某个久远的日子里的一个小物品。</p>
                 <p>不是这样的，正确高效的文件组织管理绝对不该是这样的。我相信，即便你没有洁癖，但是看着电脑桌面上那么一坨乱糟糟的东西，心情也会不好的。所以我的电脑桌面上向来都是清清爽爽，一个图标都不放。我个人总结了一些粗浅的文件组织管理的小技巧，经过两年多的实战，效果还是不错的：</p>
                 </div>
                 
                 <div id="outline-container-3.1" class="outline-3">
                 
-                <h3 id="sec-3.1">3.1 规范同一的文件命名</h3>
+                <h3 id="规范同一的文件命名">3.1 规范同一的文件命名</h3>
                 <div id="text-3.1" class="outline-text-3">
                 
                 <ul>
                 <li>尽量使用小写的文件命名</li>
-                <li>尽量使用英文单词命名（良好的英文水平是优秀Coder的必要条件）</li>
-                <li>如果文件名是多个单词，用下划线_将多个单词连接起来，千万不要留有空格，对脚本化的文档处理非常不利</li>
+                <li>尽量使用英文单词命名（良好的英文水平是优秀 Coder 的必要条件）</li>
+                <li>如果文件名是多个单词，用下划线 _ 将多个单词连接起来，千万不要留有空格，对脚本化的文档处理非常不利</li>
                 </ul>
                 </div>
                 
@@ -305,24 +303,24 @@
                 
                 <div id="outline-container-3.2" class="outline-3">
                 
-                <h3 id="sec-3.2">3.2 良好和谐的目录结构</h3>
+                <h3 id="良好和谐的目录结构">3.2 良好和谐的目录结构</h3>
                 <div id="text-3.2" class="outline-text-3">
                 
                 <ul>
-                <li>documents：主要存放各种文档，包括但不限于各种工作简历啊、考试进度啊、学校通知啊，诸如此类，定期删除过期文档，将有学习价值的文件转移到study文件夹下</li>
-                <li>downloads：主要存放Firefox等Internet软件的下载资源，有价值的资源及时转移，没有价值的资源及早删除</li>
+                <li>documents：主要存放各种文档，包括但不限于各种工作简历啊、考试进度啊、学校通知啊，诸如此类，定期删除过期文档，将有学习价值的文件转移到 study 文件夹下</li>
+                <li>downloads：主要存放 Firefox 等Internet软件的下载资源，有价值的资源及时转移，没有价值的资源及早删除</li>
                 <li><p>media：主要存放各种多媒体资源，重点用户轻松娱乐，三个子文件夹：</p>
                 <ul>
-                <li>musics: 存放喜欢的音乐，将这个文件夹导入Amarok或者你喜欢的播放器软件即可</li>
+                <li>musics: 存放喜欢的音乐，将这个文件夹导入 Amarok 或者你喜欢的播放器软件即可</li>
                 <li>pictures：主要存放个人照片和网上的一些有趣有意义的图片</li>
                 <li>videos：各种电影，我非常喜欢看电影哈，可惜电脑硬盘空间不够，加上我决定要逐步完善自己的版权意识，所以存量有限</li>
                 </ul></li>
-                <li>mnt：用于临时挂载一些U盘的目录</li>
-                <li>programming：用于自己学习编程的目录，我现在用<a href="http://bitbucket.org">BitBucket</a>管理自己的代码，每个bitbucket上的repository都对应于这个文件夹下的一个子目录</li>
-                <li>software：用于存放一些有用的软件，其实这个没啥必要，因为linux主流distribution的软件库一般都非常完善，只要有好的网络环境，想装什么软件（哪怕同时装几十个软件）只是一条命令或者一次鼠标点击的事情</li>
+                <li>mnt：用于临时挂载一些 U 盘的目录</li>
+                <li>programming：用于自己学习编程的目录，我现在用 <a href="http://bitbucket.org">BitBucket</a> 管理自己的代码，每个 bitbucket 上的 repository 都对应于这个文件夹下的一个子目录</li>
+                <li>software：用于存放一些有用的软件，其实这个没啥必要，因为 Linux 主流 distribution 的软件库一般都非常完善，只要有好的网络环境，想装什么软件（哪怕同时装几十个软件）只是一条命令或者一次鼠标点击的事情</li>
                 <li>study：存放自己有电脑以来收集到的各种学习资料和自己大学里的各种作业、ppt、文档等等，分门别类，定期整理删除</li>
-                <li>tmp：我自己的tmp目录，用于临时创建一些不重要的测试文件，常见场景是我需要测试一些C语言或者TeX或者Python里面的某个特性，因此临时创建一个小文件，编译运行下，看看效果</li>
-                <li><p>tools：用于存放自己写的一些系统管理的小工具，比如我自己写的SSH翻墙脚本、设定笔记本电池充电阀值的脚本等等</p></li>
+                <li>tmp：我自己的 tmp 目录，用于临时创建一些不重要的测试文件，常见场景是我需要测试一些 C 语言或者 TeX 或者 Python 里面的某个特性，因此临时创建一个小文件，编译运行下，看看效果</li>
+                <li><p>tools：用于存放自己写的一些系统管理的小工具，比如我自己写的 SSH 翻墙脚本、设定笔记本电池充电阀值的脚本等等</p></li>
                 </ul>
                 </div>
                 
@@ -332,26 +330,26 @@
                 
                 <div id="outline-container-4" class="outline-2">
                 
-                <h2 id="sec-4">4 接下来</h2>
+                <h2 id="接下来">4 接下来</h2>
                 <div id="text-4" class="outline-text-2">
                 
                 <p>按照原本的写作计划，在本篇文章的基础之上，我将在接下来的三篇文章中谈到三个主题：</p>
                 <ul>
-                <li><p>Just Find it: Findutils，介绍*nix的小工具，帮助你在文件的海洋中傲游穿梭，包括但不限于：</p>
+                <li><p>Just Find it: Findutils，介绍 *nix 的小工具，帮助你在文件的海洋中傲游穿梭，包括但不限于：</p>
                 <ul>
                 <li>如何迅速而准确的定位你想要的寻找的文件</li>
                 <li>如何迅速而准确的在历史的目录树中进行切换穿梭</li>
-                <li>如何仅仅借助Shell工具，在一个Open Source的代码库中，寻找一个变量的出现位置，并且能够找出到底是哪个文件包含了这个变量的使用</li>
-                <li>如何删除某个目录下所有以.bak结尾并且修改时间在n天内的所有文件</li>
+                <li>如何仅仅借助 Shell 工具，在一个 Open Source 的代码库中，寻找一个变量的出现位置，并且能够找出到底是哪个文件包含了这个变量的使用</li>
+                <li>如何删除某个目录下所有以 .bak 结尾并且修改时间在 n 天内的所有文件</li>
                 </ul></li>
-                <li><p>细谈文本配置，文本配置是“Everything in Unix is a file”的一个重要体现，对应于Windows的注册表，文本化的配置文件大大简化了*nix系统管理工作，这篇主要会介绍：</p>
+                <li><p>细谈文本配置，文本配置是 “Everything in Unix is a file” 的一个重要体现，对应于 Windows 的注册表，文本化的配置文件大大简化了 *nix 系统管理工作，这篇主要会介绍：</p>
                 <ul>
                 <li>*nix系统中一些重要的配置文件</li>
                 <li>以及相关的配置文件的配置格式</li>
                 <li>配置文件跨系统的迁移和保存</li>
-                <li>以XML/JSON/YAML为例介绍下常见的几种文件配置格式，有可能的话，初步介绍下Lisp中“Code is Data”的扩展概念</li>
+                <li>以 XML/JSON/YAML为例介绍下常见的几种文件配置格式，有可能的话，初步介绍下 Lisp 中 “Code is Data”的扩展概念</li>
                 </ul></li>
-                <li><p>Shell之道，初步介绍下*nix Shell编程的一些入门要点，并直接转入Shell编程的精华——管道。可能的话，会在此基础上展开探讨下进程间通信的一些思考。</p></li>
+                <li><p>Shell 之道，初步介绍下 *nix Shell 编程的一些入门要点，并直接转入 Shell 编程的精华 —— 管道。可能的话，会在此基础上展开探讨下进程间通信的一些思考。</p></li>
                 </ul>
                 <p>敬请期待！</p>
                 <p>–</p>
@@ -361,15 +359,14 @@
                 
                 <p><span id="footnotes"></span></p>
                 <h2 id="footnotes" class="footnotes">Footnotes:</h2>
-                <p><span id="text-footnotes"></span> <sup><em>1</em></sup> 参考<a href="http://www.wilsonmar.com/1opsys.htm#Folderz">Operating Systems &amp; Commands</a>，这篇文章详细对比了*nix和Windows两种系统之间的差异。</p>
-                <p><sup><em>2</em></sup> 参考<a href="http://book.douban.com/subject/4163938/">《软件随想录》</a>（阮一峰译），P65，《在耶鲁大学的演讲》。</p>
+                <p><span id="text-footnotes"></span> <sup><em>1</em></sup> 参考 <a href="http://www.wilsonmar.com/1opsys.htm#Folderz">Operating Systems &amp; Commands</a>，这篇文章详细对比了 *nix 和Windows两种系统之间的差异。</p>
+                <p><sup><em>2</em></sup> 参考 <a href="http://book.douban.com/subject/4163938/">《软件随想录》</a>（阮一峰译），P65，《在耶鲁大学的演讲》。</p>
                 <p><sup><em>3</em></sup> 以上言论，多有戏谑成分，众位看官一笑而过，切莫当真。</p>
-                <p><sup><em>4</em></sup> 关于Linux中FUSE模块的设计思路，可以参考徐宥写的[[<a href="http://blog.youxu.info/2011/03/21/story-of-plan-9-revised/" class="uri">http://blog.youxu.info/2011/03/21/story-of-plan-9-revised/</a>][编程珠玑番外篇-K. Plan 9 的故事（修订版）]]，徐宥写的这一系列文章水平很高，趣味盎然，强烈推荐。</p>
-                <p><sup><em>5</em></sup> 参考<a href="http://wiki.apache.org/hadoop/MountableHDFS">MountableHDFS</a></p>
-                <p><sup><em>6</em></sup> 参考<a href="http://fuse.sourceforge.net/sshfs.html">sshfs</a>。</p>
-                <p><sup><em>7</em></sup> 参考<a href="http://curlftpfs.sourceforge.net">curlftpfs</a></p>
-                <p><sup><em>8</em></sup> 参考<a href="http://en.wikipedia.org/wiki/GmailFS">GmailFS</a>。</p>
-                <p> </p>
+                <p><sup><em>4</em></sup> 关于 Linux 中FUSE模块的设计思路，可以参考徐宥写的 [[<a href="http://blog.youxu.info/2011/03/21/story-of-plan-9-revised/" class="uri">http://blog.youxu.info/2011/03/21/story-of-plan-9-revised/</a>][ 编程珠玑番外篇 -K. Plan 9 的故事（修订版）]]，徐宥写的这一系列文章水平很高，趣味盎然，强烈推荐。</p>
+                <p><sup><em>5</em></sup> 参考 <a href="http://wiki.apache.org/hadoop/MountableHDFS">MountableHDFS</a></p>
+                <p><sup><em>6</em></sup> 参考 <a href="http://fuse.sourceforge.net/sshfs.html">sshfs</a>。</p>
+                <p><sup><em>7</em></sup> 参考 <a href="http://curlftpfs.sourceforge.net">curlftpfs</a></p>
+                <p><sup><em>8</em></sup> 参考 <a href="http://en.wikipedia.org/wiki/GmailFS">GmailFS</a>。</p>
                 
                 <div class="ui divider"></div>
                 <div class="ui small one item menu">

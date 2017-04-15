@@ -49,21 +49,21 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>有计算机就有码农，有码农就会用geek。穿着内衣坐在电脑前，每天面对着“枯燥的代码”，一如既往，这就是常人眼里的geek形象。殊不知，geek们自由geek自己的乐趣。比如linux就是一个叫做linus的geek无聊时的作品。<br />
+  <section class="twelve wide column"><p>有计算机就有码农，有码农就会用 geek。穿着内衣坐在电脑前，每天面对着“枯燥的代码”，一如既往，这就是常人眼里的 geek 形象。殊不知，geek们自由 geek 自己的乐趣。比如 Linux 就是一个叫做 linus 的geek无聊时的作品。<br />
 <br />
-断续使用linux两年不到，学艺不精，不懂系统管理、不知道网络安全、不知道啥叫路由器网关，倒是对linux下面的一些小东西颇感兴趣，翻来覆去地折腾。本文权且列举一二，如果能帮助读者窥探到开源精神的一二，那可真是善莫大焉了。</p>
+断续使用 Linux 两年不到，学艺不精，不懂系统管理、不知道网络安全、不知道啥叫路由器网关，倒是对 Linux 下面的一些小东西颇感兴趣，翻来覆去地折腾。本文权且列举一二，如果能帮助读者窥探到开源精神的一二，那可真是善莫大焉了。</p>
 <ol>
 <li><p><a href="http://linux.die.net/man/6/fortune">fortune</a>：这个程序可以用来</p>
 <ul>
 <li>算命</li>
 <li>提高英文水平</li>
 </ul></li>
-<li><a href="http://130.239.17.16/pub/software/scm/git/docs/git-shell.html">git-shell</a>：git是一种分布式版本控制系统，git-shell是git工具中的一个命令。可能我们第一眼看上去会觉得git-shell一定是一个git的命令环境，我们进入git-shell，然后就可以在这个环境下敲各种各样的git命令，git-shell之于git，就相当于shell至于linux一样。而事实上，我们在shell中敲入git-shell，得到的确是：“fatal: What do you think I am? A shell?”，这语气好像是linus怒气冲冲地在审问你：“你是不是没有好好学习我的git系统，才会犯如此的错误！？”。查阅git-shell命令的manual，才知道原来git-shell不是一个shell，而是一个“Restricted login shell for GIT-only SSH access”。</li>
-<li>man PK <a href="http://centaur.maths.qmul.ac.uk/Emacs/WoMan/">woman</a>：如果你不知道一个命令的作用或者你忘记了ls命令的某个参数怎么办？显然，用“男人(man)”命令查看“男人页(manual)”就行了。与此相对，编辑器的老大哥emacs是一个self-documenting的系统，linux的info系统就是基于emacs风格的key binding，为了将广大的“男人页”收归自己囊下，emacs“针锋相对”的搞了个“女人”——woman，美其名曰“to browse Unix manual pages ‘W.O. (without) man’”。至于“woman”的来龙去脉，大家自己去参看emacs内部的info文档即可，或者看<a href="http://www.delorie.com/gnu/docs/emacs/emacs_291.html">这里</a>。</li>
-<li>ffmpeg, <a href="http://www.ffmpeg.org/shame.html">hall of shame</a>：ffmpeg是linux下面一个著名的多媒体处理软件。可以用来进行格式转换，视频的crop、padding，剪裁，编解码等等。ffmpeg同时提供了一套优质的多媒体编解码库，而良好的编解码库是一个播放器的基础。linux下的很多播放器都和ffmepg项目有密切的配合和依赖关系。ffmpeg是遵循GPL协议的，但是很多播放器“无耻地”使用了ffmpeg的代码，却没有遵循GPL协议开放自己的代码，因此就上了ffmpeg的“耻辱柱”……What a Shame!</li>
-<li>The Matrix：你是不是以为shell就是用来敲击命令而vim是用来编辑文件的？你看国<a href="http://movie.douban.com/subject/1291843/">《The Matrix》</a>吗？事实上就有这么几个“无聊透顶”的人，为了让自己cool一些，抽出些无聊的时间写了几个无聊的程序——<a href="http://www.asty.org/cmatrix/">cmatrix</a> and <a href="http://www.vim.org/scripts/script.php?script_id=1189">vim matrix plugin</a>。借用vim的广告词——“linux，字符也可以如此精彩”。</li>
-<li><a href="http://debaday.livejournal.com/22802.html">sl</a>：如果统计一下linux用户中最常用的10个命令，ls、cd肯定是榜上有名。借助shell的智能补全功能，或许我们敲命令的出错率反而会比超短命令(ls、cd)的出错率还要低。比如ls命令，我们一不小心敲了个sl，还没等shell的补全反应过来，我们已经大大方方的敲了Enter，彻底了解了这一怨念。结果往往是“command not found”的沮丧和无奈。而偏偏有geek闲来无事，将这种沮丧和无奈变成了小小的火车，载走你的烦恼，造福子孙后代，功德无量也。</li>
-<li><a href="http://www.emacswiki.org/emacs/EmacsDoctor">emacs doctor</a>：代码敲累了？心情不好了？外边又打雷下雨啦？网络莫名断掉了？……最近倒霉事连串，心里不爽是吧——没关系，来看看emacs的心理医生吧，让它陪你聊聊，24小时陪聊，而且还是免费的！type “M-x doctor”，enjoy it！</li>
+<li><a href="http://130.239.17.16/pub/software/scm/git/docs/git-shell.html">git-shell</a>：git是一种分布式版本控制系统，git-shell是 git 工具中的一个命令。可能我们第一眼看上去会觉得 git-shell 一定是一个 git 的命令环境，我们进入 git-shell，然后就可以在这个环境下敲各种各样的 git 命令，git-shell之于 git，就相当于 Shell 至于 Linux 一样。而事实上，我们在 Shell 中敲入 git-shell，得到的确是：“fatal: What do you think I am? A shell?”，这语气好像是 linus 怒气冲冲地在审问你：“你是不是没有好好学习我的 git 系统，才会犯如此的错误！？”。查阅 git-shell 命令的 manual，才知道原来 git-shell 不是一个 Shell，而是一个“Restricted login shell for GIT-only SSH access”。</li>
+<li>man PK <a href="http://centaur.maths.qmul.ac.uk/Emacs/WoMan/">woman</a>：如果你不知道一个命令的作用或者你忘记了 ls 命令的某个参数怎么办？显然，用“男人 (man)”命令查看“男人页 (manual)”就行了。与此相对，编辑器的老大哥 Emacs 是一个 self-documenting 的系统，linux的 info 系统就是基于 Emacs 风格的 key binding，为了将广大的“男人页”收归自己囊下，emacs“针锋相对”的搞了个“女人”——woman，美其名曰“to browse Unix manual pages ‘W.O. (without) man’”。至于“woman”的来龙去脉，大家自己去参看 Emacs 内部的 info 文档即可，或者看 <a href="http://www.delorie.com/gnu/docs/emacs/emacs_291.html"> 这里 </a>。</li>
+<li>ffmpeg, <a href="http://www.ffmpeg.org/shame.html">hall of shame</a>：ffmpeg是 Linux 下面一个著名的多媒体处理软件。可以用来进行格式转换，视频的 crop、padding，剪裁，编解码等等。ffmpeg同时提供了一套优质的多媒体编解码库，而良好的编解码库是一个播放器的基础。linux下的很多播放器都和 ffmepg 项目有密切的配合和依赖关系。ffmpeg是遵循 GPL 协议的，但是很多播放器“无耻地”使用了 FFmpeg 的代码，却没有遵循 GPL 协议开放自己的代码，因此就上了 FFmpeg 的“耻辱柱”……What a Shame!</li>
+<li>The Matrix：你是不是以为 Shell 就是用来敲击命令而 vim 是用来编辑文件的？你看国 <a href="http://movie.douban.com/subject/1291843/">《The Matrix》</a>吗？事实上就有这么几个“无聊透顶”的人，为了让自己 cool 一些，抽出些无聊的时间写了几个无聊的程序 ——<a href="http://www.asty.org/cmatrix/">cmatrix</a> and <a href="http://www.vim.org/scripts/script.php?script_id=1189">vim matrix plugin</a>。借用 vim 的广告词 ——“linux，字符也可以如此精彩”。</li>
+<li><a href="http://debaday.livejournal.com/22802.html">sl</a>：如果统计一下 Linux 用户中最常用的 10 个命令，ls、cd肯定是榜上有名。借助 Shell 的智能补全功能，或许我们敲命令的出错率反而会比超短命令 (ls、cd)的出错率还要低。比如 ls 命令，我们一不小心敲了个 sl，还没等 Shell 的补全反应过来，我们已经大大方方的敲了 Enter，彻底了解了这一怨念。结果往往是“command not found”的沮丧和无奈。而偏偏有 geek 闲来无事，将这种沮丧和无奈变成了小小的火车，载走你的烦恼，造福子孙后代，功德无量也。</li>
+<li><a href="http://www.emacswiki.org/emacs/EmacsDoctor">emacs doctor</a>：代码敲累了？心情不好了？外边又打雷下雨啦？网络莫名断掉了？……最近倒霉事连串，心里不爽是吧 —— 没关系，来看看 Emacs 的心理医生吧，让它陪你聊聊，24小时陪聊，而且还是免费的！type “M-x doctor”，enjoy it！</li>
 <li><p>gimp naming problem：from <a href="http://www.gimp.org/docs/userfaq.html#Name">gimp FAQ</a>()：</p>
 <ul>
 <li>Q: Why and when was GIMP changed from “general image manipulation program” to “GNU image manipulation program”?</li>
@@ -77,7 +77,7 @@
 <li>A: GNU is Not Unix.</li>
 </ul></li>
 </ol>
-<pre class="example"><code>                      (@@) (  ) (@)  ( )  @@    ()    @     O     @     O      @
+<pre><code>                      (@@) (  ) (@)  ( )  @@    ()    @     O     @     O      @
                  (   )
              (@@@@)
           (    )

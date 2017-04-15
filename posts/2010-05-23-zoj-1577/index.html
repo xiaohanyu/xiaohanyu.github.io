@@ -49,7 +49,7 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>简单题，题目大意是给定两个数a、b，求x、y使得gcd(x, y) = a, lcm(x, y) = b，问由多少对这样的(x, y)，其中gcd(x, y)为x, y的最大公约数，lcm(x, y)为x,y的最小公倍数。解题思路主要利用[tex]x × y = gcd(x, y) × lcm(x, y)[/tex]就行了。WA了两次是因为没看清楚题意“x and y, one line for each test.”，太马虎了。代码如下：</p>
+  <section class="twelve wide column"><p>简单题，题目大意是给定两个数 a、b，求 x、y使得 gcd(x, y) = a, lcm(x, y) = b，问由多少对这样的 (x, y)，其中 gcd(x, y) 为 x, y的最大公约数，lcm(x, y)为 x,y 的最小公倍数。解题思路主要利用 [tex]x × y = gcd(x, y) × lcm(x, y)[/tex] 就行了。WA了两次是因为没看清楚题意 “x and y, one line for each test.”，太马虎了。代码如下：</p>
 <pre><code>#include &lt;stdio.h&gt;
 #include &lt;math.h&gt;
 
@@ -97,13 +97,13 @@ int main(int argc, char *argv[])
     return 0;
 }
 </code></pre>
-<p> 顺便，用了两个月的<a href="http://gna.org/projects/fvwm-crystal/">fvwm-crystal</a>，感觉虽然轻量，但是有些细节颇有不便之处，比如每次新开窗口的时候窗口的大小和位置都“不太确定”——就是有时候窗口会覆盖底下的panel、有时候整个窗口又比整个屏幕都大……恰逢前天晚上兴奋无眠，因此便邪恶的敲了下面一条命令：</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> emerge -av gnome-light    </code></pre></div>
-<p>编译过程比较顺利，又陆续装了<a href="http://projects.gnome.org/gdm/">gdm</a>, <a href="http://do.davebsd.com/">gnome-do</a>等小工具，配上<a href="http://sourceforge.net/projects/mac4lin/">Mac4Lin</a>的主题，现在整个桌面看起来还是蛮pp的：</p>
+<p>顺便，用了两个月的 <a href="http://gna.org/projects/fvwm-crystal/">fvwm-crystal</a>，感觉虽然轻量，但是有些细节颇有不便之处，比如每次新开窗口的时候窗口的大小和位置都“不太确定”——就是有时候窗口会覆盖底下的 panel、有时候整个窗口又比整个屏幕都大 …… 恰逢前天晚上兴奋无眠，因此便邪恶的敲了下面一条命令：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> emerge -av gnome-light    </code></pre></div>
+<p>编译过程比较顺利，又陆续装了 <a href="http://projects.gnome.org/gdm/">gdm</a>, <a href="http://do.davebsd.com/">gnome-do</a> 等小工具，配上 <a href="http://sourceforge.net/projects/mac4lin/">Mac4Lin</a> 的主题，现在整个桌面看起来还是蛮 pp 的：</p>
 <p><img src="file:///user_files/cnlox/Image/screenshots/mac4lin.png" /></p>
-<p>还有一个小问题就是gtk+和QT程序风格二异。我的解决方案是安装<a href="http://www.kde.org/announcements/4.0/applications.php">kde的control center:</a></p>
+<p>还有一个小问题就是 gtk+ 和QT程序风格二异。我的解决方案是安装 <a href="http://www.kde.org/announcements/4.0/applications.php">kde 的 control center:</a></p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> emerge -av systemsettings</code></pre></div>
-<p>然后在widget style中选择gtk+风格，如下图所示：<img src="file:///user_files/cnlox/Image/screenshots/Screenshot-Style%20%E2%80%93%20System%20Settings.png" /></p>
+<p>然后在 widget style 中选择 gtk+ 风格，如下图所示：<img src="file:///user_files/cnlox/Image/screenshots/Screenshot-Style%20%E2%80%93%20System%20Settings.png" /></p>
 <p>效果还算不错。其余的解决方案可以参考：</p>
 <ul>
 <li><a href="http://en.wikipedia.org/wiki/QtCurve">QtCurve</a></li>

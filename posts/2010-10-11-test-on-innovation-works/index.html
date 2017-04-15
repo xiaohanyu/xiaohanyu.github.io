@@ -50,11 +50,11 @@
 </header>
 <div class="row article-body">
   <section class="twelve wide column"><p>慕开复之名，一个小时的笔试，十一道题目，不算多，时间还算充裕。</p>
-<p><strong>选择题/填空题</strong></p>
+<p>*选择题 / 填空题 *</p>
 <ol>
-<li><p>关于c union type，求下列程序的输出结果（具体程序既不清楚了，考点在于union type的内存分布）：<br />
+<li><p>关于 c union type，求下列程序的输出结果（具体程序既不清楚了，考点在于 union type 的内存分布）：<br />
 </p>
-<pre class="example"><code>        #include &lt;stdio.h&gt;
+<pre><code>        #include &lt;stdio.h&gt;
 
 union u
 {
@@ -73,13 +73,13 @@ int main()
 <li><p>关于什么叫数据库主键。</p></li>
 <li><p>关于路由器和交换机的区别，哪个用来连接不同网段、分隔子网或者是分隔不同网段、连接子网。</p></li>
 <li><p>进程和线程的区别（调度、控制、共享内存、通讯方式）。</p></li>
-<li><p>排序复杂度哪个不是[tex]O(nlg n)[/tex]（二分插入排序、快速排序、归并排序、堆排序）。</p></li>
-<li><p>kmp算法填空（略微记得一点原理，忘差不多了……）。</p></li>
-<li><p>有5道工序，其中有一道工序不能放在最后，问有多少种排列方法（[tex]5!-4! = 96[/tex])。</p></li>
-<li><p>内存分页算法的缺页次数（先进先出、最近最少、理想页面置换算法，完全不会……）。</p></li>
-<li><p>tcp和udp的区别</p></li>
+<li><p>排序复杂度哪个不是 [tex]O(nlg n)[/tex]（二分插入排序、快速排序、归并排序、堆排序）。</p></li>
+<li><p>kmp算法填空（略微记得一点原理，忘差不多了 ……）。</p></li>
+<li><p>有 5 道工序，其中有一道工序不能放在最后，问有多少种排列方法（[tex]5!-4! = 96[/tex])。</p></li>
+<li><p>内存分页算法的缺页次数（先进先出、最近最少、理想页面置换算法，完全不会 ……）。</p></li>
+<li><p>tcp和 udp 的区别</p></li>
 <li><p>递归函数：</p>
-<pre class="example"><code>        int f(int n)
+<pre><code>        int f(int n)
 {
     if (n == 0)
         return 3;
@@ -87,21 +87,21 @@ int main()
         return f(n-2) + f(n-1);
 }
 </code></pre>
-<p>求f(10)（我的答案是没结果，应该是唬人的题目）</p></li>
+<p>求 f(10)（我的答案是没结果，应该是唬人的题目）</p></li>
 </ol>
-<p>*编程题*</p>
-<p>给定一个字符串，字符串中可能含有包含’(‘,’)‘,’[‘,’]’，判定条件如下：</p>
+<p>*编程题 *</p>
+<p>给定一个字符串，字符串中可能含有包含 ‘(’, ‘)’, ‘[’, ‘]’，判定条件如下：</p>
 <ul>
-<li>‘(’和’)‘、’[‘和’]’个数相等</li>
-<li>‘(’和’)‘，’[‘和’]’完全配对，不能出现嵌套情况。</li>
+<li>‘(’和’)‘、’[‘和’]’ 个数相等</li>
+<li>‘(’ 和 ‘)’，’[‘和’]’ 完全配对，不能出现嵌套情况。</li>
 </ul>
-<p>如符合以上两条，则返回True，否则返回False。</p>
+<p>如符合以上两条，则返回 True，否则返回 False。</p>
 <p>Example：</p>
-<p>a(ab)[aa(ba)[aa]b]为True，而a((a)、ab(a[bbb)]c为False。</p>
+<p>a(ab)[aa(ba)[aa]b]为 True，而 a((a)、ab(a[bbb)]c为 False。</p>
 <p>解决方案：</p>
-<p>如果熟悉stack表达式求值算法，这道题目应该不在话下。设定两个计数器m和n，m记录’(‘和’)‘的个数的差值，’n’记录’[‘和’]’个数的差值，再设定一个STL stack&lt;char&gt; par。</p>
-<p>每当读到’(‘或’[‘，就执行push操作par.push(’(‘)，par.push(’[‘)，同时m++, n++；每当读到’)‘或’]’，就判断下栈顶元素和当前元素是否配对，如果配对，则par.pop()，否则直接返回False，同时m–，n–。</p>
-<p>最后判断m和n是否为零即可。代码略去。</p>
+<p>如果熟悉 stack 表达式求值算法，这道题目应该不在话下。设定两个计数器 m 和 n，m记录 ‘(’ 和 ‘)’的个数的差值，’n’记录’[‘和’]’个数的差值，再设定一个 STL stack&lt;char&gt; par。</p>
+<p>每当读到 ‘(’ 或 ‘[’，就执行 push 操作 par.push(‘(’)，par.push(‘[’)，同时 m++, n++；每当读到 ‘)’ 或 ‘]’，就判断下栈顶元素和当前元素是否配对，如果配对，则 par.pop()，否则直接返回 False，同时 m–，n–。</p>
+<p>最后判断 m 和n是否为零即可。代码略去。</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">

@@ -49,7 +49,7 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>题目不是很难，重点是时间限制。因此需要优化下算法，不要暴力的用pow(x, y)函数。我用的是pow(x,y)图省事，先是出现了久违的compilation error。思前想后，自己的机器上编译没有问题啊。看了zoj的输出指示：</p>
+  <section class="twelve wide column"><p>题目不是很难，重点是时间限制。因此需要优化下算法，不要暴力的用 pow(x, y) 函数。我用的是 pow(x,y) 图省事，先是出现了久违的 compilation error。思前想后，自己的机器上编译没有问题啊。看了 ZOJ 的输出指示：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">p.cc</span>: In function <span class="st">&#39;int main(int, char**)&#39;</span>:
 <span class="ex">p.cc</span>:19: error: call of overloaded <span class="st">&#39;pow(int, int&amp;)&#39;</span> is ambiguous
 <span class="ex">/usr/include/bits</span>/mathcalls.h:<span class="ex">154</span>: note: candidates are: double pow(double, double)
@@ -58,7 +58,7 @@
 <span class="ex">/usr/include/c++/4.2</span>/cmath:<span class="ex">365</span>: note:                 double std::pow(double, int)
 <span class="ex">/usr/include/c++/4.2</span>/cmath:<span class="ex">361</span>: note:                 long double std::pow(long double, long double)
 <span class="ex">/usr/include/c++/4.2</span>/cmath:<span class="ex">357</span>: note:                 float std::pow(float, float)</code></pre></div>
-<p>估计大概是libc版本不同造成的。修改了以下程序，又出现了TLE的错误了。后来想了想，利用同余特性，改进了程序，还是TLE。程序如下：</p>
+<p>估计大概是 libc 版本不同造成的。修改了以下程序，又出现了 TLE 的错误了。后来想了想，利用同余特性，改进了程序，还是 TLE。程序如下：</p>
 <pre><code>#include &lt;iostream&gt;
 using namespace std;
 
@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
     return 0;
 }
 </code></pre>
-<p>这是怎么回事呢？百思不得其解。俗话说外事不决问google，内事不决问baidu。于是baidu之，发现只要将判断条件改进下就行，AC的程序如下：</p>
+<p>这是怎么回事呢？百思不得其解。俗话说外事不决问 Google，内事不决问 Baidu。于是 Baidu 之，发现只要将判断条件改进下就行，AC的程序如下：</p>
 <pre><code>#include &lt;iostream&gt;
 using namespace std;
 
@@ -118,8 +118,8 @@ int main(int argc, char* argv[])
     return 0;
 }
 </code></pre>
-<p>一个n&lt;2，应该无关紧要……先记着这笔帐。</p>
-<p>AC了26道题目了。都是水题。不管怎样，先凑个数练练手也好。时间紧迫。一定的数量还是必须的。要不以后出去也忒没面子了。</p>
+<p>一个 n&lt;2，应该无关紧要 …… 先记着这笔帐。</p>
+<p>AC了 26 道题目了。都是水题。不管怎样，先凑个数练练手也好。时间紧迫。一定的数量还是必须的。要不以后出去也忒没面子了。</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">

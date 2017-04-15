@@ -51,15 +51,15 @@
             </header>
             <div class="row article-body">
               <section class="twelve wide column">
-                <p>archlinux的好处就是软件新，可以用上很多很强很酷的功能。譬如tex，在ubuntu 9.10中依旧是texlive2007，archlinux中却是与时俱进，texlive09了，而且自动集成了来自于CTex的xeCJK，最大的好处就是可以非常方便地处理中文，再也不用配置字体了。自此以后彻底告别了latex+cjk的传统解决方案。</p>
-                <p>最近的2.6.31的linux kernel有一个叫做kernel-mode-setting的功能，大概意思是把很多控制显卡的东西直接放到kernel-space里面，以求得更好地图形加速效果，也是非常酷的功能，启用这项功能可以告别复杂的xorg.conf。但是这项功能尚处于实验阶段，启用以后有可能造成更大的冲突和糟糕的显卡性能。因此前些日子装好archlinux时我就禁用了这项功能，具体可以参考<a href="http://cnlox.is-programmer.com/?page=2">这篇文章</a>。但是今天更新了一下系统，于是系统就出现了各种各样诡异的问题。譬如某些窗口在最大化的时候系统会死机，某些时候切换窗口管理器的时候也会死机，kde下面点击右键菜单就自动注销等等，搞的我彻底崩溃。开始以为是桌面环境的原因，于是换了桌面环境，分别尝试了两个轻量级的桌面环境：<a href="http://www.xfce.org/">xfce4</a>和<a href="http://lxde.org/">lxde</a>，但是问题依然没有解决。后来我忽然想起来那个kernel-mode-setting的问题，于是又照着<a href="http://wiki.archlinux.org/index.php/ATI">archlinux wiki</a>的文章启用了kernel-mode-setting。这下好了。不仅解决了问题，还意外地解决了某些opengl程序闪屏的问题。具体了解kernel-mode-setting请参考以下链接：</p>
+                <p>archlinux的好处就是软件新，可以用上很多很强很酷的功能。譬如 tex，在 ubuntu 9.10 中依旧是 texlive2007，archlinux中却是与时俱进，texlive09了，而且自动集成了来自于 CTex 的 xeCJK，最大的好处就是可以非常方便地处理中文，再也不用配置字体了。自此以后彻底告别了 latex+cjk 的传统解决方案。</p>
+                <p>最近的 2.6.31 的linux kernel有一个叫做 kernel-mode-setting 的功能，大概意思是把很多控制显卡的东西直接放到 kernel-space 里面，以求得更好地图形加速效果，也是非常酷的功能，启用这项功能可以告别复杂的 Xorg.conf。但是这项功能尚处于实验阶段，启用以后有可能造成更大的冲突和糟糕的显卡性能。因此前些日子装好 ArchLinux 时我就禁用了这项功能，具体可以参考 <a href="http://cnlox.is-programmer.com/?page=2"> 这篇文章 </a>。但是今天更新了一下系统，于是系统就出现了各种各样诡异的问题。譬如某些窗口在最大化的时候系统会死机，某些时候切换窗口管理器的时候也会死机，kde下面点击右键菜单就自动注销等等，搞的我彻底崩溃。开始以为是桌面环境的原因，于是换了桌面环境，分别尝试了两个轻量级的桌面环境：<a href="http://www.xfce.org/">xfce4</a>和 <a href="http://lxde.org/">lxde</a>，但是问题依然没有解决。后来我忽然想起来那个 kernel-mode-setting 的问题，于是又照着 <a href="http://wiki.archlinux.org/index.php/ATI">archlinux wiki</a> 的文章启用了 kernel-mode-setting。这下好了。不仅解决了问题，还意外地解决了某些 OpenGL 程序闪屏的问题。具体了解 kernel-mode-setting 请参考以下链接：</p>
                 <ul>
                 <li><a href="http://www.x.org/wiki/ModeSetting" class="uri">http://www.x.org/wiki/ModeSetting</a></li>
                 <li><a href="http://en.wikipedia.org/wiki/Mode-setting" class="uri">http://en.wikipedia.org/wiki/Mode-setting</a></li>
                 <li><a href="http://fedoraproject.org/wiki/Features/KernelModesetting"><a href="https://fedoraproject.org/wiki/Features/KernelModesetting" class="uri">https://fedoraproject.org/wiki/Features/KernelModesetting</a></a></li>
                 </ul>
                 <p>总体来说，kernel-mode-setting的功能还是很赞的。</p>
-                <p>令一个头疼的问题是emacs与ibus冲突的问题，google方案五花八门，各有千秋，最后找到一种方案，暂时解决的问题，虽然我也不知道是怎么回事。具体方法是，在主目录的.xprofile中加入： </p>
+                <p>令一个头疼的问题是 Emacs 与ibus冲突的问题，google方案五花八门，各有千秋，最后找到一种方案，暂时解决的问题，虽然我也不知道是怎么回事。具体方法是，在主目录的 .xprofile 中加入：</p>
                 <div class="hl_result">
                 
                 <div class="bash"
@@ -70,8 +70,8 @@
                 
                 </div>
                 
-                <p>linux的输入法依旧是linux中文化的一大软肋。大体来说三种：scim, fcitx, ibus。scim基本算已经过时，而且经常会莫名其妙地和firefox，emacs等软件冲突，无法调用，异常麻烦。fcitx中国特色，受到很多人的追捧和喜爱。ibus是新一代输入法平台，算这里面最有前途的了。</p>
-                <p>linux用了也快小一年了。期间遇到过各种匪夷所思的问题，但依然坚持了下来，说来说去，作为一个计算机系的学生，不了解unix，不懂得bash，不懂得make，不会用emacs或者vim，没听说过latex，毕竟有些不像话的。有时候也烦，也怀念windows下面那种鼠标点点万事搞定的操作方式。但是我实在受不了windows的低效，受不了各种各样的破解注册杀毒激活，受不了不经意间弹出的广告，受不了动辄上G的应用程序，受不了乱七八糟的目录安排。总而言之，我患上linux偏执症了。</p>
+                <p>linux的输入法依旧是 Linux 中文化的一大软肋。大体来说三种：scim, fcitx, ibus。scim基本算已经过时，而且经常会莫名其妙地和 Firefox，emacs等软件冲突，无法调用，异常麻烦。fcitx中国特色，受到很多人的追捧和喜爱。ibus是新一代输入法平台，算这里面最有前途的了。</p>
+                <p>linux用了也快小一年了。期间遇到过各种匪夷所思的问题，但依然坚持了下来，说来说去，作为一个计算机系的学生，不了解 UNIX，不懂得 bash，不懂得 make，不会用 Emacs 或者 vim，没听说过 LaTeX，毕竟有些不像话的。有时候也烦，也怀念 Windows 下面那种鼠标点点万事搞定的操作方式。但是我实在受不了 Windows 的低效，受不了各种各样的破解注册杀毒激活，受不了不经意间弹出的广告，受不了动辄上 G 的应用程序，受不了乱七八糟的目录安排。总而言之，我患上 Linux 偏执症了。</p>
                 <p>其实想想有时候这样折腾来折腾去也挺费时间的。倒不如省下时间去补补自己的功课更好。可是问题来了，你不去解决放任不管，心里面就痒痒的，总要想方设法将它搞定，才心安理得。对各种软件也非常感兴趣赶时髦，各种桌面环境都去尝试，虽然经常用的只有一个，经常用的软件也只有那么几种而已。archlinux，总能满足你这方面的要求。或许有一天，当我“看破红尘”，就不会再折腾了。emacs， firefox，gnutools，就这么几个万古长青的软件，弹指一挥。</p>
                 <p>好了，不聊了。睡吧。</p>
                 

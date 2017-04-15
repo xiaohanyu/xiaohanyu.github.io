@@ -64,21 +64,21 @@
 <p>Conky can display this info either as text, or using simple progress bars and graph widgets, with different fonts and colours.</p>
 <h2 id="installation"><strong>Installation</strong></h2>
 <p>In gentoo, it is very simple to install a software, just emerge what you want. But before you really do it, try -pv options to see what will be installed and make your own choice:</p>
-<pre class="example"><code>Calculating dependencies... done!
+<pre><code>Calculating dependencies... done!
 [ebuild   R   ] app-admin/conky-1.7.2-r2  USE=&quot;X alsa apcupsd imlib portmon truetype vim-syntax weather-xoap -audacious -curl -debug -eve -hddtemp -iostats -lua -lua-cairo -lua-imlib -math -moc -mpd -nano-syntax -nvidia -rss -thinkpad -weather-metar -wifi&quot; 0 kB
 </code></pre>
-<p>For example, if you use moc as a console music player you must add moc USE. What is  USE? Refer to <a href="http://www.gentoo.org/doc/en/handbook/">gentoo handbook</a>.</p>
+<p>For example, if you use moc as a console music player you must add moc USE. What is USE? Refer to <a href="http://www.gentoo.org/doc/en/handbook/">gentoo handbook</a>.</p>
 <p>For archlinux, just type “pacman -S conky” and for ubuntu and deb, maybe “apt-get install conky”. Refer to your system handbook.<br />
 </p>
 <h2 id="cofiguration">Cofiguration</h2>
 <p>Usually there is a sample configuration file located in /etc. My file is /etc/conky/conky.conf, just copy this file into your home diretory and rename it to .conkyrc:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> cp /etc/conky/conky.conf ~/.conkyrc</code></pre></div>
-<p>then let conky startup with the system.  If you use startx, add this line to your ~/.xinitrc</p>
+<p>then let conky startup with the system. If you use startx, add this line to your ~/.xinitrc</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">conky</span> -d </code></pre></div>
 <p>-d means conky would run as a daemon process.</p>
 <p>If you use a desktop environment such as gnome or kde, use the graphical tools, easy job.</p>
 <p>And if you feel disappointed about the ugly default configuration, you can configure it by yourself. First you should refer to the man page to know some details about the configuration grammer and configuration choices. Then, I think you’d better refer to google to download a sample .conkyrc and modify it. Here is a sample configuration <a href="file:\\" class="uri">file:\\</a></p>
-<pre class="example"><code>########## basic configuration ##########
+<pre><code>########## basic configuration ##########
 use_spacer right
 use_xft yes
 font Comic Sans MS:size=9

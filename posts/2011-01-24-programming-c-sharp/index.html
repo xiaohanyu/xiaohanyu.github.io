@@ -52,29 +52,29 @@
   <section class="twelve wide column"><p><span id="table-of-contents"></span></p>
 <p><span id="text-table-of-contents"></span></p>
 <ul>
-<li><em>1 课业要求</em></li>
+<li><em>1 课业要求 </em></li>
 <li><em>2 Mono</em></li>
 <li><em>3 Sqlite</em></li>
 <li><em>4 ASP.NET</em></li>
 <li><em>5 C#</em></li>
 <li><em>6 Learning Resources</em></li>
 </ul>
-<h2 id="sec-1">1 课业要求</h2>
-<p>这半年有一门《C#程序设计》的课程，借着这个契机，匆匆学了下C#，并做了一个极其简陋的“大程”。</p>
+<h2 id="课业要求">1 课业要求</h2>
+<p>这半年有一门《C#程序设计》的课程，借着这个契机，匆匆学了下 C#，并做了一个极其简陋的“大程”。</p>
 <p>程序的要求基本如下：</p>
 <ul>
-<li><p>用C#实现一个数据库操作网页代码生成工具。需要实现的基本功能如下：</p>
+<li><p>用 C# 实现一个数据库操作网页代码生成工具。需要实现的基本功能如下：</p>
 <ol>
 <li>列出数据库中所有表供用户选择</li>
-<li>用户选择一个表后生成若干网页，能对选定的表提供list、add、modify、delete等操作，不能使用GridView控件，需要用标准的HTML元素实现</li>
-<li>能够分析表中每个字段的类型，在add、modify界面上根据字段的类型使用合适的Web组件，需要能正确处理数字、字符、日期等类型</li>
-<li>List的时候能够自动处理分页</li>
-<li>为了提交作业方便，数据库使用access，提供对话框让用户选择数据库</li>
-</ol></li>
+<li>用户选择一个表后生成若干网页，能对选定的表提供 list、add、modify、delete等操作，不能使用 GridView 控件，需要用标准的 HTML 元素实现</li>
+<li>能够分析表中每个字段的类型，在 add、modify界面上根据字段的类型使用合适的 Web 组件，需要能正确处理数字、字符、日期等类型</li>
+<li>List 的时候能够自动处理分页</li>
+<li>为了提交作业方便，数据库使用 access，提供对话框让用户选择数据库</li>
+</ol>
+<p>我大概花了一周左右的时间完成了程序，这其中包括：三天的时间熟悉 C# 和 Mono，一天的时间复习 SQL 语法并学习 Sqlite 的使用，一天的时间学习下 ASP.NET，一天时间完成程序，最后一天的时间用来看新版《水浒传》……^_<sup>。</sup></p></li>
 </ul>
-<p>我大概花了一周左右的时间完成了程序，这其中包括：三天的时间熟悉C#和Mono，一天的时间复习SQL语法并学习Sqlite的使用，一天的时间学习下ASP.NET，一天时间完成程序，最后一天的时间用来看新版《水浒传》……^_<sup>。</sup></p>
-<p>最终的效果自然是十分“简陋”，只实现了第1、4、5条的需求和第2、3条的部分需求，而且还存在严重的bug。不过时间紧迫，加上我对微软的快餐文化无爱，就匆匆忙忙交了作业，忙下一门考试去了。</p>
-<p>简单说下实现思路吧，顺便总结下学习C#过程中的一些心得。</p>
+<p>最终的效果自然是十分“简陋”，只实现了第 1、4、5条的需求和第 2、3条的部分需求，而且还存在严重的 bug。不过时间紧迫，加上我对微软的快餐文化无爱，就匆匆忙忙交了作业，忙下一门考试去了。</p>
+<p>简单说下实现思路吧，顺便总结下学习 C# 过程中的一些心得。</p>
 <p>实验的基本条件：</p>
 <ul>
 <li>OS: Arch Linux</li>
@@ -85,12 +85,12 @@
 </ul>
 <div id="outline-container-2" class="outline-2">
 
-<h2 id="sec-2">2 Mono</h2>
+<h2 id="mono">2 Mono</h2>
 <div id="text-2" class="outline-text-2">
 
-<p>引用<a href="http://www.mono-project.com/Main_Page">mono-project主页</a>上的说法，mono is “An open source, cross-platform, implementation of C# and the CLR that is binary compatible with Microsoft.NET”, MonoDevelop is “An open Source C# and .NET development environment for Linux, Windows, and Mac OS X”。虽然在Linux下用Mono来搞C#是件不怎么“光彩”的事情，但是mono却给我留下了极佳的用户体验。代码补全、重构，多语言支持，内建xsp server，集成调试功能，还有让我欢呼流泪的Editor的Vi-mode的支持。</p>
-<p>那么Mono到底是个什么东西呢？直白点的说法就是，Mono是Microsoft .NET的跨平台实现。比如我们可以用C#写如下一个程序winform.cs：</p>
-<pre class="example"><code>using System;
+<p>引用 <a href="http://www.mono-project.com/Main_Page">mono-project 主页 </a> 上的说法，mono is “An open source, cross-platform, implementation of C# and the CLR that is binary compatible with Microsoft.NET”, MonoDevelop is “An open Source C# and .NET development environment for Linux, Windows, and Mac OS X”。虽然在 Linux 下用 Mono 来搞 C# 是件不怎么“光彩”的事情，但是 mono 却给我留下了极佳的用户体验。代码补全、重构，多语言支持，内建 xsp server，集成调试功能，还有让我欢呼流泪的 Editor 的 Vi-mode的支持。</p>
+<p>那么 Mono 到底是个什么东西呢？直白点的说法就是，Mono是 Microsoft .NET 的跨平台实现。比如我们可以用 C# 写如下一个程序 winform.cs：</p>
+<pre><code>using System;
 using System.Windows.Forms;
 
 public class HelloWorld : Form
@@ -106,51 +106,51 @@ public class HelloWorld : Form
     }
 }
 </code></pre>
-<p>程序的功能十分简单：创建一个窗口并将窗口标题设为“Hello, Mono World”。</p>
+<p>程序的功能十分简单：创建一个窗口并将窗口标题设为 “Hello, Mono World”。</p>
 <p>我们用如下的命令编译运行此程序：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">gmcs</span> -pkg:dotnet winform.cs <span class="kw">&amp;&amp;</span> <span class="ex">mono</span> winform.exe</code></pre></div>
-<p>然后屏幕上就会显示一个窗口。将winform.exe拷贝到一个装有.NET的windows中，程序也是可以运行的。</p>
+<p>然后屏幕上就会显示一个窗口。将 winform.exe 拷贝到一个装有 .NET 的windows中，程序也是可以运行的。</p>
 </div>
 
 </div>
 
 <div id="outline-container-3" class="outline-2">
 
-<h2 id="sec-3">3 Sqlite</h2>
+<h2 id="sqlite">3 Sqlite</h2>
 <div id="text-3" class="outline-text-2">
 
-<p>基于程序跨平台的考虑，C#的运行环境我选择了Mono，而数据库则抛弃了MicroSoft Access，选择了<a href="http://www.sqlite.org">Sqlite</a>，也借此契机学习下这个世界上最流行的嵌入式数据库引擎。</p>
-<p>什么是嵌入式数据库？传统的数据库，如MySQL，采用的是Client/Server架构。而Sqlite采用的Serverless架构。Sqlite所有的读写都直接应用于一个跨平台的磁盘文件。Sqlite的特性有：</p>
+<p>基于程序跨平台的考虑，C#的运行环境我选择了 Mono，而数据库则抛弃了 MicroSoft Access，选择了 <a href="http://www.sqlite.org">Sqlite</a>，也借此契机学习下这个世界上最流行的嵌入式数据库引擎。</p>
+<p>什么是嵌入式数据库？传统的数据库，如 MySQL，采用的是 Client/Server 架构。而 Sqlite 采用的 Serverless 架构。Sqlite所有的读写都直接应用于一个跨平台的磁盘文件。Sqlite的特性有：</p>
 <ul>
 <li>ACID事务</li>
 <li>零配置 – 无需安装和管理配置</li>
 <li>储存在单一磁盘文件中的一个完整的数据库</li>
 <li>数据库文件可以在不同字节顺序的机器间自由的共享</li>
-<li>支持数据库大小至2TB</li>
-<li>足够小, 大致3万行C代码, 250K</li>
+<li>支持数据库大小至 2TB</li>
+<li>足够小 , 大致 3 万行 C 代码 , 250K</li>
 <li>比一些流行的数据库在大部分普通数据库操作要快</li>
-<li>良好注释的源代码, 并且有着90%以上的测试覆盖率</li>
-<li>独立: 没有额外依赖</li>
-<li>Source完全的Open, 你可以用于任何用途, 包括出售它</li>
-<li>支持多种开发语言,C, PHP, Perl, Java, ASP .NET,Python</li>
+<li>良好注释的源代码 , 并且有着 90% 以上的测试覆盖率</li>
+<li>独立 : 没有额外依赖</li>
+<li>Source 完全的 Open, 你可以用于任何用途 , 包括出售它</li>
+<li>支持多种开发语言 ,C, PHP, Perl, Java, ASP .NET,Python</li>
 </ul>
-<p>Sqlite作为一个示范性的学习型开源项目也是一个非常理想的选择。在Sqlite的主页上有<a href="http://www.sqlite.org/sqlite-amalgamation-3070400.zip">sqlite-amalgamation-3070400.zip</a>下载，这是一个组合了所有Sqlite的C代码在一个单独文件中的压缩挡。是学习数据库设计与实现的极好资源。</p>
+<p>Sqlite 作为一个示范性的学习型开源项目也是一个非常理想的选择。在 Sqlite 的主页上有 <a href="http://www.sqlite.org/sqlite-amalgamation-3070400.zip">sqlite-amalgamation-3070400.zip</a> 下载，这是一个组合了所有 Sqlite 的C代码在一个单独文件中的压缩挡。是学习数据库设计与实现的极好资源。</p>
 <p>Sqlite在很多著名的开源软件项目中都有重要的应用。引用《The Definisive Guide to Sqlite》中的一段话：</p>
 <p>“If you are a programmer, imagine how much code it would take to implement the following SQL statement in your program:</p>
 <div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">AVG</span>(z-y) <span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">GROUP</span> <span class="kw">BY</span> x <span class="kw">HAVING</span> x &gt; <span class="fu">MIN</span>(z) <span class="kw">OR</span> x &lt; <span class="fu">MAX</span>(y) <span class="kw">ORDER</span> <span class="kw">BY</span> y <span class="kw">DESC</span> <span class="kw">LIMIT</span> <span class="dv">10</span> OFFSET <span class="dv">3</span>;</code></pre></div>
 <p>If you are already familiar with SQL, imagine coding the equivalent of a subquery, compound query, GROUP BY clause or multiway join—in C. SQLite embeds all of this functionality into your application with minimal cost. With a database engine integrated directly into your code, you can begin to think of SQL as a domain-specific language in which to implement complex sorting algorithms in your program. &quot;</p>
-<p>记得大二下学期伊始学习Java，要编写一个浙江大学校车查询系统的软件，那个时候还没有学过数据库，就想破脑门地琢磨该怎么样采用Java实现复杂的校车查询算法，甚至想要去研究各种图论算法云云。直到两个月后学习了数据库原理，情况才逐渐明朗。最终的程序采用的是Apache Derby，另一款Java实现的嵌入式数据库。关于Sqlite和Derby的对比，可以参考<a href="http://www.sqlite.org/cvstrac/wiki?p=SqliteVersusDerby">Sqlite Versus Derby</a>。</p>
-<p>我们可以用如下的命令找出系统中的Sqlite数据库文件：</p>
+<p>记得大二下学期伊始学习 Java，要编写一个浙江大学校车查询系统的软件，那个时候还没有学过数据库，就想破脑门地琢磨该怎么样采用 Java 实现复杂的校车查询算法，甚至想要去研究各种图论算法云云。直到两个月后学习了数据库原理，情况才逐渐明朗。最终的程序采用的是 Apache Derby，另一款 Java 实现的嵌入式数据库。关于 Sqlite 和Derby的对比，可以参考 <a href="http://www.sqlite.org/cvstrac/wiki?p=SqliteVersusDerby">Sqlite Versus Derby</a>。</p>
+<p>我们可以用如下的命令找出系统中的 Sqlite 数据库文件：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> updatedb <span class="kw">&amp;&amp;</span> <span class="kw">for</span> <span class="fu">file</span> in <span class="kw">`</span><span class="fu">locate</span> *.db<span class="kw">`</span>
 <span class="kw">do</span>
 <span class="fu">file</span> <span class="va">$file</span>
 <span class="kw">done</span> <span class="kw">|</span> <span class="fu">grep</span> -i <span class="st">&quot;sqlite&quot;</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{print $1}&#39;</span></code></pre></div>
-<p>Sqlite比较好用的GUI工具有<a href="http://sqlitebrowser.sourceforge.net/">sqlitebrowser</a>和<a href="http://sqliteman.com/">sqliteman</a>。</p>
-<p>Sqlite具有多种语言的bindings，关于C#的binding还有些小小的麻烦，因为Sqlite的binding并不是ECMA C#标准的一部分，所以MS C#和Mono C#对此的实现有些许差别。Mono通过Mono.Data.Sqlite实现访问Sqlite的ADO.NET，具体的示例代码如下所示：</p>
+<p>Sqlite比较好用的 GUI 工具有 <a href="http://sqlitebrowser.sourceforge.net/">sqlitebrowser</a> 和 <a href="http://sqliteman.com/">sqliteman</a>。</p>
+<p>Sqlite具有多种语言的 bindings，关于 C# 的binding还有些小小的麻烦，因为 Sqlite 的binding并不是 ECMA C# 标准的一部分，所以 MS C# 和 Mono C#对此的实现有些许差别。Mono通过 Mono.Data.Sqlite 实现访问 Sqlite 的 ADO.NET，具体的示例代码如下所示：</p>
 <ul>
-<li>通过IDataReader：</li>
+<li>通过 IDataReader：</li>
 </ul>
-<pre class="example"><code>using System;
+<pre><code>using System;
 using System.Data;
 using Mono.Data.Sqlite;
 
@@ -188,9 +188,9 @@ public class Test
 }
 </code></pre>
 <ul>
-<li>通过DataSet：</li>
+<li>通过 DataSet：</li>
 </ul>
-<pre class="example"><code>using System;
+<pre><code>using System;
 using System.Data;
 using System.Data.SqlClient;
 using Mono.Data.Sqlite;
@@ -215,20 +215,20 @@ public class Test
     }
 }
 </code></pre>
-<p>话说ADO.NET的DataSet和ASP.NET中某些控件的bind功能还真是挺方便的。</p>
+<p>话说 ADO.NET 的DataSet和 ASP.NET 中某些控件的 bind 功能还真是挺方便的。</p>
 </div>
 
 </div>
 
 <div id="outline-container-4" class="outline-2">
 
-<h2 id="sec-4">4 ASP.NET</h2>
+<h2 id="asp.net">4 ASP.NET</h2>
 <div id="text-4" class="outline-text-2">
 
-<p>ASP.NET？这究竟是个什么东西？大一时学了一门课叫做《WEB数据库设计》，讲的是ASP，诸如如何配置IIS，如何在Dreamweaver中添加Access数据源、连接数据库，以及VBScript的入门语法等等。三年之后我才知道，IIS并不是Apache的对手，Apache在某些方面也不如nginx，LAMP架构才是web服务中基础中的基础；编写html最好用的不是Dreamweaver而是vim；Access充其量只是个不跨平台比Excel强点有限的玩具数据库产品；ASP日薄西山，已经i躺在了历史的博物馆里了；当初对ASP的吹嘘——动态网页技术，如今又成了ASP的最大诟病——代码混杂，无法分离网页设计和业务逻辑——而这又成了ASP.NET横空出世的理由。至于ASP.NET能活多久，我不关心也不在乎，我所在乎的只是用这个东西尽快地完成我的大程序。</p>
-<p>理解ASP.NET的核心在于亮点，一是MVC架构的理解，即业务逻辑和页面表现的分离；二是Windows事件机制和消息循环机制。</p>
-<p>MVC(Model, View, Control)是当今网站中比较流行的架构。其最大的贡献在于实现了网站业务逻辑与页面表现美工的分离。最初的动态网页，无论是ASP、JSP还是PHP也好，静态的html代码和程序语言代码混杂在一起，造成了大规模web程序非常难于书写和维护。后来Java出现了各种各样的框架如当下流行的SSH(Struts、Spring、Hibernate)；微软革了ASP的命推出了ASP.NET，以C#和VB.NET为后端实现MVC架构；PHP也有各种各样现成的数不清的框架。框架这个东西是最容易过时的。所以我觉得框架这个东西就像山东大饼，饱腹可以，太过深究细节就有些得不偿失，重要的还是要掌握柴米油盐。用框架人人都会，但是设计并实现出一个优秀的框架，就不是嘴上说说那么容易了。微软的快餐产品让千百万人踏入了程序设计的大门，也让他们陷入了跟潮流的漩涡。而一切微软技术的核心，定有躲不开的核心，那就是Win32 API和消息循环机制。</p>
-<p>深入探讨这个问题已经远远超出了本人的能力。本人也只是窥探了几章《Windows程序设计》，才到这里才大放厥词。什么是消息循环？事实上消息循环绝不向消息循环那么简单，消息循环和OO、结构化程序设计一样，是一种Architectural Patterns。常见的Architectural Patterns（参考<a href="http://book.douban.com/subject/1984921/">Software Architecture in Practice (2nd Edition)</a>有：</p>
+<p>ASP.NET？这究竟是个什么东西？大一时学了一门课叫做《WEB数据库设计》，讲的是 ASP，诸如如何配置 IIS，如何在 Dreamweaver 中添加 Access 数据源、连接数据库，以及 VBScript 的入门语法等等。三年之后我才知道，IIS并不是 Apache 的对手，Apache在某些方面也不如 nginx，LAMP架构才是 web 服务中基础中的基础；编写 HTML 最好用的不是 Dreamweaver 而是 vim；Access充其量只是个不跨平台比 Excel 强点有限的玩具数据库产品；ASP日薄西山，已经 i 躺在了历史的博物馆里了；当初对 ASP 的吹嘘 —— 动态网页技术，如今又成了 ASP 的最大诟病 —— 代码混杂，无法分离网页设计和业务逻辑 —— 而这又成了 ASP.NET 横空出世的理由。至于 ASP.NET 能活多久，我不关心也不在乎，我所在乎的只是用这个东西尽快地完成我的大程序。</p>
+<p>理解 ASP.NET 的核心在于亮点，一是 MVC 架构的理解，即业务逻辑和页面表现的分离；二是 Windows 事件机制和消息循环机制。</p>
+<p>MVC(Model, View, Control)是当今网站中比较流行的架构。其最大的贡献在于实现了网站业务逻辑与页面表现美工的分离。最初的动态网页，无论是 ASP、JSP还是 PHP 也好，静态的 HTML 代码和程序语言代码混杂在一起，造成了大规模 web 程序非常难于书写和维护。后来 Java 出现了各种各样的框架如当下流行的 SSH(Struts、Spring、Hibernate)；微软革了 ASP 的命推出了 ASP.NET，以 C# 和 VB.NET为后端实现 MVC 架构；PHP也有各种各样现成的数不清的框架。框架这个东西是最容易过时的。所以我觉得框架这个东西就像山东大饼，饱腹可以，太过深究细节就有些得不偿失，重要的还是要掌握柴米油盐。用框架人人都会，但是设计并实现出一个优秀的框架，就不是嘴上说说那么容易了。微软的快餐产品让千百万人踏入了程序设计的大门，也让他们陷入了跟潮流的漩涡。而一切微软技术的核心，定有躲不开的核心，那就是 Win32 API 和消息循环机制。</p>
+<p>深入探讨这个问题已经远远超出了本人的能力。本人也只是窥探了几章《Windows程序设计》，才到这里才大放厥词。什么是消息循环？事实上消息循环绝不向消息循环那么简单，消息循环和 OO、结构化程序设计一样，是一种 Architectural Patterns。常见的 Architectural Patterns（参考 <a href="http://book.douban.com/subject/1984921/">Software Architecture in Practice (2nd Edition)</a> 有：</p>
 <ul>
 <li>Layered</li>
 <li>Generalization(OO)</li>
@@ -240,40 +240,40 @@ public class Test
 <li>Communicating process</li>
 <li>……</li>
 </ul>
-<p>消息循环属于Publish-subscribe，它是Windows事件机制的基础。而消息循环中很重要的两点一个是消息队列，另外就是Callback Functions（回调函数）。形像的讲，我们设每个事件为x，而处理事件x的函数为X。假设我们的一个系统软件依次出发a、b、c、d四个事件，那么消息队列中有abcd四个事件，然后由操作系统根据消息队列来决定下一步该做哪些事情。比如Windows看到了消息队列中的第一个事件为a，那么Windows就会调用A来处理事件a，a处理完毕后出队，接下来的事件是b，那么就调用B来处理时间b。没错，ABCD等Callback Function是有操作系统来调用，而不需要程序员在程序中显示调用，这也是它们被叫做Callback Function的原因。</p>
-<p>理解消息循环对Windows程序设计是至关重要的，诸如MFC、C# Windows Forms和ASP.NET的所有事件处理机制都是基于消息循环。在一开始写GUI程序的时候常常程序的时候常常无法理解程序的执行流行，一来是结构化编程的思想根深蒂固，二来是没有完全理解Event-based程序的处理模式。那么另一个问题是，回调函数的机制又是怎样的呢？这个问题答案的关键字是函数指针，一个我们在C语言中学过、有点印象却很少用到的东西。函数指针也是C++多态性<a href="http://en.wikipedia.org/wiki/RTTI">RTTI</a>的关键所在！（参考<a href="http://book.douban.com/subject/1094797/">《Thinking in C++, Volume 1》</a>）。Java Swing的listener，QT的signal and slots机制，归根到底应该也是消息循环。Publish-subscribe, core of GUI programming。</p>
-<p>差不多了。关于ASP.NET的絮叨到此为止吧，再下去就黔驴技穷了。如果再加一句，就是ASP.NET的控件还是挺好用的^_^<sup>。</sup></p>
+<p>消息循环属于 Publish-subscribe，它是 Windows 事件机制的基础。而消息循环中很重要的两点一个是消息队列，另外就是 Callback Functions（回调函数）。形像的讲，我们设每个事件为 x，而处理事件 x 的函数为 X。假设我们的一个系统软件依次出发 a、b、c、d四个事件，那么消息队列中有 abcd 四个事件，然后由操作系统根据消息队列来决定下一步该做哪些事情。比如 Windows 看到了消息队列中的第一个事件为 a，那么 Windows 就会调用 A 来处理事件 a，a处理完毕后出队，接下来的事件是 b，那么就调用 B 来处理时间 b。没错，ABCD等 Callback Function 是有操作系统来调用，而不需要程序员在程序中显示调用，这也是它们被叫做 Callback Function 的原因。</p>
+<p>理解消息循环对 Windows 程序设计是至关重要的，诸如 MFC、C# Windows Forms和 ASP.NET 的所有事件处理机制都是基于消息循环。在一开始写 GUI 程序的时候常常程序的时候常常无法理解程序的执行流行，一来是结构化编程的思想根深蒂固，二来是没有完全理解 Event-based 程序的处理模式。那么另一个问题是，回调函数的机制又是怎样的呢？这个问题答案的关键字是函数指针，一个我们在 C 语言中学过、有点印象却很少用到的东西。函数指针也是 C++ 多态性 <a href="http://en.wikipedia.org/wiki/RTTI">RTTI</a> 的关键所在！（参考 <a href="http://book.douban.com/subject/1094797/">《Thinking in C++, Volume 1》</a>）。Java Swing的 listener，QT的 signal and slots 机制，归根到底应该也是消息循环。Publish-subscribe, core of GUI programming。</p>
+<p>差不多了。关于 ASP.NET 的絮叨到此为止吧，再下去就黔驴技穷了。如果再加一句，就是 ASP.NET 的控件还是挺好用的 ^_^<sup>。</sup></p>
 </div>
 
 </div>
 
 <div id="outline-container-5" class="outline-2">
 
-<h2 id="sec-5">5 C#</h2>
+<h2 id="c">5 C#</h2>
 <div id="text-5" class="outline-text-2">
 
-<p>最后谈到C#。简单的说，C++和Java入门之后，完全没有必要再学C#。C#能做的东西，Java都能做到，而且能做的更好。也算学了若干门Programming Languages，对语言之争已经看的很淡，更谈不上对某一门语言的死忠。在我看来，学习一门编程语言只能有两个结果：</p>
+<p>最后谈到 C#。简单的说，C++和 Java 入门之后，完全没有必要再学 C#。C#能做的东西，Java都能做到，而且能做的更好。也算学了若干门 Programming Languages，对语言之争已经看的很淡，更谈不上对某一门语言的死忠。在我看来，学习一门编程语言只能有两个结果：</p>
 <ol>
 <li>给你的编程思想打开了新的一道门；</li>
 <li>让你明白或巩固一个道理：trade-off是很重要的！</li>
 </ol>
-<p>很不幸，对我来说，C#属于第二种，而Python和Shell Script属于第一种。C语言是指针的艺术，C++则有试图设计一种智能指针，Java抛弃了指针，只有C#，哆哆嗦嗦地使用着指针：unsafe code和delegate；C#的继承控制更为复杂，除了传统的public、protected、private，还有internal和protected internal；Java用import，包和文件目录有统一的物理逻辑关系，C#用using，包和文件目录很混乱，这到底是个优点还是个缺点？C++的class和struct几乎相同，C#却限制了struct的使用；C#还有一种类成员get/set的语法，我觉得这种语法糖特别恶心。更多的语言特性比较可以参考<a href="http://tech.it168.com/a2010/0817/1091/000001091254.shtml" class="uri">http://tech.it168.com/a2010/0817/1091/000001091254.shtml</a>。</p>
-<p>写到这里我又想到，为什么会有如此多的Programmig Languages呢。假设把这些编程语言按照字母顺序排一下，让一个人去学，恐怕一辈子也学不完。<a href="http://github.com">github</a>上有一个有趣的hello world项目，汇集了众多语言写的hello world程序，你可以通过如下命令获取这些程序：</p>
+<p>很不幸，对我来说，C#属于第二种，而 Python 和Shell Script属于第一种。C语言是指针的艺术，C++则有试图设计一种智能指针，Java抛弃了指针，只有 C#，哆哆嗦嗦地使用着指针：unsafe code和 delegate；C#的继承控制更为复杂，除了传统的 public、protected、private，还有 internal 和 protected internal；Java用 import，包和文件目录有统一的物理逻辑关系，C#用 using，包和文件目录很混乱，这到底是个优点还是个缺点？C++的 class 和struct几乎相同，C#却限制了 struct 的使用；C#还有一种类成员 get/set 的语法，我觉得这种语法糖特别恶心。更多的语言特性比较可以参考 <a href="http://tech.it168.com/a2010/0817/1091/000001091254.shtml" class="uri">http://tech.it168.com/a2010/0817/1091/000001091254.shtml</a>。</p>
+<p>写到这里我又想到，为什么会有如此多的 Programmig Languages 呢。假设把这些编程语言按照字母顺序排一下，让一个人去学，恐怕一辈子也学不完。<a href="http://github.com">github</a>上有一个有趣的 hello world 项目，汇集了众多语言写的 hello world 程序，你可以通过如下命令获取这些程序：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> pull git://github.com/git/hello-world.git</code></pre></div>
-<p>面对如此多的编程语言，我们又该如何选择呢？著名黑客Eric Raymond给了我们有说服力的<a href="http://www.catb.org/~esr/faqs/hacker-howto.html#skills1">答案</a>：</p>
+<p>面对如此多的编程语言，我们又该如何选择呢？著名黑客 Eric Raymond 给了我们有说服力的 <a href="http://www.catb.org/~esr/faqs/hacker-howto.html#skills1"> 答案 </a>：</p>
 <p>“It’s best, actually, to learn all five of Python, C/C++, Java, Perl, and LISP. Besides being the most important hacking languages, they represent very different approaches to programming, and each will educate you in valuable ways.”</p>
-<p>没错。虽然说解决问题是最终目的，方法手段有千千万，语言不是关键，思想是最重要的，但是选择语言往往也决定着你的思想，就比如你不太可能去用Python lambda, map, reduce去实现Functional Programming，也不太可能用lisp去写OO程序等等。</p>
+<p>没错。虽然说解决问题是最终目的，方法手段有千千万，语言不是关键，思想是最重要的，但是选择语言往往也决定着你的思想，就比如你不太可能去用 Python lambda, map, reduce 去实现 Functional Programming，也不太可能用 Lisp 去写 OO 程序等等。</p>
 </div>
 
 </div>
 
 <div id="outline-container-6" class="outline-2">
 
-<h2 id="sec-6">6 Learning Resources</h2>
+<h2 id="learning-resources">6 Learning Resources</h2>
 <div id="text-6" class="outline-text-2">
 
-<p>.NET语言并没有C++语言如《The C++ Programming Language》和《C++ Template》这种重量级的传世著作，O’Reilly的<a href="http://book.douban.com/subject/1457194/">《Programmig C#》</a>和<a href="http://book.douban.com/subject/1459239/">《Programming ASP.NET》</a>是非常不错的入门教材了。其余一切国内的中文xx教程、xx精通一虑不要看。</p>
-<p>理解消息循环和Windows事件机制，最经典的莫过于Charles Petzold的<a href="http://book.douban.com/subject/3411191/">《Programming Windows》</a>，我虽然只看过前几章，但已经受益匪浅。</p>
+<p>.NET语言并没有 C++ 语言如《The C++ Programming Language》和《C++ Template》这种重量级的传世著作，O’Reilly的 <a href="http://book.douban.com/subject/1457194/">《Programmig C#》</a>和 <a href="http://book.douban.com/subject/1459239/">《Programming ASP.NET》</a>是非常不错的入门教材了。其余一切国内的中文 xx 教程、xx精通一虑不要看。</p>
+<p>理解消息循环和 Windows 事件机制，最经典的莫过于 Charles Petzold 的 <a href="http://book.douban.com/subject/3411191/">《Programming Windows》</a>，我虽然只看过前几章，但已经受益匪浅。</p>
 <p>最终版的程序就不给了。区区几百行，bug一大堆，丢人的。如果实在有需要参考，可以给我发邮件。xiaohanyu1988@gmail.com。谢谢捧场。</p>
 </div>
 

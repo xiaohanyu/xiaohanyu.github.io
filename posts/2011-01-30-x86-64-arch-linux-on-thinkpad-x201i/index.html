@@ -49,22 +49,23 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>前两天自用的Arch Linux系统出了点小问题，索性重新搞了一下，由i686迁移到x86-64平台。原先一直以为64位系统是高不可攀的贵族产品，后来才知道原来64位处理器最早是由AMD 1999年设计，几年前的Intel Core Duo早已经支持64位系统，只是软件产品和内存还跟不上，所以多数应用还是32位为主。</p>
-<p>OS版本用的是[[<a href="http://linuxtoy.org/archives/arch-linux-2010-05.html" class="uri">http://linuxtoy.org/archives/arch-linux-2010-05.html</a>][Arch Linux 2010.05]]，在mirrors.sohu.com上下载[[<a href="http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso" class="uri">http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso</a>][支持 32 位及 64 位架构的 Dual 映像]]，用UltraISO刻录硬盘镜像到U盘上。基本的安装过程不再赘述，[[<a href="https://wiki.archlinux.org/index.php/Beginners&#39;_Guide" class="uri">https://wiki.archlinux.org/index.php/Beginners'_Guide</a>][ArchWiki Beginner’s Guide]]讲的明明白白。唯一注意的是分区格式化的时候需要格外注意，不要把自己原先的系统搞丢——我曾经有过惨痛的教训，不过幸好那次做了数据备份。不过100G的东西备份还原也是件耗时耗力的工作啊^)^。</p>
-<p>基本系统装好后，装个Desktop Environment，然后再做一下系统美化和针对小黑的特殊配置。过程还是挺繁琐的，因此写下来做个备忘。先上张图，KDE4.6——我承认我越来越浮云了……</p>
+  <section class="twelve wide column"><p>前两天自用的 Arch Linux 系统出了点小问题，索性重新搞了一下，由 i686 迁移到 x86-64 平台。原先一直以为 64 位系统是高不可攀的贵族产品，后来才知道原来 64 位处理器最早是由 AMD 1999 年设计，几年前的 Intel Core Duo 早已经支持 64 位系统，只是软件产品和内存还跟不上，所以多数应用还是 32 位为主。</p>
+<p>OS版本用的是 [[<a href="http://linuxtoy.org/archives/arch-linux-2010-05.html" class="uri">http://linuxtoy.org/archives/arch-linux-2010-05.html</a>][Arch Linux 2010.05]]，在 mirrors.sohu.com 上下载 [[<a href="http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso" class="uri">http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso</a>][ 支持 32 位及 64 位架构的 Dual 映像 ]]，用 UltraISO 刻录硬盘镜像到 U 盘上。基本的安装过程不再赘述，[[<a href="https://wiki.archlinux.org/index.php/Beginners&#39;_Guide" class="uri">https://wiki.archlinux.org/index.php/Beginners'_Guide</a>][ArchWiki Beginner’s Guide]]讲的明明白白。唯一注意的是分区格式化的时候需要格外注意，不要把自己原先的系统搞丢 —— 我曾经有过惨痛的教训，不过幸好那次做了数据备份。不过 100G 的东西备份还原也是件耗时耗力的工作啊 ^)^。</p>
+<p>基本系统装好后，装个 Desktop Environment，然后再做一下系统美化和针对小黑的特殊配置。过程还是挺繁琐的，因此写下来做个备忘。先上张图，KDE4.6——我承认我越来越浮云了 ……</p>
 <p><a href="http://www.kde.org/announcements/4.6/">[[/user<sub>files</sub>/cnlox/Image/screenshots/kde4.6.png</a>]]</p>
-<p>最新的Xorg已经变得十分人性化，再也不需要手工配置恼人的xorg.conf，最新的Linux内核驱动也能自动识别鼠标和键盘，不会再出现进入图形界面却无法使用鼠标键盘的窘境——至少两年前是这样的。有个东西叫做<a href="http://en.wikipedia.org/wiki/Hardware_abstraction_layer">HAL</a>，最近又出来个evdev。总体而言Linux的驱动程序还是比较混乱的，hal、evdev、mesa、xorg、xf86、wayland、alsa、oss、pulseaudio等等，令人头大。</p>
-<p>字体用的是AUR里面打过ubuntu补丁的cairo-ubuntu、libxft-cairo、freetyp2-ubuntu以及WenQuanYi Micro Hei，加上次像素优化，效果还是不错，上图就是最好的说明。</p>
-<p>网络客户端抛弃了废柴的KDE的networkmanager，采用了<a href="http://wicd.sourceforge.net/">wicd</a>，可以根据地点自动链接不同的无线网，而且非常稳定，从不崩溃。安装过程可以参考<a href="https://wiki.archlinux.org/index.php/Wicd">ArchWiki Wicd</a>。关于蓝牙的配置，我用的是bluez和bluedevel，具体可以参考<a href="https://wiki.archlinux.org/index.php/Bluetooth">这里</a>。</p>
-<p>剩下的都是小黑的特别配置。这方面的Wiki配置零零总总，并没有统一的解决方案。<a href="http://www.thinkwiki.org/wiki/ThinkWiki">ThinkWik</a><a href="http://www.thinkwiki.org/wiki/ThinkWiki">i</a>是一个很好的去处，基本可以找到ThinkPad各个型号再主流Linux发行版上的安装配置。不过由此也看出开源软件的弊端——顶级的ThinkPad支持尚且如此繁琐，可见Linux真正要普及还有很长的路要走。废话少说，还是回到x201i上的设置吧。ThinkPad的设置主要有以下几处：</p>
+<p>最新的 Xorg 已经变得十分人性化，再也不需要手工配置恼人的 Xorg.conf，最新的 Linux 内核驱动也能自动识别鼠标和键盘，不会再出现进入图形界面却无法使用鼠标键盘的窘境 —— 至少两年前是这样的。有个东西叫做 <a href="http://en.wikipedia.org/wiki/Hardware_abstraction_layer">HAL</a>，最近又出来个 evdev。总体而言 Linux 的驱动程序还是比较混乱的，hal、evdev、mesa、xorg、xf86、wayland、alsa、oss、pulseaudio等等，令人头大。</p>
+<p>字体用的是 AUR 里面打过 Ubuntu 补丁的 cairo-ubuntu、libxft-cairo、freetyp2-ubuntu以及 WenQuanYi Micro Hei，加上次像素优化，效果还是不错，上图就是最好的说明。</p>
+<p>网络客户端抛弃了废柴的 KDE 的 networkmanager，采用了 <a href="http://wicd.sourceforge.net/">wicd</a>，可以根据地点自动链接不同的无线网，而且非常稳定，从不崩溃。安装过程可以参考 <a href="https://wiki.archlinux.org/index.php/Wicd">ArchWiki Wicd</a>。关于蓝牙的配置，我用的是 bluez 和 bluedevel，具体可以参考 <a href="https://wiki.archlinux.org/index.php/Bluetooth"> 这里 </a>。</p>
+<p>剩下的都是小黑的特别配置。这方面的 Wiki 配置零零总总，并没有统一的解决方案。<a href="http://www.thinkwiki.org/wiki/ThinkWiki">ThinkWik</a><a href="http://www.thinkwiki.org/wiki/ThinkWiki">i</a>是一个很好的去处，基本可以找到 ThinkPad 各个型号再主流 Linux 发行版上的安装配置。不过由此也看出开源软件的弊端 —— 顶级的 ThinkPad 支持尚且如此繁琐，可见 Linux 真正要普及还有很长的路要走。废话少说，还是回到 x201i 上的设置吧。ThinkPad的设置主要有以下几处：</p>
 <ul>
 <li>电池电源控制</li>
-<li>trackpoint小红点</li>
+<li>trackpoint 小红点</li>
 <li>Active Protection System，硬盘保护系统</li>
-<li>风扇控制</li>
+<li><p>风扇控制</p>
+电池的电源控制主要是用来延长电池寿命的。电池的充电次数是有限的，因此减少电池的冲放电次数是演唱电池寿命的关键。tp_smapi是针对 ThinkPad 的一组内核模块，可以通过 AUR(yaourt</li>
 </ul>
-<p>电池的电源控制主要是用来延长电池寿命的。电池的充电次数是有限的，因此减少电池的冲放电次数是演唱电池寿命的关键。tp_smapi是针对ThinkPad的一组内核模块，可以通过AUR(yaourt -S tp_smapi)安装。对电源的保护主要是设置电源的冲放电阀值。比如我们设置[start_charge=40, end_charge=90]，意思就是当电池的电量低于40%的时候才开始充电，而一旦电量到达90%的时候就停止充电。举例说明，当我们野外需要频繁的野外工作时，如果不设置电池的充放电阀值[start_charge, end_charge]，那么我们的电量可能是这样的：95(battery, discharge)–&gt;80(AC power, charge)–&gt;100(battery, discharge)–&gt;70(AC power, charge)–&gt;93(battery, discharge)–&gt;70，而设置[start_charge=40, end_charge=90]后我们的电量变化就是这样的：95(battery, discharge)–&gt;80(AC power, but not charge)–&gt;80(battery, discharge)–&gt;50(AC power, but still not charge since 50 &gt;= 40)–&gt;50(battery, discharge)–&gt;27(If AC power now, charge, since 27 &gt;= 40, charge until battery = 90)。看明白了吗？估计没有。反正我也有点晕。ArchWiki上提供了一个封装的脚本set_bat_thresh：</p>
-<pre class="example"><code>#!/bin/bash
+<p>-S tp_smapi) 安装。对电源的保护主要是设置电源的冲放电阀值。比如我们设置 [start_charge=40, end_charge=90]，意思就是当电池的电量低于 40% 的时候才开始充电，而一旦电量到达 90% 的时候就停止充电。举例说明，当我们野外需要频繁的野外工作时，如果不设置电池的充放电阀值 [start_charge, end_charge]，那么我们的电量可能是这样的：95(battery, discharge)–&gt;80(AC power, charge)–&gt;100(battery, discharge)–&gt;70(AC power, charge)–&gt;93(battery, discharge)–&gt;70，而设置 [start_charge=40, end_charge=90] 后我们的电量变化就是这样的：95(battery, discharge)–&gt;80(AC power, but not charge)–&gt;80(battery, discharge)–&gt;50(AC power, but still not charge since 50 &gt;= 40)–&gt;50(battery, discharge)–&gt;27(If AC power now, charge, since 27 &gt;= 40, charge until battery = 90)。看明白了吗？估计没有。反正我也有点晕。ArchWiki上提供了一个封装的脚本 set_bat_thresh：</p>
+<pre><code>#!/bin/bash
 #
 # Bash script for setting the battery thresholds on ThinkPads using the tp_smapi interface.
 # Written by Ignas Anikevicius (20/03/2010)
@@ -127,22 +128,22 @@ echo -e &quot;\nSetting battery thresholds for Battery ${BAT_N}:
 exit 0;
 </code></pre>
 <p>执行用：</p>
-<pre class="example"><code>set_bat_thresh 0 start_charge end_charge
+<pre><code>set_bat_thresh 0 start_charge end_charge
 </code></pre>
-<p>至于trackpoint小红点，AUR里面有一个trackpoint脚本，用yaourt -S trackpoint安装，安装完毕将trackpoint加到/etc/rc.conf的DAEMONS里面。/etc/conf.d/trackpoint里面可以更改一些设置如：</p>
+<p>至于 trackpoint 小红点，AUR里面有一个 trackpoint 脚本，用 yaourt -S trackpoint 安装，安装完毕将 trackpoint 加到 /etc/rc.conf 的DAEMONS里面。/etc/conf.d/trackpoint里面可以更改一些设置如：</p>
 <ul>
 <li>SPEED: 小红点光标移动速度。</li>
 <li>SENSITIVITY: 小红点敏感度。</li>
 <li>PRESS_TO_SELECT: 小红点单击功能。</li>
 </ul>
-<p>中键模拟用如下的脚本设置下(我也忘了是从哪里找到的了)：</p>
-<pre class="example"><code>xinput set-int-prop &quot;TPPS/2 IBM TrackPoint&quot; &quot;Evdev Wheel Emulation&quot; 8 1
+<p>中键模拟用如下的脚本设置下 ( 我也忘了是从哪里找到的了 )：</p>
+<pre><code>xinput set-int-prop &quot;TPPS/2 IBM TrackPoint&quot; &quot;Evdev Wheel Emulation&quot; 8 1
 xinput set-int-prop &quot;TPPS/2 IBM TrackPoint&quot; &quot;Evdev Wheel Emulation Button&quot; 8 2
 </code></pre>
-<p>硬盘保护(Active Protection System)用的是AUR里面的HDAPS，参看<a href="https://wiki.archlinux.org/index.php/HDAPS">ArchWiki</a>，Applet用的是thinkhdaps，根据需要改下/etc/conf.d/hdapsd里面的设置，效果还不错，抱着笔记本在床上看电影的时候视频会一卡一卡的。</p>
-<p>风扇控制貌似不太不要，而且设置不好会影响散热效果，降低笔记本的寿命。这个功能主要目的貌似是使笔记本更安静些。用的软件包是AUR里面的tpfand和tpfan-admin，tpfand.conf是copy来的，参考<a href="http://forum.ubuntu.org.cn/viewtopic.php?t=286666">这里</a>。用了之后好像也没啥特别的效果。</p>
-<p>最后show下/etc/rc.conf里面的设置，日后重装的时候也好有个参考：</p>
-<pre class="example"><code>#
+<p>硬盘保护 (Active Protection System) 用的是 AUR 里面的 HDAPS，参看 <a href="https://wiki.archlinux.org/index.php/HDAPS">ArchWiki</a>，Applet用的是 thinkhdaps，根据需要改下 /etc/conf.d/hdapsd 里面的设置，效果还不错，抱着笔记本在床上看电影的时候视频会一卡一卡的。</p>
+<p>风扇控制貌似不太不要，而且设置不好会影响散热效果，降低笔记本的寿命。这个功能主要目的貌似是使笔记本更安静些。用的软件包是 AUR 里面的 tpfand 和 tpfan-admin，tpfand.conf是 copy 来的，参考 <a href="http://forum.ubuntu.org.cn/viewtopic.php?t=286666"> 这里 </a>。用了之后好像也没啥特别的效果。</p>
+<p>最后 show 下 /etc/rc.conf里面的设置，日后重装的时候也好有个参考：</p>
+<pre><code>#
 # /etc/rc.conf - Main Configuration for Arch Linux
 #
 
@@ -236,7 +237,7 @@ ROUTES=(!gateway)
 #
 DAEMONS=(@syslog-ng @dbus !hal !network !netfs @acpid @tpfand @crond @hdapsd @laptop-mode @wicd @kdm bluetooth @trackpoint)
 </code></pre>
-<p>大概就这么多吧。都是些琐碎的东西，能用就好了。想想Linux的东西变动如此之快，有些东西是真的不必深究的。比如关于中键模拟有上面的方案，也有改xorg.conf的方案。比如hal这个东西，再比如X Window和未来的<a href="http://wayland.freedesktop.org/">Wayland</a>，比如ext4和<a href="http://en.wikipedia.org/wiki/Btrfs">btrfs</a>。想想自己走的也有些偏了，过于追求工具化的东西，倒是忽略了最本质的知识，如体系结构，算法等等。这就比如户外旅行，总是想方设法装一辆拉风的自行车，却很少去骑车领略旅行的真谛。四年，四年前的我还只会开机关机，四年后的我折腾系统小打小闹颇有一套，最本质的计算机基础却一塌糊涂。希望自己的折腾之旅到此位置吧。接下来的关键词是，lisp、tcp/ip，hadoop。</p>
+<p>大概就这么多吧。都是些琐碎的东西，能用就好了。想想 Linux 的东西变动如此之快，有些东西是真的不必深究的。比如关于中键模拟有上面的方案，也有改 xorg.conf 的方案。比如 hal 这个东西，再比如 X Window 和未来的 <a href="http://wayland.freedesktop.org/">Wayland</a>，比如 ext4 和 <a href="http://en.wikipedia.org/wiki/Btrfs">btrfs</a>。想想自己走的也有些偏了，过于追求工具化的东西，倒是忽略了最本质的知识，如体系结构，算法等等。这就比如户外旅行，总是想方设法装一辆拉风的自行车，却很少去骑车领略旅行的真谛。四年，四年前的我还只会开机关机，四年后的我折腾系统小打小闹颇有一套，最本质的计算机基础却一塌糊涂。希望自己的折腾之旅到此位置吧。接下来的关键词是，lisp、tcp/ip，hadoop。</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">

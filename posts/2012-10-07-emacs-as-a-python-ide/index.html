@@ -49,16 +49,16 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>赋闲脱产的半年里，自己用C++/Java/Lisp胡乱写了几万行的代码，到了现在的公司，给OpenStack项目贴牛皮藓，反倒是Python用得最多。作为公司里面唯一的Emacser（没准也是 公司里JJ最长的吧，<a href="http://www.douban.com/note/232209060/">笑</a>），我一直致力于在Emacs平台上折腾出一套顺手的Python开发环境，所幸有些小心得，付诸纸面，以飨大家。</p>
+  <section class="twelve wide column"><p>赋闲脱产的半年里，自己用 C++/Java/Lisp 胡乱写了几万行的代码，到了现在的公司，给 OpenStack 项目贴牛皮藓，反倒是 Python 用得最多。作为公司里面唯一的 Emacser（没准也是公司里 JJ 最长的吧，<a href="http://www.douban.com/note/232209060/">笑 </a>），我一直致力于在 Emacs 平台上折腾出一套顺手的 Python 开发环境，所幸有些小心得，付诸纸面，以飨大家。</p>
 <p><span id="table-of-contents"></span></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <p><span id="text-table-of-contents"></span></p>
 <ul>
-<li><p><em>1 Python.el的选择</em></p>
+<li><p><em>1 Python.el的选择 </em></p>
 <ul>
-<li><em>1.1 ipython集成</em></li>
+<li><em>1.1 ipython 集成 </em></li>
 </ul></li>
-<li><em>2 Emacs补全：Pymacs和Ropemacs</em></li>
+<li><em>2 Emacs 补全：Pymacs和 Ropemacs</em></li>
 <li><p><em>3 virtualenv</em></p>
 <ul>
 <li><em>3.1 virtualenvwrapper</em></li>
@@ -68,25 +68,25 @@
 </ul>
 <div id="outline-container-1" class="outline-2">
 
-<h2 id="sec-1">1 Python.el的选择</h2>
+<h2 id="python.el-的选择">1 Python.el 的选择</h2>
 <div id="text-1" class="outline-text-2">
 
-<p>Emacs的python-mode有两套，一个是Emacs官方提供的python.el，另外一套是Python社区提供的python-mode.el。不过python.el和python-mode.el都有各种各样的小问题，python.el似乎是无法正确处理python的docstring，而python-mode.el的menu项太过繁杂，而且很多menu无法正确工作。这里用到的python.el来自于<a href="https://github.com/fgallina/python.el" class="uri">https://github.com/fgallina/python.el</a>，细节可以参考水木社区的<a href="http://ar.newsmth.net/thread-4c0bb9b270679d-1.html">讨论</a>。</p>
-<p>安装方法可以参考项目主页的README，我自己针对<a href="https://github.com/dimitri/el-get">el-get</a>做了一个recipe，这样以后更新装卸都会方便很多，recipe如下：</p>
+<p>Emacs 的 Python-mode有两套，一个是 Emacs 官方提供的 Python.el，另外一套是 Python 社区提供的 Python-mode.el。不过 python.el 和 Python-mode.el都有各种各样的小问题，python.el似乎是无法正确处理 Python 的 docstring，而 python-mode.el 的menu项太过繁杂，而且很多 menu 无法正确工作。这里用到的 python.el 来自于 <a href="https://github.com/fgallina/python.el" class="uri">https://github.com/fgallina/python.el</a>，细节可以参考水木社区的 <a href="http://ar.newsmth.net/thread-4c0bb9b270679d-1.html"> 讨论 </a>。</p>
+<p>安装方法可以参考项目主页的 README，我自己针对 <a href="https://github.com/dimitri/el-get">el-get</a> 做了一个 recipe，这样以后更新装卸都会方便很多，recipe如下：</p>
 <div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="bu">:name</span> python
        :website <span class="st">&quot;https://github.com/fgallina/python.el&quot;</span>
        :description <span class="st">&quot;improved python.el from Fabián Ezequiel Gallina&quot;</span>
        <span class="bu">:type</span> github
        :pkgname <span class="st">&quot;fgallina/python.el&quot;</span>)</code></pre></div>
-<p>不过这个patch并没有被el-get接收，限于时间精力，我没有再去细究el-get撰写recipe的规范。</p>
+<p>不过这个 patch 并没有被 el-get 接收，限于时间精力，我没有再去细究 el-get 撰写 recipe 的规范。</p>
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
 
-<h3 id="sec-1-1">1.1 ipython集成</h3>
+<h3 id="ipython集成">1.1 ipython集成</h3>
 <div id="text-1-1" class="outline-text-3">
 
-<p>交互式的开发是python/ruby/lisp这类动态语言的重要特性，它让程序员从“编码-编译-运行-调试“的程序开发工程链中解放出来，从老旧的批处理是开发过渡到现代的交互式开发。如果你用过<a href="http://v.youku.com/v_show/id_XMjYxNjM4MDQ0.html">slime</a>，你就会知道，交互式的开发不仅仅是一种开发模式，slime也不仅仅是一种工具，而是一种编程的革命。Emacs集成ipython，虽然没有slime那么强大，但是对于提高开发效率还是有莫大的帮助的。幸运的是，fgalling/python.el是支持ipython的。关于fgalling/python.el的参考设置如下：</p>
+<p>交互式的开发是 python/ruby/lisp 这类动态语言的重要特性，它让程序员从“编码 - 编译 - 运行 - 调试“的程序开发工程链中解放出来，从老旧的批处理是开发过渡到现代的交互式开发。如果你用过 <a href="http://v.youku.com/v_show/id_XMjYxNjM4MDQ0.html">slime</a>，你就会知道，交互式的开发不仅仅是一种开发模式，slime也不仅仅是一种工具，而是一种编程的革命。Emacs集成 ipython，虽然没有 SLIME 那么强大，但是对于提高开发效率还是有莫大的帮助的。幸运的是，fgalling/python.el是支持 ipython 的。关于 fgalling/python.el 的参考设置如下：</p>
 <div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(add-to-list &#39;load-path (expand-file-name                                                                        
                          <span class="st">&quot;~/.emacs.d/el-get/python&quot;</span>))                                                            
 (<span class="kw">require</span> &#39;python)                                                                                                
@@ -104,8 +104,8 @@
  <span class="st">&quot;&#39;;&#39;.join(get_ipython().Completer.all_completions(&#39;&#39;&#39;%s&#39;&#39;&#39;))</span>\n<span class="st">&quot;</span>)</code></pre></div>
 <p>常用快捷键：</p>
 <ul>
-<li>C-c C-z: (python-shell-switch-to-shell)，切换至ipython解释器</li>
-<li>C-c C-c: (python-shell-send-buffer &amp;optional ARG)，发送整个buffer内容到ipython解释器运行</li>
+<li>C-c C-z: (python-shell-switch-to-shell)，切换至 ipython 解释器</li>
+<li>C-c C-c: (python-shell-send-buffer &amp;optional ARG)，发送整个 buffer 内容到 ipython 解释器运行</li>
 </ul>
 </div>
 
@@ -115,18 +115,18 @@
 
 <div id="outline-container-2" class="outline-2">
 
-<h2 id="sec-2">2 Emacs补全：Pymacs和Ropemacs</h2>
+<h2 id="emacs-补全pymacs和-ropemacs">2 Emacs 补全：Pymacs和 Ropemacs</h2>
 <div id="text-2" class="outline-text-2">
 
-<p>语言补全一直是Vim/Emacs这类上古“IDE”的弱项，每种语言都有自己的补全插件、配置方法和版本差异，而网上资料、特别是中文资料，或是陈旧潦草，或是语焉不详，常常让初学者们不知所措。本文所载内容恐怕两年左右就会过时，诸位看官高贤注意鉴别……</p>
-<p>Emacs下的通用补全插件大概就是<a href="http://cx4a.org/software/auto-complete">auto-complete</a>和<a href="http://capitaomorte.github.com/yasnippet/">yasnippet</a>了，前者可以做出基于buffer分词的补全，后者可以基于特定编程语言语法结构的补全。不过基于语义的补全，Emacs+Python下用的是pymacs和ropemacs。需要安装的有</p>
+<p>语言补全一直是 Vim/Emacs 这类上古 “IDE” 的弱项，每种语言都有自己的补全插件、配置方法和版本差异，而网上资料、特别是中文资料，或是陈旧潦草，或是语焉不详，常常让初学者们不知所措。本文所载内容恐怕两年左右就会过时，诸位看官高贤注意鉴别 ……</p>
+<p>Emacs 下的通用补全插件大概就是 <a href="http://cx4a.org/software/auto-complete">auto-complete</a> 和 <a href="http://capitaomorte.github.com/yasnippet/">yasnippet</a>了，前者可以做出基于 buffer 分词的补全，后者可以基于特定编程语言语法结构的补全。不过基于语义的补全，Emacs+Python下用的是 pymacs 和 ropemacs。需要安装的有</p>
 <ul>
 <li>pymacs</li>
 <li>rope</li>
 <li>ropemacs</li>
-<li>ropemode</li>
+<li><p>ropemode</p>
+<p>以上均可通过 el-get 安装。如若使用过程中出现莫名问题，不要纠缠，有可能是版本问题，无妨试验下用 apt-get/pacman/yum 安装。我本机上的配置如下：</p></li>
 </ul>
-<p>以上均可通过el-get安装。如若使用过程中出现莫名问题，不要纠缠，有可能是版本问题，无妨试验下用apt-get/pacman/yum安装。我本机上的配置如下：</p>
 <div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span class="co">;;; pymacs, rope and ropemacs</span>
 (add-to-list &#39;load-path <span class="st">&quot;~/.emacs.d/el-get/pymacs&quot;</span>)
 (<span class="kw">require</span> &#39;pymacs)
@@ -149,35 +149,33 @@
 
 <div id="outline-container-3" class="outline-2">
 
-<h2 id="sec-3">3 virtualenv</h2>
+<h2 id="virtualenv">3 virtualenv</h2>
 <div id="text-3" class="outline-text-2">
 
-<p><a href="http://www.virtualenv.org/en/latest/index.html">virtualenv</a>是Python的sandbox（沙盒）。那么什么是sandbox呢？</p>
+<p><a href="http://www.virtualenv.org/en/latest/index.html">virtualenv</a>是 Python 的 sandbox（沙盒）。那么什么是 sandbox 呢？</p>
 <p>在日常开发中我们常常碰到这样的场景：</p>
 <ul>
-<li>需要针对不同的python library做测试（兼容性、性能等）</li>
-<li>需要多人共享一台开发机</li>
+<li>需要针对不同的 python library 做测试（兼容性、性能等）</li>
+<li><p>需要多人共享一台开发机</p>
+<p>可是：</p></li>
+<li>并不是所有人都有向系统 PYTHONPATH 安装 python library 的权限</li>
+<li><p>我们常常需要同时安装多个不同版本的 python library</p>
+<p>而virtualenv通过一些脚本，通过软连接和修改环境变量的方式，提供了一个轻量级的虚拟 Python 环境，在这里面个人可以按照自己意愿任意装卸配置 library，也可以针对不同版本的 library 创建不同的 virtualenv，方便的很。</p></li>
 </ul>
-<p>可是：</p>
-<ul>
-<li>并不是所有人都有向系统PYTHONPATH安装python library的权限</li>
-<li>我们常常需要同时安装多个不同版本的python library</li>
-</ul>
-<p>而virtualenv通过一些脚本，通过软连接和修改环境变量的方式，提供了一个轻量级的虚拟python环境，在这里面个人可以按照自己意愿任意装卸配置library，也可以针对不同版本的library创建不同的virtualenv，方便的很。</p>
 </div>
 
 <div id="outline-container-3-1" class="outline-3">
 
-<h3 id="sec-3-1">3.1 virtualenvwrapper</h3>
+<h3 id="virtualenvwrapper">3.1 virtualenvwrapper</h3>
 <div id="text-3-1" class="outline-text-3">
 
-<p>virtualenv默认是在当前目录下建立一个.venv目录，但是这样有一个问题，就是virtualenv本身的管理很不方便，因为需要记忆不同的.venv的存放位置、具体用途等等。<a href="http://www.doughellmann.com/projects/virtualenvwrapper/">virtualenvwrapper</a>则通过一些python和shell脚本，在virtualenv的基础上建立了一层抽象，实现了对virtualenv本身的统一管理。virtualenvwrapper会默认在$HOME/.virtualenvs目录下创建所有的virtualenv。</p>
-<p>virtualenv和virtualenvwrapper均可以通过python pip安装：</p>
+<p>virtualenv默认是在当前目录下建立一个 .venv 目录，但是这样有一个问题，就是 virtualenv 本身的管理很不方便，因为需要记忆不同的 .venv 的存放位置、具体用途等等。<a href="http://www.doughellmann.com/projects/virtualenvwrapper/">virtualenvwrapper</a>则通过一些 Python 和shell脚本，在 virtualenv 的基础上建立了一层抽象，实现了对 virtualenv 本身的统一管理。virtualenvwrapper会默认在 $HOME/.virtualenvs 目录下创建所有的 virtualenv。</p>
+<p>virtualenv和 virtualenvwrapper 均可以通过 python pip 安装：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">pip</span> install virtualenv virtualenvwrapper</code></pre></div>
 <p>常用命令：</p>
 <ul>
-<li>mkvirtualenv venv_name: 建立一个新的virtualenv，</li>
-<li>workon venv_name: 切换到venv_name这个virtualenv</li>
+<li>mkvirtualenv venv_name: 建立一个新的 virtualenv，</li>
+<li>workon venv_name: 切换到 venv_name 这个 virtualenv</li>
 </ul>
 </div>
 
@@ -185,10 +183,10 @@
 
 <div id="outline-container-3-2" class="outline-3">
 
-<h3 id="sec-3-2">3.2 virtualenv.el</h3>
+<h3 id="virtualenv.el">3.2 virtualenv.el</h3>
 <div id="text-3-2" class="outline-text-3">
 
-<p><a href="https://github.com/aculich/virtualenv.el">virtualenv.el</a>可以配合Emacs集成virtualenv，可以通过el-get安装。virtualenv.el需要virtualenv和virtualenvwrapper。</p>
+<p><a href="https://github.com/aculich/virtualenv.el">virtualenv.el</a> 可以配合 Emacs 集成 virtualenv，可以通过 el-get 安装。virtualenv.el需要 virtualenv 和 virtualenvwrapper。</p>
 <p>配置：</p>
 <div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span class="co">;; virtualenv support</span>
 (add-to-list &#39;load-path (expand-file-name
@@ -196,7 +194,7 @@
 (<span class="kw">require</span> &#39;virtualenv)</code></pre></div>
 <p>常用命令：</p>
 <ul>
-<li>M-x virtualenv-workon: 切换virtualenv</li>
+<li>M-x virtualenv-workon: 切换 virtualenv</li>
 </ul>
 </div>
 
@@ -206,24 +204,24 @@
 
 <div id="outline-container-4" class="outline-2">
 
-<h2 id="sec-4">4 Miscs</h2>
+<h2 id="miscs">4 Miscs</h2>
 <div id="text-4" class="outline-text-2">
 
-<p>一些hook设置:</p>
+<p>一些 hook 设置 :</p>
 <div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(add-hook &#39;python-mode-hook
           (<span class="kw">lambda</span> ()
             (ropemacs-mode)
             (global-set-key (kbd <span class="st">&quot;RET&quot;</span>) &#39;newline-and-indent)
             (auto-fill-mode <span class="dv">1</span>)
             (virtualenv-minor-mode <span class="dv">1</span>)))</code></pre></div>
-<p>除了以上，Emacs中和Python开发有关的插件还可以有pylint、pep8、pyflakes等，参考文章：</p>
+<p>除了以上，Emacs中和 Python 开发有关的插件还可以有 pylint、pep8、pyflakes等，参考文章：</p>
 <ul>
 <li><a href="http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/">Configuring Emacs as a Python IDE</a></li>
 <li><a href="http://www.enigmacurry.com/2008/05/09/emacs-as-a-powerful-python-ide/">Emacs as a powerful Python IDE</a></li>
 <li><a href="http://hide1713.wordpress.com/2009/01/30/setup-perfect-python-environment-in-emacs/">Setup Perfect Python Environment In Emacs</a></li>
 <li><a href="http://www.saltycrane.com/blog/2010/05/my-emacs-python-environment/">My Emacs Python environment</a></li>
 </ul>
-<p>以上，抛砖引玉，希望能够对刚刚接触Linux/Python/Emacs的朋友有些许帮助。</p>
+<p>以上，抛砖引玉，希望能够对刚刚接触 Linux/Python/Emacs 的朋友有些许帮助。</p>
 </div>
 
 </div>

@@ -155,12 +155,6 @@ img {
   margin-left: -0.1667rem;
   margin-right: -0.125rem; }
 
-.tex,
-.latex,
-.tex sub,
-.latex sub {
-  font-size: 1rem; }
-
 /* disqus comment div */
 #disqus_thread {
   margin-top: 2rem; }

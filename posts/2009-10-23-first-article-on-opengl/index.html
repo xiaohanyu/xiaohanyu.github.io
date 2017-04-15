@@ -53,7 +53,7 @@
               <section class="twelve wide column">
                 <p><img src="file:///user_files/cnlox/Image/opengl/program2.jpeg" /></p>
                 <p>还是蛮漂亮的。</p>
-                <p>linux的opengl的开发配置可以参见<a href="http://hi.baidu.com/xoxoxo/blog/item/01b1a76e94a525d381cb4aaa.html">这篇文章</a>。还是蛮简单的。开发环境和程序的完成大概用了一下午的时间。不过我现在还不太opengl和mesa, freeglut之间到底是啥关系。不管了。先用着吧。archlinux下的开发配置非常简单：</p>
+                <p>linux的 OpenGL 的开发配置可以参见 <a href="http://hi.baidu.com/xoxoxo/blog/item/01b1a76e94a525d381cb4aaa.html"> 这篇文章 </a>。还是蛮简单的。开发环境和程序的完成大概用了一下午的时间。不过我现在还不太 OpenGL 和 Mesa, freeglut之间到底是啥关系。不管了。先用着吧。archlinux下的开发配置非常简单：</p>
                 <div class="hl_result">
                 
                 <div class="bash"
@@ -64,7 +64,7 @@
                 
                 </div>
                 
-                <p> 源代码如下：</p>
+                <p>源代码如下：</p>
                 <div class="hl_result">
                 
                 <div class="c"
@@ -81,63 +81,63 @@
                 <br />
                 void redraw()<br />
                 {<br />
-                    double origin[] = {0.0, 0.0};<br />
-                    double colorMode1[6][3] = {       //六角星最外层顶点各自的颜色<br />
-                        {1, 0, 0},<br />
-                        {1, 1, 0},<br />
-                        {0, 1, 0},<br />
-                        {0, 1, 1},<br />
-                        {0, 0, 1},<br />
-                        {1, 0, 1}<br />
-                    };<br />
+                double origin[] = {0.0, 0.0};<br />
+                double colorMode1[6][3] = { //六角星最外层顶点各自的颜色<br />
+                {1, 0, 0},<br />
+                {1, 1, 0},<br />
+                {0, 1, 0},<br />
+                {0, 1, 1},<br />
+                {0, 0, 1},<br />
+                {1, 0, 1}<br />
+                };<br />
                 <br />
-                    double colorMode2[6][3] = {       //六角星内层顶点各自的颜色<br />
-                        {1, 0.5, 0},<br />
-                        {0.5, 1, 0},<br />
-                        {0, 1, 0.5},<br />
-                        {0, 0.5, 1},<br />
-                        {0.5, 0, 1},<br />
-                        {1, 0, 0.5}<br />
-                    };<br />
-                   <br />
-                    glClear(GL_COLOR_BUFFER_BIT);<br />
-                    int i;<br />
-                    for (i = 0; i &lt; 6; ++i)          //  把这个凹多边形分解成为六个菱形旋转变换组合而成，通过给每个顶点设定不同的颜色达到颜色渐变的效果<br />
-                    {<br />
-                        glBegin(GL_POLYGON);<br />
-                        glColor3f(colorMode1[i][0], colorMode1[i][1], colorMode1[i][2]);<br />
-                        glVertex2d((R * cos(PI / 2 + (i * PI) / 3)), R * sin(PI / 2 + (i</p>
+                double colorMode2[6][3] = { <em>/ 六角星内层顶点各自的颜色<br />
+                {1, 0.5, 0},<br />
+                {0.5, 1, 0},<br />
+                {0, 1, 0.5},<br />
+                {0, 0.5, 1},<br />
+                {0.5, 0, 1},<br />
+                {1, 0, 0.5}<br />
+                };<br />
+                <br />
+                glClear(GL_COLOR_BUFFER_BIT);<br />
+                int i;<br />
+                for (i = 0; i &lt; 6; ++i) /</em> 把这个凹多边形分解成为六个菱形旋转变换组合而成，通过给每个顶点设定不同的颜色达到颜色渐变的效果<br />
+                {<br />
+                glBegin(GL_POLYGON);<br />
+                glColor3f(colorMode1[i][0], colorMode1[i][1], colorMode1[i][2]);<br />
+                glVertex2d((R * cos(PI / 2 + (i * PI) / 3)), R * sin(PI / 2 + (i</p>
                 <h1 id="pi-3-glcolor3fcolormode2i-5-60-colormode2i-5">PI) / 3));<br />
-                        glColor3f(colorMode2[(i + 5) % 6][0], colorMode2[(i + 5) %</h1>
+                glColor3f(colorMode2[(i + 5) % 6][0], colorMode2[(i + 5) %</h1>
                 <p>6][1], colorMode2[(i + 5) % 6][2]);<br />
-                        glVertex2d(r * cos(PI / 3 + (i * PI) / 3), r * sin(PI / 3 + (i * PI) / 3));<br />
-                        glColor3f(1.0f, 1.0f, 1.0f);<br />
-                        glVertex2dv(origin);<br />
-                        glColor3f(colorMode2[i][0], colorMode2[i][1], colorMode2[i][2]);<br />
-                        glVertex2d(r * cos(2 * PI / 3 + (i * PI) /3), r * sin(2 * PI / 3</p>
+                glVertex2d(r * cos(PI / 3 + (i * PI) / 3), r * sin(PI / 3 + (i * PI) / 3));<br />
+                glColor3f(1.0f, 1.0f, 1.0f);<br />
+                glVertex2dv(origin);<br />
+                glColor3f(colorMode2[i][0], colorMode2[i][1], colorMode2[i][2]);<br />
+                glVertex2d(r * cos(2 * PI / 3 + (i * PI) /3), r * sin(2 * PI / 3</p>
                 <ul>
                 <li>(i * PI) / 3));<br />
+                glEnd();<br />
+                }<br />
+                glutSwapBuffers();<br />
                 </li>
                 </ul>
-                <p>        glEnd();<br />
-                    }<br />
-                    glutSwapBuffers();<br />
-                }<br />
+                <p>}<br />
                 <br />
-                int main (int argc,  char *argv[])<br />
+                int main (int argc, char *argv[])<br />
                 {<br />
-                    glutInit(&amp;argc, argv);<br />
-                    glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);<br />
-                    int windowHandle<br />
-                        = glutCreateWindow(“Simple GLUT App”);<br />
+                glutInit(&amp;argc, argv);<br />
+                glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);<br />
+                int windowHandle<br />
+                = glutCreateWindow(“Simple GLUT App”);<br />
                 <br />
-                    glutDisplayFunc(redraw);<br />
+                glutDisplayFunc(redraw);<br />
                 <br />
-                    glutMainLoop();<br />
+                glutMainLoop();<br />
                 <br />
-                    return 0;<br />
+                return 0;<br />
                 }<br />
-                 </p>
+                </p>
                 </div>
                 
                 </div>
@@ -153,7 +153,6 @@
                 
                 </div>
                 
-                <p> </p>
                 
                 <div class="ui divider"></div>
                 <div class="ui small one item menu">

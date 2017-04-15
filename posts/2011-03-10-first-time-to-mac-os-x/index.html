@@ -51,31 +51,31 @@
             </header>
             <div class="row article-body">
               <section class="twelve wide column">
-                <p>3月1号回到玉泉，处理了许多杂事，找导师沟通了下毕业设计的问题。沟通的最终结果就是我又被发配到了手机客户端组，继续做GUI控件。事实上我最开始选的题目是《海量空间数据的高性能引擎研究》，我还是挺喜欢这个方向的，而且与我在Baidu的实习以及日后的工作都有很大的关联性。但是导师一句“题目较难，时间不够”就把我噎了回来，紧接着来一句“我还是希望你能够做一些连续性的工作”——就是去年四月份实验室做的<a href="http://cnlox.is-programmer.com/posts/17595.html">Windows Mobile控件开发</a>了。其实我是非常不喜欢这个项目的。对于一个崇尚自由、分享的Open Source Programmer来说，用着盗版的Windows+VS，盗用Open Source的成果来开发闭源软件，实实在在是一件不怎么惬意的事情——老实说我也算不上合格的Open Source Programmer，因为我至今也没有自己的Open Source软件。其次是我越来越讨厌关于Windows的一切，无论是作为一个User还是Programmer。我最近正计划着写一系列的Windows吐嘈文，构思良久，即将面世。</p>
-                <p>只不过这次不同，我所面对的不再是Windows Mobile，而是——iOS。</p>
-                <p>How？这是我脑子里最先冒出的想法——How to write an Win32-Styled GUI program under Windows(or maybe Linux) platform for iOS？我战战兢兢地问了下学长“实验室有苹果机吗？”，答曰“没有，用虚拟机”。</p>
-                <p>Oh，my god。在Windows平台上运行着虚拟机，在虚拟机里面运行着Mac OS X，在Mac OS X里面运行Xcode，在Xcode写Win32-Styled Program，然后将这个Win32-Styled的Program Load到虚拟机里面的Mac OS X里面的Xcode IDE里面的iOS模拟器上，调试！！！</p>
+                <p>3月 1 号回到玉泉，处理了许多杂事，找导师沟通了下毕业设计的问题。沟通的最终结果就是我又被发配到了手机客户端组，继续做 GUI 控件。事实上我最开始选的题目是《海量空间数据的高性能引擎研究》，我还是挺喜欢这个方向的，而且与我在 Baidu 的实习以及日后的工作都有很大的关联性。但是导师一句“题目较难，时间不够”就把我噎了回来，紧接着来一句“我还是希望你能够做一些连续性的工作”——就是去年四月份实验室做的 <a href="http://cnlox.is-programmer.com/posts/17595.html">Windows Mobile 控件开发 </a> 了。其实我是非常不喜欢这个项目的。对于一个崇尚自由、分享的 Open Source Programmer 来说，用着盗版的 Windows+VS，盗用 Open Source 的成果来开发闭源软件，实实在在是一件不怎么惬意的事情 —— 老实说我也算不上合格的 Open Source Programmer，因为我至今也没有自己的 Open Source 软件。其次是我越来越讨厌关于 Windows 的一切，无论是作为一个 User 还是 Programmer。我最近正计划着写一系列的 Windows 吐嘈文，构思良久，即将面世。</p>
+                <p>只不过这次不同，我所面对的不再是 Windows Mobile，而是 ——iOS。</p>
+                <p>How？这是我脑子里最先冒出的想法 ——How to write an Win32-Styled GUI program under Windows(or maybe Linux) platform for iOS？我战战兢兢地问了下学长“实验室有苹果机吗？”，答曰“没有，用虚拟机”。</p>
+                <p>Oh，my god。在 Windows 平台上运行着虚拟机，在虚拟机里面运行着 Mac OS X，在 Mac OS X 里面运行 Xcode，在 Xcode 写 Win32-Styled Program，然后将这个 Win32-Styled 的Program Load到虚拟机里面的 Mac OS X 里面的 Xcode IDE 里面的 iOS 模拟器上，调试！！！</p>
                 <p>What a Joke！</p>
-                <p>不过，吐槽归吐槽，活儿还是要干。鉴于前两次<a href="http://www.hackintosh.com/">Hacintosh</a>的惨痛经历，所以这才在也不敢在自己精心调制好的ThinkPad x201i上为所欲为，还是乖乖的虚拟机的好。幸好前两天买了根三星金条，武装到了4G内存，否则还真不敢想象在虚拟机里面玩Leopard。</p>
-                <p>高级的虚拟机咱不懂，所以诸如<a href="http://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine">KVM</a>，<a href="http://www.xen.org/">Xen</a>就不在考虑之列了。剩下的，最开始接触电脑时玩的[[<a href="http://www.microsoft.com/windows/virtual-pc/" class="uri">http://www.microsoft.com/windows/virtual-pc/</a>][Microsoft Virtual PC]]，不知道现在活的怎么样。VMware，大概是三年前用过，印象就是臃肿，慢。VirtualBox，我的最爱，开源、免费、跨平台、轻量快捷。所以VirtualBox是试验的首选环境。</p>
-                <p>不过Mac平台的封闭性带来一个众人皆知的事实，那就是Hacintosh的成功性与人品——也无关，我的意思是说，Hacintosh的成功与否完全是莫名其妙的事情，无论是虚拟机还是实体机，能否Hacintosh，要看上帝的心情。</p>
-                <p>Hacintosh的版本有很多，比如东皇、iATKOS、iDeneb、OSXPCBETA等等，boot loader也有若干种方案，比如变色龙、EFI Emulation等等，个中详细可以参考<a href="http://en.wikipedia.org/wiki/OSx86">OSx86</a>。而由这些基本“元件”排列组合出来的网上作为“PC变Mac”的方案更是五花八门，让人目不暇接。照理说，对各种硬件的良好支持是一个OS安身立命的最基本条件，至于Mac如何在违背这个基本原则下打拼出自己的逍遥天地，容我另外一篇文章再做分析。</p>
-                <p>好了，回到正题，继续我的Mac OS X遭遇记。我按照<a href="http://blog.zhaojie.me/2010/09/how-to-install-mac-os-x-snow-leopard-on-virtualbox.html">老赵点滴</a>上的指示在我的ArchLinux+VirtualBox 4.0上做实验，前面都是很顺利的，也出现了下面的Kernel panic情况：</p>
+                <p>不过，吐槽归吐槽，活儿还是要干。鉴于前两次 <a href="http://www.hackintosh.com/">Hacintosh</a> 的惨痛经历，所以这才在也不敢在自己精心调制好的 ThinkPad x201i 上为所欲为，还是乖乖的虚拟机的好。幸好前两天买了根三星金条，武装到了 4G 内存，否则还真不敢想象在虚拟机里面玩 Leopard。</p>
+                <p>高级的虚拟机咱不懂，所以诸如 <a href="http://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine">KVM</a>，<a href="http://www.xen.org/">Xen</a>就不在考虑之列了。剩下的，最开始接触电脑时玩的 [[<a href="http://www.microsoft.com/windows/virtual-pc/" class="uri">http://www.microsoft.com/windows/virtual-pc/</a>][Microsoft Virtual PC]]，不知道现在活的怎么样。VMware，大概是三年前用过，印象就是臃肿，慢。VirtualBox，我的最爱，开源、免费、跨平台、轻量快捷。所以 VirtualBox 是试验的首选环境。</p>
+                <p>不过 Mac 平台的封闭性带来一个众人皆知的事实，那就是 Hacintosh 的成功性与人品 —— 也无关，我的意思是说，Hacintosh的成功与否完全是莫名其妙的事情，无论是虚拟机还是实体机，能否 Hacintosh，要看上帝的心情。</p>
+                <p>Hacintosh的版本有很多，比如东皇、iATKOS、iDeneb、OSXPCBETA等等，boot loader也有若干种方案，比如变色龙、EFI Emulation等等，个中详细可以参考 <a href="http://en.wikipedia.org/wiki/OSx86">OSx86</a>。而由这些基本“元件”排列组合出来的网上作为“PC变 Mac”的方案更是五花八门，让人目不暇接。照理说，对各种硬件的良好支持是一个 OS 安身立命的最基本条件，至于 Mac 如何在违背这个基本原则下打拼出自己的逍遥天地，容我另外一篇文章再做分析。</p>
+                <p>好了，回到正题，继续我的 Mac OS X 遭遇记。我按照 <a href="http://blog.zhaojie.me/2010/09/how-to-install-mac-os-x-snow-leopard-on-virtualbox.html"> 老赵点滴 </a> 上的指示在我的 ArchLinux+VirtualBox 4.0 上做实验，前面都是很顺利的，也出现了下面的 Kernel panic 情况：</p>
                 <p><img src="file:///user_files/cnlox/Image/mac/mac_vbox5.png" /></p>
-                <p>按照教程，重启之后就可以进入期盼的Leopard，可是我却陷入了无限的灰色风火轮等待中。重整多番，调整了多组参数，均以失败告终。</p>
-                <p>于是转投<a href="http://www.vmware.com/">VMware</a>，我按照VMware的要求，下载了300+M的VMware7.1的bundle，按照<a href="https://wiki.archlinux.org/index.php/VMware">ArchWiki</a>上的步骤，成功装上了VMware，但是确始终启动不起来。无奈，转投Windows吧。之所以坚持Linux，是因为我需要LaTeX，我需要Emacs+Auctex+cdlatex+outline-mode来完成我的毕业论文啊。</p>
-                <p>好在Windows下的VMware还算正常，安装过程也算顺利，我就不在细说了。具体过程可以参考《<a href="http://blog.csdn.net/zhanglei5415/archive/2010/12/22/6091717.aspx">VMWare下安装MAC OS X Snow Leopard 10.6</a>》，需要注意的主要是：</p>
+                <p>按照教程，重启之后就可以进入期盼的 Leopard，可是我却陷入了无限的灰色风火轮等待中。重整多番，调整了多组参数，均以失败告终。</p>
+                <p>于是转投 <a href="http://www.vmware.com/">VMware</a>，我按照 VMware 的要求，下载了 300+M 的 VMware7.1的 bundle，按照 <a href="https://wiki.archlinux.org/index.php/VMware">ArchWiki</a> 上的步骤，成功装上了 VMware，但是确始终启动不起来。无奈，转投 Windows 吧。之所以坚持 Linux，是因为我需要 LaTeX，我需要 Emacs+Auctex+cdlatex+outline-mode 来完成我的毕业论文啊。</p>
+                <p>好在 Windows 下的 VMware 还算正常，安装过程也算顺利，我就不在细说了。具体过程可以参考《<a href="http://blog.csdn.net/zhanglei5415/archive/2010/12/22/6091717.aspx">VMWare下安装 MAC OS X Snow Leopard 10.6</a>》，需要注意的主要是：</p>
                 <ul>
-                <li>安装之前用<a href="http://www.grc.com/securable.htm">securAble</a>检测下CPU是否支持虚拟化；</li>
-                <li>内存至少1G，最好主机配上4G内存，而VMware配上2G内存，否则慢起来很要命，如果搞开发，硬盘最好20G以上；</li>
-                <li>注意修改VMware目录下的.vmx下的guestOS由guestOS = “freebsd-64”改为guestOS = “darwin10”；</li>
-                <li>启动时始终需要darwin.iso来引导；</li>
-                <li>成功安装系统后安装darwin.iso里面的vmtools，获得更好地使用体验；</li>
+                <li>安装之前用 <a href="http://www.grc.com/securable.htm">securAble</a> 检测下 CPU 是否支持虚拟化；</li>
+                <li>内存至少 1G，最好主机配上 4G 内存，而 VMware 配上 2G 内存，否则慢起来很要命，如果搞开发，硬盘最好 20G 以上；</li>
+                <li>注意修改 VMware 目录下的 .vmx 下的 guestOS 由 guestOS = “freebsd-64”改为 guestOS = “darwin10”；</li>
+                <li>启动时始终需要 darwin.iso 来引导；</li>
+                <li>成功安装系统后安装 darwin.iso 里面的 vmtools，获得更好地使用体验；</li>
                 </ul>
                 <p>放张图吧：</p>
                 <p><img src="file:///user_files/cnlox/Image/mac/vmware_mac.png" /></p>
-                <p>顺便感叹下，VMware的虚拟化技术还真是强大，2G虚拟内存跑Mac OS X，速度还真是不赖，界面效果也都能跑的出来。如果再弄个分屏软件，再插上一个LCD的液晶屏，就真是两个系统了。</p>
-                <p>至于Xcode和iOS SDK的安装就简单很多了，可能需要做一次系统升级。至于iOS上如何写Win32-Style的GUI程序，我现在也是丈二的和尚。至于额外的Macintosh吐槽文，还是等以后心情不错的时候再写吧。</p>
+                <p>顺便感叹下，VMware的虚拟化技术还真是强大，2G虚拟内存跑 Mac OS X，速度还真是不赖，界面效果也都能跑的出来。如果再弄个分屏软件，再插上一个 LCD 的液晶屏，就真是两个系统了。</p>
+                <p>至于 Xcode 和iOS SDK的安装就简单很多了，可能需要做一次系统升级。至于 iOS 上如何写 Win32-Style 的GUI程序，我现在也是丈二的和尚。至于额外的 Macintosh 吐槽文，还是等以后心情不错的时候再写吧。</p>
                 
                 <div class="ui divider"></div>
                 <div class="ui small one item menu">

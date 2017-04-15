@@ -49,10 +49,10 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>大概是从去年年初开始认真的写作。怎奈认真的写作有如雕刻，每次写作少则四五个小时，多则十几个小时，极耗体力，因此再不敢轻易提笔。两周前的一篇文章，更是在机缘巧合之下将鄙人推向了舆论的风口浪尖，至今想起来依然心有余悸。写的人累，想必读的人应该也不会太轻松。值此新春佳节，特奉上一篇“技术小品文”，奢望读者百忙之中施舍一笑^~<sup>。</sup></p>
-<p>想象一下，如果把一整部电影压缩成一张图片，那会是怎样壮观的场景？有点迫不急待？看看<a href="http://moviebarcode.tumblr.com/">这里</a>，梯子在<a href="http://moviebarcode.tumblr.com/">这里</a>。</p>
-<p>是不是想动手尝试下了？可是有这样的软件吗？我没找到。于是唯一的办法就是自己动手，丰衣足食了。代码在<a href="https://github.com/xiaohanyu/moviebarcode">这里</a>，依赖Linux/ffmpeg/bc/graphicsmagick。运行过程中需要保证5G以上的可用磁盘空间。转换耗时约30分钟，视电影时长而定。</p>
-<pre class="example"><code>#!/usr/bin/env bash
+  <section class="twelve wide column"><p>大概是从去年年初开始认真的写作。怎奈认真的写作有如雕刻，每次写作少则四五个小时，多则十几个小时，极耗体力，因此再不敢轻易提笔。两周前的一篇文章，更是在机缘巧合之下将鄙人推向了舆论的风口浪尖，至今想起来依然心有余悸。写的人累，想必读的人应该也不会太轻松。值此新春佳节，特奉上一篇“技术小品文”，奢望读者百忙之中施舍一笑 ^~<sup>。</sup></p>
+<p>想象一下，如果把一整部电影压缩成一张图片，那会是怎样壮观的场景？有点迫不急待？看看 <a href="http://moviebarcode.tumblr.com/"> 这里 </a>，梯子在 <a href="http://moviebarcode.tumblr.com/"> 这里 </a>。</p>
+<p>是不是想动手尝试下了？可是有这样的软件吗？我没找到。于是唯一的办法就是自己动手，丰衣足食了。代码在 <a href="https://github.com/xiaohanyu/moviebarcode"> 这里 </a>，依赖 Linux/ffmpeg/bc/graphicsmagick。运行过程中需要保证 5G 以上的可用磁盘空间。转换耗时约 30 分钟，视电影时长而定。</p>
+<pre><code>#!/usr/bin/env bash
 
 ################################################################################
 # Usage:    A script to convert a movie to a movebarcode
@@ -106,7 +106,7 @@ if [ -e $(which xdg-open) ]; then
     xdg-open result3.png
 fi
 </code></pre>
-<p>代码逻辑很少，先是通过ffmpeg进行截图，然后用graphicsmagick进行图片的接合、缩放和模糊处理，最后清扫战场，删除一些临时文件，就这么简单。最后，奉上《迁徙的鸟》和《阿甘正传》的条形码，博君一笑。<br />
+<p>代码逻辑很少，先是通过 FFmpeg 进行截图，然后用 GraphicsMagick 进行图片的接合、缩放和模糊处理，最后清扫战场，删除一些临时文件，就这么简单。最后，奉上《迁徙的鸟》和《阿甘正传》的条形码，博君一笑。<br />
 <img src="file:///user_files/cnlox/Image/qianxideniao_moviebarcode.png" /></p>
 <p><img src="file:///user_files/cnlox/Image/aganzhengzhuan_moviebarcode.png" /></p>
 

@@ -49,8 +49,8 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>*数学是神造科学，计算机是人造科学*。</p>
-<p>所以在计算机的底层软件中，有着数不清的tricks，让人很无奈，但又无法避免。譬如Big-endian和Little-endian的问题，据说UNIX曾经移植到另外一台不同“endian”的机器上，结果系统启动显示的是NUXI而不是UNIX；再比如ASCII和Unicode，以及各种各样地方编码纠结的关系；连最简单的hello world，放到不同的平台上，生成的字符串也是不同的，考虑下面的程序：</p>
+  <section class="twelve wide column"><p>*数学是神造科学，计算机是人造科学 *。</p>
+<p>所以在计算机的底层软件中，有着数不清的 tricks，让人很无奈，但又无法避免。譬如 Big-endian 和 Little-endian的问题，据说 UNIX 曾经移植到另外一台不同 “endian” 的机器上，结果系统启动显示的是 NUXI 而不是 UNIX；再比如 ASCII 和 Unicode，以及各种各样地方编码纠结的关系；连最简单的 hello world，放到不同的平台上，生成的字符串也是不同的，考虑下面的程序：</p>
 <pre><code>#include &lt;iostream&gt;
 using namespace std;
 int main( int argc, char *argv[])
@@ -58,7 +58,7 @@ int main( int argc, char *argv[])
     cout &lt;&lt; &quot;Hello\nWorld&quot;;
 }
 </code></pre>
-<p>这个程序如果在*nix平台下执行，生成的字符串的长度是11：</p>
+<p>这个程序如果在 *nix 平台下执行，生成的字符串的长度是 11：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">lox@lox-pad</span> ~/tmp<span class="op">&gt;</span> clang++ main.cxx -o main
 <span class="ex">lox@lox-pad</span> ~/tmp<span class="op">&gt;</span> ./main <span class="kw">|</span> <span class="fu">wc</span> -c
 <span class="ex">11</span>
@@ -66,23 +66,23 @@ int main( int argc, char *argv[])
 <span class="ex">0000000</span>   H   e   l   l   o  \n   W   o   r   l   d
 <span class="ex">0000013</span>
 <span class="ex">lox@lox-pad</span> ~/tmp<span class="op">&gt;</span> </code></pre></div>
-<p>但是如果放到windows上执行，那么程序生成的字符串的长度是12，字符串的值是“Hello”，so，what is ‘’？</p>
-<p>细究起来，我们发现，一个小小的newline字符也有如此多的故事，或者说，历史包袱。<a href="http://en.wikipedia.org/wiki/Line_feed">Wikipedia</a>里面给出了完整的解释。简单来讲，’‘和’‘的概念来源于早期的打字机，’‘代表“line feed”，表示打字机打完一整行后相对纸面向下移动一整行的距离，而’‘则代表“carriage return”，就是控制打字机重新回到一行的行首，’‘连在一起用才会使得打字机移动到新的一行的行首开始工作。而在后来的OS设计中，由于在TTY终端并没有实体的打印机控制操作，所以在设计上将’’进行了简化处理，只是不同的OS采取的策略不一样。我们仅以Windows、Linux、Mac这三种最流行的系统来做说明。</p>
+<p>但是如果放到 Windows 上执行，那么程序生成的字符串的长度是 12，字符串的值是 “Hello”，so，what is ‘’？</p>
+<p>细究起来，我们发现，一个小小的 newline 字符也有如此多的故事，或者说，历史包袱。<a href="http://en.wikipedia.org/wiki/Line_feed">Wikipedia</a>里面给出了完整的解释。简单来讲，’‘和’‘的概念来源于早期的打字机，’‘代表 “line feed”，表示打字机打完一整行后相对纸面向下移动一整行的距离，而’‘则代表 “carriage return”，就是控制打字机重新回到一行的行首，’‘连在一起用才会使得打字机移动到新的一行的行首开始工作。而在后来的 OS 设计中，由于在 TTY 终端并没有实体的打印机控制操作，所以在设计上将’’ 进行了简化处理，只是不同的 OS 采取的策略不一样。我们仅以 Windows、Linux、Mac这三种最流行的系统来做说明。</p>
 <ul>
 <li>Windows: ‘’</li>
 <li>Linux: ‘’</li>
 <li>Mac: ‘’</li>
 </ul>
-<p>所以Linux和Mac上的多行文本文件用Windows的Notepad打开，常常会出现多行并做一整行的现象，而Windows上的文本文件用Linux上的Vim或者Emacs等editor来访问，往往会看到奇怪的’^<em>M</em>‘字符，事实上这个’^<em>M</em>‘并不是’^‘+’M’的组合，它就是Windows中的’‘。在Linux终端中你可以通过输入Ctrl+V Ctrl+M来获得’’这个输入。</p>
-<p>那么，我们怎样去掉这写讨厌的影响心情和版面美感的’’呢？方法有很多，最简单的，安装<a href="http://linuxcommand.org/man_pages/dos2unix1.html">dos2unix</a>这个小软件，然后直接dos2unix filename即可，archlinux可以通过“pacman -S hd2u”来获取dos2unix，反过来也有<a href="http://en.wikipedia.org/wiki/Unix2dos">unix2dos</a>这样的命令。</p>
-<p>除了dos2unix，利用Linux本身的shell工具，也可以达到目的，比如：</p>
+<p>所以 Linux 和Mac上的多行文本文件用 Windows 的Notepad打开，常常会出现多行并做一整行的现象，而 Windows 上的文本文件用 Linux 上的 Vim 或者 Emacs 等editor来访问，往往会看到奇怪的 ‘^<em>M</em>’ 字符，事实上这个 ‘^<em>M</em>’ 并不是 ‘^’+‘M’ 的组合，它就是 Windows 中的 ‘’。在 Linux 终端中你可以通过输入 Ctrl+V Ctrl+M 来获得 ‘’ 这个输入。</p>
+<p>那么，我们怎样去掉这写讨厌的影响心情和版面美感的 ‘’ 呢？方法有很多，最简单的，安装 <a href="http://linuxcommand.org/man_pages/dos2unix1.html">dos2unix</a> 这个小软件，然后直接 dos2unix filename 即可，archlinux可以通过 “pacman -S hd2u” 来获取 dos2unix，反过来也有 <a href="http://en.wikipedia.org/wiki/Unix2dos">unix2dos</a> 这样的命令。</p>
+<p>除了 dos2unix，利用 Linux 本身的 Shell 工具，也可以达到目的，比如：</p>
 <ul>
 <li>sed ‘s/^<em>M</em>//g’ filename</li>
 <li>sed ‘s///g’ filename</li>
 <li>cat filename | tr -d ‘’ &gt; newfile</li>
 <li>vim: %s/^<em>M</em>//g</li>
 </ul>
-<p>最后需要注意的是，C语言的标准库针对这种情况做了专门的规定，并针对性的规定了text mode和binary mode，这种小的trick平时不需要注意，但是没准某一天就会冒出来拷打一下你的耐心。</p>
+<p>最后需要注意的是，C语言的标准库针对这种情况做了专门的规定，并针对性的规定了 text mode 和 binary mode，这种小的 trick 平时不需要注意，但是没准某一天就会冒出来拷打一下你的耐心。</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
