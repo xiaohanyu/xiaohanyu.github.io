@@ -39,455 +39,446 @@
           </div>
         </div>
       </nav><div class="ui stackable container">
-        <div class="ui very padded segment article">
-          <article class="ui stackable divided grid">
-            <header class="row article-head">
-              <div class="column">
-                <h1 class="ui header">
-                  旅行者网站框架完工
-                </h1>
-                <div class="ui divider"></div>
-              </div>
-            </header>
-            <div class="row article-body">
-              <section class="twelve wide column">
-                <p><img src="file:///user_files/cnlox/Image/web/traverller/traverller_design.jpeg" /></p>
-                <p>这么一张图，从早晨十点一直写到晚上十点。主题就直接参考本博客了，清爽淡雅。只是实现的方式略有不同。</p>
-                <p>框架采用 1-2-1 单列变宽布局。参考《CSS设计彻底研究》14.1节的巧妙方法，自己调节参数，花费了约三、四个小时的时间。</p>
-                <p>菜单栏采用 Mac 风格色系，找了张图，Print Screen一下，用 GIMP 打开，用取色工具获得颜色的 HTML 代码表示，如下图：</p>
-                <p><img src="file:///user_files/cnlox/Image/web/traverller/gimp_color.jpeg" /></p>
-                <p>导航菜单栏有个动态的折叠功能，是纯 CSS 代码做成的，参考的是《CSS设计彻底研究》第 9 章的内容。不过还有些小 bug，暂不展示了。</p>
-                <p>Footer加了几个小 logo，也算给 Gnu 做个小广告，呵呵。</p>
-                <p>网站存在的主要问题在于兼容性。出于美观考虑，多数 div 采用了圆角设计。《CSS设计彻底研究》第 11 章专门讲圆角设计，虽然兼容性好，但是各种方法都很麻烦，不能随心所欲。于是就琢磨 CSS 有没有内置的圆角设计支持，万幸，我找到了 <a href="http://hi.baidu.com/%B9%FE%B5%CF%D7%C8/blog/item/9ff4b0a331e380a4cbefd001.html"> 这篇文章 </a>。这种设计在我的 Firefox3.0＋文泉驿 Micro Hei 字体下显示效果非常好。Chrome下也凑合，Opera 10中不能显示圆角效果，最差的是 IE6，不但不支持圆角，动态的菜单也不支持。我没有 IE7，没做测试。</p>
-                <p>今天这么一写，对 CSS 的选择特性、继承特性、层叠特性、div布局熟悉了很多。“纸上得来终觉浅，觉知此事要躬行”，一点没错啊。</p>
-                <p>明天开始整理网站内容。还有一周的时间，要抓紧了。</p>
-                <p>最后，把源码放上来吧 ^_^</p>
-                <div class="hl_result">
-                
-                <div class="html4strict"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
-                
-                <p>&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” “<a href="http://www.w3.org/TR/html4/loose.dtd" class="uri">http://www.w3.org/TR/html4/loose.dtd</a>”&gt;<br />
-                <a href="http://december.com/html/4/element/html.html">&lt;html&gt;</a><br />
-                <a href="http://december.com/html/4/element/head.html">&lt;head&gt;</a><br />
-                <a href="http://december.com/html/4/element/meta.html">&lt;meta</a> http-equiv=“Content-Type” content=“text/html; charset=utf-8”&gt;<br />
-                <a href="http://december.com/html/4/element/title.html">&lt;title&gt;</a><br />
-                css yuanjiao<br />
-                &lt;/title&gt;<br />
-                <a href="http://december.com/html/4/element/style.html">&lt;style</a> type=“text/css”&gt;<br />
-                body{<br />
-                background-image: url(./images/main-bg.jpg);<br />
-                background-repeat: no-repeat;<br />
-                background-color: #3da9d7;<br />
-                }<br />
-                <br />
-                div{<br />
-                border: 1px solid #dedede;<br />
-                -moz-border-radius: 10px;<br />
-                -webkit-border-radius: 10px;<br />
-                }<br />
-                <br />
-                #header, #footer, #container{<br />
-                margin:0 auto;<br />
-                width:75%;<br />
-                padding:0 0px;<br />
-                }<br />
-                <br />
-                #container{<br />
-                border: 0px;<br />
-                }<br />
-                <br />
-                #header{<br />
-                margin-bottom: 10px;<br />
-                }<br />
-                <br />
-                #content_wrap{<br />
-                float:right;<br />
-                margin-right:-150px;<br />
-                width:100%;<br />
-                border: 0px;<br />
-                }<br />
-                <br />
-                #content{<br />
-                font-size: 0.8em;<br />
-                border: 0px;<br />
-                background-image: url(./images/sidebar_background.png);<br />
-                padding: 5px 15px;<br />
-                -moz-border-radius-topleft:0px;<br />
-                -moz-border-radius-topright:0px;<br />
-                -moz-border-radius-bottomleft:10px;<br />
-                -moz-border-radius-bottomright:10px;<br />
-                -webkit-border-top-left-radius:0px;<br />
-                -webkit-border-top-right-radius:0px;<br />
-                -webkit-border-bottom-left-radius:10px;<br />
-                -webkit-border-bottom-right-radius:10px;<br />
-                }<br />
-                <br />
-                #content_wrap #menubar{<br />
-                margin-right: 150px;<br />
-                }<br />
-                <br />
-                #content_wrap #content{<br />
-                margin-right: 150px;<br />
-                }<br />
-                <br />
-                #menubar{<br />
-                padding-left: 15px;<br />
-                background-color: #e0e0e0;<br />
-                border-width: 0px 1px;<br />
-                -moz-border-radius-topleft: 10px;<br />
-                -moz-border-radius-topright: 10px;<br />
-                -moz-border-radius-bottomleft: 0px;<br />
-                -moz-border-radius-bottomright: 0px;<br />
-                -webkit-border-top-left-radius:10px;<br />
-                -webkit-border-top-right-radius:10px;<br />
-                -webkit-border-bottom-left-radius:0px;<br />
-                -webkit-border-bottom-right-radius:0px;<br />
-                }<br />
-                <br />
-                #sidebar{<br />
-                float:left;<br />
-                width:140px;<br />
-                border:0px;<br />
-                }<br />
-                <br />
-                #footer{<br />
-                margin-top: 10px;<br />
-                clear:both;<br />
-                text-align:center;<br />
-                }<br />
-                <br />
-                #clear{<br />
-                margin:0;<br />
-                padding:0;<br />
-                border:0;<br />
-                clear:both;<br />
-                }<br />
-                <br />
-                #menubar a:link, a:visited{<br />
-                color: black;<br />
-                text-decoration: none;<br />
-                }<br />
-                <br />
-                #menubar a:hover{<br />
-                color: white;<br />
-                background-color: #09aee6;<br />
-                text-decoration: underline;<br />
-                }<br />
-                <br />
-                #links, #navibar, #portrait{<br />
-                margin: 0px 0px 5px;<br />
-                border: 0px;<br />
-                }<br />
-                <br />
-                #header h1{<br />
-                margin: 8px;<br />
-                text-align: center;<br />
-                color: #ffffff;<br />
-                }<br />
-                <br />
-                #header h3{<br />
-                margin: 3px 15px;<br />
-                text-align: right;<br />
-                color: #ffffff;<br />
-                }<br />
-                <br />
-                #ul_menu{<br />
-                margin: 0;<br />
-                padding: 0px 15px;;<br />
-                list-style-type: circle;<br />
-                }<br />
-                <br />
-                #ul_menu li dt{<br />
-                margin: 0;<br />
-                padding: 5px;<br />
-                border-bottom: 1px dashed blue;<br />
-                }<br />
-                <br />
-                #ul_menu li dd{<br />
-                font-size: 0.8em;<br />
-                margin: 0px;<br />
-                padding-left: 5px;<br />
-                display: none;<br />
-                }<br />
-                <br />
-                #ul_menu li:hover dd{<br />
-                display: block;<br />
-                }<br />
-                <br />
-                #ul_menu li dd a:hover, a:active{<br />
-                color: #ffffff;<br />
-                text-decoration: underline;<br />
-                background-color: #09aee6;<br />
-                }<br />
-                <br />
-                &lt;/style&gt;<br />
-                &lt;/head&gt;<br />
-                <a href="http://december.com/html/4/element/body.html">&lt;body&gt;</a><br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“header”&gt;<br />
-                <a href="http://december.com/html/4/element/h1.html">&lt;h1&gt;</a> 浙江大学旅行者户外运动俱乐部 &lt;/h1&gt;<br />
-                <a href="http://december.com/html/4/element/h3.html">&lt;h3&gt;</a> 行走、思考、在路上 &lt;/h3&gt;<br />
-                &lt;/div&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“container”&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“content_wrap”&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“menubar”&gt;<br />
-                <a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“#”&gt;Home&lt;/a&gt;<br />
-                <a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“#”&gt; 旅行者手册 &lt;/a&gt;<br />
-                <a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“#”&gt; 酒吧 &lt;/a&gt;<br />
-                <a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“#” s&gt; 关于 &lt;/a&gt;<br />
-                &lt;/div&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“content”&gt;<br />
-                This is content;<a href="http://december.com/html/4/element/br.html">&lt;br</a>/&gt;<br />
-                This is content;<a href="http://december.com/html/4/element/br.html">&lt;br</a>/&gt;<br />
-                This is content;<a href="http://december.com/html/4/element/br.html">&lt;br</a>/&gt;<br />
-                &lt;/div&gt;<br />
-                &lt;/div&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“sidebar”&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“portrait”&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“menubar”&gt;<br />
-                行者无疆<br />
-                &lt;/div&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“content”&gt;<br />
-                <a href="http://december.com/html/4/element/img.html">&lt;img</a> src=“./images/traverller_foot1.jpg”/&gt;<br />
-                &lt;/div&gt;<br />
-                &lt;/div&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“navibar”&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“menubar”&gt;<br />
-                本站导航<br />
-                &lt;/div&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“content”&gt;<br />
-                <a href="http://december.com/html/4/element/ul.html">&lt;ul</a> id=“ul_menu”&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 旅行者说 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 旅行者成立 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 浴火永生 &lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 单车天涯 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 进藏日记 &lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 骑行手记 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 如何洗车 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 爬坡要点 &lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 勇者竟攀 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 攀岩知识 &lt;/dt&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 驴行天下 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 徒步攻略 &lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 行吟游唱 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 骑马挎枪走天下 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 旅行的意义 &lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 技术装备 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 单车装备大全 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a>shimano 系列介绍 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a>sram 介绍 &lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 布袋事件 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 布袋其人 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 事情经过 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 社会帮助 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 布袋现状 &lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 医疗知识 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 膝盖保养 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 高原反应 &lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 户外资源 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 网络资源 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 杭州本地 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 书籍资源 &lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 会长感悟 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 冻冻 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a> 巫婆 &lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a>cnlox&lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                &lt;/ul&gt;<br />
-                &lt;/div&gt;<br />
-                &lt;/div&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“links”&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“menubar”&gt;<br />
-                友情链接<br />
-                &lt;/div&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“content”&gt;<br />
-                <a href="http://december.com/html/4/element/ul.html">&lt;ul</a> id=“ul_menu”&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 校内资源 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a><br />
-                href=“<a href="http://www.cc98.org/list.asp?boardid=147&amp;page=1%22\\" class="uri">http://www.cc98.org/list.asp?boardid=147&amp;page=1&quot;\\</a> target=”_blank“&gt; 行者无疆 &lt;/a&gt;&lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a> href=”<a href="http://www.zju88.org/agent/board.do?name=Bicycle&amp;mode=0&amp;page=0" class="uri">http://www.zju88.org/agent/board.do?name=Bicycle&amp;mode=0&amp;page=0</a>&quot; target=“_blank”&gt;88Bicycle&lt;/a&gt;&lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 单车天下 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://www.chinabike.net" class="uri">http://www.chinabike.net</a>” target=“_blank”&gt;Chinabike&lt;/a&gt;&lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://www.hzbike.com" class="uri">http://www.hzbike.com</a>” target=“_blank”&gt; 骑行网 hzbike&lt;/a&gt;&lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://www.biketo.com" class="uri">http://www.biketo.com</a>” target=“_blank”&gt; 自行车旅行网 &lt;/a&gt;&lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 徒步登山 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://www.8264.com" class="uri">http://www.8264.com</a>” target=“_blank”&gt;8264 户外资料网 &lt;/a&gt;&lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://www.chinawalking.net.cn%22\\" class="uri">http://www.chinawalking.net.cn&quot;\\</a> target=”_blank“&gt; 中国徒步网 &lt;/a&gt;&lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 贴心工具 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a> href=”<a href="http://www.ctrip.com" class="uri">http://www.ctrip.com</a>&quot; target=“_blank”&gt; 携程旅行网 &lt;/a&gt;&lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://maps.google.cn" class="uri">http://maps.google.cn</a>” target=“_blank”&gt;Google 地图 &lt;/a&gt;&lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://shenghuo.google.cn/shenghuo/" class="uri">http://shenghuo.google.cn/shenghuo/</a>” target=“_blank”&gt;Google 生活 &lt;/a&gt;&lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://www.weather.com.cn/" class="uri">http://www.weather.com.cn/</a>” target=“_blank”&gt; 天气预报 &lt;/a&gt;&lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                <a href="http://december.com/html/4/element/li.html">&lt;li&gt;</a><br />
-                <a href="http://december.com/html/4/element/dl.html">&lt;dl&gt;</a><br />
-                <a href="http://december.com/html/4/element/dt.html">&lt;dt&gt;</a> 友情合作 &lt;/dt&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://www.51outdoor.com" class="uri">http://www.51outdoor.com</a>” target=“_blank”&gt; 天择户外 &lt;/a&gt;&lt;/dd&gt;<br />
-                <a href="http://december.com/html/4/element/dd.html">&lt;dd&gt;</a><a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://www.lvyouzhi.com" class="uri">http://www.lvyouzhi.com</a>” target=“_blank”&gt; 旅游志 &lt;/a&gt;&lt;/dd&gt;<br />
-                &lt;/dl&gt;<br />
-                &lt;/li&gt;<br />
-                &lt;/ul&gt;<br />
-                &lt;/div&gt;<br />
-                &lt;/div&gt;<br />
-                &lt;/div&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“clear”&gt;<br />
-                &lt;/div&gt;<br />
-                &lt;/div&gt;<br />
-                <a href="http://december.com/html/4/element/div.html">&lt;div</a> id=“footer”&gt;<br />
-                <a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://www.gnu.org/software/emacs/" class="uri">http://www.gnu.org/software/emacs/</a>” target=“_blank”&gt;<br />
-                <a href="http://december.com/html/4/element/img.html">&lt;img</a> src=“./images/emacs_logo.jpg” width=“32px”/&gt;<br />
-                &lt;/a&gt;<br />
-                <a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://www.ubuntu.org.cn/" class="uri">http://www.ubuntu.org.cn/</a>” target=“_blank”&gt;<br />
-                <a href="http://december.com/html/4/element/img.html">&lt;img</a> src=“./images/ubuntu_logo.jpg” width=“32px”/&gt;<br />
-                &lt;/a&gt;<br />
-                <a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://www.mozillaonline.com/" class="uri">http://www.mozillaonline.com/</a>” target=“_blank”&gt;<br />
-                <a href="http://december.com/html/4/element/img.html">&lt;img</a> src=“./images/firefox_logo.jpg” width=“32px”/&gt;<br />
-                &lt;/a&gt;<br />
-                <a href="http://december.com/html/4/element/a.html">&lt;a</a> href=“<a href="http://www.w3china.org" class="uri">http://www.w3china.org</a>” target=“_blank”&gt;<br />
-                <a href="http://december.com/html/4/element/img.html">&lt;img</a> src=“./images/w3c_logo.jpg” width=“32px”/&gt;<br />
-                &lt;/a&gt;<br />
-                &lt;/div&gt;<br />
-                <br />
-                &lt;/body&gt;<br />
-                &lt;/html&gt;</p>
-                </div>
-                
-                </div>
-                
-                
-                <div class="ui divider"></div>
-                <div class="ui small one item menu">
-                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
-                </div>
-                <div id="disqus_thread"></div>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </section>
-              <aside class="four wide column">
-                <div class="ui small header">
-                  License
-                </div>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
-                <div class="ui small header">
-                  Committed
-                </div>
-                <date>2009-09-08</date>
-                <div class="ui small header">
-                  Updated
-                </div>
-                <date>2017-04-14</date>
-                <div class="ui small header">
-                  Category
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/categories#web">
-                      <div class="ui label">
-                        Web<sup>5</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Tags
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/tags#gimp">
-                      <div class="ui label">
-                        GIMP<sup>2</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#css">
-                      <div class="ui label">
-                        CSS<sup>2</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#html">
-                      <div class="ui label">
-                        HTML<sup>2</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/11146.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
-                  Links
-                </div>
-                <div class="ui small two item menu">
-                  <a class="item" title="CSS设计彻底研究" href="/posts/2009-09-08-a-css-book/">Prev</a><a class="item" title="终于搞定Ubuntu 9.04下XeTeX的配置了。" href="/posts/2009-09-13-xetex-on-ubuntu-9.04/">Next</a>
-                </div>
-              </aside>
-            </div>
-          </article>
-        </div>
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      旅行者网站框架完工
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p><img src="file:///user_files/cnlox/Image/web/traverller/traverller_design.jpeg" /></p>
+<p>这么一张图，从早晨十点一直写到晚上十点。主题就直接参考本博客了，清爽淡雅。只是实现的方式略有不同。</p>
+<p>框架采用 1-2-1 单列变宽布局。参考《CSS设计彻底研究》14.1节的巧妙方法，自己调节参数，花费了约三、四个小时的时间。</p>
+<p>菜单栏采用 Mac 风格色系，找了张图， <code>Print Screen</code> 一下，用 GIMP 打开，用取色工具获得颜色的 HTML 代码表示，如下图：</p>
+<p><img src="file:///user_files/cnlox/Image/web/traverller/gimp_color.jpeg" /></p>
+<p>导航菜单栏有个动态的折叠功能，是纯 CSS 代码做成的，参考的是《CSS设计彻底研究》第 9 章的内容。不过还有些小 bug，暂不展示了。</p>
+<p>Footer 加了几个小 logo，也算给 GNU 做个小广告，呵呵。</p>
+<p>网站存在的主要问题在于兼容性。出于美观考虑，多数 <code>div</code> 采用了圆角设计。《CSS设计彻底研究》第 11 章专门讲圆角设计，虽然兼容性好，但是各种方法都很麻烦，不能随心所欲。于是就琢磨 CSS 有没有内置的圆角设计支持，万幸，我找到了 <a href="http://hi.baidu.com/%C2%B9%C3%BE%C2%B5%C3%8F%C3%97%C3%88/blog/item/9ff4b0a331e380a4cbefd001.html">这篇文章</a>。这种设计在我的 Firefox 3.0 + 文泉驿 Micro Hei 字体下显示效果非常好。Chrome 下也凑合，Opera 10 中不能显示圆角效果，最差的是 IE 6，不但不支持圆角，动态的菜单也不支持。我没有 IE 7，没做测试。</p>
+<p>今天这么一写，对 CSS 的选择特性、继承特性、层叠特性、div 布局熟悉了很多。“纸上得来终觉浅，觉知此事要躬行”，一点没错啊。</p>
+<p>明天开始整理网站内容。还有一周的时间，要抓紧了。</p>
+<p>最后，把源码放上来吧。^_^</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;meta</span><span class="ot"> http-equiv=</span><span class="st">&quot;Content-Type&quot;</span><span class="ot"> content=</span><span class="st">&quot;text/html; charset=utf-8&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;title&gt;</span>
+      css yuanjiao
+    <span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;style</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span><span class="kw">&gt;</span>
+     body<span class="kw">{</span>
+       <span class="kw">background-image:</span> <span class="dt">url(.</span>/images/main-bg<span class="dt">.</span>jpg<span class="dt">)</span><span class="kw">;</span>
+       <span class="kw">background-repeat:</span> <span class="dt">no-repeat</span><span class="kw">;</span>
+       <span class="kw">background-color:</span> <span class="dt">#3da9d7</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     div<span class="kw">{</span>
+       <span class="kw">border:</span> <span class="dt">1px</span> <span class="dt">solid</span> <span class="dt">#dedede</span><span class="kw">;</span>
+       <span class="kw">-moz-border-radius:</span> <span class="dt">10px</span><span class="kw">;</span>
+       <span class="kw">-webkit-border-radius:</span> <span class="dt">10px</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#header</span>, <span class="fl">#footer</span>, <span class="fl">#container</span><span class="kw">{</span>
+       <span class="kw">margin:</span><span class="dt">0</span> <span class="dt">auto</span><span class="kw">;</span>
+       <span class="kw">width:</span><span class="dt">75%</span><span class="kw">;</span>
+       <span class="kw">padding:</span><span class="dt">0</span> <span class="dt">0px</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#container</span><span class="kw">{</span>
+       <span class="kw">border:</span> <span class="dt">0px</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#header</span><span class="kw">{</span>
+       <span class="kw">margin-bottom:</span> <span class="dt">10px</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#content_wrap</span><span class="kw">{</span>
+       <span class="kw">float:</span><span class="dt">right</span><span class="kw">;</span>
+       <span class="kw">margin-right:</span><span class="dt">-150px</span><span class="kw">;</span>
+       <span class="kw">width:</span><span class="dt">100%</span><span class="kw">;</span>
+       <span class="kw">border:</span> <span class="dt">0px</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#content</span><span class="kw">{</span>
+       <span class="kw">font-size:</span> <span class="dt">0.8em</span><span class="kw">;</span>
+       <span class="kw">border:</span> <span class="dt">0px</span><span class="kw">;</span>
+       <span class="kw">background-image:</span> <span class="dt">url(.</span>/images/sidebar_background<span class="dt">.</span>png<span class="dt">)</span><span class="kw">;</span>
+       <span class="kw">padding:</span> <span class="dt">5px</span> <span class="dt">15px</span><span class="kw">;</span>
+       <span class="kw">-moz-border-radius-topleft:</span><span class="dt">0px</span><span class="kw">;</span>
+       <span class="kw">-moz-border-radius-topright:</span><span class="dt">0px</span><span class="kw">;</span>
+       <span class="kw">-moz-border-radius-bottomleft:</span><span class="dt">10px</span><span class="kw">;</span>
+       <span class="kw">-moz-border-radius-bottomright:</span><span class="dt">10px</span><span class="kw">;</span>
+       <span class="kw">-webkit-border-top-left-radius:</span><span class="dt">0px</span><span class="kw">;</span>
+       <span class="kw">-webkit-border-top-right-radius:</span><span class="dt">0px</span><span class="kw">;</span>
+       <span class="kw">-webkit-border-bottom-left-radius:</span><span class="dt">10px</span><span class="kw">;</span>
+       <span class="kw">-webkit-border-bottom-right-radius:</span><span class="dt">10px</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#content_wrap</span> <span class="fl">#menubar</span><span class="kw">{</span>
+       <span class="kw">margin-right:</span> <span class="dt">150px</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#content_wrap</span> <span class="fl">#content</span><span class="kw">{</span>
+       <span class="kw">margin-right:</span> <span class="dt">150px</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#menubar</span><span class="kw">{</span>
+       <span class="kw">padding-left:</span> <span class="dt">15px</span><span class="kw">;</span>
+       <span class="kw">background-color:</span> <span class="dt">#e0e0e0</span><span class="kw">;</span>
+       <span class="kw">border-width:</span> <span class="dt">0px</span> <span class="dt">1px</span><span class="kw">;</span>
+       <span class="kw">-moz-border-radius-topleft:</span> <span class="dt">10px</span><span class="kw">;</span>
+       <span class="kw">-moz-border-radius-topright:</span> <span class="dt">10px</span><span class="kw">;</span>
+       <span class="kw">-moz-border-radius-bottomleft:</span> <span class="dt">0px</span><span class="kw">;</span>
+       <span class="kw">-moz-border-radius-bottomright:</span> <span class="dt">0px</span><span class="kw">;</span>
+       <span class="kw">-webkit-border-top-left-radius:</span><span class="dt">10px</span><span class="kw">;</span>
+       <span class="kw">-webkit-border-top-right-radius:</span><span class="dt">10px</span><span class="kw">;</span>
+       <span class="kw">-webkit-border-bottom-left-radius:</span><span class="dt">0px</span><span class="kw">;</span>
+       <span class="kw">-webkit-border-bottom-right-radius:</span><span class="dt">0px</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#sidebar</span><span class="kw">{</span>
+       <span class="kw">float:</span><span class="dt">left</span><span class="kw">;</span>
+       <span class="kw">width:</span><span class="dt">140px</span><span class="kw">;</span>
+       <span class="kw">border:</span><span class="dt">0px</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#footer</span><span class="kw">{</span>
+       <span class="kw">margin-top:</span> <span class="dt">10px</span><span class="kw">;</span>
+       <span class="kw">clear:</span><span class="dt">both</span><span class="kw">;</span>
+       <span class="kw">text-align:</span><span class="dt">center</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#clear</span><span class="kw">{</span>
+       <span class="kw">margin:</span><span class="dt">0</span><span class="kw">;</span>
+       <span class="kw">padding:</span><span class="dt">0</span><span class="kw">;</span>
+       <span class="kw">border:</span><span class="dt">0</span><span class="kw">;</span>
+       <span class="kw">clear:</span><span class="dt">both</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#menubar</span> a<span class="dv">:link</span>, a<span class="dv">:visited</span><span class="kw">{</span>
+       <span class="kw">color:</span> <span class="dt">black</span><span class="kw">;</span>
+       <span class="kw">text-decoration:</span> <span class="dt">none</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#menubar</span> a<span class="dv">:hover</span><span class="kw">{</span>
+       <span class="kw">color:</span> <span class="dt">white</span><span class="kw">;</span>
+       <span class="kw">background-color:</span> <span class="dt">#09aee6</span><span class="kw">;</span>
+       <span class="kw">text-decoration:</span> <span class="dt">underline</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#links</span>, <span class="fl">#navibar</span>, <span class="fl">#portrait</span><span class="kw">{</span>
+       <span class="kw">margin:</span> <span class="dt">0px</span> <span class="dt">0px</span> <span class="dt">5px</span><span class="kw">;</span>
+       <span class="kw">border:</span> <span class="dt">0px</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#header</span> h1<span class="kw">{</span>
+       <span class="kw">margin:</span> <span class="dt">8px</span><span class="kw">;</span>
+       <span class="kw">text-align:</span> <span class="dt">center</span><span class="kw">;</span>
+       <span class="kw">color:</span> <span class="dt">#ffffff</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#header</span> h3<span class="kw">{</span>
+       <span class="kw">margin:</span> <span class="dt">3px</span> <span class="dt">15px</span><span class="kw">;</span>
+       <span class="kw">text-align:</span> <span class="dt">right</span><span class="kw">;</span>
+       <span class="kw">color:</span> <span class="dt">#ffffff</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#ul_menu</span><span class="kw">{</span>
+       <span class="kw">margin:</span> <span class="dt">0</span><span class="kw">;</span>
+       <span class="kw">padding:</span> <span class="dt">0px</span> <span class="dt">15px</span><span class="kw">;</span><span class="er">;</span>
+       <span class="kw">list-style-type:</span> <span class="dt">circle</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#ul_menu</span> li dt<span class="kw">{</span>
+       <span class="kw">margin:</span> <span class="dt">0</span><span class="kw">;</span>
+       <span class="kw">padding:</span> <span class="dt">5px</span><span class="kw">;</span>
+       <span class="kw">border-bottom:</span> <span class="dt">1px</span> <span class="dt">dashed</span> <span class="dt">blue</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#ul_menu</span> li dd<span class="kw">{</span>
+       <span class="kw">font-size:</span> <span class="dt">0.8em</span><span class="kw">;</span>
+       <span class="kw">margin:</span> <span class="dt">0px</span><span class="kw">;</span>
+       <span class="kw">padding-left:</span> <span class="dt">5px</span><span class="kw">;</span>
+       <span class="kw">display:</span> <span class="dt">none</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#ul_menu</span> li<span class="dv">:hover</span> dd<span class="kw">{</span>
+       <span class="kw">display:</span> <span class="dt">block</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+     <span class="fl">#ul_menu</span> li dd a<span class="dv">:hover</span>, a<span class="dv">:active</span><span class="kw">{</span>
+       <span class="kw">color:</span> <span class="dt">#ffffff</span><span class="kw">;</span>
+       <span class="kw">text-decoration:</span> <span class="dt">underline</span><span class="kw">;</span>
+       <span class="kw">background-color:</span> <span class="dt">#09aee6</span><span class="kw">;</span>
+     <span class="kw">}</span>
+
+    <span class="kw">&lt;/style&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;header&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;h1&gt;</span> 浙江大学旅行者户外运动俱乐部 <span class="kw">&lt;/h1&gt;</span>
+      <span class="kw">&lt;h3&gt;</span> 行走、思考、在路上 <span class="kw">&lt;/h3&gt;</span>
+    <span class="kw">&lt;/div&gt;</span>
+    <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;container&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;content_wrap&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;menubar&quot;</span><span class="kw">&gt;</span>
+          <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Home<span class="kw">&lt;/a&gt;</span>
+          <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span> 旅行者手册 <span class="kw">&lt;/a&gt;</span>
+          <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span> 酒吧 <span class="kw">&lt;/a&gt;</span>
+          <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="ot"> s</span><span class="kw">&gt;</span> 关于 <span class="kw">&lt;/a&gt;</span>
+        <span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;content&quot;</span><span class="kw">&gt;</span>
+          This is content;<span class="kw">&lt;br/&gt;</span>
+          This is content;<span class="kw">&lt;br/&gt;</span>
+          This is content;<span class="kw">&lt;br/&gt;</span>
+        <span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;sidebar&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;portrait&quot;</span><span class="kw">&gt;</span>
+          <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;menubar&quot;</span><span class="kw">&gt;</span>
+            行者无疆
+          <span class="kw">&lt;/div&gt;</span>
+          <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;content&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;./images/traverller_foot1.jpg&quot;</span><span class="kw">/&gt;</span>
+          <span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;navibar&quot;</span><span class="kw">&gt;</span>
+          <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;menubar&quot;</span><span class="kw">&gt;</span>
+            本站导航
+          <span class="kw">&lt;/div&gt;</span>
+          <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;content&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;ul</span><span class="ot"> id=</span><span class="st">&quot;ul_menu&quot;</span><span class="kw">&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 旅行者说 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 旅行者成立 <span class="kw">&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 浴火永生 <span class="kw">&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 单车天涯 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 进藏日记 <span class="kw">&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 骑行手记 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 如何洗车 <span class="kw">&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 爬坡要点 <span class="kw">&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 勇者竟攀 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 攀岩知识 <span class="kw">&lt;/dt&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 驴行天下 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 徒步攻略 <span class="kw">&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 行吟游唱 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 骑马挎枪走天下 <span class="kw">&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 旅行的意义 <span class="kw">&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 技术装备 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 单车装备大全 <span class="kw">&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span>shimano 系列介绍 <span class="kw">&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span>sram 介绍 <span class="kw">&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 布袋事件 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 布袋其人 &lt;/dd&gt;
+                  <span class="kw">&lt;dd&gt;</span> 事情经过 <span class="kw">&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 社会帮助 <span class="kw">&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 布袋现状 <span class="kw">&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 医疗知识 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 膝盖保养 <span class="kw">&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 高原反应 <span class="kw">&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 户外资源 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 网络资源 <span class="kw">&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 杭州本地 <span class="kw">&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 书籍资源 <span class="kw">&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 会长感悟 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 冻冻 <span class="kw">&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span> 巫婆 <span class="kw">&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;</span>cnlox<span class="kw">&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+            <span class="kw">&lt;/ul&gt;</span>
+          <span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;links&quot;</span><span class="kw">&gt;</span>
+          <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;menubar&quot;</span><span class="kw">&gt;</span>
+            友情链接
+          <span class="kw">&lt;/div&gt;</span>
+          <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;content&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;ul</span><span class="ot"> id=</span><span class="st">&quot;ul_menu&quot;</span><span class="kw">&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 校内资源 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span>
+<span class="ot">                          href=</span><span class="st">&quot;http://www.cc98.org/list.asp?boardid=147</span><span class="er">&amp;</span><span class="st">page=1&quot;</span>
+<span class="ot">                          target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span> 行者无疆 <span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.zju88.org/agent/board.do?name=Bicycle</span><span class="er">&amp;</span><span class="st">mode=0</span><span class="er">&amp;</span><span class="st">page=0&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span>88Bicycle<span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 单车天下 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.chinabike.net&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span>Chinabike<span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.hzbike.com&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span> 骑行网 hzbike<span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.biketo.com&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span> 自行车旅行网 <span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 徒步登山 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.8264.com&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span>8264 户外资料网 <span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.chinawalking.net.cn&quot;</span>
+<span class="ot">                         target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span> 中国徒步网 <span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 贴心工具 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.ctrip.com&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span> 携程旅行网 <span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://maps.google.cn&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span>Google 地图 <span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://shenghuo.google.cn/shenghuo/&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span>Google 生活 <span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.weather.com.cn/&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span> 天气预报 <span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+              <span class="kw">&lt;li&gt;</span>
+                <span class="kw">&lt;dl&gt;</span>
+                  <span class="kw">&lt;dt&gt;</span> 友情合作 <span class="kw">&lt;/dt&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.51outdoor.com&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span> 天择户外 <span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                  <span class="kw">&lt;dd&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.lvyouzhi.com&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span> 旅游志 <span class="kw">&lt;/a&gt;&lt;/dd&gt;</span>
+                <span class="kw">&lt;/dl&gt;</span>
+              <span class="kw">&lt;/li&gt;</span>
+            <span class="kw">&lt;/ul&gt;</span>
+          <span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;clear&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;/div&gt;</span>
+    <span class="kw">&lt;/div&gt;</span>
+    <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;footer&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.gnu.org/software/emacs/&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;./images/emacs_logo.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;32px&quot;</span><span class="kw">/&gt;</span>
+      <span class="kw">&lt;/a&gt;</span>
+      <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.ubuntu.org.cn/&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;./images/ubuntu_logo.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;32px&quot;</span><span class="kw">/&gt;</span>
+      <span class="kw">&lt;/a&gt;</span>
+      <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.mozillaonline.com/&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;./images/firefox_logo.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;32px&quot;</span><span class="kw">/&gt;</span>
+      <span class="kw">&lt;/a&gt;</span>
+      <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.w3china.org&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;./images/w3c_logo.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;32px&quot;</span><span class="kw">/&gt;</span>
+      <span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;/div&gt;</span>
+
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2009-09-08</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#web">
+          <div class="ui label">
+            Web<sup>5</sup>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#gimp">
+          <div class="ui label">
+            GIMP<sup>2</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#css">
+          <div class="ui label">
+            CSS<sup>2</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#html">
+          <div class="ui label">
+            HTML<sup>2</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/11146.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="CSS设计彻底研究" href="/posts/2009-09-08-a-css-book/">Prev</a><a class="item" title="终于搞定Ubuntu 9.04下XeTeX的配置了。" href="/posts/2009-09-13-xetex-on-ubuntu-9.04/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
     </div>
     <div id="footer">
       <footer class="ui inverted vertical center aligned footer segment">
