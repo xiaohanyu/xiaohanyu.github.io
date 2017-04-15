@@ -49,596 +49,283 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><div class="p">
-
-</div>
-
-<div class="p">
-
-</div>
-
-<div class="p">
-
-</div>
-
-<h1 id="zz 只管去做  - 用emacs的  Org-mode 做时间管理" align="center">[zz]只管去做 - 用emacs的 Org-mode 做时间管理</h1>
-<h3 id="wheer" align="center">wheer</h3>
-<div class="p">
-
-</div>
-
-<h1 id="目录">目录</h1>
-<p><em>1 序 </em><br />
-<em>2 收集、处理 </em><br />
-<em>3 规划、执行 </em><br />
-<em>4 回顾、简化 </em><br />
-<em>5 反省、激情 </em><br />
-<em>6 完结 </em></p>
-<div class="p">
-
-</div>
-
-<h2 id="序">1 序</h2>
-<p>用 Org-mode 有一周了，期间翻了翻戴维·艾伦的《尽管去做 - 无压工作的艺术》(getting things done, GTD)一书，感觉这个理念很有意思，我喜欢。</p>
-<div class="p">
-
-</div>
-
-<p>GTD 没有和别的时间管理方法混为一谈，自然是有其特别的地方的。先想想像 planner 之类的时间管理工具，不外是先定大目标，小目标，然后细分为许多可操作性强的事，安排到每一天。如此由上而下的理念已被绝大部分人所接受，但饶是如此，大家仍然感觉每天是在疲于奔命，说不好哪天会冒出一堆意料之外的事，逼着你变身救火队员 ; 或者说突然接到老板一个不可抗拒的命令，使得你的所有计划泡汤。。</p>
-<div class="p">
-
-</div>
-
+  <section class="twelve wide column"><h1 id="zz-只管去做用-emacs-的-org-mode-做时间管理">[zz] 只管去做——用 Emacs 的 Org-mode 做时间管理</h1>
+<p>Written by wheer.</p>
+<h2 id="序">序</h2>
+<p>用 Org-mode 有一周了，期间翻了翻戴维·艾伦的《尽管去做——无压工作的艺术》（Getting Things Done, GTD）一书，感觉这个理念很有意思，我喜欢。</p>
+<p>GTD 没有和别的时间管理方法混为一谈，自然是有其特别的地方的。先想想像 planner 之类的时间管理工具，不外是先定大目标、小目标，然后细分为许多可操作性强的事，安排到每一天。如此由上而下的理念已被绝大部分人所接受，但饶是如此，大家仍然感觉每天是在疲于奔命，说不好哪天会冒出一堆意料之外的事，逼着你变身救火队员；或者说突然接到老板一个不可抗拒的命令，使得你的所有计划泡汤。</p>
 <p>那究竟是什么地方出了问题呢，至少有几点：</p>
 <ol>
-<li><p>自上而下列举事项的方式可能让你照顾不到一些细微不入流的事项，而这些事在任何一天都有可能爆发</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>你列出的事有些不是必须当天做的，强制列上会牵制你的精力</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>一般的时间管理只列出了你很少一部分而不是全部要操心的事，仍然有大量琐事在你心中萦绕，影响工作效率</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>任何临时突发事件均使得你先前的安排作费</p>
-<div class="p">
-
-</div>
-</li>
+<li>自上而下列举事项的方式可能让你照顾不到一些细微不入流的事项，而这些事在任何一天都有可能爆发</li>
+<li>你列出的事有些不是必须当天做的，强制列上会牵制你的精力</li>
+<li>一般的时间管理只列出了你很少一部分而不是全部要操心的事，仍然有大量琐事在你心中萦绕，影响工作效率</li>
+<li>任何临时突发事件均使得你先前的安排作费</li>
 </ol>
-<div class="p">
-
-</div>
-
-<p>而GTD的出现正是针对以上几点的。在正式进入正题之间，我们应该先确立一些理念，因为要做好任何事都是需要信仰的 ( 正如开源、Emacs、L<sup>A</sup>T<sub>E</sub>X，没有信仰是坚持不下来的 :)，具体如下</p>
-<div class="p">
-
-</div>
-
+<p>而 GTD 的出现正是针对以上几点的。在正式进入正题之间，我们应该先确立一些理念，因为要做好任何事都是需要信仰的（正如开源、Emacs、LaTeX，没有信仰是坚持不下来的）， 具体如下</p>
 <ol>
-<li><p>心中装的事情越少，工作效率越高</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>事情极少由于时间匮乏而受阻 ( 尽管每个人都这么认为 )，它们陷入困境往往是由于一开始不知道如何采取行动而造成的</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>自下而上地将所有可能萦绕在你心中的事列出来，用一个可靠的外部体系来替你管理它们</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>收集自己所有的想法，只鼓励不打击，追求数量不求质量</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>经常回顾、整理那个外部体系，分析每件事并确定下一步行动</p>
-<div class="p">
-
-</div>
-</li>
+<li>心中装的事情越少，工作效率越高</li>
+<li>事情极少由于时间匮乏而受阻 ( 尽管每个人都这么认为 )，它们陷入困境往往是由于一开始不知道如何采取行动而造成的</li>
+<li>自下而上地将所有可能萦绕在你心中的事列出来，用一个可靠的外部体系来替你管理它们</li>
+<li>收集自己所有的想法，只鼓励不打击，追求数量不求质量</li>
+<li>经常回顾、整理那个外部体系，分析每件事并确定下一步行动</li>
 </ol>
-<div class="p">
-
-</div>
-
-<h2 id="收集处理">2 收集、处理</h2>
+<h2 id="收集处理">收集、处理</h2>
 <p>根据只管去做 (GTD) 的理念，你需要一个可靠的外部系统来接管所有可能扰乱你心绪的事情，而你的心中应该是无所牵挂，可以 &quot; 只管去做 &quot; 的。</p>
-<div class="p">
-
-</div>
-
-<p>在这里，org-mode自然就是那个可靠的外部系统了，这在 emacs23 下是自带的，稍稍在 .emacs 下加点配置</p>
-<div class="p">
-
-</div>
-
-<pre><code>(add-to-list &#39;auto-mode-alist &#39;(&quot;\\.org$&quot; . org-mode))
-(define-key global-map &quot;\C-cl&quot; &#39;org-store-link)
-(define-key global-map &quot;\C-ca&quot; &#39;org-agenda)
-(setq org-hide-leading-stars t)
-(setq org-log-done t)
-</code></pre>
-<div class="p">
-
-</div>
-
-<p>下面就正式开始吧，先建个文件夹，如 /.org/，在里面新建 org 文件，比如与工作无关的个人事务都放在 self.org 里，它的大概样子如下 ( 第一行以后再解释 )：</p>
-<div class="p">
-
-</div>
-
-<pre><code>+TAGS: EASY(e) COMM(c) OFFICE(o) READ(r) URGENT(u) FUTURE(f) WAIT(w) MEMO(m)
-* 阅读、充电  
-**  计算机  
-*  强身健体  
-**  力量、健美  
-**  有氧运动  
-*  人际关系  
+<p>在这里，Org-mode 自然就是那个可靠的外部系统了，这在 Emacs 23 下是自带的，稍稍在 <code>.emacs</code> 下加点配置</p>
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(add-to-list &#39;auto-mode-alist &#39;(<span class="st">&quot;</span>\\<span class="st">.org$&quot;</span> . org-mode))
+(define-key global-map <span class="st">&quot;\C-cl&quot;</span> &#39;org-store-link)
+(define-key global-map <span class="st">&quot;\C-ca&quot;</span> &#39;org-agenda)
+(<span class="kw">setq</span> org-hide-leading-stars <span class="kw">t</span>)
+(<span class="kw">setq</span> org-log-done <span class="kw">t</span>)</code></pre></div>
+<p>下面就正式开始吧，先建个文件夹，如 <code>org</code> ，在里面新建 org 文件，比如与工作无关的个人事务都放在 <code>self.org</code> 里，它的大概样子如下（第一行以后再解释）：</p>
+<pre class="example"><code>+TAGS: EASY(e) COMM(c) OFFICE(o) READ(r) URGENT(u) FUTURE(f) WAIT(w) MEMO(m)
+* 阅读、充电
+** 计算机
+* 强身健体
+** 力量、健美
+** 有氧运动
+* 人际关系
 * Basket
-**  临时篮子  
+** 临时篮子
 </code></pre>
-<div class="p">
-
-</div>
-
 <p>然后就开始静下心来，耐心地，自下而上地将你所有萦绕于心中的所有事情转移到这个系统中去。记住是所有，不要留任何隐患，所有具体不具体的，成熟不成熟的都要写下来，总之就是不要让它再幽魂不散地骚扰你的心境了。</p>
-<div class="p">
-
-</div>
-
-<p>比如说，你今天发现图书馆新开的自习室里有很多你感兴趣的新书，总时不时地觉得该提高一下表达能力、写作能力、演讲能力，还有一堆书想看，希望能培养良好的阅读习惯，还想学用 blender 作三维建模，想起北京秋天不长了，该出去享受一下阳光顺便活动一下生锈的筋骨了，想起本科同学好久不联系了。。。都写下来吧，不管是些具体的事、模糊的意向还是些不成熟的想法，先记下来再说。初次做这个大概需要一两个小时，写下上百条都不要奇怪，往后就要靠平常注意积累了。</p>
-<div class="p">
-
-</div>
-
+<p>比如说，你今天发现图书馆新开的自习室里有很多你感兴趣的新书，总时不时地觉得该提高一下表达能力、写作能力、演讲能力，还有一堆书想看，希望能培养良好的阅读习惯，还想学用 Blender 作三维建模，想起北京秋天不长了，该出去享受一下阳光顺便活动一下生锈的筋骨了，想起本科同学好久不联系了……都写下来吧，不管是些具体的事、模糊的意向还是些不成熟的想法，先记下来再说。初次做这个大概需要一两个小时，写下上百条都不要奇怪，往后就要靠平常注意积累了。</p>
 <p>以下仍然只是个示例：</p>
-<div class="p">
-
-</div>
-
-<pre><code>#+TAGS: EASY(e) COMM(c) OFFICE(o) READING(r) URGENT(u) FUTURE(f) WAIT(w) MEMO(m)
-* 阅读、充电  
-**  养成阅读习惯  
-***  没有条件创造条件也要上，晚上远离电脑两个小时，去图书馆   :EASY:
-*** TODO  下载感兴趣的 jar 电子书传到手机上，利用一切间隙看  
-**  计算机  
-***  阅读  &lt;Mastering Algorithms with perl&gt;         :FUTURE:
-***  学习 blender 三维建模                           :FUTURE:
-**  英语  
-***  千万别学英语                                   :EASY:
-  - [ ]  每天反复听同一盒磁带  
-  - [ ]  反复听一个月后听写、跟读  
-*  强身健体  
-**  力量、健美  
-*** TODO  去趟天成买对哑铃                           :EASY:
-**  有氧运动  
-***  去八达岭残长城转转  
-***  参加一次  1.3+ 级的穿越  
-***  骑车绕北京城半圈  
-*  人际关系  
-***  好久没见老同学了  
+<pre class="example"><code>#+TAGS: EASY(e) COMM(c) OFFICE(o) READING(r) URGENT(u) FUTURE(f) WAIT(w) MEMO(m)
+* 阅读、充电
+** 养成阅读习惯
+*** 没有条件创造条件也要上，晚上远离电脑两个小时，去图书馆       :EASY:
+*** TODO 下载感兴趣的 jar 电子书传到手机上，利用一切间隙看
+** 计算机
+*** 阅读 &lt;Mastering Algorithms with perl&gt;                  :FUTURE:
+*** 学习 blender 三维建模                                  :FUTURE:
+** 英语
+*** 千万别学英语                                           :EASY:
+- [ ] 每天反复听同一盒磁带
+- [ ] 反复听一个月后听写、跟读
+* 强身健体
+** 力量、健美
+*** TODO 去趟天成买对哑铃                               :EASY:
+** 有氧运动
+*** 去八达岭残长城转转
+*** 参加一次  1.3+ 级的穿越
+*** 骑车绕北京城半圈
+* 人际关系
+*** 好久没见老同学了
 * Basket
-**  临时篮子  
-***  文献中心二楼的研究生自习室很好，很强大           :MEMO:
-***  提高一下表达、写作能力                           :URGENT:
-***  提高演讲能力                                   :FUTURE:
-***  阅读 &lt; 哲学的故事  &gt;                             :READING:
+** 临时篮子
+*** 文献中心二楼的研究生自习室很好，很强大                 :MEMO:
+*** 提高一下表达、写作能力                               :URGENT:
+*** 提高演讲能力                                        :FUTURE:
+*** 阅读《哲学的故事》                                   :READING:
 </code></pre>
-<div class="p">
-
-</div>
-
-<p>所有事项都以 * 开头，*数目代表了级数，org-mode其实就是一种 outline mode，带 * 的是 outline 项。org-mode支持对 outline 项作以下操作 ( 鼠标在 outline 项上 )：</p>
-<div class="p">
-
-</div>
-
+<p>所有事项都以 <code>*</code> 开头， <code>*</code> 数目代表了级数，Org-mode 其实就是一种 outline mode， 带 <code>*</code> 的是 outline 项。Org-mode 支持对 outline 项作以下操作（鼠标在 outline 项上）：</p>
 <ol>
-<li><p>TAB折叠、打开子项，Shift-TAB折叠、打开整个文档</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>C-c C-c 指定当前项标签，如上面的 :URGENT:, :MEMO: 等，方便以后分类查找</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>M- 左右方向键减 / 增*数目</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>M- 上下方向键移动当前项位置</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>C-c C-t 设定当前项状态为 TODO DONE 或空白</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>C-c C-s 规划时间 ( 只建议用于约会或非此时不可的情形 )</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>C-c C-d 设定最后期限 (deadline)</p>
-<div class="p">
-
-</div>
-</li>
+<li><code>Tab</code> 折叠、打开子项， <code>Shift-Tab</code> 折叠、打开整个文档</li>
+<li><code>C-c C-c</code> 指定当前项标签，如上面的 <code>:URGENT:</code> ， <code>:MEMO:</code> 等，方便以后分类查找</li>
+<li><code>M-左右方向键</code> 增/减*数目</li>
+<li><code>M-上下方向键</code> 移动当前项位置</li>
+<li><code>C-c C-t</code> 设定当前项状态为 <code>TODO</code> 、 <code>DONE</code> 或空白</li>
+<li><code>C-c C-s</code> 规划时间（只建议用于约会或非此时不可的情形）</li>
+<li><code>C-c C-d</code> 设定最后期限（deadline）</li>
 </ol>
-<div class="p">
-
-</div>
-
 <p>好了，现在假设你现在已经有了一个长达几百行的列表，千万别让它就这么堆着，那样你就前功尽弃了，好不容易从脑中清除出来的东西可能过不多久又重新萦绕在你脑中。你现在要做的便是清理你放在这个你所依赖的系统里的所有信息，具体过程如下 :</p>
-<div class="p">
-
-</div>
-
 <ol>
-<li><p>逐一处理，马上作出决定，不要积压</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>如果认定是垃圾，删除</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>如果可委派别人，委派出去，将该项标签设为 :WAIT:，这个标签下的事情都不用你干 ( 爽吧 )</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>2 分钟可完成的立刻干掉</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>应该尽快采取行动但超过 2 分钟的，C-c C-t设为 TODO</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>这是一件不具体的事务 ( 如养成阅读习惯 )，那么确定如何实施下一步 ( 创造条件，下载 jar 书 )</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>也许在将来再做的事设标签为 :FUTURE:</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>不要剩余有未处理的事项，以后注意随时添加，及时检查处理 ( 比如前面的例子就还有四、五项未处理，不应该 )</p>
-<div class="p">
-
-</div>
-</li>
+<li>逐一处理，马上作出决定，不要积压</li>
+<li>如果认定是垃圾，删除</li>
+<li>如果可委派别人，委派出去，将该项标签设为 <code>:WAIT:</code> ，这个标签下的事情都不用你干（爽吧）</li>
+<li>2 分钟可完成的立刻干掉</li>
+<li>应该尽快采取行动但超过 2 分钟的，=C-c C-t= 设为 <code>TODO</code></li>
+<li>这是一件不具体的事务（如养成阅读习惯），那么确定如何实施下一步（创造条件，下载 jar 书）</li>
+<li>也许在将来再做的事设标签为 <code>:FUTURE:</code></li>
+<li>不要剩余有未处理的事项，以后注意随时添加，及时检查处理（比如前面的例子就还有四、五项未处理，不应该）</li>
 </ol>
-<div class="p">
-
-</div>
-
-<h2 id="规划执行">3 规划、执行</h2>
+<h2 id="规划执行">规划、执行</h2>
 <blockquote>
 <p>一个大学讲师在上课的时候带了一袋沙子、一袋小鹅卵石、几块大石头和一个木桶，问有没有人能把这几种不同形状的东西都装进木桶。一个热心的学生自告奋勇走上讲台随手抓起沙袋就往木桶里倒，然后把小鹅卵石也放了进去，但是轮到大石头的时候，他发现木桶里的空间已经不够了。讲师遗憾地摇了摇头。他把木桶清空了，先把那几块大石头放进木桶，再把小鹅卵石放进去，然后倒入沙子。最后他摇了摇木桶，只见这三种不同形状的东西配合得天衣无缝，把木桶挤得满满的。</p>
 </blockquote>
-<div class="p">
-
-</div>
-
-<p>我们做规划的第一个原则是优先放置大石头，每周前把一周要做的重要事情在 Org-mode 中将其优先级设为最高 (shift+ 上下键设定每项的优化级 )，但设定的事情尽量要少，因为这些事情是必须完成而且应尽早完成的。至于要不要一开始就设定日期，就看个人喜好了，有人在时限压力下工作更好，有人则会产生焦虑，但一般 GTD 不建议一开始将日期都定好（当然一些本身具有时限性的事情除外 )。</p>
-<div class="p">
-
-</div>
-
-<p>然后是每天的规划了，同样是应当确定大石头，一般是两到三件最重要的事，在 Org-mode 中 C-c C-s将其规划到当天，并且优先级设为最高 (shift+ 上下键设定每项的优化级 )，事情应该描述得尽量具体，且保证当天能完成 ( 完不成就细化 )。然后就是尽早搞定你大石头了，一定不要找延误的理由，做完后表扬一下自己。至于其它事务，你一高兴当然会多少顺便做一些的，不是么？等一段时间后回头你就会发现不少事在不知不觉中就完成了，特别是重要的事都没延误。</p>
-<div class="p">
-
-</div>
-
+<p>我们做规划的第一个原则是优先放置大石头，每周前把一周要做的重要事情在 Org-mode 中将其优先级设为最高（ <code>Shift-上下键</code> 设定每项的优化级），但设定的事情尽量要少，因为这些事情是必须完成而且应尽早完成的。至于要不要一开始就设定日期，就看个人喜好了， 有人在时限压力下工作更好，有人则会产生焦虑，但一般 GTD 不建议一开始将日期都定好 （当然一些本身具有时限性的事情除外）。</p>
+<p>然后是每天的规划了，同样是应当确定大石头，一般是两到三件最重要的事，在 Org-mode 中 <code>C-c C-s</code> 将其规划到当天，并且优先级设为最高（ <code>Shift-上下键</code> 设定每项的优化级 ），事情应该描述得尽量具体，且保证当天能完成（完不成就细化）。然后就是尽早搞定你大石头了，一定不要找延误的理由，做完后表扬一下自己。至于其它事务，你一高兴当然会多少顺便做一些的，不是么？等一段时间后回头你就会发现不少事在不知不觉中就完成了，特别是重要的事都没延误。</p>
 <blockquote>
-<p>如果你有定力地全神贯注投入工作几个小时，一定会比不断分心的工作一天取得更多的成果。一般进入专注状态需要 15 分钟时间，所以能保持专注状态的外界环境和心理环境十分重要。进入专注状态前花几分钟清空头脑中萦绕的琐事 ( 写到 org 中 )，总比你进入专注状态后再被干扰要好。</p>
+<p>如果你有定力地全神贯注投入工作几个小时，一定会比不断分心的工作一天取得更多的成果。 一般进入专注状态需要 15 分钟时间，所以能保持专注状态的外界环境和心理环境十分重要。 进入专注状态前花几分钟清空头脑中萦绕的琐事（写到 org 中），总比你进入专注状态后再被干扰要好。</p>
 </blockquote>
-<div class="p">
-
-</div>
-
 <p>至于执行，不用说，当然越专注越好，一次只做一件事，而做事时头脑中的琐事已经被事先清理出去了。另外，尽可能改善你的工作环境。</p>
-<div class="p">
-
-</div>
-
-<p>做完一件事后，C-c C-t改成 DONE，然后表扬一下自己，再扫描一下清单，找出下一步要做的，记得应该是真正可执行的下一步。所有事情被延误就是因为没想好具体的下一步做什么，而不是因为时间不够，所以要对任何看着不具体的事情花一分钟想想下一步做什么，这一分钟绝对花得值</p>
-<div class="p">
-
-</div>
-
+<p>做完一件事后， <code>C-c C-t</code> 改成 <code>DONE</code> ，然后表扬一下自己，再扫描一下清单，找出下一步要做的，记得应该是真正可执行的下一步。所有事情被延误就是因为没想好具体的下一步做什么，而不是因为时间不够，所以要对任何看着不具体的事情花一分钟想想下一步做什么，这一分钟绝对花得值。</p>
 <p>至于扫描清单，因为列表太长了，自然 Org-mode 会贴心地提供一系列帮助你查找的方法：</p>
 <ol>
-<li><p>C-c /: 在当前 org 中按关键词查看，比如你可查找某个 tag 如 office：C-c / &lt;ret&gt; office &lt;ret&gt;</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>C-c a a: 日程表，在日程表状态下，d或 w 为按日或周查看，.为跳到当日，左右键为前后一天 ( 周 )</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>C-c a t: 列出所有 TODO，每项上按中键可跳到对应的 org，至于其中的操作也很方便，自己看菜单了解一下吧</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>C-c a m: 根据 tag 来查找，这就是一开始每件事都要用标签定性的原因，这时候查就方便了，比如你要办公室就查 office，要外出就看看 trip 中有什么可顺便完成的事，觉得头脑发胀要换思路就查查有什么 easy 的事，如果想气使颐指一下就看看 wait 中别人有什么事没给你做完，正豪情万丈中就看看 future 中有什么伟大的规划 ….</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>c-a a M: 根据 tag 来查找，但只针对 TODO 项</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>另外 C-a a C 可以自定义一些查找方式，自己试试吧</p>
-<div class="p">
-
-</div>
-</li>
+<li><code>C-c /</code> – 在当前 org 中按关键词查看，比如你可查找某个 tag 如 office： <code>C-c /
+ &lt;ret&gt; office &lt;ret&gt;</code></li>
+<li><code>C-c a a</code> – 日程表，在日程表状态下， <code>d</code> 或 <code>w</code> 为按日或周查看， <code>.</code> 为跳到当日，左右键为前后一天（周）</li>
+<li><code>C-c a t</code> – 列出所有 <code>TODO</code> ，每项上按中键可跳到对应的 org，至于其中的操作也很方便，自己看菜单了解一下吧</li>
+<li><code>C-c a m</code> – 根据 tag 来查找，这就是一开始每件事都要用标签定性的原因，这时候查就方便了，比如你要办公室就查 office，要外出就看看 trip 中有什么可顺便完成的事，觉得头脑发胀要换思路就查查有什么 easy 的事，如果想气使颐指一下就看看 wait 中别人有什么事没给你做完，正豪情万丈中就看看 future 中有什么伟大的规划……</li>
+<li><code>C-a a M</code> – 根据 tag 来查找，但只针对 <code>TODO</code> 项</li>
+<li><code>C-a a C</code> – 可以自定义一些查找方式，自己试试吧</li>
 </ol>
-<div class="p">
-
-</div>
-
-<h2 id="回顾简化">4 回顾、简化</h2>
+<h2 id="回顾简化">回顾、简化</h2>
 <p>这里的回顾不是指周末或每天晚上的反省，而是对目标和 Org-mode 中所记录的所有事情的回顾。</p>
-<div class="p">
-
-</div>
-
-<p>每周回顾的重要意义在此 : 它给了你一次机会 , 来重新整理所有的事情并检视什么是最重要的任务。 以下是 GTD 每周回顾的一些步骤：</p>
-<div class="p">
-
-</div>
-
+<p>每周回顾的重要意义在此: 它给了你一次机会，来重新整理所有的事情并检视什么是最重要的任务。以下是 GTD 每周回顾的一些步骤：</p>
 <ol>
-<li><p>回顾你的长期目标，中期目标和短期目标</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>将没归类的 ( 一般集中放在最后，或者平时用纸记着 )、还没确定下一步是什么的事情逐一处理、具体化，加上标签 (C-c C-c)，归入相应情境</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>C-c a a 看看日程表，看看有什么约会或有 deadline 的事</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>按每种情境 (C-c a m) 查看任务清单，心里有数</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>设定大石头，但不着急放到每一天</p>
-<div class="p">
-
-</div>
-</li>
+<li>回顾你的长期目标，中期目标和短期目标</li>
+<li>将没归类的（一般集中放在最后，或者平时用纸记着）、还没确定下一步是什么的事情逐一处理、具体化，加上标签（ <code>C-c C-c</code> ），归入相应情境</li>
+<li><code>C-c a a</code> 看看日程表，看看有什么约会或有 deadline 的事</li>
+<li>按每种情境（ <code>C-c a m</code> ）查看任务清单，心里有数</li>
+<li>设定大石头，但不着急放到每一天</li>
 </ol>
-<div class="p">
-
-</div>
-
 <p>至于每一天开始时的回顾，最重要的就是先设定三件最重要的事了，三件就行了，而且描述得尽量具体可行，尽量在早晨就完成，这样在反省时不至于觉得当天没做什么。还有就是三块大石头中应当有一件与你的中长期目标或人生规划相关，这样能增进成就感。</p>
-<div class="p">
-
-</div>
-
 <p>再有就是简化，因为 GTD 始终原则就是保证你能专注地只管去做一件事。它建立一个系统帮助你把头绪里的琐事清理出来就是为了你专注，它不提前把乱七八糟的事安排满你的日程也是为了你专注，它每天只在日程中定三件事同样是为了你专注。那么你的 Org-mode 中列表那么长是不是有点影响你的专注了哈，那就简化它吧。</p>
-<div class="p">
-
-</div>
-
 <ol>
-<li><p>清除。有时候我们认真权衡一下会发现很多事是没必要做或可以拖延的，还有很多事 2 分钟就搞定了，这些都清除或搞定之</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>对你的目标足够明确，然后结合你的目标来筛选，同样还有可清除的</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>减少你的承诺</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>把能堆一起的波速堆一起，合适时突击全部完成</p>
-<div class="p">
-
-</div>
-</li>
-<li><p>永远只在当日日程中只安排三件事，最重要的三件，而且有一件与你的中长期规划有关</p>
-<div class="p">
-
-</div>
-</li>
-<li>将一些琐碎的东西分离出去，比如我的日程表 (C-c a) 只搜索两个 org 文件 :work.org, self.org，但我可以还有其它一堆 org 文件，比如是某门学科或某本书的研习计划 ( 顺便说一下用 org 做学习笔记不错，比如可先列出书中章节，每章节下面用
-<ul>
-<li>[ ] Question 的形式列出所有要了解的问题，了解每一项后更新问题答案并 C-c</li>
-</ul>
-<p>C-c 之使其变成 - [X] Answer 的形式 )</p>
-<div class="p">
-
-</div>
-
-<p>对于分离出去的 org 文件，可以用 <a href="name.org">description</a> 的形式来相互链接。事实上 , org 提供的链接功能很强，甚至可用 Shell 命令。</p>
-<div class="p">
-
-</div>
-</li>
+<li>清除。有时候我们认真权衡一下会发现很多事是没必要做或可以拖延的，还有很多事 2 分钟就搞定了，这些都清除或搞定之</li>
+<li>对你的目标足够明确，然后结合你的目标来筛选，同样还有可清除的</li>
+<li>减少你的承诺</li>
+<li>把能堆一起的波速堆一起，合适时突击全部完成</li>
+<li>永远只在当日日程中只安排三件事，最重要的三件，而且有一件与你的中长期规划有关</li>
+<li>将一些琐碎的东西分离出去，比如我的日程表（C-c a）只搜索两个 org 文件~work.org~ 、 <code>self.org</code> ，但我可以还有其它一堆 org 文件，比如是某门学科或某本书的研习计划（顺便说一下用 org 做学习笔记不错，比如可先列出书中章节，每章节下面用 <code>- [ ] Question</code> 的形式列出所有要了解的问题，了解每一项后更新问题答案并 <code>C-c C-c</code> 之使其变成 <code>- [X] Answer</code> 的形式）对于分离出去的 org 文件，可以用 <code>[[file:name.org][description]]</code> 的形式来相互链接。事实上，org 提供的链接功能很强，甚至可用 shell 命令。</li>
 </ol>
-<div class="p">
-
-</div>
-
-<h2 id="反省激情">5 反省、激情</h2>
-<div class="p">
-
-</div>
-
-<p>用GTD或者 Org-mode 做时间管理的根本目的就是要掌控自己的生活，既不要被一些毫无意义的事情耽延，也不要陷入看起来没完没了的工作中被消磨掉所有锐气。</p>
-<div class="p">
-
-</div>
-
+<h2 id="反省激情">反省、激情</h2>
+<p>用 GTD 或者 Org-mode 做时间管理的根本目的就是要掌控自己的生活，既不要被一些毫无意义的事情耽延，也不要陷入看起来没完没了的工作中被消磨掉所有锐气。</p>
 <p>要想保持锐气和激情，那么我们就需要反省和自我激励，良性的心理暗示起到的作用绝对是你预想不到的。</p>
-<div class="p">
+<p>为了充分反省，不妨新建个 <code>review.org</code> ，没必要加入日程表中，内容示例如下，当然究竟写成什么样必须根据你个人情况来，自己构想来的系统用起来才真正有效：</p>
+<pre class="example"><code>** 每日反思
+- [ ] 今天我有什么样的付出？我是用什么的方式付出？
+- [ ] 今天三块大石头是什么？哪项与我的人生规划有关？都放下了吗？没有的话，下一步是什么？
+  - [ ] 1.
+  - [ ] 2.
+  - [ ] 3.
+- [ ] 今天我学到了什么？
+- [ ] 今天我给自己的人生提高了什么品质？对于未来，我在今天作了什么样的投资？
 
-</div>
+** 周末反思
+- [ ] 这周的规划都完成？效果如何？
+- [ ] 这周的工作有没有陷入手忙脚乱中？哪些需要调整？
+- [ ] 这周的工作状态是不是专注？是什么事情让我分神或担忧？怎么消除？
+- [ ] 这周有什么事情坚持每天做了  ( 如背英语文章、看书、培养某项习惯等 )？如果没有，为什么不坚持？
 
-<p>为了充分反省，不妨新建个 review.org，没必要加入日程表中，内容示例如下，当然究竟写成什么样必须根据你个人情况来，自己构想来的系统用起来才真正有效：</p>
-<div class="p">
-
-</div>
-
-<pre><code>* REVIEW
-** 每日反思  
- - [ ]  今天我有什么样的付出？我是用什么的方式付出？
- - [ ] 今天三块大石头是什么？哪项与我的人生规划有关？都放下了吗？没有的话，下一步是什么？
-    - [ ] 1.
-    - [ ] 2.
-    - [ ] 3.
- - [ ] 今天我学到了什么？
- - [ ] 今天我给自己的人生提高了什么品质？对于未来，我在今天作了什么样的投资？
-** 周末反思  
- - [ ]  这周的规划都完成？效果如何？
- - [ ] 这周的工作有没有陷入手忙脚乱中？哪些需要调整？
- - [ ] 这周的工作状态是不是专注？是什么事情让我分神或担忧？怎么消除？
- - [ ] 这周有什么事情坚持每天做了  ( 如背英语文章、看书、培养某项习惯等 )？如果没有，为什么不坚持？
-** 感觉无趣时反思一下  
- - [ ]  此刻人生中有什么让我觉得快乐？让我快乐到什么程度？带给我什么样的感受？
- - [ ] 此刻人生中有什么让我觉得振奋？让我振奋到什么程度？带给我什么样的感受？
- - [ ] 此刻人生中有什么让我觉得感激？让我感激到什么程度？带给我什么样的感受？
- - [ ] 此刻人生中有什么让我觉得欣赏？让我欣赏到什么程度？带给我什么样的感受？
- - [ ] 此刻人生中有什么值得我努力的？让我努力到什么程度？带给我什么样的感受？
- - [ ] 我喜欢什么样的人？什么的人喜欢我？让我喜欢到什么程度？带给我什么样的感受？
+** 感觉无趣时反思一下
+- [ ] 此刻人生中有什么让我觉得快乐？让我快乐到什么程度？带给我什么样的感受？
+- [ ] 此刻人生中有什么让我觉得振奋？让我振奋到什么程度？带给我什么样的感受？
+- [ ] 此刻人生中有什么让我觉得感激？让我感激到什么程度？带给我什么样的感受？
+- [ ] 此刻人生中有什么让我觉得欣赏？让我欣赏到什么程度？带给我什么样的感受？
+- [ ] 此刻人生中有什么值得我努力的？让我努力到什么程度？带给我什么样的感受？
+- [ ] 我喜欢什么样的人？什么的人喜欢我？让我喜欢到什么程度？带给我什么样的感受？
 </code></pre>
-<p>最后很重要的一点就是做你想做的事。试想你每天在做的每一件事都是你所喜欢做的，那么你肯定会愿意付出更多努力来做你想做的事的，也就是说，耽延自然就会少了，事情也就几乎不可能被堆积下来 ( 前面不止一次说过，事情没完成永远不会是因为时间不够，要么是你不知道下一步怎么走，要么就是你根本没走 )</p>
-<div class="p">
+<p>最后很重要的一点就是做你想做的事。试想你每天在做的每一件事都是你所喜欢做的，那么你肯定会愿意付出更多努力来做你想做的事的，也就是说，耽延自然就会少了，事情也就几乎不可能被堆积下来（前面不止一次说过，事情没完成永远不会是因为时间不够，要么是你不知道下一步怎么走，要么就是你根本没走）。</p>
+<p>你也许会笑：“做我想做的事，说得轻巧，由得了我吗？”那么我问你，你知道你究竟想做什么吗？如果你知道了，你知道下步是什么吗？你所说的下一步已经具体到马上可以执行了吗？ 如果以上你的回答都是，那么为什么不去做呢？</p>
+<p>比如说你现在的工作烦透了，是该反省做改变的时候了，那就在 <code>review.org</code> 后面加上：</p>
+<pre class="example"><code>** 我要找份喜欢的工作
+*** 调查
+- [ ] 有谁在从事你心仪的工作？
+- [ ] 他们是如何得到这份工作的？
+- [ ] 获取这份工作有什么要求与标准？或者说绊脚石是什么？
+  - [ ] 一份更高的学位  ?
+  - [ ] 一份不错的工作经验  ?
+  - [ ] 或者其他的技能？
 
-</div>
+*** 设定计划：想出一些有用的方法去解决你的绊脚石
+- [ ] 进修、培训
+- [ ] 求教，有意积累相关经验
+- [ ] 自学
 
-<p>你也许会笑：“做我想做的事，说得轻巧，由得了我吗？”那么我问你，你知道你究竟想做什么吗？如果你知道了，你知道下步是什么吗？你所说的下一步已经具体到马上可以执行了吗？如果以上你的回答都是，那么为什么不去做呢？</p>
-<div class="p">
-
-</div>
-
-<p>比如说你现在的工作烦透了，是该反省做改变的时候了，那就在 review.org 后面加上：</p>
-<div class="p">
-
-</div>
-
-<pre><code>** 我要找份喜欢的工作  
-***  调查  
-  - [ ]  有谁在从事你心仪的工作？
-  - [ ] 他们是如何得到这份工作的？
-  - [ ] 获取这份工作有什么要求与标准？或者说绊脚石是什么？
-      - [ ] 一份更高的学位  ?
-      - [ ]  一份不错的工作经验  ?
-      - [ ]  或者其他的技能？
-*** 设定计划：想出一些有用的方法去解决你的绊脚石  
-  - [ ]  进修、培训  
-  - [ ]  求教，有意积累相关经验  
-  - [ ]  自学  
-***  开始行动  ,  不要等待  
-  - [ ]  每天反省：我有没除掉了哪颗绊脚石或向目标迈进了一步？下一步是什么？
-  - [ ] 每周反省：我有没有坚持不懈？下面该怎么走？
+*** 开始行动，不要等待
+- [ ] 每天反省：我有没除掉了哪颗绊脚石或向目标迈进了一步？下一步是什么？
+- [ ] 每周反省：我有没有坚持不懈？下面该怎么走？
 </code></pre>
-<div class="p">
-
-</div>
-
-<h2 id="完结">6 完结</h2>
-<div class="p">
-
-</div>
-
-<p>GTD( 只管去做 ) 是我在搜索 Org-mode 时无意中看到的，其实也是粗粗看了一下，可能远未得精髓，但还是挺喜欢这套理论的，包括 Org-mode 也挺合我品味，不仅用来做日常计划，还读书笔记、学习计划和学习笔记都用它了。</p>
-<div class="p">
-
-</div>
-
+<h2 id="完结">完结</h2>
+<p>GTD（只管去做）是我在搜索 Org-mode 时无意中看到的，其实也是粗粗看了一下，可能远未得精髓，但还是挺喜欢这套理论的，包括 Org-mode 也挺合我品味，不仅用来做日常计划， 还读书笔记、学习计划和学习笔记都用它了。</p>
 <p>至于我写的这份笔记，其实每篇写得都很仓促的，很大程度是为了完成任务而写的，哪位觉得写得太烂的请见谅。也许后续我会根据理解的加深重写一下。</p>
-<div class="p">
-
-</div>
-
-<p>关于 GTD，原书和更多的资料可以从褪墨中找到，如果你对这个感兴趣，还是建议你去通读原著。至于 org-mode，我觉得还是很强大的，自己用 M-x org-info 可看帮助，各位尽可以发挥自己的创造力和想象力来灵活运用。</p>
-<div class="p">
-
-</div>
-
-<p>当然你还可以将 GTD 结合其它理论来完善自己的系统，比如结合富兰克林自我修炼表格，将其第一列改成你每日反省或每周反省的项目。至于要反省的内容，就看你自己了，比如你要改变你自私残忍的性格 ( 开玩笑了 )，或者你要改变作息，那都可以写上。另外也可像富兰克林一样，每段时间应特别重点关注其中一项，等等。</p>
-<div class="p">
-
-</div>
-
-<p>最后说一下 Org-mode 是可以导出为 HTML 或text的 ( 还有 xoxo 格式其实也是 HTML，自己试试看吧 )。但默认的 HTML 样式实在不怎样，好在可自定义，先在 .emacs 上加：</p>
-<pre><code>(defcustom org-export-html-style
-&quot;&lt;link rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot; href=\&quot;wheer.css\&quot;&gt;&quot; &quot;&quot;
+<p>关于 GTD，原书和更多的资料可以从褪墨中找到，如果你对这个感兴趣，还是建议你去通读原著。至于 Org-mode，我觉得还是很强大的，自己用 <code>M-x org-info</code> 可看帮助，各位尽可以发挥自己的创造力和想象力来灵活运用。</p>
+<p>当然你还可以将 GTD 结合其它理论来完善自己的系统，比如结合富兰克林自我修炼表格， 将其第一列改成你每日反省或每周反省的项目。至于要反省的内容，就看你自己了，比如你要改变你自私残忍的性格（开玩笑了），或者你要改变作息，那都可以写上。另外也可像富兰克林一样，每段时间应特别重点关注其中一项，等等。</p>
+<p>最后说一下 Org-mode 是可以导出为 HTML 或 text 的（还有 xoxo 格式其实也是 HTML， 自己试试看吧）。但默认的 HTML 样式实在不怎样，好在可自定义，先在 <code>.emacs</code> 上加：</p>
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(defcustom org-export-html-style
+<span class="st">&quot;&lt;link rel=</span>\&quot;<span class="st">stylesheet</span>\&quot;<span class="st"> type=</span>\&quot;<span class="st">text/css</span>\&quot;<span class="st"> href=</span>\&quot;<span class="st">wheer.css</span>\&quot;<span class="st">&gt;&quot;</span> <span class="st">&quot;&quot;</span>
   :group &#39;org-export-html
-  :type &#39;string)
-</code></pre>
+  <span class="bu">:type</span> &#39;string)</code></pre></div>
 <p>然后输出的 HTML 就可以用自定义的 CSS 了，以下只是个示例：</p>
-<pre><code>html {font-family: Times, serif;font-size: 12pt;}
-.title,.author { display:none; }
-.todo { color: red; }
-.done { color: green; }
-.timestamp { color: grey }
-.timestamp-kwd { color: CadetBlue }
-.tag { background-color:lightblue; font-weight:normal }
-.target { background-color: lavender; }
-pre {border: 1pt solid #AEBDCC;background-color: #F3F5F7;
-    padding: 5pt;font-family: courier, monospace;}
-table { border-collapse: collapse; }
-td, th {vertical-align: top;border: 1pt solid #ADB9CC;}
-h2{ margin: 5px 0 10px 0;background-color: #AEC5CE; font-size:1.5em;}
-h3{ margin: 0px 0px 5px 0;padding: 5px 5px 5px 10px;
-    font-size:1.2em; border-top: solid 1px #9AB7C2;
-    border-bottom: solid 1px #9AB7C2; font-variant: small-caps; }
-h4{ color: black; margin: 3px 0px 5px 0px;
-  padding: 3px 5px 3px 15px; font-size: 1em;}
-h5{ color: black; margin: 3px 0px 3px 0px;
-  padding: 3px 5px 3px 25px; font-size: 1em;}
-p{ margin:0px 10px 0px 18px; }
-</code></pre>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">html <span class="kw">{</span>
+  <span class="kw">font-family:</span> Times, <span class="dt">serif</span><span class="kw">;</span>
+  <span class="kw">font-size:</span> <span class="dt">12pt</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="fl">.title</span>,
+<span class="fl">.author</span> <span class="kw">{</span>
+  <span class="kw">display:</span> <span class="dt">none</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="fl">.todo</span> <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">red</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="fl">.done</span> <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">green</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="fl">.timestamp</span> <span class="kw">{</span>
+  <span class="kw">color:</span> grey
+<span class="kw">}</span>
+
+<span class="fl">.timestamp-kwd</span> <span class="kw">{</span>
+  <span class="kw">color:</span> CadetBlue
+<span class="kw">}</span>
+
+<span class="fl">.tag</span> <span class="kw">{</span>
+  <span class="kw">background-color:</span> lightblue<span class="kw">;</span>
+  <span class="kw">font-weight:</span> <span class="dt">normal</span>
+<span class="kw">}</span>
+
+<span class="fl">.target</span> <span class="kw">{</span>
+  <span class="kw">background-color:</span> lavender<span class="kw">;</span>
+<span class="kw">}</span>
+
+pre <span class="kw">{</span>
+  <span class="kw">border:</span> <span class="dt">1pt</span> <span class="dt">solid</span> <span class="dt">#AEBDCC</span><span class="kw">;</span>
+  <span class="kw">background-color:</span> <span class="dt">#F3F5F7</span><span class="kw">;</span>
+  <span class="kw">padding:</span> <span class="dt">5pt</span><span class="kw">;</span>
+  <span class="kw">font-family:</span> courier, <span class="dt">monospace</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+table <span class="kw">{</span>
+  <span class="kw">border-collapse:</span> <span class="dt">collapse</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+td,
+th <span class="kw">{</span>
+  <span class="kw">vertical-align:</span> <span class="dt">top</span><span class="kw">;</span>
+  <span class="kw">border:</span> <span class="dt">1pt</span> <span class="dt">solid</span> <span class="dt">#ADB9CC</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+h2 <span class="kw">{</span>
+  <span class="kw">margin:</span> <span class="dt">5px</span> <span class="dt">0</span> <span class="dt">10px</span> <span class="dt">0</span><span class="kw">;</span>
+  <span class="kw">background-color:</span> <span class="dt">#AEC5CE</span><span class="kw">;</span>
+  <span class="kw">font-size:</span> <span class="dt">1.5em</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+h3 <span class="kw">{</span>
+  <span class="kw">margin:</span> <span class="dt">0px</span> <span class="dt">0px</span> <span class="dt">5px</span> <span class="dt">0</span><span class="kw">;</span>
+  <span class="kw">padding:</span> <span class="dt">5px</span> <span class="dt">5px</span> <span class="dt">5px</span> <span class="dt">10px</span><span class="kw">;</span>
+  <span class="kw">font-size:</span> <span class="dt">1.2em</span><span class="kw">;</span>
+  <span class="kw">border-top:</span> <span class="dt">solid</span> <span class="dt">1px</span> <span class="dt">#9AB7C2</span><span class="kw">;</span>
+  <span class="kw">border-bottom:</span> <span class="dt">solid</span> <span class="dt">1px</span> <span class="dt">#9AB7C2</span><span class="kw">;</span>
+  <span class="kw">font-variant:</span> <span class="dt">small-caps</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+h4 <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">black</span><span class="kw">;</span>
+  <span class="kw">margin:</span> <span class="dt">3px</span> <span class="dt">0px</span> <span class="dt">5px</span> <span class="dt">0px</span><span class="kw">;</span>
+  <span class="kw">padding:</span> <span class="dt">3px</span> <span class="dt">5px</span> <span class="dt">3px</span> <span class="dt">15px</span><span class="kw">;</span>
+  <span class="kw">font-size:</span> <span class="dt">1em</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+h5 <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">black</span><span class="kw">;</span>
+  <span class="kw">margin:</span> <span class="dt">3px</span> <span class="dt">0px</span> <span class="dt">3px</span> <span class="dt">0px</span><span class="kw">;</span>
+  <span class="kw">padding:</span> <span class="dt">3px</span> <span class="dt">5px</span> <span class="dt">3px</span> <span class="dt">25px</span><span class="kw">;</span>
+  <span class="kw">font-size:</span> <span class="dt">1em</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+p <span class="kw">{</span>
+  <span class="kw">margin:</span> <span class="dt">0px</span> <span class="dt">10px</span> <span class="dt">0px</span> <span class="dt">18px</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
 <hr />
-<p>File translated from T<sub>E</sub>X by <a href="http://hutchinson.belmont.ma.us/tth/">T<sub>T</sub>H</a>, version 3.80.<br />
-On 9 Aug 2009, 11:35.</p>
+<p>File translated from TeX by <a href="http://hutchinson.belmont.ma.us/tth/">TTH</a>, version 3.80. On 9 Aug 2009, 11:35.</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
