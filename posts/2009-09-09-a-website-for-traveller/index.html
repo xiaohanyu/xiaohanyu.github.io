@@ -49,11 +49,11 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p><img src="file:///user_files/cnlox/Image/web/traverller/traverller_design.jpeg" /></p>
+  <section class="twelve wide column"><p><a href="/static/image/2009/traveller_design.jpg"><img src="/static/image/2009/traveller_design.jpg" /></a></p>
 <p>这么一张图，从早晨十点一直写到晚上十点。主题就直接参考本博客了，清爽淡雅。只是实现的方式略有不同。</p>
 <p>框架采用 1-2-1 单列变宽布局。参考《CSS设计彻底研究》14.1节的巧妙方法，自己调节参数，花费了约三、四个小时的时间。</p>
 <p>菜单栏采用 Mac 风格色系，找了张图， <code>Print Screen</code> 一下，用 GIMP 打开，用取色工具获得颜色的 HTML 代码表示，如下图：</p>
-<p><img src="file:///user_files/cnlox/Image/web/traverller/gimp_color.jpeg" /></p>
+<p><a href="/static/image/2009/gimp_color_pick.jpg"><img src="/static/image/2009/gimp_color_pick.jpg" /></a></p>
 <p>导航菜单栏有个动态的折叠功能，是纯 CSS 代码做成的，参考的是《CSS设计彻底研究》第 9 章的内容。不过还有些小 bug，暂不展示了。</p>
 <p>Footer 加了几个小 logo，也算给 GNU 做个小广告，呵呵。</p>
 <p>网站存在的主要问题在于兼容性。出于美观考虑，多数 <code>div</code> 采用了圆角设计。《CSS设计彻底研究》第 11 章专门讲圆角设计，虽然兼容性好，但是各种方法都很麻烦，不能随心所欲。于是就琢磨 CSS 有没有内置的圆角设计支持，万幸，我找到了 <a href="http://hi.baidu.com/%C2%B9%C3%BE%C2%B5%C3%8F%C3%97%C3%88/blog/item/9ff4b0a331e380a4cbefd001.html">这篇文章</a>。这种设计在我的 Firefox 3.0 + 文泉驿 Micro Hei 字体下显示效果非常好。Chrome 下也凑合，Opera 10 中不能显示圆角效果，最差的是 IE 6，不但不支持圆角，动态的菜单也不支持。我没有 IE 7，没做测试。</p>

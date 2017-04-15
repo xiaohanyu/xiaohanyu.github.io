@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>换archlinux了，我的linux之旅</title>
+    <title>换 Arch Linux 了，我的 Linux 之旅</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -39,101 +39,99 @@
           </div>
         </div>
       </nav><div class="ui stackable container">
-        <div class="ui very padded segment article">
-          <article class="ui stackable divided grid">
-            <header class="row article-head">
-              <div class="column">
-                <h1 class="ui header">
-                  换archlinux了，我的linux之旅
-                </h1>
-                <div class="ui divider"></div>
-              </div>
-            </header>
-            <div class="row article-body">
-              <section class="twelve wide column">
-                <p>接触 Linux 是在大一上吧。最开始是 Fedora 8，看重的是名声、技术、背景，以及软件安装光盘的个头 —— 毕竟个头大，软件多，就省得自己再去安装了。说实话我是个很浮云的人。什么新鲜的软件都想拿来体验一下，虽然我不一定用到太多，比如 Eclipse、netbeans之类。可是 Fedora 8 有两点让我很是不爽：</p>
-                <ol>
-                <li>无论是校内还是校外，都没有好用的软件源，虽然我那个时候还不清楚源的具体概念。只是知道那是一个软件仓库。无法安装软件，无疑，这个系统是死的。</li>
-                <li>无法启动激动人心的 3D。这对一个追求浮云的 Linux 初学者来说也是毫无吸引力的。</li>
-                </ol>
-                <p>所以那个时候虽然本本上装了 Fedora 和Vista双系统，但绝大多数时间是在用 Vista 系统。</p>
-                <p>后来偶然再一个同学的电脑上看到了 Ubuntu，我试探性的让他一弄，结果 wobbly windows 效果就出来了。再我看来很神奇。后来一不做二不休，电脑大换血，重装了 Vista 和 Ubuntu。</p>
-                <p>只能说 Ubuntu 是个很人性化的系统。帮用户做了很多贴心的工作。LiveCD，wubi，良好的驱动支持，巨大的软件仓库，丰富的国内源，很简单。从 Vista 到ubuntu的转换，只用了两个月不到的时间。乃至终有一天，我烦透了 Windows 软件的注册破解和广告，心一横，删了 Vista，至此，ubuntu成了我的宠儿，不紧不慢的占据了本本 250G 的空间。</p>
-                <p>可以说 Ubuntu 带给了我一个高效能的系统。让我有了非凡的 GNU 体验。Emacs+Firefox的组合，几乎占据了我使用操作系统 80% 的时间。现在觉得 Windows 的工作方式，如此的傻瓜，如此的低效。</p>
-                <p>但是 Ubuntu 并不是一个完美的系统。apt-get的依赖关系过于复杂，自作主张的安装给人带来方便的同时也剥夺了人们定制的自由，频繁的版本升级带来很多系统的问题，软件库版本比较陈旧，譬如我一直想用的 texlive2008。直到 ubuntu 9.10 beta 版，texlive还是停留在 2007 版本。等等。一周以前我决定升级我的 9.04 到 9.10beta版时来体验下 Firefox 3.5， OOo3.1时，系统最终崩溃，这已经是第二次版本升级失败。于是我决定给系统来个大换血。gentoo，还是 arch？</p>
-                <p>我选择了 arch。首先是时间的原因。其次是我的 Linux 基础还不够。本来打算三天配置一个 Gentoo，但是这个事情那个事情，最后只剩一天不到。快速的搭建一个可用的系统，只能 arch 了。安装的过程还算顺利。网络、驱动是两个重头重难题。幸好室友装过 arch，给了我很大的帮助。我发现交流真的是很重要的。自己埋头苦干有时候纯粹是浪费时间。今天终于配好了。驱动，字体，中文，美化。凑合能用。虽然还是比不上一周前 ubuntu+Mac4Lin 的华丽，但也可以看得过去了。不过 arch 也有不完美的地方。首先是官方的软件仓库很小。很多我需要的软件都没有，譬如 dwww。emacs的插件也少的可怜。aur是个不错的选择，只是我还没有尝试。因为浙大 10 元的 vpn 只能上教育网。字体配置还有些小问题。部分地方发虚，慢慢调吧。</p>
-                <p>arch确实让我学到了很多东西。譬如我再 Ubuntu 下从来没考虑过 xorg.conf 的问题。ubuntu带给人便利，也让人变傻，以至于遇到问题时不知如何下手。对系统的构建有了更进一步的理解。有机会一定要来一次 LFS</p>
-                <p>最后上张图吧。</p>
-                <p><img src="file:///user_files/cnlox/Image/arch/archlinux.png" /></p>
-                
-                <div class="ui divider"></div>
-                <div class="ui small one item menu">
-                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
-                </div>
-                <div id="disqus_thread"></div>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </section>
-              <aside class="four wide column">
-                <div class="ui small header">
-                  License
-                </div>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
-                <div class="ui small header">
-                  Committed
-                </div>
-                <date>2009-09-22</date>
-                <div class="ui small header">
-                  Updated
-                </div>
-                <date>2017-04-14</date>
-                <div class="ui small header">
-                  Category
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/categories#linux">
-                      <div class="ui label">
-                        Linux<sup>17</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Tags
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/tags#archlinux">
-                      <div class="ui label">
-                        ArchLinux<sup>4</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#gentoo">
-                      <div class="ui label">
-                        Gentoo<sup>5</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/11603.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
-                  Links
-                </div>
-                <div class="ui small two item menu">
-                  <a class="item" title="Linux真的可以代替windows吗？" href="/posts/2009-09-16-can-linux-replace-windows/">Prev</a><a class="item" title="Archlinux下安装VirtualBox的问题" href="/posts/2009-09-23-virtualbox-on-archilinux/">Next</a>
-                </div>
-              </aside>
-            </div>
-          </article>
-        </div>
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      换 Arch Linux 了，我的 Linux 之旅
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>接触 Linux 是在大一上吧。最开始是 Fedora 8，看重的是名声、技术、背景，以及软件安装光盘的个头——毕竟个头大，软件多，就省得自己再去安装了。说实话我是个很浮云的人。 什么新鲜的软件都想拿来体验一下，虽然我不一定用到太多，比如 Eclipse、NetBeans 之类。可是 Fedora 8 有两点让我很是不爽：</p>
+<ol>
+<li>无论是校内还是校外，都没有好用的软件源，虽然我那个时候还不清楚源的具体概念。 只是知道那是一个软件仓库。无法安装软件，无疑，这个系统是死的。</li>
+<li>无法启动激动人心的 3D。这对一个追求浮云的 Linux 初学者来说也是毫无吸引力的。</li>
+</ol>
+<p>所以那个时候虽然本本上装了 Fedora 和 Vista 双系统，但绝大多数时间是在用 Vista 系统。</p>
+<p>后来偶然再一个同学的电脑上看到了 Ubuntu，我试探性的让他一弄，结果 wobbly windows 效果就出来了。再我看来很神奇。后来一不做二不休，电脑大换血，重装了 Vista 和 Ubuntu。</p>
+<p>只能说 Ubuntu 是个很人性化的系统。帮用户做了很多贴心的工作。LiveCD，<a href="https://wiki.ubuntu.com/WubiGuide">Wubi</a>，良好的驱动支持，巨大的软件仓库，丰富的国内源，很简单。从 Vista 到 Ubuntu 的转换，只用了两个月不到的时间。乃至终有一天，我烦透了 Windows 软件的注册破解和广告，心一横， 删了 Vista，至此，Ubuntu 成了我的宠儿，不紧不慢的占据了本本 250 G 的空间。</p>
+<p>可以说 Ubuntu 带给了我一个高效能的系统。让我有了非凡的 GNU 体验。Emacs + Firefox 的组合，几乎占据了我使用操作系统 80% 的时间。现在觉得 Windows 的工作方式，如此的傻瓜，如此的低效。</p>
+<p>但是 Ubuntu 并不是一个完美的系统。 <code>apt-get</code> 的依赖关系过于复杂，自作主张的安装给人带来方便的同时也剥夺了人们定制的自由，频繁的版本升级带来很多系统的问题，软件库版本比较陈旧，譬如我一直想用的 TeX Live 2008。直到 Ubuntu 9.10 beta 版，TeX Live 还是停留在 2007 版本，等等。一周以前我决定升级我的 9.04 到 9.10 beta 版时来体验下 Firefox 3.5，OOo 3.1 时，系统最终崩溃，这已经是第二次版本升级失败。于是我决定给系统来个大换血。Gentoo，还是 Arch？</p>
+<p>我选择了 Arch。首先是时间的原因。其次是我的 Linux 基础还不够。本来打算三天配置一个 Gentoo，但是这个事情那个事情，最后只剩一天不到。快速的搭建一个可用的系统，只能 Arch 了。安装的过程还算顺利。网络、驱动是两个重头重难题。幸好室友装过 Arch， 给了我很大的帮助。我发现交流真的是很重要的。自己埋头苦干有时候纯粹是浪费时间。今天终于配好了。驱动，字体，中文，美化。凑合能用。虽然还是比不上一周前 Ubuntu + Mac4Lin 的华丽，但也可以看得过去了。不过 Arch 也有不完美的地方。首先是官方的软件仓库很小。很多我需要的软件都没有，譬如 dwww。Emacs 的插件也少的可怜。<a href="https://aur.archlinux.org/">AUR</a> 个不错的选择，只是我还没有尝试。因为浙大 10 元的 VPN 只能上教育网。字体配置还有些小问题。部分地方发虚，慢慢调吧。</p>
+<p>Arch 确实让我学到了很多东西。譬如我再 Ubuntu 下从来没考虑过 <code>xorg.conf</code> 的问题。 Ubuntu 带给人便利，也让人变傻，以至于遇到问题时不知如何下手。对系统的构建有了更进一步的理解。有机会一定要来一次 <a href="http://www.linuxfromscratch.org/lfs/">LFS</a>。</p>
+<p>最后上张图吧。</p>
+<p><a href="/static/image/2009/archlinux.png"><img src="/static/image/2009/archlinux.png" /></a></p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2009-09-22</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#linux">
+          <div class="ui label">
+            Linux<sup>17</sup>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#archlinux">
+          <div class="ui label">
+            ArchLinux<sup>4</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#gentoo">
+          <div class="ui label">
+            Gentoo<sup>5</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/11603.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="Linux 真的可以代替 Windows 吗？" href="/posts/2009-09-16-can-linux-replace-windows/">Prev</a><a class="item" title="Arch Linux 下安装 VirtualBox 的问题" href="/posts/2009-09-23-virtualbox-on-archilinux/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
     </div>
     <div id="footer">
       <footer class="ui inverted vertical center aligned footer segment">
