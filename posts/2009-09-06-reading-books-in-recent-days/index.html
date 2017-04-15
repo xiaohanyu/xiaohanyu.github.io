@@ -39,125 +39,122 @@
           </div>
         </div>
       </nav><div class="ui stackable container">
-        <div class="ui very padded segment article">
-          <article class="ui stackable divided grid">
-            <header class="row article-head">
-              <div class="column">
-                <h1 class="ui header">
-                  最近看的一些书
-                </h1>
-                <div class="ui divider"></div>
-              </div>
-            </header>
-            <div class="row article-body">
-              <section class="twelve wide column">
-                <p>8月 10 日回家带了四本书，但是一本没看，看的全部都是电子书，如下：</p>
-                <ol>
-                <li>《How to Do Every Thing with HTML》</li>
-                <li>基本看完，重温并巩固了 HTML 的绝大部分知识，初步领略 CSS 的风范，对 Javascript，DHTML有了感性的了解。看这部分主要是为了旅行者小网站的建设做一下充分的准备工作。</li>
-                <li>《Advanced Bash Scripting Guide》</li>
-                <li>暑假 Linux 短学期让我领略到了 Bash 编程的魅力。虽然这本书厚达 800 多页，而我只看完了 4 章60多页，但是这本书难度不是很高，应该能在两周之内搞定的。 前提是得多练习啊。</li>
-                <li>《LPIC-1: Linux Professional Institue Certification Study Guide》</li>
-                <li>打算考 LPI 了。虽然每级考试 2600 的考试费让我很是心疼，也会让我时刻鞭策自己好好看书。找工作么，无非就是那么几回事儿，出身、成绩、英语、专业技能、社会实践、项目经验、实习经验。</li>
-                <li>《PHP Manual》</li>
-                <li>用 dwww 看的本地 HTML 版本。看完了 Language Reference 的大部分。感觉 PHP 就是 C 和Bash的结合体，语法绝大部分借鉴 C 和 C++，变量借鉴 Bash，掌握其精髓，剩下的数据库接口，图像处理等等，就靠实践了。</li>
-                </ol>
-                <p>一些问题和期待：</p>
-                <ol>
-                <li>xetex 0.997 in ubuntu</li>
-                <li>自己配置的 LaTeX+CJK 环境用的比较顺手了，但是很不爽的一点是生成的 pdf 书签是乱码。开始我以为是 evince 的问题，后来拿到 Windows 平台上用 Adobe Reader 打开也是乱码。CTeX论坛说有个 gbk2uni 的程序处理一下就行，但是我没有成功。于是我开始寻求 XeTeX 的解决方案。但是，问题又来了，单纯的 xetex 可以解决书签乱码问题，但是需要配上 XeCJK，才能达到完美的排版效果，偏偏 XeCJK 的最低版本要求是 0.997 而我的 Ubuntu9.04 上的 XeTeX 却是 0.996 版本。于是我郁闷了，只能先 LaTeX+CJK 凑合用吧。期待 Ubuntu9.10 中能有所改进。</li>
-                <li><p>旅行者手册<br />
-                本来打算 8 月底完工的，但是真正做起来才发现工作量之大。手册打算以 pdf、 html、doc三种格式发行。为了保持文档的一致性，当初设想了三个方案：</p>
-                <ul>
-                <li>docbook</li>
-                <li>docbook已经成为技术文档撰写事实上的标准。但是一来 docbook 写起来比较麻烦；二来对中文支持不太好；三来我看了几个 docbook 做出来的东西实在不怎么好看，毕竟是用来写技术文档的；四来我还不怎么会用 docbook。所以此方案暂时不可行。</li>
-                <li><p>LaTeX+tth</p>
-                <ol>
-                <li>LaTeX中文书签乱码问题</li>
-                <li>格式转换问题</li>
-                </ol></li>
-                <li>LaTeX 的排版效果自不必说。问题在于： tth是个很优秀的软件。支持绝大部分的 LaTeX 环境，转换出来的 HTML 文档相当完美，并且支持中文。通过 HTML 再转换成 doc，也只不过是一盏茶的功夫。 但是 tth 转换出来的文档略显单调，而且是长长的一整篇，我琢磨这我这预算在 100 多页的文档转换成一页 HTML 文档，估计对看客是个考验。虽然可以事后重组，排版，但终究是很麻烦的一件事情。</li>
-                <li>Emacs+Muse</li>
-                <li><p>想来想去还是回到了 Emacs+Muse 的解决方案上。配上一定的 CSS，完美的 html 输出，然后输出 LaTeX 文件整合一下，套上个中文 CJK 的模板，基本上可以解决问题。不过 Muse 会自动加上一些烦人的超连接，目前的解决方案就是利用 Emacs 的 query-replace-regexp手工解决。当然也 Baidu 过 sed、awk和 perl，以后再学。</p></li>
-                </ul></li>
-                </ol>
-                <p>OK，继续 CSS。</p>
-                
-                <div class="ui divider"></div>
-                <div class="ui small one item menu">
-                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
-                </div>
-                <div id="disqus_thread"></div>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </section>
-              <aside class="four wide column">
-                <div class="ui small header">
-                  License
-                </div>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
-                <div class="ui small header">
-                  Committed
-                </div>
-                <date>2009-09-06</date>
-                <div class="ui small header">
-                  Updated
-                </div>
-                <date>2017-04-14</date>
-                <div class="ui small header">
-                  Category
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/categories#life">
-                      <div class="ui label">
-                        Life<sup>44</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Tags
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/tags#reading">
-                      <div class="ui label">
-                        Reading<sup>5</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#emacs">
-                      <div class="ui label">
-                        Emacs<sup>14</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#latex">
-                      <div class="ui label">
-                        LaTeX<sup>4</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/11077.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
-                  Links
-                </div>
-                <div class="ui small two item menu">
-                  <a class="item" title="soundconverter转换ape格式" href="/posts/2009-09-06-soundconverter-for-ape-format/">Prev</a><a class="item" title="CSS设计彻底研究" href="/posts/2009-09-08-a-css-book/">Next</a>
-                </div>
-              </aside>
-            </div>
-          </article>
-        </div>
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      最近看的一些书
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>8月 10 日回家带了四本书，但是一本没看，看的全部都是电子书，如下：</p>
+<ol>
+<li>《How to Do Every Thing with HTML》</li>
+<li>基本看完，重温并巩固了 HTML 的绝大部分知识，初步领略 CSS 的风范，对 JavaScript，DHTML 有了感性的了解。看这部分主要是为了旅行者小网站的建设做一下充分的准备工作。</li>
+<li>《Advanced Bash Scripting Guide》</li>
+<li>暑假 Linux 短学期让我领略到了 Bash 编程的魅力。虽然这本书厚达 800 多页，而我只看完了 4 章 60 多页，但是这本书难度不是很高，应该能在两周之内搞定的。前提是得多练习啊。</li>
+<li>《LPIC-1: Linux Professional Institue Certification Study Guide》</li>
+<li>打算考 LPI 了。虽然每级考试 2600 的考试费让我很是心疼，也会让我时刻鞭策自己好好看书。找工作么，无非就是那么几回事儿，出身、成绩、英语、专业技能、社会实践、 项目经验、实习经验。</li>
+<li>《PHP Manual》</li>
+<li>用 dwww 看的本地 HTML 版本。看完了 Language Reference 的大部分。感觉 PHP 就是 C 和 Bash 的结合体，语法绝大部分借鉴 C 和 C++，变量借鉴 Bash，掌握其精髓，剩下的数据库接口，图像处理等等，就靠实践了。</li>
+</ol>
+<p>一些问题和期待：</p>
+<ol>
+<li>XeTeX 0.997 in Ubuntu。</li>
+<li>自己配置的 LaTeX + CJK 环境用的比较顺手了，但是很不爽的一点是生成的 PDF 书签是乱码。开始我以为是 <a href="https://wiki.gnome.org/Apps/Evince">Evince</a> 的问题，后来拿到 Windows 平台上用 Adobe Reader 打开也是乱码。CTeX 论坛说有个 gbk2uni 的程序处理一下就行，但是我没有成功。于是我开始寻求 XeTeX 的解决方案。但是，问题又来了，单纯的 XeTeX 可以解决书签乱码问题，但是需要配上 xeCJK，才能达到完美的排版效果，偏偏 xeCJK 的最低版本要求是 0.997 而我的 Ubuntu 9.04 上的 XeTeX 却是 0.996 版本。于是我郁闷了，只能先 LaTeX + CJK 凑合用吧。期待 Ubuntu 9.10 中能有所改进。</li>
+<li>旅行者手册本来打算 8 月底完工的，但是真正做起来才发现工作量之大。手册打算以 pdf、html、doc 三种格式发行。为了保持文档的一致性，当初设想了三个方案：
+<ul>
+<li>docbook</li>
+<li>docbook已经成为技术文档撰写事实上的标准。但是一来 docbook 写起来比较麻烦； 二来对中文支持不太好；三来我看了几个 docbook 做出来的东西实在不怎么好看， 毕竟是用来写技术文档的；四来我还不怎么会用 docbook。所以此方案暂时不可行。</li>
+<li>LaTeX + <a href="http://hutchinson.belmont.ma.us/tth/">TTH</a>
+<ol>
+<li>LaTeX 中文书签乱码问题</li>
+<li>格式转换问题</li>
+</ol></li>
+<li>LaTeX 的排版效果自不必说。问题在于：TTH 是个很优秀的软件。支持绝大部分的 LaTeX 环境，转换出来的 HTML 文档相当完美，并且支持中文。通过 HTML 再转换成 doc，也只不过是一盏茶的功夫。但是 TTH 转换出来的文档略显单调，而且是长长的一整篇，我琢磨这我这预算在 100 多页的文档转换成一页 HTML 文档，估计对看客是个考验。虽然可以事后重组，排版，但终究是很麻烦的一件事情。</li>
+<li>Emacs Muse</li>
+<li>想来想去还是回到了 Emacs Muse 的解决方案上。配上一定的 CSS，完美的 HTML 输出，然后输出 LaTeX 文件整合一下，套上个中文 CJK 的模板，基本上可以解决问题。 不过 Muse 会自动加上一些烦人的超连接，目前的解决方案就是利用 Emacs 的 <code>query-replace-regexp</code> 手工解决。当然也 Baidu 过 sed、awk 和 perl，以后再学。</li>
+</ul></li>
+</ol>
+<p>OK，继续 CSS。</p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2009-09-06</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#life">
+          <div class="ui label">
+            Life<sup>44</sup>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#reading">
+          <div class="ui label">
+            Reading<sup>5</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#emacs">
+          <div class="ui label">
+            Emacs<sup>14</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#latex">
+          <div class="ui label">
+            LaTeX<sup>4</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/11077.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="soundconverter转换ape格式" href="/posts/2009-09-06-soundconverter-for-ape-format/">Prev</a><a class="item" title="CSS设计彻底研究" href="/posts/2009-09-08-a-css-book/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
     </div>
     <div id="footer">
       <footer class="ui inverted vertical center aligned footer segment">
