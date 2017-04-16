@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>zoj 1057</title>
+    <title>ZOJ 1057</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,95 +43,81 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      zoj 1057
+      ZOJ 1057
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>编程还是很菜。很简单的题，基本的输入输出格式弄了很久。没脸见人了。zoj的选拔标准有变，我看能否在两个月之内拿下三百道题。还得把 lpi 考掉，恐怕要顺延到暑假了。加油加油。</p>
-<p>晚上的计算机体系结构实验搞的很崩溃，硬件的课程，该怎么办呢。也不知道对自己以后能有多大的帮助，目前策略是得过且过 …… 组了个队，同组的竟然是个 04 级的，令我颇为差异。看来，计算机的毕业也不是那么简单。</p>
-<p>is-programmer博客系统越来越强大了。最近加入的代码高亮真的是非常的棒！赞！</p>
-<p>顺便，86版五笔初有小成，逐渐转移到五笔输入法，效率之上的生活！</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
+  <section class="twelve wide column"><p>编程还是很菜。很简单的题，基本的输入输出格式弄了很久。没脸见人了。ZOJ 的选拔标准有变，我看能否在两个月之内拿下三百道题。还得把 LPI 考掉，恐怕要顺延到暑假了。加油加油。</p>
+<p>晚上的计算机体系结构实验搞的很崩溃，硬件的课程，该怎么办呢。也不知道对自己以后能有多大的帮助，目前策略是得过且过……组了个队，同组的竟然是个 04 级的，令我颇为差异。 看来，计算机的毕业也不是那么简单。</p>
+<p>is-programmer 博客系统越来越强大了。最近加入的代码高亮真的是非常的棒！赞！</p>
+<p>顺便，86 版五笔初有小成，逐渐转移到五笔输入法，效率之上的生活！</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
 
-int main(int argc, char *argv[])
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[])
 {
-    int cases;
+  <span class="dt">int</span> cases;
 
-    const int max_size = 20;
+  <span class="at">const</span> <span class="dt">int</span> max_size = <span class="dv">20</span>;
 
-    int a[max_size];
-    int b[max_size];
+  <span class="dt">int</span> a[max_size];
+  <span class="dt">int</span> b[max_size];
 
-    int sum_a;
-    int sum_b;
+  <span class="dt">int</span> sum_a;
+  <span class="dt">int</span> sum_b;
 
-    int times = 0;
-    while (cin &gt;&gt; cases)
-    {
-        if (cases == 0)
-        {
-            break;
-        }
-        else
-        {
-            times++;
+  <span class="dt">int</span> times = <span class="dv">0</span>;
+  <span class="cf">while</span> (cin &gt;&gt; cases) {
+    <span class="cf">if</span> (cases == <span class="dv">0</span>) {
+      <span class="cf">break</span>;
+    }
+    <span class="cf">else</span> {
+      times++;
 
-            if (times &gt;= 2)
-            {
-                cout &lt;&lt; endl &lt;&lt; endl;
-            }
-        }
-
-        sum_a = sum_b = 0;
-
-        for (int i = 0; i &lt; cases; ++i)
-        {
-            cin &gt;&gt; a[i];
-        }
-
-        for (int i = 0; i &lt; cases; ++i)
-        {
-            cin &gt;&gt; b[i];
-        }
-
-        for (int i = 0; i &lt; cases; ++i)
-        {
-            if (a[i] == 1 &amp;&amp; b[i] == 2)
-            {
-                sum_a += 6;
-            }
-            else if (a[i] == 2 &amp;&amp; b[i] == 1)
-            {
-                sum_b += 6;
-            }
-            else if (a[i] - b[i] == 1)
-            {
-                sum_b += a[i] + b[i];
-            }
-            else if (b[i] - a[i] == 1)
-            {
-                sum_a += a[i] + b[i];
-            }
-            else if (a[i] - b[i] &gt;= 2)
-            {
-                sum_a += a[i];
-            }
-            else if (b[i] - a[i] &gt;= 2)
-            {
-                sum_b += b[i];
-            }
-            else;
-        }
-
-        cout &lt;&lt; &quot;A has &quot; &lt;&lt; sum_a &lt;&lt; &quot; points. B has &quot; &lt;&lt; sum_b &lt;&lt; &quot; points.&quot;;
+      <span class="cf">if</span> (times &gt;= <span class="dv">2</span>) {
+        cout &lt;&lt; endl &lt;&lt; endl;
+      }
     }
 
-    return 0;
-}
-</code></pre>
+    sum_a = sum_b = <span class="dv">0</span>;
+
+    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases; ++i) {
+      cin &gt;&gt; a[i];
+    }
+
+    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases; ++i) {
+      cin &gt;&gt; b[i];
+    }
+
+    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases; ++i) {
+      <span class="cf">if</span> (a[i] == <span class="dv">1</span> &amp;&amp; b[i] == <span class="dv">2</span>) {
+        sum_a += <span class="dv">6</span>;
+      }
+      <span class="cf">else</span> <span class="cf">if</span> (a[i] == <span class="dv">2</span> &amp;&amp; b[i] == <span class="dv">1</span>) {
+        sum_b += <span class="dv">6</span>;
+      }
+      <span class="cf">else</span> <span class="cf">if</span> (a[i] - b[i] == <span class="dv">1</span>) {
+        sum_b += a[i] + b[i];
+      }
+      <span class="cf">else</span> <span class="cf">if</span> (b[i] - a[i] == <span class="dv">1</span>) {
+        sum_a += a[i] + b[i];
+      }
+      <span class="cf">else</span> <span class="cf">if</span> (a[i] - b[i] &gt;= <span class="dv">2</span>) {
+        sum_a += a[i];
+      }
+      <span class="cf">else</span> <span class="cf">if</span> (b[i] - a[i] &gt;= <span class="dv">2</span>) {
+        sum_b += b[i];
+      }
+      <span class="cf">else</span>;
+    }
+
+    cout &lt;&lt; <span class="st">&quot;A has &quot;</span> &lt;&lt; sum_a &lt;&lt; <span class="st">&quot; points. B has &quot;</span> &lt;&lt; sum_b &lt;&lt; <span class="st">&quot; points.&quot;</span>;
+  }
+
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
