@@ -39,212 +39,193 @@
           </div>
         </div>
       </nav><div class="ui stackable container">
-        <div class="ui very padded segment article">
-          <article class="ui stackable divided grid">
-            <header class="row article-head">
-              <div class="column">
-                <h1 class="ui header">
-                  今天买了三本书
-                </h1>
-                <div class="ui divider"></div>
-              </div>
-            </header>
-            <div class="row article-body">
-              <section class="twelve wide column">
-                <p>第一本：货币战争。</p>
-                <p>第二本：C++程序设计原理与实践。</p>
-                <p>第三本：Unix编程艺术。</p>
-                <p>共 131.8 元，花尽了钱包里的所有钱，一分不剩。印象中好像好久没有这样买过书了。尽管我的书已经不少了，多的连宿舍的书架都放不下了。</p>
-                <p>这一周整个人就像一部机器一样在运转。上周五开始做作业。先是完成了导师布置的任务 —— 写一个 iPhone 下的 hello world 程序。坦白的说，有些时候我是很随意的，有些时候又过于吹毛求疵。这么一个任务，我看了网上的数十篇文章，下载了十几篇 pdf 电子书，经过筛选总结最后写出了一份精美的带有目录，索引的达 27 页的英文文档。题目叫 [[/user<sub>files</sub>/cnlox/File/iphone<sub>developcrossplatform</sub>.pdf][The Cross-Platform Developing Skills for Mac Applications]] 给导师发了过去。可是导师实在是太忙了。没有时间看我的文档。只是今天中午交谈的时候看到文档，简介大气，还是称赞了一下，呵呵。</p>
-                <p>周日和周一都在补计算几何的知识，用的教材是 Computational Geometry in C，刚开始还好，越到后来越难。布置的作业也都很有难度。导致我两天下来才做了十道题。虽然迟交了几天，但总算是弥补了。交总比不交好。交的作业是用 LaTeX 写的。画一些几何图形，顺便学了学 pfg 的用法。真的很不错。如下面的代码：</p>
-                <div class="hl_result">
-                
-                <div class="latex"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>\begin{figure}<br />
-                <br />
-                \begin{tikzpicture}[line width=2pt]<br />
-                 (-1,0) – (8,0);<br />
-                 (0,-1) – (0,8);<br />
-                 (0,0) grid (7.2,7.2);<br />
-                <br />
-                 (A) at (1, 4);<br />
-                 (B) at (0.5, 3.5);<br />
-                 (C) at (1, 3);<br />
-                 (D) at (0.3, 1.3);<br />
-                 (E) at (1, 1);<br />
-                <br />
-                 (A) – (B) – (C) – (D) – (E);<br />
-                 (2, 0) – (2, 6);<br />
-                <br />
-                 (A’) at (2, 4);<br />
-                 (B’) at (2, 3.5);<br />
-                 (C’) at (2, 3);<br />
-                 (D’) at (2, 1.3);<br />
-                 (E’) at (2, 1);<br />
-                <br />
-                 (A) – (A’);<br />
-                 (B) – (B’);<br />
-                 (C) – (C’);<br />
-                 (D) – (D’);<br />
-                 (E) – (E’);<br />
-                <br />
-                 (a) at (5, 4);<br />
-                 (b) at (4.5, 4.5);<br />
-                 (c) at (5, 3);<br />
-                 (d) at (4.3, 1.3);<br />
-                 (e) at (5, 1.3);<br />
-                <br />
-                 (a) – (b) – (c) – (d) – (e);<br />
-                 (6, 0) – (6, 6);<br />
-                <br />
-                 (a’) at (6, 4);<br />
-                 (b’) at (6, 4.5);<br />
-                 (c’) at (6, 3);<br />
-                 (d’) at (6, 1.3);<br />
-                 (e’) at (6, 1.3);<br />
-                <br />
-                 (a) – (a’);<br />
-                 (b) – (b’);<br />
-                 (c) – (c’);<br />
-                 (d) – (d’);<br />
-                 (e) – (e’);<br />
-                \end{tikzpicture}<br />
-                \caption{Monotonic polygonal chains}<br />
-                <br />
-                \end{figure}</p>
-                </div>
-                
-                </div>
-                
-                <p>经 xelatex 处理的图形如下：</p>
-                <p><img src="file:///user_files/cnlox/Image/tex/pgf.jpeg" /></p>
-                <p>还有 algorithm, algorithmic 宏包，用来排版算法伪码效果非常好。我估计 &lt;&lt;Introduction to Algorithms&gt;&gt; 上的伪码就是用的这个。latex源码如下：</p>
-                <div class="hl_result">
-                
-                <div class="latex"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>\begin{algorithm}<br />
-                \caption{Determining whether or not P is convex}<br />
-                <br />
-                \begin{algorithmic}[1]<br />
-                <br />
-                 $j ← i  n$<br />
-                 $p ←  × $<br />
-                <br />
-                 “Polygon P is not an convex polygon!”<br />
-                 <br />
-                <br />
-                 <br />
-                <br />
-                \end{algorithmic}<br />
-                \end{algorithm}</p>
-                </div>
-                
-                </div>
-                
-                <p>排版效果 ( 博客中上传的图片貌似都有压缩，效果稍差 ):</p>
-                <p><img src="file:///user_files/cnlox/Image/tex/algorithms.jpeg" /></p>
-                <p>昨天无意间又发现了 CDLaTeX 这个东西，至此，emacs+cdlatex+auctex+reftex+outline+xetex，这些东西组合起来，感觉写文档非常美妙。在文档中穿梭，有时间，等我通晓 elisp 后，在来总结这些东西。再上一张图。</p>
-                <p><img src="file:///user_files/cnlox/Image/tex/emacs_latex.jpeg" /></p>
-                <p>这不，今天写实验报告又碰见了数据的图形化，顺便复习下 gnuplot。kiss the unix。</p>
-                <p>下午在老板公司，和学长简单交流了下，自己在一边搞定上网，大概看了下 windows ce 的东西。不过现在感觉自己最大的软肋还是编程基础和算法基础。看书看书看书。</p>
-                <p>明天的数值分析，逻辑，后天的计算机组成实验，都是头疼的课。我一向对电类的课程比较头疼。电路原理，数电等硬件类课程无一例外都挂掉了。一方面是自己没好好学，另一方面也是自己实在提不起兴趣。比较讨厌。逻辑实验虽然七搞八搞能做出结果，但是个中详细原理，却懒得去理了，只求用 LaTeX 把实验报告弄的好看点，祈求得个差不多的分数就行。</p>
-                <p>C++之父 Bjarne Stroustrup 的最新力作 &lt;&lt;Programming: Principles and Practice Using C++&gt;&gt;，刚翻了翻目录。讲的内容非常广泛。从最初的入门知识，语言结构，面向对象，stl，gui，embedded, testing，不知深度如何。书中前言说：If you work by yourself, don’t expec to spend less time than that(maybe 15 hours a week for 14 weeks)。</p>
-                <p>Unix编程艺术，经典书籍，久闻其名，今天终于狠下心买了一本。当小说来看好了。</p>
-                <p>越学越不明白。计算机软件简直是无边无际无极的知识海洋。技术的更新，理论的发展，这些独有的特点使得计算机应用科学的知识更新换代极其迅速。我想在大概明白所谓的需求驱动。计算机的学习也是一样，什么样的需求，什么样的技术，用到了再去学，边学边实践。像什么 asp pk php 等等完全是无聊的东西。有需要就学，没有这个需要的话学了不用也忘掉。当然有些经典的东西，c++, unix, emacs, latex, algorithms, sql, xml, 这才是千秋万代的东西。加油吧，lox。</p>
-                
-                <div class="ui divider"></div>
-                <div class="ui small one item menu">
-                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
-                </div>
-                <div id="disqus_thread"></div>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </section>
-              <aside class="four wide column">
-                <div class="ui small header">
-                  License
-                </div>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
-                <div class="ui small header">
-                  Committed
-                </div>
-                <date>2009-10-21</date>
-                <div class="ui small header">
-                  Updated
-                </div>
-                <date>2017-04-14</date>
-                <div class="ui small header">
-                  Category
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/categories#life">
-                      <div class="ui label">
-                        Life<sup>44</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Tags
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/tags#c++">
-                      <div class="ui label">
-                        C++<sup>4</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#unix">
-                      <div class="ui label">
-                        UNIX<sup>2</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#cdlatex">
-                      <div class="ui label">
-                        CDLaTeX<sup>1</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#pgf">
-                      <div class="ui label">
-                        PGF<sup>3</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#tikz">
-                      <div class="ui label">
-                        TikZ<sup>2</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/12287.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
-                  Links
-                </div>
-                <div class="ui small two item menu">
-                  <a class="item" title="左手马云，右手史玉柱" href="/posts/2009-10-13-a-book-about-mayun-and-shiyuzhu/">Prev</a><a class="item" title="opengl 第一篇" href="/posts/2009-10-23-first-article-on-opengl/">Next</a>
-                </div>
-              </aside>
-            </div>
-          </article>
-        </div>
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      今天买了三本书
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>第一本：货币战争。</p>
+<p>第二本：C++ 程序设计原理与实践。</p>
+<p>第三本：UNIX 编程艺术。</p>
+<p>共 131.8 元，花尽了钱包里的所有钱，一分不剩。印象中好像好久没有这样买过书了。尽管我的书已经不少了，多的连宿舍的书架都放不下了。</p>
+<p>这一周整个人就像一部机器一样在运转。上周五开始做作业。先是完成了导师布置的任务 ——写一个 iPhone 下的 “Hello world” 程序。坦白的说，有些时候我是很随意的，有些时候又过于吹毛求疵。这么一个任务，我看了网上的数十篇文章，下载了十几篇 pdf 电子书， 经过筛选总结最后写出了一份精美的带有目录，索引的达 27 页的英文文档。题目叫 <a href="file:///user_files/cnlox/File/iphone_develop_cross_platform.pdf">The Cross-Platform Developing Skills for Mac Applications</a> 给导师发了过去。可是导师实在是太忙了。没有时间看我的文档。只是今天中午交谈的时候看到文档，简介大气，还是称赞了一下，呵呵。</p>
+<p>周日和周一都在补计算几何的知识，用的教材是《<a href="https://book.douban.com/subject/1281294/">Computational Geometry in C</a>》，刚开始还好，越到后来越难。布置的作业也都很有难度。导致我两天下来才做了十道题。虽然迟交了几天，但总算是弥补了。交总比不交好。交的作业是用 LaTeX 写的。画一些几何图形，顺便学了学 PGF 的用法。真的很不错。如下面的代码：</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">figure</span>}
+  <span class="fu">\centering</span>
+  <span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}[line width=2pt]
+    <span class="fu">\draw</span> (-1,0) -- (8,0);
+    <span class="fu">\draw</span> (0,-1) -- (0,8);
+    <span class="fu">\draw</span>[step=.5cm, very thin] (0,0) grid (7.2,7.2);
+
+    <span class="fu">\coordinate</span> [label=above:<span class="ss">$A$</span>] (A) at (1, 4);
+    <span class="fu">\coordinate</span> [label=left:<span class="ss">$B$</span>] (B) at (0.5, 3.5);
+    <span class="fu">\coordinate</span> [label=left:<span class="ss">$C$</span>] (C) at (1, 3);
+    <span class="fu">\coordinate</span> [label=left:<span class="ss">$D$</span>] (D) at (0.3, 1.3);
+    <span class="fu">\coordinate</span> [label=below:<span class="ss">$E$</span>] (E) at (1, 1);
+
+    <span class="fu">\draw</span>[blue] (A) -- (B) -- (C)  -- (D) -- (E);
+    <span class="fu">\draw</span>[blue] (2, 0) -- (2, 6);
+
+    <span class="fu">\coordinate</span> [label=right:<span class="ss">$A&#39;$</span>] (A&#39;) at (2, 4);
+    <span class="fu">\coordinate</span> [label=right:<span class="ss">$B&#39;$</span>] (B&#39;) at (2, 3.5);
+    <span class="fu">\coordinate</span> [label=right:<span class="ss">$C&#39;$</span>] (C&#39;) at (2, 3);
+    <span class="fu">\coordinate</span> [label=right:<span class="ss">$D&#39;$</span>] (D&#39;) at (2, 1.3);
+    <span class="fu">\coordinate</span> [label=right:<span class="ss">$E&#39;$</span>] (E&#39;) at (2, 1);
+
+    <span class="fu">\draw</span>[blue] (A) -- (A&#39;);
+    <span class="fu">\draw</span>[blue] (B) -- (B&#39;);
+    <span class="fu">\draw</span>[blue] (C) -- (C&#39;);
+    <span class="fu">\draw</span>[blue] (D) -- (D&#39;);
+    <span class="fu">\draw</span>[blue] (E) -- (E&#39;);
+
+    <span class="fu">\coordinate</span> [label=above:<span class="ss">$a$</span>] (a) at (5, 4);
+    <span class="fu">\coordinate</span> [label=left:<span class="ss">$b$</span>] (b) at (4.5, 4.5);
+    <span class="fu">\coordinate</span> [label=left:<span class="ss">$c$</span>] (c) at (5, 3);
+    <span class="fu">\coordinate</span> [label=left:<span class="ss">$d$</span>] (d) at (4.3, 1.3);
+    <span class="fu">\coordinate</span> [label=below:<span class="ss">$e$</span>] (e) at (5, 1.3);
+
+    <span class="fu">\draw</span>[green] (a) -- (b) -- (c)  -- (d) -- (e);
+    <span class="fu">\draw</span>[green] (6, 0) -- (6, 6);
+
+    <span class="fu">\coordinate</span> [label=right:<span class="ss">$a&#39;$</span>] (a&#39;) at (6, 4);
+    <span class="fu">\coordinate</span> [label=right:<span class="ss">$b&#39;$</span>] (b&#39;) at (6, 4.5);
+    <span class="fu">\coordinate</span> [label=right:<span class="ss">$c&#39;$</span>] (c&#39;) at (6, 3);
+    <span class="fu">\coordinate</span> [label=right:<span class="ss">$d&#39;$</span>] (d&#39;) at (6, 1.3);
+    <span class="fu">\coordinate</span> [label=right:<span class="ss">$e&#39;$</span>] (e&#39;) at (6, 1.3);
+
+    <span class="fu">\draw</span>[green] (a) -- (a&#39;);
+    <span class="fu">\draw</span>[green] (b) -- (b&#39;);
+    <span class="fu">\draw</span>[green] (c) -- (c&#39;);
+    <span class="fu">\draw</span>[green] (d) -- (d&#39;);
+    <span class="fu">\draw</span>[green] (e) -- (e&#39;);
+  <span class="kw">\end</span>{<span class="ex">tikzpicture</span>}
+  <span class="fu">\caption</span>{Monotonic polygonal chains}
+  <span class="kw">\label</span>{<span class="ex">fig:monotonic\_chain</span>}
+<span class="kw">\end</span>{<span class="ex">figure</span>}</code></pre></div>
+<p>经 XeLaTeX 处理的图形如下：</p>
+<p><a href="/static/image/2009/pgf.jpg"><img src="/static/image/2009/pgf.jpg" /></a></p>
+<p>还有 <a href="https://www.ctan.org/pkg/algorithms">algorithms</a> 宏包，用来排版算法伪码效果非常好。我估计《<a href="https://book.douban.com/subject/1152912/">Introduction to Algorithms</a>》上的伪码就是用的这个。LaTeX 源码如下：</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">algorithm</span>}
+  <span class="fu">\caption</span>{Determining whether or not P is convex}
+  <span class="kw">\label</span>{<span class="ex">alg:convex</span>}
+  <span class="kw">\begin</span>{<span class="ex">algorithmic</span>}[1]
+    <span class="fu">\FOR</span> {<span class="ss">$i = 1$</span> to <span class="ss">$n$</span>}
+    <span class="fu">\STATE</span> <span class="ss">$j </span><span class="sc">\gets</span><span class="ss"> i </span><span class="sc">\bmod</span><span class="ss"> n$</span>
+    <span class="fu">\STATE</span> <span class="ss">$p </span><span class="sc">\gets</span><span class="ss"> </span><span class="sc">\overrightarrow</span><span class="ss">{V</span><span class="sc">\_</span><span class="ss">{j-1}V</span><span class="sc">\_</span><span class="ss">j} </span><span class="sc">\times</span>
+<span class="ss">    </span><span class="sc">\overrightarrow</span><span class="ss">{V</span><span class="sc">\_</span><span class="ss">{j}V</span><span class="sc">\_</span><span class="ss">{j+1}}$</span>
+    <span class="fu">\IF</span>{<span class="ss">$p &lt; 0$</span>}
+    <span class="fu">\PRINT</span> &quot;Polygon P is not an convex polygon!&quot;
+    <span class="fu">\RETURN</span> <span class="fu">\FALSE</span>
+    <span class="fu">\ENDIF</span>
+    <span class="fu">\RETURN</span> <span class="fu">\TRUE</span>
+    <span class="fu">\ENDFOR</span>
+  <span class="kw">\end</span>{<span class="ex">algorithmic</span>}
+<span class="kw">\end</span>{<span class="ex">algorithm</span>}</code></pre></div>
+<p>排版效果（博客中上传的图片貌似都有压缩，效果稍差）:</p>
+<p><a href="/static/image/2009/latex_algorithms_package.jpg"><img src="/static/image/2009/latex_algorithms_package.jpg" /></a></p>
+<p>昨天无意间又发现了 CDLaTeX 这个东西，至此，Emacs + CDLaTeX + AUCTeX + RefTeX + Outline + XeTeX，这些东西组合起来，感觉写文档非常美妙。在文档中穿梭，有时间，等我通晓 ELisp 后，在来总结这些东西。再上一张图。</p>
+<p><a href="/static/image/2009/emacs_latex.jpg"><img src="/static/image/2009/emacs_latex.jpg" /></a></p>
+<p>这不，今天写实验报告又碰见了数据的图形化，顺便复习下 gnuplot。Kiss the UNIX。</p>
+<p>下午在老板公司，和学长简单交流了下，自己在一边搞定上网，大概看了下 Windows CE 的东西。不过现在感觉自己最大的软肋还是编程基础和算法基础。看书看书看书。</p>
+<p>明天的数值分析，逻辑，后天的计算机组成实验，都是头疼的课。我一向对电类的课程比较头疼。电路原理，数电等硬件类课程无一例外都挂掉了。一方面是自己没好好学，另一方面也是自己实在提不起兴趣。比较讨厌。逻辑实验虽然七搞八搞能做出结果，但是个中详细原理，却懒得去理了，只求用 LaTeX 把实验报告弄的好看点，祈求得个差不多的分数就行。</p>
+<p>C++ 之父 Bjarne Stroustrup 的最新力作《<a href="https://book.douban.com/subject/4068100/">Programming: Principles and Practice Using C++</a>》，刚翻了翻目录。讲的内容非常广泛。从最初的入门知识，语言结构，面向对象，STL，GUI，embedded, testing，不知深度如何。书中前言说：“If you work by yourself, don’t expec to spend less time than that (maybe 15 hours a week for 14 weeks).”</p>
+<p>UNIX 编程艺术，经典书籍，久闻其名，今天终于狠下心买了一本。当小说来看好了。</p>
+<p>越学越不明白。计算机软件简直是无边无际无极的知识海洋。技术的更新，理论的发展，这些独有的特点使得计算机应用科学的知识更新换代极其迅速。我想在大概明白所谓的需求驱动。计算机的学习也是一样，什么样的需求，什么样的技术，用到了再去学，边学边实践。 像什么 ASP PK PHP 等等完全是无聊的东西。有需要就学，没有这个需要的话学了不用也忘掉。当然有些经典的东西，C++、UNIX、Emacs、LaTeX、algorithms、SQL、XML，这才是千秋万代的东西。加油吧，Lox。</p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2009-10-21</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#life">
+          <div class="ui label">
+            Life<sup>44</sup>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#c++">
+          <div class="ui label">
+            C++<sup>4</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#unix">
+          <div class="ui label">
+            UNIX<sup>2</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#cdlatex">
+          <div class="ui label">
+            CDLaTeX<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#pgf">
+          <div class="ui label">
+            PGF<sup>3</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#tikz">
+          <div class="ui label">
+            TikZ<sup>2</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/12287.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="左手马云，右手史玉柱" href="/posts/2009-10-13-a-book-about-mayun-and-shiyuzhu/">Prev</a><a class="item" title="opengl 第一篇" href="/posts/2009-10-23-first-article-on-opengl/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
     </div>
     <div id="footer">
       <footer class="ui inverted vertical center aligned footer segment">
