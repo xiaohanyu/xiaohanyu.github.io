@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>kernel-mode-setting</title>
+    <title>Kernel Mode Setting</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -39,110 +39,99 @@
           </div>
         </div>
       </nav><div class="ui stackable container">
-        <div class="ui very padded segment article">
-          <article class="ui stackable divided grid">
-            <header class="row article-head">
-              <div class="column">
-                <h1 class="ui header">
-                  kernel-mode-setting
-                </h1>
-                <div class="ui divider"></div>
-              </div>
-            </header>
-            <div class="row article-body">
-              <section class="twelve wide column">
-                <p>archlinux的好处就是软件新，可以用上很多很强很酷的功能。譬如 tex，在 ubuntu 9.10 中依旧是 texlive2007，archlinux中却是与时俱进，texlive09了，而且自动集成了来自于 CTex 的 xeCJK，最大的好处就是可以非常方便地处理中文，再也不用配置字体了。自此以后彻底告别了 latex+cjk 的传统解决方案。</p>
-                <p>最近的 2.6.31 的linux kernel有一个叫做 kernel-mode-setting 的功能，大概意思是把很多控制显卡的东西直接放到 kernel-space 里面，以求得更好地图形加速效果，也是非常酷的功能，启用这项功能可以告别复杂的 Xorg.conf。但是这项功能尚处于实验阶段，启用以后有可能造成更大的冲突和糟糕的显卡性能。因此前些日子装好 ArchLinux 时我就禁用了这项功能，具体可以参考 <a href="http://cnlox.is-programmer.com/?page=2"> 这篇文章 </a>。但是今天更新了一下系统，于是系统就出现了各种各样诡异的问题。譬如某些窗口在最大化的时候系统会死机，某些时候切换窗口管理器的时候也会死机，kde下面点击右键菜单就自动注销等等，搞的我彻底崩溃。开始以为是桌面环境的原因，于是换了桌面环境，分别尝试了两个轻量级的桌面环境：<a href="http://www.xfce.org/">xfce4</a>和 <a href="http://lxde.org/">lxde</a>，但是问题依然没有解决。后来我忽然想起来那个 kernel-mode-setting 的问题，于是又照着 <a href="http://wiki.archlinux.org/index.php/ATI">archlinux wiki</a> 的文章启用了 kernel-mode-setting。这下好了。不仅解决了问题，还意外地解决了某些 OpenGL 程序闪屏的问题。具体了解 kernel-mode-setting 请参考以下链接：</p>
-                <ul>
-                <li><a href="http://www.x.org/wiki/ModeSetting" class="uri">http://www.x.org/wiki/ModeSetting</a></li>
-                <li><a href="http://en.wikipedia.org/wiki/Mode-setting" class="uri">http://en.wikipedia.org/wiki/Mode-setting</a></li>
-                <li><a href="http://fedoraproject.org/wiki/Features/KernelModesetting"><a href="https://fedoraproject.org/wiki/Features/KernelModesetting" class="uri">https://fedoraproject.org/wiki/Features/KernelModesetting</a></a></li>
-                </ul>
-                <p>总体来说，kernel-mode-setting的功能还是很赞的。</p>
-                <p>令一个头疼的问题是 Emacs 与ibus冲突的问题，google方案五花八门，各有千秋，最后找到一种方案，暂时解决的问题，虽然我也不知道是怎么回事。具体方法是，在主目录的 .xprofile 中加入：</p>
-                <div class="hl_result">
-                
-                <div class="bash"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>export LC_CTYPE=zh_CN.UTF-8</p>
-                </div>
-                
-                </div>
-                
-                <p>linux的输入法依旧是 Linux 中文化的一大软肋。大体来说三种：scim, fcitx, ibus。scim基本算已经过时，而且经常会莫名其妙地和 Firefox，emacs等软件冲突，无法调用，异常麻烦。fcitx中国特色，受到很多人的追捧和喜爱。ibus是新一代输入法平台，算这里面最有前途的了。</p>
-                <p>linux用了也快小一年了。期间遇到过各种匪夷所思的问题，但依然坚持了下来，说来说去，作为一个计算机系的学生，不了解 UNIX，不懂得 bash，不懂得 make，不会用 Emacs 或者 vim，没听说过 LaTeX，毕竟有些不像话的。有时候也烦，也怀念 Windows 下面那种鼠标点点万事搞定的操作方式。但是我实在受不了 Windows 的低效，受不了各种各样的破解注册杀毒激活，受不了不经意间弹出的广告，受不了动辄上 G 的应用程序，受不了乱七八糟的目录安排。总而言之，我患上 Linux 偏执症了。</p>
-                <p>其实想想有时候这样折腾来折腾去也挺费时间的。倒不如省下时间去补补自己的功课更好。可是问题来了，你不去解决放任不管，心里面就痒痒的，总要想方设法将它搞定，才心安理得。对各种软件也非常感兴趣赶时髦，各种桌面环境都去尝试，虽然经常用的只有一个，经常用的软件也只有那么几种而已。archlinux，总能满足你这方面的要求。或许有一天，当我“看破红尘”，就不会再折腾了。emacs， firefox，gnutools，就这么几个万古长青的软件，弹指一挥。</p>
-                <p>好了，不聊了。睡吧。</p>
-                
-                <div class="ui divider"></div>
-                <div class="ui small one item menu">
-                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
-                </div>
-                <div id="disqus_thread"></div>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </section>
-              <aside class="four wide column">
-                <div class="ui small header">
-                  License
-                </div>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
-                <div class="ui small header">
-                  Committed
-                </div>
-                <date>2009-11-04</date>
-                <div class="ui small header">
-                  Updated
-                </div>
-                <date>2017-04-14</date>
-                <div class="ui small header">
-                  Category
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/categories#linux">
-                      <div class="ui label">
-                        Linux<sup>17</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Tags
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/tags#linux">
-                      <div class="ui label">
-                        Linux<sup>11</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#ibus">
-                      <div class="ui label">
-                        IBus<sup>3</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/12845.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
-                  Links
-                </div>
-                <div class="ui small two item menu">
-                  <a class="item" title="浙江大学 CC98 行者无疆版块新手入门 FAQ Version 1.0" href="/posts/2009-11-03-a-handbook-for-cc98-traveller-v1.0/">Prev</a><a class="item" title="逃离" href="/posts/2009-11-08-run-away-from-life/">Next</a>
-                </div>
-              </aside>
-            </div>
-          </article>
-        </div>
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      Kernel Mode Setting
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>Arch Linux 的好处就是软件新，可以用上很多很强很酷的功能。譬如 TeX，在 Ubuntu 9.10 中依旧是 TeX Live 2007，Arch Linux 中却是与时俱进，TeX Live 2009了，而且自动集成了来自于 CTeX 的 xeCJK，最大的好处就是可以非常方便地处理中文，再也不用配置字体了。自此以后彻底告别了 LaTeX + CJK 的传统解决方案。</p>
+<p>最近的 2.6.31 的 Linux Kernel 有一个叫做 Kernel Mode Setting 的功能，大概意思是把很多控制显卡的东西直接放到 kernel space 里面，以求得更好地图形加速效果，也是非常酷的功能，启用这项功能可以告别复杂的 <code>Xorg.conf</code> 。但是这项功能尚处于实验阶段， 启用以后有可能造成更大的冲突和糟糕的显卡性能。因此前些日子装好 Arch Linux 时我就禁用了这项功能，具体可以参考 <a href="http://xiaohanyu.me/posts/2009-10-27-entangled-mac-installation/">这篇文章</a>。但是今天更新了一下系统，于是系统就出现了各种各样诡异的问题。譬如某些窗口在最大化的时候系统会死机，某些时候切换窗口管理器的时候也会死机，KDE 下面点击右键菜单就自动注销等等，搞的我彻底崩溃。开始以为是桌面环境的原因，于是换了桌面环境，分别尝试了两个轻量级的桌面环境： <a href="http://www.xfce.org/">Xfce4</a> 和 <a href="http://lxde.org/">LXDE</a>， 但是问题依然没有解决。后来我忽然想起来那个 Kernel Mode Setting 的问题，于是又照着 Arch Linux <a href="http://wiki.archlinux.org/index.php/ATI">wiki</a> 的文章启用了 Kernel Mode Setting。这下好了。不仅解决了问题， 还意外地解决了某些 OpenGL 程序闪屏的问题。具体了解 Kernel Mode Setting 请参考以下链接：</p>
+<ul>
+<li><a href="http://www.x.org/wiki/ModeSetting"><a href="http://www.x.org/wiki/ModeSetting" class="uri">http://www.x.org/wiki/ModeSetting</a></a></li>
+<li><a href="http://en.wikipedia.org/wiki/Mode-setting"><a href="http://en.wikipedia.org/wiki/Mode-setting" class="uri">http://en.wikipedia.org/wiki/Mode-setting</a></a></li>
+<li><a href="http://fedoraproject.org/wiki/Features/KernelModesetting"><a href="https://fedoraproject.org/wiki/Features/KernelModesetting" class="uri">https://fedoraproject.org/wiki/Features/KernelModesetting</a></a></li>
+</ul>
+<p>总体来说，Kernel Mode Setting 的功能还是很赞的。</p>
+<p>令一个头疼的问题是 Emacs 与 IBus 冲突的问题，Google 方案五花八门，各有千秋，最后找到一种方案，暂时解决的问题，虽然我也不知道是怎么回事。具体方法是，在主目录的 <code>.xprofile</code> 中加入：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">export</span> <span class="va">LC_CTYPE=</span>zh_CN.UTF-8</code></pre></div>
+<p>Linux 的输入法依旧是 Linux 中文化的一大软肋。大体来说三种：SCIM, Fcitx, IBus。 SCIM 基本算已经过时，而且经常会莫名其妙地和 Firefox，Emacs 等软件冲突，无法调用， 异常麻烦。Fcitx 中国特色，受到很多人的追捧和喜爱。IBus 是新一代输入法平台，算这里面最有前途的了。</p>
+<p>Linux 用了也快小一年了。期间遇到过各种匪夷所思的问题，但依然坚持了下来，说来说去， 作为一个计算机系的学生，不了解 UNIX，不懂得 Bash，不懂得 Make，不会用 Emacs 或者 Vim，没听说过 LaTeX，毕竟有些不像话的。有时候也烦，也怀念 Windows 下面那种鼠标点点万事搞定的操作方式。但是我实在受不了 Windows 的低效，受不了各种各样的破解注册杀毒激活，受不了不经意间弹出的广告，受不了动辄上 G 的应用程序，受不了乱七八糟的目录安排。总而言之，我患上 Linux 偏执症了。</p>
+<p>其实想想有时候这样折腾来折腾去也挺费时间的。倒不如省下时间去补补自己的功课更好。 可是问题来了，你不去解决放任不管，心里面就痒痒的，总要想方设法将它搞定，才心安理得。对各种软件也非常感兴趣赶时髦，各种桌面环境都去尝试，虽然经常用的只有一个，经常用的软件也只有那么几种而已。Arch Linux，总能满足你这方面的要求。或许有一天，当我“看破红尘”，就不会再折腾了。Emacs，Firefox，GNU Tools，就这么几个万古长青的软件， 弹指一挥。</p>
+<p>好了，不聊了。睡吧。</p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2009-11-04</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#linux">
+          <div class="ui label">
+            Linux<sup>17</sup>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#linux">
+          <div class="ui label">
+            Linux<sup>11</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#ibus">
+          <div class="ui label">
+            IBus<sup>3</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/12845.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="浙江大学 CC98 行者无疆版块新手入门 FAQ Version 1.0" href="/posts/2009-11-03-a-handbook-for-cc98-traveller-v1.0/">Prev</a><a class="item" title="逃离" href="/posts/2009-11-08-run-away-from-life/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
     </div>
     <div id="footer">
       <footer class="ui inverted vertical center aligned footer segment">
