@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>zoj1489</title>
+    <title>ZOJ 1489</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,83 +43,76 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      zoj1489
+      ZOJ 1489
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>题目不是很难，重点是时间限制。因此需要优化下算法，不要暴力的用 pow(x, y) 函数。我用的是 pow(x,y) 图省事，先是出现了久违的 compilation error。思前想后，自己的机器上编译没有问题啊。看了 ZOJ 的输出指示：</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">p.cc</span>: In function <span class="st">&#39;int main(int, char**)&#39;</span>:
-<span class="ex">p.cc</span>:19: error: call of overloaded <span class="st">&#39;pow(int, int&amp;)&#39;</span> is ambiguous
-<span class="ex">/usr/include/bits</span>/mathcalls.h:<span class="ex">154</span>: note: candidates are: double pow(double, double)
-<span class="ex">/usr/include/c++/4.2</span>/cmath:<span class="ex">373</span>: note:                 long double std::pow(long double, int)
-<span class="ex">/usr/include/c++/4.2</span>/cmath:<span class="ex">369</span>: note:                 float std::pow(float, int)
-<span class="ex">/usr/include/c++/4.2</span>/cmath:<span class="ex">365</span>: note:                 double std::pow(double, int)
-<span class="ex">/usr/include/c++/4.2</span>/cmath:<span class="ex">361</span>: note:                 long double std::pow(long double, long double)
-<span class="ex">/usr/include/c++/4.2</span>/cmath:<span class="ex">357</span>: note:                 float std::pow(float, float)</code></pre></div>
+  <section class="twelve wide column"><p>题目不是很难，重点是时间限制。因此需要优化下算法，不要暴力的用 <code>pow(x, y)</code> 函数。 我用的是 <code>pow(x, y)</code> 图省事，先是出现了久违的 compilation error 。思前想后，自己的机器上编译没有问题啊。看了 ZOJ 的输出指示：</p>
+<pre class="example"><code>p.cc: In function &#39;int main(int, char**)&#39;:
+p.cc:19: error: call of overloaded &#39;pow(int, int&amp;)&#39; is ambiguous
+/usr/include/bits/mathcalls.h:154: note: candidates are: double pow(double, double)
+/usr/include/c++/4.2/cmath:373: note:                 long double std::pow(long double, int)
+/usr/include/c++/4.2/cmath:369: note:                 float std::pow(float, int)
+/usr/include/c++/4.2/cmath:365: note:                 double std::pow(double, int)
+/usr/include/c++/4.2/cmath:361: note:                 long double std::pow(long double, long double)
+/usr/include/c++/4.2/cmath:357: note:                 float std::pow(float, float)
+</code></pre>
 <p>估计大概是 libc 版本不同造成的。修改了以下程序，又出现了 TLE 的错误了。后来想了想，利用同余特性，改进了程序，还是 TLE。程序如下：</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
 
-int main(int argc, char* argv[])
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span>* argv[])
 {
-    int n, temp, result;
+  <span class="dt">int</span> n, temp, result;
 
-    while(cin &gt;&gt; n)
-    {
-        if((n &amp; 0x1) == 0)
-            cout &lt;&lt; &quot;2^? mod &quot; &lt;&lt; n &lt;&lt; &quot; = 1&quot; &lt;&lt; endl;
-        else
-        {
-            temp = 1;
-            result = 1;
-            while(1)
-            {
-                temp *= 2;
-                temp %= n;
-                if(temp == 1)
-                    break;
-                ++result;
-            }
-            cout &lt;&lt; &quot;2^&quot; &lt;&lt; result &lt;&lt; &quot; mod &quot; &lt;&lt; n &lt;&lt; &quot; = 1&quot; &lt;&lt; endl;
-        }
+  <span class="cf">while</span>(cin &gt;&gt; n) {
+    <span class="cf">if</span>((n &amp; <span class="bn">0x1</span>) == <span class="dv">0</span>)
+      cout &lt;&lt; <span class="st">&quot;2^? mod &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; = 1&quot;</span> &lt;&lt; endl;
+    <span class="cf">else</span> {
+      temp = <span class="dv">1</span>;
+      result = <span class="dv">1</span>;
+      <span class="cf">while</span>(<span class="dv">1</span>) {
+        temp *= <span class="dv">2</span>;
+        temp %= n;
+        <span class="cf">if</span>(temp == <span class="dv">1</span>)
+          <span class="cf">break</span>;
+        ++result;
+      }
+      cout &lt;&lt; <span class="st">&quot;2^&quot;</span> &lt;&lt; result &lt;&lt; <span class="st">&quot; mod &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; = 1&quot;</span> &lt;&lt; endl;
     }
-    return 0;
-}
-</code></pre>
-<p>这是怎么回事呢？百思不得其解。俗话说外事不决问 Google，内事不决问 Baidu。于是 Baidu 之，发现只要将判断条件改进下就行，AC的程序如下：</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
+  }
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+<p>这是怎么回事呢？百思不得其解。俗话说外事不决问 Google，内事不决问 Baidu。于是 Baidu 之，发现只要将判断条件改进下就行，AC 的程序如下：</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
 
-int main(int argc, char* argv[])
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span>* argv[])
 {
-    int n, temp, result;
+  <span class="dt">int</span> n, temp, result;
 
-    while(cin &gt;&gt; n)
-    {
-        if((n &amp; 0x1) == 0 || n &lt; 2)
-            cout &lt;&lt; &quot;2^? mod &quot; &lt;&lt; n &lt;&lt; &quot; = 1&quot; &lt;&lt; endl;
-        else
-        {
-            temp = 1;
-            result = 1;
-            while(1)
-            {
-                temp *= 2;
-                temp %= n;
-                if(temp == 1)
-                    break;
-                ++result;
-            }
-            cout &lt;&lt; &quot;2^&quot; &lt;&lt; result &lt;&lt; &quot; mod &quot; &lt;&lt; n &lt;&lt; &quot; = 1&quot; &lt;&lt; endl;
-        }
+  <span class="cf">while</span>(cin &gt;&gt; n) {
+    <span class="cf">if</span>((n &amp; <span class="bn">0x1</span>) == <span class="dv">0</span> || n &lt; <span class="dv">2</span>)
+      cout &lt;&lt; <span class="st">&quot;2^? mod &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; = 1&quot;</span> &lt;&lt; endl;
+    <span class="cf">else</span> {
+      temp = <span class="dv">1</span>;
+      result = <span class="dv">1</span>;
+      <span class="cf">while</span>(<span class="dv">1</span>) {
+        temp *= <span class="dv">2</span>;
+        temp %= n;
+        <span class="cf">if</span>(temp == <span class="dv">1</span>)
+          <span class="cf">break</span>;
+        ++result;
+      }
+      cout &lt;&lt; <span class="st">&quot;2^&quot;</span> &lt;&lt; result &lt;&lt; <span class="st">&quot; mod &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; = 1&quot;</span> &lt;&lt; endl;
     }
-    return 0;
-}
-</code></pre>
-<p>一个 n&lt;2，应该无关紧要 …… 先记着这笔帐。</p>
-<p>AC了 26 道题目了。都是水题。不管怎样，先凑个数练练手也好。时间紧迫。一定的数量还是必须的。要不以后出去也忒没面子了。</p>
+  }
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+<p>一个 ~n &lt; 2~，应该无关紧要……先记着这笔帐。</p>
+<p>AC 了 26 道题目了。都是水题。不管怎样，先凑个数练练手也好。时间紧迫。一定的数量还是必须的。要不以后出去也忒没面子了。</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
