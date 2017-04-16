@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>终于搞定Ubuntu 9.04下XeTeX的配置了。</title>
+    <title>终于搞定 Ubuntu 9.04 下 XeTeX 的配置了</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -39,292 +39,309 @@
           </div>
         </div>
       </nav><div class="ui stackable container">
-        <div class="ui very padded segment article">
-          <article class="ui stackable divided grid">
-            <header class="row article-head">
-              <div class="column">
-                <h1 class="ui header">
-                  终于搞定Ubuntu 9.04下XeTeX的配置了。
-                </h1>
-                <div class="ui divider"></div>
-              </div>
-            </header>
-            <div class="row article-body">
-              <section class="twelve wide column">
-                <p>整整弄了三天。写了份《<a href="file:///user_files/cnlox/File/ubuntu_xetex_xecjk.tar.bz2">Ubuntu 9.04 环境下 TEX 中文化配置 </a>》，呕心之作。内容都在文档里面了。</p>
-                <p>主要内容包括：<img src="file:///user_files/cnlox/Image/tex/ubuntu_xetex_xecjk.jpg" /></p>
-                <p>这是我使用的 xeCJK 模板。</p>
-                <div class="hl_result">
-                
-                <div class="latex"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
-                
-                <p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<br />
-                % Name: XeTeX+xeCJK日常使用模板<br />
-                % Author: Lox Freeman<br />
-                % Email: xiaohanyu1988@gmail.com<br />
-                %<br />
-                % 本文档可以自由转载、修改，希望能给广大 TeXer 的中文之路提供一些方便。<br />
-                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<br />
-                <br />
-                \documentclass[a4paper, 12pt, titlepage]{article}<br />
-                <br />
-                %%%%%%%%%%%%%%%%%%%%%%%%%xeCJK相关宏包 %%%%%%%%%%%%%%%%%%%%%%%%%<br />
-                <br />
-                <br />
-                <br />
-                <br />
-                % slanfont: 允许斜体<br />
-                % boldfont: 允许粗体<br />
-                % CJKnormalspaces: 仅忽略汉字之间的空白 , 但保留中英文之间的空白。<br />
-                % CJKchecksingle: 避免单个汉字单独占一行。<br />
-                % CJKaddspaces: [备选 ] 忽略汉字之间的空白 , 并且自动在中英文转换时插入空白。<br />
-                <br />
-                 % 中文标点特殊处理<br />
-                 “zh” % 针对中文进行断行<br />
-                 = 0pt plus 1pt minus 0.1pt<br />
-                % 给予 TeX 断行一定自由度<br />
-                %%%%%%%%%%%%%%%%%%%%%%%%%xeCJK%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<br />
-                <br />
-                %%%%%%%%%%%%% 日常所用宏包、通通放在一起 %%%%%%%%%%%%%%%%%%%%%%%%%%%%<br />
-                % 什么常用的宏包都可以放这里。下面是我常用的宏包，每个都给出了简要注释<br />
-                <br />
-                % 控制页边距<br />
-                 % 控制项目列表<br />
-                 % 多栏显示<br />
-                <br />
-                <br />
-                <br />
-                 % 控制标题<br />
-                 % 控制目录<br />
-                 % 控制字体大小<br />
-                 % 首行缩进，用  取消某段缩进<br />
-                 % 一些特殊符号<br />
-                 % 支持引用<br />
-                 % 支持彩色文本、底色、文本框等<br />
-                 % LaTeX 一些特殊符号宏包<br />
-                 % AMS LaTeX 宏包<br />
-                 % 数学公式中的黑斜体<br />
-                 % 调整公式字体大小：, <br />
-                %\makeindex % 生成索引<br />
-                <br />
-                %%%%%%%%%%%%%%%%%%%%%%%%% 基本插图方法 %%%%%%%%%%%%%%%%%%%%%%%%%%%<br />
-                 % 图形宏包<br />
-                % \begin{figure}[htbp] % 控制插图位置<br />
-                % <br />
-                % <br />
-                % 控制图形和上下文的距离<br />
-                %  % 使图形居中显示<br />
-                % <img src="CTeXLive2008.jpg" alt="image" style="width:80.0%" /><br />
-                % 控制图形显示宽度为 0.8<br />
-                % \caption{CTeXLive2008 安装过程 }<br />
-                % 图形题目和交叉引用标签<br />
-                % \end{figure}<br />
-                %%%%%%%%%%%%%%%%%%%%%%%%% 插图方法结束 %%%%%%%%%%%%%%%%%%%%%%%%%%%<br />
-                <br />
-                <br />
-                %%%%%%%%%%%%%%%%%%%%%%%%%fancyhdr 设置页眉页脚 %%%%%%%%%%%%%%%%%%%%<br />
-                 % 页眉页脚<br />
-                 % 页眉页脚风格<br />
-                 % 有时会出现  too small 的 warning<br />
-                % % 清空当前页眉页脚的默认设置<br />
-                %%%%%%%%%%%%%%%%%%%%%%%%%fancyhdr 设置结束 %%%%%%%%%%%%%%%%%%%%%%%<br />
-                <br />
-                <br />
-                %%%%%%%%%%%%%%%%%%%%%%%%%listings 宏包粘贴源码 %%%%%%%%%%%%%%%%%%%%<br />
-                 % 方便粘贴源代码，部分代码高亮功能<br />
-                 % 所要粘贴代码的编程语言<br />
-                <br />
-                %%%% 设置 listings 宏包的一些全局样式 %%%%<br />
-                %%%% 参见 <a href="http://hi.baidu.com/shawpinlee/blog/item/9ec431cbae28e41cbe09e6e4.html%%%%\\" class="uri">http://hi.baidu.com/shawpinlee/blog/item/9ec431cbae28e41cbe09e6e4.html%%%%\\</a> <br />
-                %%%%%%%%%%%%%%%%%%%%%%%%%listings 宏包设置结束 %%%%%%%%%%%%%%%%%%%%<br />
-                <br />
-                <br />
-                %%%%%%%%%%%%%%%%%%%%%%%%%xeCJK 字体设置 %%%%%%%%%%%%%%%%%%%%%%%%%<br />
-                 % 设置中文标点样式<br />
-                % 支持 quanjiao、banjiao、kaiming等多种方式<br />
-                 % 设置缺省中文字体<br />
-                 % 设置中文无衬线字体<br />
-                 % 设置等宽字体<br />
-                 % 英文衬线字体<br />
-                 % 英文等宽字体<br />
-                 % 英文无衬线字体<br />
-                <br />
-                %%%% 定义新字体 %%%%<br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                % 自定义宋体<br />
-                % 自定义楷体<br />
-                % 自定义黑体<br />
-                % 自定义仿宋体<br />
-                % 自定义隶书<br />
-                % 自定义幼圆<br />
-                %%%%%%%%%%%%%%%%%%%%%%%%%xeCJK 字体设置结束 %%%%%%%%%%%%%%%%%%%%%%<br />
-                <br />
-                <br />
-                %%%%%%%%%%%%%%%%%%%%%%%%% 一些关于中文文档的重定义 %%%%%%%%%%%%%%%%%<br />
-                <br />
-                %%%% 数学公式定理的重定义 %%%%<br />
-                 % 整体编号<br />
-                <br />
-                [section] % 按 section 编号<br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                %%%% 章节等名称重定义 %%%%<br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                %%%% 设置 chapter、section与 subsection 的格式 %%%%<br />
-                <br />
-                <br />
-                <br />
-                %%%%%%%%%%%%%%%%%%%%%%%%% 中文重定义结束 %%%%%%%%%%%%%%%%%%%%<br />
-                <br />
-                <br />
-                %%%%%%%%%%%%%%%%%%%%%%%%% 一些个性设置 %%%%%%%%%%%%%%%%%%%%%%<br />
-                % % 效果同 <br />
-                %  % 设定页码方式，包括 arabic、roman等方式<br />
-                %  % 有时 LaTeX 无从断行，产生 overfull 的错误，<br />
-                % 这条命令降低 LaTeX 断行标准<br />
-                 % 设定段间距<br />
-                 % 设定行距<br />
-                <br />
-                % 中文破折号，据说来自清华模板<br />
-                <br />
-                %%%%%%%%%%%%%%%%%%%%%%%%% 个性设置结束 %%%%%%%%%%%%%%%%%%%%%%<br />
-                <br />
-                <br />
-                %%%%%%%%%%%%%%%%%%%%%%%%% 正文部分 %%%%%%%%%%%%%%%%%%%%%%%%%<br />
-                \begin{document}<br />
-                <br />
-                % 设定首行缩进为 2em。注意此设置一定要在 document 环境之中。<br />
-                % 这可能与  作用范围相关<br />
-                <br />
-                \title{Ubuntu 9.04 环境下 TeX 中文化配置 }<br />
-                \author{Lox Freeman}<br />
-                \date{}<br />
-                <br />
-                \maketitle<br />
-                <br />
-                <br />
-                <br />
-                \newpage<br />
-                <br />
-                \end{document}<br />
-                %%%%%%%%%%%%%%%%%%%%%%%%% 正文部分结束 %%%%%%%%%%%%%%%%%%%%%%</p>
-                </div>
-                
-                </div>
-                
-                
-                <div class="ui divider"></div>
-                <div class="ui small one item menu">
-                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
-                </div>
-                <div id="disqus_thread"></div>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </section>
-              <aside class="four wide column">
-                <div class="ui small header">
-                  License
-                </div>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
-                <div class="ui small header">
-                  Committed
-                </div>
-                <date>2009-09-12</date>
-                <div class="ui small header">
-                  Updated
-                </div>
-                <date>2017-04-14</date>
-                <div class="ui small header">
-                  Category
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/categories#tex">
-                      <div class="ui label">
-                        TeX<sup>2</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Tags
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/tags#emacs">
-                      <div class="ui label">
-                        Emacs<sup>14</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#ubuntu">
-                      <div class="ui label">
-                        Ubuntu<sup>3</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#xetex">
-                      <div class="ui label">
-                        XeTeX<sup>1</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#latex">
-                      <div class="ui label">
-                        LaTeX<sup>4</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#auctex">
-                      <div class="ui label">
-                        AUCTeX<sup>1</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/11264.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
-                  Links
-                </div>
-                <div class="ui small two item menu">
-                  <a class="item" title="旅行者网站框架完工" href="/posts/2009-09-09-a-website-for-traveller/">Prev</a><a class="item" title="开学第一天" href="/posts/2009-09-15-first-day-on-a-new-term/">Next</a>
-                </div>
-              </aside>
-            </div>
-          </article>
-        </div>
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      终于搞定 Ubuntu 9.04 下 XeTeX 的配置了
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>整整弄了三天。写了份《<a href="http://xiaohanyu.me/static/asset/2009/ubuntu_xetex_xecjk.tar.bz2">Ubuntu 9.04 环境下 TeX 中文化配置</a>》，呕心之作。内容都在文档里面了。</p>
+<p>主要内容包括：</p>
+<p><a href="/static/asset/2009/ubuntu_xetex_xecjk_toc.jpg"><img src="/static/asset/2009/ubuntu_xetex_xecjk_toc.jpg" /></a></p>
+<p>这是我使用的 xeCJK 模板。</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="co">% Name: XeTeX + xeCJK日常使用模板</span>
+<span class="co">% Author: Lox Freeman</span>
+<span class="co">% Email: xiaohanyu1988@gmail.com</span>
+<span class="co">%</span>
+<span class="co">% 本文档可以自由转载、修改，希望能给广大 TeXer 的中文之路提供一些方便。</span>
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+<span class="bu">\documentclass</span>[a4paper, 12pt, titlepage]{<span class="ex">article</span>}
+
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% xeCJK相关宏包 %%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="bu">\usepackage</span>{<span class="ex">xltxtra, fontspec, xunicode</span>}
+
+<span class="bu">\usepackage</span>[slantfont, boldfont, CJKaddspaces, CJKchecksingle]{<span class="ex">xeCJK</span>}
+<span class="fu">\CJKsetecglue</span>{<span class="fu">\hskip</span> 0.15em plus 0.05em minus 0.05em}
+<span class="co">% slanfont: 允许斜体</span>
+<span class="co">% boldfont: 允许粗体</span>
+<span class="co">% CJKnormalspaces: 仅忽略汉字之间的空白，但保留中英文之间的空白。</span>
+<span class="co">% CJKchecksingle: 避免单个汉字单独占一行。</span>
+<span class="co">% CJKaddspaces: [备选] 忽略汉字之间的空白，并且自动在中英文转换时插入空白。</span>
+
+<span class="fu">\CJKlanguage</span>{zh-cn}                <span class="co">% 中文标点特殊处理</span>
+<span class="fu">\XeTeXlinebreaklocale</span> &quot;zh&quot;         <span class="co">% 针对中文进行断行</span>
+<span class="fu">\XeTeXlinebreakskip</span> = 0pt plus 1pt minus 0.1pt
+                                   <span class="co">% 给予 TeX 断行一定自由度</span>
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% xeCJK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+<span class="co">%%%%%%%%%%%%% 日常所用宏包、通通放在一起 %%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="co">% 什么常用的宏包都可以放这里。下面是我常用的宏包，每个都给出了简要注释</span>
+<span class="bu">\usepackage</span>[top=2.5cm, bottom=3cm, left=2cm, right=2cm]{<span class="ex">geometry</span>}
+
+                                   <span class="co">% 控制页边距</span>
+<span class="bu">\usepackage</span>{<span class="ex">enumerate</span>}             <span class="co">% 控制项目列表</span>
+<span class="bu">\usepackage</span>{<span class="ex">multicol</span>}              <span class="co">% 多栏显示</span>
+
+<span class="bu">\usepackage</span>[<span class="co">%</span>
+    pdfstartview=FitH,<span class="co">%</span>
+    CJKbookmarks=true,<span class="co">%</span>
+    bookmarks=true,<span class="co">%</span>
+    bookmarksnumbered=true,<span class="co">%</span>
+    bookmarksopen=true,<span class="co">%</span>
+    colorlinks=true,<span class="co">%</span>
+    citecolor=blue,<span class="co">%</span>
+    linkcolor=blue,<span class="co">%</span>
+    anchorcolor=green,<span class="co">%</span>
+    urlcolor=blue<span class="co">%</span>
+]{<span class="ex">hyperref</span>}
+
+<span class="bu">\usepackage</span>{<span class="ex">titlesec</span>}              <span class="co">% 控制标题</span>
+<span class="bu">\usepackage</span>{<span class="ex">titletoc</span>}              <span class="co">% 控制目录</span>
+<span class="bu">\usepackage</span>{<span class="ex">type1cm</span>}               <span class="co">% 控制字体大小</span>
+<span class="bu">\usepackage</span>{<span class="ex">indentfirst</span>}           <span class="co">%</span>
+ 首行缩进，用  <span class="fu">\noindent</span> 取消某段缩进
+<span class="bu">\usepackage</span>{<span class="ex">bbding</span>}                <span class="co">% 一些特殊符号</span>
+<span class="bu">\usepackage</span>{<span class="ex">cite</span>}                  <span class="co">% 支持引用</span>
+<span class="bu">\usepackage</span>{<span class="ex">color,xcolor</span>}          <span class="co">% 支持彩色文本、底色、文本框等</span>
+<span class="bu">\usepackage</span>{<span class="ex">latexsym</span>}              <span class="co">% LaTeX 一些特殊符号宏包</span>
+<span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}               <span class="co">% AMS LaTeX 宏包</span>
+<span class="bu">\usepackage</span>{<span class="ex">bm</span>}                    <span class="co">% 数学公式中的黑斜体</span>
+<span class="bu">\usepackage</span>{<span class="ex">relsize</span>}               <span class="co">% 调整公式字体大小：\mathsmaller,</span>
+<span class="fu">\mathlarger</span>
+<span class="co">%\makeindex                        % 生成索引</span>
+
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 基本插图方法 %%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="bu">\usepackage</span>{<span class="ex">graphicx</span>}              <span class="co">% 图形宏包</span>
+<span class="co">% \begin{figure}[htbp]             % 控制插图位置</span>
+<span class="co">%   \setlength{\abovecaptionskip}{0pt}</span>
+<span class="co">%   \setlength{\belowcaptionskip}{10pt}</span>
+                                   <span class="co">% 控制图形和上下文的距离</span>
+<span class="co">%   \centering                     % 使图形居中显示</span>
+<span class="co">%   \includegraphics[width=0.8\textwidth]{CTeXLive2008.jpg}</span>
+                                   <span class="co">% 控制图形显示宽度为  0.8\textwidth</span>
+<span class="co">%   \caption{CTeXLive2008 安装过程} \label{fig:CTeXLive2008}</span>
+                                   <span class="co">% 图形题目和交叉引用标签</span>
+<span class="co">% \end{figure}</span>
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 插图方法结束 %%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%fancyhdr 设置页眉页脚 %%%%%%%%%%%%%%%%%%%%</span>
+<span class="bu">\usepackage</span>{<span class="ex">fancyhdr</span>}              <span class="co">% 页眉页脚</span>
+<span class="fu">\pagestyle</span>{fancy}                  <span class="co">% 页眉页脚风格</span>
+<span class="fu">\setlength</span>{<span class="fu">\headheight</span>}{15pt}      <span class="co">% 有时会出现  \headheight too small 的 warning</span>
+<span class="co">%\fancyhf{}                        % 清空当前页眉页脚的默认设置</span>
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%fancyhdr 设置结束 %%%%%%%%%%%%%%%%%%%%%%%</span>
+
+
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%listings 宏包粘贴源码 %%%%%%%%%%%%%%%%%%%%</span>
+<span class="bu">\usepackage</span>{<span class="ex">listings</span>}              <span class="co">% 方便粘贴源代码，部分代码高亮功能</span>
+<span class="fu">\lstloadlanguages</span>{}                <span class="co">% 所要粘贴代码的编程语言</span>
+
+<span class="co">%%%% 设置 listings 宏包的一些全局样式 %%%%</span>
+<span class="co">%%%% 参见  http://hi.baidu.com/shawpinlee/blog/item/9ec431cbae28e41cbe09e6e4.html%%%%</span>
+<span class="fu">\lstset</span>{
+numbers=left,                      <span class="co">% 在左边显示行号</span>
+numberstyle=<span class="fu">\tiny</span>,
+keywordstyle=<span class="fu">\color</span>{blue!70},
+commentstyle=<span class="fu">\color</span>{red!50!green!50!blue!50},
+                                   <span class="co">% 关键字高亮</span>
+frame=shadowbox,                   <span class="co">% 给代码加框</span>
+rulesepcolor=<span class="fu">\color</span>{red!20!green!20!blue!20},
+escapechar=`,                      <span class="co">% 中文逃逸字符</span>
+xleftmargin=2em,xrightmargin=2em, aboveskip=1em,
+breaklines,                        <span class="co">% 这条命令可以让 LaTeX 自动将长的代码行换行排版</span>
+extendedchars=false                <span class="co">% 这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题</span>
+}
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%listings 宏包设置结束 %%%%%%%%%%%%%%%%%%%%</span>
+
+
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%xeCJK 字体设置 %%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="fu">\punctstyle</span>{kaiming}                                      <span class="co">% 设置中文标点样式</span>
+                                                          <span class="co">% 支持 quanjiao、banjiao、kaiming等多种方式</span>
+<span class="fu">\setCJKmainfont</span>[BoldFont=Adobe Heiti Std]{Adobe Song Std} <span class="co">% 设置缺省中文字体</span>
+<span class="fu">\setCJKsansfont</span>[BoldFont=Adobe Heiti Std]{Adobe Kaiti Std} <span class="co">% 设置中文无衬线字体</span>
+<span class="fu">\setCJKmonofont</span>{Adobe Heiti Std}                          <span class="co">% 设置等宽字体</span>
+<span class="fu">\setmainfont</span>{DejaVu Serif}                                <span class="co">% 英文衬线字体</span>
+<span class="fu">\setmonofont</span>{DejaVu Sans Mono}                            <span class="co">% 英文等宽字体</span>
+<span class="fu">\setsansfont</span>{DejaVu Sans}                                 <span class="co">% 英文无衬线字体</span>
+
+<span class="co">%%%% 定义新字体 %%%%</span>
+<span class="fu">\setCJKfamilyfont</span>{song}{Adobe Song Std}
+<span class="fu">\setCJKfamilyfont</span>{kai}{Adobe Kaiti Std}
+<span class="fu">\setCJKfamilyfont</span>{hei}{Adobe Heiti Std}
+<span class="fu">\setCJKfamilyfont</span>{fangsong}{Adobe Fangsong Std}
+<span class="fu">\setCJKfamilyfont</span>{lisu}{LiSu}
+<span class="fu">\setCJKfamilyfont</span>{youyuan}{YouYuan}
+
+<span class="fu">\newcommand</span>{<span class="ex">\song</span>}{<span class="fu">\CJKfamily</span>{song}}                     <span class="co">% 自定义宋体</span>
+<span class="fu">\newcommand</span>{<span class="ex">\kai</span>}{<span class="fu">\CJKfamily</span>{kai}}                       <span class="co">% 自定义楷体</span>
+<span class="fu">\newcommand</span>{<span class="ex">\hei</span>}{<span class="fu">\CJKfamily</span>{hei}}                       <span class="co">% 自定义黑体</span>
+<span class="fu">\newcommand</span>{<span class="ex">\fangsong</span>}{<span class="fu">\CJKfamily</span>{fangsong}}             <span class="co">% 自定义仿宋体</span>
+<span class="fu">\newcommand</span>{<span class="ex">\lisu</span>}{<span class="fu">\CJKfamily</span>{lisu}}                     <span class="co">% 自定义隶书</span>
+<span class="fu">\newcommand</span>{<span class="ex">\youyuan</span>}{<span class="fu">\CJKfamily</span>{youyuan}}               <span class="co">% 自定义幼圆</span>
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%xeCJK 字体设置结束 %%%%%%%%%%%%%%%%%%%%%%</span>
+
+
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 一些关于中文文档的重定义 %%%%%%%%%%%%%%%%%</span>
+
+<span class="co">%%%% 数学公式定理的重定义 %%%%</span>
+<span class="fu">\newtheorem</span>{example}{例}                                 <span class="co">% 整体编号</span>
+<span class="fu">\newtheorem</span>{algorithm}{算法}
+<span class="fu">\newtheorem</span>{theorem}{定理}[section]                      <span class="co">% 按 section 编号</span>
+<span class="fu">\newtheorem</span>{definition}{定义}
+<span class="fu">\newtheorem</span>{axiom}{公理}
+<span class="fu">\newtheorem</span>{property}{性质}
+<span class="fu">\newtheorem</span>{proposition}{命题}
+<span class="fu">\newtheorem</span>{lemma}{引理}
+<span class="fu">\newtheorem</span>{corollary}{推论}
+<span class="fu">\newtheorem</span>{remark}{注解}
+<span class="fu">\newtheorem</span>{condition}{条件}
+<span class="fu">\newtheorem</span>{conclusion}{结论}
+<span class="fu">\newtheorem</span>{assumption}{假设}
+
+<span class="co">%%%% 章节等名称重定义 %%%%</span>
+<span class="fu">\renewcommand</span>{<span class="ex">\contentsname</span>}{目录}
+<span class="fu">\renewcommand</span>{<span class="ex">\indexname</span>}{索引}
+<span class="fu">\renewcommand</span>{<span class="ex">\listfigurename</span>}{插图目录}
+<span class="fu">\renewcommand</span>{<span class="ex">\listtablename</span>}{表格目录}
+<span class="fu">\renewcommand</span>{<span class="ex">\figurename</span>}{图}
+<span class="fu">\renewcommand</span>{<span class="ex">\tablename</span>}{表}
+<span class="fu">\renewcommand</span>{<span class="ex">\appendixname</span>}{附录}
+
+<span class="co">%%%% 设置 chapter、section与 subsection 的格式 %%%%</span>
+<span class="fu">\titleformat</span>{<span class="fu">\chapter</span>}{<span class="fu">\centering\huge</span>}{第 <span class="fu">\thechapter</span>{}章}{1em}{<span class="fu">\textbf</span>}
+<span class="fu">\titleformat</span>{<span class="fu">\section</span>}{<span class="fu">\centering\LARGE</span>}{<span class="fu">\thesection</span>}{1em}{<span class="fu">\textbf</span>}
+<span class="fu">\titleformat</span>{<span class="fu">\subsection</span>}{<span class="fu">\Large</span>}{<span class="fu">\thesubsection</span>}{1em}{<span class="fu">\textbf</span>}
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 中文重定义结束 %%%%%%%%%%%%%%%%%%%%</span>
+
+
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 一些个性设置 %%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="co">% \renewcommand{\baselinestretch}{1.3}   % 效果同  \linespread{1.3}</span>
+<span class="co">% \pagenumbering{arabic}                 % 设定页码方式，包括 arabic、roman等方式</span>
+<span class="co">% \sloppy                                % 有时 LaTeX 无从断行，产生 overfull 的错误，</span>
+                                         <span class="co">% 这条命令降低 LaTeX 断行标准</span>
+<span class="fu">\setlength</span>{<span class="fu">\parskip</span>}{0.5<span class="fu">\baselineskip</span>}   <span class="co">% 设定段间距</span>
+<span class="fu">\linespread</span>{1.2}                         <span class="co">% 设定行距</span>
+<span class="fu">\newcommand</span>{<span class="ex">\pozhehao</span>}{<span class="fu">\kern</span>0.3ex<span class="fu">\rule</span>[0.8ex]{2em}{0.1ex}<span class="fu">\kern</span>0.3ex}
+                                         <span class="co">% 中文破折号，据说来自清华模板</span>
+
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 个性设置结束 %%%%%%%%%%%%%%%%%%%%%%</span>
+
+
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 正文部分 %%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="kw">\begin</span>{<span class="ex">document</span>}
+<span class="fu">\setlength</span>{<span class="fu">\parindent</span>}{2em}
+<span class="co">% 设定首行缩进为 2em。注意此设置一定要在 document 环境之中。</span>
+<span class="co">% 这可能与  \setlength 作用范围相关</span>
+
+<span class="fu">\title</span>{Ubuntu 9.04 环境下  <span class="fu">\TeX</span>  中文化配置}
+<span class="fu">\author</span>{Lox Freeman}
+<span class="fu">\date</span>{<span class="fu">\today</span>}
+
+<span class="fu">\maketitle</span>
+
+<span class="fu">\tableofcontents</span>
+
+<span class="fu">\newpage</span>
+
+<span class="kw">\end</span>{<span class="ex">document</span>}
+<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 正文部分结束 %%%%%%%%%%%%%%%%%%%%%%</span></code></pre></div>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2009-09-12</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#tex">
+          <div class="ui label">
+            TeX<sup>2</sup>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#emacs">
+          <div class="ui label">
+            Emacs<sup>14</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#ubuntu">
+          <div class="ui label">
+            Ubuntu<sup>3</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#xetex">
+          <div class="ui label">
+            XeTeX<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#latex">
+          <div class="ui label">
+            LaTeX<sup>4</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#auctex">
+          <div class="ui label">
+            AUCTeX<sup>1</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/11264.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="旅行者网站框架完工" href="/posts/2009-09-09-a-website-for-traveller/">Prev</a><a class="item" title="开学第一天" href="/posts/2009-09-15-first-day-on-a-new-term/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
     </div>
     <div id="footer">
       <footer class="ui inverted vertical center aligned footer segment">
