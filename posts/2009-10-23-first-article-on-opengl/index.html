@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>opengl 第一篇</title>
+    <title>OpenGL 第一篇</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -39,196 +39,164 @@
           </div>
         </div>
       </nav><div class="ui stackable container">
-        <div class="ui very padded segment article">
-          <article class="ui stackable divided grid">
-            <header class="row article-head">
-              <div class="column">
-                <h1 class="ui header">
-                  opengl 第一篇
-                </h1>
-                <div class="ui divider"></div>
-              </div>
-            </header>
-            <div class="row article-body">
-              <section class="twelve wide column">
-                <p><img src="file:///user_files/cnlox/Image/opengl/program2.jpeg" /></p>
-                <p>还是蛮漂亮的。</p>
-                <p>linux的 OpenGL 的开发配置可以参见 <a href="http://hi.baidu.com/xoxoxo/blog/item/01b1a76e94a525d381cb4aaa.html"> 这篇文章 </a>。还是蛮简单的。开发环境和程序的完成大概用了一下午的时间。不过我现在还不太 OpenGL 和 Mesa, freeglut之间到底是啥关系。不管了。先用着吧。archlinux下的开发配置非常简单：</p>
-                <div class="hl_result">
-                
-                <div class="bash"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>sudo pacman -S freeglut mesa</p>
-                </div>
-                
-                </div>
-                
-                <p>源代码如下：</p>
-                <div class="hl_result">
-                
-                <div class="c"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>#include &lt;GL/glut.h&gt;<br />
-                #include &lt;stdlib.h&gt;<br />
-                #include &lt;math.h&gt;<br />
-                <br />
-                <br />
-                #define PI 3.1415926<br />
-                #define R 1<br />
-                #define r (sqrt(3) / 3 * R)<br />
-                <br />
-                void redraw()<br />
-                {<br />
-                double origin[] = {0.0, 0.0};<br />
-                double colorMode1[6][3] = { //六角星最外层顶点各自的颜色<br />
-                {1, 0, 0},<br />
-                {1, 1, 0},<br />
-                {0, 1, 0},<br />
-                {0, 1, 1},<br />
-                {0, 0, 1},<br />
-                {1, 0, 1}<br />
-                };<br />
-                <br />
-                double colorMode2[6][3] = { <em>/ 六角星内层顶点各自的颜色<br />
-                {1, 0.5, 0},<br />
-                {0.5, 1, 0},<br />
-                {0, 1, 0.5},<br />
-                {0, 0.5, 1},<br />
-                {0.5, 0, 1},<br />
-                {1, 0, 0.5}<br />
-                };<br />
-                <br />
-                glClear(GL_COLOR_BUFFER_BIT);<br />
-                int i;<br />
-                for (i = 0; i &lt; 6; ++i) /</em> 把这个凹多边形分解成为六个菱形旋转变换组合而成，通过给每个顶点设定不同的颜色达到颜色渐变的效果<br />
-                {<br />
-                glBegin(GL_POLYGON);<br />
-                glColor3f(colorMode1[i][0], colorMode1[i][1], colorMode1[i][2]);<br />
-                glVertex2d((R * cos(PI / 2 + (i * PI) / 3)), R * sin(PI / 2 + (i</p>
-                <h1 id="pi-3-glcolor3fcolormode2i-5-60-colormode2i-5">PI) / 3));<br />
-                glColor3f(colorMode2[(i + 5) % 6][0], colorMode2[(i + 5) %</h1>
-                <p>6][1], colorMode2[(i + 5) % 6][2]);<br />
-                glVertex2d(r * cos(PI / 3 + (i * PI) / 3), r * sin(PI / 3 + (i * PI) / 3));<br />
-                glColor3f(1.0f, 1.0f, 1.0f);<br />
-                glVertex2dv(origin);<br />
-                glColor3f(colorMode2[i][0], colorMode2[i][1], colorMode2[i][2]);<br />
-                glVertex2d(r * cos(2 * PI / 3 + (i * PI) /3), r * sin(2 * PI / 3</p>
-                <ul>
-                <li>(i * PI) / 3));<br />
-                glEnd();<br />
-                }<br />
-                glutSwapBuffers();<br />
-                </li>
-                </ul>
-                <p>}<br />
-                <br />
-                int main (int argc, char *argv[])<br />
-                {<br />
-                glutInit(&amp;argc, argv);<br />
-                glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);<br />
-                int windowHandle<br />
-                = glutCreateWindow(“Simple GLUT App”);<br />
-                <br />
-                glutDisplayFunc(redraw);<br />
-                <br />
-                glutMainLoop();<br />
-                <br />
-                return 0;<br />
-                }<br />
-                </p>
-                </div>
-                
-                </div>
-                
-                <p>编译：</p>
-                <div class="hl_result">
-                
-                <div class="bash"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>gcc -I/usr/include -L/usr/local/lib -L/usr/lib -lglut -lGLU -lGL -lX11 -lXext -lXmu -lXi -lm filename.c -o filename</p>
-                </div>
-                
-                </div>
-                
-                
-                <div class="ui divider"></div>
-                <div class="ui small one item menu">
-                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
-                </div>
-                <div id="disqus_thread"></div>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </section>
-              <aside class="four wide column">
-                <div class="ui small header">
-                  License
-                </div>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
-                <div class="ui small header">
-                  Committed
-                </div>
-                <date>2009-10-22</date>
-                <div class="ui small header">
-                  Updated
-                </div>
-                <date>2017-04-14</date>
-                <div class="ui small header">
-                  Category
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/categories#graphics">
-                      <div class="ui label">
-                        Graphics<sup>1</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Tags
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/tags#opengl">
-                      <div class="ui label">
-                        OpenGL<sup>1</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#mesa">
-                      <div class="ui label">
-                        Mesa<sup>1</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#freeglut">
-                      <div class="ui label">
-                        FreeGLUT<sup>1</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/12306.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
-                  Links
-                </div>
-                <div class="ui small two item menu">
-                  <a class="item" title="今天买了三本书" href="/posts/2009-10-22-bought-three-books-today/">Prev</a><a class="item" title="纠结的 Mac 安装" href="/posts/2009-10-27-entangled-mac-installation/">Next</a>
-                </div>
-              </aside>
-            </div>
-          </article>
-        </div>
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      OpenGL 第一篇
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p><a href="/static/image/2009/linux_opengl.jpg"><img src="/static/image/2009/linux_opengl.jpg" /></a></p>
+<p>还是蛮漂亮的。</p>
+<p>Linux 的 OpenGL 的开发配置可以参见 <a href="http://hi.baidu.com/xoxoxo/blog/item/01b1a76e94a525d381cb4aaa.html">这篇文章</a>。还是蛮简单的。开发环境和程序的完成大概用了一下午的时间。不过我现在还不太 OpenGL 和 Mesa、FreeGLUT 之间到底是啥关系。 不管了。先用着吧。Arch Linux 下的开发配置非常简单：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> pacman -S freeglut mesa</code></pre></div>
+<p>源代码如下：</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;GL/glut.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;math.h&gt;</span>
+
+<span class="pp">#define PI 3.1415926</span>
+<span class="pp">#define R 1</span>
+<span class="pp">#define r (sqrt(3) / 3 * R)</span>
+
+<span class="dt">void</span> redraw()
+{
+  <span class="dt">double</span> origin[] = {<span class="fl">0.0</span>, <span class="fl">0.0</span>};
+  <span class="dt">double</span> colorMode1[<span class="dv">6</span>][<span class="dv">3</span>] = {       <span class="co">//六角星最外层顶点各自的颜色</span>
+    {<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>},
+    {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>},
+    {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>},
+    {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>},
+    {<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>},
+    {<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>}
+  };
+
+  <span class="dt">double</span> colorMode2[<span class="dv">6</span>][<span class="dv">3</span>] = {       <span class="co">// 六角星内层顶点各自的颜色</span>
+    {<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="dv">0</span>},
+    {<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>},
+    {<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.5</span>},
+    {<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>},
+    {<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>},
+    {<span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.5</span>}
+  };
+
+  glClear(GL_COLOR_BUFFER_BIT);
+  <span class="dt">int</span> i;
+  <span class="co">// 把这个凹多边形分解成为六个菱形旋转变换组合而成，通过给每个顶点设定不同的颜色达到颜色渐变的效果</span>
+  <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; <span class="dv">6</span>; ++i) {
+    glBegin(GL_POLYGON);
+    glColor3f(colorMode1[i][<span class="dv">0</span>], colorMode1[i][<span class="dv">1</span>],
+              colorMode1[i][<span class="dv">2</span>]);
+    glVertex2d((R * cos(PI / <span class="dv">2</span> + (i * PI) / <span class="dv">3</span>)),
+               R * sin(PI / <span class="dv">2</span> + (i * PI) / <span class="dv">3</span>));
+    glColor3f(colorMode2[(i + <span class="dv">5</span>) % <span class="dv">6</span>][<span class="dv">0</span>],
+              colorMode2[(i + <span class="dv">5</span>) % <span class="dv">6</span>][<span class="dv">1</span>], colorMode2[(i + <span class="dv">5</span>) % <span class="dv">6</span>][<span class="dv">2</span>]);
+    glVertex2d(r * cos(PI / <span class="dv">3</span> + (i * PI) / <span class="dv">3</span>),
+               r * sin(PI / <span class="dv">3</span> + (i * PI) / <span class="dv">3</span>));
+    glColor3f(<span class="fl">1.</span>0f, <span class="fl">1.</span>0f, <span class="fl">1.</span>0f);
+    glVertex2dv(origin);
+    glColor3f(colorMode2[i][<span class="dv">0</span>], colorMode2[i][<span class="dv">1</span>],
+              colorMode2[i][<span class="dv">2</span>]);
+    glVertex2d(r * cos(<span class="dv">2</span> * PI / <span class="dv">3</span> + (i * PI) /<span class="dv">3</span>),
+               r * sin(<span class="dv">2</span> * PI / <span class="dv">3</span> + (i * PI) / <span class="dv">3</span>));
+    glEnd();
+  }
+  glutSwapBuffers();
+}
+
+<span class="dt">int</span> main (<span class="dt">int</span> argc,  <span class="dt">char</span> *argv[])
+{
+  glutInit(&amp;argc, argv);
+  glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
+  <span class="dt">int</span> windowHandle = glutCreateWindow(<span class="st">&quot;Simple GLUT App&quot;</span>);
+
+  glutDisplayFunc(redraw);
+
+  glutMainLoop();
+
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+<p>编译：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">gcc</span> -I/usr/include -L/usr/local/lib -L/usr/lib -lglut -lGLU -lGL -lX11 -lXext -lXmu -lXi -lm filename.c -o filename</code></pre></div>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2009-10-22</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#graphics">
+          <div class="ui label">
+            Graphics<sup>1</sup>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#opengl">
+          <div class="ui label">
+            OpenGL<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#mesa">
+          <div class="ui label">
+            Mesa<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#freeglut">
+          <div class="ui label">
+            FreeGLUT<sup>1</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/12306.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="今天买了三本书" href="/posts/2009-10-22-bought-three-books-today/">Prev</a><a class="item" title="纠结的 Mac 安装" href="/posts/2009-10-27-entangled-mac-installation/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
     </div>
     <div id="footer">
       <footer class="ui inverted vertical center aligned footer segment">

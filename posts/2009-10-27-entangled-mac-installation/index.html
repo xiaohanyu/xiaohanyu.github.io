@@ -39,270 +39,212 @@
           </div>
         </div>
       </nav><div class="ui stackable container">
-        <div class="ui very padded segment article">
-          <article class="ui stackable divided grid">
-            <header class="row article-head">
-              <div class="column">
-                <h1 class="ui header">
-                  纠结的 Mac 安装
-                </h1>
-                <div class="ui divider"></div>
-              </div>
-            </header>
-            <div class="row article-body">
-              <section class="twelve wide column">
-                <p>导师让我研究 iPhone 下的程序开发。迫于经济窘迫，手头没有 Mac，四处查资料，终于搞出来了一个跨平台的解决方案，写了 20 多页的英文文档 <img src="file:///tmp/moz-screenshot.png" />，美其名曰 [[<a href="http://cnlox.is-programmer.com/user_files/cnlox/File/iphone_develop_cross_platform.pdf" class="uri">http://cnlox.is-programmer.com/user_files/cnlox/File/iphone_develop_cross_platform.pdf</a>][《The Cross-Platform Developing Skills for Mac Applications》]]，认真进行了排版，给导师发了过去。可是导师太忙了没有时间看呃。于是我一股脑的跟导师倾诉了一番 mac, objective-c, gnustep 等等之类的东西，虽然我也不太懂。导师看我做的十分认真，比较满意，中午一起吃了饭，下午来了个学长，一起坐下交流一番。我刚想倾诉我伟大的跨平台解决方案，学长说，“现在 mac os 可以装载 pc 上了“。于是我就悲剧了。</p>
-                <p>周五下午去公司跟学长借了盘，插进光驱，改下 bios 从cd启动，哇，竟然能启动，而且见到了安装界面。窃以为到这步，我的 pc 装苹果之路已经走完了一半。哪知这仅仅是噩梦的开始。整个下午就在网上乱逛，了解下 pc 安装苹果的知识，了解下多系统的安装与启动。晚上回到寝室，真刀真枪，开始干了。</p>
-                <p>首先是硬盘的问题。由于我的头脑发热，整个硬盘 250G，就一个 ArchLinux，这么一来要想安装苹果先得给苹果腾点地方啊。于是找到了传说中的 Gparted，但是系统正在运行，/分区和 /home 分区无法 umount，因此更无法 resize，于是就找到了 [[<a href="http://gparted.sourceforge.net/livecd.php" class="uri">http://gparted.sourceforge.net/livecd.php</a>][Gparted Live CD]]。wget拖了半个小时，用 brasero 刻盘，第一次可能用了全速刻盘，最后出现了莫名其妙的错误，刻录失败，废了一张 cd。于是又想到了伟大的 ultraiso 9.3 版。咱不是有 VirtualBox 嘛。马上去神网下了 ultraiso，装上，插上 u 盘，打算搞鸽 GParted Live USB 出来。依然宣告失败。还剩一张 cd，又用 brasero 刻录了下，这下降低了刻录速度，终于成功。reboot。</p>
-                <p>加载了 3、4分钟的样子，Gparted终于出来了。桌面环境采用的是 fluxbox，虽然没用过。先把 /home 分区 resize 一下，成功。重启，进入 ArchLinux，df -h看看文件系统，成功！！很是兴奋的样子。reboot again，又进入了 GParted Live CD，打算给 Mac 腾30g的空间。不知怎么的，我试探性的用了一个貌似叫 new partition table 的功能，谈出个窗口，我点了个确定，又一个窗口，我又点了确定，这下糟了！整个硬盘被重新格式化了，整个过程不超过 1s 中的时间，我想这 GParted 也太 nb 了。250g的硬盘，1s中不到就全部搞定格式化了。</p>
-                <p>呜呜，我的 ArchLinux，我的心血啊。索性，一不做，二不休，先装苹果吧。苹果的盘是 ideneb 的 leopard 10.5.7的版本。从晚上 7 点到午夜 12 点，总共装了不下 6 次。终于还是没装上。症状是安装完所有软件重启后风火轮转几圈后就黑屏无反应。可能是各种驱动的问题，但是我用手机上网，反复设置，反复选择，还是没有成功，这使我彻底失望。mac的安装确实是一个关乎 rp 的问题。怎么办？</p>
-                <p>思前想后，还是决定装 windows 7，再重新装个 Linux 吧。于是找室友帮忙，下载了 windows msdn 英文原版，还是用伟大的 ultraiso，刻成了 live usb，启动，开始安装。半个小时，一个华丽的启动界面出现在我的眼前 —— 果然很绚丽。简单使用了一下，相比 vista，对 windows 7 确实做的非常非常不错。尤其是独具匠心的 UI 设计。超级任务栏，aero peak，动态的主题效果，重新设计的 media center，便捷的网络 vpn 链接，还有许多我觉得不错但是叫不出名字的功能，真的很强大。而且运行起来比 vista 要轻快多了。看来 MS 这次是下了血本了。</p>
-                <p>盗版，这个字眼对于中国的 it 人来说是一种挥之不去的痛。虽然我也不想用盗版，虽然我可以用 Linux 满足自己开发、办公、学习方方面面的需要，但是某些时候环境是不一样的。譬如实验室的同组同学都在用 visual studio 2008 做开发，这种情况下想不用盗版的 MS 产品恐怕都很难。据说即将面试的 Visual Studio 2010 正版要 11100+ 美刀。简直是不可想向了。算了。这是在中国。cc98上有几个 msdn 的 key，也许这次 rp 不错，竟然能电话激活了。此时已经半夜两点多了，撑不住了，睡了。</p>
-                <p>第二天早晨 10 点才爬起来。继续搞电脑。得装个 Linux。装哪个版本好呢？arch，自己配置还是蛮麻烦的。说实话现在对系统安装已经没有多大的兴趣了。每次重装系统都是把自己的精心调制的作品一点一点碾碎，然后再一点一点搭建起来。我是需要 XeTeX 最新版本的，自从用了 LaTeX 后，已经完全不能习惯 word。google了下，ubuntu 9.10中的 texlive 貌似还停留在 2007 版本。算了，还是 arch 吧。</p>
-                <p>有了上次的安装经验，这次的安装也算是轻车熟路了。但是自己又没有十全的把握与信心，于是在 win7 下把 ArchLinux 官网 wiki 上的 <a href="http://wiki.archlinux.org/index.php/Beginners%27_Guide">Beginner’s Guide</a> 打印了下来，七十多页。具体的安装过程不讲了，大体上都一样的，真想自己装的话看 Beginner’s Guide。只是记录一下安装过程中遇到的几个小问题。</p>
-                <p>1、grub的引导问题。很幸运的是 ArchLinux 自动识别了 win7，只需要在 grub 的 menu.lst文件中去掉几行注释就行。这是我的 menu.lst 文件：</p>
-                <div class="hl_result">
-                
-                <div class="bash"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>timeout 5<br />
-                default 0<br />
-                color light-blue/black light-cyan/blue<br />
-                <br />
-                # boot sections follow<br />
-                # each is implicitly numbered from 0 in the order of appearance below<br />
-                #<br />
-                # TIP: If you want a 1024x768 framebuffer, add “vga=773” to your kernel line.<br />
-                #<br />
-                #-*<br />
-                <br />
-                # (0) Arch Linux<br />
-                title Arch Linux<br />
-                root (hd0,8)<br />
-                kernel /vmlinuz26 root=/dev/disk/by-uuid/06ec3189-80fa-471d-b8be-20de1d458f63 ro nomodeset vga=773<br />
-                initrd /kernel26.img<br />
-                <br />
-                # (1) Arch Linux<br />
-                title Arch Linux Fallback<br />
-                root (hd0,8)<br />
-                kernel /vmlinuz26 root=/dev/disk/by-uuid/06ec3189-80fa-471d-b8be-20de1d458f63 ro<br />
-                initrd /kernel26-fallback.img<br />
-                <br />
-                # (2) Windows<br />
-                title Windows<br />
-                rootnoverify (hd0,0)<br />
-                #makeactive<br />
-                chainloader +1</p>
-                </div>
-                
-                </div>
-                
-                <p>2、rc.conf的问题，最重要的是要安装 hal，并把它防盗 rc.conf 的daemons里面，否则进入 GUI 后无法识别键盘鼠标。这是我的 daemons 设置：</p>
-                <div class="hl_result">
-                
-                <div class="bash"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>DAEMONS=(<span class="citation" data-cites="syslog-ng">@syslog-ng</span> <span class="citation" data-cites="network">@network</span> <span class="citation" data-cites="netfs">@netfs</span> <span class="citation" data-cites="crond">@crond</span> <span class="citation" data-cites="hal">@hal</span> <span class="citation" data-cites="kdm">@kdm</span> <span class="citation" data-cites="alsa">@alsa</span>)</p>
-                </div>
-                
-                </div>
-                
-                <p>3、语言选择问题，在 rc.conf 会有一个 LOCALE 的设置问题，建议不要更改成中文，保持默认就好。我就是看了某个教程的知道改成了 zh_CN.utf8，结果进入 kde 时，界面字体非常难看。也可能是我的字体还没有配置好的原因。</p>
-                <p>4、localtime和 UTC 的选择。wiki上说如果是 Windows 和linux双系统，还是选择 localtime 比较好。</p>
-                <div class="hl_result">
-                
-                <div class="bash"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>LOCALE=“en_US.utf8”<br />
-                HARDWARECLOCK=“localtime”<br />
-                USEDIRECTISA=“no”<br />
-                TIMEZONE=“Asia/Shanghai”</p>
-                </div>
-                
-                </div>
-                
-                <p>5、字体配置我选择的是 WenQuanYi Micro Hei 系列，效果还算不错的。仿雅黑字体的。</p>
-                <p>6、触摸板的增强可以用 gsynaptics 驱动，其中有个 circular scrolling 的功能，非常的有趣。实现了 Mac 触摸板的某些功能。自己 Google 一下就知道了。在触摸板上画圈 circular，就可以实现 srolling 的功能。呵呵。注意，gsynaptics的设置默认每次是不能保存的。把下面语句：</p>
-                <div class="hl_result">
-                
-                <div class="bash"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>gsynaptics-init &amp;</p>
-                </div>
-                
-                </div>
-                
-                <p>加入到你自己主目录下的 .xprofile 文件中即可。</p>
-                <p>7、显卡驱动的问题。我的是 ati x1450 卡。采用 xf86-video-ati 的开源驱动即可。但是最新的内核（2.6.31以上版本）开发了一个叫做 kernal mode-setting 的功能，会引起一些冲突，导致桌面效果无法启用。具体可以参考 archlinux wiki 上的 <a href="http://wiki.archlinux.org/index.php/ATI"> 这篇文章 </a>。解决方法是禁用 kernal mode-setting 功能。在 grub menu.lst 中实现。也就是下面这句：</p>
-                <div class="hl_result">
-                
-                <div class="bash"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>kernel /vmlinuz26 root=/dev/disk/by-uuid/06ec3189-80fa-471d-b8be-20de1d458f63 ro nomodeset vga=773</p>
-                </div>
-                
-                </div>
-                
-                <p>nomodeset表示禁用 kernal mode-setting，vga=773表示启用控制台的 Framebuffer。至于 Framebuffer 是什么，自己百度吧。</p>
-                <p>8、xetex的字体问题。直接将下载的字体 cp 到 /usr/share/fonts里面，最好建一个目录来存放自己的字体，然后最好</p>
-                <div class="hl_result">
-                
-                <div class="bash"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>fc-cache -f -v</p>
-                </div>
-                
-                </div>
-                
-                <p>一下。</p>
-                <p>9、okular, evince不能显示中文问题。据说二者都是基于 Poppler 的，安装 poppler-data 即可完美解决这个问题：</p>
-                <div class="hl_result">
-                
-                <div class="bash"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>sudo pacman -S poppler-data</p>
-                </div>
-                
-                </div>
-                
-                <p>10、从普通用户到 root 用户 GUI 程序无法启动的问题：</p>
-                <div class="hl_result">
-                
-                <div class="bash"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>[lox@freelox ~]$ su root<br />
-                Password:<br />
-                [root@freelox lox]# firefox<br />
-                No protocol specified<br />
-                No protocol specified<br />
-                Error: cannot open display: :0.0<br />
-                [root@freelox lox]#<br />
-                </p>
-                </div>
-                
-                </div>
-                
-                <p>解决办法是在转到 root 之前输入 xhost + 命令：</p>
-                <div class="hl_result">
-                
-                <div class="bash"
-                style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
-                
-                <p>[lox@freelox ~]$ xhost +<br />
-                access control disabled, clients can connect from any host<br />
-                [lox@freelox ~]$ su root<br />
-                Password:<br />
-                [root@freelox lox]# firefox<br />
-                [root@freelox lox]#<br />
-                </p>
-                </div>
-                
-                </div>
-                
-                <p>应该是与 X11 协议的实现有关。我没大看明白。自己百度吧。</p>
-                <p>能想起来的问题大体就这么多，放上一张 archlinux+kde 的图片的，是我现在的桌面：<img src="http://cnlox.is-programmer.com/javascripts/fckeditor/editor/images/smiley/chito/shades_smile.gif" /></p>
-                <p><img src="file:///user_files/cnlox/Image/arch/archlinux.jpeg" /></p>
-                <p>后来的后来，在 win7 里面装上了 Visual Studio 2008, Visual Assist 和Viemu以及 Vmware 6.5，当然，全部都是中国特色的 db，呃，很矛盾。</p>
-                <p>周日看了一天的计算理论，教材是《Elements of the Theory of Computation: Second Edition》的中文版，张立昂、刘田译。不过质量实在不怎么样。看了三十页，就发现了至少三处错误。边看教材边做习题，打算把习题全部做完，统一给老师交上去好了。中途要画几个 finite automata，于是又头脑发热翻了翻 PGF/tikz manual，还算有点小成果。</p>
-                <p>又是繁忙的一周，汇编语言要补，计算机组成的实验更要补，计算几何的期中考试，数值分析新的内容，操作系统两份报告，还有很多很多。呃。加油吧。从来没感到学业如此繁重过。</p>
-                
-                <div class="ui divider"></div>
-                <div class="ui small one item menu">
-                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
-                </div>
-                <div id="disqus_thread"></div>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </section>
-              <aside class="four wide column">
-                <div class="ui small header">
-                  License
-                </div>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
-                <div class="ui small header">
-                  Committed
-                </div>
-                <date>2009-10-26</date>
-                <div class="ui small header">
-                  Updated
-                </div>
-                <date>2017-04-14</date>
-                <div class="ui small header">
-                  Category
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/categories#life">
-                      <div class="ui label">
-                        Life<sup>44</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Tags
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/tags#mac">
-                      <div class="ui label">
-                        Mac<sup>3</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#pgf">
-                      <div class="ui label">
-                        PGF<sup>3</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#tikz">
-                      <div class="ui label">
-                        TikZ<sup>2</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#windows">
-                      <div class="ui label">
-                        Windows<sup>6</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#vmware">
-                      <div class="ui label">
-                        VMware<sup>2</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/12584.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
-                  Links
-                </div>
-                <div class="ui small two item menu">
-                  <a class="item" title="opengl 第一篇" href="/posts/2009-10-23-first-article-on-opengl/">Prev</a><a class="item" title="[zz] 大便如何压水花？" href="/posts/2009-10-27-joking-on-shit/">Next</a>
-                </div>
-              </aside>
-            </div>
-          </article>
-        </div>
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      纠结的 Mac 安装
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>导师让我研究 iPhone 下的程序开发。迫于经济窘迫，手头没有 Mac，四处查资料，终于搞出来了一个跨平台的解决方案，写了 20 多页的英文文档美其名曰 <a href="http://xiaohanyu.me/static/asset/2009/iphone_develop_cross_platform.pdf">The Cross-Platform Developing Skills for Mac Applications</a>，认真进行了排版，给导师发了过去。可是导师太忙了没有时间看呃。于是我一股脑的跟导师倾诉了一番 Mac、Objective-C、GNUStep 等等之类的东西，虽然我也不太懂。导师看我做的十分认真，比较满意，中午一起吃了饭，下午来了个学长，一起坐下交流一番。我刚想倾诉我伟大的跨平台解决方案，学长说，“现在 Mac OS 可以装载 PC 上了”。于是我就悲剧了。</p>
+<p>周五下午去公司跟学长借了盘，插进光驱，改下 BIOS 从 CD 启动，哇，竟然能启动，而且见到了安装界面。窃以为到这步，我的 PC 装苹果之路已经走完了一半。哪知这仅仅是噩梦的开始。整个下午就在网上乱逛，了解下 PC 安装苹果的知识，了解下多系统的安装与启动。 晚上回到寝室，真刀真枪，开始干了。</p>
+<p>首先是硬盘的问题。由于我的头脑发热，整个硬盘 250 G，就一个 Arch Linux，这么一来要想安装苹果先得给苹果腾点地方啊。于是找到了传说中的 <a href="http://gparted.org/">GParted</a>，但是系统正在运行， <code>/</code> 分区和 <code>/home</code> 分区无法 <code>umount</code> ，因此更无法 <code>resize</code> ，于是就找到了 <a href="http://gparted.sourceforge.net/livecd.php">GParted Live CD</a>。 wget 拖了半个小时，用 <a href="https://wiki.gnome.org/Apps/Brasero">Brasero</a> 刻盘，第一次可能用了全速刻盘，最后出现了莫名其妙的错误，刻录失败，废了一张 CD。于是又想到了伟大的 <a href="https://ultraiso.en.softonic.com/">UltraISO</a> 9.3 版。咱不是有 VirtualBox 嘛。马上去神网下了 UltraISO，装上，插上 U 盘，打算搞个 GParted Live USB 出来。依然宣告失败。还剩一张 CD，又用 Brasero 刻录了下，这下降低了刻录速度， 终于成功。Reboot。</p>
+<p>加载了 3、4 分钟的样子，GParted 终于出来了。桌面环境采用的是 <a href="http://fluxbox.org/">Fluxbox</a>，虽然没用过。 先把 <code>/home</code> 分区 <code>resize</code> 一下，成功。重启，进入 Arch Linux， <code>df -h</code> 看看文件系统，成功！！很是兴奋的样子。reboot again，又进入了 GParted Live CD，打算给 Mac 腾 30 G 的空间。不知怎么的，我试探性的用了一个貌似叫 <code>new partition table</code> 的功能，谈出个窗口，我点了个确定，又一个窗口，我又点了确定，这下糟了！整个硬盘被重新格式化了，整个过程不超过 1s 中的时间，我想这 GParted 也太 nb 了。250 G 的硬盘， 1s 中不到就全部搞定格式化了。</p>
+<p>呜呜，我的 Arch Linux，我的心血啊。索性，一不做，二不休，先装苹果吧。苹果的盘是 ideneb 的 Leopard 10.5.7 的版本。从晚上 7 点到午夜 12 点，总共装了不下 6 次。终于还是没装上。症状是安装完所有软件重启后风火轮转几圈后就黑屏无反应。可能是各种驱动的问题，但是我用手机上网，反复设置，反复选择，还是没有成功，这使我彻底失望。 Mac 的安装确实是一个关乎 rp 的问题。怎么办？</p>
+<p>思前想后，还是决定装 Windows 7，再重新装个 Linux 吧。于是找室友帮忙，下载了 Windows MSDN 英文原版，还是用伟大的 UltraISO，刻成了 Live USB，启动，开始安装。 半个小时，一个华丽的启动界面出现在我的眼前——果然很绚丽。简单使用了一下，相比 Vista，对 Windows 7 确实做的非常非常不错。尤其是独具匠心的 UI 设计。超级任务栏， Aero Peak，动态的主题效果，重新设计的 Media Center，便捷的网络 VPN 链接，还有许多我觉得不错但是叫不出名字的功能，真的很强大。而且运行起来比 Vista 要轻快多了。 看来 MS 这次是下了血本了。</p>
+<p>盗版，这个字眼对于中国的 IT 人来说是一种挥之不去的痛。虽然我也不想用盗版，虽然我可以用 Linux 满足自己开发、办公、学习方方面面的需要，但是某些时候环境是不一样的。 譬如实验室的同组同学都在用 Visual Studio 2008 做开发，这种情况下想不用盗版的 MS 产品恐怕都很难。据说即将面试的 Visual Studio 2010 正版要 11100+ 美刀。简直是不可想象了。算了。这是在中国。CC98 上有几个 MSDN 的 key，也许这次 rp 不错，竟然能电话激活了。此时已经半夜两点多了，撑不住了，睡了。</p>
+<p>第二天早晨 10 点才爬起来。继续搞电脑。得装个 Linux。装哪个版本好呢？Arch，自己配置还是蛮麻烦的。说实话现在对系统安装已经没有多大的兴趣了。每次重装系统都是把自己的精心调制的作品一点一点碾碎，然后再一点一点搭建起来。我是需要 XeTeX 最新版本的， 自从用了 LaTeX 后，已经完全不能习惯 Word。Google 了下，Ubuntu 9.10 中的 TeX Live 貌似还停留在 2007 版本。算了，还是 Arch 吧。</p>
+<p>有了上次的安装经验，这次的安装也算是轻车熟路了。但是自己又没有十全的把握与信心， 于是在 Windows 7 下把 Arch Linux 官网 wiki 上的 <a href="http://wiki.archlinux.org/index.php/Beginners%27_Guide">Beginner’s Guide</a> 打印了下来，七十多页。具体的安装过程不讲了，大体上都一样的，真想自己装的话看 Beginner’s Guide。 只是记录一下安装过程中遇到的几个小问题。</p>
+<ul>
+<li>GRUB 的引导问题。很幸运的是 Arch Linux 自动识别了 Windows 7，只需要在 GRUB 的 <code>menu.lst</code> 文件中去掉几行注释就行。这是我的 <code>menu.lst</code> 文件：</li>
+</ul>
+<pre class="example"><code># general configuration:
+timeout   5
+default   0
+color light-blue/black light-cyan/blue
+
+# boot sections follow
+# each is implicitly numbered from 0 in the order of appearance below
+#
+# TIP: If you want a 1024x768 framebuffer, add &quot;vga=773&quot; to your kernel
+line.
+#
+#-*
+
+# (0) Arch Linux
+title  Arch Linux
+root   (hd0,8)
+kernel /vmlinuz26
+root=/dev/disk/by-uuid/06ec3189-80fa-471d-b8be-20de1d458f63 ro nomodeset
+vga=773
+initrd /kernel26.img
+
+# (1) Arch Linux
+title  Arch Linux Fallback
+root   (hd0,8)
+kernel /vmlinuz26
+root=/dev/disk/by-uuid/06ec3189-80fa-471d-b8be-20de1d458f63 ro
+initrd /kernel26-fallback.img
+
+# (2) Windows
+title Windows
+rootnoverify (hd0,0)
+#makeactive
+chainloader +1
+</code></pre>
+<ul>
+<li><code>rc.conf</code> 的问题，最重要的是要安装 <a href="https://wiki.archlinux.org/index.php?title=HAL&amp;redirect=no">HAL</a>，并把它放到 <code>rc.conf</code> 的 <code>daemons</code> 里面， 否则进入 GUI 后无法识别键盘鼠标。这是我的 <code>daemons</code> 设置：</li>
+</ul>
+<pre class="example"><code>DAEMONS=(@syslog-ng @network @netfs @crond @hal @kdm @alsa)
+</code></pre>
+<ul>
+<li><p>语言选择问题，在 <code>rc.conf</code> 会有一个 <code>LOCALE</code> 的设置问题，建议不要更改成中文， 保持默认就好。我就是看了某个教程的知道改成了 <code>zh_CN.utf8</code> ，结果进入 KDE 时， 界面字体非常难看。也可能是我的字体还没有配置好的原因。</p></li>
+<li><p>localtime 和 UTC 的选择。wiki上说如果是 Windows 和 Linux 双系统，还是选择 localtime 比较好。</p></li>
+</ul>
+<pre class="example"><code>LOCALE=&quot;en_US.utf8&quot;
+HARDWARECLOCK=&quot;localtime&quot;
+USEDIRECTISA=&quot;no&quot;
+TIMEZONE=&quot;Asia/Shanghai&quot;
+</code></pre>
+<ul>
+<li><p>字体配置我选择的是 <a href="http://wenq.org/wqy2/index.cgi?MicroHei">WenQuanYi Micro Hei</a> 系列，效果还算不错的。仿雅黑字体的。</p></li>
+<li><p>触摸板的增强可以用 <a href="http://gsynaptics.osdn.jp/">GSynaptics</a> 驱动，其中有个 circular scrolling 的功能，非常的有趣。实现了 Mac 触摸板的某些功能。自己 Google 一下就知道了。在触摸板上画圈 circular，就可以实现 srolling 的功能。呵呵。注意，GSynaptics 的设置默认每次是不能保存的。把下面语句加入到你自己主目录下的 <code>.xprofile</code> 文件中即可。</p></li>
+</ul>
+<pre class="example"><code>gsynaptics-init &amp;
+</code></pre>
+<ul>
+<li>显卡驱动的问题。我的是 ATI X1450 卡。采用 xf86-video-ati 的开源驱动即可。但是最新的内核（2.6.31以上版本）开发了一个叫做 <a href="https://wiki.archlinux.org/index.php/kernel_mode_setting">kernal mode setting</a> 的功能，会引起一些冲突，导致桌面效果无法启用。具体可以参考 archlinux wiki 上的<a href="http://wiki.archlinux.org/index.php/ATI">这篇文章</a>。解决方法是禁用 kernal mode setting 功能。在 GRUB <code>menu.lst</code> 中实现。~nomodeset~ 表示禁用 kernal mode setting， <code>vga=773</code> 表示启用控制台的 framebuffer。至于 framebuffer 是什么，自己百度吧。</li>
+</ul>
+<pre class="example"><code>kernel /vmlinuz26
+root=/dev/disk/by-uuid/06ec3189-80fa-471d-b8be-20de1d458f63 ro nomodeset
+vga=773
+</code></pre>
+<ul>
+<li>XeTeX 的字体问题。直接将下载的字体 <code>cp</code> 到 <code>/usr/share/fonts</code> 里面，最好建一个目录来存放自己的字体，然后</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">fc-cache</span> -f -v</code></pre></div>
+<ul>
+<li><a href="https://okular.kde.org/">Okular</a>、<a href="https://wiki.gnome.org/Apps/Evince">Evince</a> 不能显示中文问题。据说二者都是基于 <a href="https://poppler.freedesktop.org/">Poppler</a> 的，安装 poppler-data 即可完美解决这个问题：</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> pacman -S poppler-data</code></pre></div>
+<ul>
+<li>从普通用户到 root 用户 GUI 程序无法启动的问题：</li>
+</ul>
+<pre class="example"><code>[lox@freelox ~]$ su root
+Password:
+[root@freelox lox]# firefox
+No protocol specified
+No protocol specified
+Error: cannot open display: :0.0
+[root@freelox lox]#
+</code></pre>
+<pre class="example"><code>[lox@freelox ~]$ xhost +
+access control disabled, clients can connect from any host
+[lox@freelox ~]$ su root
+Password:
+[root@freelox lox]# firefox
+[root@freelox lox]#
+</code></pre>
+<p>解决办法是在转到 root 之前输入 <code>xhost +</code> 命令：</p>
+<p>应该是与 X11 协议的实现有关。我没大看明白。自己百度吧。</p>
+<p>能想起来的问题大体就这么多，放上一张 Arch Linux + KDE 的图片的，是我现在的桌面：</p>
+<p><a href="/static/image/2009/arch_linux_kde.jpg"><img src="/static/image/2009/arch_linux_kde.jpg" /></a></p>
+<p>后来的后来，在 Windows 7 里面装上了 Visual Studio 2008, Visual Assist 和 <a href="http://www.viemu.com/">ViEmu</a> 以及 VMware 6.5，当然，全部都是中国特色的 db，呃，很矛盾。</p>
+<p>周日看了一天的计算理论，教材是《Elements of the Theory of Computation: Second Edition》的中文版，张立昂、刘田译。不过质量实在不怎么样。看了三十页，就发现了至少三处错误。边看教材边做习题，打算把习题全部做完，统一给老师交上去好了。中途要画几个 finite automata，于是又头脑发热翻了翻 PGF/TikZ manual，还算有点小成果。</p>
+<p>又是繁忙的一周，汇编语言要补，计算机组成的实验更要补，计算几何的期中考试，数值分析新的内容，操作系统两份报告，还有很多很多。呃。加油吧。从来没感到学业如此繁重过。</p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2009-10-26</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#life">
+          <div class="ui label">
+            Life<sup>44</sup>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#mac">
+          <div class="ui label">
+            Mac<sup>3</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#pgf">
+          <div class="ui label">
+            PGF<sup>3</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#tikz">
+          <div class="ui label">
+            TikZ<sup>2</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#windows">
+          <div class="ui label">
+            Windows<sup>6</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#vmware">
+          <div class="ui label">
+            VMware<sup>2</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/12584.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="OpenGL 第一篇" href="/posts/2009-10-23-first-article-on-opengl/">Prev</a><a class="item" title="[zz] 大便如何压水花？" href="/posts/2009-10-27-joking-on-shit/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
     </div>
     <div id="footer">
       <footer class="ui inverted vertical center aligned footer segment">

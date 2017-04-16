@@ -557,7 +557,11 @@
     <lastmod>2017-04-16</lastmod>
   </url>
   <url>
-    <loc>http://xiaohanyu.me/static/image/2009/archlinux.png</loc>
+    <loc>http://xiaohanyu.me/static/image/2009/arch_linux_gnome.png</loc>
+    <lastmod>2017-04-16</lastmod>
+  </url>
+  <url>
+    <loc>http://xiaohanyu.me/static/image/2009/arch_linux_kde.jpg</loc>
     <lastmod>2017-04-16</lastmod>
   </url>
   <url>
@@ -578,6 +582,10 @@
   </url>
   <url>
     <loc>http://xiaohanyu.me/static/image/2009/latex_algorithms_package.jpg</loc>
+    <lastmod>2017-04-16</lastmod>
+  </url>
+  <url>
+    <loc>http://xiaohanyu.me/static/image/2009/linux_opengl.jpg</loc>
     <lastmod>2017-04-16</lastmod>
   </url>
   <url>
