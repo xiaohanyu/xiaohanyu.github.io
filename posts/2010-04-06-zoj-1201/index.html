@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>zoj 1201</title>
+    <title>ZOJ 1201</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,101 +43,86 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      zoj 1201
+      ZOJ 1201
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>继续刷水题。看到这道题目有印象，想想，ms当初算法是想出来了。就是自己想写个链表却有 bug，结果一直拖着没有解决。好歹前几天又研究了下 STL，这下派上用场了。不过代码写的很乱，感觉不够优美，不 beautiful。最后的输入输出有些小问题，导致第一次提交是 Presentation Error。后来仔细看了看搞定。算了，先糊弄着看吧。15道了。还有 285 道。一道一道的啃。</p>
-<p>具体解题思路就不写了。大概如下，如果是 P，就进行双层循环，然后搞一个数组的索引（不知道该怎么说哎 ……）；如果是 I，建立一个链表，从 Inversion[] 的最后一个元素开始循环，然后分别处理每个元素。根据 Inversion[i] 的数值遍历链表并插入合适的元素。最后的输入输出有问题。仔细看一下就行了。</p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;list&gt;
-using namespace std;
+  <section class="twelve wide column"><p>继续刷水题。看到这道题目有印象，想想，貌似当初算法是想出来了。就是自己想写个链表却有 bug，结果一直拖着没有解决。好歹前几天又研究了下 STL，这下派上用场了。不过代码写的很乱，感觉不够优美，不 beautiful。最后的输入输出有些小问题，导致第一次提交是 Presentation Error。后来仔细看了看搞定。算了，先糊弄着看吧。15 道了。还有 285 道。一道一道的啃。</p>
+<p>具体解题思路就不写了。大概如下，如果是 <code>P</code> ，就进行双层循环，然后搞一个数组的索引（不知道该怎么说哎……）；如果是 <code>I</code> ，建立一个链表，从 <code>Inversion[]</code> 的最后一个元素开始循环，然后分别处理每个元素。根据 <code>Inversion[i]</code> 的数值遍历链表并插入合适的元素。最后的输入输出有问题。仔细看一下就行了。</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;list&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
 
-const int max_size = 50;
+<span class="at">const</span> <span class="dt">int</span> max_size = <span class="dv">50</span>;
 
-int main(int argc, char *argv[])
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[])
 {
-    int cases;
-    char method;
+  <span class="dt">int</span> cases;
+  <span class="dt">char</span> method;
 
-    while (1)
-    {
-        cin &gt;&gt; cases;
+  <span class="cf">while</span> (<span class="dv">1</span>) {
+    cin &gt;&gt; cases;
 
-        if (cases == 0)
-        {
-            break;
-        }
-
-        cin &gt;&gt; method;
-        if (method == &#39;P&#39;)
-        {
-            int P[max_size], I[max_size];
-
-            for (int i = 0; i &lt; cases; ++i)
-            {
-                cin &gt;&gt; P[i];
-                I[i] = 0;
-            }
-            for (int i = 0; i &lt; cases; ++i)
-            {
-                for (int j = i + 1; j &lt; cases; ++j)
-                {
-                    if (P[i] &gt; P[j])
-                    {
-                        I[P[j]-1]++;
-                    }
-                }
-            }
-            for (int i = 0; i &lt; cases - 1; ++i)
-            {
-                cout &lt;&lt; I[i] &lt;&lt; &quot; &quot;;
-            }
-            cout &lt;&lt; I[cases - 1] &lt;&lt; endl;
-        }
-        else if (method == &#39;I&#39;)
-        {
-            list&lt;int&gt; P;
-            int I[max_size];
-
-            for (int i = 0; i &lt; cases; ++i)
-            {
-                cin &gt;&gt; I[i];
-            }
-
-            P.push_back(cases);
-
-            for (int i = cases - 2; i &gt;= 0; --i)
-            {
-                list&lt;int&gt;::iterator it = P.begin();
-                for (int j = 0; j &lt; I[i]; j++)
-                {
-                    it++;
-                }
-                P.insert(it, i+1);
-            }
-
-            list&lt;int&gt;::iterator it;
-            int i;
-
-            for (i = 0, it = P.begin(); i &lt; P.size() - 1; ++it, ++i)
-            {
-                cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
-            }
-
-            cout &lt;&lt; *it &lt;&lt; endl;
-        }
-        else
-        {
-            break;
-        }
+    <span class="cf">if</span> (cases == <span class="dv">0</span>) {
+      <span class="cf">break</span>;
     }
 
-    return 0;
-}
-</code></pre>
+    cin &gt;&gt; method;
+    <span class="cf">if</span> (method == <span class="st">&#39;P&#39;</span>) {
+      <span class="dt">int</span> P[max_size], I[max_size];
+
+      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases; ++i) {
+        cin &gt;&gt; P[i];
+        I[i] = <span class="dv">0</span>;
+      }
+      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases; ++i) {
+        <span class="cf">for</span> (<span class="dt">int</span> j = i + <span class="dv">1</span>; j &lt; cases; ++j) {
+          <span class="cf">if</span> (P[i] &gt; P[j]) {
+            I[P[j]<span class="dv">-1</span>]++;
+          }
+        }
+      }
+      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases - <span class="dv">1</span>; ++i) {
+        cout &lt;&lt; I[i] &lt;&lt; <span class="st">&quot; &quot;</span>;
+      }
+      cout &lt;&lt; I[cases - <span class="dv">1</span>] &lt;&lt; endl;
+    }
+    <span class="cf">else</span> <span class="cf">if</span> (method == <span class="st">&#39;I&#39;</span>) {
+      list&lt;<span class="dt">int</span>&gt; P;
+      <span class="dt">int</span> I[max_size];
+
+      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases; ++i) {
+        cin &gt;&gt; I[i];
+      }
+
+      P.push_back(cases);
+
+      <span class="cf">for</span> (<span class="dt">int</span> i = cases - <span class="dv">2</span>; i &gt;= <span class="dv">0</span>; --i) {
+        list&lt;<span class="dt">int</span>&gt;::iterator it = P.begin();
+        <span class="cf">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; I[i]; j++) {
+          it++;
+        }
+        P.insert(it, i<span class="dv">+1</span>);
+      }
+
+      list&lt;<span class="dt">int</span>&gt;::iterator it;
+      <span class="dt">int</span> i;
+
+      <span class="cf">for</span> (i = <span class="dv">0</span>, it = P.begin(); i &lt; P.size() - <span class="dv">1</span>; ++it, ++i) {
+        cout &lt;&lt; *it &lt;&lt; <span class="st">&quot; &quot;</span>;
+      }
+
+      cout &lt;&lt; *it &lt;&lt; endl;
+    }
+    <span class="cf">else</span> {
+      <span class="cf">break</span>;
+    }
+  }
+
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">

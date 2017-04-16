@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>zoj 1089</title>
+    <title>ZOJ 1089</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,62 +43,59 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      zoj 1089
+      ZOJ 1089
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>依然是很菜很菜。开始的时候有些迷惑，后来想了想原来就是给你 N 个整数取 6 个有多少种组合。然后在做一定的输出处理的题目。想到的有递归和初步的 DFS，可是都不太会写。就写了一个很土的程序。土的掉渣。输入输出还是不熟练，提交了三次才 AC。没脸见人了。加油加油！</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
+  <section class="twelve wide column"><p>依然是很菜很菜。开始的时候有些迷惑，后来想了想原来就是给你 <code>N</code> 个整数取 6 个有多少种组合。然后在做一定的输出处理的题目。想到的有递归和初步的 DFS，可是都不太会写。 就写了一个很土的程序。土的掉渣。输入输出还是不熟练，提交了三次才 AC。没脸见人了。 加油加油！</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
 
-int main()
+<span class="dt">int</span> main()
 {
-    const int max_number = 15;
-    int numbers;
+  <span class="at">const</span> <span class="dt">int</span> max_number = <span class="dv">15</span>;
+  <span class="dt">int</span> numbers;
 
-    int set[max_number];
-    int cases = 0;
+  <span class="dt">int</span> set[max_number];
+  <span class="dt">int</span> cases = <span class="dv">0</span>;
 
-    while (1)
-    {
-        cin &gt;&gt; numbers;
+  <span class="cf">while</span> (<span class="dv">1</span>) {
+    cin &gt;&gt; numbers;
 
-        if (numbers == 0)
-        {
-            break;
-        }
-
-        cases++;
-
-        if ( cases &gt;= 2 )
-        {
-            cout &lt;&lt; endl;
-        }
-
-        for (int i = 0; i &lt; numbers; i++)
-            cin &gt;&gt; set[i];
-
-        int i0, i1, i2, i3, i4, i5;
-
-        for (i0 = 0; i0 &lt;= numbers - 6; i0++)
-            for (i1 = i0 + 1; i1 &lt;= numbers - 5; i1++)
-                for (i2 = i1 + 1; i2 &lt;= numbers - 4; i2++)
-                    for (i3 = i2 + 1; i3 &lt;= numbers - 3; i3++)
-                        for (i4 = i3 + 1; i4 &lt;= numbers - 2; i4++)
-                            for (i5 = i4 + 1; i5 &lt;= numbers - 1; i5++)
-                                cout &lt;&lt; set[i0] &lt;&lt; &quot; &quot; &lt;&lt; set[i1] &lt;&lt; &quot; &quot; &lt;&lt; set[i2] &lt;&lt; &quot; &quot; &lt;&lt; set[i3] &lt;&lt; &quot; &quot;
-                                     &lt;&lt; set[i4] &lt;&lt; &quot; &quot; &lt;&lt; set[i5] &lt;&lt; endl;
+    <span class="cf">if</span> (numbers == <span class="dv">0</span>) {
+      <span class="cf">break</span>;
     }
 
-    return 0;
-}
-</code></pre>
-<p>顺便，昨天搞了个行者无疆单车知识入门讲座，比较轰动，草坪上搭起了大大的本营帐篷，七八辆车，二十多个人，我使出浑身解数，定车、俯卧撑、拆车修车、旅行经历等等。整个讲座还算比较精彩，从 7 点一直唠叨到 10 点20左右。已经有些冷了。于是借了辆车回到 yq。拉力听讲座的有大二的，也有博二的。讲完了一个小 dd 跑过来跟我说“谢谢你，学长”，好可爱；有个博二的说我“非常成熟”，有几个 mm 被我讲的羞答答的，大概是受不了行者的 ws 之风了；还有几个 wsn，中途跑到校友林里面小便，我甚至都能听到嘘嘘声音，何况 mm 会羞了。后来我也去尿了一泡 ……</p>
-<p>实验室又来了项目。所以今天告别了亲爱的 Gentoo 先生，回到了 VS2008 的怀抱。大体来说是做一个嵌入式平台上模仿 iPhone 界面的东西。引擎什么的基于已有的几万行代码。其实去年已经初步接触这个项目，只是课程太忙，时间上安排不过来。这次老师也实在是缺人了，把我这么菜的也拉了过来。一个毕业的研究僧学长领头，还有两个研究僧是主力。两个刚考完研的大四同学每天从下沙赶来，怪辛苦的，不过他们水平实在太菜，连 C++ 都不会，还得我教 …… 看来我菜，有人比我还菜 ……</p>
+    cases++;
+
+    <span class="cf">if</span> (cases &gt;= <span class="dv">2</span>) {
+      cout &lt;&lt; endl;
+    }
+
+    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; numbers; i++)
+      cin &gt;&gt; set[i];
+
+    <span class="dt">int</span> i0, i1, i2, i3, i4, i5;
+
+    <span class="cf">for</span> (i0 = <span class="dv">0</span>; i0 &lt;= numbers - <span class="dv">6</span>; i0++)
+      <span class="cf">for</span> (i1 = i0 + <span class="dv">1</span>; i1 &lt;= numbers - <span class="dv">5</span>; i1++)
+        <span class="cf">for</span> (i2 = i1 + <span class="dv">1</span>; i2 &lt;= numbers - <span class="dv">4</span>; i2++)
+          <span class="cf">for</span> (i3 = i2 + <span class="dv">1</span>; i3 &lt;= numbers - <span class="dv">3</span>; i3++)
+            <span class="cf">for</span> (i4 = i3 + <span class="dv">1</span>; i4 &lt;= numbers - <span class="dv">2</span>; i4++)
+              <span class="cf">for</span> (i5 = i4 + <span class="dv">1</span>; i5 &lt;= numbers - <span class="dv">1</span>; i5++)
+                cout &lt;&lt; set[i0] &lt;&lt; <span class="st">&quot; &quot;</span> &lt;&lt; set[i1] &lt;&lt; <span class="st">&quot; &quot;</span>
+                     &lt;&lt; set[i2] &lt;&lt; <span class="st">&quot; &quot;</span> &lt;&lt; set[i3] &lt;&lt; <span class="st">&quot; &quot;</span>
+                     &lt;&lt; set[i4] &lt;&lt; <span class="st">&quot; &quot;</span> &lt;&lt; set[i5] &lt;&lt; endl;
+  }
+
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+<p>顺便，昨天搞了个行者无疆单车知识入门讲座，比较轰动，草坪上搭起了大大的本营帐篷， 七八辆车，二十多个人，我使出浑身解数，定车、俯卧撑、拆车修车、旅行经历等等。整个讲座还算比较精彩，从 7 点一直唠叨到 10 点 20 左右。已经有些冷了。于是借了辆车回到 YQ。拉力听讲座的有大二的，也有博二的。讲完了一个小 dd 跑过来跟我说“谢谢你，学长”，好可爱；有个博二的说我“非常成熟”，有几个 mm 被我讲的羞答答的，大概是受不了行者的 ws 之风了；还有几个 wsn，中途跑到校友林里面小便，我甚至都能听到嘘嘘声音， 何况 mm 会羞了。后来我也去尿了一泡……</p>
+<p>实验室又来了项目。所以今天告别了亲爱的 Gentoo 先生，回到了 VS 2008 的怀抱。大体来说是做一个嵌入式平台上模仿 iPhone 界面的东西。引擎什么的基于已有的几万行代码。 其实去年已经初步接触这个项目，只是课程太忙，时间上安排不过来。这次老师也实在是缺人了，把我这么菜的也拉了过来。一个毕业的研究僧学长领头，还有两个研究僧是主力。两个刚考完研的大四同学每天从下沙赶来，怪辛苦的，不过他们水平实在太菜，连 C++ 都不会，还得我教……看来我菜，有人比我还菜……</p>
 <p>主要战略就是在实验室泡二十天，争取能搞出点成果来。将来简历上也好有点东西。否则一片花拳绣腿，怕是饭都吃不饱了。</p>
-<p>不过头疼的还是课程。算了，赶时间补吧。还有 289 道zoj题目。还有 lpi。顺便有空再去刷一次我那可怜的六级成绩。</p>
+<p>不过头疼的还是课程。算了，赶时间补吧。还有 289 道 ZOJ 题目。还有 LPI。顺便有空再去刷一次我那可怜的六级成绩。</p>
 <p>over。再来一道 ZOJ。</p>
 
     <div class="ui divider"></div>
