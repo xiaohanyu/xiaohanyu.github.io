@@ -754,17 +754,19 @@ JSON-formatted AST
     <published>2013-09-29T08:47:56Z</published>
     <updated>2017-04-14T09:29:39Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2013-09-29-announcing-ac-geiser-v0.2/"/>
-    <content type="html">&lt;p&gt;由于某位 &lt;a href="http://sunng.info/"&gt; 仁兄 &lt;/a&gt; 的抬爱，&lt;a href="https://github.com/xiaohanyu/oh-my-emacs/"&gt;oh-my-emacs&lt;/a&gt; 发布之后，在 &lt;a href="http://www.reddit.com/r/emacs/comments/1mfnlo/ohmyemacs_yet_another_starter_kit_for_emacs_users/"&gt;reddit&lt;/a&gt; 上出人意料地受到了很多人的关注。而我也在一夜之间收获了 20 多个 github star，以及人生的第一个 pull request。突如其来的关注让我有些欣喜，也让我看到了两个月工作的价值。技术上来讲，oh-my-emacs 根本算不上“高端大气上档次”的项目，无非就是读文档读文档写文档外加 el-get package 的整合测试。不过话说回来，这两个月以来真心是写了不少文档啊，要是按照一个 el-get package 一篇 blog 来算，平均下来两天就可以有一篇 Emacs Tips 这种文章了。连我都有些佩服自己的耐心了。&lt;/p&gt;
-&lt;p&gt;&lt;span id="content"&gt;&lt;/span&gt; 我想，oh-my-emacs 之所以受到了一些的关注，归根到底，还是 oh-my-emacs 确实解决了一些现实中的问题吧。&lt;a href="http://cnlox.is-programmer.com/posts/40749.html"&gt;上篇博文 &lt;/a&gt; 中我曾经提到，基于 &lt;a href="https://github.com/auto-complete/auto-complete"&gt;auto-complete&lt;/a&gt; 的语义补全是 oh-my-emacs 最看重的目标之一。&lt;/p&gt;
+    <content type="html">&lt;p&gt;由于某位&lt;a href="http://sunng.info/"&gt;仁兄&lt;/a&gt;的抬爱，&lt;a href="https://github.com/xiaohanyu/oh-my-emacs/"&gt;oh-my-emacs&lt;/a&gt; 发布之后，在 &lt;a href="http://www.reddit.com/r/emacs/comments/1mfnlo/ohmyemacs_yet_another_starter_kit_for_emacs_users/"&gt;reddit&lt;/a&gt; 上出人意料地受到了很多人的关注。而我也在一夜之间收获了 20 多个 github star，以及人生的第一个 pull request。 突如其来的关注让我有些欣喜，也让我看到了两个月工作的价值。技术上来讲， oh-my-emacs 根本算不上“高端大气上档次”的项目，无非就是读文档读文档写文档外加 el-get package 的整合测试。不过话说回来，这两个月以来真心是写了不少文档啊，要是按照一个 el-get package 一篇 blog 来算，平均下来两天就可以有一篇 Emacs Tips 这种文章了。连我都有些佩服自己的耐心了。&lt;/p&gt;
+&lt;p&gt;我想，oh-my-emacs 之所以受到了一些的关注，归根到底，还是 oh-my-emacs 确实解决了一些现实中的问题吧。&lt;a href="http://cnlox.is-programmer.com/posts/40749.html"&gt;上篇博文&lt;/a&gt;中我曾经提到，基于 &lt;a href="https://github.com/auto-complete/auto-complete"&gt;auto-complete&lt;/a&gt; 的语义补全是 oh-my-emacs 最看重的目标之一。&lt;/p&gt;
 &lt;p&gt;也正是基于这个宏伟的目标，我又花了一个晚上的时间，折腾出 &lt;a href="https://github.com/xiaohanyu/ac-geiser"&gt;ac-geiser&lt;/a&gt;，“an Emacs auto-complete backend for &lt;a href="http://www.nongnu.org/geiser/"&gt;geiser&lt;/a&gt;”。&lt;/p&gt;
-&lt;p&gt;去年学习 &lt;a href="http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs"&gt;SICP&lt;/a&gt; 的时候就一直希望能有个类似于 &lt;a href="http://common-lisp.net/project/slime/"&gt;SLIME&lt;/a&gt; 般强大方便的工作环境 &lt;sup&gt;&lt;em&gt;1&lt;/em&gt;&lt;/sup&gt;，几番折腾之后未能如愿，乖乖用 Vim 作了一百多道 SICP 的习题。而我的 Scheme 经验也就止于这些习题了，因此 ac-geiser 可能目前还不适合工程性的应用 &lt;sup&gt;&lt;em&gt;2&lt;/em&gt;&lt;/sup&gt;。不过对于单个 Scheme 文件的程序， 我觉得应该还是值得一试的。还是老样子，放张图吧：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://img3.douban.com/view/photo/large/public/p2151078655.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;去年学习 &lt;a href="http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs"&gt;SICP&lt;/a&gt; 的时候就一直希望能有个类似于 &lt;a href="http://common-lisp.net/project/slime/"&gt;SLIME&lt;/a&gt; 般强大方便的工作环境&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;，几番折腾之后未能如愿，乖乖用 Vim 作了一百多道 SICP 的习题。而我的 Scheme 经验也就止于这些习了，因此 ac-geiser 可能目前还不适合工程性的应用&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;。不过对于单个 Scheme 文件的程序，我觉得应该还是值得一试的。还是老样子，放张图吧：&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2013/ac_geiser.jpg"&gt;&lt;img src="/static/image/2013/ac_geiser.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Enjoy it.&lt;/p&gt;
-&lt;p&gt;–&lt;/p&gt;
-&lt;p&gt;&lt;span id="footnotes"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h2 id="footnotes" class="footnotes"&gt;Footnotes:&lt;/h2&gt;
-&lt;p&gt;&lt;span id="text-footnotes"&gt;&lt;/span&gt; &lt;sup&gt;&lt;em&gt;1&lt;/em&gt;&lt;/sup&gt; 如果你不知道 SLIME 如何强大，可以参考 &lt;a href="http://www.feime.net/2013/%E6%96%B0%E5%B9%B4%E7%AC%AC%E4%B8%80%E7%AF%87-%E7%BB%99lisp%E6%96%B0%E6%89%8B%E4%BB%8B%E7%BB%8D%E4%B8%8Bslime%E8%BF%99%E4%B8%AA%E7%A5%9E%E5%99%A8/"&gt; 这里 &lt;/a&gt; 以及 &lt;a href="http://vimeo.com/22798433"&gt; 这里 &lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;sup&gt;&lt;em&gt;2&lt;/em&gt;&lt;/sup&gt; 话又说回来，Scheme现在似乎也没有多少工程性的应用吧？各个 Scheme 实现中也没有遵循 统一的 Module/Package 的标准。Scheme本来又是极小核心的语言，因此这使得 Scheme 非常适合作为教学语言。但似乎除了教学，Scheme一直都没有走出校园过。以上纯属个人认知， 欢迎指正批评。&lt;/p&gt;
+&lt;section class="footnotes"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn1"&gt;&lt;p&gt;如果你不知道 SLIME 如何强大，可以参考 &lt;a href="http://www.feime.net/2013/%E6%96%B0%E5%B9%B4%E7%AC%AC%E4%B8%80%E7%AF%87-%E7%BB%99lisp%E6%96%B0%E6%89%8B%E4%BB%8B%E7%BB%8D%E4%B8%8Bslime%E8%BF%99%E4%B8%AA%E7%A5%9E%E5%99%A8/"&gt; 这里 &lt;/a&gt;以及 &lt;a href="http://vimeo.com/22798433"&gt; 这里 &lt;/a&gt;。&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn2"&gt;&lt;p&gt;话又说回来，Scheme 现在似乎也没有多少工程性的应用吧？各个 Scheme 实现中也没有遵循统一的 Module/Package 的标准。Scheme 本来又是极小核心的语言，因此这使得 Scheme 非常适合作为教学语言。但似乎除了教学，Scheme一直都没有走出校园过。以上纯属个人认知，欢迎指正批评。&lt;a href="#fnref2"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
 </content>
   </entry>
   <entry>
