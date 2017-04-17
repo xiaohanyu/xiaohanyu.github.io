@@ -49,54 +49,54 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p><span id="content"></span> Today I’m happy to announce <a href="https://github.com/xiaohanyu/oh-my-emacs">oh-my-emacs</a> v0.3.</p>
+  <section class="twelve wide column"><p>Today I’m happy to announce <a href="https://github.com/xiaohanyu/oh-my-emacs">oh-my-emacs</a> v0.3.</p>
 <p>It has been three months since I first released oh-my-emacs from my homebrew messy dotemacs project to public. To my suprise, oh-my-emacs has attracted many interests from all over the world.</p>
 <p>The v0.3 version of oh-my-emacs contains various improvements, check its <a href="https://github.com/xiaohanyu/oh-my-emacs/blob/master/CHANGELOG.org#v03">CHANGELOG</a> for a condensed feature list.</p>
 <p>Several features worth mentioning (v0.1-&gt;v0.3):</p>
 <ul>
-<li><p>code refactoring:</p>
+<li>code refactoring:
 <ul>
-<li>Oh-my-emacs splits all its modules into two levels: <code>core</code> and <code>modules</code>. Files in <code>core</code> are required by default, while files in <code>modules</code> are optional. You can load necessary module when you really need it.</li>
+<li>oh-my-emacs splits all its modules into two levels: <code>core</code> and <code>modules</code>. Files in <code>core</code> are required by default, while files in <code>modules</code> are optional. You can load necessary module when you really need it</li>
 </ul></li>
-<li><p>ome-org module:</p>
+<li><code>ome-org</code> module:
 <ul>
-<li>Upgrade <code>org-mode</code> to latest 8.x branch. This brings us a more powerful export engine.</li>
+<li>Upgrade <code>org-mode</code> to latest 8.x branch. This brings us a more powerful export engine</li>
 </ul></li>
-<li><p>ome-cc module:</p>
+<li><code>ome-cc</code> module:
 <ul>
-<li>Oh-my-emacs support auto-complete for C/C++ macros! Combined with <code>pkg-config</code>, oh-my-emacs cc module can be used as a perfect C/C++ working environment with perfect semantic completion for functions and macros for any installed libs recognizable by <code>pkg-config</code>.</li>
+<li>oh-my-emacs support auto-complete for C/C++ macros! Combined with <code>pkg-config</code>, oh-my-emacs cc module can be used as a perfect C/C++ working environment with perfect semantic completion for functions and macros for any installed libs recognizable by <code>pkg-config</code></li>
 </ul></li>
-<li><p>ome-java module:</p>
+<li><code>ome-java</code> module:
 <ul>
-<li>Oh-my-emacs provide semantic completion for Java projects via emacs-eclim. Though not perfect(and a little heavy), this is a workable solution now.</li>
+<li>oh-my-emacs provide semantic completion for Java projects via emacs-eclim. Though not perfect (and a little heavy), this is a workable solution now</li>
 </ul></li>
-<li><p>ome-lisp module:</p>
+<li><code>ome-lisp</code> module:
 <ul>
-<li><p>The original ubiquitous ome-lisp module has been split to four modules:</p>
+<li>The original ubiquitous ome-lisp module has been split to four modules:
 <ul>
-<li>ome-emacs-lisp module</li>
-<li>ome-common-lisp module</li>
-<li>ome-clojure module</li>
-<li>ome-scheme module</li>
+<li><code>ome-emacs-lisp</code> module</li>
+<li><code>ome-common-lisp</code> module</li>
+<li><code>ome-clojure</code> module</li>
+<li><code>ome-scheme</code> module</li>
 </ul></li>
 </ul></li>
-<li><p>documentation:</p>
+<li>documentation:
 <ul>
-<li>Add a table to specify the system requirments and el-get packages. Thus you can install necessary system tools to make oh-my-emacs modules work as expected.</li>
+<li>Add a table to specify the system requirments and el-get packages. Thus you can install necessary system tools to make oh-my-emacs modules work as expected</li>
 </ul></li>
-<li><p>compatibility:</p>
+<li>compatibility:
 <ul>
-<li>Improve compatibility for Mac OS X.</li>
+<li>Improve compatibility for Mac OS X</li>
 </ul></li>
-<li><p>completion:</p>
+<li>completion:
 <ul>
-<li>Add semantic completion for scheme (via <code>ac-geiser</code>)</li>
-<li>Add completion table to show you the currrent semantic completion support for various programming languages.</li>
+<li>Add semantic completion for scheme (via <a href="https://github.com/xiaohanyu/ac-geiser">ac-geiser</a>)</li>
+<li>Add completion table to show you the currrent semantic completion support for various programming languages</li>
 </ul></li>
-<li><p>miscs:</p>
+<li>miscs:
 <ul>
-<li>Basic support for JavaScript, Ruby, OCaml.</li>
-<li>Move some unstale packages to ome-experimental module, load as you need.</li>
+<li>Basic support for JavaScript, Ruby, OCaml</li>
+<li>Move some unstale packages to ome-experimental module, load as you need</li>
 </ul></li>
 </ul>
 <p>Five months of spare time work, 200 git commits, 120 github stars and 35 github issues, all of the above work forms a less than 50MB tarball, which contains 50 <code>el-get</code> packages, 1000 lines of emacs-lisp code, 4000 lines of documentation, hundreds of reference web links, just <a href="https://s.yunio.com/xYpK_z">download</a> and extract this tarball, you’ll get a tuned Emacs OS, and it works almost everywhere.</p>

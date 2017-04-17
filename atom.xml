@@ -694,54 +694,54 @@ JSON-formatted AST
     <published>2013-12-30T14:00:32Z</published>
     <updated>2017-04-14T09:29:39Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2013-12-30-announcing-oh-my-emacs-v0.3/"/>
-    <content type="html">&lt;p&gt;&lt;span id="content"&gt;&lt;/span&gt; Today I’m happy to announce &lt;a href="https://github.com/xiaohanyu/oh-my-emacs"&gt;oh-my-emacs&lt;/a&gt; v0.3.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Today I’m happy to announce &lt;a href="https://github.com/xiaohanyu/oh-my-emacs"&gt;oh-my-emacs&lt;/a&gt; v0.3.&lt;/p&gt;
 &lt;p&gt;It has been three months since I first released oh-my-emacs from my homebrew messy dotemacs project to public. To my suprise, oh-my-emacs has attracted many interests from all over the world.&lt;/p&gt;
 &lt;p&gt;The v0.3 version of oh-my-emacs contains various improvements, check its &lt;a href="https://github.com/xiaohanyu/oh-my-emacs/blob/master/CHANGELOG.org#v03"&gt;CHANGELOG&lt;/a&gt; for a condensed feature list.&lt;/p&gt;
 &lt;p&gt;Several features worth mentioning (v0.1-&amp;gt;v0.3):&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;code refactoring:&lt;/p&gt;
+&lt;li&gt;code refactoring:
 &lt;ul&gt;
-&lt;li&gt;Oh-my-emacs splits all its modules into two levels: &lt;code&gt;core&lt;/code&gt; and &lt;code&gt;modules&lt;/code&gt;. Files in &lt;code&gt;core&lt;/code&gt; are required by default, while files in &lt;code&gt;modules&lt;/code&gt; are optional. You can load necessary module when you really need it.&lt;/li&gt;
+&lt;li&gt;oh-my-emacs splits all its modules into two levels: &lt;code&gt;core&lt;/code&gt; and &lt;code&gt;modules&lt;/code&gt;. Files in &lt;code&gt;core&lt;/code&gt; are required by default, while files in &lt;code&gt;modules&lt;/code&gt; are optional. You can load necessary module when you really need it&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ome-org module:&lt;/p&gt;
+&lt;li&gt;&lt;code&gt;ome-org&lt;/code&gt; module:
 &lt;ul&gt;
-&lt;li&gt;Upgrade &lt;code&gt;org-mode&lt;/code&gt; to latest 8.x branch. This brings us a more powerful export engine.&lt;/li&gt;
+&lt;li&gt;Upgrade &lt;code&gt;org-mode&lt;/code&gt; to latest 8.x branch. This brings us a more powerful export engine&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ome-cc module:&lt;/p&gt;
+&lt;li&gt;&lt;code&gt;ome-cc&lt;/code&gt; module:
 &lt;ul&gt;
-&lt;li&gt;Oh-my-emacs support auto-complete for C/C++ macros! Combined with &lt;code&gt;pkg-config&lt;/code&gt;, oh-my-emacs cc module can be used as a perfect C/C++ working environment with perfect semantic completion for functions and macros for any installed libs recognizable by &lt;code&gt;pkg-config&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;oh-my-emacs support auto-complete for C/C++ macros! Combined with &lt;code&gt;pkg-config&lt;/code&gt;, oh-my-emacs cc module can be used as a perfect C/C++ working environment with perfect semantic completion for functions and macros for any installed libs recognizable by &lt;code&gt;pkg-config&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ome-java module:&lt;/p&gt;
+&lt;li&gt;&lt;code&gt;ome-java&lt;/code&gt; module:
 &lt;ul&gt;
-&lt;li&gt;Oh-my-emacs provide semantic completion for Java projects via emacs-eclim. Though not perfect(and a little heavy), this is a workable solution now.&lt;/li&gt;
+&lt;li&gt;oh-my-emacs provide semantic completion for Java projects via emacs-eclim. Though not perfect (and a little heavy), this is a workable solution now&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ome-lisp module:&lt;/p&gt;
+&lt;li&gt;&lt;code&gt;ome-lisp&lt;/code&gt; module:
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;The original ubiquitous ome-lisp module has been split to four modules:&lt;/p&gt;
+&lt;li&gt;The original ubiquitous ome-lisp module has been split to four modules:
 &lt;ul&gt;
-&lt;li&gt;ome-emacs-lisp module&lt;/li&gt;
-&lt;li&gt;ome-common-lisp module&lt;/li&gt;
-&lt;li&gt;ome-clojure module&lt;/li&gt;
-&lt;li&gt;ome-scheme module&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ome-emacs-lisp&lt;/code&gt; module&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ome-common-lisp&lt;/code&gt; module&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ome-clojure&lt;/code&gt; module&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ome-scheme&lt;/code&gt; module&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;documentation:&lt;/p&gt;
+&lt;li&gt;documentation:
 &lt;ul&gt;
-&lt;li&gt;Add a table to specify the system requirments and el-get packages. Thus you can install necessary system tools to make oh-my-emacs modules work as expected.&lt;/li&gt;
+&lt;li&gt;Add a table to specify the system requirments and el-get packages. Thus you can install necessary system tools to make oh-my-emacs modules work as expected&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;compatibility:&lt;/p&gt;
+&lt;li&gt;compatibility:
 &lt;ul&gt;
-&lt;li&gt;Improve compatibility for Mac OS X.&lt;/li&gt;
+&lt;li&gt;Improve compatibility for Mac OS X&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;completion:&lt;/p&gt;
+&lt;li&gt;completion:
 &lt;ul&gt;
-&lt;li&gt;Add semantic completion for scheme (via &lt;code&gt;ac-geiser&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Add completion table to show you the currrent semantic completion support for various programming languages.&lt;/li&gt;
+&lt;li&gt;Add semantic completion for scheme (via &lt;a href="https://github.com/xiaohanyu/ac-geiser"&gt;ac-geiser&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add completion table to show you the currrent semantic completion support for various programming languages&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;miscs:&lt;/p&gt;
+&lt;li&gt;miscs:
 &lt;ul&gt;
-&lt;li&gt;Basic support for JavaScript, Ruby, OCaml.&lt;/li&gt;
-&lt;li&gt;Move some unstale packages to ome-experimental module, load as you need.&lt;/li&gt;
+&lt;li&gt;Basic support for JavaScript, Ruby, OCaml&lt;/li&gt;
+&lt;li&gt;Move some unstale packages to ome-experimental module, load as you need&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Five months of spare time work, 200 git commits, 120 github stars and 35 github issues, all of the above work forms a less than 50MB tarball, which contains 50 &lt;code&gt;el-get&lt;/code&gt; packages, 1000 lines of emacs-lisp code, 4000 lines of documentation, hundreds of reference web links, just &lt;a href="https://s.yunio.com/xYpK_z"&gt;download&lt;/a&gt; and extract this tarball, you’ll get a tuned Emacs OS, and it works almost everywhere.&lt;/p&gt;
