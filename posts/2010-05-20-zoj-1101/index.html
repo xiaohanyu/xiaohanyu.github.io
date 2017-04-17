@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>zoj 1101</title>
+    <title>ZOJ 1101</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,78 +43,66 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      zoj 1101
+      ZOJ 1101
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>毕竟是做题经验不足，开始看题被唬住了。题目大意是给定一个数据 a[i]，寻找四个数字 i, j, k, m, 使得 a[m]=a[i]+a[j]+a[k]，并求出 max(a[m])。</p>
-<p>最容易想到的是暴力算法。求出每个三元组的和，然后再搜索，复杂度为 O(n^3) 级别的。但是我觉得应该会有更好的解法，就去百度上查。事实上最终我用的也是这种暴力方法。参考别人代码，结合 STL。思路大体上是先排序，然后再二分搜索。最后通过的时间是 50ms。看了下本题目的 status，前面的高人通过时间都是 0ms，由此看来本题肯定有优化的可能。只是我不知道罢了。暂且放下。</p>
+  <section class="twelve wide column"><p>毕竟是做题经验不足，开始看题被唬住了。题目大意是给定一个数据 <code>a[i]</code> ，寻找四个数字 <code>i</code> 、 <code>j</code> 、 <code>k</code> 、 <code>m</code> ， 使得 <code>a[m] = a[i] + a[j] + a[k]</code> ，并求出 <code>max(a[m])</code> 。</p>
+<p>最容易想到的是暴力算法。求出每个三元组的和，然后再搜索，复杂度为 <span class="math inline">\(O(n^{3})\)</span> 级别的。但是我觉得应该会有更好的解法，就去百度上查。事实上最终我用的也是这种暴力方法。 参考别人代码，结合 STL。思路大体上是先排序，然后再二分搜索。最后通过的时间是 50 ms。看了下本题目的 status，前面的高人通过时间都是 0ms，由此看来本题肯定有优化的可能。只是我不知道罢了。暂且放下。</p>
 <p>STL应用太过生疏，仿函数和函数指针的应用还经常混淆。需要加强。</p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;functional&gt;
-using namespace std;
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;functional&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
 
-int main(int argc, char *argv[])
-{
-    int inta[1000], n, wi;
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
+    <span class="dt">int</span> inta[<span class="dv">1000</span>], n, wi;
 
-    while ((cin &gt;&gt; n) &amp;&amp; n)
-    {
-        int i, j, m, u;
-        wi = 536870912;
-        for (i = 0; i &lt; n; ++i)
-        {
+    <span class="cf">while</span> ((cin &gt;&gt; n) &amp;&amp; n) {
+        <span class="dt">int</span> i, j, m, u;
+        wi = <span class="dv">536870912</span>;
+        <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; n; ++i) {
             cin &gt;&gt; inta[i];
         }
 
         sort(inta, inta+n);
 
-        if (n &lt; 4)
-        {
-            goto END;
+        <span class="cf">if</span> (n &lt; <span class="dv">4</span>) {
+            <span class="cf">goto</span> END;
         }
 
-        for (i = n - 1; i &gt;= 0; i--)
-            for (m = n - 1; m &gt;= 0; m--)
-            {
-                if (i == m)
-                {
-                    continue;
+        <span class="cf">for</span> (i = n - <span class="dv">1</span>; i &gt;= <span class="dv">0</span>; i--)
+            <span class="cf">for</span> (m = n - <span class="dv">1</span>; m &gt;= <span class="dv">0</span>; m--) {
+                <span class="cf">if</span> (i == m) {
+                    <span class="cf">continue</span>;
                 }
-                for (j = m - 1; j &gt; 0; j--)
-                {
-                    if (j == i)
-                    {
-                        continue;
+                <span class="cf">for</span> (j = m - <span class="dv">1</span>; j &gt; <span class="dv">0</span>; j--) {
+                    <span class="cf">if</span> (j == i) {
+                        <span class="cf">continue</span>;
                     }
 
                     u = inta[i] - inta[m] - inta[j];
 
-                    if (u != inta[i] &amp;&amp; u != inta[m] &amp;&amp; u != inta[j])
-                    {
-                        if (binary_search(inta, inta+n, u))
-                        {
+                    <span class="cf">if</span> (u != inta[i] &amp;&amp; u != inta[m] &amp;&amp; u != inta[j]) {
+                        <span class="cf">if</span> (binary_search(inta, inta + n, u)) {
                             wi = inta[i];
-                            goto END;
+                            <span class="cf">goto</span> END;
                         }
                     }
                 }
             }
       END:
-        if (wi == 536870912)
-        {
-            cout &lt;&lt; &quot;no solution&quot; &lt;&lt; endl;
+        <span class="cf">if</span> (wi == <span class="dv">536870912</span>) {
+            cout &lt;&lt; <span class="st">&quot;no solution&quot;</span> &lt;&lt; endl;
         }
-        else
+        <span class="cf">else</span>
             cout &lt;&lt; wi &lt;&lt; endl;
     }
 
-    return 0;
-}
-</code></pre>
+    <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
@@ -177,7 +165,7 @@ int main(int argc, char *argv[])
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="zoj 1312" href="/posts/2010-05-13-zoj-1312/">Prev</a><a class="item" title="zoj 1168" href="/posts/2010-05-20-zoj-1168/">Next</a>
+      <a class="item" title="ZOJ 1312" href="/posts/2010-05-13-zoj-1312/">Prev</a><a class="item" title="zoj 1168" href="/posts/2010-05-20-zoj-1168/">Next</a>
     </div>
   </aside>
 </div>

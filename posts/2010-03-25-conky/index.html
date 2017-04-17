@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>conky</title>
+    <title>Conky</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,14 +43,13 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      conky
+      Conky
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p><a href="http://conky.sourceforge.net/">Conky</a> is a <strong>free, light-weight system monitor for X</strong>, that displays any information on your desktop. Conky is licensed under the GPL and runs on Linux and BSD.<br />
-</p>
+  <section class="twelve wide column"><p><a href="http://conky.sourceforge.net/">Conky</a> is a <strong>free, light-weight system monitor for X</strong>, that displays any information on your desktop. Conky is licensed under the GPL and runs on Linux and BSD.</p>
 <h2 id="features">Features</h2>
 <p>Conky has more than <strong>300</strong> built in objects, including support for:</p>
 <ul>
@@ -59,26 +58,25 @@
 <li>built in support for many popular music players (<a href="http://musicpd.org/">MPD</a>, <a href="http://wiki.xmms2.xmms.se/index.php/Main_Page">XMMS2</a>, <a href="http://bmpx.backtrace.info/site/BMPx_Homepage">BMPx</a>, <a href="http://audacious-media-player.org/">Audacious</a>)</li>
 <li>can be extended using built in <a href="http://en.wikipedia.org/wiki/Lua_%28programming_language%29">Lua</a> support, or any of your own scripts and programs (<a href="http://wiki.conky.be/index.php/Conky_and_Lua">tell me more!</a>)</li>
 <li>built in <a href="http://docs.enlightenment.org/api/imlib2/html/">Imlib2</a> and <a href="http://cairographics.org/samples/">Cairo</a> bindings for arbitrary drawing with Lua (<a href="http://wiki.conky.be/index.php/Category:Lua_bindings">tell me more!</a>)</li>
+<li>and much much more.</li>
 </ul>
-<p>… and much much more.</p>
-<p>Conky can display this info either as text, or using simple progress bars and graph widgets, with different fonts and colours.</p>
+<p>Conky can display this info either as text, or using simple progress bars and graph widgets, with different fonts and colors.</p>
 <h2 id="installation"><strong>Installation</strong></h2>
-<p>In gentoo, it is very simple to install a software, just emerge what you want. But before you really do it, try -pv options to see what will be installed and make your own choice:</p>
-<pre><code>Calculating dependencies... done!
+<p>In Gentoo, it is very simple to install a software, just emerge what you want. But before you really do it, try -pv options to see what will be installed and make your own choice:</p>
+<pre class="example"><code>Calculating dependencies... done!
 [ebuild   R   ] app-admin/conky-1.7.2-r2  USE=&quot;X alsa apcupsd imlib portmon truetype vim-syntax weather-xoap -audacious -curl -debug -eve -hddtemp -iostats -lua -lua-cairo -lua-imlib -math -moc -mpd -nano-syntax -nvidia -rss -thinkpad -weather-metar -wifi&quot; 0 kB
 </code></pre>
 <p>For example, if you use moc as a console music player you must add moc USE. What is USE? Refer to <a href="http://www.gentoo.org/doc/en/handbook/">gentoo handbook</a>.</p>
-<p>For archlinux, just type “pacman -S conky” and for ubuntu and deb, maybe “apt-get install conky”. Refer to your system handbook.<br />
-</p>
+<p>For Arch Linux, just type <code>pacman -S conky</code> and for Ubuntu and Debian, maybe <code>apt-get install conky</code>. Refer to your system handbook.</p>
 <h2 id="cofiguration">Cofiguration</h2>
-<p>Usually there is a sample configuration file located in /etc. My file is /etc/conky/conky.conf, just copy this file into your home diretory and rename it to .conkyrc:</p>
+<p>Usually there is a sample configuration file located in /etc. My file is <code>/etc/conky/conky.conf</code>, just copy this file into your home diretory and rename it to <code>.conkyrc</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> cp /etc/conky/conky.conf ~/.conkyrc</code></pre></div>
-<p>then let conky startup with the system. If you use startx, add this line to your ~/.xinitrc</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">conky</span> -d </code></pre></div>
-<p>-d means conky would run as a daemon process.</p>
-<p>If you use a desktop environment such as gnome or kde, use the graphical tools, easy job.</p>
-<p>And if you feel disappointed about the ugly default configuration, you can configure it by yourself. First you should refer to the man page to know some details about the configuration grammer and configuration choices. Then, I think you’d better refer to google to download a sample .conkyrc and modify it. Here is a sample configuration <a href="file:\\" class="uri">file:\\</a></p>
-<pre><code>########## basic configuration ##########
+<p>then let Conky startup with the system. If you use <code>startx</code>, add this line to your <code>/.xinitrc</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">conky</span> -d</code></pre></div>
+<p><code>-d</code> means Conky would run as a daemon process.</p>
+<p>If you use a desktop environment such as GNOME or KDE, use the graphical tools, easy job.</p>
+<p>And if you feel disappointed about the ugly default configuration, you can configure it by yourself. First you should refer to the man page to know some details about the configuration grammer and configuration choices. Then, I think you’d better refer to google to download a sample <code>.conkyrc</code> and modify it. Here is a sample configuration file:</p>
+<pre class="example"><code>########## basic configuration ##########
 use_spacer right
 use_xft yes
 font Comic Sans MS:size=9
@@ -167,9 +165,9 @@ ${color}Down:${color} ${downspeed eth0} k/s ${alignr}${color #00FFE1}Up:${color}
 ${downspeedgraph eth0 20,115 556B2F 9ACD32}${alignr}${upspeedgraph eth0 20,115 556B2F 9ACD32}
 ${color}Totat: ${totaldown eth0}${alignr} Total: ${totalup eth0}$color
 </code></pre>
-<p>The grammer is simple, the first part is some basic settings, the second part is the content to show. But the grammer itself is not elegant, to second part is similar to markup language, ${font}${color}Something${color}${font}, just like this, but not so good.</p>
+<p>The grammar is simple, the first part is some basic settings, the second part is the content to show.</p>
 <p>And the following is the result:</p>
-<p><img src="file:///user_files/cnlox/Image/screenshots/2010-03-25-092746_243x647_scrot.png" /></p>
+<p><a href="/static/image/2010/conky.png"><img src="/static/image/2010/conky.png" /></a></p>
 <p>Not bad. Enjoy it.</p>
 
     <div class="ui divider"></div>

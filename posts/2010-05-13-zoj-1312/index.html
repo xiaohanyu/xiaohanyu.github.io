@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>zoj 1312</title>
+    <title>ZOJ 1312</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,7 +43,7 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      zoj 1312
+      ZOJ 1312
     </h1>
     <div class="ui divider"></div>
   </div>
@@ -52,65 +52,57 @@
   <section class="twelve wide column"><p>coding！coding！为什么这么简单的题目愣是做不对呢？</p>
 <p>在网上找了相应正确的代码做了测试，没有发现哪里不对。求高人指点一二。</p>
 <p>算法是永远的痛。加油加油。</p>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">#include</span> &lt;iostream&gt;
-<span class="fl">#include</span> &lt;vector&gt;
-using namespace std;
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;vector&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
 
-bool is_prime(int n)
-<span class="kw">{</span>
-    <span class="er">for</span> <span class="er">(int</span> <span class="er">i</span> <span class="er">=</span> <span class="er">2;</span> <span class="er">i*i</span> <span class="er">&lt;=</span> <span class="er">n;</span> <span class="er">++i)</span>
-    <span class="er">{</span>
-        <span class="er">if</span> <span class="er">(n</span> <span class="er">%</span> <span class="er">i</span> <span class="er">==</span> <span class="er">0)</span>
-        <span class="er">{</span>
-            <span class="er">return</span> <span class="er">false;</span>
-        <span class="kw">}</span>
+<span class="dt">bool</span> is_prime(<span class="dt">int</span> n) {
+  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">2</span>; i*i &lt;= n; ++i) {
+    <span class="cf">if</span> (n % i == <span class="dv">0</span>) {
+      <span class="cf">return</span> <span class="kw">false</span>;
     }
+  }
 
-    return true;
+  <span class="cf">return</span> <span class="kw">true</span>;
 }
 
-int get_prime_list(int n, vector&lt;int&gt; &amp;prime_list)
-<span class="kw">{</span>
-    <span class="er">prime_list.push_back(1);</span>
-    <span class="er">prime_list.push_back(2);</span>
-    <span class="er">prime_list.push_back(3);</span>
+<span class="dt">int</span> get_prime_list(<span class="dt">int</span> n, vector&lt;<span class="dt">int</span>&gt; &amp;prime_list) {
+  prime_list.push_back(<span class="dv">1</span>);
+  prime_list.push_back(<span class="dv">2</span>);
+  prime_list.push_back(<span class="dv">3</span>);
 
-    <span class="er">for</span> <span class="er">(int</span> <span class="er">i</span> <span class="er">=</span> <span class="er">5;</span> <span class="er">i</span> <span class="er">&lt;=</span> <span class="er">n;</span> <span class="er">i</span> <span class="er">=</span> <span class="er">i+2)</span>
-    <span class="er">{</span>
-        <span class="er">if</span> <span class="er">(is_prime(i))</span>
-        <span class="er">{</span>
-            <span class="er">prime_list.push_back(i);</span>
-        <span class="kw">}</span>
+  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">5</span>; i &lt;= n; i = i + <span class="dv">2</span>) {
+    <span class="cf">if</span> (is_prime(i)) {
+      prime_list.push_back(i);
     }
+  }
 
-    return 0;
+  <span class="cf">return</span> <span class="dv">0</span>;
 }
 
 
-int main(int argc, char *argv<span class="at">[]</span>)
-<span class="kw">{</span>
-    <span class="er">int</span> <span class="er">N,</span> <span class="er">C;</span>
-    <span class="er">int</span> <span class="er">cases</span> <span class="er">=</span> <span class="er">0;</span>
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
+  <span class="dt">int</span> N, C;
+  <span class="dt">int</span> cases = <span class="dv">0</span>;
 
-    <span class="er">while</span> <span class="er">(cin</span> <span class="er">&gt;&gt;</span> <span class="er">N</span> <span class="er">&gt;&gt;</span> <span class="er">C)</span>
-    <span class="er">{</span>
-        <span class="er">vector&lt;int&gt;</span> <span class="er">v;</span>
-        <span class="er">get_prime_list(N,</span> <span class="er">v);</span>
-        <span class="er">cout</span> <span class="er">&lt;&lt;</span> <span class="er">N</span> <span class="er">&lt;&lt;</span> <span class="er">&quot;</span> <span class="er">&quot;</span> <span class="er">&lt;&lt;</span> <span class="er">C</span> <span class="er">&lt;&lt;</span> <span class="er">&quot;:&quot;;</span>
+  <span class="cf">while</span> (cin &gt;&gt; N &gt;&gt; C) {
+    vector&lt;<span class="dt">int</span>&gt; v;
+    get_prime_list(N, v);
+    cout &lt;&lt; N &lt;&lt; <span class="st">&quot; &quot;</span> &lt;&lt; C &lt;&lt; <span class="st">&quot;:&quot;</span>;
 
-        <span class="er">int</span> <span class="er">center</span> <span class="er">=</span> <span class="er">v.</span><span class="kw">size</span><span class="er">()</span> <span class="er">/</span> <span class="er">2;</span>
+    <span class="dt">int</span> center = v.size() / <span class="dv">2</span>;
 
-        <span class="er">if</span> <span class="er">(center</span> <span class="er">+</span> <span class="er">C</span> <span class="er">&gt;</span> <span class="er">v.size())</span>
-            <span class="er">for</span> <span class="er">(int</span> <span class="er">i</span> <span class="er">=</span> <span class="er">0;</span> <span class="er">i</span> <span class="er">&lt;</span> <span class="er">v.size();</span> <span class="er">i++)</span>
-                <span class="er">cout</span> <span class="er">&lt;&lt;</span> <span class="er">&quot;</span> <span class="er">&quot;</span> <span class="er">&lt;&lt;</span> <span class="er">v[i];</span>
-        <span class="er">else</span>
-            <span class="er">for(int</span> <span class="er">i</span> <span class="er">=</span> <span class="er">center</span> <span class="er">-</span> <span class="er">C</span> <span class="er">+</span> <span class="er">(v.size()</span> <span class="er">%</span> <span class="er">2</span> <span class="er">?</span> <span class="er">1</span> <span class="kw">:</span> <span class="dt">0</span>)<span class="kw">;</span> <span class="er">i</span> <span class="er">&lt;</span> <span class="er">center</span> <span class="er">+</span> <span class="er">C;</span> <span class="er">i++)</span>
-                <span class="er">cout</span> <span class="er">&lt;&lt;</span> <span class="er">&quot;</span> <span class="er">&quot;</span> <span class="er">&lt;&lt;</span> <span class="er">v[i];</span>
+    <span class="cf">if</span> (center + C &gt; v.size())
+      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; v.size(); i++)
+        cout &lt;&lt; <span class="st">&quot; &quot;</span> &lt;&lt; v[i];
+    <span class="cf">else</span>
+      <span class="cf">for</span>(<span class="dt">int</span> i = center - C + (v.size() % <span class="dv">2</span> ? <span class="dv">1</span> : <span class="dv">0</span>); i &lt; center + C; i++)
+        cout &lt;&lt; <span class="st">&quot; &quot;</span> &lt;&lt; v[i];
 
-        <span class="er">cout</span> <span class="er">&lt;&lt;</span> <span class="er">endl</span> <span class="er">&lt;&lt;</span> <span class="er">endl;</span>
-    <span class="kw">}</span>
+    cout &lt;&lt; endl &lt;&lt; endl;
+  }
 
-    return 0;
+  <span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 
     <div class="ui divider"></div>
@@ -167,7 +159,7 @@ int main(int argc, char *argv<span class="at">[]</span>)
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="稀里糊涂的数模比赛" href="/posts/2010-05-10-mathematical-contest-in-modeling/">Prev</a><a class="item" title="zoj 1101" href="/posts/2010-05-20-zoj-1101/">Next</a>
+      <a class="item" title="稀里糊涂的数模比赛" href="/posts/2010-05-10-mathematical-contest-in-modeling/">Prev</a><a class="item" title="ZOJ 1101" href="/posts/2010-05-20-zoj-1101/">Next</a>
     </div>
   </aside>
 </div>
