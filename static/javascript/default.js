@@ -32,7 +32,7 @@ function show_disqus_comments(event) {
 
 $(document).ready(function() {
   $('.ui.progress').progress();
+  $('table').addClass('ui striped collapsing table');
   $(".words-cn").html(json_to_quote($('#quotes').data('quotes-cn')));
-
   $(".words-en").html(json_to_quote($('#quotes').data('quotes-en')));
 });
