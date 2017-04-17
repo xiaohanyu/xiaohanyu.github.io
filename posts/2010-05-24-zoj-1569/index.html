@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>zoj 1569</title>
+    <title>ZOJ 1569</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,96 +43,84 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      zoj 1569
+      ZOJ 1569
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>题意很明确，给定一个数列 [tex]a_i(i = 0, 2, ⋯, n)[/tex]， 对于 [tex]m[/tex]，求有多少个 partial sum 能被 m 整除，所谓 partial sum 是 [tex]∑_{i = j}^<em>k</em> a_i, j, k ∈ 1, ⋯ n}[/tex]。</p>
-<p>想法也很简单。第一种方法是求出所有的 partial sum，然后分别判断是否能被 m 整除，[tex]O(n^3)[/tex]的复杂度。</p>
-<p>第二种想法是设定 [tex]<em>σ</em>_j = ∑_{i=0}^<em>j</em> a_i, j = 0, 1, 2, ⋯, n}, <em>δ</em>_{ij} = <em>σ</em>_j - <em>σ</em>_k = ∑_{i = k+1}^<em>j</em>a_i[/tex]，判断 [tex]<em>δ</em>_{ij}[/tex] 能否被 [tex]m[/tex] 整除。[tex]O(n^2)[/tex]复杂度。照此想法编程，确是 TLE：</p>
-<pre><code>#include &lt;stdio.h&gt;
+  <section class="twelve wide column"><p>题意很明确，给定一个数列 <span class="math inline">\(a\_i(i = 0, 2, \cdots, n)\)</span> ，对于 <span class="math inline">\(m\)</span> ，求有多少个 partial sum 能被 <span class="math inline">\(m\)</span> 整除，所谓 partial sum 是 <span class="math inline">\(\sum\_{i = j}^{k} a\_i, j, k
+\in 1, \cdots n}\)</span> 。</p>
+<p>想法也很简单。第一种方法是求出所有的 partial sum，然后分别判断是否能被 <span class="math inline">\(m\)</span> 整除， <span class="math inline">\(O(n^3)\)</span> 的复杂度。</p>
+<p>第二种想法是设定 $<em>σ</em>_j = ∑_{i=0}<sup>j</sup> a_i, j = 0, 1, 2, ⋯, n}, <em>δ</em>_{ij} = <em>σ</em>_j - <em>σ</em>_k = ∑_{i = k+1}<sup>j</sup>a_i$，判断 <span class="math inline">\(\delta\_{ij}\)</span> 能否被 <span class="math inline">\(m\)</span> 整除。<span class="math inline">\(O(n^2)\)</span> 复杂度。照此想法编程，确是 TLE：</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
 
-#define max_len 10001
+<span class="pp">#define max_len 10001</span>
 
-int main(int argc, char *argv[])
-{
-    int n, m;
-    int inta[max_len];
-    int sum[max_len+1];
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
+  <span class="dt">int</span> n, m;
+  <span class="dt">int</span> inta[max_len];
+  <span class="dt">int</span> sum[max_len+<span class="dv">1</span>];
 
-    while (scanf(&quot;%d%d&quot;, &amp;n, &amp;m) != EOF)
-    {
-        int i, j;
+  <span class="cf">while</span> (scanf(<span class="st">&quot;%d%d&quot;</span>, &amp;n, &amp;m) != EOF) {
+    <span class="dt">int</span> i, j;
 
-        for (i = 0; i &lt; n; ++i)
-        {
-            scanf(&quot;%d&quot;, &amp;inta[i]);
-        }
-
-        for (i = 0; i &lt;= n; ++i)
-        {
-            sum[i] = 0;
-            for (j = 0; j &lt; i; ++j)
-            {
-                sum[i] += inta[j];
-            }
-        }
-
-        int num = 0;
-        for (i = 0; i &lt; n; ++i)
-        {
-            for (j = i + 1; j &lt;= n; ++j)
-            {
-                if (((sum[j] - sum[i]) % m) == 0)
-                {
-                    num++;
-                }
-            }
-        }
-        printf (&quot;%d\n&quot;,num);
+    <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; n; ++i) {
+      scanf(<span class="st">&quot;%d&quot;</span>, &amp;inta[i]);
     }
 
-    return 0;
-}
-</code></pre>
-<p>不得不另寻出路。依稀记得当初算法课上关于最大子段和的问题，其复杂度也是一点点从 [tex]O(n^3) -&gt; O(n^2) -&gt; O(n log(n)) -&gt; O(n)[/tex]，在此百度如下两篇文章，茅塞顿开：</p>
+    <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt;= n; ++i) {
+      sum[i] = <span class="dv">0</span>;
+      <span class="cf">for</span> (j = <span class="dv">0</span>; j &lt; i; ++j) {
+        sum[i] += inta[j];
+      }
+    }
+
+    <span class="dt">int</span> num = <span class="dv">0</span>;
+    <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; n; ++i) {
+      <span class="cf">for</span> (j = i + <span class="dv">1</span>; j &lt;= n; ++j) {
+        <span class="cf">if</span> (((sum[j] - sum[i]) % m) == <span class="dv">0</span>) {
+          num++;
+        }
+      }
+    }
+    printf (<span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span>,num);
+  }
+
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+<p>不得不另寻出路。依稀记得当初算法课上关于最大子段和的问题，其复杂度也是一点点从 <span class="math inline">\(O(n^3) -&gt; O(n^2) -&gt; O(n \log(n)) -&gt; O(n)\)</span> ，在此百度如下两篇文章，茅塞顿开：</p>
 <ul>
 <li><a href="http://hi.baidu.com/hi_chf/blog/item/50017817903f0e11972b43e9.html" class="uri">http://hi.baidu.com/hi_chf/blog/item/50017817903f0e11972b43e9.html</a></li>
-<li><p><a href="http://bloodybat.blog.hexun.com/2788438_d.html" class="uri">http://bloodybat.blog.hexun.com/2788438_d.html</a></p>
-大体思路是继续第二种想法，设 [tex]<em>ϕ</em>_j = <em>σ</em>_j </li>
+<li><a href="http://bloodybat.blog.hexun.com/2788438_d.html" class="uri">http://bloodybat.blog.hexun.com/2788438_d.html</a></li>
 </ul>
-<p>m[/tex]，如果存在 [tex]j_k, k = 1, 2, ⋯, n[/tex]，那么 [tex]<em>ϕ</em>_{j_k} - <em>ϕ</em>_{j_s}[/tex] 表示一个符合条件的 partial sum，此类 partial sum 可以利用组合数公式 [tex]c(n, 2) = [/tex] 求出。最后注意考虑 0 这个特殊数字的情况。程序参照上面两篇博客整理下，代码如下：</p>
-<pre><code>#include &lt;string.h&gt;
-#include &lt;stdio.h&gt;
+<p>大体思路是继续第二种想法，设 <span class="math inline">\(\phi\_j = \sigma\_j \bmod m\)</span> ，如果存在 <span class="math inline">\(j\_k, k =
+1, 2, \cdots, n\)</span> ，那么 <span class="math inline">\(\phi\_{j\_k} - \phi\_{j\_s}\)</span> 表示一个符合条件的 partial sum，此类 partial sum 可以利用组合数公式 <span class="math inline">\(c(n, 2) = \frac{n(n-1)}{2}\)</span> 求出。最后注意考虑 0 这个特殊数字的情况。程序参照上面两篇博客整理下，代码如下：</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;string.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
 
-int c_sum[5001];
+<span class="dt">int</span> c_sum[<span class="dv">5001</span>];
 
-int main ()
-{
-    int i, n, m;
-    int temp, sum, num;
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
+  <span class="dt">int</span> i, n, m;
+  <span class="dt">int</span> temp, sum, num;
 
-    while (scanf(&quot;%d %d&quot;, &amp;n, &amp;m) != EOF)
-    {
-        sum = 0, num = 0;
-        memset(c_sum, 0, sizeof(int) * (m + 1));
-        for (i = 0; i &lt; n; i++)
-        {
-            scanf(&quot;%d&quot;, &amp;temp);
-            sum = (sum + temp) % m;
-            if (!sum)
-                num++;
-            c_sum[sum]++;
-        }
-        for (i = 0; i &lt; m; i++)
-            num += c_sum[i] * (c_sum[i] - 1) / 2;
-        printf (&quot;%d\n&quot;, num);
+  <span class="cf">while</span> (scanf(<span class="st">&quot;%d %d&quot;</span>, &amp;n, &amp;m) != EOF) {
+    sum = <span class="dv">0</span>, num = <span class="dv">0</span>;
+    memset(c_sum, <span class="dv">0</span>, <span class="kw">sizeof</span>(<span class="dt">int</span>) * (m + <span class="dv">1</span>));
+    <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; n; i++) {
+      scanf(<span class="st">&quot;%d&quot;</span>, &amp;temp);
+      sum = (sum + temp) % m;
+      <span class="cf">if</span> (!sum)
+        num++;
+      c_sum[sum]++;
     }
-    return 0;
-}
-</code></pre>
+    <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; m; i++)
+      num += c_sum[i] * (c_sum[i] - <span class="dv">1</span>) / <span class="dv">2</span>;
+    printf (<span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span>, num);
+  }
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
 <p>路漫漫其修远兮，加油加油。</p>
 
     <div class="ui divider"></div>
@@ -196,7 +184,7 @@ int main ()
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="ZOJ 1577" href="/posts/2010-05-23-zoj-1577/">Prev</a><a class="item" title="zoj 1337" href="/posts/2010-05-25-zoj-1337/">Next</a>
+      <a class="item" title="ZOJ 1577" href="/posts/2010-05-23-zoj-1577/">Prev</a><a class="item" title="ZOJ 1337" href="/posts/2010-05-25-zoj-1337/">Next</a>
     </div>
   </aside>
 </div>

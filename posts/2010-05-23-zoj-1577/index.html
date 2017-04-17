@@ -49,8 +49,7 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>简单题，题目大意是给定两个数 <code>a</code> 、~b~ ，求 <code>x</code> 、 <code>y</code> 使得 <code>gcd(x, y) = a,
-lcm(x, y) = b</code> ，问由多少对这样的 <code>(x, y)</code> ，其中 <code>gcd(x, y)</code> 为 <code>x</code> 、 <code>y</code> 的最大公约数， <code>lcm(x, y)</code> 为 <code>x</code> 、 <code>y</code> 的最小公倍数。解题思路主要利用 <span class="math inline">\(x \times y
+  <section class="twelve wide column"><p>简单题，题目大意是给定两个数 <span class="math inline">\(a\)</span> 、 <span class="math inline">\(b\)</span> ，求 <span class="math inline">\(x\)</span> 、 <span class="math inline">\(y\)</span> 使得 <span class="math inline">\(gcd(x, y) = a\)</span> , <span class="math inline">\(lcm(x, y) = b\)</span> ，问由多少对这样的 <span class="math inline">\((x, y)\)</span> ，其中 <span class="math inline">\(gcd(x, y)\)</span> 为 <span class="math inline">\(x\)</span> 、 <span class="math inline">\(y\)</span> 的最大公约数， <span class="math inline">\(lcm(x, y)\)</span> 为 <span class="math inline">\(x\)</span> 、 <span class="math inline">\(y\)</span> 的最小公倍数。解题思路主要利用 <span class="math inline">\(x \times y
 = gcd(x, y) \times lcm(x, y)\)</span> 就行了。WA 了两次是因为没看清楚题意 “x and y, one line for each test.”，太马虎了。代码如下：</p>
 <div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
 <span class="pp">#include </span><span class="im">&lt;math.h&gt;</span>
@@ -90,7 +89,7 @@ lcm(x, y) = b</code> ，问由多少对这样的 <code>(x, y)</code> ，其中 <
     }
     <span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
-<p>顺便，用了两个月的 <a href="http://gna.org/projects/fvwm-crystal/">fvwm-crystal</a>，感觉虽然轻量，但是有些细节颇有不便之处，比如每次新开窗口的时候窗口的大小和位置都“不太确定”——就是有时候窗口会覆盖底下的 panel、有时候整个窗口又比整个屏幕都大……恰逢前天晚上兴奋无眠，因此便邪恶的敲了下面一条命令：</p>
+<p>顺便，用了两个月的 <a href="http://gna.org/projects/fvwm-crystal/">FVWM-Crystal</a>，感觉虽然轻量，但是有些细节颇有不便之处，比如每次新开窗口的时候窗口的大小和位置都“不太确定”——就是有时候窗口会覆盖底下的 panel、有时候整个窗口又比整个屏幕都大……恰逢前天晚上兴奋无眠，因此便邪恶的敲了下面一条命令：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> emerge -av gnome-light</code></pre></div>
 <p>编译过程比较顺利，又陆续装了 <a href="http://projects.gnome.org/gdm/">GDM</a>, <a href="http://do.cooperteam.net/">GNOME Do</a> 等小工具，配上 <a href="http://sourceforge.net/projects/mac4lin/">Mac4Lin</a> 的主题，现在整个桌面看起来还是蛮 pp 的：</p>
 <p><a href="/static/image/2010/mac4lin.png"><img src="/static/image/2010/mac4lin.png" /></a></p>
@@ -168,7 +167,7 @@ lcm(x, y) = b</code> ，问由多少对这样的 <code>(x, y)</code> ，其中 <
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="ZOJ 1284" href="/posts/2010-05-20-zoj-1284/">Prev</a><a class="item" title="zoj 1569" href="/posts/2010-05-24-zoj-1569/">Next</a>
+      <a class="item" title="ZOJ 1284" href="/posts/2010-05-20-zoj-1284/">Prev</a><a class="item" title="ZOJ 1569" href="/posts/2010-05-24-zoj-1569/">Next</a>
     </div>
   </aside>
 </div>

@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>zoj 1337</title>
+    <title>ZOJ 1337</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,70 +43,59 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      zoj 1337
+      ZOJ 1337
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
   <section class="twelve wide column"><p>简单题，不知道为什么开始 WA 了一下。</p>
-<p>题目大意是给定一组 n 个数，那么共有 n(n-1)/2 个数对，求出所有的互质数对，就是这样。gcd的写法还是值得背下来的。</p>
+<p>题目大意是给定一组 <span class="math inline">\(n\)</span> 个数，那么共有 <span class="math inline">\(n(n-1)/2\)</span> 个数对，求出所有的互质数对，就是这样。 <code>gcd</code> 的写法还是值得背下来的。</p>
 <p>代码：</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;math.h&gt;
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;math.h&gt;</span>
 
-int gcd(int a, int b)
-{
-    return b ? gcd(b, a%b) : a;
+<span class="dt">int</span> gcd(<span class="dt">int</span> a, <span class="dt">int</span> b) {
+  <span class="cf">return</span> b ? gcd(b, a % b) : a;
 }
 
-int main(int argc, char *argv[])
-{
-    int num;
-    int inta[60];
-    int i, j;
-    int result;
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
+  <span class="dt">int</span> num;
+  <span class="dt">int</span> inta[<span class="dv">60</span>];
+  <span class="dt">int</span> i, j;
+  <span class="dt">int</span> result;
 
-    while (scanf(&quot;%d&quot;, &amp;num))
-    {
-        if (num == 0)
-        {
-            break;
-        }
-
-        for (i = 0; i &lt; num; ++i)
-        {
-            scanf(&quot;%d&quot;, &amp;inta[i]);
-        }
-
-        result = 0;
-
-        for (i = 0; i &lt; num; ++i)
-        {
-            for (j = i + 1; j &lt; num; ++j)
-            {
-                if (gcd(inta[i], inta[j]) == 1)
-                {
-                    result++;
-                }
-            }
-        }
-
-        if (result == 0)
-        {
-            printf (&quot;No estimate for this data set.\n&quot;);
-        }
-        else
-        {
-            printf (&quot;%.6lf\n&quot;, sqrt(3.0*num*(num-1)/result));
-        }
-
+  <span class="cf">while</span> (scanf(<span class="st">&quot;%d&quot;</span>, &amp;num)) {
+    <span class="cf">if</span> (num == <span class="dv">0</span>) {
+      <span class="cf">break</span>;
     }
 
-    return 0;
-}
-</code></pre>
-<p>时间紧迫，继续水题 …… 太不道德了 ……</p>
+    <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; num; ++i) {
+      scanf(<span class="st">&quot;%d&quot;</span>, &amp;inta[i]);
+    }
+
+    result = <span class="dv">0</span>;
+
+    <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; num; ++i) {
+      <span class="cf">for</span> (j = i + <span class="dv">1</span>; j &lt; num; ++j) {
+        <span class="cf">if</span> (gcd(inta[i], inta[j]) == <span class="dv">1</span>) {
+          result++;
+        }
+      }
+    }
+
+    <span class="cf">if</span> (result == <span class="dv">0</span>) {
+      printf (<span class="st">&quot;No estimate for this data set.</span><span class="sc">\n</span><span class="st">&quot;</span>);
+    }
+    <span class="cf">else</span> {
+      printf (<span class="st">&quot;%.6lf</span><span class="sc">\n</span><span class="st">&quot;</span>, sqrt(<span class="fl">3.0</span>*num*(num-<span class="dv">1</span>)/result));
+    }
+
+  }
+
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+<p>时间紧迫，继续水题……太不道德了……</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
@@ -169,7 +158,7 @@ int main(int argc, char *argv[])
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="zoj 1569" href="/posts/2010-05-24-zoj-1569/">Prev</a><a class="item" title="zoj 1314, 1278" href="/posts/2010-05-25-zoj-1314-1278/">Next</a>
+      <a class="item" title="ZOJ 1569" href="/posts/2010-05-24-zoj-1569/">Prev</a><a class="item" title="ZOJ 1314, 1278" href="/posts/2010-05-25-zoj-1314-1278/">Next</a>
     </div>
   </aside>
 </div>

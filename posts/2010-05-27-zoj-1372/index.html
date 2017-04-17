@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>zoj 1372, minimal spanning tree, prim algorithm</title>
+    <title>ZOJ 1372</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,129 +43,116 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      zoj 1372, minimal spanning tree, prim algorithm
+      ZOJ 1372
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>在实验室睡了一宿。昨儿一激动改了 /etc/make.conf：</p>
+  <section class="twelve wide column"><p>在实验室睡了一宿。昨儿一激动改了 <code>/etc/make.conf</code> ：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">ACCEPT_KEYWORDS=</span><span class="st">&quot;~x86&quot;</span></code></pre></div>
-<p>主要是想体验一下传说中的 gnome 2.30 和 gnome shell，探索半天才知道我原来的 Gentoo 用的是 stable version，这样一改就改成“以后要用 testing version“。</p>
+<p>主要是想体验一下传说中的 GNOME 2.30 和 GNOME shell，探索半天才知道我原来的 Gentoo 用的是 stable version，这样一改就改成“以后要用 testing version“。</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> emerge -avuND world</code></pre></div>
 <p>这下好了，乖乖，总共有 573 个软件包要更新，需要下载 1.7G 的东西。天知道这 1.7G 的代码在我的本本上要编译多长时间。不过，量小非君子，无毒不丈夫，索性心一横，就输了 yes，让本本自己在那边呼啸去了。</p>
-<p>编译到 170 左右个包时出现了麻烦，libmtp无法编译，我一看是因为其依赖的 libpng 是 1.2版本的，而 gentoo testing version 的libpng是 1.4 版本的，这样来来回回搞了许久，终于在 Google 上找到了 <a href="https://forums.gentoo.org/viewtopic-t-827262.html"> 这篇文章 </a>，暂且解决了这个问题。</p>
+<p>编译到 170 左右个包时出现了麻烦，libmtp 无法编译，我一看是因为其依赖的 libpng 是 1.2 版本的，而 gentoo testing version 的libpng是 1.4 版本的，这样来来回回搞了许久， 终于在 Google 上找到了<a href="https://forums.gentoo.org/viewtopic-t-827262.html">这篇文章</a>，暂且解决了这个问题。</p>
 <p>折腾期间又扫了一眼 emerge man page，了解了几个有用的参数如：</p>
 <ul>
-<li>–skip-first</li>
-<li>–keep-going</li>
-<li>–resume</li>
+<li><code>--skip-first</code></li>
+<li><code>--keep-going</code></li>
+<li><code>--resume</code></li>
 </ul>
-<p>中途还有几个 blocked 的包，解决方法大概是先 uninstall 再 reinstall，一般就行了；再不行看看 USE 参数，略微改一下，总之，元发行版，麻烦与灵活共存。</p>
-<p>编译的过程 Emacs 死掉了，于是再也无法打开 ^~~^.….. 就这能干看一些题目。zoj 1372，第一眼一看就是图论的题目。反正也是闲着，临阵磨枪，找来了算法导论，补补图论的基础知识。进一步了解了 BFS 和 DFS，看懂了最小生成树的 Prim 算法，并参照着别人的代码，采用邻接矩阵的方式，还 AC 了。真实不容易啊。不过收获也是大大的。</p>
+<p>中途还有几个 blocked 的包，解决方法大概是先 uninstall 再 reinstall，一般就行了； 再不行看看 USE 参数，略微改一下，总之，元发行版，麻烦与灵活共存。</p>
+<p>编译的过程 Emacs 死掉了，于是再也无法打开^~^……就这能干看一些题目。ZOJ 1372，第一眼一看就是图论的题目。反正也是闲着，临阵磨枪，找来了算法导论，补补图论的基础知识。 进一步了解了 BFS 和 DFS，看懂了最小生成树的 Prim 算法，并参照着别人的代码，采用邻接矩阵的方式，还 AC 了。真实不容易啊。不过收获也是大大的。</p>
 <p>代码：</p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;string&gt;
-using namespace std;
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;string&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
 
-const long max_points = 100;
-const long infinity = 1000001;
+<span class="at">const</span> <span class="dt">long</span> max_points = <span class="dv">100</span>;
+<span class="at">const</span> <span class="dt">long</span> infinity = <span class="dv">1000001</span>;
 
-int p, r, length, g[max_points][max_points];
-bool flag;
+<span class="dt">int</span> p, r, length, g[max_points][max_points];
+<span class="dt">bool</span> flag;
 
-class vertex
-{
-public:
-    int distance;
-    bool visited;
+<span class="kw">class</span> vertex {
+<span class="kw">public</span>:
+  <span class="dt">int</span> distance;
+  <span class="dt">bool</span> visited;
 };
 
 vertex v[max_points];
 
-void initial()
-{
-    for(int i = 1; i &lt;= p; i++)
-        for(int j = 1; j &lt;= p; j++)
-            g[i][j] = infinity;
+<span class="dt">void</span> initial() {
+  <span class="cf">for</span>(<span class="dt">int</span> i = <span class="dv">1</span>; i &lt;= p; i++)
+    <span class="cf">for</span>(<span class="dt">int</span> j = <span class="dv">1</span>; j &lt;= p; j++)
+      g[i][j] = infinity;
 }
 
-void prim(int origin)
-{
-    int temp_min;
-    int temp_v = 0;
-    int sum = 0;
+<span class="dt">void</span> prim(<span class="dt">int</span> origin) {
+  <span class="dt">int</span> temp_min;
+  <span class="dt">int</span> temp_v = <span class="dv">0</span>;
+  <span class="dt">int</span> sum = <span class="dv">0</span>;
 
-    for(int i = 1; i &lt;= p; i++)
-    {
-        v[i].distance = g[i][origin];
-        v[i].visited = false;
+  <span class="cf">for</span>(<span class="dt">int</span> i = <span class="dv">1</span>; i &lt;= p; i++) {
+    v[i].distance = g[i][origin];
+    v[i].visited = <span class="kw">false</span>;
+  }
+
+  v[origin].distance = <span class="dv">0</span>;
+  v[origin].visited = <span class="kw">true</span>;
+
+  sum++;
+
+  <span class="cf">while</span> (sum &lt; p) {
+    temp_min = infinity;
+    <span class="cf">for</span>(<span class="dt">int</span> i = <span class="dv">1</span>; i &lt;= p; i++)
+      <span class="cf">if</span>(v[i].visited == <span class="kw">false</span> &amp;&amp; v[i].distance &lt; temp_min) {
+        temp_min = v[i].distance;
+        temp_v = i;
+      }
+
+    <span class="cf">if</span>(temp_min &lt; infinity) {
+      length += v[temp_v].distance;
+      v[temp_v].visited = <span class="kw">true</span>;
+      sum++;
+    }
+    <span class="cf">else</span> {
+      flag = <span class="kw">true</span>;
+      <span class="cf">break</span>;
     }
 
-    v[origin].distance = 0;
-    v[origin].visited = true;
-
-    sum++;
-
-    while (sum &lt; p)
-    {
-        temp_min = infinity;
-        for(int i = 1; i &lt;= p; i++)
-            if(v[i].visited == false &amp;&amp; v[i].distance &lt; temp_min)
-            {
-                temp_min = v[i].distance;
-                temp_v = i;
-            }
-
-        if(temp_min &lt; infinity)
-        {
-            length += v[temp_v].distance;
-            v[temp_v].visited = true;
-            sum++;
-        }
-        else
-        {
-            flag = true;
-            break;
-        }
-
-        for(int i = 1; i &lt;= p; i++)
-        {
-            if(v[i].visited == false &amp;&amp; v[i].distance &gt; g[i][temp_v])
-            {
-                v[i].distance = g[i][temp_v];
-            }
-        }
+    <span class="cf">for</span>(<span class="dt">int</span> i = <span class="dv">1</span>; i &lt;= p; i++) {
+      <span class="cf">if</span>(v[i].visited == <span class="kw">false</span> &amp;&amp; v[i].distance &gt; g[i][temp_v]) {
+        v[i].distance = g[i][temp_v];
+      }
     }
+  }
 }
 
-int main(int argc, char *argv[])
-{
-    int a, b, c;
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
+  <span class="dt">int</span> a, b, c;
 
-    while(cin &gt;&gt; p)
-    {
-        if(p == 0)
-            break;
-        cin &gt;&gt; r;
+  <span class="cf">while</span>(cin &gt;&gt; p) {
+    <span class="cf">if</span>(p == <span class="dv">0</span>)
+      <span class="cf">break</span>;
+    cin &gt;&gt; r;
 
-        initial();
+    initial();
 
-        for(int i = 0; i &lt; r; i++)
-        {
-            cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
-            if(c &lt; g[a][b])
-                g[a][b] = g[b][a] = c;
-        }
-        length = 0;
-        prim(1);
-
-        cout &lt;&lt; length &lt;&lt; endl;
+    <span class="cf">for</span>(<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; r; i++) {
+      cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+      <span class="cf">if</span>(c &lt; g[a][b])
+        g[a][b] = g[b][a] = c;
     }
 
-    return 0;
-} 
-</code></pre>
+    length = <span class="dv">0</span>;
+    prim(<span class="dv">1</span>);
+
+    cout &lt;&lt; length &lt;&lt; endl;
+  }
+
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
@@ -228,7 +215,7 @@ int main(int argc, char *argv[])
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="zoj 1314, 1278" href="/posts/2010-05-25-zoj-1314-1278/">Prev</a><a class="item" title="逐渐走上正轨" href="/posts/2010-05-31-on-my-way/">Next</a>
+      <a class="item" title="ZOJ 1314, 1278" href="/posts/2010-05-25-zoj-1314-1278/">Prev</a><a class="item" title="逐渐走上正轨" href="/posts/2010-05-31-on-my-way/">Next</a>
     </div>
   </aside>
 </div>
