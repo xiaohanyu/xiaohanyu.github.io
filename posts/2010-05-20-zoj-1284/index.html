@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>zoj 1284</title>
+    <title>ZOJ 1284</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,66 +43,59 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      zoj 1284
+      ZOJ 1284
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>简单题。题目大意就是判断一个数是否为 <a href="http://Perfect%20number">Perfect number</a>。可是我竟然三次才 ac，原因是没有考虑到数字为 1 的时候。</p>
-<p>求真因数和的时候可以考虑质数判断的算法，循环到 [tex][/tex] 就行了。代码很长很菜：</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;math.h&gt;
+  <section class="twelve wide column"><p>简单题。题目大意就是判断一个数是否为 <a href="https://en.wikipedia.org/wiki/Perfect_number">prefect number</a>。可是我竟然三次才 ac，原因是没有考虑到数字为 1 的时候。</p>
+<p>求真因数和的时候可以考虑质数判断的算法，循环到 <span class="math inline">\(\sqrt{n}\)</span> 就行了。代码很长很菜：</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;math.h&gt;</span>
 
-int get_sum(int number)
+<span class="dt">int</span> get_sum(<span class="dt">int</span> number)
 {
-    int i;
-    int sum = 0;
+  <span class="dt">int</span> i;
+  <span class="dt">int</span> sum = <span class="dv">0</span>;
 
-    for (i = 1; i &lt; sqrt(number); ++i)
-    {
-        if (number % i == 0)
-        {
-            sum += i + number / i;
-        }
+  <span class="cf">for</span> (i = <span class="dv">1</span>; i &lt; sqrt(number); ++i) {
+    <span class="cf">if</span> (number % i == <span class="dv">0</span>) {
+      sum += i + number / i;
     }
-    if ((int)sqrt(number) * (int)sqrt(number) == number)
-    {
-        sum += sqrt(number);
-    }
+  }
 
-    sum -= number;
+  <span class="cf">if</span> ((<span class="dt">int</span>)sqrt(number) * (<span class="dt">int</span>)sqrt(number) == number) {
+    sum += sqrt(number);
+  }
 
-    return sum;
+  sum -= number;
+
+  <span class="cf">return</span> sum;
 }
 
-int main(int argc, char *argv[])
-{
-    int number;
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
+  <span class="dt">int</span> number;
 
-    printf (&quot;PERFECTION OUTPUT\n&quot;);
+  printf (<span class="st">&quot;PERFECTION OUTPUT</span><span class="sc">\n</span><span class="st">&quot;</span>);
 
-    while (scanf(&quot;%d&quot;, &amp;number) &amp;&amp; number)
-    {
-        int sum = get_sum(number);
+  <span class="cf">while</span> (scanf(<span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span>, &amp;number) &amp;&amp; number) {
+    <span class="dt">int</span> sum = get_sum(number);
 
-        if (sum &lt; number)
-        {
-            printf (&quot;%5.0d  DEFICIENT\n&quot;, number);
-        }
-        else if (sum == number)
-        {
-            printf (&quot;%5.0d  PERFECT\n&quot;, number);
-        }
-        else
-            printf (&quot;%5.0d  ABUNDANT\n&quot;, number);
+    <span class="cf">if</span> (sum &lt; number) {
+      printf (<span class="st">&quot;</span><span class="sc">%5.0d</span><span class="st">  DEFICIENT</span><span class="sc">\n</span><span class="st">&quot;</span>, number);
     }
+    <span class="cf">else</span> <span class="cf">if</span> (sum == number) {
+      printf (<span class="st">&quot;</span><span class="sc">%5.0d</span><span class="st">  PERFECT</span><span class="sc">\n</span><span class="st">&quot;</span>, number);
+    }
+    <span class="cf">else</span>
+      printf (<span class="st">&quot;</span><span class="sc">%5.0d</span><span class="st">  ABUNDANT</span><span class="sc">\n</span><span class="st">&quot;</span>, number);
+  }
 
-    printf (&quot;END OF OUTPUT\n&quot;);
+  printf (<span class="st">&quot;END OF OUTPUT</span><span class="sc">\n</span><span class="st">&quot;</span>);
 
-    return 0;
-}
-</code></pre>
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
@@ -172,7 +165,7 @@ int main(int argc, char *argv[])
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="zoj 1168" href="/posts/2010-05-20-zoj-1168/">Prev</a><a class="item" title="zoj 1577" href="/posts/2010-05-23-zoj-1577/">Next</a>
+      <a class="item" title="ZOJ 1168" href="/posts/2010-05-20-zoj-1168/">Prev</a><a class="item" title="ZOJ 1577" href="/posts/2010-05-23-zoj-1577/">Next</a>
     </div>
   </aside>
 </div>
