@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>少即是多——兼谈对 SNS 的看法</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;},{&quot;content&quot;:[&quot;沧海横流，血肉横飞，方显出英雄本色，当年万源保卫战，敌军在不到 30 华里的地面上，使用兵力竞达九十个团，数量十倍于红军，谁能记清当时打了多少次恶仗？每天要牺牲多少人？他却是不多的幸存者之一。而眼前，一切都沉寂了，流逝了。那惊心动魄的枪声，那撕肝裂肺的呐喊，那悲痛欲绝的咒骂和呻吟，那狼藉遍野的残肢断骨和头颅，那千疮百孔仍迎风飘扬的军旗；都沉寂了，流逝了，无影无踪了，犹如做了一场梦……&quot;],&quot;author&quot;:&quot;都梁&quot;,&quot;from&quot;:&quot;亮剑&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+        <div class="ui very padded segment article">
+          <article class="ui stackable divided grid">
+            <header class="row article-head">
+              <div class="column">
+                <h1 class="ui header">
+                  少即是多——兼谈对 SNS 的看法
+                </h1>
+                <div class="ui divider"></div>
+              </div>
+            </header>
+            <div class="row article-body">
+              <section class="twelve wide column">
+                <blockquote>
+                <p>网络的普及，让知识的获取变得空前便利，也让噪音的弥漫变得防不胜防。</p>
+                <p>— 题记</p>
+                </blockquote>
+                <h2 id="sns-小议">SNS 小议</h2>
+                <p>我一直对 SNS 持踌躇的态度，这里所说的 SNS 包括但不限于人人、新浪微博、QQ、 Facebook、Twitter 等。事实上我也有一段时间曾经非常沉迷于校内网（人人网的前身）， 也会用 Nokia 6670 在 <a href="http://m.xiaonei.com " class="uri">http://m.xiaonei.com </a>上发表各种各样的生活琐事和所谓的人生感悟，然后强迫症般地不断刷新刷新，等待着盼望着翘首着“朋友”的回复，尽管这些“朋友”可能有 30% 完全没见过面，另 30% 仅仅是点头之交，再 30% 比较熟但谈不上铁，真正熟的知心朋友可能根本就不在乎你这些烂事——“擦，你个 SB，别总在老子面前买萌了”。</p>
+                <p>大二，我生了一场不大不小的病，挂了七八门不小也不大的课，丢了一个爱的深沉的社团， 弄得自己半年深居简出，沉迷网络，靠 Youku 土豆，笑傲江湖勉强度日。都说时间是医治伤痛的良药，回过神来，我发现，在你最最痛苦的时候，哪怕是你最亲最铁的朋友，也不一定能够理解你的痛苦，更何况承担？ <strong>没有任何人能够对你的痛苦感同身受，更多的时候， 我们需要独力承担，尽管有时独立难支，也要咬牙硬挺。</strong> 这之后的半年，我删除了自己所有的校内日志，并开始学习 Linux、开始补课、开始尝试着重新带一些户外活动，培养一下接班人——虽然名义上我深爱的社团由于种种原因挫骨扬灰、烟消云散了。那半年我过得充实、 快乐，不但培养了几个户外的新人，新交了几个朋友，交接了自己的责任和工作，也开始学习 Linux，进入开源软件的精彩世界。我的大学，前两年围绕着户外，围绕着社团和社团的兄弟们运转，后两年围绕着开源和自由的学习精神运转，我经历过单车旅行路上风雨的洗礼， 看过东极岛的日出，矮拉山的彩虹，挂了十几门课，但也学会了 Linux 命令行下运指如飞键如舞蹈的畅快淋漓。</p>
+                <p>我渐渐的发现，校内上一方面有我很多不大不小的朋友，我想要去的地方和想拍的照片，另一方面这也充斥了各种诸如“萌翻了、美爆了、雷坏了、感动得一塌糊涂了”的所谓放松娱乐甚至是”不分享不是 xx 人“的垃圾信息。更可怕的是，我逐渐发现，一方面，我在这些网站上，浏览垃圾信息的时间大大超过了”关心朋友“的时间，另一方面，我也许并不需要特别关心绝大多数的朋友，即便是最铁的朋友，他今天吃过什么饭、去了哪些地方，这些也与我没啥大关系。最后的最后，我发现，大量的垃圾式的快餐化的娱乐分享、视频和照片会造成两个极其严重的后果：</p>
+                <ul>
+                <li>思考浅薄化。
+                <ul>
+                <li>现在的我们，再也难以想象，在某个美好的阳光四溢的午后，合上笔记本，沏壶菊花茶，转一支钢笔，抽一页书签，在一本书上写写画画。更多的时候，我们是坐在书桌前，玩玩游戏、刷刷微博、浏览一篇又一篇的吐槽八卦日志。谈到这里，我不得不说， 微博的存在使得思考浅薄化变得愈发严重<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。我们没有生活在诗词曲赋的唐宋时代， 这个事实使得 140 字很难表达出某种深刻的思想，更多的是一些日常生活中乌七八糟的文字碎片，这些文字碎片就像肯德基麦当劳里面的薯条一样，蘸上西红柿酱（不蘸也行）就可以吃，随便什么人都可以吃，吃这个东西也不需要什么锅碗瓢盆、烹饪调味。只是这些东西吃完了就是吃完了，没有营养，也没有回味。纵观社会化网络的发展，从 Telnet、BBS，到个人 Blog，再到微博，我们可以发现，人们想在网络上发表信息变得越来越容易，这也造就了这两年来微博的井喷以及进一步的信息爆炸<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>。 可是无论网络怎么发展，信息怎样爆炸，在我看来，高质量的正面有益信息所占的百分比并没有提高，简单来讲，就是信噪比没有发生大的波动<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>。我认为 Wikipedia 是网络时代首屈一指的超高信噪比的网站，但是除了 Wikipedia，我还能想起哪些网站，这些网站上的信息都是对我有益而无害的呢？我想不起来。人人不是，FaceBook 不是，微博不是，QQ更不是。如果诸位高朋能够找到类似于 Wikipedia 这样的宝库， 请不吝告诉我，我将不胜感激。</li>
+                <li>思考浅薄化的间接后果就是你很难再去花几个小时连续的时间去阅读一本书了，你很难再去花几个小时连续的时间去想一道题的不同解法了。你也很难写出大段的具有逻辑性的精彩文章来，你所剩的只有只言片语，文字碎片。</li>
+                </ul></li>
+                <li>时间碎片化。
+                <ul>
+                <li>如果你稍微懂点计算机操作系统原理，你就是知道 Context Switch（上下文切换） 这个名词，它说的是计算机 CPU 在切换不同进程时的一种开销。所以分时系统计算机的效率理论上永远也不会达到 100%，因为肯定有一部分资源耗费在进程切换中了。说得更通俗一点，我们可以用初中生都知道的有用功和总功的概念来阐述这个观点。比如你想把一桶水从一楼提到十楼，当你耗费了三个包子的体力（这个是总功）终于把水提上来的时候，你会发现，如果不提桶，只提水，只需要耗费两个包子的体力（这个是有用功）就可以了。因为你真正目的是提水，而不是提桶。读者可能说，老兄你这不是废话吗，这么简单地道理还用你磨叽？想提水的话当然需要桶喽。别急。之所以打这个有点荒谬的比方，是因为从吃喝拉撒睡的角度上看，我们的人生就是如此。 我们都知道，人的一天 24 小时（这个是总功），平均有 8 个小时（这个是无用功） 是要耗在床上的（别想歪了哈，我说的是可是正常的睡觉），但是人生下来不是为了睡觉的。人的一辈子可能会干很多事情，比如读书写字画画演讲办企业下馆子，但每个人生下来都不是为了睡觉的。而睡觉又是必不可少的，正如你想提水，水桶是必不可少的一样。在此基础上，我们再来思考，互联网，尤其是 SNS，到底怎样使我们的时间支离破碎？为什么大块的无人打扰的时间如此重要？</li>
+                <li>有一个非常著名的理论，叫做一万小时天才理论。这个理论讲的是，一个人，如果想成为某一领域的专家权威，需要至少一万小时的刻苦专业训练，即便这个人是莫扎特、高斯一样的天才，一万小时也概莫能外。为什么你不是下一个马克·扎克伯格<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>？因为当人家已经编写了几万行代码考虑软件架构的时候，你还在骑着自行车绕着院子转圈；当人家已经在考虑大规模网站的可靠性可扩展性的时候，你还在纠结要不要去听明天早晨八点的课；当人家已经在考虑怎样透过自己的网站改变世界的时候，你还在犹豫着是要考研还是要找工作，找工作是要找外企呢还是体制内的呢。我们已经谈到，我们整个人生的三分之一要耗在睡眠上。而几乎可以肯定的是，对于一般人而言，剩余的 16 小时时间里，吃喝拉撒至少要占用 3 个小时的时间。剩下的 13 个小时，我们的大脑还要进行各种各样的 Context Switch，效率肯定也是要大打折扣的。有一个理论讲的是， 人同一时间内最多只能关注七件事情<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>。 <strong>深入的思考是容不得别人打扰的，一旦中断，思考的大厦就会崩塌，重建的过程往往循环往复、困难重重。</strong> 这就是为什么聪明人只想和更聪明，至少是和自己一样聪明的人一起工作的原因，资深的 Hacker 更是如此，他们才没有耐心告诉你 Apache 该怎么配置呢<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>。</li>
+                </ul></li>
+                </ul>
+                <p>为什么深入的思考如此重要？因为人类的文明已经到了如此的境地，如果没有深入的思考， 你就不可能识他人所不识、知他人所不知。大到一项科学理论的创立，小到一项发明的完成， 想要影响世界，make a difference，没有少则几年长则半生的苦苦思索，就想把人类已经发展到如此高度的文明再向前推进哪怕一小步，几乎是不可能的事情。那么，为什么大块的无人打扰的时间如此重要？因为没有大块的无人打扰的时间，就不会有深入的思考。而微博、 QQ、360 以及最普通的桌面上搜狐、迅雷新闻首页弹出窗口的存在，弥漫在电脑LED上各种各样的名叫 distraction 的东西，会让你的思考深度曲线像正弦函数一般，摇摆不定，上下颤动<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>。</p>
+                <p>以上讲了这么多，诸位读者可能会觉得我这个人太偏激了。毕竟“世界潮流，浩浩荡荡，顺之者昌，逆之者亡”，发端于第三次工业革命末端的互联网终将引领整个第三次工业革命的潮流，被我这么一说，倒好像成了吞噬人生毁灭梦想的洪水猛兽了。其实我不是这个意思， 我热爱互联网，也热爱互联网行业，以及互联网行业的底层设施——开源自由的软件，和互联网行业的高尚品德——自由、分享的精神。任何事情都是一把双刃剑，网络如此，读书也是如此。而我采取的策略就是“取我所需，防我所恶“，核心精神就是本文的题目 ——“少即是多”。 由此这四字箴言延伸而来，具体到生活中（不仅仅是对待互联网），就是：</p>
+                <ul>
+                <li>少见些人</li>
+                <li>少说些话</li>
+                <li>多读些书</li>
+                <li>多做些事</li>
+                </ul>
+                <h2 id="少见些人">少见些人</h2>
+                <blockquote>
+                <p>她们都老了吧</p>
+                <p>她们在哪里呀</p>
+                <p>我们就这样</p>
+                <p>各自奔天涯</p>
+                <p>— 朴树《那些花儿》</p>
+                </blockquote>
+                <p>大学伊始，我非常幸运地加入了旅行者户外。这里有一群人，他们猥琐、腐败、自虐，他们行走、思考，他们始终在路上。他们是行者，而行者是无疆的。就好象命中注定一般，我庆幸来到浙大而没有选择去上交，庆幸提前半年过来上预科，碰巧就看到了这群人，碰巧就加入了这个组织，从此释放了深埋于我血液中骨子里十八年的流浪旅行的冲动。这之后的两年， 靠着一辆单车，我几乎走遍了浙江省的各个城市，在中国的版图上画了几条长长的线圈。我热爱这里的人，热爱这里的坦诚相待，热爱这里的无拘无束。我感觉我找到了组织，沉迷其中，不可自拔<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>。</p>
+                <p>这之后的两年，我接受了社团的工作，当上了社团的会长，带领着一群人山山水水并和学校团委保守派做不朽的抗争，见识到了比我早四年的学长和比我晚四年的学弟，见证了一个社团由巅峰到低谷到在我手中彻底除名毁灭最后又凤凰涅磐浴火永生的全过程，这期间当然免不了人员的去留摩擦，以及日久天长的隔阂和疙瘩。有的时候我常常分不清楚，我究竟是热爱这个组织多一点还是热爱这个组织里的人多一点，又或是，我两者都不爱，我只爱旅行， 爱组织爱人只是因为爱屋及乌？</p>
+                <p>什么是真正的行者？行者最宝贵的精神是什么？行者仅仅是骑着单车去拉萨吗？仅仅是搭车去柏林吗？仅仅是十年不变的背包旅行吗？我无法回答，因为我至今也没有一个明晰的答案。 所以我已经很久没有出去骑车了。因为在没有想明白这个问题之前，户外和骑车对于我来说， 差不多只是重复劳动罢了。</p>
+                <p>到了大三，当我交接了手上的工作开始全身心地投入到计算机科学的学习之后，我开始越发明白一个道理：人与人之间的交往和感情是靠缘分的。没有什么特别的道理，有的人就能和你贴的很近，即便你们物理上远在天边；而有的人，即便是出去旅行睡一个帐篷，也难免会有隔阂。我曾经天真的幻想，大家一起去旅行是一种极好的交友的方式，因为热爱旅行的人一定是坦荡的、诚实的、热爱自然的、激情澎湃的。这不正是我欣赏的人吗？可是很奇怪， 一场旅行过去，大家回到自己的生活轨道上，各自依旧。其实对于绝大多数人来讲，所谓旅行，不过是逃离烦恼、暂时放松，给自己打一针麻醉针的好方法而已。是我看得太重了。</p>
+                <p>这之后我一个人，对，就一个人，踏着一辆单车走了几千公里的路，抛洒了一路的汗水。有人问，为什么不找个伴？会不会感到孤单？也许吧。也许人生的基调就是孤独的，而你要独自习惯这种孤独。史铁生说，“没有什么能证明爱情，爱情是孤独的证明<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>”。</p>
+                <p><strong>真正的朋友不需要保持频繁的联系，需要频繁的联系才能保持朋友关系的人，也许并不是真正的朋友。70% 的社交（包括饭局）都是很无聊的</strong> <a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>。 所以，亲爱的朋友，如果你生日时没有收到我的礼物，并不代表我的心里没有记挂着你。下次我们再次见面的时候，我相信，亲切依旧，我会亲自为你下厨，做几个小菜，然后给你讲一讲我最近在做的事情、看的书籍、开发的自由软件（如果你感兴趣的话）。</p>
+                <p>缘起缘落，让我们顺其自然。云卷云舒，片刻的相聚并不能代表永恒，也许我们的友情会化作雨水，飘飘然的，润物于无声。原谅我好久没有和你打招呼，原谅我好久没有向你告知我的近况吧。我最近很好，但愿你也一样。</p>
+                <p>所以，亲爱的朋友，如果你生日时没有收到我的礼物，并不代表我的心里没有记挂着你。下次我们再次见面的时候，我相信，亲切依旧，我会亲自为你下厨，做几个小菜，然后给你讲一讲我最近在做的事情、看的书籍、开发的自由软件（如果你感兴趣的话）。</p>
+                <h2 id="少说些话">少说些话</h2>
+                <blockquote>
+                <p>Talk is cheap. Show me the code.</p>
+                <p>— Linus Torvalds</p>
+                </blockquote>
+                <p>3 月份的时候很幸运领到了 WPS for Linux 的邀请码，做了一些小事，也参与了一些论坛讨论。但是讨论的过程中，还是发现了一些令人忍俊不禁的帖子。比如有人建议金山出个操作系统、有人建议金山出一款输入法，更有甚者，还有人要求金山放弃 Qt，直接用 Xlib 编程，原因是他想要获得原生的界面效果；还有人要求金山出一款类似 Office 的 VBA 的中文扩展编程语言，注意，是中文编程语言。对于后面两位天外来客，我只能说，你们实在太高估我们地球人的能力了，仿佛软件中的 Qt 就像积木一样，拔下来就可以换的。我劝你们还是多读读我们地球人的书，对我们地球人的能力有更深入的了解之后，再来说这说那。</p>
+                <p>所以我现在说话有些诚惶诚恐，因为我不知道，是否有朝一日，我的言论就像两位天外来客的言语一样，幼稚无知，却不自知。Talk is cheap。每个人都可以豪言壮语，但不是每个人都能信守承诺，坚持到底。所以要少说，多做，因为你不知道什么时候，你说错了话，却不自知。</p>
+                <p>我们还谈到，互联网的井喷式发展并没有改变互联网本身的信噪比，相反，我倒觉得互联网的发展是不断在降低互联网本身的信噪比，换言之，互联网上的噪声会越来越多，而真正有价值有营养的言论会越来越少。 <strong>如果把互联网比作海洋，那么现在的互联网，水面上水体里已经充满了各式各样大大小小的文字碎片和信息垃圾。</strong> 而这种趋势恰恰又是互联网繁荣发展必不可少的动力。因为互联网若想发展，就必须从阳春白雪的 <a href="http://zh.wikipedia.org/zh-cn/ARPANET">APRANET</a>——只给学校、教授和国防部用的网络，逐渐变成平等、开放、自由、信息获取和制造愈发方便的 INTERNET。 所以你会发现，从 Telnet 到 BBS，从个人 Blog 到 MicroBlog，我们制造信息的流程越来越简单，分享信息的方式越来越扁平，获取信息的手段也越来越迅捷。这极大地满足了劳苦大众唠叨猎奇和八卦的本性，使得原先在路灯下大叔旁棋盘边上的家长里短转移到了互联网上，特别是微博上。而事实上是，这些“碎碎念”般的文字碎片对你个人而言，不仅无用，而且有害。因为它会使你的思维和时间变得“碎碎念”化，这点我前面已经阐述过的。</p>
+                <p>我们没有办法改变互联网“碎碎念”化的这种趋势，但是一方面可以从自身做起，少给互联网制造一些垃圾信息（事实上我也会碎碎念，只不过我的主战场在豆瓣，看得人少，所以我也就不必担心会过多干扰他人的思维和生活）；另一方面，可以想办法给互联网制造一些有营养的东西，恬不知耻的例子，比如这篇博客^_^。</p>
+                <h2 id="多读些书">多读些书</h2>
+                <p>“求知欲是治疗无聊的良方，求知欲本身无药可治<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a>。”</p>
+                <p>大二大三的时候，我曾经苦苦思索，人为了什么而活？最后得到的答案是两个字：快乐。具体说来，活着一是为了让自己快乐，二是为了给他人带去快乐。这几乎也可以推导出另一个重要的命题——人生下来就是要受苦的<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>。我们常常讲，人生之不如意，十有八九。不可选择的出身，无法追回的时间，聚散离别的亲友，独自一人的落寞，无可避免，无法选择。但我们这代人是幸运的，我们没有经历恐怖的文革，却享受了改革的成果。所以我相信，在这篇文章的众位读者里，95% 的人都没有也不会有过饿肚子的感觉。那么归结起来，我们活着就是吃饱了撑的，没事找事，反正得找点乐子，否则会无聊，会空虚，再之后就是碎碎念了 ^_^。</p>
+                <p>找乐子的方式各种各样，找到的乐子也不一而足。 <strong>乐子有深浅之分、长短之别</strong> 。读书所带来的乐趣，深邃而持久，远比饱餐一顿、高歌一曲更能满足人类的精神需求。可悲的是，人们已经不再阅读了，连乔布斯都这么说。有人说，使人毕业后拉开差距的，不是 8 个小时的工作时间，而是 8 小时外的业余时间。我承认这句话很有道理也很精辟，一针见血地指出了业余时间看书学习的重要性，但是我并不是 100% 赞同这种说法。因为在我看来，读书应该是很纯粹的活动，就是为了读书，完全不是为了什么拉开差距，更不要妄谈钱权地位影响力了（这可能是很多人对于差距的定义吧）。越是为了“拉开差距”而去读书的人，其往往会越走越偏，领会不到读书的真谛。</p>
+                <p>这或许也是当今中国教育的一大弊病和恶果吧。</p>
+                <h2 id="多做些事">多做些事</h2>
+                <p>“用勇气去改变可以改变的事情，用胸怀去接受不能改变的事情，用智慧去分辨二者的不同。”——李开复</p>
+                <p>我相信，如果李开复老师不是童年就移居美国，今天的创新工厂可能未必存在；如果陈士骏先生不是童年就移居了美国，也未必会有 Youtube。有些东西是无法选择的，比如出身。 一个农民的儿子和一个教授的儿子起点是不一样的；一个贵州山区的孩子和一个北京的孩子，出路也是不一样的。因为世界上本来就没有绝对的公平。</p>
+                <p>常有人讲，Your time is limited, you must follow your heart<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>。可是很多人连明白这个道理的机会都没有，一辈子就那么过去了。我很庆幸，在我二十岁出头，还不算太晚的时候，就已经明白 “follow my heart（我随心动）”的这个道理了，所以我是个不循礼法、 不懂屈服、特别能折腾的人。因为我明白，生命有限，如果我可以在有限的时间里做更多的事情，那么我就是在变相延长着我自己的生命。</p>
+                <p>我有一个观点，人生在于有目的地折腾。</p>
+                <p>我现在还有一个烦恼，就是始终无法克服起床困难综合症。</p>
+                <h2 id="生命的维度">生命的维度</h2>
+                <p>如果你看过 <a href="http://movie.douban.com/subject/3194941/">Dimensions: A Walk Through Mathematics</a>，你就会理解在艾舍儿的画作《爬虫》中的蜥蜴的困境，它生活在二维空间，因而几乎永远无法得到直观的三维认识。三维空间对二维动物的想象力而言，就如四维空间的相对论之于绝大多数人类的认知一样（我也不理解相对论），就是一个彻头彻尾的悲剧。</p>
+                <p>既然如此，为什么还要谈维度？什么是生命的维度？</p>
+                <p>我以为，人的生命是有维度的，读书是生命的一个维度，旅行是生命的另一个维度，写作画画也可以是生命的一个维度，搞科研发论文也可以是生命的一个维度。更多的维度需要由你自己来定义。之所以借用 Dimensions 的引用，是想说明一个观点，那就是人要勇于尝试。 因为你永远无法预料，什么样的尝试会给你打来什么样的机遇、会给你的生命增加怎样的维度。生命的维度越高，人判断事情的本领也会越强，正如三维空间的人类比之于二维空间上的蜥蜴，可以看懂正立方体，但是比之于四维空间的人（假设有这样的生物），我们又几乎无法理解超立方体的存在了。但是你不理解，并不代表它就不存在。它一直在，只是你无法领略它的美。</p>
+                <p>旅行就是这样。在我上大学之前，我从来无法想象，一个人，可以盯着烈日、冒着风雨、背着行李、踏着单车冲上青藏高原，但后来我做到了，其实也远没有那么难。一旦你意识到外维空间的存在，你就会像影片中那只爬出二维空间走进三维空间的蜥蜴一样，领略高维空间的美，并看着自己的同伴在低维空间力徘徊迷茫，不知所措。旅行带给了我很多财富，它让我更淡定地面对惨淡的人生，并且去尝试在各个角度上寻找突破，不断地想办法给自己的生命拓展出新的维度。</p>
+                <h2 id="求于至简归于永恒">求于至简，归于永恒</h2>
+                <p>在所有的 SNS 网站以及所有的中国互联网公司中，我最喜欢的是豆瓣。它没有微博的喧闹， 也没有校内的八卦无聊。它不跟风，却坚持自己的理念，做一家慢公司<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a>，通过对产品和用户体验的绝对专注和持续改进，不断的改进用户体验，给用户创造价值。虽然这个过程难免一波三折，并且并不是所有人都能理解（绝大多数是因为狗日的中国网络审查制度），但是不可否认，豆瓣网的整体用户素质绝对是各大 SNS 中数一数二的。单凭这点，就足以让我抛弃所有其他的 SNS，投身豆瓣了。更可贵的是，豆瓣是一个高信噪比的网站，我在上面的所得，包括高手的书评影评、一些颇有质量的博文订阅，以及对自己学习历程的记录，都让我受益匪浅。</p>
+                <p><strong>顺便说一句，中国互联网公司的惯用手法就是耍流氓，不光对美帝耍，对国内用户也毫不客气。鉴别这类流氓网站有一个最简单的一个评判标准——看看能不能方便的注销账户。</strong> 以此标准，百度、新浪、人人都是流氓网站，操着为用户服务的口号，背地里却耍着请神容易送神难的手段，就是不让你注销、就是不让你离开、就是要不断地发邮件骚扰你、就是想让你“多回头看我两眼”、就是想让你的时间思考碎碎化。他娘的，如果不是有 GFW 的存在， 我会用人人、百度？</p>
+                <p>少即是多，试着使自己的生活简单化、心灵单纯化，给自己留出点时间看看书、写写字，哪怕做做白日梦也好的。</p>
+                <p>只有求于至简，才能归于永恒。<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a></p>
+                <section class="footnotes">
+                <hr />
+                <ol>
+                <li id="fn1"><p>我没有说微博不好，事实上我认为微博和 BBS、博客一样，是网络信息源平民化过程中的一个自然而然的必要产物<a href="#fnref1">↩</a></p></li>
+                <li id="fn2"><p>同时也造就了一批打着“云计算”、“云存储”、“大数据”的创业的和非创业的公司企业 ^_^<a href="#fnref2">↩</a></p></li>
+                <li id="fn3"><p><a href="http://book.douban.com/subject/5379664/">《浅薄》</a>，我近期的想读书籍之一<a href="#fnref3">↩</a></p></li>
+                <li id="fn4"><p>参看这篇<a href="http://book.douban.com/review/5028992/">《Facebook效应》</a>的书评<a href="#fnref4">↩</a></p></li>
+                <li id="fn5"><p>未鹏的<a href="http://book.douban.com/subject/6709809/">《暗时间》</a>这本书里，有关于语言、思维、大脑、时间非常精彩的论述<a href="#fnref5">↩</a></p></li>
+                <li id="fn6"><p>阮一峰翻译的的<a href="http://book.douban.com/subject/4163938/">《软件随想录》</a>里面有一些非常精辟的关于聪明人、Hacker的论述<a href="#fnref6">↩</a></p></li>
+                <li id="fn7"><p>如何避免这些分散注意力的东西，这是我写作这篇文章和《打造高效的工作环境》系列文章的主要动因之一<a href="#fnref7">↩</a></p></li>
+                <li id="fn8"><p>沉溺其中、不可自拔是改变世界、成就梦想的必由之路<a href="#fnref8">↩</a></p></li>
+                <li id="fn9"><p>感谢 Wooooonderful 告知我这句话<a href="#fnref9">↩</a></p></li>
+                <li id="fn10"><p>70%……这个是俞敏洪老师微博上的观点，这里再次郑重推荐下俞敏洪老师的 “<a href="http://chuangye.umiwi.com/2011/0412/13808.shtml">创业传记</a>”，会让你对人生、中国的人情社会，以及朋友关系有很深的思考<a href="#fnref10">↩</a></p></li>
+                <li id="fn11"><p>豆瓣上的一句话，忘记出处了<a href="#fnref11">↩</a></p></li>
+                <li id="fn12"><p>这也是俞敏洪老师的观点<a href="#fnref12">↩</a></p></li>
+                <li id="fn13"><p><a href="http://v.youku.com/v_show/id_XMjYzNTE0MTA4.html">乔布斯在斯坦福大学的演讲</a><a href="#fnref13">↩</a></p></li>
+                <li id="fn14"><p>参考<a href="http://tech.163.com/10/1012/16/6IQC1FUJ000915BF.html">豆瓣：“慢公司”</a><a href="#fnref14">↩</a></p></li>
+                <li id="fn15"><p><a href="http://book.douban.com/subject/3670621/">《计算机的心智——操作系统之哲学原理》</a><a href="#fnref15">↩</a></p></li>
+                </ol>
+                </section>
+                
+                <div class="ui divider"></div>
+                <div class="ui small one item menu">
+                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+                </div>
+                <div id="disqus_thread"></div>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+              </section>
+              <aside class="four wide column">
+                <div class="ui small header">
+                  License
+                </div>
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+                <div class="ui small header">
+                  Committed
+                </div>
+                <date>2012-05-05</date>
+                <div class="ui small header">
+                  Updated
+                </div>
+                <date>2017-04-14</date>
+                <div class="ui small header">
+                  Category
+                </div>
+                <div class="ui list">
+                  <div class="item">
+                    <a href="/categories#life">
+                      <div class="ui label">
+                        Life<sup>44</sup>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="ui small header">
+                  Tags
+                </div>
+                <div class="ui list">
+                  <div class="item">
+                    <a href="/tags#douban">
+                      <div class="ui label">
+                        Douban<sup>3</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#life">
+                      <div class="ui label">
+                        Life<sup>4</sup>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="ui small header">
+                  Meta
+                </div>
+                <p>
+                  Imported from <a href="http://cnlox.is-programmer.com/posts/33354.html">is-programmer</a>.
+                </p>
+                <div class="ui small header">
+                  Links
+                </div>
+                <div class="ui small two item menu">
+                  <a class="item" title="GAS汇编(1):起步" href="/posts/2012-03-24-introducing-gas-assembly/">Prev</a><a class="item" title="打造高效的工作环境(番外篇1): windows/linux钗黛双收" href="/posts/2012-06-02-effective-work-with-both-windows-and-linux/">Next</a>
+                </div>
+              </aside>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>
