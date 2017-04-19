@@ -39,91 +39,89 @@
           </div>
         </div>
       </nav><div class="ui stackable container">
-        <div class="ui very padded segment article">
-          <article class="ui stackable divided grid">
-            <header class="row article-head">
-              <div class="column">
-                <h1 class="ui header">
-                  实验室几日
-                </h1>
-                <div class="ui divider"></div>
-              </div>
-            </header>
-            <div class="row article-body">
-              <section class="twelve wide column">
-                <p>3月底接到学长的电话，说有一个紧急项目需要赶工，大概是需要二十天奋斗。我犹豫再三 —— 编译原理还没有看（到现在也没有看 ……），很多课也需要补补了，计算机组成和计算机体系结构两门大头更是头疼。岂料第二天导师又给我来了电话。那时候早晨九点，我还在床上睡觉，看到导师的电话，立马醒了过来，连声“是、我去、一定”。就这样，还引来室友一片羡慕 ——“你们导师还给你电话啊，我导师就没理过我 ……”。于是周日去实验室开会，导师布置任务。会上导师间接批评了我。想想也是，导师说的也有道理，自己乱搞，到头来还是花拳绣腿。应用才是检验你水平最重要的标准。自己进实验室也大半年了，却始终没有做什么东西出来。一来自己水平不济；二来很多东西尚待熟悉；三来自己课业也不轻松。不过这样下去也不是个事情，人家没有实验室的想办法挤进实验室，自己身在福中不知福，倒真是有点不应该了。</p>
-                <p>项目大概是这样，在自己开发的一套 gui engine 的基础上，重新写一套模仿 iPhone 的控件，并写成一套业务逻辑，交给客户。开发环境是 VS2008，嵌入式系统用的是基于 WinCE 的 Windows Mobile 6.0。整套老的基础代码大概写了好几年了，有 5 万多行，实现了一个基本的 WinCE 应用程序的 GUI。以后的发展方向可能是平台的移植，布局管理器的加入和 bug 的修复。我们这个项目就是在这个代码的基础上临阵磨枪，20天仿出一套 iPhone 的东西。</p>
-                <p>所谓“会者不难，难者不会”，对于熟悉这个体系的人来说，改造美工都比较容易；对于新手，初来乍到，恐怕光是熟悉 Windows 消息循环都要花一定的时间。好在我看过 200 页的《Windows核心编程》，对于基本原理还是略知一二，加上前人写好的程序框架，在这方面也不用操太多的心。</p>
-                <p>整个项目组六个人，一个毕业的学长，一个公司的员工，两个大四的刚考上 ZJU 研究生的学长，一个大三软工的同学，还有我。不过令我感到十分震惊的是，两位大四的和大三软工的学习，竟然连基本的 C++ 语法、输入输出都有不小的问题。可见，当我们抱怨工作难找的时候，又是否考虑过，自己就竟能为你的雇主带来些什么呢？</p>
-                <p>自己主要负责文本类型控件的编写。差不多快十天了。其中一天泡了图书馆看《C++标准程序库》,两三天陪陪 mm，两三天搞搞课业，剩下几天都在实验室了。最终还算有些成果 —— 虽然以学长的标准，这不算什么。</p>
-                <p><img src="file:///user_files/cnlox/Image/screenshots/vs2008.png" /></p>
-                <p>目前的控件支持 Alpha 透明、圆角效果、字体颜色、字体背景色、部分支持字体大小、字体排列方式、字体的下划线粗体等效果、位图和 png 图片的载入。存在的问题主要是字体换行和光标定位。当然，我一个人是做不来这么多工作的。我的工作只是参照原来的老的控件代码，整合一些新的函数接口，提供一个统一易用的控件使用接口而已。不过，说起来容易做起来麻烦。许多参数，字体大小，颜色，alpha值需要自己慢慢调。也曾考虑过设计模式的问题，想设计一个 IStyle 类，统一管理控件外观，不过这超出了我的能力和职责。Anyway，这个过程还是收获了很多。更加深刻的体会到，把你自己的想法转换成可运行的代码，让你的代码编程漂亮的 GUI 界面，这样的转换需要多大的能力和精力。否则，MINIGUI也不会耗时十年，才写出 3.0。</p>
-                <p>此时我又想到了 Open Source。我相信 Open Source never die。我也相信终有一天，所有的软件代码会向数学公式一样，成为程序员通用的语言，而不是藏着掖着。我初步体会到了交流的重要性。事实上，软件开发过程中，闭门造车是一件非常可怕的事情 —— 浪费时间、浪费金钱、浪费生命。Reinvent the wheel，这也是我对这个项目始终提不起兴趣放不开手脚的最大阻碍吧。我还想着，什么时候 Qt 也能运行在 windows mobile 平台上，这样我们就不用天天面对着这坨猪肉一般的代码发呆了。</p>
-                <p>另：可能你会问“为什么你的 vs 是黑色的？”。其实，google下 filetype:vssettings 就可以了。设置黑底白字，可以有效的保护眼睛，延长屏幕的使用寿命。另外，visual assist，非常好用的 vs 插件；viEmu，让 vs 的编辑器拥有简单的 vim 的快捷编辑功能，提高工作效率。俗话说，磨刀不误砍柴功，简单的配置，换来的是日后的方便。</p>
-                <p>Anyway，该做的还是要做。完成这几个控件，写几个页面。然后好好补补课程，一个短学期又要过去了。好快。</p>
-                <p>“每当一个人走在月亮下的时候，就会想起你的手”。</p>
-                
-                <div class="ui divider"></div>
-                <div class="ui small one item menu">
-                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
-                </div>
-                <div id="disqus_thread"></div>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </section>
-              <aside class="four wide column">
-                <div class="ui small header">
-                  License
-                </div>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
-                <div class="ui small header">
-                  Committed
-                </div>
-                <date>2010-04-07</date>
-                <div class="ui small header">
-                  Updated
-                </div>
-                <date>2017-04-14</date>
-                <div class="ui small header">
-                  Category
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/categories#windows">
-                      <div class="ui label">
-                        Windows<sup>3</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Tags
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/tags#wince">
-                      <div class="ui label">
-                        WinCE<sup>1</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/16658.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
-                  Links
-                </div>
-                <div class="ui small two item menu">
-                  <a class="item" title="ZOJ 1201" href="/posts/2010-04-06-zoj-1201/">Prev</a><a class="item" title="ZOJ 1489" href="/posts/2010-04-12-zoj-1489/">Next</a>
-                </div>
-              </aside>
-            </div>
-          </article>
-        </div>
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      实验室几日
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>3月底接到学长的电话，说有一个紧急项目需要赶工，大概是需要二十天奋斗。我犹豫再三 ——编译原理还没有看（到现在也没有看……），很多课也需要补补了，计算机组成和计算机体系结构两门大头更是头疼。岂料第二天导师又给我来了电话。那时候早晨九点，我还在床上睡觉，看到导师的电话，立马醒了过来，连声“是、我去、一定”。就这样，还引来室友一片羡慕——“你们导师还给你电话啊，我导师就没理过我……”。于是周日去实验室开会，导师布置任务。会上导师间接批评了我。想想也是，导师说的也有道理，自己乱搞，到头来还是花拳绣腿。应用才是检验你水平最重要的标准。自己进实验室也大半年了，却始终没有做什么东西出来。一来自己水平不济；二来很多东西尚待熟悉；三来自己课业也不轻松。不过这样下去也不是个事情，人家没有实验室的想办法挤进实验室，自己身在福中不知福，倒真是有点不应该了。</p>
+<p>项目大概是这样，在自己开发的一套 GUI engine 的基础上，重新写一套模仿 iPhone 的控件，并写成一套业务逻辑，交给客户。开发环境是 VS 2008，嵌入式系统用的是基于 WinCE 的 Windows Mobile 6.0。整套老的基础代码大概写了好几年了，有 5 万多行，实现了一个基本的 WinCE 应用程序的 GUI。以后的发展方向可能是平台的移植，布局管理器的加入和 bug 的修复。我们这个项目就是在这个代码的基础上临阵磨枪，20 天仿出一套 iPhone 的东西。</p>
+<p>所谓“会者不难，难者不会”，对于熟悉这个体系的人来说，改造美工都比较容易；对于新手， 初来乍到，恐怕光是熟悉 Windows 消息循环都要花一定的时间。好在我看过 200 页的 《Windows核心编程》，对于基本原理还是略知一二，加上前人写好的程序框架，在这方面也不用操太多的心。</p>
+<p>整个项目组六个人，一个毕业的学长，一个公司的员工，两个大四的刚考上 ZJU 研究生的学长，一个大三软工的同学，还有我。不过令我感到十分震惊的是，两位大四的和大三软工的学生，竟然连基本的 C++ 语法、输入输出都有不小的问题。可见，当我们抱怨工作难找的时候，又是否考虑过，自己就竟能为你的雇主带来些什么呢？</p>
+<p>自己主要负责文本类型控件的编写。差不多快十天了。其中一天泡了图书馆看《C++标准程序库》,两三天陪陪 mm，两三天搞搞课业，剩下几天都在实验室了。最终还算有些成果——虽然以学长的标准，这不算什么。</p>
+<p><a href="/static/image/2010/vs_2008_wince.png"><img src="/static/image/2010/vs_2008_wince.png" /></a></p>
+<p>目前的控件支持 Alpha 透明、圆角效果、字体颜色、字体背景色、部分支持字体大小、字体排列方式、字体的下划线粗体等效果、位图和 png 图片的载入。存在的问题主要是字体换行和光标定位。当然，我一个人是做不来这么多工作的。我的工作只是参照原来的老的控件代码，整合一些新的函数接口，提供一个统一易用的控件使用接口而已。不过，说起来容易做起来麻烦。许多参数，字体大小，颜色，Alpha 值需要自己慢慢调。也曾考虑过设计模式的问题，想设计一个 IStyle 类，统一管理控件外观，不过这超出了我的能力和职责。 Anyway，这个过程还是收获了很多。更加深刻的体会到，把你自己的想法转换成可运行的代码，让你的代码编程漂亮的 GUI 界面，这样的转换需要多大的能力和精力。否则，MiniGUI 也不会耗时十年，才写出 3.0。</p>
+<p>此时我又想到了 Open Source。我相信 Open Source never die。我也相信终有一天，所有的软件代码会向数学公式一样，成为程序员通用的语言，而不是藏着掖着。我初步体会到了交流的重要性。事实上，软件开发过程中，闭门造车是一件非常可怕的事情——浪费时间、浪费金钱、浪费生命。Reinvent the wheel，这也是我对这个项目始终提不起兴趣放不开手脚的最大阻碍吧。我还想着，什么时候 Qt 也能运行在 Windows Mobile 平台上，这样我们就不用天天面对着这坨猪肉一般的代码发呆了。</p>
+<p>另：可能你会问“为什么你的 VS 是黑色的？”。其实，google下 <code>filetype:vssettings</code> 就可以了。设置黑底白字，可以有效的保护眼睛，延长屏幕的使用寿命。另外，<a href="http://www.wholetomato.com/">Visual Assist</a>，非常好用的 VS 插件；<a href="http://www.viemu.com/">ViEmu</a>，让 VS 的编辑器拥有简单的 Vim 的快捷编辑功能， 提高工作效率。俗话说，磨刀不误砍柴功，简单的配置，换来的是日后的方便。</p>
+<p>Anyway，该做的还是要做。完成这几个控件，写几个页面。然后好好补补课程，一个短学期又要过去了。好快。</p>
+<p>“每当一个人走在月亮下的时候，就会想起你的手”。</p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2010-04-07</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#windows">
+          <div class="ui label">
+            Windows<sup>3</sup>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#wince">
+          <div class="ui label">
+            WinCE<sup>1</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/16658.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="ZOJ 1201" href="/posts/2010-04-06-zoj-1201/">Prev</a><a class="item" title="ZOJ 1489" href="/posts/2010-04-12-zoj-1489/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
     </div>
     <div id="footer">
       <footer class="ui inverted vertical center aligned footer segment">
