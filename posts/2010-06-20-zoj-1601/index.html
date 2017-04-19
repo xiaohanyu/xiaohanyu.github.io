@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>zoj 1601</title>
+    <title>ZOJ 1601</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,124 +43,107 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      zoj 1601
+      ZOJ 1601
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>小数的分数逼近，题目的思路是挺简单的，假设 A=N/D，那么 N=[D*A] 或者 N=[D*A]+1，按照这个公式对 D 进行枚举，不断更新最佳值即可。下面是我的 WA 的代码：</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;math.h&gt;
+  <section class="twelve wide column"><p>小数的分数逼近，题目的思路是挺简单的，假设 <code>A = N / D</code> ，那么 <code>N = [D * A]</code> 或者 <code>N = [D * A] + 1</code> ，按照这个公式对 <code>D</code> 进行枚举，不断更新最佳值即可。下面是我的 WA 的代码：</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;math.h&gt;</span>
 
-int main(int argc, char *argv[])
-{
-    double A;
-    int L;
-    int N, D;
-    double delta;
-    double min;
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
+  <span class="dt">double</span> A;
+  <span class="dt">int</span> L;
+  <span class="dt">int</span> N, D;
+  <span class="dt">double</span> delta;
+  <span class="dt">double</span> min;
 
-    while (scanf(&quot;%lf%d&quot;, &amp;A, &amp;L) != EOF)
-    {
-        min = 10 * L;
+  <span class="cf">while</span> (scanf(<span class="st">&quot;%lf%d&quot;</span>, &amp;A, &amp;L) != EOF) {
+    min = <span class="dv">10</span> * L;
 
-        int i;
+    <span class="dt">int</span> i;
 
-        for (i = 0; i * A &lt;= L &amp;&amp; i &lt;= L; ++i)
-        {
-            int temp_D = i;
-            int N1 = (int) i * A;
-            double delta1 = fabs(A - (double) N1 / i);
+    <span class="cf">for</span> (i = <span class="dv">0</span>; i * A &lt;= L &amp;&amp; i &lt;= L; ++i) {
+      <span class="dt">int</span> temp_D = i;
+      <span class="dt">int</span> N1 = (<span class="dt">int</span>) i * A;
+      <span class="dt">double</span> delta1 = fabs(A - (<span class="dt">double</span>) N1 / i);
 
-            int N2 = (int) i * A + 1;
-            double delta2 = fabs(A - (double)N2 / i);
+      <span class="dt">int</span> N2 = (<span class="dt">int</span>) i * A + <span class="dv">1</span>;
+      <span class="dt">double</span> delta2 = fabs(A - (<span class="dt">double</span>)N2 / i);
 
-            if (delta1 &lt; delta2 &amp;&amp; delta1 &lt; min)
-            {
-                D = temp_D;
-                N = N1;
-                min = delta1;
-            }
-            else if(delta1 &gt; delta2 &amp;&amp; delta2 &lt; min)
-            {
-                D = temp_D;
-                N = N2;
-                min = delta2;
-            }
-        }
-
-        printf(&quot;%d %d\n&quot;, N, D);
+      <span class="cf">if</span> (delta1 &lt; delta2 &amp;&amp; delta1 &lt; min) {
+        D = temp_D;
+        N = N1;
+        min = delta1;
+      }
+      <span class="cf">else</span> <span class="cf">if</span>(delta1 &gt; delta2 &amp;&amp; delta2 &lt; min) {
+        D = temp_D;
+        N = N2;
+        min = delta2;
+      }
     }
 
-    return 0;
-}
-</code></pre>
-<p>由于没有测试数据，所以也不知道这道题目究竟错在哪里。我也找来了 AC 的 <a href="http://hi.baidu.com/delta_4d/blog/item/86414b3f74a46ef6838b135d.html">代码 </a>：</p>
-<pre><code>#include&lt;stdio.h&gt;
-#include&lt;math.h&gt;
+    printf(<span class="st">&quot;%d %d</span><span class="sc">\n</span><span class="st">&quot;</span>, N, D);
+  }
 
-int main(void)
-{
-    double min;
-    double A;
-    long i;
-    long j;
-    long N;
-    long D;
-    long L;
-    long pd;
-    long pn;
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+<p>由于没有测试数据，所以也不知道这道题目究竟错在哪里。我也找来了 AC 的<a href="http://hi.baidu.com/delta_4d/blog/item/86414b3f74a46ef6838b135d.html">代码</a>：</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include</span><span class="im">&lt;stdio.h&gt;</span>
+<span class="pp">#include</span><span class="im">&lt;math.h&gt;</span>
 
-    while (scanf(&quot;%lf %ld&quot;, &amp;A, &amp;L) != EOF)
-    {
-        pn = -999999;
-        pd = 1;
-        min = 9999999;
+<span class="dt">int</span> main(<span class="dt">void</span>) {
+  <span class="dt">double</span> min;
+  <span class="dt">double</span> A;
+  <span class="dt">long</span> i;
+  <span class="dt">long</span> j;
+  <span class="dt">long</span> N;
+  <span class="dt">long</span> D;
+  <span class="dt">long</span> L;
+  <span class="dt">long</span> pd;
+  <span class="dt">long</span> pn;
 
-        for (D=1; D&lt;=L; ++D)
-        {
-            N = (long)(D * A);
+  <span class="cf">while</span> (scanf(<span class="st">&quot;%lf %ld&quot;</span>, &amp;A, &amp;L) != EOF) {
+    pn = -<span class="dv">999999</span>;
+    pd = <span class="dv">1</span>;
+    min = <span class="dv">9999999</span>;
 
-            if (N &gt; L)
-            {
-                break;
-            }
+    <span class="cf">for</span> (D=<span class="dv">1</span>; D&lt;=L; ++D) {
+      N = (<span class="dt">long</span>)(D * A);
 
-            for (i=0; i&lt;=1; ++i)
-            {
-                if (fabs(min - A) &gt; fabs((double)(N+i)/(double)D - A))
-                {
-                    pn = N+i;
-                    pd = D;
-                    min = (double)(N+i)/(double)D;
-                }
-            }
+      <span class="cf">if</span> (N &gt; L) {
+        <span class="cf">break</span>;
+      }
+
+      <span class="cf">for</span> (i=<span class="dv">0</span>; i&lt;=<span class="dv">1</span>; ++i) {
+        <span class="cf">if</span> (fabs(min - A) &gt; fabs((<span class="dt">double</span>)(N+i)/(<span class="dt">double</span>)D - A)) {
+          pn = N+i;
+          pd = D;
+          min = (<span class="dt">double</span>)(N+i)/(<span class="dt">double</span>)D;
         }
-
-        if (pn == -999999)
-        {
-            for (D=1; D&lt;=L; ++D)
-            {
-                for (N=1; N&lt;=L; ++N)
-                {
-                    if (fabs(min - A) &gt; fabs((double)N/(double)D - A))
-                    {
-                        pn = N;
-                        pd = D;
-                        min = (double)N/(double)D;
-                    }
-                }
-            }
-        }
-
-        printf(&quot;%ld %ld\n&quot;, pn, pd);
+      }
     }
 
-    return 0;
-}
-</code></pre>
-<p>但是这段 AC 的代码在输入 3.33 9 的时候给出的答案是 10 3，显然是错误的答案。困惑中。求高人指点。</p>
+    <span class="cf">if</span> (pn == -<span class="dv">999999</span>) {
+      <span class="cf">for</span> (D=<span class="dv">1</span>; D&lt;=L; ++D) {
+        <span class="cf">for</span> (N=<span class="dv">1</span>; N&lt;=L; ++N) {
+          <span class="cf">if</span> (fabs(min - A) &gt; fabs((<span class="dt">double</span>)N/(<span class="dt">double</span>)D - A)) {
+            pn = N;
+            pd = D;
+            min = (<span class="dt">double</span>)N/(<span class="dt">double</span>)D;
+          }
+        }
+      }
+    }
+
+    printf(<span class="st">&quot;%ld %ld</span><span class="sc">\n</span><span class="st">&quot;</span>, pn, pd);
+  }
+
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+<p>但是这段 AC 的代码在输入 <code>3.33 9</code> 的时候给出的答案是 <code>10 3</code> ，显然是错误的答案。 困惑中。求高人指点。</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">

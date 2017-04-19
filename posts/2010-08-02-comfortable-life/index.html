@@ -39,222 +39,222 @@
           </div>
         </div>
       </nav><div class="ui stackable container">
-        <div class="ui very padded segment article">
-          <article class="ui stackable divided grid">
-            <header class="row article-head">
-              <div class="column">
-                <h1 class="ui header">
-                  一个人的自在
-                </h1>
-                <div class="ui divider"></div>
-              </div>
-            </header>
-            <div class="row article-body">
-              <section class="twelve wide column">
-                <p>6月 15 日开始找实习，到了 25 日左右迎来了人生第一个 offer—— 华数淘宝，待遇是 60 元/天 +10 元/天的晚餐票。找实习的过程很简短，百度和创新工厂预料之中的悲剧，DeviceVM莫名其妙的简短面试和之后的杳无音信，普联 TP-Link 的5分钟快餐面试，阿里一封没有下文的邮件、一个打到一半我手机却没电的尴尬电面、一个没有下文的快餐电话，以及来自上海紫竹科技园 Intel 的漫不经心的“聊聊“，还有十几封泥牛入海的邮件。两周不到，能拿到这个 offer，也算是一个不错的结果了。至少这样的结果给了我信心，成绩差没关系，关键是自己有几斤几两。</p>
-                <p>而后就是无奈的期末考试，算不上奋力一搏，只是应付了事，弃了一门，挂了两门，剩下的几门 70 的、80的、90的各占三成。至此我的大学还剩下十门考试：</p>
-                <ol>
-                <li>电路原理（重修）</li>
-                <li>线性代数（重修）</li>
-                <li>数字电子技术（重修）</li>
-                <li>编译原理</li>
-                <li>编译系统设计</li>
-                <li>计算机组成</li>
-                <li>计算机体系结构</li>
-                <li>计算机网路</li>
-                <li>c# 程序设计</li>
-                <li>软件体系结构</li>
-                </ol>
-                <p>这样的结果，在我的同届预科生中应该算是很悲惨的了。至少很多同学由于多了预科半年的学习时间，到了大三下这个时候，已经完成了除了毕业设计外的全部学业，更有甚者，比如一位我只有过一面之缘的 HDJ，已经提前一年毕业，拿了港大的 offer—— 此mm是浙大李志文商学班的，同时也是浙大游泳队队员之一。对于这样的 mm，除了客套的 ym，更多的是一种敬仰吧 —— 有规划有理想有追求并且能坚持不懈的做下去。</p>
-                <p>熬到 7 月6号，总算考完了最后一门 —— 软件工程，在我看来是一门非常虚无非常飘渺的课程，其结果就是我只上过一次课，成绩也算对得起我的到课率了 ——68 分 ——刚好达到浙大学位证最低成绩要求 ……</p>
-                <p>再之后是帮毕业的 mm 收拾寝室，给 mm 拍傻傻的学士服照片 ……12 号早晨送走了 mm，一个人去淘宝报道。没想到第一天报道也是一番纠结，首先是华数淘宝正式从淘宝剥离，从文二路淘宝公司内部搬到了紫荆花路府苑新村，然后我放下自行车导了三辆公交才到华数淘宝。第一天工作很简单，让我在 Windows 上配置个 <a href="http://trac.edgewall.org/">trac</a>，看看 <a href="http://nginx.net/">nginx</a> 服务器。都是从未听说过的东西。</p>
-                <p>我的理解，trac是个 Python 语言写的 svn 前端 <del>wiki 的集合体，著名的 c+</del> boost 库用的就是 trac，ruby也有类似的东西，叫 <a href="http://www.redmine.org/">redmine</a>，当然，我对 ruby 一无所知，对 Python 也仅仅是看过《Learning Python》的前两章，还出于 ym 的阶段。安装参考这篇 [[<a href="http://how-to-solutions.com/how-to-install-trac-on-windows.html" class="uri">http://how-to-solutions.com/how-to-install-trac-on-windows.html</a>][How To Install Trac on Windows]]，其中有几个链接已经过时，需要自己手工下载安装。安装的过程还算顺利 —— 比安装 Gentoo 顺利多了 <img src="http://cnlox.is-programmer.com/javascripts/fckeditor/editor/images/smiley/chito/wink_smile.gif" />。不过还是挺麻烦的 —— 如果在 Linux 下，一两条命令应该就可以了，也不用“鼠标点击 ——next——install“。</p>
-                <p>nginx是轻量级的 http 服务器，其功能或许不如 Apache 全，但是性能却比 Apache 强很多，尤其是在 flv 视频支持方面，其原理大概在于 nginx 针对不同的平台编码采用了不同的 I/O 模型。nginx的代码不算长，大概 10w 行左右，用 c 写成，所有的东西甚至包括 ./configure 脚本都是作者手工写成，是一个锻炼阅读源码的好项目。国内的血多视频网站如 youku、tudoo等后台服务器都是 nginx。</p>
-                <p>第二天我就参加了小组会议，头儿给我讲了整个项目的架构和周期，听的我非常兴奋。大体思路就是我们要搭成一个全新的视频点播平台，做成中国的 itunes app store。整个一周我都在了解各方面的信息，也对 taobao 这样的互联网公司有了进一步的了解。网上浏览的时候接触了很多“牛“的资源：</p>
-                <ul>
-                <li><a href="http://code.taobao.org/">淘蝌蚪 </a>：中国人自己的开源平台</li>
-                <li><a href="http://www.slideshare.net/guiwuu/cdn-4508477"> 淘宝 CDN 系统 </a>：淘宝的内容分发网络</li>
-                <li><a href="http://www.taobaodba.com/">Taobao DBA Team</a>：淘宝数据库团队</li>
-                <li><a href="http://rdc.taobao.com/blog/qa/">Taobao QA Team</a>：淘宝 QA 团队</li>
-                <li><a href="http://rdc.taobao.com/blog/cs/">Taobao 核心系统团队 </a></li>
-                <li><p><a href="http://code.taobao.org/project/view/2/">Tair</a>：淘宝内部广泛使用的核心分布式缓存系统</p>
-                这些实际的项目、经验、团队、感想，感觉就在自己的身边，让我兴奋不已。阿里巴巴，马云，中国能有这样的企业，我觉得这是中国的未来。Open</li>
-                </ul>
-                <p>Source Never Die。</p>
-                <p>除了完成头给定的任务，我在网上快速的学习一些科普知识，各个方面的都有，很多东西扫一眼百度百科也比毫不了解要强，这些入门知识包括：</p>
-                <ul>
-                <li><p>网络方面：</p>
-                <ul>
-                <li>SSL(Secure Socket Layer)</li>
-                <li>CMS(Content Manager System)</li>
-                <li>IDC(Internet Data Center)</li>
-                <li>仿盗链原理</li>
-                <li>SNS 网站</li>
-                </ul></li>
-                <li><p>运维方面：</p>
-                <ul>
-                <li>CP(Content Provider)和 SP(Service Provider)</li>
-                <li>VOD(Video On Demand) 和 MOD(Music On Demand)</li>
-                <li><a href="http://www.xunlei.com/">迅雷看看 </a></li>
-                <li><a href="http://www.qiyi.com/"> 奇艺网 </a></li>
-                <li>“<a href="http://tech.sina.com.cn/i/2006-07-12/13131033507.shtml">一个人的豆瓣 </a>”</li>
-                <li>B2B/C2C/B2C的概念</li>
-                </ul></li>
-                <li><p>Linux Tools：</p>
-                <ul>
-                <li><a href="http://www.infoanda.com/resources/find.htm">Find, xargs</a></li>
-                <li>tr、tree、cut、sort、ulimit</li>
-                <li>Regular Expressions, Sed, Awk</li>
-                <li>Bash Scripts</li>
-                <li><a href="http://en.wikipedia.org/wiki/Expect">TCL/Expect</a></li>
-                <li>Bash <a href="http://tldp.org/LDP/abs/html/here-docs.html">Here Documents</a></li>
-                <li><a href="http://vsftpd.beasts.org/">vsftpd</a></li>
-                <li><a href="http://aplawrence.com/Unix/getopts.html">getopts</a></li>
-                <li>uid and gid</li>
-                </ul></li>
-                <li><p>Testing：</p>
-                <ul>
-                <li>Web测试工具：<a href="http://opensta.org/">OpenSTA</a>、<a href="https://h10078.www1.hp.com/cda/hpms/display/main/hpms_content.jsp?zn=bto&amp;cp=1-11-126-17%5E8_4000_100__">HP LoadRunner</a>、<a href="http://httpd.apache.org/docs/2.0/programs/ab.html">Apache ab</a>、<a href="http://jakarta.apache.org/jmeter/">Apache JMeter</a>、Webbench、<a href="http://www.joedog.org/index/siege-home">siege</a></li>
-                <li>压力测试、单元测试、回归测试</li>
-                </ul></li>
-                <li><p>Videos and Audio Formats and Transformation：</p>
-                <ul>
-                <li>比特率和波特率</li>
-                <li>frame rate</li>
-                <li>aspect ratio</li>
-                <li>key frames( 和flash制作中的关键帧不一样 )</li>
-                <li>Related Tools:<a href="http://www.ffmpeg.org/">ffmpeg</a>, <a href="http://yamdi.sourceforge.net/">yamdi</a>, <a href="http://rubyforge.org/projects/flvtool2/">flvtool2</a>, <a href="http://www.buraks.com/flvmdi/">flvmdi</a>, <a href="http://www.adobe.com/products/flashmediaserver/flashmediaencoder/">adode media encoder</a>, <a href="http://www.mplayerhq.hu/">mplayer</a>, <a href="http://www.mplayerhq.hu/DOCS/HTML/en/mencoder.html">mencoder</a>, <a href="http://code.google.com/p/ffmpegthumbnailer/">ffmpegthumbnailer</a></li>
-                </ul></li>
-                <li><p>Other Tools：</p>
-                <ul>
-                <li><a href="https://h10078.www1.hp.com/cda/hpms/display/main/hpms_content.jsp?zn=bto&amp;cp=1-11-127-24_4000_100__">HP QC(Quality Center)</a></li>
-                <li><a href="http://www.xplanner.org/">Xplanner</a></li>
-                <li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">Putty: A remote ssh client</a></li>
-                <li><a href="http://www.vandyke.com/products/securecrt/">SecureCRT: Another ssh client</a></li>
-                </ul>
-                <p>吓到了吧？其实很多我都不会。我现在出于“我不知道我不知道“到“我知道我不知道“这样一个转变的过程。下一个目标是：“我知道我知道”。</p></li>
-                </ul>
-                <p>除此之外，每个桌上那一抹绿色，厕所里的“蹲位以待“，中午和老总一起吃饭的气氛，自由宽松的工作环境时间，这些都是我喜欢的。不过日子久了，每天面对着电脑，看着一行行的字母滚动而过，不免麻木。每天晚上出了公司，抬头看看杭州最近让人淡定不能的天空，心里总有一些别样的悸动。</p>
-                <p>“我一个人吃饭、旅行，到处走走停停；也一个人看书、写信，自己对话谈心”，mm在上海入职培训，无暇顾我，我也就不再好意思打扰她。我告诫自己要忍让要懂得理解，千万不要因为这样的事情跟 mm 生气，如果连这点小事都忍受不了，以后又该如何支持 mm 的工作？我这样自我安慰，mm却不太理解，怪我对她的事情逐渐冷漠，搞得我伤心不已。</p>
-                <p>“你喜欢这个啊，你喜欢玩所有的毛绒玩具，你喜欢妈妈，喜欢爸爸，喜欢你的小睡衣。你什么都喜欢，是不是？知道吗？等你长大了，曾经喜欢的东西也许会变得不再特别，就像这个玩偶盒，你会发现那只是一片铁皮加一个人偶，那些原本钟爱的东西会渐渐被你遗忘，到了我这个年纪，钟爱的东西也许只剩下一两件了，对我来说只剩一件了。”《拆弹部队》，James对他的女儿说完这些，又独自回到了战场。</p>
-                <p>我这个人是个有点“无趣”的人，我不喜欢电脑游戏，什么 dota、星际，我觉得要学会这些比修一门电路原理还难；我也不喜欢追星，我觉得谁当选了世界足球先生谁谁拿了 NBA 总冠军与我没啥关系，听说世界杯决赛在夜里两点，设了一点的闹钟，结果闹钟响了我按了继续睡 ……；我觉得一大群人去 KTV 去杀人游戏玩三国杀绝大多数时间也是纯属无聊找点消遣，阿桑还说：“孤单是一个人的狂欢，狂欢是一群人的狂欢”；我在校内上很低调，因为我觉得那里很浮躁，每天去看看无非就是了解下朋友的动向；所谓朋友，多数时候只是在特定的时间特定的地点和特定的环境下的朋友，到了人生关口，大家各奔东西，所谓友情也被岁月冲淡，我觉得真正的朋友不需要经常的联系来保持朋友关系，但现实中大多数的朋友需要经常联系保持这种朋友关系，这或许就是贺岁短信的终极目的吧。</p>
-                <p>所以说人生得一知己死而无憾。“什么？你了解我？笑话，我自己都不了解我，你会了解我？”</p>
-                <p>每个人都是孤独的行者。</p>
-                <p>人生在世，所谓何求？</p>
-                <p>所谓成长，就是信仰一个个崩塌的过程？</p>
-                <p>当有人要教育你的时候，你一定要提高警惕！</p>
-                <p>我们的教科书告诉我们要正视历史、以史为镜，可是广电却封杀了《<a href="http://movie.douban.com/subject/1292365/">活着 </a>》、封杀了《<a href="http://movie.douban.com/subject/1303967/">蓝风筝 </a>》、封杀了《颐和园》，这就是所谓“以史为镜”？</p>
-                <p>我们的社会主义赋予人所谓言论自由集会自由，同时我们的社会主义也用 <a href="http://en.wikipedia.org/wiki/GFW">GFW</a> 提前给我们确定了考试范围和作文题目 —— 我不要这种阉割的自由，我是个成年人，你凭啥单方面的决定哪些东西我该看哪些东西我不该看？</p>
-                <p>我们的党告诉我们只有共产党才能就中国，国民党的老巢台湾也没比大陆差到那里，真是一句屁话，我认为大学生盲目入党是中国当代大学生最大的悲哀。</p>
-                <p>其实有时想想，我们到底有没有必要那么执着？我们执着的入党出国学习深造进入名企做什么电子商务网游平台 SNS，可是我们的国民却有很多人上不起学吃不起饭不知道电脑为何物。</p>
-                <p>欲望是痛苦之源。</p>
-                <p>我最近关注豆瓣上一个同城的活动：<a href="http://www.douban.com/event/11178529/">我们一起去流浪动物救助基地做义工吧 </a>，看了土豆网上一个 <a href="http://www.tudou.com/programs/view/8prC8LSiozs/"> 视频 </a>，我开始思考佛教，审视素食主义。我想去基地做些事情，可是两次都睡过了 <img src="http://cnlox.is-programmer.com/javascripts/fckeditor/editor/images/smiley/chito/confused_smile.gif" />。我开始思考李连杰，重温他的《霍元甲》；我看了《甘地传》，思考着爱因斯坦的那句话：“后代子孙将无法相信，世上曾活生生的出现过这号人物”；我想到了感动中国颁奖台上 <a href="http://v.youku.com/v_show/id_XMTM1MzEzNzY=.html"> 徐本禹 </a> 滚滚而下的两行泪水；我想到了 <a href="http://www.tianya.cn/publicforum/Content/no01/1/236413.shtml"> 丛飞之死 </a>；我想到我的朋友 db，放弃了学业，“抛弃了一切”，去做他“想做的事情”：</p>
-                <p><img src="file:///user_files/cnlox/Image/traveller/db.jpg" /></p>
-                <p><img src="file:///user_files/cnlox/Image/traveller/db_wozoule.jpg" /></p>
-                <p>我想到了陆川的《<a href="http://movie.douban.com/subject/1308857/">可可西里 </a>》；我想到了雀儿山口常年护路的道班战士，想到了青海湖边那个没有电的小镇。</p>
-                <p>/没有什么能够阻挡，你对自由的向往 /</p>
-                <p>/ 天马行空的生涯，你的心了无牵挂 /</p>
-                <p>/ 穿过幽暗的岁月，也曾感到彷徨 /</p>
-                <p>/ 当你低头的瞬间 /</p>
-                <p>/ 才发现脚下的路 /</p>
-                <p>/ 心中那自由的世界 /</p>
-                <p>/ 如此的清澈高远 /</p>
-                <p><img src="file:///user_files/cnlox/Image/traveller/qinghai_lake.jpeg" /></p>
-                <p>2008.5 青海湖</p>
-                <p><img src="file:///user_files/cnlox/Image/traveller/tibet.jpg" /></p>
-                <p>2008.8 四川甘孜</p>
-                <p><img src="file:///user_files/cnlox/Image/traveller/xingzhe.jpg" /></p>
-                <p>请叫我们：行者。</p>
-                
-                <div class="ui divider"></div>
-                <div class="ui small one item menu">
-                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
-                </div>
-                <div id="disqus_thread"></div>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </section>
-              <aside class="four wide column">
-                <div class="ui small header">
-                  License
-                </div>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
-                <div class="ui small header">
-                  Committed
-                </div>
-                <date>2010-08-02</date>
-                <div class="ui small header">
-                  Updated
-                </div>
-                <date>2017-04-14</date>
-                <div class="ui small header">
-                  Category
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/categories#life">
-                      <div class="ui label">
-                        Life<sup>44</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Tags
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/tags#nginx">
-                      <div class="ui label">
-                        nginx<sup>1</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#ffmpeg">
-                      <div class="ui label">
-                        FFmpeg<sup>5</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#apache">
-                      <div class="ui label">
-                        Apache<sup>2</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#traveller">
-                      <div class="ui label">
-                        Traveller<sup>5</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#tibet">
-                      <div class="ui label">
-                        Tibet<sup>1</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/19616.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
-                  Links
-                </div>
-                <div class="ui small two item menu">
-                  <a class="item" title="CLI派视频音频转码工具用法小结(ffmpeg)1" href="/posts/2010-07-23-notes-about-ffmpeg/">Prev</a><a class="item" title="一个Shell Script的诞生" href="/posts/2010-08-04-a-small-shell-script/">Next</a>
-                </div>
-              </aside>
-            </div>
-          </article>
-        </div>
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      一个人的自在
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>6月 15 日开始找实习，到了 25 日左右迎来了人生第一个 offer——华数淘宝，待遇是 60 元/天 + 10 元/天的晚餐票。找实习的过程很简短，百度和创新工厂预料之中的悲剧， DeviceVM 莫名其妙的简短面试和之后的杳无音信，普联 TP-Link 的 5 分钟快餐面试，阿里一封没有下文的邮件、一个打到一半我手机却没电的尴尬电面、一个没有下文的快餐电话， 以及来自上海紫竹科技园 Intel 的漫不经心的“聊聊”，还有十几封泥牛入海的邮件。两周不到，能拿到这个 offer，也算是一个不错的结果了。至少这样的结果给了我信心，成绩差没关系，关键是自己有几斤几两。</p>
+<p>而后就是无奈的期末考试，算不上奋力一搏，只是应付了事，弃了一门，挂了两门，剩下的几门 70 的、80 的、90 的各占三成。至此我的大学还剩下十门考试：</p>
+<ol>
+<li>电路原理（重修）</li>
+<li>线性代数（重修）</li>
+<li>数字电子技术（重修）</li>
+<li>编译原理</li>
+<li>编译系统设计</li>
+<li>计算机组成</li>
+<li>计算机体系结构</li>
+<li>计算机网路</li>
+<li>C# 程序设计</li>
+<li>软件体系结构</li>
+</ol>
+<p>这样的结果，在我的同届预科生中应该算是很悲惨的了。至少很多同学由于多了预科半年的学习时间，到了大三下这个时候，已经完成了除了毕业设计外的全部学业，更有甚者，比如一位我只有过一面之缘的 HDJ，已经提前一年毕业，拿了港大的 offer——此 mm 是浙大李志文商学班的，同时也是浙大游泳队队员之一。对于这样的 mm，除了客套的 YM，更多的是一种敬仰吧——有规划有理想有追求并且能坚持不懈的做下去。</p>
+<p>熬到 7 月 6 号，总算考完了最后一门——软件工程，在我看来是一门非常虚无非常飘渺的课程，其结果就是我只上过一次课，成绩也算对得起我的到课率了——68 分——刚好达到浙大学位证最低成绩要求……</p>
+<p>再之后是帮毕业的 mm 收拾寝室，给 mm 拍傻傻的学士服照片……12 号早晨送走了 mm，一个人去淘宝报道。没想到第一天报道也是一番纠结，首先是华数淘宝正式从淘宝剥离，从文二路淘宝公司内部搬到了紫荆花路府苑新村，然后我放下自行车导了三辆公交才到华数淘宝。 第一天工作很简单，让我在 Windows 上配置个 <a href="http://trac.edgewall.org/">Trac</a>，看看 <a href="http://nginx.net/">nginx</a> 服务器。都是从未听说过的东西。</p>
+<p>我的理解，Trac 是个 Python 语言写的 SVN 前端 + wiki 的集合体，著名的 C++ boost 库用的就是 Trac，Ruby 也有类似的东西，叫 <a href="http://www.redmine.org/">Redmine</a>，当然，我对 Ruby 一无所知，对 Python 也仅仅是看过《Learning Python》的前两章，还出于 YM 的阶段。安装参考这篇 <a href="http://how-to-solutions.com/how-to-install-trac-on-windows.html">How To Install Trac on Windows</a>，其中有几个链接已经过时，需要自己手工下载安装。安装的过程还算顺利——比安装 Gentoo 顺利多了。不过还是挺麻烦的——如果在 Linux 下，一两条命令应该就可以了，也不用“鼠标点击 -&gt; next -&gt;install”。</p>
+<p>nginx 是轻量级的 http 服务器，其功能或许不如 Apache 全，但是性能却比 Apache 强很多，尤其是在 flv 视频支持方面，其原理大概在于 nginx 针对不同的平台编码采用了不同的 I/O 模型。nginx 的代码不算长，大概 10w 行左右，用 C 写成，所有的东西甚至包括 <code>./configure</code> 脚本都是作者手工写成，是一个锻炼阅读源码的好项目。国内的血多视频网站如 Youku、Tudou 等后台服务器都是 nginx。</p>
+<p>第二天我就参加了小组会议，头儿给我讲了整个项目的架构和周期，听的我非常兴奋。大体思路就是我们要搭成一个全新的视频点播平台，做成中国的 iTunes App Store。整个一周我都在了解各方面的信息，也对 taobao 这样的互联网公司有了进一步的了解。网上浏览的时候接触了很多“牛”的资源：</p>
+<ul>
+<li><a href="http://code.taobao.org/">淘蝌蚪</a> – 中国人自己的开源平台</li>
+<li><a href="http://www.slideshare.net/guiwuu/cdn-4508477">淘宝 CDN 系统</a> – 淘宝的内容分发网络</li>
+<li><a href="http://www.taobaodba.com/">Taobao DBA Team</a> – 淘宝数据库团队</li>
+<li><a href="http://rdc.taobao.com/blog/qa/">Taobao QA Team</a> – 淘宝 QA 团队</li>
+<li><a href="http://rdc.taobao.com/blog/cs/">Taobao 核心系统团队</a></li>
+<li><a href="http://code.taobao.org/project/view/2/">Tair</a> – 淘宝内部广泛使用的核心分布式缓存系统</li>
+</ul>
+<p>这些实际的项目、经验、团队、感想，感觉就在自己的身边，让我兴奋不已。阿里巴巴，马云，中国能有这样的企业，我觉得这是中国的未来。Open Source Never Die。</p>
+<p>除了完成头给定的任务，我在网上快速的学习一些科普知识，各个方面的都有，很多东西扫一眼百度百科也比毫不了解要强，这些入门知识包括：</p>
+<ul>
+<li>网络方面：
+<ul>
+<li>SSL（Secure Socket Layer）</li>
+<li>CMS（Content Manager System）</li>
+<li>IDC（Internet Data Center）</li>
+<li>仿盗链原理</li>
+<li>SNS 网站</li>
+</ul></li>
+<li>运维方面：
+<ul>
+<li>CP（Content Provider）和 SP（Service Provider）</li>
+<li>VOD（Video On Demand）和 MOD（Music On Demand）</li>
+<li><a href="http://www.xunlei.com/">迅雷看看</a></li>
+<li><a href="http://www.qiyi.com/">奇艺网</a></li>
+<li>“<a href="http://tech.sina.com.cn/i/2006-07-12/13131033507.shtml">一个人的豆瓣</a>”</li>
+<li>B2B/C2C/B2C的概念</li>
+</ul></li>
+<li>Linux Tools：
+<ul>
+<li><a href="http://www.infoanda.com/resources/find.htm">Find, xargs</a></li>
+<li><code>tr</code> 、 <code>tree</code> 、 <code>cut</code> 、 <code>sort</code> 、 <code>ulimit</code></li>
+<li>Regular Expressions, sed, AWK</li>
+<li>Bash Scripts</li>
+<li><a href="http://en.wikipedia.org/wiki/Expect">TCL/Expect</a></li>
+<li>Bash <a href="http://tldp.org/LDP/abs/html/here-docs.html">Here Documents</a></li>
+<li><a href="http://vsftpd.beasts.org/">vsftpd</a></li>
+<li><a href="http://aplawrence.com/Unix/getopts.html">getopts</a></li>
+<li>uid and gid</li>
+</ul></li>
+<li>Testing：
+<ul>
+<li>Web测试工具：<a href="http://opensta.org/">OpenSTA</a>、<a href="https://h10078.www1.hp.com/cda/hpms/display/main/hpms_content.jsp?zn=bto&amp;cp=1-11-126-17%5E8_4000_100__">HP LoadRunner</a>、<a href="http://httpd.apache.org/docs/2.0/programs/ab.html">Apache ab</a>、<a href="http://jakarta.apache.org/jmeter/">Apache JMeter</a>、Webbench、 <a href="http://www.joedog.org/index/siege-home">siege</a></li>
+<li>压力测试、单元测试、回归测试</li>
+</ul></li>
+<li>Videos and Audio Formats and Transformation：
+<ul>
+<li>比特率和波特率</li>
+<li>frame rate</li>
+<li>aspect ratio</li>
+<li>key frames（和 flash 制作中的关键帧不一样）</li>
+<li>Related Tools: <a href="http://www.ffmpeg.org/">FFmpeg</a>, <a href="http://yamdi.sourceforge.net/">yamdi</a>, <a href="http://rubyforge.org/projects/flvtool2/">flvtool2</a>, <a href="http://www.buraks.com/flvmdi/">flvmdi</a>, <a href="http://www.adobe.com/products/flashmediaserver/flashmediaencoder/">adode media encoder</a>, <a href="http://www.mplayerhq.hu/">mplayer</a>, <a href="http://www.mplayerhq.hu/DOCS/HTML/en/mencoder.html">mencoder</a>, <a href="http://code.google.com/p/ffmpegthumbnailer/">ffmpegthumbnailer</a></li>
+</ul></li>
+<li>Other Tools：
+<ul>
+<li><a href="https://h10078.www1.hp.com/cda/hpms/display/main/hpms_content.jsp?zn=bto&amp;cp=1-11-127-24_4000_100__">HP QC (Quality Center)</a></li>
+<li><a href="http://www.xplanner.org/">Xplanner</a></li>
+<li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">Putty: A remote ssh client</a></li>
+<li><a href="http://www.vandyke.com/products/securecrt/">SecureCRT: Another ssh client</a></li>
+</ul></li>
+</ul>
+<p>吓到了吧？其实很多我都不会。我现在出于“我不知道我不知道“到“我知道我不知道“这样一个转变的过程。下一个目标是：“我知道我知道”。</p>
+<p>除此之外，每个桌上那一抹绿色，厕所里的“蹲位以待”，中午和老总一起吃饭的气氛，自由宽松的工作环境时间，这些都是我喜欢的。不过日子久了，每天面对着电脑，看着一行行的字母滚动而过，不免麻木。每天晚上出了公司，抬头看看杭州最近让人淡定不能的天空，心里总有一些别样的悸动。</p>
+<p>“我一个人吃饭、旅行，到处走走停停；也一个人看书、写信，自己对话谈心”，mm在上海入职培训，无暇顾我，我也就不再好意思打扰她。我告诫自己要忍让要懂得理解，千万不要因为这样的事情跟 mm 生气，如果连这点小事都忍受不了，以后又该如何支持 mm 的工作？我这样自我安慰，mm 却不太理解，怪我对她的事情逐渐冷漠，搞得我伤心不已。</p>
+<p>“你喜欢这个啊，你喜欢玩所有的毛绒玩具，你喜欢妈妈，喜欢爸爸，喜欢你的小睡衣。你什么都喜欢，是不是？知道吗？等你长大了，曾经喜欢的东西也许会变得不再特别，就像这个玩偶盒，你会发现那只是一片铁皮加一个人偶，那些原本钟爱的东西会渐渐被你遗忘， 到了我这个年纪，钟爱的东西也许只剩下一两件了，对我来说只剩一件了。”《拆弹部队》， James 对他的女儿说完这些，又独自回到了战场。</p>
+<p>我这个人是个有点“无趣”的人，我不喜欢电脑游戏，什么 dota、星际，我觉得要学会这些比修一门电路原理还难；我也不喜欢追星，我觉得谁当选了世界足球先生谁谁拿了 NBA 总冠军与我没啥关系，听说世界杯决赛在夜里两点，设了一点的闹钟，结果闹钟响了我按了继续睡……；我觉得一大群人去 KTV 去杀人游戏玩三国杀绝大多数时间也是纯属无聊找点消遣， 阿桑还说：“孤单是一个人的狂欢，狂欢是一群人的狂欢”；我在校内上很低调，因为我觉得那里很浮躁，每天去看看无非就是了解下朋友的动向；所谓朋友，多数时候只是在特定的时间特定的地点和特定的环境下的朋友，到了人生关口，大家各奔东西，所谓友情也被岁月冲淡，我觉得真正的朋友不需要经常的联系来保持朋友关系，但现实中大多数的朋友需要经常联系保持这种朋友关系，这或许就是贺岁短信的终极目的吧。</p>
+<p>所以说人生得一知己死而无憾。“什么？你了解我？笑话，我自己都不了解我，你会了解我？”</p>
+<p>每个人都是孤独的行者。</p>
+<p>人生在世，所谓何求？</p>
+<p>所谓成长，就是信仰一个个崩塌的过程？</p>
+<p>当有人要教育你的时候，你一定要提高警惕！</p>
+<p>我们的教科书告诉我们要正视历史、以史为镜，可是广电却封杀了《<a href="http://movie.douban.com/subject/1292365/">活着</a>》、封杀了《<a href="http://movie.douban.com/subject/1303967/">蓝风筝</a>》、封杀了《颐和园》，这就是所谓“以史为镜”？</p>
+<p>我们的社会主义赋予人所谓言论自由集会自由，同时我们的社会主义也用 <a href="http://en.wikipedia.org/wiki/GFW">GFW</a> 提前给我们确定了考试范围和作文题目——我不要这种阉割的自由，我是个成年人，你凭啥单方面的决定哪些东西我该看哪些东西我不该看？</p>
+<p>我们的党告诉我们只有共产党才能就中国，国民党的老巢台湾也没比大陆差到那里，真是一句屁话，我认为大学生盲目入党是中国当代大学生最大的悲哀。</p>
+<p>其实有时想想，我们到底有没有必要那么执着？我们执着的入党出国学习深造进入名企做什么电子商务网游平台 SNS，可是我们的国民却有很多人上不起学吃不起饭不知道电脑为何物。</p>
+<p>欲望是痛苦之源。</p>
+<p>我最近关注豆瓣上一个同城的活动：<a href="http://www.douban.com/event/11178529/">我们一起去流浪动物救助基地做义工吧 </a>，看了土豆网上一个<a href="http://www.tudou.com/programs/view/8prC8LSiozs/">视频</a>，我开始思考佛教，审视素食主义。我想去基地做些事情，可是两次都睡过了。 我开始思考李连杰，重温他的《霍元甲》；我看了《甘地传》，思考着爱因斯坦的那句话： “后代子孙将无法相信，世上曾活生生的出现过这号人物”；我想到了感动中国颁奖台上<a href="http://v.youku.com/v_show/id_XMTM1MzEzNzY=.html">徐本禹</a>滚滚而下的两行泪水；我想到了<a href="http://www.tianya.cn/publicforum/Content/no01/1/236413.shtml">丛飞之死</a>；我想到我的朋友 db，放弃了学业，“抛弃了一切”，去做他“想做的事情”：</p>
+<p><a href="/static/image/2010/dubing.jpg"><img src="/static/image/2010/dubing.jpg" /></a></p>
+<p><a href="/static/image/2010/dubing_wozoule.jpg"><img src="/static/image/2010/dubing_wozoule.jpg" /></a></p>
+<p>我想到了陆川的《<a href="http://movie.douban.com/subject/1308857/">可可西里</a>》；我想到了雀儿山口常年护路的道班战士，想到了青海湖边那个没有电的小镇。</p>
+<blockquote>
+<p>没有什么能够阻挡</p>
+<p>你对自由的向往</p>
+<p>天马行空的生涯</p>
+<p>你的心了无牵挂</p>
+<p>穿过幽暗的岁月</p>
+<p>也曾感到彷徨</p>
+<p>当你低头的瞬间</p>
+<p>才发现脚下的路</p>
+<p>心中那自由的世界</p>
+<p>如此的清澈高远</p>
+</blockquote>
+<p><a href="/static/image/2010/qinghai_lake.jpg"><img src="/static/image/2010/qinghai_lake.jpg" /></a></p>
+<p><a href="/static/image/2010/sichuan_ganzi.jpg"><img src="/static/image/2010/sichuan_ganzi.jpg" /></a></p>
+<p><a href="/static/image/2010/traveller.jpg"><img src="/static/image/2010/traveller.jpg" /></a></p>
+<p>请叫我们：行者。</p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2010-08-02</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#life">
+          <div class="ui label">
+            Life<sup>44</sup>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#nginx">
+          <div class="ui label">
+            nginx<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#ffmpeg">
+          <div class="ui label">
+            FFmpeg<sup>5</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#apache">
+          <div class="ui label">
+            Apache<sup>2</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#traveller">
+          <div class="ui label">
+            Traveller<sup>5</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#tibet">
+          <div class="ui label">
+            Tibet<sup>1</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/19616.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="CLI派视频音频转码工具用法小结(ffmpeg)1" href="/posts/2010-07-23-notes-about-ffmpeg/">Prev</a><a class="item" title="一个Shell Script的诞生" href="/posts/2010-08-04-a-small-shell-script/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
     </div>
     <div id="footer">
       <footer class="ui inverted vertical center aligned footer segment">

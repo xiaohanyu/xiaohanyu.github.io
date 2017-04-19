@@ -18,6 +18,11 @@ footer {
 ul,
 ol {
   padding-left: 2rem; }
+  ul > li > ul, ul ol,
+  ol > li > ul,
+  ol ol {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem; }
 
 p {
   line-height: 1.5rem; }
