@@ -49,40 +49,41 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>去年换 x201i 的时候，曾经折腾出一篇 [[<a href="http://cnlox.is-programmer.com/posts/24172.html" class="uri">http://cnlox.is-programmer.com/posts/24172.html</a>][《x86-64 Arch Linux on ThinkPad x201i》]]，后来 x201i 陪我度过了毕业半年最为艰难的岁月，表现可圈可点，配合我自己调制的 ArchLinux，系统非产高效，让我在 4 个月的时间内搞定了 8 门课程、毕业设计，还看了不下二十部电影和纪录片。</p>
-<p>说起操作系统重装，我也算究竟沙场了。基本上每半年会重装一次操作系统，从 XP，Vista，RedHat 9.0，Fedora，到 Ubuntu 8.x，转向 ArchLinux、Gentoo，甚至在华数淘宝实习的时候还装了 4 台PC和 2 台Dell的 PC Server。最长的一次要属第一次接触 Gentoo 的那次，装操作系统装了有 2 个星期，折腾了两个月，终于发现这个东西不符合低碳节能的基本要求，再一次不小心的 fsck 误操作中彻底结束了 Gentoo 之旅，回到了 Ubuntu 和Arch的怀抱。</p>
-<p>来到百度第一天领到的新笔记本，x220i，好家伙，上网一搜，居然是今年最新款的 X 系列 ThinkPad。CPU是新一代的 SNB 架构。默认系统的十年前的 XP。本来我想另辟空间再装个 Linux 来个双系统，后来 XP 实在用着不爽，遂全盘格式化，全部分给 ArchLinux。</p>
+  <section class="twelve wide column"><p>去年换 x201i 的时候，曾经折腾出一篇《<a href="http://xiaohanyu.me/posts/2011-01-30-x86-64-arch-linux-on-thinkpad-x201i/">x86-64 Arch Linux on ThinkPad x201i</a>》，后来 x201i 陪我度过了毕业半年最为艰难的岁月，表现可圈可点，配合我自己调制的 Arch Linux，系统非常高效，让我在 4 个月的时间内搞定了 8 门课程、毕业设计，还看了不下二十部电影和纪录片。</p>
+<p>说起操作系统重装，我也算究竟沙场了。基本上每半年会重装一次操作系统，从 XP，Vista， RedHat 9.0，Fedora，到 Ubuntu 8.x，转向 Arch Linux、Gentoo，甚至在华数淘宝实习的时候还装了 4 台 PC 和 2 台 Dell 的 PC Server。最长的一次要属第一次接触 Gentoo 的那次，装操作系统装了有 2 个星期，折腾了两个月，终于发现这个东西不符合低碳节能的基本要求，再一次不小心的 fsck 误操作中彻底结束了 Gentoo 之旅，回到了 Ubuntu 和 Arch的怀抱。</p>
+<p>来到百度第一天领到的新笔记本，x220i，好家伙，上网一搜，居然是今年最新款的 X 系列 ThinkPad。CPU 是新一代的 SNB 架构。默认系统的十年前的 XP。本来我想另辟空间再装个 Linux 来个双系统，后来 XP 实在用着不爽，遂全盘格式化，全部分给 Arch Linux。</p>
 <p>我一直有一个疑问：为什么 Windows 的命令行，无论是 CMD 还是 PowerShell，不能实现最简单的窗口最大化功能？</p>
-<p>OS版本用的是 [[<a href="http://linuxtoy.org/archives/arch-linux-2010-05.html" class="uri">http://linuxtoy.org/archives/arch-linux-2010-05.html</a>][Arch Linux 2010.05]]，在 mirrors.sohu.com 上下载 [[<a href="http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso" class="uri">http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso</a>][ 支持 32 位及 64 位架构的 Dual 映像 ]]，用 UltraISO 刻录硬盘镜像到 U 盘上。本以为 ArchLinux 的安装会像以前一样轻车熟路，不曾想这次却遇到了以前从来没有遇到的一个大麻烦：网卡无法识别！！！</p>
-<p>不能上网就意味着不能装 X，不能装 X 就意味着没有 Firefox，没有 Firefox 就意味我不能上网来写这篇博客。无奈之下，去同事的机器上下载了最新的 <a href="http://blog.linuxmint.com/?p=1760">Linux Mint 11</a>，痛快装好，网卡这次能用了。</p>
-<p>Google搜索，发现 Arch Linux 2010.05 是 2.6.32的内核，而 Linux Mint 11 是 2.6.38的内核，因此我怀疑是不是 ArchLinux 内核比较老而 X220i 架构比较新的原因。搜索的过程中发现了一个叫做 <a href="http://wiki.archlinux.org/index.php/Archboot">ArchBoot</a> 的项目，说白了就是半官方的 ArchLinux 滚动更新 ISO。热切的下载了最新的 ArchBoot 刻录安装，但是不幸的是这个 ArchBoot 在我的笔记本上根本无法启动。</p>
-<p>怎么办？要不重新叫 IT 部门的人重装下 XP？还是先用一段时间的 Mint，等下一个 ArchLinux 的官方安装版？</p>
+<p>OS 版本用的是 <a href="http://linuxtoy.org/archives/arch-linux-2010-05.html">Arch Linux 2010.05</a>，在 <a href="http://mirrors.sohu.com/">mirrors.sohu.com</a> 上下载 <a href="http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso">支持 32 位及 64 位架构的 Dual映像</a>，用 UltraISO 刻录硬盘镜像到 U 盘上。本以为 Arch Linux 的安装会像以前一样轻车熟路，不曾想这次却遇到了以前从来没有遇到的一个大麻烦：网卡无法识别！！！</p>
+<p>不能上网就意味着不能装 X，不能装 X 就意味着没有 Firefox，没有 Firefox 就意味我不能上网来写这篇博客。无奈之下，去同事的机器上下载了最新的 <a href="http://blog.linuxmint.com/?p=1760">Linux Mint 11</a>，痛快装好， 网卡这次能用了。</p>
+<p>Google 搜索，发现 Arch Linux 2010.05 是 2.6.32 的内核，而 Linux Mint 11 是 2.6.38 的内核，因此我怀疑是不是 Arch Linux 内核比较老而 X220i 架构比较新的原因。 搜索的过程中发现了一个叫做 <a href="http://wiki.archlinux.org/index.php/Archboot">ArchBoot</a> 的项目，说白了就是半官方的 Arch Linux 滚动更新 ISO。热切的下载了最新的 ArchBoot 刻录安装，但是不幸的是这个 ArchBoot 在我的笔记本上根本无法启动。</p>
+<p>怎么办？要不重新叫 IT 部门的人重装下 XP？还是先用一段时间的 Mint，等下一个 Arch Linux 的官方安装版？</p>
 <p>但我终究是忍不住的。电脑之于黑客，相当于宝剑之于剑客。没有顺手的系统，自然没有高效的工作和良好的心情。</p>
-<p>于是不得不换一种思路：尝试手动去下载 Intel 网卡的驱动，然后编译安装，搞定网卡驱动后再联网升级到新的内核。事实证明这个策略是奏效的，所需要的网卡驱动程序可以在 Intel 的网站上 <a href="http://downloadcenter.intel.com/Detail_Desc.aspx?DwnldID=9180"> 下载 </a>。安装过程不再赘述，按照安装包里的说明即可。装好驱动后升级内核，装 X，装 KDE，简单配置下字体，一切顺理成章，不亦乐乎。</p>
-<p>最后的两个问题依然是驱动相关。一个是显卡的问题，这个可以通过更新内核来搞定。一个是 ThinkPad 风扇的问题，x201i上的方案迁移到 X220i 上并不奏效，tpfand基本不可用。好在有 thinkfan，通过 yaourt 安装下。设置主要参考 <a href="http://apps.hi.baidu.com/share/detail/39726097"> 这里 </a>，但是原文中所设置的：</p>
+<p>于是不得不换一种思路：尝试手动去下载 Intel 网卡的驱动，然后编译安装，搞定网卡驱动后再联网升级到新的内核。事实证明这个策略是奏效的，所需要的网卡驱动程序可以在 Intel 的网站上<a href="http://downloadcenter.intel.com/Detail_Desc.aspx?DwnldID=9180">下载</a>。安装过程不再赘述，按照安装包里的说明即可。装好驱动后升级内核， 装 X，装 KDE，简单配置下字体，一切顺理成章，不亦乐乎。</p>
+<p>最后的两个问题依然是驱动相关。一个是显卡的问题，这个可以通过更新内核来搞定。一个是 ThinkPad 风扇的问题，x201i 上的方案迁移到 X220i 上并不奏效，tpfand 基本不可用。 好在有 thinkfan，通过 yaourt 安装下。设置主要参考<a href="http://apps.hi.baidu.com/share/detail/39726097">这里</a>，但是原文中所设置的：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">sensor</span> /proc/acpi/ibm/thermal (0, 3, 3, 2, 10, 0, 10, 0, 2, 2)</code></pre></div>
-<p>并不存在。在 X220i 上的 /etc/thinkfan.conf 设置为：</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># I use this on my T61p:                                                                                                                             </span>
-<span class="co">#sensor /proc/acpi/ibm/thermal (0, 10, 15, 2, 10, 5, 0, 3, 0, 3)                                                                                     </span>
+<p>并不存在。在 X220i 上的 <code>/etc/thinkfan.conf</code> 设置为：</p>
+<pre class="example"><code># I use this on my T61p:
+#sensor /proc/acpi/ibm/thermal (0, 10, 15, 2, 10, 5, 0, 3, 0, 3)
 
-<span class="co"># (0,   0,   55)                                                                                                                                  </span>
-<span class="co"># (1,   48,     60)                                                                                                                                  </span>
-<span class="co"># (2,   50,     61)                                                                                                                                  </span>
-<span class="co"># (3,   52,     63)                                                                                                                                  </span>
-<span class="co"># (4,   56,     65)                                                                                                                                  </span>
-<span class="co"># (5,   59,     66)                                                                                                                                  </span>
-<span class="co"># (7,   63,     32767)                                                                                                                               </span>
+# (0,   0,   55)
+# (1,   48,     60)
+# (2,   50,     61)
+# (3,   52,     63)
+# (4,   56,     65)
+# (5,   59,     66)
+# (7,   63,     32767)
 
-<span class="ex">sensor</span> /sys/class/hwmon/hwmon0/temp1_input (0, 3, 3, 2, 10, 0, 10, 0, 2, 2)                                                                          
-<span class="kw">(</span><span class="ex">0</span>, 0, 45<span class="kw">)</span>                                                                                                                                           
-<span class="kw">(</span><span class="ex">1</span>, 45, 48<span class="kw">)</span>                                                                                                                                          
-<span class="kw">(</span><span class="ex">2</span>, 48, 55<span class="kw">)</span>                                                                                                                                          
-<span class="kw">(</span><span class="ex">3</span>, 55, 58<span class="kw">)</span>                                                                                                                                          
-<span class="kw">(</span><span class="ex">4</span>, 58, 60<span class="kw">)</span>                                                                                                                                          
-<span class="kw">(</span><span class="ex">5</span>, 60, 63<span class="kw">)</span>                                                                                                                                          
-<span class="kw">(</span><span class="ex">6</span>, 63, 65<span class="kw">)</span>                                                                                                                                          
-<span class="kw">(</span><span class="ex">7</span>, 65, 32767<span class="kw">)</span>            </code></pre></div>
-<p>经过此番修整，x220i终于被我调教的舒舒服服，服服贴贴 <img src="file:///images/smiley/chito/shades_smile.gif" />。至于旧爱 x201i，简单修整了一下给妞用了。</p>
+sensor /sys/class/hwmon/hwmon0/temp1_input (0, 3, 3, 2, 10, 0, 10, 0, 2, 2)
+(0, 0, 45)
+(1, 45, 48)
+(2, 48, 55)
+(3, 55, 58)
+(4, 58, 60)
+(5, 60, 63)
+(6, 63, 65)
+(7, 65, 32767)
+</code></pre>
+<p>经过此番修整，x220i 终于被我调教的舒舒服服，服服贴贴。至于旧爱 x201i，简单修整了一下给妞用了。</p>
 <p>最后许个愿望吧：希望在未来可见的三年内不要再折腾操作系统了。同时遥祝远在 Singapore 的阿黎早日搞定 MacBook 上的 Ubuntu，整好 MitSIM，顺利毕业。嘿。</p>
 
     <div class="ui divider"></div>

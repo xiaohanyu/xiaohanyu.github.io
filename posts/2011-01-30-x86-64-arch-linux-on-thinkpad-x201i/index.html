@@ -50,106 +50,102 @@
 </header>
 <div class="row article-body">
   <section class="twelve wide column"><p>前两天自用的 Arch Linux 系统出了点小问题，索性重新搞了一下，由 i686 迁移到 x86-64 平台。原先一直以为 64 位系统是高不可攀的贵族产品，后来才知道原来 64 位处理器最早是由 AMD 1999 年设计，几年前的 Intel Core Duo 早已经支持 64 位系统，只是软件产品和内存还跟不上，所以多数应用还是 32 位为主。</p>
-<p>OS版本用的是 [[<a href="http://linuxtoy.org/archives/arch-linux-2010-05.html" class="uri">http://linuxtoy.org/archives/arch-linux-2010-05.html</a>][Arch Linux 2010.05]]，在 mirrors.sohu.com 上下载 [[<a href="http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso" class="uri">http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso</a>][ 支持 32 位及 64 位架构的 Dual 映像 ]]，用 UltraISO 刻录硬盘镜像到 U 盘上。基本的安装过程不再赘述，[[<a href="https://wiki.archlinux.org/index.php/Beginners&#39;_Guide" class="uri">https://wiki.archlinux.org/index.php/Beginners'_Guide</a>][ArchWiki Beginner’s Guide]]讲的明明白白。唯一注意的是分区格式化的时候需要格外注意，不要把自己原先的系统搞丢 —— 我曾经有过惨痛的教训，不过幸好那次做了数据备份。不过 100G 的东西备份还原也是件耗时耗力的工作啊 ^)^。</p>
-<p>基本系统装好后，装个 Desktop Environment，然后再做一下系统美化和针对小黑的特殊配置。过程还是挺繁琐的，因此写下来做个备忘。先上张图，KDE4.6——我承认我越来越浮云了 ……</p>
-<p><a href="http://www.kde.org/announcements/4.6/">[[/user<sub>files</sub>/cnlox/Image/screenshots/kde4.6.png</a>]]</p>
-<p>最新的 Xorg 已经变得十分人性化，再也不需要手工配置恼人的 Xorg.conf，最新的 Linux 内核驱动也能自动识别鼠标和键盘，不会再出现进入图形界面却无法使用鼠标键盘的窘境 —— 至少两年前是这样的。有个东西叫做 <a href="http://en.wikipedia.org/wiki/Hardware_abstraction_layer">HAL</a>，最近又出来个 evdev。总体而言 Linux 的驱动程序还是比较混乱的，hal、evdev、mesa、xorg、xf86、wayland、alsa、oss、pulseaudio等等，令人头大。</p>
-<p>字体用的是 AUR 里面打过 Ubuntu 补丁的 cairo-ubuntu、libxft-cairo、freetyp2-ubuntu以及 WenQuanYi Micro Hei，加上次像素优化，效果还是不错，上图就是最好的说明。</p>
-<p>网络客户端抛弃了废柴的 KDE 的 networkmanager，采用了 <a href="http://wicd.sourceforge.net/">wicd</a>，可以根据地点自动链接不同的无线网，而且非常稳定，从不崩溃。安装过程可以参考 <a href="https://wiki.archlinux.org/index.php/Wicd">ArchWiki Wicd</a>。关于蓝牙的配置，我用的是 bluez 和 bluedevel，具体可以参考 <a href="https://wiki.archlinux.org/index.php/Bluetooth"> 这里 </a>。</p>
-<p>剩下的都是小黑的特别配置。这方面的 Wiki 配置零零总总，并没有统一的解决方案。<a href="http://www.thinkwiki.org/wiki/ThinkWiki">ThinkWik</a><a href="http://www.thinkwiki.org/wiki/ThinkWiki">i</a>是一个很好的去处，基本可以找到 ThinkPad 各个型号再主流 Linux 发行版上的安装配置。不过由此也看出开源软件的弊端 —— 顶级的 ThinkPad 支持尚且如此繁琐，可见 Linux 真正要普及还有很长的路要走。废话少说，还是回到 x201i 上的设置吧。ThinkPad的设置主要有以下几处：</p>
+<p>OS 版本用的是 <a href="http://linuxtoy.org/archives/arch-linux-2010-05.html">Arch Linux 2010.05</a>，在 <a href="http://mirrors.sohu.com/">mirrors.sohu.com</a> 上下载 <a href="http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso">支持 32 位及 64 位架构的 Dual映像</a>，用 UltraISO 刻录硬盘镜像到 U 盘上。基本的安装过程不再赘述， <a href="https://wiki.archlinux.org/index.php/Beginners&#39;_Guide">ArchWiki Beginner’s Guide</a> 讲的明明白白。唯一注意的是分区格式化的时候需要格外注意， 不要把自己原先的系统搞丢我曾经有过惨痛的教训，不过幸好那次做了数据备份。不过 100 G 的东西备份还原也是件耗时耗力的工作啊 ^)^。</p>
+<p>基本系统装好后，装个 Desktop Environment，然后再做一下系统美化和针对小黑的特殊配置。过程还是挺繁琐的，因此写下来做个备忘。先上张图，KDE 4.6 我承认我越来越浮云了……</p>
+<p><a href="/static/image/2011/kde4.6.png"><img src="/static/image/2011/kde4.6.png" /></a></p>
+<p>最新的 Xorg 已经变得十分人性化，再也不需要手工配置恼人的 <code>xorg.conf</code> ，最新的 Linux 内核驱动也能自动识别鼠标和键盘，不会再出现进入图形界面却无法使用鼠标键盘的窘境至少两年前是这样的。有个东西叫做 <a href="http://en.wikipedia.org/wiki/Hardware_abstraction_layer">HAL</a>，最近又出来个 evdev。总体而言 Linux 的驱动程序还是比较混乱的，hal、evdev、mesa、xorg、xf86、wayland、alsa、oss、 pulseaudio 等等，令人头大。</p>
+<p>字体用的是 AUR 里面打过 Ubuntu 补丁的 cairo-ubuntu、libxft-cairo、 freetyp2-ubuntu 以及 WenQuanYi Micro Hei，加上次像素优化，效果还是不错，上图就是最好的说明。</p>
+<p>网络客户端抛弃了废柴的 KDE 的 networkmanager，采用了 <a href="http://wicd.sourceforge.net/">wicd</a>，可以根据地点自动链接不同的无线网，而且非常稳定，从不崩溃。安装过程可以参考 <a href="https://wiki.archlinux.org/index.php/Wicd">ArchWiki Wicd</a>。关于蓝牙的配置，我用的是 bluez 和 bluedevel，具体可以参考<a href="https://wiki.archlinux.org/index.php/Bluetooth">这里</a>。</p>
+<p>剩下的都是小黑的特别配置。这方面的 Wiki 配置零零总总，并没有统一的解决方案。 <a href="http://www.thinkwiki.org/wiki/ThinkWiki">ThinkWik</a><a href="http://www.thinkwiki.org/wiki/ThinkWiki">i</a> 是一个很好的去处，基本可以找到 ThinkPad 各个型号再主流 Linux 发行版上的安装配置。不过由此也看出开源软件的弊端顶级的 ThinkPad 支持尚且如此繁琐，可见 Linux 真正要普及还有很长的路要走。废话少说，还是回到 x201i 上的设置吧。ThinkPad 的设置主要有以下几处：</p>
 <ul>
 <li>电池电源控制</li>
 <li>trackpoint 小红点</li>
 <li>Active Protection System，硬盘保护系统</li>
-<li><p>风扇控制</p>
-电池的电源控制主要是用来延长电池寿命的。电池的充电次数是有限的，因此减少电池的冲放电次数是演唱电池寿命的关键。tp_smapi是针对 ThinkPad 的一组内核模块，可以通过 AUR(yaourt</li>
+<li>风扇控制</li>
 </ul>
-<p>-S tp_smapi) 安装。对电源的保护主要是设置电源的冲放电阀值。比如我们设置 [start_charge=40, end_charge=90]，意思就是当电池的电量低于 40% 的时候才开始充电，而一旦电量到达 90% 的时候就停止充电。举例说明，当我们野外需要频繁的野外工作时，如果不设置电池的充放电阀值 [start_charge, end_charge]，那么我们的电量可能是这样的：95(battery, discharge)–&gt;80(AC power, charge)–&gt;100(battery, discharge)–&gt;70(AC power, charge)–&gt;93(battery, discharge)–&gt;70，而设置 [start_charge=40, end_charge=90] 后我们的电量变化就是这样的：95(battery, discharge)–&gt;80(AC power, but not charge)–&gt;80(battery, discharge)–&gt;50(AC power, but still not charge since 50 &gt;= 40)–&gt;50(battery, discharge)–&gt;27(If AC power now, charge, since 27 &gt;= 40, charge until battery = 90)。看明白了吗？估计没有。反正我也有点晕。ArchWiki上提供了一个封装的脚本 set_bat_thresh：</p>
-<pre><code>#!/bin/bash
-#
-# Bash script for setting the battery thresholds on ThinkPads using the tp_smapi interface.
-# Written by Ignas Anikevicius (20/03/2010)
+<p>电池的电源控制主要是用来延长电池寿命的。电池的充电次数是有限的，因此减少电池的冲放电次数是演唱电池寿命的关键。tp<sub>smapi</sub> 是针对 ThinkPad 的一组内核模块，可以通过 AUR（ <code>yaourt -S tp_smapi</code> ）安装。对电源的保护主要是设置电源的冲放电阀值。比如我们设置 <code>[start_charge=40, end_charge=90]</code> ，意思就是当电池的电量低于 40% 的时候才开始充电，而一旦电量到达 90% 的时候就停止充电。举例说明，当我们野外需要频繁的野外工作时，如果不设置电池的充放电阀值 <code>[start_charge, end_charge]</code> ，那么我们的电量可能是这样的： 95(battery, discharge)–&gt;80(AC power, charge)–&gt;100(battery, discharge)–&gt;70(AC power, charge)–&gt;93(battery, discharge)–&gt;70，而设置 <code>[start_charge = 40, end_charge = 90]</code> 后我们的电量变化就是这样的： 95(battery, discharge)–&gt;80(AC power, but not charge)–&gt;80(battery, discharge)–&gt;50(AC power, but still not charge since 50 &gt; 40)–&gt;50(battery, discharge)–&gt;27(If AC power now, charge, since 27 &gt;= 40, charge until battery = 90) 。看明白了吗？估计没有。反正我也有点晕。ArchWiki 上提供了一个封装的脚本 <code>set_bat_thresh</code> ：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="co">#</span>
+<span class="co"># Bash script for setting the battery thresholds on ThinkPads using the tp_smapi interface.</span>
+<span class="co"># Written by Ignas Anikevicius (20/03/2010)</span>
 
-#HELP TEXT
-if [ &quot;x$1&quot; == &quot;x--help&quot; -o &quot;x$1&quot; == &quot;x-h&quot; ]
-then
-  echo -e &quot;
-  WARNING!!! This script needs to be run as root in order to have effect!!!
+<span class="co">#HELP TEXT</span>
+<span class="kw">if</span><span class="bu"> [</span> <span class="st">&quot;x</span><span class="va">$1</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;x--help&quot;</span> <span class="ot">-o</span> <span class="st">&quot;x</span><span class="va">$1</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;x-h&quot;</span><span class="bu"> ]</span>
+<span class="kw">then</span>
+  <span class="bu">echo</span> -e <span class="st">&quot;</span>
+<span class="st">  WARNING!!! This script needs to be run as root in order to have effect!!!</span>
 
-  Possible options are:
-    set_bat_thresh [BAT_N] [[LOWER] [UPPER]][--reset][-r] 
+<span class="st">  Possible options are:</span>
+<span class="st">    set_bat_thresh [BAT_N] [[LOWER] [UPPER]][--reset][-r]</span>
 
-    [BAT_N] number of the battery (can be either 0 or 1). 
+<span class="st">    [BAT_N] number of the battery (can be either 0 or 1).</span>
 
-    LOWER - lower threshold.
-    UPPER - upper threshold .
-    [--reset] or [-r] sets the default thresholds. 
+<span class="st">    LOWER - lower threshold.</span>
+<span class="st">    UPPER - upper threshold .</span>
+<span class="st">    [--reset] or [-r] sets the default thresholds.</span>
 
-  execute to see this text:
-    set_bat_thresh [--help][-h]
-&quot;
-  exit 0
-fi 
+<span class="st">  execute to see this text:</span>
+<span class="st">    set_bat_thresh [--help][-h]</span>
+<span class="st">&quot;</span>
+  <span class="bu">exit</span> 0
+<span class="kw">fi</span>
 
-if [ ! -d /sys/devices/platform/smapi ]; then
-  echo -e &quot;\nSMAPI interface is NOT installed.\nPlease load the module.\n&quot;
-  exit 0; fi
+<span class="kw">if</span><span class="bu"> [</span> <span class="ot">!</span> <span class="ot">-d</span> /sys/devices/platform/smapi<span class="bu"> ]</span>; <span class="kw">then</span>
+  <span class="bu">echo</span> -e <span class="st">&quot;\nSMAPI interface is NOT installed.\nPlease load the module.\n&quot;</span>
+  <span class="bu">exit</span> 0<span class="kw">;</span> <span class="kw">fi</span>
 
-#SETTING THRESHOLD VALUES
-if [ &quot;x$2&quot; == &quot;x--reset&quot; -o &quot;x$2&quot; == &quot;x-r&quot; ]
-then
-  LOWER=96
-  UPPER=100
-else
-  LOWER=$2
-  UPPER=$3
-fi
+<span class="co">#SETTING THRESHOLD VALUES</span>
+<span class="kw">if</span><span class="bu"> [</span> <span class="st">&quot;x</span><span class="va">$2</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;x--reset&quot;</span> <span class="ot">-o</span> <span class="st">&quot;x</span><span class="va">$2</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;x-r&quot;</span><span class="bu"> ]</span>
+<span class="kw">then</span>
+  <span class="va">LOWER=</span>96
+  <span class="va">UPPER=</span>100
+<span class="kw">else</span>
+  <span class="va">LOWER=$2</span>
+  <span class="va">UPPER=$3</span>
+<span class="kw">fi</span>
 
-#VALUE TESTING
-if [ ${LOWER} -ge ${UPPER} ]; then
-  echo -e &quot;\n  Please provide proper thresholds!!!  \n&quot;
-  exit 0
-fi
+<span class="co">#VALUE </span><span class="al">TESTING</span>
+<span class="kw">if</span><span class="bu"> [</span> <span class="va">${LOWER}</span> <span class="ot">-ge</span> <span class="va">${UPPER}</span><span class="bu"> ]</span>; <span class="kw">then</span>
+  <span class="bu">echo</span> -e <span class="st">&quot;\n  Please provide proper thresholds!!!  \n&quot;</span>
+  <span class="bu">exit</span> 0
+<span class="kw">fi</span>
 
-#BATTERY NUMBER
-BAT_N=$1
-LOWER_F=&quot;/sys/devices/platform/smapi/BAT${BAT_N}/start_charge_thresh&quot;
-UPPER_F=&quot;/sys/devices/platform/smapi/BAT${BAT_N}/stop_charge_thresh&quot;
+<span class="co">#BATTERY NUMBER</span>
+<span class="va">BAT_N=$1</span>
+<span class="va">LOWER_F=</span><span class="st">&quot;/sys/devices/platform/smapi/BAT</span><span class="va">${BAT_N}</span><span class="st">/start_charge_thresh&quot;</span>
+<span class="va">UPPER_F=</span><span class="st">&quot;/sys/devices/platform/smapi/BAT</span><span class="va">${BAT_N}</span><span class="st">/stop_charge_thresh&quot;</span>
 
-#SETTING THE THRESHOLDS
-echo ${LOWER} &gt; ${LOWER_F}
-echo ${UPPER} &gt; ${UPPER_F} 
+<span class="co">#SETTING THE THRESHOLDS</span>
+<span class="bu">echo</span> <span class="va">${LOWER}</span> <span class="op">&gt;</span> <span class="va">${LOWER_F}</span>
+<span class="bu">echo</span> <span class="va">${UPPER}</span> <span class="op">&gt;</span> <span class="va">${UPPER_F}</span>
 
-#ECHOING THE STUFF
-echo -e &quot;\nSetting battery thresholds for Battery ${BAT_N}:
-  Threshold for charging to start: ${LOWER} 
-  Threshold for charging to stop: ${UPPER} 
-&quot;
-exit 0;
-</code></pre>
+<span class="co">#ECHOING THE STUFF</span>
+<span class="bu">echo</span> -e <span class="st">&quot;\nSetting battery thresholds for Battery </span><span class="va">${BAT_N}</span><span class="st">:</span>
+<span class="st">  Threshold for charging to start: </span><span class="va">${LOWER}</span>
+<span class="st">  Threshold for charging to stop: </span><span class="va">${UPPER}</span>
+<span class="st">&quot;</span>
+<span class="bu">exit</span> 0<span class="kw">;</span></code></pre></div>
 <p>执行用：</p>
-<pre><code>set_bat_thresh 0 start_charge end_charge
-</code></pre>
-<p>至于 trackpoint 小红点，AUR里面有一个 trackpoint 脚本，用 yaourt -S trackpoint 安装，安装完毕将 trackpoint 加到 /etc/rc.conf 的DAEMONS里面。/etc/conf.d/trackpoint里面可以更改一些设置如：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">set_bat_thresh</span> 0 start_charge end_charge</code></pre></div>
+<p>至于 trackpoint 小红点，AUR里面有一个 trackpoint 脚本，用 <code>yaourt -S trackpoint</code> 安装，安装完毕将 trackpoint 加到 <code>/etc/rc.conf</code> 的 DAEMONS 里面。 <code>/etc/conf.d/trackpoint</code> 里面可以更改一些设置如：</p>
 <ul>
-<li>SPEED: 小红点光标移动速度。</li>
-<li>SENSITIVITY: 小红点敏感度。</li>
-<li>PRESS_TO_SELECT: 小红点单击功能。</li>
+<li><code>SPEED</code> – 小红点光标移动速度。</li>
+<li><code>SENSITIVITY</code> – 小红点敏感度。</li>
+<li><code>PRESS_TO_SELECT</code> – 小红点单击功能。</li>
 </ul>
-<p>中键模拟用如下的脚本设置下 ( 我也忘了是从哪里找到的了 )：</p>
-<pre><code>xinput set-int-prop &quot;TPPS/2 IBM TrackPoint&quot; &quot;Evdev Wheel Emulation&quot; 8 1
-xinput set-int-prop &quot;TPPS/2 IBM TrackPoint&quot; &quot;Evdev Wheel Emulation Button&quot; 8 2
-</code></pre>
-<p>硬盘保护 (Active Protection System) 用的是 AUR 里面的 HDAPS，参看 <a href="https://wiki.archlinux.org/index.php/HDAPS">ArchWiki</a>，Applet用的是 thinkhdaps，根据需要改下 /etc/conf.d/hdapsd 里面的设置，效果还不错，抱着笔记本在床上看电影的时候视频会一卡一卡的。</p>
-<p>风扇控制貌似不太不要，而且设置不好会影响散热效果，降低笔记本的寿命。这个功能主要目的貌似是使笔记本更安静些。用的软件包是 AUR 里面的 tpfand 和 tpfan-admin，tpfand.conf是 copy 来的，参考 <a href="http://forum.ubuntu.org.cn/viewtopic.php?t=286666"> 这里 </a>。用了之后好像也没啥特别的效果。</p>
-<p>最后 show 下 /etc/rc.conf里面的设置，日后重装的时候也好有个参考：</p>
-<pre><code>#
+<p>中键模拟用如下的脚本设置下（我也忘了是从哪里找到的了）：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">xinput</span> set-int-prop <span class="st">&quot;TPPS/2 IBM TrackPoint&quot;</span> <span class="st">&quot;Evdev Wheel Emulation&quot;</span> 8 1 xinput
+<span class="ex">set-int-prop</span> <span class="st">&quot;TPPS/2 IBM TrackPoint&quot;</span> <span class="st">&quot;Evdev Wheel Emulation Button&quot;</span> 8 2</code></pre></div>
+<p>硬盘保护 (Active Protection System) 用的是 AUR 里面的 HDAPS，参看 <a href="https://wiki.archlinux.org/index.php/HDAPS">ArchWiki</a>， Applet 用的是 thinkhdaps，根据需要改下 <code>/etc/conf.d/hdapsd</code> 里面的设置，效果还不错，抱着笔记本在床上看电影的时候视频会一卡一卡的。</p>
+<p>风扇控制貌似不太不要，而且设置不好会影响散热效果，降低笔记本的寿命。这个功能主要目的貌似是使笔记本更安静些。用的软件包是 AUR 里面的 tpfand 和 tpfan-admin， tpfand.conf 是 copy 来的，参考<a href="http://forum.ubuntu.org.cn/viewtopic.php?t=286666">这里</a>。用了之后好像也没啥特别的效果。</p>
+<p>最后 show 下 <code>/etc/rc.conf</code> 里面的设置，日后重装的时候也好有个参考：</p>
+<pre class="example"><code>#
 # /etc/rc.conf - Main Configuration for Arch Linux
 #
 
-# -----------------------------------------------------------------------
+# -----------------------------------------------------------------
 # LOCALIZATION
-# -----------------------------------------------------------------------
+# -----------------------------------------------------------------
 #
 # LOCALE: available languages can be listed with the &#39;locale -a&#39; command
 # HARDWARECLOCK: set to &quot;UTC&quot; or &quot;localtime&quot;, any other value will result
@@ -168,9 +164,9 @@ CONSOLEFONT=
 CONSOLEMAP=
 USECOLOR=&quot;yes&quot;
 
-# -----------------------------------------------------------------------
+# -----------------------------------------------------------------
 # HARDWARE
-# -----------------------------------------------------------------------
+# -----------------------------------------------------------------
 #
 # MOD_AUTOLOAD: Allow autoloading of modules at boot and when needed
 # MOD_BLACKLIST: Prevent udev from loading these modules
@@ -185,9 +181,9 @@ MODULES=(uinput tp_smapi thinkpad_acpi thinkpad_ec vboxdrv)
 # Scan for LVM volume groups at startup, required if you use LVM
 USELVM=&quot;no&quot;
 
-# -----------------------------------------------------------------------
+# -----------------------------------------------------------------
 # NETWORKING
-# -----------------------------------------------------------------------
+# -----------------------------------------------------------------
 #
 # HOSTNAME: Hostname of machine. Should also be put in /etc/hosts
 #
@@ -199,7 +195,7 @@ HOSTNAME=&quot;lox-pad&quot;
 # Declare each interface then list in INTERFACES
 #   - prefix an entry in INTERFACES with a ! to disable it
 #   - no hyphens in your interface names - Bash doesn&#39;t like it
-# 
+#
 # DHCP:     Set your interface to &quot;dhcp&quot; (eth0=&quot;dhcp&quot;)
 # Wireless: See network profiles below
 #
@@ -227,9 +223,9 @@ ROUTES=(!gateway)
 #
 #NETWORKS=(main)
 
-# -----------------------------------------------------------------------
+# -----------------------------------------------------------------
 # DAEMONS
-# -----------------------------------------------------------------------
+# -----------------------------------------------------------------
 #
 # Daemons to start at boot-up (in this order)
 #   - prefix a daemon with a ! to disable it
@@ -237,7 +233,7 @@ ROUTES=(!gateway)
 #
 DAEMONS=(@syslog-ng @dbus !hal !network !netfs @acpid @tpfand @crond @hdapsd @laptop-mode @wicd @kdm bluetooth @trackpoint)
 </code></pre>
-<p>大概就这么多吧。都是些琐碎的东西，能用就好了。想想 Linux 的东西变动如此之快，有些东西是真的不必深究的。比如关于中键模拟有上面的方案，也有改 xorg.conf 的方案。比如 hal 这个东西，再比如 X Window 和未来的 <a href="http://wayland.freedesktop.org/">Wayland</a>，比如 ext4 和 <a href="http://en.wikipedia.org/wiki/Btrfs">btrfs</a>。想想自己走的也有些偏了，过于追求工具化的东西，倒是忽略了最本质的知识，如体系结构，算法等等。这就比如户外旅行，总是想方设法装一辆拉风的自行车，却很少去骑车领略旅行的真谛。四年，四年前的我还只会开机关机，四年后的我折腾系统小打小闹颇有一套，最本质的计算机基础却一塌糊涂。希望自己的折腾之旅到此位置吧。接下来的关键词是，lisp、tcp/ip，hadoop。</p>
+<p>大概就这么多吧。都是些琐碎的东西，能用就好了。想想 Linux 的东西变动如此之快，有些东西是真的不必深究的。比如关于中键模拟有上面的方案，也有改 <code>xorg.conf</code> 的方案。 比如 hal 这个东西，再比如 X Window 和未来的 <a href="http://wayland.freedesktop.org/">Wayland</a>，比如 ext4 和 <a href="http://en.wikipedia.org/wiki/Btrfs">btrfs</a>。想想自己走的也有些偏了，过于追求工具化的东西，倒是忽略了最本质的知识，如体系结构，算法等等。这就比如户外旅行，总是想方设法装一辆拉风的自行车，却很少去骑车领略旅行的真谛。四年，四年前的我还只会开机关机，四年后的我折腾系统小打小闹颇有一套，最本质的计算机基础却一塌糊涂。希望自己的折腾之旅到此位置吧。接下来的关键词是，Lisp、 TCP/IP、Hadoop。</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">

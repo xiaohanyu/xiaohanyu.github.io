@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>万方学位论文pdf合并脚本v0.1</title>
+    <title>万方学位论文 PDF 合并脚本 v0.1</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,21 +43,21 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      万方学位论文pdf合并脚本v0.1
+      万方学位论文 PDF 合并脚本 v0.1
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>古人云：天下文章一大抄。整个三月，浙江大学 CS 开题报告热火朝天，其中各种纠结与不解、各种困惑与混乱、各种 word/tex 模版纷争，不再详述。23号提交论文，但时至此刻，我刚刚 Google Translate 了一片水文搞定了外文翻译，修改了学院 bug 百出的 LaTeX 模版，搞定了开题报告的格式，至于剩下的 3500 字，尚无着落，痛苦不堪，心慌也。</p>
-<p>废话少说，今天晚上去万方数据库校内镜像下载学位论文，岂知万方这个财主极其抠门猥琐，不但很多有价值的学术论文无法下载，可以下载的论文也是一个 zip 压缩包，然后里面几十到上百个 pdf 不等 …… 看一篇完整的学位论文要打开几十个 pdf，莫说是我，就是我的 x201i，也该累死了 ……</p>
+  <section class="twelve wide column"><p>古人云：天下文章一大抄。整个三月，浙江大学 CS 开题报告热火朝天，其中各种纠结与不解、各种困惑与混乱、各种 Word/TeX 模版纷争，不再详述。23 号提交论文，但时至此刻， 我刚刚 Google Translate 了一片水文搞定了外文翻译，修改了学院 bug 百出的 LaTeX 模版，搞定了开题报告的格式，至于剩下的 3500 字，尚无着落，痛苦不堪，心慌也。</p>
+<p>废话少说，今天晚上去万方数据库校内镜像下载学位论文，岂知万方这个财主极其抠门猥琐， 不但很多有价值的学术论文无法下载，可以下载的论文也是一个 zip 压缩包，然后里面几十到上百个 PDF 不等……看一篇完整的学位论文要打开几十个 PDF，莫说是我，就是我的 x201i，也该累死了……</p>
 <p>一个典型的万方学位论文 zip 压缩包目录结构如下：</p>
-<pre><code>lox &gt;&gt;&gt; tree IPTV机顶盒 GUI 子系统的研究与实现  
+<pre class="example"><code>lox &gt;&gt;&gt; tree IPTV机顶盒 GUI 子系统的研究与实现
 IPTV 机顶盒 GUI 子系统的研究与实现
 ├── default.htm
 ├── Images
 │   ├── ball.gif
-lox &gt;&gt;&gt; tree -L 3 -p -N | grep &#39;\[d&#39; 
+lox &gt;&gt;&gt; tree -L 3 -p -N | grep &#39;\[d&#39;
 └── [drwxrwxr-x]  wanfang
     ├── [drwxrwxr-x]  IPTV机顶盒 GUI 子系统的研究与实现
     │   ├── [drwxrwxr-x]  Images
@@ -93,7 +93,7 @@ lox &gt;&gt;&gt; tree -L 3 -p -N | grep &#39;\[d&#39;
 │   ├── L.gif
 │   ├── nfolder.gif
 │   ├── ofolder.gif
-lox &gt;&gt;&gt; tree IPTV机顶盒 GUI 子系统的研究与实现  
+lox &gt;&gt;&gt; tree IPTV机顶盒 GUI 子系统的研究与实现
 IPTV 机顶盒 GUI 子系统的研究与实现
 ├── default.htm
 ├── Images
@@ -128,17 +128,17 @@ IPTV 机顶盒 GUI 子系统的研究与实现
 
 3 directories, 28 files
 </code></pre>
-<p>所有的 pdf 文档在 ./Paper/pdf 目录下，并且必有一个 xxxxwz.pdf 和一个 xxxxzye.pdf 文件，剩下的 pdf 文件基本上内容顺序和编号顺序一致，但是不排除有页码重叠的状况。</p>
-<p>想到的办法就是找 CLI 工具，将这些 pdf 合并成一份完整的论文。Archlinux下：pacman -Ss pdf，结合 Google，得到几个相关的 pdf 工具：</p>
+<p>所有的 PDF 文档在 ./Paper/pdf 目录下，并且必有一个 xxxxwz.pdf 和一个 xxxxzye.pdf 文件，剩下的 PDF 文件基本上内容顺序和编号顺序一致，但是不排除有页码重叠的状况。</p>
+<p>想到的办法就是找 CLI 工具，将这些 PDF 合并成一份完整的论文。Arch Linux 下： <code>pacman -Ss pdf</code> ，结合 Google，得到几个相关的 PDF 工具：</p>
 <ul>
 <li>pdfedit</li>
 <li>ghostscript</li>
 <li>pdftk</li>
 <li>poppler</li>
 </ul>
-<p><a href="http://pdfedit.petricek.net/en/index.html">pdfedit</a>是图形化的 pdf edit( 编辑 ) 工具，显然不符合 CLI 自动化处理的要求。而且看界面是基于 QT3.x 的，编辑功能应该是很强大的。具体可以看 PDFEdit 的 <a href="http://pdfedit.petricek.net/en/screenshots.html">Screenshots</a>。不过这与本文无关了。</p>
-<p><a href="http://pages.cs.wisc.edu/~ghost/">ghostscript</a> is an interpreter for the PostScript language。<a href="http://linuxtoy.org/archives/how-to-merge-multiple-pdfs.html">linuxtoy</a>给出了一种合并 pdf 方法，我尝试了一下，但是万方本身的 pdf 是加密的，直接转换会出现莫名其妙的错误，所以这种方法最终失败。</p>
-<p><a href="http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">pdftk</a>是一个十分强大的 pdf 工具，按照官方的说法，pdftk可以用来：</p>
+<p><a href="http://pdfedit.petricek.net/en/index.html">PDFedit</a> 是图形化的 PDF edit（编辑）工具，显然不符合 CLI 自动化处理的要求。而且看界面是基于 Qt 3.x 的，编辑功能应该是很强大的。具体可以看 PDFedit 的 <a href="http://pdfedit.petricek.net/en/screenshots.html">Screenshots</a>。 不过这与本文无关了。</p>
+<p><a href="http://pages.cs.wisc.edu/~ghost/">ghostscript</a> is an interpreter for the PostScript language。<a href="http://linuxtoy.org/archives/how-to-merge-multiple-pdfs.html">linuxtoy</a> 给出了一种合并 PDF 方法，我尝试了一下，但是万方本身的 PDF 是加密的，直接转换会出现莫名其妙的错误，所以这种方法最终失败。</p>
+<p><a href="http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">PDFtk</a> 是一个十分强大的 PDF 工具，按照官方的说法，PDFtk 可以用来：</p>
 <ul>
 <li>Merge PDF Documents</li>
 <li>Split PDF Pages into a New Document</li>
@@ -155,31 +155,31 @@ IPTV 机顶盒 GUI 子系统的研究与实现
 <li>Uncompress and Re-Compress Page Streams</li>
 <li>Repair Corrupted PDF (Where Possible)</li>
 </ul>
-<p>可以用 pdftk 1.pdf 2.pdf 3.pdf cat output 123.pdf 的方式来 <a href="http://www.pdflabs.com/docs/pdftk-cli-examples/"> 合并 pdf</a>，但是由于万方 pdf 的特殊加密，用 PDFtk 合并时，会出现 “OWNER PASSWORD REQUIRED” 的失败提示。所以成功合并 pdf 的最关键问题就是去掉万方 pdf 加密。</p>
-<p>幸运的是，我在 <a href="http://townx.org/blog/elliot/removing-password-pdf-linux">townx</a> 找到了解决方法，感谢万能的 Google。剩下的任务，就是 Shell Script 的天地了。</p>
-<p>至于 Shell Script，已经好久没有摆弄，很多写法已经生疏，好在半年前在华数淘宝写的脚本还在，打开浏览了下，照葫芦画瓢，倒也没有遇到太大困难。完整的脚本如下：</p>
-<pre><code>#!/usr/bin/env bash
+<p>可以用 <code>pdftk 1.pdf 2.pdf 3.pdf &amp;&amp; cat output 123.pdf</code> 的方式来<a href="http://www.pdflabs.com/docs/pdftk-cli-examples/">合并 PDF</a>，但是由于万方 PDF 的特殊加密，用 PDFtk 合并时，会出现 “OWNER PASSWORD REQUIRED” 的失败提示。 所以成功合并 PDF 的最关键问题就是去掉万方 PDF 加密。</p>
+<p>幸运的是，我在 <a href="http://townx.org/blog/elliot/removing-password-pdf-linux">townx</a> 找到了解决方法，感谢万能的 Google。剩下的任务，就是 shell script 的天地了。</p>
+<p>至于 shell Script，已经好久没有摆弄，很多写法已经生疏，好在半年前在华数淘宝写的脚本还在，打开浏览了下，照葫芦画瓢，倒也没有遇到太大困难。完整的脚本如下：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/usr/bin/env bash</span>
 
-################################################################################
-# Purpose:  Merge pdf file downloaded from Wanfang dissertation database
-#               (http://g.wanfangdata.com.cn/)
-# Author:   Xiao Hanyu(xiaohanyu1988@gmail.com)
-# Depends:
-#       pdftk:              merge multiple pdf files, pdftk is also a useful pdf 
-#                               manipulation tools
-#       ps2pdf/pdftops:     pdf --&gt; ps then ps --&gt; pdf to remove encryption 
-################################################################################
+<span class="co">################################################################################</span>
+<span class="co"># Purpose:  Merge pdf file downloaded from Wanfang dissertation database</span>
+<span class="co">#               (http://g.wanfangdata.com.cn/)</span>
+<span class="co"># Author:   Xiao Hanyu(xiaohanyu1988@gmail.com)</span>
+<span class="co"># Depends:</span>
+<span class="co">#       pdftk:              merge multiple pdf files, pdftk is also a useful pdf</span>
+<span class="co">#                               manipulation tools</span>
+<span class="co">#       ps2pdf/pdftops:     pdf --&gt; ps then ps --&gt; pdf to remove encryption</span>
+<span class="co">################################################################################</span>
 
-function usage
-{
-    cat &lt;&lt; EOF
-`basename $0`: A utility to merge encryted pdf files into one single pdf
+<span class="kw">function</span><span class="fu"> usage</span>
+<span class="kw">{</span>
+    <span class="fu">cat</span> <span class="op">&lt;&lt; EOF</span>
+<span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span>: A utility to merge encryted pdf files into one single pdf
 
-Usage:      `basename $0` [Options]
-Example:    
-            `basename $0` -f &quot;file1.pdf file2.pdf&quot; -o merged.pdf
-            `basename $0` -d input_pdf_dir -o merged.pdf
-            `basename $0` -d input_pdf_dir
+Usage:      <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> [Options]
+Example:
+            <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> -f &quot;file1.pdf file2.pdf&quot; -o merged.pdf
+            <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> -d input_pdf_dir -o merged.pdf
+            <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> -d input_pdf_dir
 Options:
     -f:     set the input pdf file list
     -d:     set the input pdf directory
@@ -191,41 +191,41 @@ EOF
 function merge_pdfs
 {
     echo &quot;######## Convert begin!! ########&quot;
-    for pdf in $pdf_list
+    for pdf in <span class="va">$pdf_list</span>
     do
-        ## do not use pdf_name = `basename $pdf .pdf` 
-        ## since basename will remove the directory prefix of $pdf
-        pdf_name=`echo $pdf | sed -e &quot;s/\.pdf//&quot;`
+        ## do not use pdf_name = <span class="kw">`</span><span class="fu">basename</span> <span class="va">$pdf</span> .pdf<span class="kw">`</span>
+        ## since basename will remove the directory prefix of <span class="va">$pdf</span>
+        pdf_name=<span class="kw">`</span><span class="bu">echo</span> <span class="va">$pdf</span> <span class="kw">|</span> <span class="fu">sed</span> -e <span class="st">&quot;s/\.pdf//&quot;</span><span class="kw">`</span>
 
         ## add some animation ^_^
-        echo -n &quot;$pdf_name.pdf ----&gt;&gt; $pdf_name.ps &quot;
-        pdftops $pdf_name.pdf $pdf_name.ps
+        echo -n &quot;<span class="va">$pdf_name</span>.pdf ----&gt;&gt; <span class="va">$pdf_name</span>.ps &quot;
+        pdftops <span class="va">$pdf_name</span>.pdf <span class="va">$pdf_name</span>.ps
 
-        echo &quot;----&gt;&gt; $pdf_name.pdf&quot;
-        ps2pdf $pdf_name.ps $pdf_name.pdf
-        rm -rf $pdf_name.ps
+        echo &quot;----&gt;&gt; <span class="va">$pdf_name</span>.pdf&quot;
+        ps2pdf <span class="va">$pdf_name</span>.ps <span class="va">$pdf_name</span>.pdf
+        rm -rf <span class="va">$pdf_name</span>.ps
     done
     echo &quot;######## Convert end!! ########&quot;
 
     echo &quot;######## Merge begin!! ########&quot;
-    pdftk $pdf_list cat output $pdf_merge
-    echo &quot;######## Merge success, open $pdf_merge to see the result. Bye!! ########&quot;
+    pdftk <span class="va">$pdf_list</span> cat output <span class="va">$pdf_merge</span>
+    echo &quot;######## Merge success, open <span class="va">$pdf_merge</span> to see the result. Bye!! ########&quot;
 }
 
 while getopts &quot;d:f:o:h&quot; arg
-do 
-    case $arg in
+do
+    case <span class="va">$arg</span> in
         d)
-            pdf_dir=$OPTARG
-            pdf_list=`ls $pdf_dir/*pdf`
+            pdf_dir=<span class="va">$OPTARG</span>
+            pdf_list=<span class="kw">`</span><span class="fu">ls</span> <span class="va">$pdf_dir</span>/*pdf<span class="kw">`</span>
             ;;
-        f) 
-            pdf_list=$OPTARG
+        <span class="op">f</span>)
+            pdf_list=<span class="va">$OPTARG</span>
             ;;
-        o) 
-            pdf_merge=$OPTARG
+        o)
+            pdf_merge=<span class="va">$OPTARG</span>
             ;;
-        h)  
+        h)
             usage
             exit 0
             ;;
@@ -238,28 +238,27 @@ do
 done
 
 # if pdf_dir is not set yet, then it&#39;s set to default(that is, current directory)
-pdf_dir=${pdf_dir:-&quot;.&quot;}
+pdf_dir=<span class="va">${pdf_dir:-</span><span class="st">&quot;.&quot;</span><span class="va">}</span>
 
-# set default output pdf filename, plus $pdf_dir prefix
-pdf_merge=&quot;${pdf_dir}/${pdf_merge:-&quot;single_merged_pdf.pdf&quot;}&quot;
-merge_pdfs
-</code></pre>
+# set default output pdf filename, plus <span class="va">$pdf_dir</span> prefix
+pdf_merge=&quot;<span class="va">${pdf_dir}</span>/<span class="va">${pdf_merge:-</span><span class="st">&quot;single_merged_pdf.pdf&quot;</span><span class="va">}</span>&quot;
+merge_pdfs</code></pre></div>
 <p>脚本结构还是很简单的：</p>
 <ul>
-<li>参数解析采用 bash 内置的 getopts，暂时只支持短选项；</li>
-<li>有一个帮助说明函数 function usage{}；</li>
-<li>关键函数是 function merge_pdfs{}，尤其需要注意目录名和文件名的处理；</li>
+<li>参数解析采用 bash 内置的 <code>getopts</code> ，暂时只支持短选项</li>
+<li>有一个帮助说明函数 <code>function usage{}</code></li>
+<li>关键函数是 <code>function merge_pdfs{}</code> ，尤其需要注意目录名和文件名的处理</li>
 </ul>
-<p>调用方法如 function usage{} 里面所示：</p>
+<p>调用方法如 <code>function usage{}</code> 里面所示：</p>
 <ul>
-<li>./wanfang_pdf_merge.sh -d pdf_dir</li>
-<li>./wanfang_pdf_merge.sh -d . -o merged_pdf.pdf</li>
-<li>./wanfang_pdf_merge.sh -f “dir1/pdf1.pdf dir2/pdf2.pdf” -o output/merged_pdf.pdf</li>
+<li><code>./wanfang_pdf_merge.sh -d pdf_dir</code></li>
+<li><code>./wanfang_pdf_merge.sh -d . -o merged_pdf.pdf</code></li>
+<li><code>./wanfang_pdf_merge.sh -f &quot;dir1/pdf1.pdf dir2/pdf2.pdf&quot; -o output/merged_pdf.pdf</code></li>
 </ul>
 <p>测试：</p>
-<p><img src="file:///user_files/cnlox/Image/screenshots/wanfang_merge_pdf_test1.png" /></p>
+<p><a href="/static/image/2011/wanfang_merge_pdf_test1.png"><img src="/static/image/2011/wanfang_merge_pdf_test1.png" /></a></p>
 <p>在这个基础脚本上进一步封装下，比如，对于如下的目录结构：</p>
-<pre><code>lox &gt;&gt;&gt; tree -L 3 -p -N | grep &#39;\[d&#39; 
+<pre class="example"><code>lox &gt;&gt;&gt; tree -L 3 -p -N | grep &#39;\[d&#39;
 └── [drwxrwxr-x]  wanfang
     ├── [drwxrwxr-x]  IPTV机顶盒 GUI 子系统的研究与实现
     │   ├── [drwxrwxr-x]  Images
@@ -290,25 +289,24 @@ merge_pdfs
         ├── [drwxrwxr-x]  Paper
 </code></pre>
 <p>我们的封装脚本命令如下：</p>
-<pre><code>for pdf_dir in `tree wanfang -ipNf | grep &#39;\[d&#39; | grep &#39;pdf&#39; | awk &#39;{print $2}&#39;`
-do              
-    ~/tools/wanfang_pdf_merge.sh -d $pdf_dir
-done
-</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="ex">pdf_dir</span> in <span class="kw">`</span><span class="ex">tree</span> wanfang -ipNf <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&#39;\[d&#39;</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&#39;pdf&#39;</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{print $2}&#39;</span><span class="kw">`</span>
+<span class="kw">do</span>
+    <span class="ex">~/tools/wanfang_pdf_merge.sh</span> -d <span class="va">$pdf_dir</span>
+<span class="kw">done</span></code></pre></div>
 <p>接下来喝咖啡！！！</p>
-<p><img src="file:///user_files/cnlox/Image/screenshots/wanfang_merge_pdf_test2.png" /></p>
+<p><a href="/static/image/2011/wanfang_merge_pdf_test2.png"><img src="/static/image/2011/wanfang_merge_pdf_test2.png" /></a></p>
 <p>咖啡喝完后，我们来看一下结果：</p>
-<pre><code>lox &gt;&gt;&gt; tree -ipNf  | grep &#39;single&#39;
-[-rw-rw-r--]  ./wanfang/IPTV机顶盒 GUI 子系统的研究与实现  /Paper/pdf/single_merged_pdf.pdf
-[-rw-rw-r--]  ./wanfang/Tools 设计与实现  /Paper/pdf/single_merged_pdf.pdf
-[-rw-rw-r--]  ./wanfang/Tools 设计与实现  /Paper/pdf/single_merged_pdf.ps
-[-rw-rw-r--]  ./wanfang/ 基于 QtEmbedded 的图形用户界面移植  /Paper/pdf/single_merged_pdf.pdf
-[-rw-rw-r--]  ./wanfang/ 基于嵌入式 Linux 智能手机 GUI 平台的研究与实现  /Paper/pdf/single_merged_pdf.pdf
-[-rw-rw-r--]  ./wanfang/ 基于消息通信机制嵌入式 GUI 的研究与实现  /Paper/pdf/single_merged_pdf.pdf
-[-rw-rw-r--]  ./wanfang/ 嵌入式 Linux 图形用户界面的研究与开发  /Paper/pdf/single_merged_pdf.pdf
-[-rw-rw-r--]  ./wanfang/ 嵌入式 uGUI 的研究与实现  /Paper/pdf/single_merged_pdf.pdf
-[-rw-rw-r--]  ./wanfang/ 嵌入式系统轻量化 GUI 框架的设计与实现  /Paper/pdf/single_merged_pdf.pdf
-[-rw-rw-r--]  ./wanfang/ 面向数字家电产品的 GUI 框架的设计与实现  /Paper/pdf/single_merged_pdf.pdf
+<pre class="example"><code>lox &gt;&gt;&gt; tree -ipNf  | grep &#39;single&#39;
+[-rw-rw-r--]  ./wanfang/IPTV机顶盒 GUI 子系统的研究与实现/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/Tools 设计与实现/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/Tools 设计与实现/Paper/pdf/single_merged_pdf.ps
+[-rw-rw-r--]  ./wanfang/基于 QtEmbedded 的图形用户界面移植/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/基于嵌入式 Linux 智能手机 GUI 平台的研究与实现/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/基于消息通信机制嵌入式 GUI 的研究与实现/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/嵌入式 Linux 图形用户界面的研究与开发/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/嵌入式 uGUI 的研究与实现/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/嵌入式系统轻量化 GUI 框架的设计与实现/Paper/pdf/single_merged_pdf.pdf
+[-rw-rw-r--]  ./wanfang/面向数字家电产品的 GUI 框架的设计与实现/Paper/pdf/single_merged_pdf.pdf
 </code></pre>
 <p>大功告成！！！</p>
 <p>接下来的任务是：</p>
@@ -382,7 +380,7 @@ done
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="Mac OS X遭遇记" href="/posts/2011-03-10-first-time-to-mac-os-x/">Prev</a><a class="item" title="行者无疆 cn 小传——人生在于有目的地折腾" href="/posts/2011-03-21-self-story/">Next</a>
+      <a class="item" title="Mac OS X 遭遇记" href="/posts/2011-03-10-first-time-to-mac-os-x/">Prev</a><a class="item" title="行者无疆 cn 小传——人生在于有目的地折腾" href="/posts/2011-03-21-self-story/">Next</a>
     </div>
   </aside>
 </div>
