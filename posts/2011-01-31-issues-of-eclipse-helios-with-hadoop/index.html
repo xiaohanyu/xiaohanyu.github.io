@@ -49,38 +49,49 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>最近在搞 Hadoop MapReduce，在本机配置了个 Hadoop Pseudo 环境，就琢磨着写两个 Java 小程序练练手。而 Java 程序开发的初始配置一向以麻烦著称，记得大二时开始学习 Java 时对那个 CLASSPATH 环境变量晕了好久。所以这个时候选一款顺手的 IDE 就是很重要的了。</p>
-<p>另一方面，对于长期生活在 <a href="http://en.wikipedia.org/wiki/K.I.S.S">K.I.S.S</a> 环境的 geek 来说，对 IDE 通常是不感冒的。他们更喜欢 a+b+c+d+Emacs 或者 Vim+w+x+y+z 的组合。但是 Java 就不同了。Emacs虽然有 <a href="http://jdee.sourceforge.net/">JDEE</a>，但是 Emacs 没有好用的 jsp-mode，好像也没有自动打包发布部署的功能，或者即使有，也需要极其麻烦的配置。而且 Emacs 的代码不全功能一向很麻烦也不太好用，对于 Java 巨大的类库和超长的类名就更头大了。所以在血淋淋的事实面前，我还是屈服了。好在还有个 Eclipse。</p>
-<p>为什么是 Eclipse 而不是 NetBeans? 其实没啥特别的原因，就是 Eclipse 的界面更加和谐一点，对 Java Swing 的丑陋效果和蜗牛般的速度实在是心有余悸。Eclipse确实也是非常优秀的软件，跨平台，多语言，丰富的插件和和谐统一的插件安装系统，良好的社区支持。Emacs也是。</p>
+  <section class="twelve wide column"><p>最近在搞 Hadoop MapReduce，在本机配置了个 Hadoop Pseudo 环境，就琢磨着写两个 Java 小程序练练手。而 Java 程序开发的初始配置一向以麻烦著称，记得大二时开始学习 Java 时对那个 <code>CLASSPATH</code> 环境变量晕了好久。所以这个时候选一款顺手的 IDE 就是很重要的了。</p>
+<p>另一方面，对于长期生活在 <a href="http://en.wikipedia.org/wiki/K.I.S.S">K.I.S.S</a> 环境的 geek 来说，对 IDE 通常是不感冒的。他们更喜欢 a + b + c + d + Emacs 或者 Vim + w + x + y + z 的组合。但是 Java 就不同了。 Emacs 虽然有 <a href="http://jdee.sourceforge.net/">JDEE</a>，但是 Emacs 没有好用的 jsp-mode，好像也没有自动打包发布部署的功能，或者即使有，也需要极其麻烦的配置。而且 Emacs 的代码不全功能一向很麻烦也不太好用，对于 Java 巨大的类库和超长的类名就更头大了。所以在血淋淋的事实面前，我还是屈服了。好在还有个 Eclipse。</p>
+<p>为什么是 Eclipse 而不是 NetBeans? 其实没啥特别的原因，就是 Eclipse 的界面更加和谐一点，对 Java Swing 的丑陋效果和蜗牛般的速度实在是心有余悸。Eclipse 确实也是非常优秀的软件，跨平台，多语言，丰富的插件和和谐统一的插件安装系统，良好的社区支持。 Emacs 也是。</p>
 <p>好了，废话少说，说说今天纠结的 Eclipse Hadoop 之旅吧。我用的软件版本是 Eclipse 3.6，安装的时候顺便将 eclipse-cdt 也装上了：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">pacman</span> -S eclipse eclipse-cdt</code></pre></div>
-<p>启动 Eclipse 一切正常，试着建立一个 Project 却发现无论如何也找不到 C++ 的项目，照理说不应该，不过不打紧，C++和今天的主题无关。继续。</p>
-<p>Eclipse开发 Hadoop MapReduce 程序需要安装一个 hadoop eclipse plugin，而根据 Eclipse 和Hadoop版本不同，所需选择的插件也不一样，有官方 hadoop contrib 里的 jar 包，有 <a href="http://code.google.com/p/hadoop-eclipse-plugin/downloads/list">google code</a> 上的，还有 <a href="http://www.harshj.com/2010/07/18/making-the-eclipse-plugin-work-for-hadoop/"> 打过 patch 的山寨 jar</a> 包。而 <a href="http://www.ibm.com/developerworks/opensource/library/os-ecfeat/">eclipse 安装插件 </a> 的方法也有很多，比如：</p>
+<p>启动 Eclipse 一切正常，试着建立一个 Project 却发现无论如何也找不到 C++ 的项目， 照理说不应该，不过不打紧，C++ 和今天的主题无关，继续。</p>
+<p>Eclipse 开发 Hadoop MapReduce 程序需要安装一个 hadoop eclipse plugin，而根据 Eclipse 和 Hadoop 版本不同，所需选择的插件也不一样，有官方 hadoop contrib 里的 jar 包，有 <a href="http://code.google.com/p/hadoop-eclipse-plugin/downloads/list">google code</a> 上的，还有<a href="http://www.harshj.com/2010/07/18/making-the-eclipse-plugin-work-for-hadoop/">打过 patch 的山寨 jar</a> 包。而 <a href="http://www.ibm.com/developerworks/opensource/library/os-ecfeat/">Eclipse 安装插件</a> 的方法也有很多，比如：</p>
 <ul>
 <li>安装到 plugins 目录</li>
-<li><a href="http://wiki.eclipse.org/Equinox_p2_Getting_Started"> 安装到 dropins 目录 </a></li>
-<li><a href="http://blog.csdn.net/kylinsoong/archive/2009/12/28/5092919.aspx">links 方式安装 </a></li>
+<li><a href="http://wiki.eclipse.org/Equinox_p2_Getting_Started">安装到 dropins 目录</a></li>
+<li><a href="http://blog.csdn.net/kylinsoong/archive/2009/12/28/5092919.aspx">links 方式安装</a></li>
 <li>通过 Help–&gt;Install New Software 的方式安装</li>
-<li><p>……</p>
-而我排列组合搞了一个下午后，Eclipse</li>
+<li>……</li>
 </ul>
-<p>3.6的 Hadoop 插件还是没有装上。无奈在 AUR 上安装了 Eclipse 3.5：</p>
+<p>而我排列组合搞了一个下午后，Eclipse 3.6 的 Hadoop 插件还是没有装上。无奈在 AUR 上安装了 Eclipse 3.5：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">yaourt</span> -S eclipse-classic-galileo</code></pre></div>
 <p>然后将 eclipse-hadoop-plugin 放到 plugins 目录下，终于看到了可爱的小象。究竟是怎么回事呢？</p>
-<p>定位好久，还是没有任何头绪。首先是 Eclipse 没有 Linux Manual，输入 eclipse –help 也没有任何信息，所以我不知道 eclipse CLI 有没有什么可用的参数；其次是我不知道 Eclipse 有没有自己的 log，或者有我也不知道在什么位置，无法发现启动过程中的蛛丝马迹。</p>
-<p>此时已经有些心灰意冷，寻思着要不就用 Eclipse 3.5 得了。无意中在网上发现了 Hadoop 的另一个插件，<a href="http://karmasphere.com/Studio-Eclipse/installation.html">Karmasphere</a>，看了下介绍还是蛮强大的，而且有 community 和professional两个版本，前者是免费的，只是下载的时候需要简单注册下。最重要的是，这个插件有 Eclipse 和NetBeans两个版本，真实太令人激动了。照着教程配只好 NetBeans 6.9 的开发环境，可以用，很强大。于是心情大好，继续配置 Eclipse 3.6 版本，这下 Eclipse 3.6 无法安装插件的问题终于露出了狐狸尾巴：</p>
-<p><img src="file:///user_files/cnlox/Image/screenshots/eclipse_dialog.png" /></p>
-<p>“Cannot complete the install because one or more required items could not be found. Software currently installed: Shared profile 1.0.0.1284044641500 (SharedProfile_SDKProfile 1.0.0.1284044641500) Missing requirement: Shared profile 1.0.0.1284044641500 (SharedProfile_SDKProfile 1.0.0.1284044641500) requires ‘org.eclipse.swt.gtk.linux.x86_64.source [3.6.1.v3655c]’ but it could not be found”</p>
+<p>定位好久，还是没有任何头绪。首先是 Eclipse 没有 Linux Manual，输入 <code>eclipse
+--help</code> 也没有任何信息，所以我不知道 eclipse CLI 有没有什么可用的参数；其次是我不知道 Eclipse 有没有自己的 log，或者有我也不知道在什么位置，无法发现启动过程中的蛛丝马迹。</p>
+<p>此时已经有些心灰意冷，寻思着要不就用 Eclipse 3.5 得了。无意中在网上发现了 Hadoop 的另一个插件，<a href="http://karmasphere.com/Studio-Eclipse/installation.html">Karmasphere</a>，看了下介绍还是蛮强大的，而且有 community 和 professional 两个版本，前者是免费的，只是下载的时候需要简单注册下。最重要的是， 这个插件有 Eclipse 和 NetBeans 两个版本，真实太令人激动了。照着教程配只好 NetBeans 6.9 的开发环境，可以用，很强大。于是心情大好，继续配置 Eclipse 3.6 版本， 这下 Eclipse 3.6 无法安装插件的问题终于露出了狐狸尾巴：</p>
+<p><a href="/static/image/2011/eclipse_dialog.png"><img src="/static/image/2011/eclipse_dialog.png" /></a></p>
+<pre class="example"><code>&quot;Cannot complete the install because one or more required items could not be
+found. Software currently installed: Shared profile 1.0.0.1284044641500
+(SharedProfile_SDKProfile 1.0.0.1284044641500) Missing requirement: Shared
+profile 1.0.0.1284044641500 (SharedProfile_SDKProfile 1.0.0.1284044641500)
+requires &#39;org.eclipse.swt.gtk.linux.x86_64.source [3.6.1.v3655c]&#39; but it could
+not be found&quot;
+</code></pre>
 <p>!!!</p>
-<p>重点是 “requires ‘org.eclipse.swt.gtk.linux.x86_64.source [3.6.1.v3655c]’ but it could not be found”。赶紧定位下 org.eclipse.swt.gtk.linux.x86_64：</p>
+<p>重点是</p>
+<pre class="example"><code>&quot;requires &#39;org.eclipse.swt.gtk.linux.x86_64.source
+[3.6.1.v3655c]&#39; but it could not be
+found&quot;。
+</code></pre>
+<p>赶紧定位下 <code>org.eclipse.swt.gtk.linux.x86_64</code> ：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">%</span> sudo updatedb <span class="kw">&amp;&amp;</span> <span class="fu">locate</span> org.eclipse.swt.gtk.linux.x86_64
 <span class="ex">/usr/share/eclipse/plugins/org.eclipse.swt.gtk.linux.x86_64.source_3.6.1.v3655c.jar</span>
 <span class="ex">/usr/share/eclipse/plugins/org.eclipse.swt.gtk.linux.x86_64_3.6.1.v3655c.jar</span></code></pre></div>
-<p>可以肯定的推断，这个东东在系统中是存在的，虽然命名方式可能不太一样。接下来的问题就好办了很多。我怀疑是 /usr/share/eclipse 目录的读写权限问题。在 <a href="https://bbs.archlinux.org/viewtopic.php?id=103140"> 这里 </a> 我的想法得到了佐证。于是立马改了 /usr/share/eclipse 的读写权限：</p>
+<p>可以肯定的推断，这个东东在系统中是存在的，虽然命名方式可能不太一样。接下来的问题就好办了很多。我怀疑是 <code>/usr/share/eclipse</code> 目录的读写权限问题。在<a href="https://bbs.archlinux.org/viewtopic.php?id=103140">这里</a>我的想法得到了佐证。于是立马改了 <code>/usr/share/eclipse</code> 的读写权限：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> chown -R lox:users /usr/share/eclipse</code></pre></div>
-<p>重启 Eclipse 3.6，果不其然，CDT复活了。于是又安装了 Eclipse-hadoop-plugin 和karmasphere的 plugin，总算大功告成。</p>
+<p>重启 Eclipse 3.6，果不其然，CDT 复活了。于是又安装了 Eclipse-hadoop-plugin 和 karmasphere 的 plugin，总算大功告成。</p>
 <p>最后放一张图吧：</p>
-<p><img src="file:///user_files/cnlox/Image/screenshots/eclipse_hadoop.png" /></p>
+<p><a href="/static/image/2011/eclipse_hadoop.png"><img src="/static/image/2011/eclipse_hadoop.png" /></a></p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
