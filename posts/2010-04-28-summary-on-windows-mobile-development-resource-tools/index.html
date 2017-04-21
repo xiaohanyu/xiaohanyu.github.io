@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>Windows mobile开发总结--资源工具篇</title>
+    <title>Windows Mobile 开发总结——资源工具篇</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,65 +43,63 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      Windows mobile开发总结--资源工具篇
+      Windows Mobile 开发总结——资源工具篇
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>俗话说：磨刀不误砍柴工。得心应手的工具，对于长时间的软件开发，能够起到事半功倍的效果。VS本身已经是一个非常强大的开发平台，只是在这个巨无霸的开发平台上，某些小功能还是不尽如人意。这个时候就需要插件来帮忙了。但是由于 VS 本省的原因，VS的插件并不像 <a href="http://www.eclipse.org/">Eclipse</a> 那样丰富，我用到的有：</p>
-<p>1、<a href="www.wholetomato.com/">Visual Assist X</a>：简单的说就是编辑器增强。安装后会增加 VAssistX 的菜单，里面主要有一些代码的 snippet（比 <a href="http://code.google.com/p/yasnippet/">yasnippet</a> 差远了），一些查找引用等贴心的功能。VA Outline的功能比 VS 自身的要好很多。其余的主要是代码补全方面的增强。比如你写一个类，重命名其中一个成员的时候，会出现以下的窗口：</p>
-<p><img src="file:///user_files/cnlox/Image/screenshots/va_rename.png" /></p>
-<p>这是一个很方便的功能。免除了手工修改反复编译的错误和潜在的危险。另一方面，这也说明事先的设计是非常重要的。当你敲了几万行代码后却发现其中一个英语单词拼写错误的时候，再想去修改时一件非常尴尬的事情。不改吧，显得自己没水平；改吧，很麻烦。在我们的代码中，我就发现了类似的错误，关于汉字拼音输入法的命名，chinese写成了 chiese，结果一直就这么用下来了 …… 还有，我们新开发的控件，由于要仿照 iPhone 的效果，所以新的一套控件啊类啥的统一加上前缀 ‘I’。可是毕竟大家习惯不同，有的是大写的 ‘I’，有的是小写的 ‘i’；还有最开始的控件都是只能支持 bmp 图片的载入，过了一段时间，底层引擎改进，支持 png 图片的载入了。可是类的成员函数很多却没有跟上。SetBitmap里面有很多载入的却是 png 图片，也一直这么用下来了。</p>
-<p>2、<a href="http://www.viemu.com/">ViEmu</a>：简单的说就是给 VS 的编辑器加上 vim 的 key bindings。官网的 ViEmu 还支持 word 和 outlook，不过我用的不多。令我非常惊喜的是这个小插件竟然还支持 <a href="http://vim.wikia.com/wiki/Macros">vim 键盘宏 </a> 的功能。</p>
-<pre><code>iLogoLabel      * m_pJnyTrnLabel;   // logol label
+  <section class="twelve wide column"><p>俗话说：磨刀不误砍柴工。得心应手的工具，对于长时间的软件开发，能够起到事半功倍的效果。VS 本身已经是一个非常强大的开发平台，只是在这个巨无霸的开发平台上，某些小功能还是不尽如人意。这个时候就需要插件来帮忙了。但是由于 VS 本身的原因，VS 的插件并不像 <a href="http://www.eclipse.org/">Eclipse</a> 那样丰富，我用到的有：</p>
+<p>1). <a href="www.wholetomato.com/">Visual Assist X</a>：简单的说就是编辑器增强。安装后会增加 VAssistX 的菜单，里面主要有一些代码的 snippet（比 <a href="http://code.google.com/p/yasnippet/">yasnippet</a> 差远了），一些查找引用等贴心的功能。VA Outline 的功能比 VS 自身的要好很多。其余的主要是代码补全方面的增强。比如你写一个类，重命名其中一个成员的时候，会出现以下的窗口：</p>
+<p><a href="/static/image/2010/va_rename.png"><img src="/static/image/2010/va_rename.png" /></a></p>
+<p>这是一个很方便的功能。免除了手工修改反复编译的错误和潜在的危险。另一方面，这也说明事先的设计是非常重要的。当你敲了几万行代码后却发现其中一个英语单词拼写错误的时候，再想去修改时一件非常尴尬的事情。不改吧，显得自己没水平；改吧，很麻烦。在我们的代码中，我就发现了类似的错误，关于汉字拼音输入法的命名， <code class="sourceCode cpp" rundoc-language="cpp"><span class="st">&quot;Chinese&quot;</span></code> 写成了 <code class="sourceCode cpp" rundoc-language="cpp"><span class="st">&quot;chiese&quot;</span></code> ，结果一直就这么用下来了……还有，我们新开发的控件，由于要仿照 iPhone 的效果，所以新的一套控件啊类啥的统一加上前缀 <code class="sourceCode cpp" rundoc-language="cpp"><span class="st">&#39;I&#39;</span></code> 。可是毕竟大家习惯不同，有的是大写的src<sub>cpp</sub>{‘I’} ，有的是小写的 <code class="sourceCode cpp" rundoc-language="cpp"><span class="st">&#39;i&#39;</span></code> ；还有最开始的控件都是只能支持 bmp 图片的载入，过了一段时间，底层引擎改进，支持 png 图片的载入了。可是类的成员函数很多却没有跟上。 <code>SetBitmap</code> 里面有很多载入的却是 png 图片， 也一直这么用下来了。</p>
+<p>2). <a href="http://www.viemu.com/">ViEmu</a>：简单的说就是给 VS 的编辑器加上 Vim 的 key bindings。官网的 ViEmu 还支持 Word 和 Outlook，不过我用的不多。令我非常惊喜的是这个小插件竟然还支持 <a href="http://vim.wikia.com/wiki/Macros">Vim 键盘宏</a> 的功能。</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">iLogoLabel      * <span class="va">m_pJnyTrnLabel</span>;   <span class="co">// logol label</span>
 
-ILabel          * m_pJnyTrnStaticTrain;
-ILabel          * m_pJnyTrnStaticSeat;
-ILabel          * m_pJnyTrnStaticStartStation;
-ILabel          * m_pJnyTrnStaticStartTime; 
-ILabel          * m_pJnyTrnStaticDestStation;
-ILabel          * m_pJnyTrnStaticDestTime;
-ILabel          * m_pJnyTrnStaticBookInfo;
-ILabel          * m_pJnyTrnStaticNote;
+ILabel          * <span class="va">m_pJnyTrnStaticTrain</span>;
+ILabel          * <span class="va">m_pJnyTrnStaticSeat</span>;
+ILabel          * <span class="va">m_pJnyTrnStaticStartStation</span>;
+ILabel          * <span class="va">m_pJnyTrnStaticStartTime</span>;
+ILabel          * <span class="va">m_pJnyTrnStaticDestStation</span>;
+ILabel          * <span class="va">m_pJnyTrnStaticDestTime</span>;
+ILabel          * <span class="va">m_pJnyTrnStaticBookInfo</span>;
+ILabel          * <span class="va">m_pJnyTrnStaticNote</span>;
 
-// 动态框架可变信息  
-ILabel          * m_pJnyTrnTitle;   // title of this window 
-ILabel          * m_pJnyTrnTrain;
-ILabel          * m_pJnyTrnSeat;
-ILabel          * m_pJnyTrnStartStation;
-ILabel          * m_pJnyTrnStartTime;   
-ILabel          * m_pJnyTrnDestStation;
-ILabel          * m_pJnyTrnDestTime;
-ITextArea       * m_pJnyTrnBookInfo;
-ILabel          * m_pJnyTrnNote;
+<span class="co">// 动态框架可变信息</span>
+ILabel          * <span class="va">m_pJnyTrnTitle</span>;   <span class="co">// title of this window</span>
+ILabel          * <span class="va">m_pJnyTrnTrain</span>;
+ILabel          * <span class="va">m_pJnyTrnSeat</span>;
+ILabel          * <span class="va">m_pJnyTrnStartStation</span>;
+ILabel          * <span class="va">m_pJnyTrnStartTime</span>;
+ILabel          * <span class="va">m_pJnyTrnDestStation</span>;
+ILabel          * <span class="va">m_pJnyTrnDestTime</span>;
+ITextArea       * <span class="va">m_pJnyTrnBookInfo</span>;
+ILabel          * <span class="va">m_pJnyTrnNote</span>;
 
-//buttons
-iIdxButton      * m_pJnyTrnDelete;          // 删除按钮  
-iIdxButton      * m_pJnyTrnServicePhone;    // 客服电话按钮  
-iIdxButton      * m_pJnyTrnShare;           // 共享按钮  
-iIdxButton      * m_pJnyTrnStartMap;        // 出发站地图按钮  
-iIdxButton      * m_pJnyTrnDestMap;     // 终点站地图按钮  
-</code></pre>
-<p>以上代码是一个窗口的 .h 文件里面的一部分，是这个窗口类的成员函数。一般来说，在构造函数里面将这么多成员初始化为 NULL。没有键盘宏，我们只能动用自己的四肢，一会 end，一会又点点鼠标，折腾 3-5 分钟，终于把这些成员都“初始化为 NULL&quot; 了。有了键盘宏，这种工作只是十几秒钟的事情。进入命令模式：</p>
+<span class="co">//buttons</span>
+iIdxButton      * <span class="va">m_pJnyTrnDelete</span>;          <span class="co">// 删除按钮</span>
+iIdxButton      * <span class="va">m_pJnyTrnServicePhone</span>;    <span class="co">// 客服电话按钮</span>
+iIdxButton      * <span class="va">m_pJnyTrnShare</span>;           <span class="co">// 共享按钮</span>
+iIdxButton      * <span class="va">m_pJnyTrnStartMap</span>;        <span class="co">// 出发站地图按钮</span>
+iIdxButton      * <span class="va">m_pJnyTrnDestMap</span>;     <span class="co">// 终点站地图按钮</span></code></pre></div>
+<p>以上代码是一个窗口的 <code>.h</code> 文件里面的一部分，是这个窗口类的成员函数。一般来说，在构造函数里面将这么多成员初始化为 NULL。没有键盘宏，我们只能动用自己的四肢，一会 end，一会又点点鼠标，折腾 3–5 分钟，终于把这些成员都“初始化为 NULL&quot; 了。有了键盘宏，这种工作只是十几秒钟的事情。进入命令模式：</p>
 <ul>
-<li>qa开始记录宏</li>
-<li>q 结束宏的录制</li>
-<li><p><span class="citation" data-cites="a">@a</span> 执行宏。可以加数字参数，比如 10@a 表示执行键盘宏 10 次。</p>
-其余的具体细节，看 [[<a href="http://www.eandem.co.uk/mrw/vim/usr_doc/index.html" class="uri">http://www.eandem.co.uk/mrw/vim/usr_doc/index.html</a>][vim</li>
+<li><code>qa</code> 开始记录宏</li>
+<li><code>q</code> 结束宏的录制</li>
+<li><code>@a</code> 执行宏。可以加数字参数，比如 <code>10@a</code> 表示执行键盘宏 10 次。</li>
 </ul>
-<p>manual]] 吧。</p>
-<p>3、.vssettings文件：多数用 VS 的人可能不知道，长时间对着白底黑字对眼睛是非常有害的。找一个深色调的主题，一来延长显示屏寿命，二来有效保护眼睛。在这方面 vim 和emacs是榜样，他们都有非常多的 color-theme。vim本身是内置 color-theme 的，<a href="http://www.emacswiki.org/emacs/ColorTheme">emacs的 color-theme</a> 需要插件支持，我偏好于黑底白字的 color-theme——bash 终端就是这个颜色，比较 cool，呵呵。在 word2003 里面也有设定默认背景色和字体颜色的选项，较好的方案是蓝底白字，对眼睛比较好；但是到了 word2007 里面这个功能却不见了，不知道 MS 是怎么想的呢。好在 WPS 有这个功能，所以我现在用 <a href="http://www.wps.cn/">WPS</a>。废话说了这么多，在 VS 里面，也是可以设置字体和颜色的。工具 - 选项 - 环境 - 字体和颜色：</p>
-<p><img src="file:///user_files/cnlox/Image/screenshots/Untitled.png" /></p>
-<p>但是一项一项的设置不仅非常麻烦，而且由于 80% 的程序员都没有与其编码能力相称的美工配色能力，所以这个方案基本是不可行的。剩下的，就是前人栽树，后人乘凉。Google: filetype:vssettings，找到自己喜欢的配色文件，直接导入即可。</p>
-<p>4、<a href="http://code.google.com/p/gitextensions/">git-extentions</a>：我对版本控制并不是特别了解，主要是自己经验不足，没有多少实际的开发经历。只是在去年的 Java 课上，自己像模像样的用了一下 git。对版本控制的印象也只停留在了“好像是个时光机”这个层次上。目前主流的版本控制应该是 cvs、svn和 git 吧。cvs廉颇老矣，逐渐被 svn 取代，git是 Linus 几个星期内写的，却很快风靡了开源世界，还曾引发了一场 <a href="http://thread.gmane.org/gmane.comp.version-control.git/57643/focus=57918">c 和c++的论战 </a>。svn的各种插件比较成熟，项目组最开始的引擎也是用 svn 做版本控制，用的插件是 <a href="http://tortoisesvn.tigris.org/">tortoisesvn</a>。VS相关的集成插件是 <a href="http://ankhsvn.open.collab.net/">AnkhSVN</a>，我也安装了。但是老实说，我不太喜欢。最不喜欢的是 svn 在项目目录的每个目录下都创建一个 .svn 目录，让我十分不爽。而且还有自己架设 svn 服务器，apache啥的，我看着就头大了。哪如 git，一条 git init 语句就可以投入使用了。</p>
-<p>就这么多，Visual Assist X和 ViEmu 是共享软件，需要发挥中国人的聪明才智破解一下。后面的免费的。</p>
-<p>刀已经磨好了，怎样砍柴又是一个问题。因此对嵌入式尤其是 WinCE 和windows mobile平台上相关知识的了解是至关重要的。网上有一些非常不错的博客和资源如下：</p>
+<p>其余的具体细节，看 <a href="http://www.eandem.co.uk/mrw/vim/usr_doc/index.html">Vim manual</a> 吧。</p>
+<p>3). <code>.vssettings</code> 文件：多数用 VS 的人可能不知道，长时间对着白底黑字对眼睛是非常有害的。找一个深色调的主题，一来延长显示屏寿命，二来有效保护眼睛。在这方面 Vim 和 Emacs 是榜样，他们都有非常多的 color-theme。Vim 本身是内置 color-theme 的， <a href="http://www.emacswiki.org/emacs/ColorTheme">Emacs 的 color-theme</a> 需要插件支持，我偏好于黑底白字的 color-theme——bash 终端就是这个颜色，比较 cool，呵呵。在 Word 2003 里面也有设定默认背景色和字体颜色的选项， 较好的方案是蓝底白字，对眼睛比较好；但是到了 Word 2007 里面这个功能却不见了，不知道 MS 是怎么想的呢。好在 WPS 有这个功能，所以我现在用 <a href="http://www.wps.cn/">WPS</a>。废话说了这么多，在 VS 里面，也是可以设置字体和颜色的。工具 –&gt; 选 –&gt; 环境 –&gt; 字体和颜色：</p>
+<p><a href="/static/image/2010/vs_settings.png"><img src="/static/image/2010/vs_settings.png" /></a></p>
+<p>但是一项一项的设置不仅非常麻烦，而且由于 80% 的程序员都没有与其编码能力相称的美工配色能力，所以这个方案基本是不可行的。剩下的，就是前人栽树，后人乘凉。 <code>Google: filetype:vssettings</code> ，找到自己喜欢的配色文件，直接导入即可。</p>
+<p>4). <a href="http://code.google.com/p/gitextensions/">git-extentions</a>：我对版本控制并不是特别了解，主要是自己经验不足，没有多少实际的开发经历。只是在去年的 Java 课上，自己像模像样的用了一下 Git。对版本控制的印象也只停留在了“好像是个时光机”这个层次上。目前主流的版本控制应该是 CVS、SVN和 Git 吧。CVS 廉颇老矣，逐渐被 SVN 取代，Git 是 Linus 几个星期内写的，却很快风靡了开源世界，还曾引发了一场 <a href="http://thread.gmane.org/gmane.comp.version-control.git/57643/focus=57918">C 和 C++ 的论战</a>。SVN 的各种插件比较成熟，项目组最开始的引擎也是用 SVN 做版本控制，用的插件是 <a href="http://tortoisesvn.tigris.org/">TortoiseSVN</a>。VS 相关的集成插件是 <a href="http://ankhsvn.open.collab.net/">AnkhSVN</a>，我也安装了。但是老实说，我不太喜欢。最不喜欢的是 SVN 在项目目录的每个目录下都创建一个 <code>.svn</code> 目录，让我十分不爽。而且还有自己架设 SVN 服务器，Apache 啥的，我看着就头大了。哪如 Git，一条 <code>git init</code> 语句就可以投入使用了。</p>
+<p>就这么多，Visual Assist X 和 ViEmu 是共享软件，需要发挥中国人的聪明才智破解一下。 后面的免费的。</p>
+<p>刀已经磨好了，怎样砍柴又是一个问题。因此对嵌入式尤其是 WinCE 和 Windows Mobile 平台上相关知识的了解是至关重要的。网上有一些非常不错的博客和资源如下：</p>
 <ul>
-<li><a href="http://www.cnblogs.com/wangkewei/">克伟的博客 </a>：里面的一篇《<a href="http://www.cnblogs.com/wangkewei/archive/2009/10/05/1578219.html">如何开发绚丽、高效率的界面 (Windows 嵌入式系统 )</a>》，讲的非常透彻，深入浅出，非常适合向我一样的新手入门。</li>
-<li><a href="http://www.linuxgraphics.cn/home/index.html">LinuxGraphics</a>：难得的介绍各种 GUI 体系结构原理的网站。是我见过的所有讲 GUI 体系的网站中最好的一个。</li>
-<li><a href="http://www.cppblog.com/cexer/archive/2008/08/06/58169.html">cexer</a>：这个博客的作者对 GUI 框架体系有相当的研究，里面有一些 GUI 实现机制的源码，值得学习。</li>
-<li><a href="http://www.limodev.cn/blog/">The linux mobile development</a>：这个博客有个 <a href="http://code.google.com/p/ftk/">ftk</a> 项目，想学习开发嵌入式 GUI 的同志们可以研读一下代码。别的开源代码如 gtk、qt、minigui等都太庞大了。这个项目刚开始起步，整体来讲研读起来比较容易一些。</li>
+<li><a href="http://www.cnblogs.com/wangkewei/">克伟的博客</a> – 里面的一篇《<a href="http://www.cnblogs.com/wangkewei/archive/2009/10/05/1578219.html">如何开发绚丽、高效率的界面 (Windows 嵌入式系统 )</a>》， 讲的非常透彻，深入浅出，非常适合向我一样的新手入门。</li>
+<li><a href="http://www.linuxgraphics.cn/home/index.html">LinuxGraphics</a> – 难得的介绍各种 GUI 体系结构原理的网站。是我见过的所有讲 GUI 体系的网站中最好的一个。</li>
+<li><a href="http://www.cppblog.com/cexer/archive/2008/08/06/58169.html">cexer</a> – 这个博客的作者对 GUI 框架体系有相当的研究，里面有一些 GUI 实现机制的源码，值得学习。</li>
+<li><a href="http://www.limodev.cn/blog/">The linux mobile development</a> – 这个博客有个 <a href="http://code.google.com/p/ftk/">ftk</a> 项目，想学习开发嵌入式 GUI 的同志们可以研读一下代码。别的开源代码如 GTK、Qt、MiniGUI等都太庞大了。这个项目刚开始起步，整体来讲研读起来比较容易一些。</li>
 </ul>
 <p>当然，“纸上得来终觉浅，绝知此事要躬行”，自己动手实践才是最重要的。</p>
 
@@ -166,7 +164,7 @@ iIdxButton      * m_pJnyTrnDestMap;     // 终点站地图按钮
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="Windows mobile开发总结--文本控件篇" href="/posts/2010-04-24-summary-on-windows-mobile-development-text-component/">Prev</a><a class="item" title="稀里糊涂的数模比赛" href="/posts/2010-05-10-mathematical-contest-in-modeling/">Next</a>
+      <a class="item" title="Windows Mobile 开发总结——文本控件篇" href="/posts/2010-04-24-summary-on-windows-mobile-development-text-component/">Prev</a><a class="item" title="稀里糊涂的数模比赛" href="/posts/2010-05-10-mathematical-contest-in-modeling/">Next</a>
     </div>
   </aside>
 </div>

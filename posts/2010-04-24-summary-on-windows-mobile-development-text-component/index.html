@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>Windows mobile开发总结--文本控件篇</title>
+    <title>Windows Mobile 开发总结——文本控件篇</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,221 +43,210 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      Windows mobile开发总结--文本控件篇
+      Windows Mobile 开发总结——文本控件篇
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>这个项目是在自己已有的代码基础上，在 windows mobile 6.x 平台下开发出一套商旅个人助理软件，软件主要内容是世博相关的机票、酒店、火车票、行程安排等，界面要求是仿照 iPhone 风格。因为客户公司有了 iPhone 和Android平台上的成品，但是可能时间紧急，又缺乏 Mobile 平台上的控件代码基础，所以找到了我们这边。<br />
-<br />
-原来的代码基础是一套 GUI 的控件引擎。利用 GAPI，从最底层写起，包括最基本的画点画线函数、显存操作函数、窗口管理函数、控件类继承体系等等。这套体系的第一个产品是宁波公安的移动警务系统。去年的时候我也曾经有所了解，但是终究因为自己课业繁忙没有真正参与进来。这次是个机会。<br />
-<br />
-开始的时候我对这套东西很是抵触。一来是我本身不太欣赏 Windows 的哲学。在进入实验室之前的半年都在 Linux 下生活；二是我觉得重新写这么一套东西是 “reinvent the wheels” 的愚蠢做法。我还像导师建议 Qt。坦白的说，虽然我从来没有用 Qt 写过一个像样的东西，但是 Qt 的信号与槽机制，感觉要优雅的多；三是除了 Qt，MiniGUI据说也不错，为什么要自己大费周章地写这么一个东西呢？而且我虽然很菜，但是写这么一坨代码，我还是能看出很多问题的 —— 虽然让我去写我肯定写不出特别好的东西。<br />
-<br />
-事实上：</p>
+  <section class="twelve wide column"><p>这个项目是在自己已有的代码基础上，在 Windows Mobile 6.x 平台下开发出一套商旅个人助理软件，软件主要内容是世博相关的机票、酒店、火车票、行程安排等，界面要求是仿照 iPhone 风格。因为客户公司有了 iPhone 和 Android 平台上的成品，但是可能时间紧急， 又缺乏 Mobile 平台上的控件代码基础，所以找到了我们这边。</p>
+<p>原来的代码基础是一套 GUI 的控件引擎。利用 GAPI，从最底层写起，包括最基本的画点画线函数、显存操作函数、窗口管理函数、控件类继承体系等等。这套体系的第一个产品是宁波公安的移动警务系统。去年的时候我也曾经有所了解，但是终究因为自己课业繁忙没有真正参与进来。这次是个机会。</p>
+<p>开始的时候我对这套东西很是抵触。一来是我本身不太欣赏 Windows 的哲学。在进入实验室之前的半年都在 Linux 下生活；二是我觉得重新写这么一套东西是 “reinvent the wheels” 的愚蠢做法。我还像导师建议 Qt。坦白的说，虽然我从来没有用 Qt 写过一个像样的东西，但是 Qt 的信号与槽机制，感觉要优雅的多；三是除了 Qt，MiniGUI 据说也不错，为什么要自己大费周章地写这么一个东西呢？而且我虽然很菜，但是写这么一坨代码， 我还是能看出很多问题的——虽然让我去写我肯定写不出特别好的东西。</p>
+<p>事实上：</p>
 <ul>
-<li>我很讨厌某些宏。大量的宏让程序显得莫名其妙。Win32 API中有大量的宏，什么 handle, hwnd, COLORREF 等等，虽然这些宏归根到底不过是个 int，但是我觉得很多时候还是 KISS 原则最重要。直接用 int 好了。干嘛这么麻烦。</li>
-<li>我很讨厌某些 typedef。明明有了标准的 true 和 false，为什么还要自己去定义个 GTrue、GFalse和 GOK 呢？还有 GRESULT？这大概是受 Windows 编程风格的影响吧。</li>
+<li>我很讨厌某些宏。大量的宏让程序显得莫名其妙。Win32 API 中有大量的宏，什么 <code>handle</code> 、 <code>hwnd</code> 、 <code>COLORREF</code> 等等，虽然这些宏归根到底不过是个 <code>int</code> ，但是我觉得很多时候还是 KISS 原则最重要。直接用 <code>int</code> 好了。干嘛这么麻烦。</li>
+<li>我很讨厌某些 <code>typedef</code> 。明明有了标准的 <code>true</code> 和 <code>false</code> ，为什么还要自己去定义个 <code>GTrue</code> 、~GFalse~ 和 <code>GOK</code> 呢？还有 <code>GRESULT</code> ？这大概是受 Windows 编程风格的影响吧。</li>
 <li>我很讨厌注释不全、命名风格糟糕的代码。</li>
 </ul>
-<p>当然，GUI框架的设计是一件很复杂的事情。具体来说可以分为三层：</p>
+<p>当然，GUI 框架的设计是一件很复杂的事情。具体来说可以分为三层：</p>
 <ul>
-<li>底层引擎层：包括基本的显存操作，画点画线，alpha渲染，图片压缩载入，图形学算法、消息事件处理、字体引擎、布局管理器、窗口管理器等等。</li>
-<li>控件层：控件继承体系、文本类控件（标签，单行文本编辑，多行文本编辑域），按钮类（button、list等）、滚动条类、光标类、复杂控件类（菜单、表格等等）</li>
-<li>应用层：这个算最简单的了。只要前两层足够稳定，应用层是手到擒来的事情。其余的事情如数据库连接、xml解析、网络连接等等，属于额外附加功能。</li>
+<li>底层引擎层：包括基本的显存操作，画点画线，alpha 渲染，图片压缩载入，图形学算法、 消息事件处理、字体引擎、布局管理器、窗口管理器等等。</li>
+<li>控件层：控件继承体系、文本类控件（标签，单行文本编辑，多行文本编辑域），按钮类 （button、list等）、滚动条类、光标类、复杂控件类（菜单、表格等等）</li>
+<li>应用层：这个算最简单的了。只要前两层足够稳定，应用层是手到擒来的事情。其余的事情如数据库连接、XML 解析、网络连接等等，属于额外附加功能。</li>
 </ul>
-<p>这里有份 <a href="http://www.linuxgraphics.cn/gui/gui_req.html">GUI 系统需求描述 </a>，可以参考一下。嵌入式的 GUI 框架还是要简单一些。当然，这也与嵌入式系统的硬件条件是息息相关的。<br />
-<br />
-实验室的这套框架主要是仿照 Windows 消息机制写的。很多东西保留了 Win32 API 的痕迹。事实上底层引擎是不可能脱离具体的操作系统而存在的。跨平台的原理就是在统一的接口下面提供不同的内部系统实现。<br />
-<br />
-最开始接触这个项目的时候我心中很是没底。一来我从来没有接触过 4W+ 行代码的项目，二来我对 Windows 消息机制那一套也不是很了解。所以我就花了将近 200 大洋买了经典的 <a href="http://book.douban.com/subject/1088168/">《windows程序设计》</a>，自己在那里面吭哧吭哧啃了好几天，看了 200 多页。终于算对 Windows 消息循环机制有了初步的了解。<br />
-<br />
-3月 28 号开会，3月 29 号熟悉整个系统体系。开始做控件。我被安排的任务是做文本类的控件：</p>
+<p>这里有份 <a href="http://www.linuxgraphics.cn/gui/gui_req.html">GUI 系统需求描述 </a>，可以参考一下。嵌入式的 GUI 框架还是要简单一些。当然， 这也与嵌入式系统的硬件条件是息息相关的。</p>
+<p>实验室的这套框架主要是仿照 Windows 消息机制写的。很多东西保留了 Win32 API 的痕迹。 事实上底层引擎是不可能脱离具体的操作系统而存在的。跨平台的原理就是在统一的接口下面提供不同的内部系统实现。</p>
+<p>最开始接触这个项目的时候我心中很是没底。一来我从来没有接触过 4W+ 行代码的项目， 二来我对 Windows 消息机制那一套也不是很了解。所以我就花了将近 200 大洋买了经典的 《<a href="http://book.douban.com/subject/1088168/">Windows 程序设计</a>》，自己在那里面吭哧吭哧啃了好几天，看了 200 多页。终于算对 Windows 消息循环机制有了初步的了解。</p>
+<p>3 月 28 号开会，3 月 29 号熟悉整个系统体系。开始做控件。我被安排的任务是做文本类的控件：</p>
 <ul>
-<li>ILabel：静态文本标签。</li>
-<li>ITextField：单行文本编辑框。</li>
-<li>ITextArea：多行文本编辑框。</li>
+<li><code>ILabel</code> – 静态文本标签。</li>
+<li><code>ITextField</code> – 单行文本编辑框。</li>
+<li><code>ITextArea</code> – 多行文本编辑框。</li>
 </ul>
 <p>三个文本控件统一要求：</p>
 <ul>
 <li>支持 png 图片载入</li>
-<li>支持字体类型和大小，</li>
-<li>字体颜色，</li>
-<li>背景颜色，</li>
-<li>圆角透明。</li>
-<li>支持编辑锁定和光标定位。</li>
+<li>支持字体类型和大小</li>
+<li>字体颜色</li>
+<li>背景颜色</li>
+<li>圆角透明</li>
+<li>支持编辑锁定和光标定位</li>
 </ul>
-<p>说起来容易做起来难。底层控件的开发往往比上层应用的开发要难的多。写到现在，代码总量写了 180k，估摸着 6000 行应该有的（虽然有很多框架性 copy&amp;paste 的东西）。总共写了 3 个文本空间和 8 个窗口界面。3:8，由此可见一个小小的文本编辑框并不是我们想象中的那么容易。具体来讲，在画点画线画矩形这写仅有的 GDI 函数的基础上，你需要实现：</p>
+<p>说起来容易做起来难。底层控件的开发往往比上层应用的开发要难的多。写到现在，代码总量写了 180k ，估摸着 6000 行应该有的（虽然有很多框架性 copy &amp; paste 的东西）。总共写了 3 个文本空间和 8 个窗口界面。3:8，由此可见一个小小的文本编辑框并不是我们想象中的那么容易。具体来讲，在画点画线画矩形这写仅有的 GDI 函数的基础上，你需要实现：</p>
 <ul>
-<li>如何支持不同的风格（字体颜色，大小，背景颜色，alpha渲染风格）；</li>
-<li>如何支持 png 图片的载入（我设计的单行文本框支持一张 mainPng 和两张 leftPng、rightPng的载入，并根据鼠标是否点击在 leftPng 和rightPng图片上进行不同的处理，如清空文本，确定查询等等，载入 png 事件简单的事情，但是由此引发的光标定位问题却让我无比头疼）；</li>
-<li>如何支持光标定位（这是文本框设计中非常复杂的一个问题。可能你不相信，等宽字体 (monospace) 的发明就是因为早期的电脑画面显示、打字机，由于技术的局限，无法进行字母宽度的比例调整，因此将每个字元都制作成一样的宽度）。说到这里应该明白了吧。当你点击光标的时候，需要根据你的光标的坐标，判断在整个字符串中最合适的位置。总不能让光标在一个字体的中间闪烁吧 …… 原理也是很简单的，无非就是建立个链表，每个 node 的结构如下：</li>
+<li>如何支持不同的风格（字体颜色，大小，背景颜色，alpha 渲染风格）；</li>
+<li>如何支持 png 图片的载入（我设计的单行文本框支持一张 mainPng 和两张 leftPng、 rightPng 的载入，并根据鼠标是否点击在 leftPng 和 rightPng 图片上进行不同的处理， 如清空文本，确定查询等等，载入 png 事件简单的事情，但是由此引发的光标定位问题却让我无比头疼）；</li>
+<li>如何支持光标定位（这是文本框设计中非常复杂的一个问题。可能你不相信，等宽字体 （monospace） 的发明就是因为早期的电脑画面显示、打字机，由于技术的局限，无法进行字母宽度的比例调整，因此将每个字元都制作成一样的宽度）。说到这里应该明白了吧。 当你点击光标的时候，需要根据你的光标的坐标，判断在整个字符串中最合适的位置。总不能让光标在一个字体的中间闪烁吧……原理也是很简单的，无非就是建立个链表，每个 node 的结构如下：</li>
 </ul>
-<pre><code>struct char_node
-{
-    wchar_t * ch;
-    int ch_width;
-    int ch_height;
-}
-</code></pre>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="kw">struct</span> char_node {
+  <span class="dt">wchar_t</span> * ch;
+  <span class="dt">int</span> ch_width;
+  <span class="dt">int</span> ch_height;
+}</code></pre></div>
 <p>然后根据光标的位置从头开始遍历链表，最终确定光标位置。但是，当你面对一个 1k 行的代码基，里面按照原来的机器写死了各种可恶的绝对坐标的时候，你想对它进行改进，就不是说说那么简单的事情了。</p>
 <ul>
-<li>如何支持字体的滚动（当文本输入到边缘时 —— 拿单行编辑框为例，正常情况下文本应该向左滚动，光标始终在最右端的边缘闪烁）。老的平台控件是支持这个功能的，这让我很开心，但是开心了没多久，我发现了一个很严重的 bug，就是在整个文本字符串在向左滚动的时候，文本字符会画到整个文本控件的左边 …… 这显然是一个不可饶恕的 bug，但是到现在我仍然没有搞定。因此现在我的 ITextField，当你的文字字符串输到文本框右边的时候，光标仍然继续向右移动 —— 于是就会消失不见了。</li>
-<li>如何支持不同的字体大小（我发现在原来的代码基础上改造而来的 ITextField 对光标的定位简直是一塌糊涂。经过我一番实验，发现当用 29 号字体的时候光标的定位效果是最好的，于是我统一把我的文本控件的字体改成了默认的 29 号大小。陈老师告诉我们说“软件软件，越软越好 ……”，我当然明白这个道理，但是，写“软”是需要时间的。某些时候，为了赶进度，我们不得不牺牲某些扩展性来追求暂时的能用性。所以我的东西到现在，光标定位依然是很大的问题）</li>
-<li>如何支持不同字体载入？据我所知，字体有点阵字体和矢量字体，矢量字体又有 OpenType 和TrueType等，这些字体的内在原理是什么？什么叫衬线字体？什么叫非衬线字体？为什么一般文章排版正文都要用宋体？等等，这是非常有研究的一个话题。</li>
+<li>如何支持字体的滚动（当文本输入到边缘时——拿单行编辑框为例，正常情况下文本应该向左滚动，光标始终在最右端的边缘闪烁）。老的平台控件是支持这个功能的，这让我很开心，但是开心了没多久，我发现了一个很严重的 bug，就是在整个文本字符串在向左滚动的时候，文本字符会画到整个文本控件的左边……这显然是一个不可饶恕的 bug，但是到现在我仍然没有搞定。因此现在我的 <code>ITextField</code> ，当你的文字字符串输到文本框右边的时候，光标仍然继续向右移动——于是就会消失不见了。</li>
+<li>如何支持不同的字体大小（我发现在原来的代码基础上改造而来的 <code>ITextField</code> 对光标的定位简直是一塌糊涂。经过我一番实验，发现当用 29 号字体的时候光标的定位效果是最好的，于是我统一把我的文本控件的字体改成了默认的 29 号大小。陈老师告诉我们说 “软件软件，越软越好……”，我当然明白这个道理，但是，写“软”是需要时间的。某些时候， 为了赶进度，我们不得不牺牲某些扩展性来追求暂时的能用性。所以我的东西到现在，光标定位依然是很大的问题）</li>
+<li>如何支持不同字体载入？据我所知，字体有点阵字体和矢量字体，矢量字体又有 OpenType 和 TrueType 等，这些字体的内在原理是什么？什么叫衬线字体？什么叫非衬线字体？为什么一般文章排版正文都要用宋体？等等，这是非常有研究的一个话题。</li>
 <li>如何支持文字选块？</li>
 <li>如何支持多行文本域的文字折行？</li>
-<li>进一步，如何支持标点压缩和头尾压缩（这是一般字处理软件的事情了 ……）。</li>
+<li>进一步，如何支持标点压缩和头尾压缩（这是一般字处理软件的事情了……）。</li>
 <li>再进一步，我们只知道英语和汉语，陈老师说阿拉伯文的文字连着写和分着写也是不一样的，有特殊的规则，我们又该如何支持？</li>
 </ul>
 <p>由此可以看出，文本编辑框虽然看似简单，实现起来却要涉及到很多很多的知识和细心斟酌。</p>
-<p>当然，以我的水平是不可能在这么短的时间内写出一个完备的文本编辑框的。可取的方法就是模仿、修改。老的单行文本编辑框叫做 GTextField，GTextField的邻居如下所示：<br />
-<img src="file:///user_files/cnlox/Image/screenshots/class_gtextfield.png" /></p>
-<p>我呢，则丝毫没有客气，仿照主要的函数接口，框架代码，对 GTextField 做起了外科手术。一个好的医生应该是内外兼修。做这么一个东西自然需要对底层的东西有比较深入的了解。可是一来这一套东西是我们实验室自己 yy 出来的，很多尚达不到工业标准，也没有现成的教程指南，代码注释又不是特别完备，所以自己理解起来颇有些困难；二来很多东西急于求成，所以有非常多莫名其妙的 1、2、3、4、5，只有通过自己的实验看效果，将这些 12345 变成 const int default_xx_margin = 3……</p>
+<p>当然，以我的水平是不可能在这么短的时间内写出一个完备的文本编辑框的。可取的方法就是模仿、修改。老的单行文本编辑框叫做 <code>GTextField</code> ， <code>GTextField</code> 的邻居如下所示：</p>
+<p><a href="/static/image/2010/class_gtextfield.png"><img src="/static/image/2010/class_gtextfield.png" /></a></p>
+<p>我呢，则丝毫没有客气，仿照主要的函数接口，框架代码，对 <code>GTextField</code> 做起了外科手术。一个好的医生应该是内外兼修。做这么一个东西自然需要对底层的东西有比较深入的了解。可是一来这一套东西是我们实验室自己 yy 出来的，很多尚达不到工业标准，也没有现成的教程指南，代码注释又不是特别完备，所以自己理解起来颇有些困难；二来很多东西急于求成，所以有非常多莫名其妙的 <code>1</code> 、 <code>2</code> 、 <code>3</code> 、 <code>4</code> 、 <code>5</code> ，只有通过自己的实验看效果，将这些 <code>1</code> 、 <code>2</code> 、 <code>3</code> 、 <code>4</code> 、 <code>5</code> 变成 <code>const int
+default_xx_margin = 3</code> ……</p>
 <p>经过我的改造，除了光标定位和字体大小，其余功能基本实现，只是代码写的比较恶心，自己都不忍去看了。</p>
-<p>无怪乎，Knuth大人一个 TeX 系统写了十年时间，经过别人改造成 LaTeX、ConTeXt、Omega、LuaTeX等等至今尚未完善；无怪乎求伯君大神当年十万行汇编代码的 WPS1.0 使他成为了全中国程序员的偶像。<br />
-<br />
-当我们费了九牛二虎之力做出来一个可以用的东西时，却发现那个东东是如此的丑陋，以至于连自己都不敢去看它。有了这样的经历，再去使用 Windows 7，Compiz Fusion，会多一份敬重之情。简洁优美的背后，隐藏着多少心思和功力。</p>
+<p>无怪乎，Knuth 大人一个 TeX 系统写了十年时间，经过别人改造成 LaTeX、ConTeXt、 Omega、LuaTeX 等等至今尚未完善；无怪乎求伯君大神当年十万行汇编代码的 WPS 1.0 使他成为了全中国程序员的偶像。</p>
+<p>当我们费了九牛二虎之力做出来一个可以用的东西时，却发现那个东东是如此的丑陋，以至于连自己都不敢去看它。有了这样的经历，再去使用 Windows 7，Compiz Fusion，会多一份敬重之情。简洁优美的背后，隐藏着多少心思和功力。</p>
 <p>这是我现在写出来的最终效果：</p>
-<p><img src="file:///user_files/cnlox/Image/screenshots/ITextField.png" /></p>
+<p><a href="/static/image/2010/itextfield.png"><img src="/static/image/2010/itextfield.png" /></a></p>
 <p>样式还不错，点击右边小按钮的时候还能清空文本。当然，更灵活的设计时发送个消息，让用户自己处理决定该做什么。</p>
 <p>这是头文件，单行文本编辑框的类定义：</p>
-<pre><code>/**************************************************
-ITextField: 单行文本编辑框 
- 功能描述：至此 png 图片载入。支持单行文本编辑。支持锁定操作。但是光标定位和字体大小还存在问题。
-作者：肖晗宇  &lt;xiaohanyu1988@gmail.com&gt;
- 参考：GTextEdit
-**************************************************/
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="co">/**************************************************</span>
+<span class="co">ITextField: 单行文本编辑框</span>
+<span class="co"> 功能描述：至此 png 图片载入。支持单行文本编辑。支持锁定操作。但是光标定位和字体大小还存在问题。</span>
+<span class="co">作者：Xiao Hanyu  &lt;xiaohanyu1988@gmail.com&gt;</span>
+<span class="co"> 参考：GTextEdit</span>
+<span class="co">**************************************************/</span>
 
-#pragma once
-#include &quot;SimpleCtrl.h&quot;
-#include &quot;TwoWayLinkList.h&quot;
-#include &quot;DataTypeDef.h&quot;  //-------------
-#include &quot;string&quot;
-#include &quot;ThTimer.h&quot;
-#include &quot;IStyle.h&quot;
-#include &quot;TextArea.h&quot;
-#include &quot;MCaret.h&quot;
-#include &quot;WndContainer.h&quot;
-#include &quot;GDIFactory.h&quot;
-#include &quot;DrawDevice.h&quot;
-#include &quot;GDIPen.h&quot;
-#include &quot;GDIBrush.h&quot;
-#include &quot;CombinedCtrl.h&quot;
-#include &quot;AllCtrlManager.h&quot;
-#include &quot;BaseWnd.h&quot;
+<span class="pp">#pragma once</span>
+<span class="pp">#include </span><span class="im">&quot;SimpleCtrl.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;TwoWayLinkList.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;DataTypeDef.h&quot;</span><span class="pp">  </span><span class="co">//-------------</span>
+<span class="pp">#include </span><span class="im">&quot;string&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;ThTimer.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;IStyle.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;TextArea.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;MCaret.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;WndContainer.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;GDIFactory.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;DrawDevice.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;GDIPen.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;GDIBrush.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;CombinedCtrl.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;AllCtrlManager.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;BaseWnd.h&quot;</span>
 
-#define ITF_TXT_CHANGED     (MD_USER_BEGIN + 1)         // 只要文字输入改变，就发送该消息  
-#define ITF_LEFT_PNG_CLICKED    (MD_USER_BEGIN+2)       //  只要设置 mainPng 和 leftPng，如果点击 leftPng，就发送该消息  
-#define ITF_RIGHT_PNG_CLICKED   (MD_USER_BEGIN+3)       //  只要设置 mainPng 和 rightPng，如果点击 rightPng，就发送该消息  
+<span class="pp">#define ITF_TXT_CHANGED     (MD_USER_BEGIN + 1)         </span><span class="co">// 只要文字输入改变，就发送该消息</span>
+<span class="pp">#define ITF_LEFT_PNG_CLICKED    (MD_USER_BEGIN+2)       </span><span class="co">//  只要设置 mainPng 和 leftPng，如果点击 leftPng，就发送该消息</span>
+<span class="pp">#define ITF_RIGHT_PNG_CLICKED   (MD_USER_BEGIN+3)       </span><span class="co">//  只要设置 mainPng 和 rightPng，如果点击 rightPng，就发送该消息</span>
 
-const int ITEXTFIELD_MAX_LEN = 300;
-// 设置边距，即绘制光标和文字时，距离边缘的最小值  
-const int ITF_EDGE_BORDER = 2;
+<span class="at">const</span> <span class="dt">int</span> ITEXTFIELD_MAX_LEN = <span class="dv">300</span>;
+<span class="co">// 设置边距，即绘制光标和文字时，距离边缘的最小值</span>
+<span class="at">const</span> <span class="dt">int</span> ITF_EDGE_BORDER = <span class="dv">2</span>;
 
-class MCaret;
+<span class="kw">class</span> MCaret;
 
-class ITextField : public SimpleCtrl
-{
-public:
-    ITextField(GisHWND pBWnd, ControlID id);
-    virtual ~ITextField();
-    Boolean ShowCaret();
-    Boolean HideCaret();
+<span class="kw">class</span> ITextField : <span class="kw">public</span> SimpleCtrl {
+<span class="kw">public</span>:
+  ITextField(GisHWND pBWnd, ControlID id);
+  <span class="kw">virtual</span> ~ITextField();
+  Boolean ShowCaret();
+  Boolean HideCaret();
 
-public:
-    // 父类继承需要重写函数  
-    virtual GRESULT Init(int cx, int cy, int nWidth, int nHeight);
-    virtual GRESULT UnInit();
-    virtual void Redraw();
-    virtual Boolean setDisabled(Boolean b);
-    //Mouse Msg Action
-    virtual GRESULT OnMouseDown(MouseButtons mbtn,int x,int y);
-    virtual GRESULT OnMouseUp(MouseButtons mbtn,int x,int y);
-    virtual GRESULT OnMouseDBClick(MouseButtons mbtn,int x,int y);
-    virtual void SetFocus(Boolean bFocus);// 设置本文本框为鼠标焦点  
-    virtual void SetVisable(Boolean bVisable);      // 重载   当不可见时，失去焦点  
-    //Msg proc
-    virtual GRESULT ProcCharMsg(WPARAM wParam, LPARAM lParam);
-    // 控件文本内容操作  
-    // 获得当前文本  
-    wchar_t* GetText();
-    // 设置文本内容  
-    void SetText(const wchar_t *content);
-    // 清空文本内容  
-    Boolean ResetText();
-    static void CALLBACK DoTimer(UINT uTimerID,DWORD dwUser,DWORD dw);
-public:
-    bool getCharVisable();  // 输出文本框字符是否可见  
-    bool setCharVisable(bool p);// 设置文本框字符是否可见  
-    void SetAutoOpenSip(bool p);// 设置是否自动打开键盘  
-protected:
-    // 根据传入的  x,y 判断在字符串中的具体位置 
-    //x,y，在控件中的相对坐标  
-    int GetPosInString(int x,int y);
-    // 通过字符序号活得光标偏移位置长度  
-    int GetCaretFromCharIndex(int nCharIndex);  
-    // 获取当前整个字符串的长度  
-    int GetStringLength();
+<span class="kw">public</span>:
+  <span class="co">// 父类继承需要重写函数</span>
+  <span class="kw">virtual</span> GRESULT Init(<span class="dt">int</span> cx, <span class="dt">int</span> cy, <span class="dt">int</span> nWidth, <span class="dt">int</span> nHeight);
+  <span class="kw">virtual</span> GRESULT UnInit();
+  <span class="kw">virtual</span> <span class="dt">void</span> Redraw();
+  <span class="kw">virtual</span> Boolean setDisabled(Boolean b);
+  <span class="co">//Mouse Msg Action</span>
+  <span class="kw">virtual</span> GRESULT OnMouseDown(MouseButtons mbtn,<span class="dt">int</span> x,<span class="dt">int</span> y);
+  <span class="kw">virtual</span> GRESULT OnMouseUp(MouseButtons mbtn,<span class="dt">int</span> x,<span class="dt">int</span> y);
+  <span class="kw">virtual</span> GRESULT OnMouseDBClick(MouseButtons mbtn,<span class="dt">int</span> x,<span class="dt">int</span> y);
+  <span class="kw">virtual</span> <span class="dt">void</span> SetFocus(Boolean bFocus);<span class="co">// 设置本文本框为鼠标焦点</span>
+  <span class="kw">virtual</span> <span class="dt">void</span> SetVisable(Boolean bVisable);      <span class="co">// 重载   当不可见时，失去焦点</span>
+  <span class="co">//Msg proc</span>
+  <span class="kw">virtual</span> GRESULT ProcCharMsg(WPARAM wParam, LPARAM lParam);
+  <span class="co">// 控件文本内容操作</span>
+  <span class="co">// 获得当前文本</span>
+  <span class="dt">wchar_t</span>* GetText();
+  <span class="co">// 设置文本内容</span>
+  <span class="dt">void</span> SetText(<span class="at">const</span> <span class="dt">wchar_t</span> *content);
+  <span class="co">// 清空文本内容</span>
+  Boolean ResetText();
+  <span class="at">static</span> <span class="dt">void</span> CALLBACK DoTimer(UINT uTimerID,DWORD dwUser,DWORD dw);
+<span class="kw">public</span>:
+  <span class="dt">bool</span> getCharVisable();  <span class="co">// 输出文本框字符是否可见</span>
+  <span class="dt">bool</span> setCharVisable(<span class="dt">bool</span> p);<span class="co">// 设置文本框字符是否可见</span>
+  <span class="dt">void</span> SetAutoOpenSip(<span class="dt">bool</span> p);<span class="co">// 设置是否自动打开键盘</span>
+<span class="kw">protected</span>:
+  <span class="co">// 根据传入的  x,y 判断在字符串中的具体位置</span>
+  <span class="co">//x,y，在控件中的相对坐标</span>
+  <span class="dt">int</span> GetPosInString(<span class="dt">int</span> x,<span class="dt">int</span> y);
+  <span class="co">// 通过字符序号活得光标偏移位置长度</span>
+  <span class="dt">int</span> GetCaretFromCharIndex(<span class="dt">int</span> nCharIndex);
+  <span class="co">// 获取当前整个字符串的长度</span>
+  <span class="dt">int</span> GetStringLength();
 
-    //pos: 在 m_szText中的位置  
-    Boolean InsertCharInString(wchar_t cdata,int pos);
-    Boolean DeleteCharInString(int pos, wchar_t* pCharOut);
-    ThTimer m_Timer;    // 光标显示定时器  
+  <span class="co">//pos: 在 m_szText中的位置</span>
+  Boolean InsertCharInString(<span class="dt">wchar_t</span> cdata,<span class="dt">int</span> pos);
+  Boolean DeleteCharInString(<span class="dt">int</span> pos, <span class="dt">wchar_t</span>* pCharOut);
+  ThTimer <span class="va">m_Timer</span>;    <span class="co">// 光标显示定时器</span>
 
-public:
-    IStyle GetStyle();
-    void SetStyle(wchar_t* fontType, COLORREF fontColor, int iMode, int fontSize, UINT textAlignment, COLORREF bgColor, int alpha, bool round);
-    Boolean ResetStyle();
+<span class="kw">public</span>:
+  IStyle GetStyle();
+  <span class="dt">void</span> SetStyle(<span class="dt">wchar_t</span>* fontType, COLORREF fontColor, <span class="dt">int</span> iMode, <span class="dt">int</span> fontSize, UINT textAlignment, COLORREF bgColor, <span class="dt">int</span> alpha, <span class="dt">bool</span> round);
+  Boolean ResetStyle();
 
-    virtual GRESULT SetPngImage(wchar_t* main_png, wchar_t* left_png = NULL, wchar_t * right_png=NULL);
-    GRESULT SetEditable(bool editable);
+  <span class="kw">virtual</span> GRESULT SetPngImage(<span class="dt">wchar_t</span>* main_png, <span class="dt">wchar_t</span>* left_png = NULL, <span class="dt">wchar_t</span> * right_png=NULL);
+  GRESULT SetEditable(<span class="dt">bool</span> editable);
 
-private:
-    bool isCharVisable;     // 决定文本框字符是否可见的变量，值为 true，则输入的字符都可见，
-    //值为 false，则输入的字符均显示为  * 号，一般用来输入密码使用  
-    MCaret* m_pCaret;
+<span class="kw">private</span>:
+  <span class="dt">bool</span> isCharVisable;     <span class="co">// 决定文本框字符是否可见的变量，值为 true，则输入的字符都可见，</span>
+  <span class="co">//值为 false，则输入的字符均显示为  * 号，一般用来输入密码使用</span>
+  MCaret* <span class="va">m_pCaret</span>;
 
-    // 保存文本框字符内容的数组，容量有限，依据  ITEXTFIELD_MAX_LEN 的值来决定容量  
-    wchar_t m_szText[ITEXTFIELD_MAX_LEN];
-    // 根据输入的字符串长度来填充适量的  * 号，这个变量就是一串  * 号的首地址  
-    wchar_t s_szText[ITEXTFIELD_MAX_LEN];
+  <span class="co">// 保存文本框字符内容的数组，容量有限，依据  ITEXTFIELD_MAX_LEN 的值来决定容量</span>
+  <span class="dt">wchar_t</span> <span class="va">m_szText</span>[ITEXTFIELD_MAX_LEN];
+  <span class="co">// 根据输入的字符串长度来填充适量的  * 号，这个变量就是一串  * 号的首地址</span>
+  <span class="dt">wchar_t</span> <span class="va">s_szText</span>[ITEXTFIELD_MAX_LEN];
 
-    // 字符串显示开始位置  
-    GRect m_rcText;
+  <span class="co">// 字符串显示开始位置</span>
+  GRect <span class="va">m_rcText</span>;
 
-    // 字符串链表，因为不仅要保存字符本身，还要保存字符的显示宽度等信息，因此需要用到链表存储  
-    TwoWayLinkList m_CharList;
+  <span class="co">// 字符串链表，因为不仅要保存字符本身，还要保存字符的显示宽度等信息，因此需要用到链表存储</span>
+  TwoWayLinkList <span class="va">m_CharList</span>;
 
-    // 当前光标对应的字符串中的字符位置  
-    int m_nCurCharPos;
-    // 当前字符串的字符总数  
-    int m_nCharNum;
-    bool m_bAutoOpenSip;
+  <span class="co">// 当前光标对应的字符串中的字符位置</span>
+  <span class="dt">int</span> <span class="va">m_nCurCharPos</span>;
+  <span class="co">// 当前字符串的字符总数</span>
+  <span class="dt">int</span> <span class="va">m_nCharNum</span>;
+  <span class="dt">bool</span> <span class="va">m_bAutoOpenSip</span>;
 
-    bool i_tfEditable;                  //  是否可编辑  
+  <span class="dt">bool</span> i_tfEditable;                  <span class="co">//  是否可编辑</span>
 
-protected:
-    IStyle i_tfStyle;                   //  控制 textfield 的文字风格  
-    enum
-    {
-        i_mainPng = 0,
-        i_leftPng,
-        i_rightPng,
-        StateCount
-    };
+<span class="kw">protected</span>:
+  IStyle i_tfStyle;                   <span class="co">//  控制 textfield 的文字风格</span>
+  <span class="kw">enum</span> {
+    i_mainPng = <span class="dv">0</span>,
+    i_leftPng,
+    i_rightPng,
+    StateCount
+  };
 
-    GImage  i_tfArrPng[StateCount];             // textfield 目前支持三张 png 图片  
-    Boolean i_tfSetMainImg;             //  是否设置  mainPng?
-    Boolean i_tfSetLeftImg;             //  是否设置  leftPng?
-    Boolean i_tfSetRightImg;            //  是否设置  rightPng?
-    //HFONT i_tfFont;               //  保存控件的字体信息，用于光标定位和字体大小  
-};
-</code></pre>
+  GImage  i_tfArrPng[StateCount];             <span class="co">// textfield 目前支持三张 png 图片</span>
+  Boolean i_tfSetMainImg;             <span class="co">//  是否设置  mainPng?</span>
+  Boolean i_tfSetLeftImg;             <span class="co">//  是否设置  leftPng?</span>
+  Boolean i_tfSetRightImg;            <span class="co">//  是否设置  rightPng?</span>
+  <span class="co">//HFONT i_tfFont;               //  保存控件的字体信息，用于光标定位和字体大小</span>
+};</code></pre></div>
 <p>多行文本域的设计还要复杂一点。所以这个控件至今有很多的 bug，有非常多的改进之处。</p>
 <p>除了控件层开发，到现在为止我还写了行程业务的 8 个窗口页面。在写的过程中思考了很久“如何把软件写软的问题”。但是由于没有系统了解过设计模式，对 C++ 强大的继承用的又不熟，因此现在无法做出自我满意的总结。</p>
-<p>还打算总结下这一个月来用 VS2008 及相关软件的一些小技巧。毕竟磨刀不误砍柴工。</p>
+<p>还打算总结下这一个月来用 VS 2008 及相关软件的一些小技巧。毕竟磨刀不误砍柴工。</p>
 <p>水平有限、敬请批评指正。</p>
 
     <div class="ui divider"></div>
@@ -321,7 +310,7 @@ protected:
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="我说的这句话是假话" href="/posts/2010-04-23-what-i-said-is-fake/">Prev</a><a class="item" title="Windows mobile开发总结--资源工具篇" href="/posts/2010-04-28-summary-on-windows-mobile-development-resource-tools/">Next</a>
+      <a class="item" title="我说的这句话是假话" href="/posts/2010-04-23-what-i-said-is-fake/">Prev</a><a class="item" title="Windows Mobile 开发总结——资源工具篇" href="/posts/2010-04-28-summary-on-windows-mobile-development-resource-tools/">Next</a>
     </div>
   </aside>
 </div>

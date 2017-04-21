@@ -49,60 +49,62 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>原来数模和 acm 本不是一个级别的。</p>
+  <section class="twelve wide column"><p>原来数模和 ACM 本不是一个级别的。</p>
 <p>数模，三人一队，十天一题。</p>
-<p>原本我是学计算机的，谁曾想到那两人 matlab 倒也丝毫不落下风，因此我只能回到了自己的老本行 ——LaTeX 写文档了。写文档当然要涉及到图表、公式、参考文献等等。因此我顺便进一步熟悉了下 Linux 环境下绘图工具的使用。</p>
-<p>简单的说，绘图工具分为两类，一类是 <a href="http://en.wikipedia.org/wiki/Command-line_interface">CLI</a> 的，另一类是 <a href="http://en.wikipedia.org/wiki/GUI">GUI</a> 的。两种工具也大体代表了不同的理念，前者是 WYTIWYG(What You Think Is What You Get)，所思即所得，后者是 <a href="http://en.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a>(What You See Is What You Get)，所见即所得。具体到应用上，前者以 <img src="file:///user_files/cnlox/epics/70e328814c1e60cf662eea599ba7dfdac0eb55fe.png" /> 派系为代表，后者以 MS Word 派系为代表。</p>
-<p>我们先说第一类。和 <img src="file:///user_files/cnlox/epics/70e328814c1e60cf662eea599ba7dfdac0eb55fe.png" /> 配合的绘图工具，我了解的有四个：</p>
+<p>原本我是学计算机的，谁曾想到那两人 MATLAB 倒也丝毫不落下风，因此我只能回到了自己的老本行——LaTeX 写文档了。写文档当然要涉及到图表、公式、参考文献等等。因此我顺便进一步熟悉了下 Linux 环境下绘图工具的使用。</p>
+<p>简单的说，绘图工具分为两类，一类是 <a href="http://en.wikipedia.org/wiki/Command-line_interface">CLI</a> 的，另一类是 <a href="http://en.wikipedia.org/wiki/GUI">GUI</a> 的。两种工具也大体代表了不同的理念，前者是 WYTIWYG（What You Think Is What You Get），所思即所得，后者是 <a href="http://en.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a>（What You See Is What You Get），所见即所得。具体到应用上，前者以 TeX 派系为代表，后者以 MS Word 派系为代表。</p>
+<p>我们先说第一类。和 TeX 配合的绘图工具，我了解的有四个：</p>
 <ol>
-<li><a href="http://www.tug.org/metapost.html">metapost</a></li>
-<li><a href="http://asymptote.sourceforge.net/">asymptote</a></li>
-<li><a href="http://sourceforge.net/projects/pgf/">pgf</a></li>
-<li><a href="http://tug.org/PSTricks/main.cgi/">pstriks</a></li>
+<li><a href="http://www.tug.org/metapost.html">MetaPost</a></li>
+<li><a href="http://asymptote.sourceforge.net/">Asymptote</a></li>
+<li><a href="http://sourceforge.net/projects/pgf/">PGF/TikZ</a></li>
+<li><a href="http://tug.org/PSTricks/main.cgi/">PSTricks</a></li>
 </ol>
-<p>前两者属于离线做图工具；后两者属于在线做图工具。可能你又会问，什么叫离线做图工具？什么又叫在线做图工具？</p>
-<p>简单来说，离线做图就是单独建立文件，然后生成 eps 等独立的图形文件，通过  等类似的命令将图形文件嵌入到 LaTeX 文件中 ( 这样说也许不妥，因为 LaTeX 文件经过不同处理可以生成多种类型的文件如 dvi、ps、pdf等等，嵌入到 LaTeX 中意思是“图形”嵌入到生成的文件中 )。metapost和 Asymptote 属于这种。</p>
-<p>在线做图就是直接在 TeX 文件中敲相应宏包的绘图命令，经过处理后直接生成图形。pgf pstricks 属于此类。两种方式并没有优劣之别。离线做图更灵活，在线做图则更加方便。</p>
-<p>从历史上来说，metapost和 pstricks 历史更长久一点，而 Asymptote 和 PGF。</p>
-<p>语法上，metapost比较怪异；asymptote的语法仿照 c++( 可见 C++ 确实是王道 ^_^)；pgf，感觉比较乱，毫无章法；pstricks基于 <a href="http://en.wikipedia.org/wiki/Postscript">postscript</a>，据说比较强大，但是我没用过，不好评价。</p>
-<p>能力上，各有所长，metapost可以解方程；asymptote的 3d 不错；pgf、MindMap等效果非常好；pstricks，不知道了。其实我觉得四者精通其一即可“纵横天下”。</p>
-<p>这里附上一些 Gallery，做图能力强弱，大家自己分明 :</p>
+<p>前两者属于离线做图工具；后两者属于在线做图工具。可能你又会问，什么叫离线做图工具？ 什么又叫在线做图工具？</p>
+<p>简单来说，离线做图就是单独建立文件，然后生成 eps 等独立的图形文件，通过 <code>\includegraphics</code> 等类似的命令将图形文件嵌入到 LaTeX 文件中（这样说也许不妥，因为 LaTeX 文件经过不同处理可以生成多种类型的文件如 dvi、ps、pdf 等等，嵌入到 LaTeX 中意思是“图形”嵌入到生成的文件中）。MetaPost 和 Asymptote 属于这种。</p>
+<p>在线做图就是直接在 TeX 文件中敲相应宏包的绘图命令，经过处理后直接生成图形。 PGF/TikZ 和 PSTricks 属于此类。两种方式并没有优劣之别。离线做图更灵活，在线做图则更加方便。</p>
+<p>从历史上来说，MetaPost和 PSTricks 历史更长久一点，而 Asymptote 和 PGF/TikZ 则相对年轻。</p>
+<p>语法上，MetaPost 比较怪异；Asymptote 的语法仿照 C++（可见 C++ 确实是王道 ^_^）； PGF/TikZ 我用过一段时间，感觉比较乱，毫无章法；PSTricks 基于 <a href="http://en.wikipedia.org/wiki/Postscript">PostScript</a>，据说比较强大，但是我没用过，不好评价。</p>
+<p>能力上，各有所长，MetaPost 可以解方程；Asymptote的 3d 不错；PGF/TikZ 生成一些特殊的图如自动机、MindMap 等效果非常好；PSTricks，不知道了。其实我觉得四者精通其一即可“纵横天下”。</p>
+<p>这里附上一些 Gallery，做图能力强弱，大家自己分明：</p>
 <ol>
-<li>metapost: <a href="http://tex.loria.fr/prod-graph/zoonekynd/metapost/metapost.html">gallery1</a></li>
-<li>asymptote: <a href="http://asymptote.sourceforge.net/gallery/">gallery1</a></li>
-<li>pgf: <a href="http://www.fauskes.net/nb/pgftikzexamples/">gallery1</a>, <a href="http://www.texample.net/tikz/examples/">gallery2</a></li>
-<li>pstrikcs: <a href="http://tug.org/PSTricks/main.cgi?file=Examples/Gallery/Gallery">gallery1</a>, <a href="http://www.tug.org/PSTricks/main.cgi?file=examples">gallery2</a></li>
+<li>MetaPost – <a href="http://tex.loria.fr/prod-graph/zoonekynd/metapost/metapost.html">gallery1</a></li>
+<li>Asymptote – <a href="http://asymptote.sourceforge.net/gallery/">gallery1</a></li>
+<li>PGF/TikZ – <a href="http://www.fauskes.net/nb/pgftikzexamples/">gallery1</a>, <a href="http://www.texample.net/tikz/examples/">gallery2</a></li>
+<li>PSTricks – <a href="http://tug.org/PSTricks/main.cgi?file=Examples/Gallery/Gallery">gallery1</a>, <a href="http://www.tug.org/PSTricks/main.cgi?file=examples">gallery2</a></li>
 </ol>
-<p>上两张图，来猜猜是用什么画出来的。不要告诉我是 photoshop、inkscape哦。</p>
-<p><a href="http://tug.org/PSTricks/Examples/play0.tex"> [[/user<sub>files</sub>/cnlox/Image/tex/heart.png</a>]]</p>
-<p><img src="file:///user_files/cnlox/Image/tex/calendar1.png" /></p>
-<p>以上是基于 CLI 派基于 <img src="file:///user_files/cnlox/epics/70e328814c1e60cf662eea599ba7dfdac0eb55fe.png" /> 的绘图工具。除此之外，<a href="http://www.graphviz.org/">graphviz</a>也是非常有用的一个小工具。与 MetaPost 等重量级的工具相比，graphviz的长处在于轻便灵活。短短几句话可以生成 <a href="http://www.graphviz.org/doc/info/output.html"> 多种格式 </a> 的文件。他自创了一种 dot language，并且自动提供了几种 layout 算法。graphviz尤其适合画流程图和类图，可以看看它的 <a href="http://www.graphviz.org/Gallery.php">gallery</a>。著名的源码文档工具 doxygen 生成类图时调用的就是 graphviz。而且 graphviz 还提供了 Python 语言的调用接口 <a href="http://networkx.lanl.gov/pygraphviz/">pygraphviz</a>。</p>
-<p>提到这里，也就不能不提到 Emacs 了。说 Emacs 是神的编辑器，此言一点也不为过。gentoo：</p>
+<p>上两张图，来猜猜是用什么画出来的。不要告诉我是 Photoshop、Inkscape 哦。</p>
+<p><a href="/static/image/2010/tikz_heart.png"><img src="/static/image/2010/tikz_heart.png" /></a></p>
+<p><a href="/static/image/2010/tikz_calendar.png"><img src="/static/image/2010/tikz_calendar.png" /></a></p>
+<p>以上是基于 CLI 派基于 TeX 的绘图工具。除此之外，<a href="http://www.graphviz.org/">Graphviz</a> 也是非常有用的一个小工具。与 MetaPost 等重量级的工具相比，Graphviz 的长处在于轻便灵活。短短几句话可以生成<a href="http://www.graphviz.org/doc/info/output.html">多种格式</a>的文件。他自创了一种 dot language，并且自动提供了几种 layout 算法。 Graphviz 尤其适合画流程图和类图，可以看看它的 <a href="http://www.graphviz.org/Gallery.php">gallery</a>。著名的源码文档工具 doxygen 生成类图时调用的就是 Graphviz。而且 Graphviz 还提供了 Python 语言的调用接口 <a href="http://networkx.lanl.gov/pygraphviz/">pygraphviz</a>。</p>
+<p>提到这里，也就不能不提到 Emacs 了。说 Emacs 是神的编辑器，此言一点也不为过。 Gentoo：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> emerge -av graphviz-dot-mode</code></pre></div>
-<p>dot语言的语法非常简练，看看我简单探索的成果：</p>
-<p><img src="file:///user_files/cnlox/Image/screenshots/2010-05-10-041229_840x711_scrot.png" /></p>
-<p>graphviz-dot-mode，快捷键：</p>
+<p>dot 语言的语法非常简练，看看我简单探索的成果：</p>
+<p><a href="/static/image/2010/emacs_graphviz_dot_mode.png"><img src="/static/image/2010/emacs_graphviz_dot_mode.png" /></a></p>
+<p><code>graphviz-dot-mode</code> ，快捷键：</p>
 <ul>
-<li>C-c c: compile, 根据你想要的 layout，输入相应的编译命令</li>
-<li>C-c p: preview, 预览图片效果 ( 期间遇到了一个问题，用 dot 生成嵌入中文的 ps 或eps文件时，在 Emacs 中预览是正常的，但是嵌入到 LaTeX 文件中就会出现乱码，这可能是文字编码之前。</li>
+<li><code>C-c c</code> – compile，根据你想要的 layout，输入相应的编译命令</li>
+<li><code>C-c p</code> – preview，预览图片效果。期间遇到了一个问题，用 dot 生成嵌入中文的 ps 或eps文件时，在 Emacs 中预览是正常的，但是嵌入到 LaTeX 文件中就会出现乱码，这可能是文字编码之前。</li>
 </ul>
 <p>还有两个工具：</p>
 <ul>
 <li><a href="http://www.fauskes.net/code/dot2tex/">dot2tex</a></li>
 <li><a href="http://ctan.org/tex-archive/help/Catalogue/entries/dot2texi.html">dot2texi</a></li>
 </ul>
-<p>可以将 graphviz 的dot文件转换为 tex 兼容的格式，直接嵌入 tex 文件中，具体我就没有用过了。</p>
-<p>最后一个推荐的 CLI 派的绘图干将就是 <a href="http://www.gnuplot.info/">gnuplot</a> 了。gnuplot主要擅长数学数据的可视化，结合 <a href="http://maxima.sourceforge.net/">maxima</a>、<a href="http://www.gnu.org/software/octave/">octave</a>等等可以形成一套完备的 <a href="http://en.wikipedia.org/wiki/Computer_algebra_system">CAS</a> 系统。而且据我所知，gnuplot本身也是支持 MetaPost 接口导出的。这是 gnuplot 的 <a href="http://www.gnuplot.info/screenshots/index.html#demos">gallery</a>，看看什么叫数学之美。</p>
-<p>说了这么多废话，第一类总算数的差不多了。接下来再简单数数第二类。基于 GUI 的画图工具，汗牛充栋，大块的如 GIMP、inkscape等，做尔等工作，牛刀杀鸡也。</p>
-<p>还是一些小工具来得实惠。首先推荐的当然是大名鼎鼎的 <a href="http://projects.gnome.org/dia/">dia</a> 了。引用其官方主页上的介绍：</p>
+<p>可以将 Graphviz 的 dot 文件转换为 TeX 兼容的格式，直接嵌入 TeX 文件中，具体我就没有用过了。</p>
+<p>最后一个推荐的 CLI 派的绘图干将就是 <a href="http://www.gnuplot.info/">gnuplot</a> 了。gnuplot 主要擅长数学数据的可视化， 结合 <a href="http://maxima.sourceforge.net/">Maxima</a>、<a href="http://www.gnu.org/software/octave/">Octave</a> 等等可以形成一套完备的 <a href="http://en.wikipedia.org/wiki/Computer_algebra_system">CAS</a> 系统。而且据我所知，gnuplot 本身也是支持 MetaPost 接口导出的。这是 gnuplot 的 <a href="http://www.gnuplot.info/screenshots/index.html#demos">gallery</a>，看看什么叫数学之美。</p>
+<p>说了这么多废话，第一类总算数的差不多了。接下来再简单数数第二类。基于 GUI 的画图工具，汗牛充栋，大块的如 GIMP、Inkscape 等，做尔等工作，牛刀杀鸡也。</p>
+<p>还是一些小工具来得实惠。首先推荐的当然是大名鼎鼎的 <a href="http://projects.gnome.org/dia/">Dia</a> 了。引用其官方主页上的介绍：</p>
+<blockquote>
 <p>Dia is a gtk+ based diagram creation program released under the GPL license.</p>
 <p>Dia is inspired by the commercial Windows program ‘Visio’, though more geared towards informal diagrams for casual use. It can be used to draw many different kinds of diagrams. It currently has special objects to help draw entity relationship diagrams, UML diagrams, flowcharts, network diagrams, and many other diagrams. It is also possible to add support for new shapes by writing simple XML files, using a subset of SVG to draw the shape.</p>
 <p>It can load and save diagrams to a custom XML format (gzipped by default, to save space), can export diagrams to a number of formats, including EPS, SVG, XFIG, WMF and PNG, and can print diagrams (including ones that span multiple pages).</p>
-<p>有趣的是，dia还支持 PGF/tikz、metapost、pstricks文件格式的导出。所以把 Dia 当成信手涂鸦工具，导入 tex 文件中，倒会给一向严谨的 tex 添点趣味。</p>
-<p>最后一个小工具，类似于 Windows 下的 <a href="http://www.dynamicgeometry.com/"> 几何画板 </a>，顺手画一些几何图形还是非常赞的，这就是 <a href="http://www.geogebra.org/cms/">Geogebra</a>。我非常赞赏的两点是：</p>
+</blockquote>
+<p>有趣的是，Dia 还支持 PGF/TikZ、MetaPost、PSTricks 导出。所以把 Dia 当成信手涂鸦工具，导入 TeX 文件中，倒会给一向严谨的 TeX 添点趣味。</p>
+<p>最后一个小工具，类似于 Windows 下的<a href="http://www.dynamicgeometry.com/">几何画板</a>，顺手画一些几何图形还是非常赞的，这就是 <a href="http://www.geogebra.org/cms/">Geogebra</a>。我非常赞赏的两点是：</p>
 <ul>
-<li>像 autocad 一样，具有命令行模式，既能精确控制，又能随手泼墨；</li>
-<li>也支持多种格式的 export，如 MetaPost 和pgf格式。</li>
+<li>像 AutoCAD 一样，具有命令行模式，既能精确控制，又能随手泼墨</li>
+<li>也支持多种格式的导出，如 MetaPost 和 PGF/TikZ 格式</li>
 </ul>
 <p>好了，这么晚了，说了这么多废话，但愿说者无意、听者有心。安。</p>
 
@@ -181,7 +183,7 @@
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="Windows mobile开发总结--资源工具篇" href="/posts/2010-04-28-summary-on-windows-mobile-development-resource-tools/">Prev</a><a class="item" title="ZOJ 1312" href="/posts/2010-05-13-zoj-1312/">Next</a>
+      <a class="item" title="Windows Mobile 开发总结——资源工具篇" href="/posts/2010-04-28-summary-on-windows-mobile-development-resource-tools/">Prev</a><a class="item" title="ZOJ 1312" href="/posts/2010-05-13-zoj-1312/">Next</a>
     </div>
   </aside>
 </div>
