@@ -1,12 +1,7 @@
 /* pandoc code highlight */
-p code {
-  font-size: 80%;
-  color: rgb(51, 51, 51);
-  background-color: RGBA(0, 0, 0, 0.04);
-  padding: 4px
-}
-
-li code {
+p code,
+li code,
+td code {
   font-size: 80%;
   color: rgb(51, 51, 51);
   background-color: RGBA(0, 0, 0, 0.04);

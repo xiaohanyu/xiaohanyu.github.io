@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>w3cschool javascript 笔记(1)</title>
+    <title>W3Cschool JavaScript 笔记（1）</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,412 +43,213 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      w3cschool javascript 笔记(1)
+      W3Cschool JavaScript 笔记（1）
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p><span id="table-of-contents"></span></p>
-<h2 id="table-of-contents">Table of Contents</h2>
-<p><span id="text-table-of-contents"></span></p>
-<ul>
-<li><p><em>1 简介 </em></p>
-<ul>
-<li><em>1.1 什么是 Javascript</em></li>
-<li><em>1.2 真实的名称是 ECMAScript</em></li>
-</ul></li>
-<li><em>2 如何实现 JavaScript</em></li>
-<li><em>3 把JavaScript放置到何处 </em></li>
-<li><p><em>4 JavaScript 语句 </em></p>
-<ul>
-<li><em>4.1 JavaScript 语句 </em></li>
-</ul></li>
-<li><em>5 JavaScript 注释 </em></li>
-<li><em>6 JavaScript 变量 </em></li>
-<li><em>7 JavaScript 运算符 </em></li>
-<li><em>8 JavaScript 比较和逻辑运算符 </em></li>
-<li><em>9 JavaScript If…Else 语句 </em></li>
-<li><p><em>10 JavaScript 消息框 </em></p>
-<ul>
-<li><em>10.1 警告框 </em></li>
-<li><em>10.2 确认框 </em></li>
-<li><em>10.3 提示框 </em></li>
-</ul></li>
-<li><p><em>11 JavaScript 函数 </em></p>
-<ul>
-<li><em>11.1 JavaScript 函数 </em></li>
-<li><p><em>11.2 如何定义函数 </em></p>
-<ul>
-<li><em>11.2.1 创建函数的语法：</em></li>
-<li><em>11.2.2 JavaScript变量的生存期 </em></li>
-</ul></li>
-</ul></li>
-<li><em>12 JavaScript For 循环 </em></li>
-<li><em>13 JavaScript While 循环 </em></li>
-<li><em>14 JavaScript Break 和Continue语句 </em></li>
-<li><em>15 JavaScript 事件 </em></li>
-<li><em>16 JavaScript Try…Catch 语句 </em></li>
-<li><em>17 JavaScript 特殊字符 </em></li>
-<li><em>18 JavaScript 指导方针 </em></li>
-<li><em>19 JavaScript 对象简介 </em></li>
-<li><p><em>20 JavaScript 字符串 (String) 对象 </em></p>
-<ul>
-<li><em>20.1 String 对象的方法 </em></li>
-<li><em>20.2 String 对象的属性 </em></li>
-</ul></li>
-<li><p><em>21 JavaScript Date（日期）对象 </em></p>
-<ul>
-<li><em>21.1 Date 对象的方法 </em></li>
-</ul></li>
-<li><p><em>22 JavaScript 数组 </em></p>
-<ul>
-<li><em>22.1 Array 对象的方法 </em></li>
-</ul></li>
-<li><p><em>23 JavaScript Boolean（逻辑）对象 </em></p>
-<ul>
-<li><em>23.1 Boolean 对象的方法 </em></li>
-</ul></li>
-<li><em>24 JavaScript Math（算数）对象 </em></li>
-<li><p><em>25 JavaScript HTML DOM 对象 </em></p>
-<ul>
-<li><em>25.1 HTML DOM 对象 </em></li>
-</ul></li>
-</ul>
-<div id="outline-container-1" class="outline-2">
-
-<h2 id="简介">1 简介</h2>
-<p><span id="text-1"></span></p>
-<div id="outline-container-1.1" class="outline-3">
-
-<h3 id="什么是-javascript">1.1 什么是 Javascript</h3>
-<p><span id="text-1.1"></span></p>
+  <section class="twelve wide column"><h2 id="简介">简介</h2>
+<h3 id="什么是-javascript">什么是 Javascript</h3>
 <ul>
 <li>JavaScript 被设计用来向 HTML 页面添加交互行为。</li>
-<li>JavaScript是一种脚本语言（脚本语言是一种轻量级的编程语言）。</li>
-<li>JavaScript由数行可执行计算机代码组成。</li>
-<li>JavaScript通常被直接嵌入 HTML 页面。</li>
-<li>JavaScript是一种解释性语言（就是说，代码执行不进行预编译）。</li>
+<li>JavaScript 是一种脚本语言（脚本语言是一种轻量级的编程语言）。</li>
+<li>JavaScript 由数行可执行计算机代码组成。</li>
+<li>JavaScript 通常被直接嵌入 HTML 页面。</li>
+<li>JavaScript 是一种解释性语言（就是说，代码执行不进行预编译）。</li>
 <li>所有的人无需购买许可证均可使用 JavaScript。</li>
 </ul>
-</div>
-
-<div id="outline-container-1.2" class="outline-3">
-
-<h3 id="真实的名称是-ecmascript">1.2 真实的名称是 ECMAScript</h3>
-<p><span id="text-1.2"></span></p>
+<h3 id="真实的名称是-ecmascript">真实的名称是 ECMAScript</h3>
 <ul>
 <li>JavaScript 的正式名称是 “ECMAScript”。这个标准由 ECMA 组织发展和维护。</li>
-<li>ECMA-262是正式的 JavaScript 标准。这个标准基于 JavaScript(Netscape) 和 JScript(Microsoft)。</li>
-<li>Netscape(Navigator 2.0)的 Brendan Eich 发明了这门语言，从 1996 年开始，已经出现在所有的 Netscape 和Microsoft浏览器中。</li>
-<li>ECMA-262的开发始于 1996 年，在 1997 年7月，ECMA会员大会采纳了它的首个版本。</li>
-<li>在 1998 年，该标准成为了国际 ISO 标准 (ISO/IEC 16262)。</li>
+<li>ECMA-262 是正式的 JavaScript 标准。这个标准基于 JavaScript（Netscape）和 JScript（Microsoft）。</li>
+<li>Netscape（Navigator 2.0）的 Brendan Eich 发明了这门语言，从 1996 年开始，已经出现在所有的 Netscape 和 Microsoft 浏览器中。</li>
+<li>ECMA-262的开发始于 1996 年，在 1997 年7月，ECMA 会员大会采纳了它的首个版本。</li>
+<li>在 1998 年，该标准成为了国际 ISO 标准（ISO/IEC 16262）。</li>
 <li>这个标准仍然处于发展之中。</li>
 </ul>
-</div>
-
-</div>
-
-<div id="outline-container-2" class="outline-2">
-
-<h2 id="如何实现-javascript">2 如何实现 JavaScript</h2>
-<p><span id="text-2"></span></p>
+<h2 id="如何实现-javascript">如何实现 JavaScript</h2>
 <ul>
-<li>&lt;script&gt; 标签嵌入 JavaScript</li>
-<li><p>与老的浏览器打交道：</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-&lt;!--
-document.write(&quot;Hello World!&quot;);
-//--&gt;
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
+<li><code class="sourceCode html" rundoc-language="html"><span class="kw">&lt;script&gt;</span></code> 标签嵌入 JavaScript</li>
+<li>与老的浏览器打交道：</li>
 </ul>
-</div>
-
-<div id="outline-container-3" class="outline-2">
-
-<h2 id="把-javascript-放置到何处">3 把 JavaScript 放置到何处</h2>
-<p><span id="text-3"></span></p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="op">&lt;!--</span>
+          <span class="va">document</span>.<span class="at">write</span>(<span class="st">&quot;Hello World!&quot;</span>)<span class="op">;</span>
+        <span class="op">--&gt;</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<h2 id="把-javascript-放置到何处">把 JavaScript 放置到何处</h2>
 <ul>
-<li><p>位于 head 部分的脚本：当脚本被调用时，或者当事件被触发时，脚本就会被执行。当你把脚本放置到 head 部分后，就可以确保在需要使用脚本之前，它已经被载入了。</p>
-<pre><code>&lt;html&gt;
-&lt;head&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-....
-&lt;/script&gt;
-&lt;/head&gt;
-....
-</code></pre></li>
-<li><p>位于 body 部分的脚本：在页面载入时脚本就会被执行。当你把脚本放置于 body 部分后，它就会生成页面的内容。</p>
-<pre><code>&lt;html&gt;
-&lt;head&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-....
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
-<li><p>使用外部 JavaScript</p>
+<li>位于 head 部分的脚本：当脚本被调用时，或者当事件被触发时，脚本就会被执行。当你把脚本放置到 head 部分后，就可以确保在需要使用脚本之前，它已经被载入了。</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="co">// ...</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
 <ul>
-<li>&lt;script src=“javascript.js”&gt;….&lt;script&gt;</li>
+<li>位于 body 部分的脚本：在页面载入时脚本就会被执行。当你把脚本放置于 body 部分后， 它就会生成页面的内容。</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="co">// ...</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<ul>
+<li>使用外部 JavaScript
+<ul>
+<li><code class="sourceCode html" rundoc-language="html"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;javascript.js&quot;</span><span class="kw">&gt;</span>...<span class="op">&lt;</span>script<span class="op">&gt;</span></code></li>
 <li>您可以把 .js 文件放到网站目录中通常存放脚本的子目录中，这样更容易管理和维护。</li>
 </ul></li>
 </ul>
-</div>
-
-<div id="outline-container-4" class="outline-2">
-
-<h2 id="javascript语句">4 JavaScript语句</h2>
-<p><span id="text-4"></span></p>
-<div id="outline-container-4.1" class="outline-3">
-
-<h3 id="javascript-语句">4.1 JavaScript 语句</h3>
-<p><span id="text-4.1"></span></p>
+<h2 id="javascript语句">JavaScript语句</h2>
+<h3 id="javascript-语句">JavaScript 语句</h3>
 <ul>
 <li>浏览器把行末作为语句的结尾</li>
-<li>分号是可选的，通过使用分号，可以在一行中写多条语句。</li>
+<li>分号是可选的，通过使用分号，可以在一行中写多条语句</li>
 </ul>
-</div>
-
-</div>
-
-<div id="outline-container-5" class="outline-2">
-
-<h2 id="javascript注释">5 JavaScript注释</h2>
-<p><span id="text-5"></span></p>
+<h2 id="javascript注释">JavaScript注释</h2>
 <ul>
-<li>单行注释：//comments</li>
-<li>多行注释：/*comments*/</li>
+<li>单行注释 – <code class="sourceCode javascript" rundoc-language="javascript"><span class="co">//comments</span></code></li>
+<li>多行注释 – <code class="sourceCode javascript" rundoc-language="javascript"><span class="co">/*comments*/</span></code></li>
 </ul>
-</div>
-
-<div id="outline-container-6" class="outline-2">
-
-<h2 id="javascript变量">6 JavaScript变量</h2>
-<p><span id="text-6"></span></p>
+<h2 id="javascript变量">JavaScript变量</h2>
 <ul>
-<li>变量对大小写敏感（y和 Y 是两个不同的变量）</li>
+<li>变量对大小写敏感（ <code class="sourceCode javascript" rundoc-language="javascript">y</code> 和 <code class="sourceCode javascript" rundoc-language="javascript">Y</code> 是两个不同的变量）</li>
 <li>变量必须以字母或下划线开始</li>
-<li>可以通过 var 语句来声明 JavaScript 变量</li>
+<li>可以通过 <code class="sourceCode javascript" rundoc-language="javascript"><span class="kw">var</span></code> 语句来声明 JavaScript 变量</li>
 <li>可以在声明它们时向变量赋值</li>
-<li><p>如果您所赋值的变量还未进行过声明，该变量会自动声明</p>
-<ul>
-<li><p>这些语句：</p>
-<pre><code>x=5;
-carname=&quot;Volvo&quot;; 
-</code></pre></li>
-<li><p>与这些语句的效果相同：</p>
-<pre><code>var x=5;
-var carname=&quot;Volvo&quot;; 
-</code></pre></li>
-</ul></li>
-<li><p>如果您再次声明了 JavaScript 变量，该变量也不会丢失其原始值。</p></li>
+<li>如果您所赋值的变量还未进行过声明，该变量会自动声明</li>
+<li>这些语句：</li>
 </ul>
-</div>
-
-<div id="outline-container-7" class="outline-2">
-
-<h2 id="javascript运算符">7 JavaScript运算符</h2>
-<p><span id="text-7"></span></p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span>
+carname <span class="op">=</span> <span class="st">&quot;Volvo&quot;</span><span class="op">;</span></code></pre></div>
+<ul>
+<li>与这些语句的效果相同：</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span>
+<span class="kw">var</span> carname <span class="op">=</span> <span class="st">&quot;Volvo&quot;</span><span class="op">;</span></code></pre></div>
+<ul>
+<li>如果您再次声明了 JavaScript 变量，该变量也不会丢失其原始值。</li>
+</ul>
+<h2 id="javascript运算符">JavaScript运算符</h2>
 <ul>
 <li>如果把数字与字符串相加，结果将成为字符串。</li>
 </ul>
-</div>
-
-<div id="outline-container-8" class="outline-2">
-
-<h2 id="javascript比较和逻辑运算符">8 JavaScript比较和逻辑运算符</h2>
-<p><span id="text-8"></span></p>
+<h2 id="javascript比较和逻辑运算符">JavaScript比较和逻辑运算符</h2>
 <ul>
-<li>==：等于</li>
-<li>===：全等</li>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="op">==</span></code> – 等于</li>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="op">===</span></code> – 全等</li>
 </ul>
-</div>
-
-<div id="outline-container-9" class="outline-2">
-
-<h2 id="javascript-ifelse-语句">9 JavaScript If…Else 语句</h2>
-<p><span id="text-9"></span></p>
+<h2 id="javascript-ifelse-语句">JavaScript If…Else 语句</h2>
 <ul>
-<li>if</li>
-<li>if … else</li>
-<li>if … else if … else</li>
-<li>switch</li>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="cf">if</span></code></li>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="cf">if</span> ... <span class="at">else</span></code></li>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="cf">if</span> ... <span class="at">else</span> <span class="va">if</span> ... <span class="at">else</span></code></li>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="cf">switch</span></code></li>
 </ul>
-</div>
-
-<div id="outline-container-10" class="outline-2">
-
-<h2 id="javascript-消息框">10 JavaScript 消息框</h2>
-<p><span id="text-10"></span></p>
-<div id="outline-container-10.1" class="outline-3">
-
-<h3 id="警告框">10.1 警告框</h3>
-<p><span id="text-10.1"></span></p>
+<h2 id="javascript-消息框">JavaScript 消息框</h2>
+<h3 id="警告框">警告框</h3>
 <ul>
-<li>警告框经常用于确保用户可以得到某些信息。</li>
-<li>当警告框出现后，用户需要点击确定按钮才能继续进行操作。</li>
-<li>alert(“文本”)</li>
+<li>警告框经常用于确保用户可以得到某些信息</li>
+<li>当警告框出现后，用户需要点击确定按钮才能继续进行操作</li>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">alert</span>(<span class="st">&quot;文本&quot;</span>)</code></li>
 </ul>
-</div>
-
-<div id="outline-container-10.2" class="outline-3">
-
-<h3 id="确认框">10.2 确认框</h3>
-<p><span id="text-10.2"></span></p>
+<h3 id="确认框">确认框</h3>
 <ul>
-<li>确认框用于使用户可以验证或者接受某些信息。</li>
-<li>当确认框出现后，用户需要点击确定或者取消按钮才能继续进行操作。</li>
-<li>如果用户点击确认，那么返回值为 true。如果用户点击取消，那么返回值为 false。</li>
-<li>confirm(“文本”)</li>
+<li>确认框用于使用户可以验证或者接受某些信息</li>
+<li>当确认框出现后，用户需要点击确定或者取消按钮才能继续进行操作</li>
+<li>如果用户点击确认，那么返回值为 <code class="sourceCode javascript" rundoc-language="javascript"><span class="kw">true</span></code> 。如果用户点击取消，那么返回值为 <code class="sourceCode javascript" rundoc-language="javascript"><span class="kw">false</span></code></li>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">confirm</span>(<span class="st">&quot;文本)</span></code></li>
 </ul>
-</div>
-
-<div id="outline-container-10.3" class="outline-3">
-
-<h3 id="提示框">10.3 提示框</h3>
-<p><span id="text-10.3"></span></p>
+<h3 id="提示框">提示框</h3>
 <ul>
-<li>提示框经常用于提示用户在进入页面前输入某个值。</li>
-<li>当提示框出现后，用户需要输入某个值，然后点击确认或取消按钮才能继续操纵。</li>
-<li>如果用户点击确认，那么返回值为输入的值。如果用户点击取消，那么返回值为 null。</li>
-<li>prompt(“文本”, &quot; 默认值 “)</li>
+<li>提示框经常用于提示用户在进入页面前输入某个值</li>
+<li>当提示框出现后，用户需要输入某个值，然后点击确认或取消按钮才能继续操纵</li>
+<li>如果用户点击确认，那么返回值为输入的值。如果用户点击取消，那么返回值为 <code class="sourceCode javascript" rundoc-language="javascript"><span class="kw">null</span></code></li>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">prompt</span>(<span class="st">&quot;文本&quot;</span><span class="op">,</span> <span class="st">&quot;默认值&quot;</span>)</code></li>
 </ul>
-</div>
-
-</div>
-
-<div id="outline-container-11" class="outline-2">
-
-<h2 id="javascript-函数">11 JavaScript 函数</h2>
-<p><span id="text-11"></span></p>
-<div id="outline-container-11.1" class="outline-3">
-
-<h3 id="javascript-函数-1">11.1 JavaScript 函数</h3>
-<p><span id="text-11.1"></span></p>
+<h2 id="javascript-函数">JavaScript 函数</h2>
+<h3 id="javascript-函数-1">JavaScript 函数</h3>
 <ul>
-<li>将脚本编写为函数，就可以避免页面载入时执行该脚本。</li>
-<li>函数包含着一些代码，这些代码只能被事件激活，或者在函数被调用时才会执行。</li>
-<li>函数在页面起始位置定义，即 &lt;head&gt; 部分。</li>
+<li>将脚本编写为函数，就可以避免页面载入时执行该脚本</li>
+<li>函数包含着一些代码，这些代码只能被事件激活，或者在函数被调用时才会执行</li>
+<li>函数在页面起始位置定义，即 <code class="sourceCode html" rundoc-language="html">head</code> 部分</li>
 </ul>
-</div>
-
-<div id="outline-container-11.2" class="outline-3">
-
-<h3 id="如何定义函数">11.2 如何定义函数</h3>
-<p><span id="text-11.2"></span></p>
-<div id="outline-container-11.2.1" class="outline-4">
-
+<h3 id="如何定义函数">如何定义函数</h3>
 <ol>
-<li><p>11.2.1 创建函数的语法：</p>
-<p><span id="text-11.2.1"></span></p>
-<pre><code>function func(var1, var2, ...)
-{
-    \\statements
-}
-</code></pre>
-</div>
-
-<div id="outline-container-11.2.2" class="outline-4">
-</li>
-<li><p>11.2.2 JavaScript变量的生存期</p>
-<p><span id="text-11.2.2"></span></p>
+<li><p>创建函数的语法：</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">func</span>(var1<span class="op">,</span> var2<span class="op">,</span> ...) <span class="op">{</span>
+  \\ statements
+<span class="op">}</span></code></pre></div></li>
+<li><p>JavaScript变量的生存期</p>
 <ul>
 <li>全局变量</li>
 <li>局部变量</li>
-</ul>
-</div>
-
-</div>
-
-</div>
-
-<div id="outline-container-12" class="outline-2">
-</li>
+</ul></li>
 </ol>
-<h2 id="javascript-for-循环">12 JavaScript For 循环</h2>
-<p><span id="text-12"></span></p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
+<h2 id="javascript-for-循环">JavaScript For 循环</h2>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+     <span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span>
+     <span class="cf">for</span> (i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span>
+       <span class="va">document</span>.<span class="at">write</span>(<span class="st">&quot;The number is &quot;</span> <span class="op">+</span> i)
+       <span class="va">document</span>.<span class="at">write</span>(<span class="st">&quot;&lt;br /&gt;&quot;</span>)
+     <span class="op">}</span>
+    <span class="kw">&lt;/script&gt;</span>
 
-&lt;script type=&quot;text/javascript&quot;&gt;
-var i=0
-for (i=0;i&lt;=10;i++)
-{
-    document.write(&quot;The number is &quot; + i)
-    document.write(&quot;&lt;br /&gt;&quot;)
-}
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-</div>
-
-<div id="outline-container-13" class="outline-2">
-
-<h2 id="javascript-while-循环">13 JavaScript While 循环</h2>
-<p><span id="text-13"></span></p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-var i=0
-while (i&lt;=10)
-{
-    document.write(&quot;The number is &quot; + i)
-    document.write(&quot;&lt;br /&gt;&quot;)
-    i=i+1
-}
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-</div>
-
-<div id="outline-container-14" class="outline-2">
-
-<h2 id="javascript-break-和continue语句">14 JavaScript Break 和Continue语句</h2>
-<p><span id="text-14"></span></p>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<h2 id="javascript-while-循环">JavaScript While 循环</h2>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>
+      <span class="cf">while</span> (i <span class="op">&lt;=</span> <span class="dv">10</span>) <span class="op">{</span>
+        <span class="va">document</span>.<span class="at">write</span>(<span class="st">&quot;The number is &quot;</span> <span class="op">+</span> i)<span class="op">;</span>
+        <span class="va">document</span>.<span class="at">write</span>(<span class="st">&quot;&lt;br /&gt;&quot;</span>)<span class="op">;</span>
+        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span>
+      <span class="op">}</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<h2 id="javascript-break-和continue语句">JavaScript Break 和Continue语句</h2>
 <ul>
-<li>break 语句：使用 break 语句来终止循环。</li>
-<li>continue语句：使用 continue 语句来终止当前的循环，然后从下一个值继续执行。</li>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="cf">break</span></code> 语句 – 使用 <code class="sourceCode javascript" rundoc-language="javascript"><span class="cf">break</span></code> 语句来终止循环</li>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="cf">continue</span></code> 语句 – 使用 <code class="sourceCode javascript" rundoc-language="javascript"><span class="cf">continue</span></code> 语句来终止当前的循环，然后从下一个值继续执行</li>
 </ul>
-<p>JavaScript For…In声明</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
+<h2 id="javascript-forin-声明">JavaScript For…In 声明</h2>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">var</span> x
+      <span class="kw">var</span> mycars <span class="op">=</span> <span class="kw">new</span> <span class="at">Array</span>()
+      mycars[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&quot;Saab&quot;</span>
+      mycars[<span class="dv">1</span>] <span class="op">=</span> <span class="st">&quot;Volvo&quot;</span>
+      mycars[<span class="dv">2</span>] <span class="op">=</span> <span class="st">&quot;BMW&quot;</span>
 
-&lt;script type=&quot;text/javascript&quot;&gt;
-var x
-var mycars = new Array()
-mycars[0] = &quot;Saab&quot;
-mycars[1] = &quot;Volvo&quot;
-mycars[2] = &quot;BMW&quot;
-
-for (x in mycars)
-{
-    document.write(mycars[x] + &quot;&lt;br /&gt;&quot;)
-}
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-</div>
-
-<div id="outline-container-15" class="outline-2">
-
-<h2 id="javascript-事件">15 JavaScript 事件</h2>
-<p><span id="text-15"></span></p>
-<p>- * 事件是可以被 JavaScript 侦测到的行为。*</p>
+      <span class="cf">for</span> (x <span class="kw">in</span> mycars) <span class="op">{</span>
+        <span class="va">document</span>.<span class="at">write</span>(mycars[x] <span class="op">+</span> <span class="st">&quot;&lt;br /&gt;&quot;</span>)
+      <span class="op">}</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<h2 id="javascript-事件">JavaScript 事件</h2>
 <ul>
-<li><p>事件举例：</p>
+<li><strong>事件是可以被 JavaScript 侦测到的行为</strong></li>
+<li>事件举例：
 <ul>
 <li>鼠标点击</li>
 <li>页面或图像载入</li>
@@ -457,7 +258,8 @@ for (x in mycars)
 <li>确认表单</li>
 <li>键盘按键</li>
 </ul></li>
-<li><p>JavaScript 事件参考</p>
+<li>JavaScript 事件参考</li>
+</ul>
 <table>
 <thead>
 <tr class="header">
@@ -470,167 +272,156 @@ for (x in mycars)
 </thead>
 <tbody>
 <tr class="odd">
-<td>onabort</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onabort</code></td>
 <td>图像加载被中断</td>
 <td>1</td>
 <td>3</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>onblur</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onblur</code></td>
 <td>元素失去焦点</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>onchange</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onchange</code></td>
 <td>用户改变域的内容</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>onclick</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onclick</code></td>
 <td>鼠标点击某个对象</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>ondblclick</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">ondblclick</code></td>
 <td>鼠标双击某个对象</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>onerror</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onerror</code></td>
 <td>当加载文档或图像时发生某个错误</td>
 <td>1</td>
 <td>3</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>onfocus</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onfocus</code></td>
 <td>元素获得焦点</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>onkeydown</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onkeydown</code></td>
 <td>某个键盘的键被按下</td>
 <td>1</td>
 <td>4</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>onkeypress</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onkeypress</code></td>
 <td>某个键盘的键被按下或按住</td>
 <td>1</td>
 <td>4</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>onkeyup</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onkeyup</code></td>
 <td>某个键盘的键被松开</td>
 <td>1</td>
 <td>4</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>onload</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onload</code></td>
 <td>某个页面或图像被完成加载</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>onmousedown</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onmousedown</code></td>
 <td>某个鼠标按键被按下</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>onmousemove</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onmousemove</code></td>
 <td>鼠标被移动</td>
 <td>1</td>
 <td>6</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>onmouseout</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onmouseout</code></td>
 <td>鼠标从某元素移开</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>onmouseover</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onmouseover</code></td>
 <td>鼠标被移到某元素之上</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>onmouseup</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onmouseup</code></td>
 <td>某个鼠标按键被松开</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>onreset</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onreset</code></td>
 <td>重置按钮被点击</td>
 <td>1</td>
 <td>3</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>onresize</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onresize</code></td>
 <td>窗口或框架被调整尺寸</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>onselect</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onselect</code></td>
 <td>文本被选定</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>onsubmit</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onsubmit</code></td>
 <td>提交按钮被点击</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>onunload</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">onunload</code></td>
 <td>用户退出页面</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 </tbody>
-</table></li>
-</ul>
-</div>
-
-<div id="outline-container-16" class="outline-2">
-
-<h2 id="javascript-trycatch-语句">16 JavaScript Try…Catch 语句</h2>
-<p><span id="text-16"></span></p>
-</div>
-
-<div id="outline-container-17" class="outline-2">
-
-<h2 id="javascript-特殊字符">17 JavaScript 特殊字符</h2>
-<p><span id="text-17"></span></p>
+</table>
+<h2 id="javascript-trycatch-语句">JavaScript Try…Catch 语句</h2>
+<h2 id="javascript-特殊字符">JavaScript 特殊字符</h2>
 <table>
 <thead>
 <tr class="header">
@@ -640,144 +431,113 @@ for (x in mycars)
 </thead>
 <tbody>
 <tr class="odd">
-<td>'</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">\<span class="st">&#39;</span></code></td>
 <td>单引号</td>
 </tr>
 <tr class="even">
-<td>&quot;</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">\<span class="st">&quot;</span></code></td>
 <td>双引号</td>
 </tr>
 <tr class="odd">
-<td>&amp;</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">\<span class="op">&amp;</span></code></td>
 <td>和号</td>
 </tr>
 <tr class="even">
-<td><br />
-</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">\\</code></td>
 <td>反斜杠</td>
 </tr>
 <tr class="odd">
-<td></td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">\n</code></td>
 <td>换行符</td>
 </tr>
 <tr class="even">
-<td></td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">\r</code></td>
 <td>回车符</td>
 </tr>
 <tr class="odd">
-<td></td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">\t</code></td>
 <td>制表符</td>
 </tr>
 <tr class="even">
-<td></td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">\b</code></td>
 <td>退格符</td>
 </tr>
 <tr class="odd">
-<td></td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">\f</code></td>
 <td>换页符</td>
 </tr>
 </tbody>
 </table>
-</div>
-
-<div id="outline-container-18" class="outline-2">
-
-<h2 id="javascript-指导方针">18 JavaScript 指导方针</h2>
-<p><span id="text-18"></span></p>
+<h2 id="javascript-指导方针">JavaScript 指导方针</h2>
 <ul>
 <li>JavaScript 对大小写敏感</li>
 <li>JavaScript 会忽略多余的空格</li>
 <li>您可以在文本字符串内部使用反斜杠对代码进行折行</li>
 </ul>
-</div>
-
-<div id="outline-container-19" class="outline-2">
-
-<h2 id="javascript-对象简介">19 JavaScript 对象简介</h2>
-<p><span id="text-19"></span></p>
+<h2 id="javascript-对象简介">JavaScript 对象简介</h2>
 <ul>
-<li>JavaScript 是面向对象的编程语言 (OOP)。</li>
-<li><p>对象拥有属性和方法。</p>
+<li>JavaScript 是面向对象的编程语言（OOP）</li>
+<li>对象拥有属性和方法
 <ul>
-<li>属性：属性指与对象有关的值。</li>
-<li>方法：方法指对象可以执行的行为（或者可以完成的功能）。</li>
+<li>属性 – 属性指与对象有关的值</li>
+<li>方法 – 方法指对象可以执行的行为（或者可以完成的功能）</li>
 </ul></li>
 </ul>
-</div>
-
-<div id="outline-container-20" class="outline-2">
-
-<h2 id="javascript字符串-string-对象">20 JavaScript字符串 (String) 对象</h2>
-<p><span id="text-20"></span></p>
+<h2 id="javascript字符串string对象">JavaScript字符串（String）对象</h2>
 <ul>
-<li><p>计算字符串的长度</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-var txt=&quot;Hello World!&quot;
-document.write(txt.length)
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
-<li><p>indexOf() 方法</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-var str=&quot;Hello world!&quot;
-document.write(str.indexOf(&quot;Hello&quot;) + &quot;&lt;br /&gt;&quot;)
-document.write(str.indexOf(&quot;World&quot;) + &quot;&lt;br /&gt;&quot;)
-document.write(str.indexOf(&quot;world&quot;))
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
-<li><p>match() 方法</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-var str=&quot;Hello world!&quot;
-document.write(str.match(&quot;world&quot;) + &quot;&lt;br /&gt;&quot;)
-document.write(str.match(&quot;World&quot;) + &quot;&lt;br /&gt;&quot;)
-document.write(str.match(&quot;worlld&quot;) + &quot;&lt;br /&gt;&quot;)
-document.write(str.match(&quot;world!&quot;))
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
-<li><p>replace() 方法</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-var str=&quot;Visit Microsoft!&quot;
-document.write(str.replace(/Microsoft/,&quot;W3School&quot;))
-
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
+<li>计算字符串的长度</li>
 </ul>
-<div id="outline-container-20.1" class="outline-3">
-
-<h3 id="string-对象的方法">20.1 String 对象的方法</h3>
-<p><span id="text-20.1"></span></p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">var</span> txt <span class="op">=</span> <span class="st">&quot;Hello World!&quot;</span><span class="op">;</span>
+      <span class="va">document</span>.<span class="at">write</span>(<span class="va">txt</span>.<span class="at">length</span>)<span class="op">;</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<ul>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">indexOf</span>()</code> 方法</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">var</span> str <span class="op">=</span> <span class="st">&quot;Hello world!&quot;</span><span class="op">;</span>
+      <span class="va">document</span>.<span class="at">write</span>(<span class="va">str</span>.<span class="at">indexOf</span>(<span class="st">&quot;Hello&quot;</span>) <span class="op">+</span> <span class="st">&quot;&lt;br /&gt;&quot;</span>)<span class="op">;</span>
+      <span class="va">document</span>.<span class="at">write</span>(<span class="va">str</span>.<span class="at">indexOf</span>(<span class="st">&quot;World&quot;</span>) <span class="op">+</span> <span class="st">&quot;&lt;br /&gt;&quot;</span>)<span class="op">;</span>
+      <span class="va">document</span>.<span class="at">write</span>(<span class="va">str</span>.<span class="at">indexOf</span>(<span class="st">&quot;world&quot;</span>))<span class="op">;</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<ul>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">match</span>()</code> 方法</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">var</span> str <span class="op">=</span> <span class="st">&quot;Hello world!&quot;</span><span class="op">;</span>
+      <span class="va">document</span>.<span class="at">write</span>(<span class="va">str</span>.<span class="at">match</span>(<span class="st">&quot;world&quot;</span>) <span class="op">+</span> <span class="st">&quot;&lt;br /&gt;&quot;</span>)<span class="op">;</span>
+      <span class="va">document</span>.<span class="at">write</span>(<span class="va">str</span>.<span class="at">match</span>(<span class="st">&quot;World&quot;</span>) <span class="op">+</span> <span class="st">&quot;&lt;br /&gt;&quot;</span>)<span class="op">;</span>
+      <span class="va">document</span>.<span class="at">write</span>(<span class="va">str</span>.<span class="at">match</span>(<span class="st">&quot;worlld&quot;</span>) <span class="op">+</span> <span class="st">&quot;&lt;br /&gt;&quot;</span>)<span class="op">;</span>
+      <span class="va">document</span>.<span class="at">write</span>(<span class="va">str</span>.<span class="at">match</span>(<span class="st">&quot;world!&quot;</span>))<span class="op">;</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<ul>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">replace</span>()</code> 方法</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">var</span> str <span class="op">=</span> <span class="st">&quot;Visit Microsoft!&quot;</span><span class="op">;</span>
+      <span class="va">document</span>.<span class="at">write</span>(<span class="va">str</span>.<span class="at">replace</span>(<span class="ss">/Microsoft/</span><span class="op">,</span><span class="st">&quot;W3School&quot;</span>))<span class="op">;</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<h3 id="string-对象的方法">String 对象的方法</h3>
 <ul>
 <li>JavaScript 的字符串是不可变的</li>
-<li><p>String 类定义的方法都不能改变字符串的内容</p>
+<li>String 类定义的方法都不能改变字符串的内容</li>
+</ul>
 <table>
 <thead>
 <tr class="header">
@@ -790,252 +550,246 @@ document.write(str.replace(/Microsoft/,&quot;W3School&quot;))
 </thead>
 <tbody>
 <tr class="odd">
-<td>anchor()</td>
-<td>创建 HTML 锚。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">anchor</span>()</code></td>
+<td>创建 HTML 锚</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>big()</td>
-<td>用大号字体显示字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">big</span>()</code></td>
+<td>用大号字体显示字符串</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>blink()</td>
-<td>显示闪动字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">blink</span>()</code></td>
+<td>显示闪动字符串</td>
 <td>1</td>
 <td>2</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>bold()</td>
-<td>使用粗体显示字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">bold</span>()</code></td>
+<td>使用粗体显示字符串</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>charAt()</td>
-<td>返回在指定位置的字符。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">charAt</span>()</code></td>
+<td>返回在指定位置的字符</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>charCodeAt()</td>
-<td>返回在指定的位置的字符的 Unicode 编码。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">charCodeAt</span>()</code></td>
+<td>返回在指定的位置的字符的 Unicode 编码</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>concat()</td>
-<td>连接字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">concat</span>()</code></td>
+<td>连接字符串</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>fixed()</td>
-<td>以打字机文本显示字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">fixed</span>()</code></td>
+<td>以打字机文本显示字符串</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>fontcolor()</td>
-<td>使用指定的颜色来显示字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">fontcolor</span>()</code></td>
+<td>使用指定的颜色来显示字符串</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>fontsize()</td>
-<td>使用指定的尺寸来显示字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">fontsize</span>()</code></td>
+<td>使用指定的尺寸来显示字符串</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>fromCharCode()</td>
-<td>从字符编码创建一个字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">fromCharCode</span>()</code></td>
+<td>从字符编码创建一个字符串</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>indexOf()</td>
-<td>检索字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">indexOf</span>()</code></td>
+<td>检索字符串</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>italics()</td>
-<td>使用斜体显示字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">italics</span>()</code></td>
+<td>使用斜体显示字符串</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>lastIndexOf()</td>
-<td>从后向前搜索字符串。</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>link()</td>
-<td>将字符串显示为链接。</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>localeCompare()</td>
-<td>用本地特定的顺序来比较两个字符串。</td>
-<td>1</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>match()</td>
-<td>找到一个或多个正在表达式的匹配。</td>
-<td>1</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>replace()</td>
-<td>替换与正则表达式匹配的子串。</td>
-<td>1</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>search()</td>
-<td>检索与正则表达式相匹配的值。</td>
-<td>1</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>slice()</td>
-<td>提取字符串的片断，并在新的字符串中返回被提取的部分。</td>
-<td>1</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>small()</td>
-<td>使用小字号来显示字符串。</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>split()</td>
-<td>把字符串分割为字符串数组。</td>
-<td>1</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>strike()</td>
-<td>使用删除线来显示字符串。</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>sub()</td>
-<td>把字符串显示为下标。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">lastIndexOf</span>()</code></td>
+<td>从后向前搜索字符串</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>substr()</td>
-<td>从起始索引号提取字符串中指定数目的字符。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">link</span>()</code></td>
+<td>将字符串显示为链接</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">localeCompare</span>()</code></td>
+<td>用本地特定的顺序来比较两个字符串</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">match</span>()</code></td>
+<td>找到一个或多个正在表达式的匹配</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>substring()</td>
-<td>提取字符串中两个指定的索引号之间的字符。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">replace</span>()</code></td>
+<td>替换与正则表达式匹配的子串</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">search</span>()</code></td>
+<td>检索与正则表达式相匹配的值</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">slice</span>()</code></td>
+<td>提取字符串的片断，并在新的字符串中返回被提取的部分</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">small</span>()</code></td>
+<td>使用小字号来显示字符串</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">split</span>()</code></td>
+<td>把字符串分割为字符串数组</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">strike</span>()</code></td>
+<td>使用删除线来显示字符串</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">sub</span>()</code></td>
+<td>把字符串显示为下标</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>sup()</td>
-<td>把字符串显示为上标。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">substr</span>()</code></td>
+<td>从起始索引号提取字符串中指定数目的字符</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">substring</span>()</code></td>
+<td>提取字符串中两个指定的索引号之间的字符</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">sup</span>()</code></td>
+<td>把字符串显示为上标</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>toLocaleLowerCase()</td>
-<td>把字符串转换为小写。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toLocaleLowerCase</span>()</code></td>
+<td>把字符串转换为小写</td>
 <td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td>toLocaleUpperCase()</td>
-<td>把字符串转换为大写。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toLocaleUpperCase</span>()</code></td>
+<td>把字符串转换为大写</td>
 <td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td>toLowerCase()</td>
-<td>把字符串转换为小写。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toLowerCase</span>()</code></td>
+<td>把字符串转换为小写</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>toUpperCase()</td>
-<td>把字符串转换为大写。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toUpperCase</span>()</code></td>
+<td>把字符串转换为大写</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>toSource()</td>
-<td>代表对象的源代码。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toSource</span>()</code></td>
+<td>代表对象的源代码</td>
 <td>1</td>
 <td>4</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td>toString()</td>
-<td>返回字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toString</span>()</code></td>
+<td>返回字符串</td>
 <td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td>valueOf()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">valueOf</span>()</code></td>
 <td>返回某个字符串对象的原始值</td>
 <td>1</td>
 <td>2</td>
 <td>4</td>
 </tr>
 </tbody>
-</table></li>
-</ul>
-</div>
-
-<div id="outline-container-20.2" class="outline-3">
-
-<h3 id="string-对象的属性">20.2 String 对象的属性</h3>
-<p><span id="text-20.2"></span></p>
+</table>
+<h3 id="string-对象的属性">String 对象的属性</h3>
 <table>
 <thead>
 <tr class="header">
@@ -1048,21 +802,21 @@ document.write(str.replace(/Microsoft/,&quot;W3School&quot;))
 </thead>
 <tbody>
 <tr class="odd">
-<td>constructor</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">constructor</code></td>
 <td>对创建该对象的函数的引用</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>length</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">length</code></td>
 <td>字符串的长度</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>prototype</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">prototype</code></td>
 <td>允许您向对象添加属性和方法</td>
 <td>1</td>
 <td>2</td>
@@ -1070,116 +824,89 @@ document.write(str.replace(/Microsoft/,&quot;W3School&quot;))
 </tr>
 </tbody>
 </table>
-</div>
-
-</div>
-
-<div id="outline-container-21" class="outline-2">
-
-<h2 id="javascript-date日期对象">21 JavaScript Date（日期）对象</h2>
-<p><span id="text-21"></span></p>
+<h2 id="javascript-date日期对象">JavaScript Date（日期）对象</h2>
 <ul>
-<li><p>返回当日的日期和时间</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-document.write(Date())
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
-<li><p>getTime()</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-var minutes = 1000*60
-var hours = minutes*60
-var days = hours*24
-var years = days*365
-var d = new Date()
-var t = d.getTime()
-var y = t/years
-
-document.write(&quot;It&#39;s been: &quot; + y + &quot; years since 1970/01/01!&quot;)
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-</code></pre></li>
-<li><p>setFullYear()</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-var d = new Date()
-d.setFullYear(1992,10,3)
-document.write(d)
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
-<li><p>toUTCString()</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-var d = new Date()
-document.write (d.toUTCString())
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
-<li><p>时钟</p>
-<pre><code>&lt;html&gt;
-&lt;head&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-function startTime()
-{
-    var today=new Date()
-    var h=today.getHours()
-    var m=today.getMinutes()
-    var s=today.getSeconds()
-
-    // add a zero in front of numbers&lt;10
-    m=checkTime(m)
-    s=checkTime(s)
-    document.getElementById(&#39;txt&#39;).innerHTML=h+&quot;:&quot;+m+&quot;:&quot;+s
-    t=setTimeout(&#39;startTime()&#39;,500)
-}
-
-function checkTime(i)
-{
-    if (i&lt;10) 
-    {
-        i=&quot;0&quot; + i
-    }
-    return i
-}
-&lt;/script&gt;
-&lt;/head&gt;
-
-&lt;body onload=&quot;startTime()&quot;&gt;
-&lt;div id=&quot;txt&quot;&gt;&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
+<li>返回当日的日期和时间</li>
 </ul>
-<div id="outline-container-21.1" class="outline-3">
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="va">document</span>.<span class="at">write</span>(<span class="at">Date</span>())<span class="op">;</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<ul>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getTime</span>()</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">var</span> minutes <span class="op">=</span> <span class="dv">1000</span><span class="op">*</span><span class="dv">60</span><span class="op">;</span>
+      <span class="kw">var</span> hours <span class="op">=</span> minutes<span class="op">*</span><span class="dv">60</span><span class="op">;</span>
+      <span class="kw">var</span> days <span class="op">=</span> hours<span class="op">*</span><span class="dv">24</span><span class="op">;</span>
+      <span class="kw">var</span> years <span class="op">=</span> days<span class="op">*</span><span class="dv">365</span><span class="op">;</span>
+      <span class="kw">var</span> d <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>()<span class="op">;</span>
+      <span class="kw">var</span> t <span class="op">=</span> <span class="va">d</span>.<span class="at">getTime</span>()<span class="op">;</span>
+      <span class="kw">var</span> y <span class="op">=</span> t/years<span class="op">;</span>
+      <span class="va">document</span>.<span class="at">write</span>(<span class="st">&quot;It&#39;s been: &quot;</span> <span class="op">+</span> y <span class="op">+</span> <span class="st">&quot; years since 1970/01/01!&quot;</span>)<span class="op">;</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<ul>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setFullYear</span>()</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">var</span> d <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>()<span class="op">;</span>
+      <span class="va">d</span>.<span class="at">setFullYear</span>(<span class="dv">1992</span><span class="op">,</span><span class="dv">10</span><span class="op">,</span><span class="dv">3</span>)<span class="op">;</span>
+      <span class="va">document</span>.<span class="at">write</span>(d)<span class="op">;</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<ul>
+<li><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toUTCString</span>()</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">var</span> d <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>()<span class="op">;</span>
+      <span class="va">document</span>.<span class="at">write</span> (<span class="va">d</span>.<span class="at">toUTCString</span>())<span class="op">;</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<ul>
+<li>时钟</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+     <span class="kw">function</span> <span class="at">startTime</span>() <span class="op">{</span>
+       <span class="kw">var</span> today <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>()<span class="op">;</span>
+       <span class="kw">var</span> h <span class="op">=</span> <span class="va">today</span>.<span class="at">getHours</span>()<span class="op">;</span>
+       <span class="kw">var</span> m <span class="op">=</span> <span class="va">today</span>.<span class="at">getMinutes</span>()<span class="op">;</span>
+       <span class="kw">var</span> s <span class="op">=</span> <span class="va">today</span>.<span class="at">getSeconds</span>()<span class="op">;</span>
 
-<h3 id="date-对象的方法">21.1 Date 对象的方法</h3>
-<p><span id="text-21.1"></span></p>
+       <span class="co">// add a zero in front of numbers&lt;10</span>
+       m <span class="op">=</span> <span class="at">checkTime</span>(m)<span class="op">;</span>
+       s <span class="op">=</span> <span class="at">checkTime</span>(s)<span class="op">;</span>
+       <span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&#39;txt&#39;</span>).<span class="at">innerHTML</span> <span class="op">=</span> h <span class="op">+</span> <span class="st">&quot;:&quot;</span> <span class="op">+</span> m <span class="op">+</span> <span class="st">&quot;:&quot;</span> <span class="op">+</span> s<span class="op">;</span>
+       t <span class="op">=</span> <span class="at">setTimeout</span>(<span class="st">&#39;startTime()&#39;</span><span class="op">,</span><span class="dv">500</span>)<span class="op">;</span>
+     <span class="op">}</span>
+
+     <span class="kw">function</span> <span class="at">checkTime</span>(i) <span class="op">{</span>
+       <span class="cf">if</span> (i <span class="op">&lt;</span> <span class="dv">10</span>) <span class="op">{</span>
+         i <span class="op">=</span> <span class="st">&quot;0&quot;</span> <span class="op">+</span> i<span class="op">;</span>
+       <span class="op">}</span>
+       <span class="cf">return</span> i<span class="op">;</span>
+     <span class="op">}</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body</span><span class="ot"> onload=</span><span class="st">&quot;startTime()&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;txt&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<h3 id="date-对象的方法">Date 对象的方法</h3>
 <table>
 <thead>
 <tr class="header">
@@ -1192,394 +919,380 @@ function checkTime(i)
 </thead>
 <tbody>
 <tr class="odd">
-<td>Date()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">Date</span>()</code></td>
 <td>返回当日的日期和时间</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>getDate()</td>
-<td>从Date对象返回一个月中的某一天 (1 ~ 31)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getDate</span>()</code></td>
+<td>从 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象返回一个月中的某一天（1–31）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>getDay()</td>
-<td>从Date对象返回一周中的某一天 (0 ~ 6)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getDay</span>()</code></td>
+<td>从 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象返回一周中的某一天（0–6）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>getMonth()</td>
-<td>从Date对象返回月份 (0 ~ 11)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getMonth</span>()</code></td>
+<td>从 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象返回月份（0–11）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>getFullYear()</td>
-<td>从Date对象以四位数字返回年份</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getFullYear</span>()</code></td>
+<td>从 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象以四位数字返回年份</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>getYear()</td>
-<td>从Date对象以两位或四位数字返回年份。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getYear</span>()</code></td>
+<td>从 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象以两位或四位数字返回年份。</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>getHours()</td>
-<td>返回 Date 对象的小时 (0 ~ 23)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getHours</span>()</code></td>
+<td>返回 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的小时（0–23）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>getMinutes()</td>
-<td>返回 Date 对象的分钟 (0 ~ 59)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getMinutes</span>()</code></td>
+<td>返回 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的分钟（0–59）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>getSeconds()</td>
-<td>返回 Date 对象的秒数 (0 ~ 59))</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getSeconds</span>()</code></td>
+<td>返回 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的秒数（0–59)）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>getMilliseconds()</td>
-<td>返回 Date 对象的毫秒 (0 ~ 999)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getMilliseconds</span>()</code></td>
+<td>返回 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的毫秒（0–999）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>getTime()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getTime</span>()</code></td>
 <td>返回 1970 年 1 月 1 日至今的毫秒数</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>getTimezoneOffset()</td>
-<td>返回本地时间与格林威治标准时间的分钟差 (GMT)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getTimezoneOffset</span>()</code></td>
+<td>返回本地时间与格林威治标准时间的分钟差（GMT）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>getUTCDate()</td>
-<td>根据世界时从 Date 对象返回月中的一天 (1 ~ 31)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getUTCDate</span>()</code></td>
+<td>根据世界时从 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象返回月中的一天（1–31）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>getUTCDay()</td>
-<td>根据世界时从 Date 对象返回周中的一天 (0 ~ 6)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getUTCDay</span>()</code></td>
+<td>根据世界时从 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象返回周中的一天（0–6）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>getUTCMonth()</td>
-<td>根据世界时从 Date 对象返回月份 (0 ~ 11)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getUTCMonth</span>()</code></td>
+<td>根据世界时从 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象返回月份（0–11）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>getUTCFullYear()</td>
-<td>根据世界时从 Date 对象返回四位数的年份</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getUTCFullYear</span>()</code></td>
+<td>根据世界时从 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象返回四位数的年份</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>getUTCHours()</td>
-<td>根据世界时返回 Date 对象的小时 (0 ~ 23)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getUTCHours</span>()</code></td>
+<td>根据世界时返回 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的小时（0–23）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>getUTCMinutes()</td>
-<td>根据世界时返回 Date 对象的分钟 (0 ~ 59)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getUTCMinutes</span>()</code></td>
+<td>根据世界时返回 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的分钟（0–59）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>getUTCSeconds()</td>
-<td>根据世界时返回 Date 对象的秒钟 (0 ~ 59)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getUTCSeconds</span>()</code></td>
+<td>根据世界时返回 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的秒钟（0–59）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>getUTCMilliseconds()</td>
-<td>根据世界时返回 Date 对象的毫秒 (0 ~ 999)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">getUTCMilliseconds</span>()</code></td>
+<td>根据世界时返回 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的毫秒（0–999）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>parse()</td>
-<td>返回 1970 年1月 1 日午夜到指定日期（字符串）的毫秒数</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">parse</span>()</code></td>
+<td>返回 1970 年 1 月 1 日午夜到指定日期（字符串）的毫秒数</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>setDate()</td>
-<td>设置 Date 对象中月的某一天 (1 ~ 31))</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setDate</span>()</code></td>
+<td>设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中月的某一天（1–31)）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>setMonth()</td>
-<td>设置 Date 对象中月份 (0 ~ 11))</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setMonth</span>()</code></td>
+<td>设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中月份（0–11)）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>setFullYear()</td>
-<td>设置 Date 对象中的年份（四位数字）</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setFullYear</span>()</code></td>
+<td>设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中的年份（四位数字）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>setYear()</td>
-<td>设置 Date 对象中的年份（两位或四位数字）。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setYear</span>()</code></td>
+<td>设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中的年份（两位或四位数字）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>setHours()</td>
-<td>设置 Date 对象中的小时 (0 ~ 23)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setHours</span>()</code></td>
+<td>设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中的小时（0–23）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>setMinutes()</td>
-<td>设置 Date 对象中的分钟 (0 ~ 59)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setMinutes</span>()</code></td>
+<td>设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中的分钟（0–59）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>setSeconds()</td>
-<td>设置 Date 对象中的秒钟 (0 ~ 59)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setSeconds</span>()</code></td>
+<td>设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中的秒钟（0–59）</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>setMilliseconds()</td>
-<td>设置 Date 对象中的毫秒 (0 ~ 999)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setMilliseconds</span>()</code></td>
+<td>设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中的毫秒（0–999）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>setTime()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setTime</span>()</code></td>
 <td>通过向或从 1970 年1月 1 日午夜添加或减去指定数目的毫秒来计算日期和时间</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>setUTCDate()</td>
-<td>根据世界时设置 Date 对象中月份的一天 (1 ~ 31)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setUTCDate</span>()</code></td>
+<td>根据世界时设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中月份的一天（1–31）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>setUTCMonth()</td>
-<td>根据世界时设置 Date 对象中的月份 (0 ~ 11)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setUTCMonth</span>()</code></td>
+<td>根据世界时设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中的月份（0–11）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>setUTCFullYear()</td>
-<td>根据世界时设置 Date 对象中年份（四位数字）</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setUTCFullYear</span>()</code></td>
+<td>根据世界时设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中年份（四位数字）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>setUTCHours()</td>
-<td>根据世界时设置 Date 对象中小时 (0 ~ 23)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setUTCHours</span>()</code></td>
+<td>根据世界时设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中小时（0–23）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>setUTCMinutes()</td>
-<td>根据世界时设置 Date 对象中分钟 (0 ~ 59)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setUTCMinutes</span>()</code></td>
+<td>根据世界时设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中分钟（0–59）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>setUTCSeconds()</td>
-<td>根据世界时设置 Date 对象中秒钟 (0 ~ 59)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setUTCSeconds</span>()</code></td>
+<td>根据世界时设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中秒钟（0–59）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>setUTCMilliseconds()</td>
-<td>根据世界时设置 Date 对象中毫秒 S(0 ~ 999)</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">setUTCMilliseconds</span>()</code></td>
+<td>根据世界时设置 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象中毫秒（0–999）</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>toSource()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toSource</span>()</code></td>
 <td>代表对象的源代码</td>
 <td>1</td>
 <td>4</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td>toString()</td>
-<td>把Date对象转换为字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toString</span>()</code></td>
+<td>把 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象转换为字符串</td>
 <td>1</td>
 <td>2</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>toTimeString()</td>
-<td>把 Date 对象的时间部分转换为字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toTimeString</span>()</code></td>
+<td>把 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的时间部分转换为字符串</td>
 <td>1</td>
 <td>2</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>toDateString()</td>
-<td>把 Date 对象的日期部分转换为字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toDateString</span>()</code></td>
+<td>把 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的日期部分转换为字符串</td>
 <td>1</td>
 <td>2</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>toGMTString()</td>
-<td>根据格林威治时间，把 Date 对象转换为字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toGMTString</span>()</code></td>
+<td>根据格林威治时间，把 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象转换为字符串</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>toUTCString()</td>
-<td>根据世界时，把 Date 对象转换为字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toUTCString</span>()</code></td>
+<td>根据世界时，把 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象转换为字符串</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>toLocaleString()</td>
-<td>根据本地时间格式，把 Date 对象转换为字符串。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toLocaleString</span>()</code></td>
+<td>根据本地时间格式，把 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象转换为字符串</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>toLocaleTimeString()</td>
-<td>根据本地时间格式，把 Date 对象的时间部分转换为字符串</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toLocaleTimeString</span>()</code></td>
+<td>根据本地时间格式，把 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的时间部分转换为字符串</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>toLocaleDateString()</td>
-<td>根据本地时间格式，把 Date 对象的日期部分转换为字符串</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toLocaleDateString</span>()</code></td>
+<td>根据本地时间格式，把 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的日期部分转换为字符串</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="odd">
-<td>UTC()</td>
-<td>根据世界时，获得一个日期，然后返回 1970 年1月 1 日午夜到该日期的毫秒数。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">UTC</span>()</code></td>
+<td>根据世界时，获得一个日期，然后返回 1970 年 1 月 1 日午夜到该日期的毫秒数</td>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td>valueOf()</td>
-<td>返回 Date 对象的原始值。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">valueOf</span>()</code></td>
+<td>返回 <code class="sourceCode javascript" rundoc-language="javascript">Date</code> 对象的原始值</td>
 <td>1</td>
 <td>2</td>
 <td>4</td>
 </tr>
 </tbody>
 </table>
-</div>
-
-</div>
-
-<div id="outline-container-22" class="outline-2">
-
-<h2 id="javascript数组">22 JavaScript数组</h2>
-<p><span id="text-22"></span></p>
+<h2 id="javascript数组">JavaScript数组</h2>
 <ul>
-<li><p>创建数组</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-var mycars = new Array()
-mycars[0] = &quot;Saab&quot;
-mycars[1] = &quot;Volvo&quot;
-mycars[2] = &quot;BMW&quot;
-
-for (i=0;i&lt;mycars.length;i++)
-{
-    document.write(mycars[i] + &quot;&lt;br /&gt;&quot;)
-}
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
-<li><p>For…In 声明</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-var x
-var mycars = new Array()
-mycars[0] = &quot;Saab&quot;
-mycars[1] = &quot;Volvo&quot;
-mycars[2] = &quot;BMW&quot;
-
-for (x in mycars)
-{
-document.write(mycars[x] + &quot;&lt;br /&gt;&quot;)
-}
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
+<li>创建数组</li>
 </ul>
-<div id="outline-container-22.1" class="outline-3">
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+     <span class="kw">var</span> mycars <span class="op">=</span> <span class="kw">new</span> <span class="at">Array</span>()<span class="op">;</span>
+     mycars[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&quot;Saab&quot;</span><span class="op">;</span>
+     mycars[<span class="dv">1</span>] <span class="op">=</span> <span class="st">&quot;Volvo&quot;</span><span class="op">;</span>
+     mycars[<span class="dv">2</span>] <span class="op">=</span> <span class="st">&quot;BMW&quot;</span><span class="op">;</span>
 
-<h3 id="array-对象的方法">22.1 Array 对象的方法</h3>
-<p><span id="text-22.1"></span></p>
+     <span class="cf">for</span> (i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">mycars</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span>
+       <span class="va">document</span>.<span class="at">write</span>(mycars[i] <span class="op">+</span> <span class="st">&quot;&lt;br /&gt;&quot;</span>)<span class="op">;</span>
+     <span class="op">}</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<ul>
+<li>For…In 声明</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">var</span> x
+      <span class="kw">var</span> mycars <span class="op">=</span> <span class="kw">new</span> <span class="at">Array</span>()<span class="op">;</span>
+      mycars[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&quot;Saab&quot;</span><span class="op">;</span>
+      mycars[<span class="dv">1</span>] <span class="op">=</span> <span class="st">&quot;Volvo&quot;</span><span class="op">;</span>
+      mycars[<span class="dv">2</span>] <span class="op">=</span> <span class="st">&quot;BMW&quot;</span><span class="op">;</span>
+
+      <span class="cf">for</span> (x <span class="kw">in</span> mycars) <span class="op">{</span>
+        <span class="va">document</span>.<span class="at">write</span>(mycars[x] <span class="op">+</span> <span class="st">&quot;&lt;br /&gt;&quot;</span>)<span class="op">;</span>
+      <span class="op">}</span>
+    <span class="kw">&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<h3 id="array-对象的方法">Array 对象的方法</h3>
 <table>
 <thead>
 <tr class="header">
@@ -1592,98 +1305,98 @@ document.write(mycars[x] + &quot;&lt;br /&gt;&quot;)
 </thead>
 <tbody>
 <tr class="odd">
-<td>concat()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">concat</span>()</code></td>
 <td>连接两个或更多的数组，并返回结果。</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>join()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">join</span>()</code></td>
 <td>把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。</td>
 <td>1</td>
 <td>3</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>pop()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">pop</span>()</code></td>
 <td>删除并返回数组的最后一个元素</td>
 <td>1</td>
 <td>4</td>
 <td>5.5</td>
 </tr>
 <tr class="even">
-<td>push()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">push</span>()</code></td>
 <td>向数组的末尾添加一个或更多元素，并返回新的长度。</td>
 <td>1</td>
 <td>4</td>
 <td>5.5</td>
 </tr>
 <tr class="odd">
-<td>reverse()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">reverse</span>()</code></td>
 <td>颠倒数组中元素的顺序。</td>
 <td>1</td>
 <td>3</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>shift()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">shift</span>()</code></td>
 <td>删除并返回数组的第一个元素</td>
 <td>1</td>
 <td>4</td>
 <td>5.5</td>
 </tr>
 <tr class="odd">
-<td>slice()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">slice</span>()</code></td>
 <td>从某个已有的数组返回选定的元素</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>sort()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">sort</span>()</code></td>
 <td>对数组的元素进行排序</td>
 <td>1</td>
 <td>3</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>splice()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">splice</span>()</code></td>
 <td>删除元素，并向数组添加新元素。</td>
 <td>1</td>
 <td>4</td>
 <td>5.5</td>
 </tr>
 <tr class="even">
-<td>toSource()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toSource</span>()</code></td>
 <td>代表对象的源代码</td>
 <td>1</td>
 <td>4</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td>toString()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toString</span>()</code></td>
 <td>把数组转换为字符串，并返回结果。</td>
 <td>1</td>
 <td>3</td>
 <td>4</td>
 </tr>
 <tr class="even">
-<td>toLocaleString()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toLocaleString</span>()</code></td>
 <td>把数组转换为本地数组，并返回结果。</td>
 <td>1</td>
 <td>3</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>unshift()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">unshift</span>()</code></td>
 <td>向数组的开头添加一个或更多元素，并返回新的长度。</td>
 <td>1</td>
 <td>4</td>
 <td>6</td>
 </tr>
 <tr class="even">
-<td>valueOf()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">valueOf</span>()</code></td>
 <td>返回数组对象的原始值</td>
 <td>1</td>
 <td>2</td>
@@ -1691,22 +1404,12 @@ document.write(mycars[x] + &quot;&lt;br /&gt;&quot;)
 </tr>
 </tbody>
 </table>
-</div>
-
-</div>
-
-<div id="outline-container-23" class="outline-2">
-
-<h2 id="javascript-boolean逻辑对象">23 JavaScript Boolean（逻辑）对象</h2>
-<p><span id="text-23"></span></p>
+<h2 id="javascript-boolean逻辑对象">JavaScript Boolean（逻辑）对象</h2>
 <ul>
-<li>Boolean 对象是 JavaScript 的一种基本数据类型。</li>
-<li>Boolean 对象是一个把布尔值打包的布尔对象。</li>
+<li><code class="sourceCode javascript" rundoc-language="javascript">Boolean</code> 对象是 JavaScript 的一种基本数据类型。</li>
+<li><code class="sourceCode javascript" rundoc-language="javascript">Boolean</code> 对象是一个把布尔值打包的布尔对象。</li>
 </ul>
-<div id="outline-container-23.1" class="outline-3">
-
-<h3 id="boolean对象的方法">23.1 Boolean对象的方法</h3>
-<p><span id="text-23.1"></span></p>
+<h3 id="boolean对象的方法">Boolean对象的方法</h3>
 <table>
 <thead>
 <tr class="header">
@@ -1719,21 +1422,21 @@ document.write(mycars[x] + &quot;&lt;br /&gt;&quot;)
 </thead>
 <tbody>
 <tr class="odd">
-<td>toSource()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toSource</span>()</code></td>
 <td>代表对象的源代码</td>
 <td>1</td>
 <td>4</td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td>toString()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">toString</span>()</code></td>
 <td>把逻辑值转换为字符串，并返回结果。</td>
 <td>1</td>
 <td>4</td>
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>valueOf()</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="at">valueOf</span>()</code></td>
 <td>返回 Boolean 对象的原始值</td>
 <td>1</td>
 <td>4</td>
@@ -1741,16 +1444,10 @@ document.write(mycars[x] + &quot;&lt;br /&gt;&quot;)
 </tr>
 </tbody>
 </table>
-</div>
-
-</div>
-
-<div id="outline-container-24" class="outline-2">
-
-<h2 id="javascript-math算数对象">24 JavaScript Math（算数）对象</h2>
-<p><span id="text-24"></span></p>
+<h2 id="javascript-math算数对象">JavaScript Math（算数）对象</h2>
 <ul>
-<li><p>JavaScript 提供 8 种可被 Math 对象访问的算数值：</p>
+<li>JavaScript 提供 8 种可被 Math 对象访问的算数值：</li>
+</ul>
 <table>
 <thead>
 <tr class="header">
@@ -1761,48 +1458,40 @@ document.write(mycars[x] + &quot;&lt;br /&gt;&quot;)
 <tbody>
 <tr class="odd">
 <td>常数</td>
-<td>Math.E</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="va">Math</span>.<span class="at">E</span></code></td>
 </tr>
 <tr class="even">
 <td>圆周率</td>
-<td>Math.PI</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="va">Math</span>.<span class="at">PI</span></code></td>
 </tr>
 <tr class="odd">
 <td>2 的平方根</td>
-<td>Math.SQRT2</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="va">Math</span>.<span class="at">SQRT2</span></code></td>
 </tr>
 <tr class="even">
 <td>1/2 的平方根</td>
-<td>Math.SQRT1<sub>2</sub></td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="va">Math</span>.<span class="at">SQRT1_</span><span class="op">{</span><span class="dv">2</span></code>}</td>
 </tr>
 <tr class="odd">
 <td>2 的自然对数</td>
-<td>Math.LN2</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="va">Math</span>.<span class="at">LN2</span></code></td>
 </tr>
 <tr class="even">
 <td>10 的自然对数</td>
-<td>Math.LN10</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="va">Math</span>.<span class="at">LN10</span></code></td>
 </tr>
 <tr class="odd">
-<td>以2为底的 e 的对数</td>
-<td>Math.LOG2E</td>
+<td>以 2 为底的 <span class="math inline">\(e\)</span> 的对数</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="va">Math</span>.<span class="at">LOG2E</span></code></td>
 </tr>
 <tr class="even">
-<td>以10为底的 e 的对数</td>
-<td>Math.LOG10E</td>
+<td>以 10 为底的 <span class="math inline">\(e\)</span> 的对数</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript"><span class="va">Math</span>.<span class="at">LOG10E</span></code></td>
 </tr>
 </tbody>
-</table></li>
-</ul>
-</div>
-
-<div id="outline-container-25" class="outline-2">
-
-<h2 id="javascript-html-dom-对象">25 JavaScript HTML DOM 对象</h2>
-<div id="outline-container-25.1" class="outline-3">
-
-<h3 id="html-dom-对象">25.1 HTML DOM 对象</h3>
-<p><span id="text-25.1"></span></p>
+</table>
+<h2 id="javascript-html-dom-对象">JavaScript HTML DOM 对象</h2>
+<h3 id="html-dom-对象">HTML DOM 对象</h3>
 <table>
 <thead>
 <tr class="header">
@@ -1812,32 +1501,27 @@ document.write(mycars[x] + &quot;&lt;br /&gt;&quot;)
 </thead>
 <tbody>
 <tr class="odd">
-<td>Window</td>
-<td>JavaScript 层级中的顶层对象。Window对象表示浏览器窗口。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">Window</code></td>
+<td>JavaScript 层级中的顶层对象Window对象表示浏览器窗口</td>
 </tr>
 <tr class="even">
-<td>Navigator</td>
-<td>包含客户端浏览器的信息。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">Navigator</code></td>
+<td>包含客户端浏览器的信息</td>
 </tr>
 <tr class="odd">
-<td>Screen</td>
-<td>包含客户端显示屏的信息。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">Screen</code></td>
+<td>包含客户端显示屏的信息</td>
 </tr>
 <tr class="even">
-<td>History</td>
-<td>包含了浏览器窗口访问过的 URL。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">History</code></td>
+<td>包含了浏览器窗口访问过的 URL</td>
 </tr>
 <tr class="odd">
-<td>Location</td>
-<td>包含了当前 URL 的信息。</td>
+<td><code class="sourceCode javascript" rundoc-language="javascript">Location</code></td>
+<td>包含了当前 URL 的信息</td>
 </tr>
 </tbody>
 </table>
-</div>
-
-</div>
-
-<p><span id="postamble"></span></p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
