@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>一个Shell Script的诞生</title>
+    <title>一个 Shell Script 的诞生</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,7 +43,7 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      一个Shell Script的诞生
+      一个 Shell Script 的诞生
     </h1>
     <div class="ui divider"></div>
   </div>
@@ -53,37 +53,37 @@
 <ol>
 <li>自动化地转码成指定的格式</li>
 <li>上传到服务器</li>
-<li>得到文件的 url 地址</li>
+<li>得到文件的 URL 地址</li>
 </ol>
-<p>对于转码工作，目前为止依然没有顺利的完成，由于网上资料贫乏，各种视频音频格式、编解码器、专利开源问题比较纠结，需要很长的时间理清这些关系。我重点研究了 <a href="http://www.ffmpeg.org/">ffmpeg</a> 和 <a href="http://yamdi.sourceforge.net/">yamdi</a>这两个工具。但是今天用 yamdi 的时候发现一个很奇怪的 bug—— 它会自动改变原始视频文件的 fps 和bitrate作为输出文件，非常奇怪，可能会比较棘手。</p>
-<p>对于第二个问题，经过几天的探索，顺带复习许久之前的 Bash Scripting 知识和众多的 Unix Power Tools，终于想出了比较完善可行的方案，诞生了人生第一个比较“成形”的 Shell 脚本，惭愧 ……</p>
-<p>首先给出我的脚本和模板配置文件，然后再逐步分析 ——</p>
-<p>send_file.sh：</p>
-<pre><code>#!/bin/bash 
+<p>对于转码工作，目前为止依然没有顺利的完成，由于网上资料贫乏，各种视频音频格式、编解码器、专利开源问题比较纠结，需要很长的时间理清这些关系。我重点研究了 <a href="http://www.ffmpeg.org/">FFmpeg</a> 和 <a href="http://yamdi.sourceforge.net/">yamdi</a> 这两个工具。但是今天用 yamdi 的时候发现一个很奇怪的 bug——它会自动改变原始视频文件的 fps 和 bitrate 作为输出文件，非常奇怪，可能会比较棘手。</p>
+<p>对于第二个问题，经过几天的探索，顺带复习许久之前的 Bash Scripting 知识和众多的 Unix Power Tools，终于想出了比较完善可行的方案，诞生了人生第一个比较“成形”的 shell 脚本，惭愧……</p>
+<p>首先给出我的脚本和模板配置文件，然后再逐步分析——</p>
+<p><code>send_file.sh</code> ：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
 
-################################################################################
-# Purpose:  This interactive script is used for upload files onto a ftp server automatically.   
-# Author:   Xiao Hanyu(xiaohanyu@taohua.com)
-# Usage:    ./send_file.sh
-# Depends: 
-#       lftp:       used to transfer files
-#       tree:       used to get the directory tree
-#       sed:        used to get the filename
-#       sort:       used to match the url and the filename into a csv file
-# Notes:
-#       This script need a configuration files which is set by -f parameter. 
-#       I have given a sample configuration file: sample.conf
-#       After running this script, it will output the [filename:url] list to a file
-################################################################################
+<span class="co">################################################################################</span>
+<span class="co"># Purpose:  This interactive script is used for upload files onto a ftp server automatically.</span>
+<span class="co"># Author:   Xiao Hanyu(xiaohanyu@taohua.com)</span>
+<span class="co"># Usage:    ./send_file.sh</span>
+<span class="co"># Depends:</span>
+<span class="co">#       lftp:       used to transfer files</span>
+<span class="co">#       tree:       used to get the directory tree</span>
+<span class="co">#       sed:        used to get the filename</span>
+<span class="co">#       sort:       used to match the url and the filename into a csv file</span>
+<span class="co"># Notes:</span>
+<span class="co">#       This script need a configuration files which is set by -f parameter.</span>
+<span class="co">#       I have given a sample configuration file: sample.conf</span>
+<span class="co">#       After running this script, it will output the [filename:url] list to a file</span>
+<span class="co">################################################################################</span>
 
-# This function checks whether the necessary tools are available
-function usage
-{
-    cat &lt;&lt; EOF
-`basename $0`: A utility to send files to a remote ftp server automatically
+<span class="co"># This function checks whether the necessary tools are available</span>
+<span class="kw">function</span><span class="fu"> usage</span>
+<span class="kw">{</span>
+    <span class="fu">cat</span> <span class="op">&lt;&lt; EOF</span>
+<span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span>: A utility to send files to a remote ftp server automatically
 
-Usage: `basename $0` [Action]
-Example: `basename $0` -f config_file
+Usage: <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> [Action]
+Example: <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> -f config_file
 
 Actions:
     -f:         set the configuration files
@@ -94,12 +94,12 @@ EOF
 # check the necessary tools
 function check_version
 {
-    $1 --version &gt; /dev/null
+    <span class="va">$1</span> --version &gt; /dev/null
 
-    if [ $? -ne 0 ]
+    if [ <span class="va">$?</span> -ne 0 ]
     then
-        echo &quot;You must install $1 before executing this script.&quot;
-        echo &quot;You can type \&quot;sudo apt-get install $1\&quot; to finish this task under ubuntu os.&quot;
+        echo &quot;You must install <span class="va">$1</span> before executing this script.&quot;
+        echo &quot;You can type \&quot;sudo apt-get install <span class="va">$1</span>\&quot; to finish this task under ubuntu os.&quot;
         echo &quot;exit ...&quot;
         exit 1
     fi
@@ -109,8 +109,8 @@ function check_version
 function check_perm
 {
     touch tmp_lftp_script_file
-    if [ $? -ne &quot;0&quot; ]
-    then    
+    if [ <span class="va">$?</span> -ne &quot;0&quot; ]
+    then
         echo &quot;You don&#39;t have permission to create temporary file under current directory.&quot;
         echo &quot;Type \&quot;chmod u+w current_directory\&quot; to give users write permissions.&quot;
         echo &quot;exit ...&quot;
@@ -120,57 +120,57 @@ function check_perm
     fi
 }
 
-# this script use some file to store something, so 
-# if the file exists, we backup it into file.bak, and 
+# this script use some file to store something, so
+# if the file exists, we backup it into file.bak, and
 # create a new empty file
 function check_bak_file
 {
-    if [ -e $1 ]
+    if [ -e <span class="va">$1</span> ]
     then
-        cp $1 $1.bak
+        cp <span class="va">$1</span> <span class="va">$1</span>.bak
     fi
 
-    cat /dev/null &gt; $1
+    cat /dev/null &gt; <span class="va">$1</span>
 }
 
 # parse parameters
 #   -f for configuration file
 #   -h for command help
 while getopts &quot;f:h&quot; arg
-do  
-    case $arg in
+do
+    case <span class="va">$arg</span> in
         f)
-            config_file=$OPTARG
+            config_file=<span class="va">$OPTARG</span>
             ;;
         h)
             usage
             exit 0
             ;;
         ?)
-            echo &quot;!!Wrong command options!&quot;
-            usage
-            exit 1
-            ;;
+        echo &quot;!!Wrong command options!&quot;
+        usage
+        exit 1
+        ;;
     esac
 done
 
 # check whether or not configuration file exists
-if [ -e $config_file ]
-then    
-    # if $config_file exist, import the necessary variable
-    source $config_file
+if [ -e <span class="va">$config_file</span> ]
+then
+    # if <span class="va">$config_file</span> exist, import the necessary variable
+    source <span class="va">$config_file</span>
 else
-    echo &quot;configuration file not exist.&quot; 
+    echo &quot;configuration file not exist.&quot;
     echo &quot;exit ...&quot;
     exit 1
 fi
 
 # check lftp version
-echo 
+echo
 check_version lftp
 
 # check tree version
-echo 
+echo
 check_version tree
 
 # check permission
@@ -178,57 +178,57 @@ check_perm
 
 # This file containts the command executed by lftp after login ftp server&quot;
 lftp_script=lftp_sh
-check_bak_file $lftp_script 
+check_bak_file <span class="va">$lftp_script</span>
 
-# $url_file store the [key:value] for filenames and urls
-check_bak_file $url_file
+# <span class="va">$url_file</span> store the [key:value] for filenames and urls
+check_bak_file <span class="va">$url_file</span>
 
 # ftp anonymous login
-username=${username:-&quot;anonymous&quot;}
-password=${password:-&quot;anonymous&quot;}
+username=<span class="va">${username:-</span><span class="st">&quot;anonymous&quot;</span><span class="va">}</span>
+password=<span class="va">${password:-</span><span class="st">&quot;anonymous&quot;</span><span class="va">}</span>
 
 # ftp default port
-port=${port:-&quot;21&quot;}
+port=<span class="va">${port:-</span><span class="st">&quot;21&quot;</span><span class="va">}</span>
 
-# create lftp script executed by lftp 
-echo &quot;lftp $username:$password@$host:$port&quot; &gt;&gt; $lftp_script
-echo &quot;ls&quot; &gt;&gt; $lftp_script
-echo &quot;cd $rdir&quot; &gt;&gt; $lftp_script
+# create lftp script executed by lftp
+echo &quot;lftp <span class="va">$username</span>:<span class="va">$password</span>@<span class="va">$host</span>:<span class="va">$port</span>&quot; &gt;&gt; <span class="va">$lftp_script</span>
+echo &quot;ls&quot; &gt;&gt; <span class="va">$lftp_script</span>
+echo &quot;cd <span class="va">$rdir</span>&quot; &gt;&gt; <span class="va">$lftp_script</span>
 
-for file in $lfiles
+for file in <span class="va">$lfiles</span>
 do
-    if [ -d $file ]                 # if $file is a directory, we should use &#39;lftp mirror -R&#39; command
+    if [ -d <span class="va">$file</span> ]                 # if <span class="va">$file</span> is a directory, we should use &#39;lftp mirror -R&#39; command
     then
-        echo &quot;mirror -R $file&quot; &gt;&gt; $lftp_script
+        echo &quot;mirror -R <span class="va">$file</span>&quot; &gt;&gt; <span class="va">$lftp_script</span>
 
-        # use $(tree -ifp --noreport $file | grep &quot;\[&quot; | grep -v &quot;\[d&quot; | tr -s &#39; &#39; | cut -d&#39; &#39; -f2 | sed -e &#39;s/\.\{1,2\}\///g&#39;) 
+        # use <span class="va">$(</span><span class="ex">tree</span> -ifp --noreport <span class="va">$file</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&quot;\[&quot;</span> <span class="kw">|</span> <span class="fu">grep</span> -v <span class="st">&quot;\[d&quot;</span> <span class="kw">|</span> <span class="fu">tr</span> -s <span class="st">&#39; &#39;</span> <span class="kw">|</span> <span class="fu">cut</span> -d<span class="st">&#39; &#39;</span> -f2 <span class="kw">|</span> <span class="fu">sed</span> -e <span class="st">&#39;s/\.\{1,2\}\///g&#39;</span><span class="va">)</span>
         # to get all the filenames(contains relative path such &quot;../../&quot;, &quot;./&quot;, &quot;../&quot;, &quot;/&quot;, so we should use sed to get rid of these
-        for tmp_file in $(tree -ifp --noreport $file | grep &quot;\[&quot; | grep -v &quot;\[d&quot; | tr -s &#39; &#39; | cut -d&#39; &#39; -f2 | sed -e &#39;s/\.\{1,2\}\///g&#39;)
+        for tmp_file in <span class="va">$(</span><span class="ex">tree</span> -ifp --noreport <span class="va">$file</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&quot;\[&quot;</span> <span class="kw">|</span> <span class="fu">grep</span> -v <span class="st">&quot;\[d&quot;</span> <span class="kw">|</span> <span class="fu">tr</span> -s <span class="st">&#39; &#39;</span> <span class="kw">|</span> <span class="fu">cut</span> -d<span class="st">&#39; &#39;</span> -f2 <span class="kw">|</span> <span class="fu">sed</span> -e <span class="st">&#39;s/\.\{1,2\}\///g&#39;</span><span class="va">)</span>
         do
-            if [[ $rdir == &quot;.&quot; || $rdir == &quot;&quot; ]]    # if $rdir==&quot;.&quot;, we shouldn&#39;t give a url like &#39;http://hostname/./filename&#39;
+            if [[ <span class="va">$rdir</span> == &quot;.&quot; || <span class="va">$rdir</span> == &quot;&quot; ]]    # if <span class="va">$rdir</span>==&quot;.&quot;, we shouldn&#39;t give a url like &#39;http://hostname/./filename&#39;
             then
-                echo -e &quot;$(basename $tmp_file | sed -e &#39;s/\..*//g&#39;)\thttp://$host/$tmp_file&quot; &gt;&gt; $url_file
+                echo -e &quot;<span class="va">$(</span><span class="fu">basename</span> <span class="va">$tmp_file</span> <span class="kw">|</span> <span class="fu">sed</span> -e <span class="st">&#39;s/\..*//g&#39;</span><span class="va">)</span>\thttp://<span class="va">$host</span>/<span class="va">$tmp_file</span>&quot; &gt;&gt; <span class="va">$url_file</span>
             else
-                echo -e &quot;$(basename $tmp_file | sed -s &#39;s/\..*//g&#39;)\thttp://$host/$rdir/$tmp_file&quot; &gt;&gt; $url_file
+                echo -e &quot;<span class="va">$(</span><span class="fu">basename</span> <span class="va">$tmp_file</span> <span class="kw">|</span> <span class="fu">sed</span> -s <span class="st">&#39;s/\..*//g&#39;</span><span class="va">)</span>\thttp://<span class="va">$host</span>/<span class="va">$rdir</span>/<span class="va">$tmp_file</span>&quot; &gt;&gt; <span class="va">$url_file</span>
             fi
         done
-    elif [ -e $file ]
-    then 
-        echo &quot;put $file&quot; &gt;&gt; $lftp_script
-        if [[ $rdir == &quot;.&quot; || $rdir == &quot;&quot; ]]
+    elif [ -e <span class="va">$file</span> ]
+    then
+        echo &quot;put <span class="va">$file</span>&quot; &gt;&gt; <span class="va">$lftp_script</span>
+        if [[ <span class="va">$rdir</span> == &quot;.&quot; | <span class="va">$rdir</span> == &quot;&quot; ]]
         then
-            echo -e &quot;$file\thttp://$host/$file&quot; &gt;&gt; $url_file
+            echo -e &quot;<span class="va">$file</span>\thttp://<span class="va">$host</span>/<span class="va">$file</span>&quot; &gt;&gt; <span class="va">$url_file</span>
         else
-            echo -e &quot;$file\thttp://$host/$rdir/$file&quot; &gt;&gt; $url_file
+            echo -e &quot;<span class="va">$file</span>\thttp://<span class="va">$host</span>/<span class="va">$rdir</span>/<span class="va">$file</span>&quot; &gt;&gt; <span class="va">$url_file</span>
         fi
-        else
-                echo &quot;!!Warning: $file not exist!&quot;
-        fi
+    else
+        echo &quot;!!Warning: <span class="va">$file</span> not exist!&quot;
+    fi
 done
 
-lftp -f $lftp_script
+lftp -f <span class="va">$lftp_script</span>
 
-if [ $? -ne 0 ]
+if [ <span class="va">$?</span> -ne 0 ]
 then
     echo &quot;Sending file failed, please check your ftp information.&quot;
     echo &quot;exit ...&quot;
@@ -236,102 +236,98 @@ else
     echo &quot;Sending file successfully!&quot;
 fi
 
-# echo &quot;rm -f $lftp_script&quot;
-</code></pre>
-<p>sample.conf：</p>
-<pre><code>########################################
-# Purpose: This file is the sample configuration file for the send_file utility
-# Author: Xiao Hanyu(xiaohanyu@taohua.com)
-# Warning:
-#   This file use bash script grammer to config, which means, you can&#39;t leave any space around &#39;=&#39;
-#   Examples:
-#       a=b     &lt;&lt;--&gt;&gt;      right grammer
-#       b =c    &lt;&lt;--&gt;&gt;      wrong grammer
-#       c= d    &lt;&lt;--&gt;&gt;      wrong grammer
-#       d = f   &lt;&lt;--&gt;&gt;      wrong grammer
-#   Second, all the variables marked &#39;!!&#39; is necessary, others have default values
-#   Examples:
-#       config_file=        #!!(necessary variable)
-#       username=           (not necessary variable)
-#   Third, all the parameter should be quoted by &quot;&quot;
-########################################
+# echo &quot;rm -f <span class="va">$lftp_script</span>&quot;</code></pre></div>
+<p><code>sample.conf</code> ：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">########################################</span>
+<span class="co"># Purpose: This file is the sample configuration file for the send_file utility</span>
+<span class="co"># Author: Xiao Hanyu(xiaohanyu@taohua.com)</span>
+<span class="co"># Warning:</span>
+<span class="co">#   This file use bash script grammer to config, which means, you can&#39;t leave any space around &#39;=&#39;</span>
+<span class="co">#   Examples:</span>
+<span class="co">#       a=b     &lt;&lt;--&gt;&gt;      right grammer</span>
+<span class="co">#       b =c    &lt;&lt;--&gt;&gt;      wrong grammer</span>
+<span class="co">#       c= d    &lt;&lt;--&gt;&gt;      wrong grammer</span>
+<span class="co">#       d = f   &lt;&lt;--&gt;&gt;      wrong grammer</span>
+<span class="co">#   Second, all the variables marked &#39;!!&#39; is necessary, others have default values</span>
+<span class="co">#   Examples:</span>
+<span class="co">#       config_file=        #!!(necessary variable)</span>
+<span class="co">#       username=           (not necessary variable)</span>
+<span class="co">#   Third, all the parameter should be quoted by &quot;&quot;</span>
+<span class="co">########################################</span>
 
-# username and password to login an ftp server
-username=&quot;tiger&quot;
-password=&quot;tiger&quot;
+<span class="co"># username and password to login an ftp server</span>
+<span class="va">username=</span><span class="st">&quot;tiger&quot;</span>
+<span class="va">password=</span><span class="st">&quot;tiger&quot;</span>
 
-# hostname or ip of the remote ftp server
-host=&quot;10.36.100.9&quot;          #!! necessary variable
+<span class="co"># hostname or ip of the remote ftp server</span>
+<span class="va">host=</span><span class="st">&quot;10.36.100.9&quot;</span>          #!! <span class="ex">necessary</span> variable
 
-# port, default is 21
-port=
+<span class="co"># port, default is 21</span>
+<span class="va">port=</span>
 
-# local files, you should give the right absolute path
-# or the right relative path
-# both files are directories are allowed
-# files and directories are seperated by [space] or [tab]
-lfiles=&quot;send_file.sh sh_test sample.conf ../tmp t f g h ./sh_test&quot;
+<span class="co"># local files, you should give the right absolute path</span>
+<span class="co"># or the right relative path</span>
+<span class="co"># both files are directories are allowed</span>
+<span class="co"># files and directories are seperated by [space] or [tab]</span>
+<span class="va">lfiles=</span><span class="st">&quot;send_file.sh sh_test sample.conf ../tmp t f g h ./sh_test&quot;</span>
 
-# remote directory which you upload your files into
-rdir=&quot;videos&quot;
+<span class="co"># remote directory which you upload your files into</span>
+<span class="va">rdir=</span><span class="st">&quot;videos&quot;</span>
 
-# specify the url_file
-# url_file consists of two columns: filename and urls
-url_file=&quot;url_list&quot;
-</code></pre>
+<span class="co"># specify the url_file</span>
+<span class="co"># url_file consists of two columns: filename and urls</span>
+<span class="va">url_file=</span><span class="st">&quot;url_list&quot;</span></code></pre></div>
 <p>代码的注释比较详尽了，函数名称基本也能如实反映函数的作用，我来说明下基本思路。</p>
 <p>首先是命令行选项的解析，这个根据复杂度不同有三种方法：</p>
 <ol>
-<li>直接用 $1, $2, $3 手工处理，暴力解析。这里你需要知道几个 Bash 变量，如 $0 代表 bash 脚本的名字，$1~$9分别代表着第 1~9 个命令行参数等等。优点是比较简单，缺点是太“简单”了。</li>
-<li>getopts，Bash内置，只支持短选项如 ‘-a -b -c’，’-a option1 -b -c’，’-abc‘，不支持长选项如 ‘–version’ 这样的，使用比较简单（因为是 Bash 内置嘛）。</li>
-<li>getopt，外部命令，比较复杂，支持长选项，我还不会用。</li>
+<li>直接用 <code class="sourceCode bash" rundoc-language="sh"><span class="va">$1</span></code> 、 <code class="sourceCode bash" rundoc-language="sh"><span class="va">$2</span></code> 、 <code class="sourceCode bash" rundoc-language="sh"><span class="va">$3</span></code> 手工处理，暴力解析。这里你需要知道几个 Bash 变量，如 <code class="sourceCode bash" rundoc-language="sh"><span class="va">$0</span></code> 代表 Bash 脚本的名字， <code class="sourceCode bash" rundoc-language="sh"><span class="va">$1</span></code> – <code class="sourceCode bash" rundoc-language="sh"><span class="va">$9</span></code> 分别代表着第 1–9个命令行参数等等。优点是比较简单，缺点是太“简单” 了。</li>
+<li><code class="sourceCode bash" rundoc-language="sh"><span class="bu">getopts</span></code> ，Bash 内置，只支持短选项如 <code>-a -b -c</code> ， <code>-a option1 -b -c</code> ， <code>-abc</code> ，不支持长选项如 <code>--version</code> 这样的，使用比较简单（因为是 Bash 内置嘛）。</li>
+<li><code class="sourceCode bash" rundoc-language="sh"><span class="fu">getopt</span></code> ，外部命令，比较复杂，支持长选项，我还不会用。</li>
 </ol>
-<p>C++ <a href="http://www.boost.org/">Boost</a>库提供 <a href="http://www.boost.org/doc/libs/1_43_0/doc/html/program_options.html">Options</a> 组件，用来解析命令行参数。具体的实例可以参见 <a href="http://www.cnblogs.com/FrankTan/archive/2010/03/01/1634516.html">Bash Shell 中命令行选项 / 参数处理 </a>。我的脚本中用的是第二种方法。</p>
-<p>第二个大问题是参数选项的问题。我们可以通过两种方式配置参数，从而让我们的脚本自动化地做出适应性的处理。第一种方法是通过命令行参数，就是上面谈的 getopt/getopts，这种方法的好处就是方便直观快捷，变量解析可以用 Bash 内置的 read 或者高级一点的 <a href="http://www.nist.gov/mel/msid/expect.cfm">TCL/Expect</a>（这个我也不会 <img src="http://cnlox.is-programmer.com/javascripts/fckeditor/editor/images/smiley/chito/embaressed_smile.gif" />），缺点在于每次敲命令的时候都要敲这一堆命令行参数，而且对于运维人员来说是一种非常不 user-friendly 的方式；第二种方法就是通过配置文件，让我们的 Bash 脚本自己解析指定的配置文件来获取相应的信息 —— 比如 ftp 登录的 username 和 password、需要上传的文件、上传的远端目录等等。</p>
-<p>配置文件的格式有多种选择，pluskid大神的 <a href="http://blog.pluskid.org/?p=310"> 闲谈程序的配置文件 </a> 是篇很不错的说明。我的脚本功能比较简单，配置文件自然也不会太复杂，因此我想出了一个非常“卑鄙无耻”的方法 —— 就是直接将配置文件写成 bash script 变量赋值的形式，然后在脚本中通过这么一句：</p>
-<pre><code>source $config_file
-</code></pre>
-<p>直接引入配置变量。我承认我太卑鄙了，当然好处是简单可行 —— 但是对于运维人员（使用这个脚本的人来说），可能会莫名奇妙 —— 为啥等号后面不能有空格，为啥变量赋值最好要加引号 —— 因为他们不懂 Bash Script 的语法 —— 所以每次写脚本的时候、想象一下假设你就是那个要使用脚本的人，怎样才算友好的脚本？——但是我没有时间研究更复杂的脚本解析了 —— 欢迎指正。</p>
-<p>第三个大问题是 ftp 自动登录上传文件的问题。如果我们把平时的 ftp 登录操作比作用 vim 编辑文件，那么自动化的 ftp 登录就是用 sed 来处理文件。想象一下，我们平时登录 ftp，windows下，我们会点开一个 ftp 软件，点击快速链接，输入 username 和 password，然后下载上传。linux有万能的 LFTP 命令行工具，因此实现自动化的功能，从 LFTP 的参数选项着手是比较有希望的选择。</p>
-<p>功夫不负有心人，lftp有两种手段能够实现自动化的登录上传下载。第一种方式是通过 lftp -f lftp_script_file 的方式，-f指定一个文件 LFTP_script_file，这个文件里面包含登录 LFTP 的命令和上传下载文件的命令。第二种方式是通过 LFTP 的-u参数指定登录名密码和 -e 选项指定登录后执行的 LFTP 命令。这种方式的缺点在于每执行一条命令都要登录一下 ftp—— 不过登录 ftp 所耗费的时间与上传文件的时间相比几乎可以忽略不计，所以也算不上一个大的缺点。</p>
-<p>除了以上两种方式，我在扫 <a href="http://tldp.org/LDP/abs/html/">ABS</a> 的时候偶然发现了 <a href="http://tldp.org/LDP/abs/html/here-docs.html">Here Documents</a> 这个东西 —— 这个曾经听说过但从来没有认真看过的东西，才发现这东西也有很多妙处，使用的当，同样可以实现 LFTP 的自动登录上传。我采用的是 LFTP 的-f选项，touch一个临时文件完成自动登录上传的。</p>
-<p>第四个问题是 url 提取的问题。具体来说，比如你远端 ftp 和http服务器的地址是 hostname，远端目录是 videos，本地上传文件是 send_file.sh、hpm.avi，你需要生成如下的 [filename:url] 的 list：</p>
-<pre><code>send_file    http://hostname/videos/send_file.sh
+<p>C++ <a href="http://www.boost.org/">Boost</a> 库提供 <a href="http://www.boost.org/doc/libs/1_43_0/doc/html/program_options.html">Options</a> 组件，用来解析命令行参数。具体的实例可以参见 <a href="http://www.cnblogs.com/FrankTan/archive/2010/03/01/1634516.html">Bash Shell 中命令行选项/参数处理</a>。我的脚本中用的是第二种方法。</p>
+<p>第二个大问题是参数选项的问题。我们可以通过两种方式配置参数，从而让我们的脚本自动化地做出适应性的处理。第一种方法是通过命令行参数，就是上面谈的 <code class="sourceCode bash" rundoc-language="sh"><span class="fu">getopt</span></code>/<code class="sourceCode bash" rundoc-language="sh"><span class="bu">getopts</span></code> ，这种方法的好处就是方便直观快捷，变量解析可以用 Bash 内置的 <code class="sourceCode bash" rundoc-language="sh"><span class="bu">read</span></code> 或者高级一点的 <a href="http://www.nist.gov/mel/msid/expect.cfm">TCL/Expect</a>（这个我也不会），缺点在于每次敲命令的时候都要敲这一堆命令行参数，而且对于运维人员来说是一种非常不 user-friendly 的方式；第二种方法就是通过配置文件，让我们的 Bash 脚本自己解析指定的配置文件来获取相应的信息——比如 FTP 登录的 username 和 password、需要上传的文件、 上传的远端目录等等。</p>
+<p>配置文件的格式有多种选择，Pluskid 大神的<a href="http://blog.pluskid.org/?p=310">闲谈程序的配置文件</a>是篇很不错的说明。我的脚本功能比较简单，配置文件自然也不会太复杂，因此我想出了一个非常“卑鄙无耻”的方法——就是直接将配置文件写成 bash script 变量赋值的形式，然后在脚本中通过这么一句：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> <span class="va">$config_file</span></code></pre></div>
+<p>直接引入配置变量。我承认我太卑鄙了，当然好处是简单可行——但是对于运维人员（使用这个脚本的人来说），可能会莫名奇妙——为啥等号后面不能有空格，为啥变量赋值最好要加引号——因为他们不懂 Shell Script 的语法——所以每次写脚本的时候、想象一下假设你就是那个要使用脚本的人，怎样才算友好的脚本？——但是我没有时间研究更复杂的脚本解析了——欢迎指正。</p>
+<p>第三个大问题是 FTP 自动登录上传文件的问题。如果我们把平时的 FTP 登录操作比作用 Vim 编辑文件，那么自动化的 FTP 登录就是用 <code>sed</code> 来处理文件。想象一下，我们平时登录FTP，Windows 下，我们会点开一个 FTP 软件，点击快速链接，输入 username 和 password，然后下载上传。Linux 有万能的 <a href="https://lftp.yar.ru/">LFTP</a> 命令行工具，因此实现自动化的功能，从 LFTP 的参数选项着手是比较有希望的选择。</p>
+<p>功夫不负有心人，LFTP 有两种手段能够实现自动化的登录上传下载。第一种方式是通过 <code>lftp -f lftp_script_file</code> 的方式， <code>-f</code> 指定一个文件 <code>LFTP_script_file</code> ，这个文件里面包含登录 LFTP 的命令和上传下载文件的命令。第二种方式是通过 LFTP 的 <code>-u</code> 参数指定登录名密码和 <code>-e</code> 选项指定登录后执行的 LFTP 命令。这种方式的缺点在于每执行一条命令都要登录一下 FTP——不过登录 FTP 所耗费的时间与上传文件的时间相比几乎可以忽略不计，所以也算不上一个大的缺点。</p>
+<p>除了以上两种方式，我在扫 <a href="http://tldp.org/LDP/abs/html/">ABS</a> 的时候偶然发现了 <a href="http://tldp.org/LDP/abs/html/here-docs.html">Here Documents</a> 这个东西——这个曾经听说过但从来没有认真看过的东西，才发现这东西也有很多妙处，使用的当，同样可以实现 LFTP 的自动登录上传。我采用的是 LFTP 的 <code>-f</code> 选项，touch 一个临时文件完成自动登录上传的。</p>
+<p>第四个问题是 URL 提取的问题。具体来说，比如你远端 FTP 和 HTTP 服务器的地址是 <code>hostname</code> ，远端目录是 <code>videos</code> ，本地上传文件是 <code>send_file.sh</code> 、 <code>hpm.avi</code> ， 你需要生成如下的 <code>[filename:url]</code> 的 list：</p>
+<pre class="example"><code>send_file    http://hostname/videos/send_file.sh
 hpm    http://hostname/videos/hpm.avi
 </code></pre>
 <p>然后存储这个 list 到一个文件里面，供后面进一步的 URL 生成映射处理之用。这个问题是耗时最久的一个问题。我的脚本里面有这么一段：</p>
-<pre><code>for file in $lfiles
-do
-    if [ -d $file ]                 # if $file is a directory, we should use &#39;lftp mirror -R&#39; command
-    then
-        echo &quot;mirror -R $file&quot; &gt;&gt; $lftp_script
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="fu">file</span> in <span class="va">$lfiles</span>
+<span class="kw">do</span>
+    <span class="kw">if</span><span class="bu"> [</span> <span class="ot">-d</span> <span class="va">$file</span><span class="bu"> ]</span>                 # <span class="kw">if</span> <span class="va">$file</span> <span class="ex">is</span> a directory, we should use <span class="st">&#39;lftp mirror -R&#39;</span> command
+    <span class="kw">then</span>
+        <span class="bu">echo</span> <span class="st">&quot;mirror -R </span><span class="va">$file</span><span class="st">&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$lftp_script</span>
 
-        # use $(tree -ifp --noreport $file | grep &quot;\[&quot; | grep -v &quot;\[d&quot; | tr -s &#39; &#39; | cut -d&#39; &#39; -f2 | sed -e &#39;s/\.\{1,2\}\///g&#39;) 
-        # to get all the filenames(contains relative path such &quot;../../&quot;, &quot;./&quot;, &quot;../&quot;, &quot;/&quot;, so we should use sed to get rid of these
-        for tmp_file in $(tree -ifp --noreport $file | grep &quot;\[&quot; | grep -v &quot;\[d&quot; | tr -s &#39; &#39; | cut -d&#39; &#39; -f2 | sed -e &#39;s/\.\{1,2\}\///g&#39;)
-        do
-            if [[ $rdir == &quot;.&quot; || $rdir == &quot;&quot; ]]    # if $rdir==&quot;.&quot;, we shouldn&#39;t give a url like &#39;http://hostname/./filename&#39;
-            then
-                echo -e &quot;$(basename $tmp_file | sed -e &#39;s/\..*//g&#39;)\thttp://$host/$tmp_file&quot; &gt;&gt; $url_file
-            else
-                echo -e &quot;$(basename $tmp_file | sed -s &#39;s/\..*//g&#39;)\thttp://$host/$rdir/$tmp_file&quot; &gt;&gt; $url_file
-            fi
-        done
-    elif [ -e $file ]
-    then 
-        echo &quot;put $file&quot; &gt;&gt; $lftp_script
-        if [[ $rdir == &quot;.&quot; || $rdir == &quot;&quot; ]]
-        then
-            echo -e &quot;$file\thttp://$host/$file&quot; &gt;&gt; $url_file
-        else
-            echo -e &quot;$file\thttp://$host/$rdir/$file&quot; &gt;&gt; $url_file
-        fi
-        else
-                echo &quot;!!Warning: $file not exist!&quot;
-        fi
-done
-</code></pre>
-<p>其中针对目录的处理尤为复杂，比如你可以指定 ../../tmp 这样的目录，如果你不作合适的处理，生成的 URL 可能是 <a href="http://hostname/" class="uri">http://hostname/</a>../../tmp/ 之类的东西。我最开始想的方法是递归目录的处理方法，但是写了好几个版本依然没有写出 Bash 的递归目录遍历。后来偶然间想到了 tree，这个可以列出目录树的命令，仔细研究了它的参数选项，同时以管道的方式结合其他命令如 Grep（正向和反向匹配）、tr（压缩相同字符）、cut（提取某个 column，可以用 awk 的print实现同样的功能）、sed（字符串处理，去除文件的路径和后缀），终于胜利地完成了这个任务。所谓成就感就是这么来的，哈。</p>
+        <span class="co"># use $(tree -ifp --noreport $file  grep &quot;\[&quot; | grep -v &quot;\[d&quot; | tr -s &#39; &#39; | cut -d&#39; &#39; -f2 | sed -e &#39;s/\.\{1,2\}\///g&#39;)</span>
+        <span class="co"># to get all the filenames(contains relative path such &quot;../../&quot;, &quot;./&quot;, &quot;../&quot;, &quot;/&quot;, so we should use sed to get rid of these</span>
+        <span class="kw">for</span> <span class="ex">tmp_file</span> in <span class="va">$(</span><span class="ex">tree</span> -ifp --noreport <span class="va">$file</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&quot;\[&quot;</span> <span class="kw">|</span> <span class="fu">grep</span> -v <span class="st">&quot;\[d&quot;</span> <span class="kw">|</span> <span class="fu">tr</span> -s <span class="st">&#39; &#39;</span> <span class="kw">|</span> <span class="fu">cut</span> -d<span class="st">&#39; &#39;</span> -f2 <span class="kw">|</span> <span class="fu">sed</span> -e <span class="st">&#39;s/\.\{1,2\}\///g&#39;</span><span class="va">)</span>
+        <span class="kw">do</span>
+            <span class="kw">if [[</span> <span class="va">$rdir</span> <span class="ot">==</span> <span class="st">&quot;.&quot;</span> || <span class="va">$rdir</span> <span class="ot">==</span> <span class="st">&quot;&quot;</span><span class="kw"> ]]</span>    # <span class="kw">if</span> <span class="va">$rdir</span>==<span class="st">&quot;.&quot;</span>, <span class="ex">we</span> shouldn<span class="st">&#39;t give a url like &#39;</span>http://hostname/./filename<span class="st">&#39;</span>
+<span class="st">            then</span>
+<span class="st">                echo -e &quot;$(basename $tmp_file | sed -e &#39;</span>s/\..*//g<span class="st">&#39;)\thttp://$host/$tmp_file&quot; &gt;&gt; $url_file</span>
+<span class="st">            else</span>
+<span class="st">                echo -e &quot;$(basename $tmp_file | sed -s &#39;</span>s/\..*//g<span class="st">&#39;)\thttp://$host/$rdir/$tmp_file&quot; &gt;&gt; $url_file</span>
+<span class="st">            fi</span>
+<span class="st">        done</span>
+<span class="st">    elif [ -e $file ]</span>
+<span class="st">    then</span>
+<span class="st">        echo &quot;put $file&quot; &gt;&gt; $lftp_script</span>
+<span class="st">        if [[ $rdir == &quot;.&quot; || $rdir == &quot;&quot; ]]</span>
+<span class="st">        then</span>
+<span class="st">            echo -e &quot;$file\thttp://$host/$file&quot; &gt;&gt; $url_file</span>
+<span class="st">        else</span>
+<span class="st">            echo -e &quot;$file\thttp://$host/$rdir/$file&quot; &gt;&gt; $url_file</span>
+<span class="st">        fi</span>
+<span class="st">        else</span>
+<span class="st">                echo &quot;!!Warning: $file not exist!&quot;</span>
+<span class="st">        fi</span>
+<span class="st">done</span></code></pre></div>
+<p>其中针对目录的处理尤为复杂，比如你可以指定 <code class="sourceCode bash" rundoc-language="sh"><span class="ex">../../tmp</span></code> 这样的目录，如果你不作合适的处理，生成的 URL 可能是 <code class="sourceCode bash" rundoc-language="sh"><span class="ex">http</span>://hostname/../../tmp/</code> 之类的东西。 我最开始想的方法是递归目录的处理方法，但是写了好几个版本依然没有写出 Bash 的递归目录遍历。后来偶然间想到了 tree，这个可以列出目录树的命令，仔细研究了它的参数选项，同时以管道的方式结合其他命令如 grep（正向和反向匹配）、tr（压缩相同字符）、 cut（提取某个 column，可以用 awk 的 print 实现同样的功能）、sed（字符串处理，去除文件的路径和后缀），终于胜利地完成了这个任务。所谓成就感就是这么来的，哈。</p>
 <p>至此，脚本需要解决的主要问题都已经阐述完毕，其余的问题都是一些小技俩，比如检查相关依赖工具是否安装、检查用户权限、提供帮助信息等等。目前发现一个 bug，还是目录上传的时候有时会出现递归上传的问题，非常奇怪。</p>
 <p>脚本的改进之处也有很多，比如：</p>
 <ul>
@@ -341,7 +337,7 @@ done
 <li>支持 log 文件输出，便于时候分析和故障分析</li>
 <li>如果磁盘空间不够给出警告信息等等</li>
 </ul>
-<p>ok，到此为止，睡觉去。</p>
+<p>OK，到此为止，睡觉去。</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">

@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>CLI派视频音频转码工具用法小结(ffmpeg)1</title>
+    <title>CLI 派视频音频转码工具用法小结（FFmpeg）1</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -39,368 +39,253 @@
           </div>
         </div>
       </nav><div class="ui stackable container">
-        <div class="ui very padded segment article">
-          <article class="ui stackable divided grid">
-            <header class="row article-head">
-              <div class="column">
-                <h1 class="ui header">
-                  CLI派视频音频转码工具用法小结(ffmpeg)1
-                </h1>
-                <div class="ui divider"></div>
-              </div>
-            </header>
-            <div class="row article-body">
-              <section class="twelve wide column">
-                <p><span id="table-of-contents"></span></p>
-                <h2 id="table-of-contents">Table of Contents</h2>
-                <p><span id="text-table-of-contents"></span></p>
-                <ul>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-1">1 ffmpeg 264编码支持 </a></li>
-                <li><p><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2">2 ffmpeg 参数选项简要说明 </a></p>
-                <ul>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.1">2.1 main options</a></li>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.2">2.2 视频剪辑相关参数 </a></li>
-                <li><p><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.3">2.3 video options</a></p>
-                <ul>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.3.1">2.3.1 crop options( 视频剪裁选项说明 )</a></li>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.3.2">2.3.2 pad and filter options</a></li>
-                </ul></li>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.4">2.4 audio options</a></li>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.5">2.5 subtitle options</a></li>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.6">2.6 disable options</a></li>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.7">2.7 frames</a></li>
-                <li><p><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.8">2.8 preset files</a></p></li>
-                </ul></li>
-                <li>[[<a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-3" class="uri">file:///home/lox/study/ffmpeg/ffmpeg.html#sec-3</a>][3 ffmpeg 用法示例 (see <a href="http://www.catswhocode.com/blog/19-ffmpeg-commands-for-all-needs" class="uri">http://www.catswhocode.com/blog/19-ffmpeg-commands-for-all-needs</a> for more examples)]]</li>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-4">4 ffmpeg learning resources</a></li>
-                <li><p><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-5">5 Related tools</a></p>
-                <ul>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-5.1">5.1 transcode</a></li>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-5.2">5.2 mencode(from mplayer)</a></li>
-                </ul></li>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-6">6 yamdi 给视频增加关键帧 </a></li>
-                <li><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-7">7 ffmpegthumbnailer 截取视频的 thumbnail</a></li>
-                <li><p><a href="file:///home/lox/study/ffmpeg/ffmpeg.html#sec-8">8 Youku 的一些探索 </a></p></li>
-                </ul>
-                <div id="outline-container-1" class="outline-2">
-                
-                <h2 id="ffmpeg-264-编码支持">1 ffmpeg 264 编码支持</h2>
-                <p><span id="text-1"></span></p>
-                <ul>
-                <li>See <a href="http://ubuntuforums.org/showthread.php?t=786095" class="uri">http://ubuntuforums.org/showthread.php?t=786095</a> for configuration of ffmpeg and libx264 on ubuntu 10.04</li>
-                </ul>
-                </div>
-                
-                <div id="outline-container-2" class="outline-2">
-                
-                <h2 id="ffmpeg-参数选项简要说明">2 ffmpeg 参数选项简要说明</h2>
-                <div id="outline-container-2.1" class="outline-3">
-                
-                <h3 id="main-options">2.1 main options</h3>
-                <p><span id="text-2.1"></span></p>
-                <ul>
-                <li>-i filename: 指定输入文件</li>
-                <li>-y: Overwrite output files</li>
-                <li>-target: Specify target file type (“vcd”, “svcd”, “dvd”, “dv”, “dv50”, “pal-vcd”, “ntsc-svcd”, … ). All the format options (bitrate, codecs, buffer sizes) are then set automatically. It is one of the most useful options of ffmpeg. It instructs ffmpeg to just “do what it takes” for the target file to be usable.</li>
-                </ul>
-                </div>
-                
-                <div id="outline-container-2.2" class="outline-3">
-                
-                <h3 id="视频剪辑相关参数">2.2 视频剪辑相关参数</h3>
-                <p><span id="text-2.2"></span></p>
-                <ul>
-                <li>-ss: 设定剪辑开始时间 [ 支持 [hh:mm:ss[.xxx]] 格式</li>
-                <li>-t: 设定剪辑长度 [ 支持 [hh:mm:ss[.xxx]] 格式</li>
-                <li>-fs: 设定文件大小限制</li>
-                </ul>
-                </div>
-                
-                <div id="outline-container-2.3" class="outline-3">
-                
-                <h3 id="video-options">2.3 video options</h3>
-                <p><span id="text-2.3"></span></p>
-                <ul>
-                <li>-b bitrate: 设定比特率 ( 默认为 200kb/s)</li>
-                <li>-r fps: frame rate( 默认为 25)</li>
-                <li><p>-s size: set frame size</p>
-                <ul>
-                <li>wxh(width x height) or</li>
-                <li>abbreviations(qcif(176x144), vga(640x480), wvga(852x480)</li>
-                </ul></li>
-                <li>-aspect aspect: 设定 aspect ratio(4:3, 16:9, 30:9, 1:3 or 1.333, 1.777 etc.)</li>
-                <li>-sameq: use same video quality as source (implies VBR).</li>
-                <li>-vcodec: codec: force video codec to codec. Use the copy special value to tell that the raw codec data must be copied as is.</li>
-                <li>-newvideo: add a new video stream to the current output stream.</li>
-                <li>-pass n 选择处理遍数（1或者 2）。两遍编码非常有用。第一遍生成统计信息，第二遍生成精确的请求的码率</li>
-                <li>-map input<sub>streamid[</sub>:sync<sub>streamid]</sub>: Set stream mapping from input streams to output streams.</li>
-                <li><p>-itsoffset offset Set the input time offset in seconds. “[-]hh:mm:ss[.xxx]” syntax is also supported. This option affects all the input files that follow it.</p></li>
-                </ul>
-                <div id="outline-container-2.3.1" class="outline-4">
-                
-                <ol>
-                <li><p>2.3.1 crop options( 视频剪裁选项说明 )</p>
-                <p><span id="text-2.3.1"></span></p>
-                <ul>
-                <li>-crop x:y:width:height: Crop the input video to x:y:width:height.</li>
-                <li>-croptop</li>
-                <li>-cropbottom</li>
-                <li>-cropleft</li>
-                <li>-cropright</li>
-                </ul>
-                </div>
-                
-                <div id="outline-container-2.3.2" class="outline-4">
-                </li>
-                <li><p>2.3.2 pad and filter options</p>
-                <p><span id="text-2.3.2"></span></p>
-                <ul>
-                <li>-vf filter_graph</li>
-                <li>-vf pad=width:height:x:y:color( 这个命令可以给裁剪后的视频增加上下两个 pad，形成电影似的效果 )</li>
-                </ul>
-                </div>
-                
-                </div>
-                
-                <div id="outline-container-2.4" class="outline-3">
-                </li>
-                </ol>
-                <h3 id="audio-options">2.4 audio options</h3>
-                <p><span id="text-2.4"></span></p>
-                <ul>
-                <li>-ar freq: set the audio sampling frequency(default=44100Hz)</li>
-                <li>-ab bitrate: 设定比特率 ( 默认为 64K)</li>
-                <li>-aq q: set the audio quality</li>
-                <li>-ac channels: set the number of audio channels(default=1)</li>
-                <li>-acodec codec: force audio codec to codec. Use the copy special value to specify that the raw codec data must be copied as is.</li>
-                <li>-newaudio: add a new audio track to the output file. If you want to specify parameters, do so before -newaudio (-acodec, -ab, etc..).</li>
-                </ul>
-                </div>
-                
-                <div id="outline-container-2.5" class="outline-3">
-                
-                <h3 id="subtitle-options">2.5 subtitle options</h3>
-                <p><span id="text-2.5"></span></p>
-                <ul>
-                <li>-scodec codec: force subtitle codec (‘copy’ to copy stream).</li>
-                <li>-newsubtitle: add a new subtitle stream to the current output stream.</li>
-                </ul>
-                </div>
-                
-                <div id="outline-container-2.6" class="outline-3">
-                
-                <h3 id="disable-options">2.6 disable options</h3>
-                <p><span id="text-2.6"></span></p>
-                <ul>
-                <li>-an: disable audio recording.</li>
-                <li>-vn: disable video recording.</li>
-                <li>-sn: disable subtitle recording.</li>
-                </ul>
-                </div>
-                
-                <div id="outline-container-2.7" class="outline-3">
-                
-                <h3 id="frames">2.7 frames</h3>
-                <p><span id="text-2.7"></span></p>
-                <ul>
-                <li>-dframes number: set the number of data frames to record</li>
-                <li>-vframes number: set the number of video frames to record</li>
-                <li>-aframes number: set the number of audio frames to record</li>
-                </ul>
-                </div>
-                
-                <div id="outline-container-2.8" class="outline-3">
-                
-                <h3 id="preset-files">2.8 preset files</h3>
-                <p><span id="text-2.8"></span></p>
-                <ul>
-                <li>-vpre</li>
-                <li>-apre</li>
-                <li>-spre</li>
-                <li>-fpre</li>
-                </ul>
-                </div>
-                
-                </div>
-                
-                <div id="outline-container-3" class="outline-2">
-                
-                <h2 id="ffmpeg-用法示例-see">3 ffmpeg 用法示例 (see</h2>
-                <p><a href="http://www.catswhocode.com/blog/19-ffmpeg-commands-for-all-needs" class="uri">http://www.catswhocode.com/blog/19-ffmpeg-commands-for-all-needs</a> for more examples) <span id="text-3"></span></p>
-                <ul>
-                <li>Basic Usage: <em>ffmpeg [input options] -i [input file] [output options] [output file]</em></li>
-                <li>Normally the minimum one should specify in an ffmpeg command line would be something like: <em>ffmpeg -i INFILE -acodec ACODEC -ab 96k -vcodec VCODEC -b 500k OUTFILE</em> …replacing the capitalised values as appropriate. When using x264, we need to add some extra bits as the defaults are bad.</li>
-                <li>Getting infos from a video file: <em>ffmpeg -i video.avi</em></li>
-                <li>Turn X images to a video sequence: <em>ffmpeg -f image2 -i image%d.jpg video.mpg</em></li>
-                <li>Turn a video to X images: <em>ffmpeg -i video.mpg image%d.jpg</em></li>
-                <li>Extracting sound from a video, and save it as Mp3: <em>ffmpeg -i source_video.avi -vn -ar 44100 -ac 2 -ab 192 -f mp3 sound.mp3</em></li>
-                <li>Convert .avi video to .mpg: <em>ffmpeg -i video_origine.avi video_finale.mpg</em></li>
-                <li>Convert .avi to animated gif(uncompressed): <em>ffmpeg -i video_origine.avi -pix_fmt rgb24 gif_anime.gif</em></li>
-                <li>Mix a video with a sound file: <em>ffmpeg -i son.wav -i video_origine.avi video_finale.mpg</em></li>
-                <li>Compress .avi to VCD mpeg2 NTSC format: <em>ffmpeg -i video_origine.avi -target ntsc-vcd video_finale.mpg</em></li>
-                <li>Multi-pass encoding with ffmpeg: <em>ffmpeg -i fichierentree -pass 2 -passlogfile ffmpeg2pass fichiersortie-2</em></li>
-                <li>Crop top 30 pixels and bottom 30 pixels to get a new video file: <em>ffmpeg -i input_file.flv -croptop 30 -cropbottom 30 -target ntsc-dvd -aspect 16:9 output_file.mpg</em></li>
-                <li>Delaying the audio or the video: <em>ffmpeg -i input<sub>1</sub> -itsoffset 00:00:03.5 -i input<sub>2</sub> ………..</em></li>
-                </ul>
-                </div>
-                
-                <div id="outline-container-4" class="outline-2">
-                
-                <h2 id="ffmpeg-learning-resources">4 ffmpeg learning resources</h2>
-                <p><span id="text-4"></span></p>
-                <ul>
-                <li><a href="http://howto-pages.org/ffmpeg/">Using ffmpeg to manipulate audio and video files</a>: you should see this page at first</li>
-                <li><a href="http://rodrigopolo.com/ffmpeg/cheats.html">Video/Audio Encoding Cheat Sheet</a>, then you must know this cheat sheet</li>
-                <li><a href="http://linuxers.org/tutorial/ffmpeg-tutorial-beginners">A FFmpeg Tutorial For Beginners</a>, so so a tutorial after you see the first tutorial</li>
-                <li><a href="http://rob.opendot.cl/index.php/useful-stuff/ffmpeg-x264-encoding-guide/#respond">Some useful parameters related to h264 using ffmpeg</a>, to be studied.</li>
-                <li><a href="http://dranger.com/ffmpeg/ffmpeg.html">How to Write a Video Player in Less Than 1000 Lines</a>, deep into the ffmpeg source code</li>
-                <li><a href="http://electron.mit.edu/%7Egsteele/ffmpeg/">Making movies from image files using ffmpeg/mencoder</a>, enjoy it.</li>
-                <li><a href="http://wiki.multimedia.cx/index.php?title=Category:FFmpeg">Category:FFmpeg</a>, a wiki about ffmpeg.</li>
-                </ul>
-                </div>
-                
-                <div id="outline-container-5" class="outline-2">
-                
-                <h2 id="related-tools">5 Related tools</h2>
-                <div id="outline-container-5.1" class="outline-3">
-                
-                <h3 id="transcode">5.1 transcode</h3>
-                </div>
-                
-                <div id="outline-container-5.2" class="outline-3">
-                
-                <h3 id="mencodefrom-mplayer">5.2 mencode(from mplayer)</h3>
-                </div>
-                
-                </div>
-                
-                <div id="outline-container-6" class="outline-2">
-                
-                <h2 id="yamdi-给视频增加关键帧">6 yamdi 给视频增加关键帧</h2>
-                <p><span id="text-6"></span></p>
-                <ul>
-                <li>Yet Another MetaData Injector， see <a href="http://yamdi.sourceforge.net/" class="uri">http://yamdi.sourceforge.net/</a></li>
-                <li><p>options:</p>
-                <ul>
-                <li>-i: 输入文件</li>
-                <li>-o: 输出文件</li>
-                <li>-x: An XML file with the resulting metadata information.</li>
-                <li>-l: Adds the onLastSecond event(?).</li>
-                </ul></li>
-                <li><p>other tools:</p>
-                <ul>
-                <li>flvtool2: written by Ruby, slow, need more memory</li>
-                <li>flvmdi: not open source</li>
-                </ul></li>
-                </ul>
-                </div>
-                
-                <div id="outline-container-7" class="outline-2">
-                
-                <h2 id="ffmpegthumbnailer-截取视频的-thumbnail">7 ffmpegthumbnailer 截取视频的 thumbnail</h2>
-                <p><span id="text-7"></span></p>
-                <ul>
-                <li>ubuntu: sudo apt-get install ffmpegthumbnailer</li>
-                <li><p>options:</p>
-                <ul>
-                <li>-i&lt;s&gt;: input file</li>
-                <li>-o&lt;s&gt;: output file</li>
-                <li>-s&lt;n&gt;: thumbnail size (default: 128)</li>
-                <li>-q&lt;n&gt;: image quality (0 = bad, 10 = best) (default: 8) (only for jpeg)</li>
-                <li>-c&lt;s&gt;: override image format (jpeg or png) (default: determined by filename)</li>
-                <li>-t&lt;n|s&gt;: time to seek to (percentage or absolute time hh:mm:ss) (default: 10%)</li>
-                <li>-a: ignore aspect ratio and generate square thumbnail</li>
-                <li>-f: create a movie strip overlay</li>
-                </ul></li>
-                </ul>
-                </div>
-                
-                <div id="outline-container-8" class="outline-2">
-                
-                <h2 id="youku-的一些探索">Youku 的一些探索</h2>
-                <p><span id="text-8"></span></p>
-                <ul>
-                <li>Youku 网站上的大部分视频都是分段的，一般每段视频在 5-10 分钟之内</li>
-                <li><p>目前 Youku 网上的视频格式大概有三种：</p>
-                <ul>
-                <li>高清 mp4 格式 (h264 编码 )</li>
-                <li>高清 flv 格式 (h264 编码 )</li>
-                <li>普通 flv 格式 ( 应该是 h263 编码 )</li>
-                </ul></li>
-                </ul>
-                </div>
-                
-                <p><span id="postamble"></span> Author: Lox Freeman <a href="mailto:lox@freelox">&lt;xiaohanyu1988@gmail.com&gt;</a></p>
-                <p>HTML generated by org-mode 6.21b in emacs 23</p>
-                
-                <div class="ui divider"></div>
-                <div class="ui small one item menu">
-                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
-                </div>
-                <div id="disqus_thread"></div>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </section>
-              <aside class="four wide column">
-                <div class="ui small header">
-                  License
-                </div>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
-                <div class="ui small header">
-                  Committed
-                </div>
-                <date>2010-07-22</date>
-                <div class="ui small header">
-                  Updated
-                </div>
-                <date>2017-04-14</date>
-                <div class="ui small header">
-                  Category
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/categories#multimedia">
-                      <div class="ui label">
-                        Multimedia<sup>1</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Tags
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/tags#ffmpeg">
-                      <div class="ui label">
-                        FFmpeg<sup>5</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#linux">
-                      <div class="ui label">
-                        Linux<sup>11</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/19458.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
-                  Links
-                </div>
-                <div class="ui small two item menu">
-                  <a class="item" title="新鲜的刚出炉的热乎乎的淘宝和 DeviceVM 面经" href="/posts/2010-06-23-interview-on-taobao-and-devicevm/">Prev</a><a class="item" title="一个人的自在" href="/posts/2010-08-02-comfortable-life/">Next</a>
-                </div>
-              </aside>
-            </div>
-          </article>
-        </div>
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      CLI 派视频音频转码工具用法小结（FFmpeg）1
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><h2 id="ffmpeg-h264-编码支持">FFmpeg h264 编码支持</h2>
+<ul>
+<li>See <a href="http://ubuntuforums.org/showthread.php?t=786095" class="uri">http://ubuntuforums.org/showthread.php?t=786095</a> for configuration of FFmpeg and libx264 on ubuntu 10.04</li>
+</ul>
+<h2 id="ffmpeg-参数选项简要说明">FFmpeg 参数选项简要说明</h2>
+<h3 id="main-options">main options</h3>
+<ul>
+<li><code>-i filename</code> – 指定输入文件</li>
+<li><code>-y</code> – Overwrite output files</li>
+<li><code>-target</code> – Specify target file type (“vcd”, “svcd”, “dvd”, “dv”, “dv50”, “pal-vcd”, “ntsc-svcd”, etc.). All the format options (bitrate, codecs, buffer sizes) are then set automatically. It is one of the most useful options of FFmpeg. It instructs FFmpeg to just “do what it takes” for the target file to be usable.</li>
+</ul>
+<h3 id="视频剪辑相关参数">视频剪辑相关参数</h3>
+<ul>
+<li><code>-ss</code> – 设定剪辑开始时间（支持 <code>[hh --mm --ss[.xxx]</code> ）格式</li>
+<li><code>-t</code> – 设定剪辑长度（支持 <code>[hh --mm --ss[.xxx]</code> ）格式</li>
+<li><code>-fs</code> – 设定文件大小限制</li>
+</ul>
+<h3 id="video-options">video options</h3>
+<ul>
+<li><code>-b bitrate</code> – 设定比特率（默认为 200 kb/s）</li>
+<li><code>-r fps</code> – frame rate（默认为 25）</li>
+<li><code>-s size</code> – set frame size
+<ul>
+<li>wxh (width x height) or</li>
+<li>abbreviations (qcif(176x144), vga(640x480), wvga(852x480)</li>
+</ul></li>
+<li><code>-aspect aspect</code> – 设定 aspect ratio(4:3, 16:9, 30:9, 1:3 or 1.333, 1.777 etc.)</li>
+<li><code>-sameq</code> – use same video quality as source (implies VBR).</li>
+<li><code>-vcodec</code> – codec: force video codec to codec. Use the copy special value to tell that the raw codec data must be copied as is.</li>
+<li><code>-newvideo</code> – add a new video stream to the current output stream.</li>
+<li><code>-pass n</code> – 选择处理遍数（1 或者 2）。两遍编码非常有用。第一遍生成统计信息， 第二遍生成精确的请求的码率</li>
+<li><code>-map input_{streamid[}:sync_{streamid]}</code> – Set stream mapping from input streams to output streams.</li>
+<li><code>-itsoffset offset</code> – Set the input time offset in seconds. <code>[-]hh:mm:ss[.xxx]</code> syntax is also supported. This option affects all the input files that follow it.</li>
+</ul>
+<h3 id="crop-options视频剪裁选项说明">crop options（视频剪裁选项说明）</h3>
+<ul>
+<li><code>-crop x:y:width:height</code> – Crop the input video to x:y:width:height.</li>
+<li><code>-croptop</code></li>
+<li><code>-cropbottom</code></li>
+<li><code>-cropleft</code></li>
+<li><code>-cropright</code></li>
+</ul>
+<h3 id="ad-and-filter-options">ad and filter options</h3>
+<ul>
+<li><code>-vf filter_graph</code></li>
+<li><code>-vf pad=width:height:x:y:color</code> （这个命令可以给裁剪后的视频增加上下两个 pad，形成电影似的效果）</li>
+</ul>
+<h3 id="audio-options">audio options</h3>
+<ul>
+<li><code>-ar freq</code> – set the audio sampling frequency(default=44100Hz)</li>
+<li><code>-ab bitrate</code> – 设定比特率（默认为 64 K）</li>
+<li><code>-aq q</code> – set the audio quality</li>
+<li><code>-ac channels</code> – set the number of audio channels（default=1）</li>
+<li><code>-acodec codec</code> – force audio codec to codec. Use the copy special value to specify that the raw codec data must be copied as is.</li>
+<li><code>-newaudio</code> – add a new audio track to the output file. If you want to specify parameters, do so before -newaudio (<code>-acodec</code>, <code>-ab</code>, etc.).</li>
+</ul>
+<h3 id="subtitle-options">subtitle options</h3>
+<ul>
+<li><code>-scodec codec</code> – force subtitle codec (‘copy’ to copy stream).</li>
+<li><code>-newsubtitle</code> – add a new subtitle stream to the current output stream.</li>
+</ul>
+<h3 id="disable-options">disable options</h3>
+<ul>
+<li><code>-an</code> – disable audio recording.</li>
+<li><code>-vn</code> – disable video recording.</li>
+<li><code>-sn</code> – disable subtitle recording.</li>
+</ul>
+<h3 id="frames">frames</h3>
+<ul>
+<li><code>-dframes number</code> – set the number of data frames to record</li>
+<li><code>-vframes number</code> – set the number of video frames to record</li>
+<li><code>-aframes number</code> – set the number of audio frames to record</li>
+</ul>
+<h3 id="preset-files">preset files</h3>
+<ul>
+<li><code>-vpre</code></li>
+<li><code>-apre</code></li>
+<li><code>-spre</code></li>
+<li><code>-fpre</code></li>
+</ul>
+<h2 id="ffmpeg-用法示例">FFmpeg 用法示例</h2>
+<p>See <a href="http://www.catswhocode.com/blog/19-ffmpeg-commands-for-all-needs" class="uri">http://www.catswhocode.com/blog/19-ffmpeg-commands-for-all-needs</a> for more examples</p>
+<ul>
+<li>Basic Usage: <code>ffmpeg [input options] -i [input file] [output options] [output
+ file]</code></li>
+<li>Normally the minimum one should specify in an ffmpeg command line would be something like: <code>ffmpeg -i INFILE -acodec ACODEC -ab 96k -vcodec VCODEC -b
+ 500k OUTFILE</code> – replacing the capitalised values as appropriate. When using x264, we need to add some extra bits as the defaults are bad.</li>
+<li>Getting infos from a video file – <code>ffmpeg -i video.avi</code></li>
+<li>Turn X images to a video sequence – <code>ffmpeg -f image2 -i image%d.jpg video.mpg</code></li>
+<li>Turn a video to X images: <code>ffmpeg -i video.mpg image%d.jpg</code></li>
+<li>Extracting sound from a video, and save it as MP3 – <code>ffmpeg -i source_video.avi
+ -vn -ar 44100 -ac 2 -ab 192 -f mp3 sound.mp3</code></li>
+<li>Convert .avi video to .mpg – <code>ffmpeg -i video_origine.avi video_finale.mpg</code></li>
+<li>Convert .avi to animated gif(uncompressed) – <code>ffmpeg -i video_origine.avi
+ -pix_fmt rgb24 gif_anime.gif</code></li>
+<li>Mix a video with a sound file – <code>ffmpeg -i son.wav -i video_origine.avi
+ video_finale.mpg</code></li>
+<li>Compress .avi to VCD mpeg2 NTSC format – <code>ffmpeg -i video_origine.avi -target
+ ntsc-vcd video_finale.mpg</code></li>
+<li>Multi-pass encoding with ffmpeg – <code>ffmpeg -i fichierentree -pass 2
+ -passlogfile ffmpeg2pass fichiersortie-2</code></li>
+<li>Crop top 30 pixels and bottom 30 pixels to get a new video file – =ffmpeg -i input<sub>file</sub>.flv -croptop 30 -cropbottom 30 -target ntsc-dvd -aspect 16:9 output<sub>file</sub>.mpg=</li>
+<li>Delaying the audio or the video – <code>ffmpeg -i input_{1} -itsoffset 00:00:03.5
+ -i input_{2} ...........</code></li>
+</ul>
+<h2 id="ffmpeg-learning-resources">FFmpeg learning resources</h2>
+<ul>
+<li><a href="http://howto-pages.org/ffmpeg/">Using FFmpeg to manipulate audio and video files</a> – you should see this page at first</li>
+<li><a href="http://rodrigopolo.com/ffmpeg/cheats.html">Video/Audio Encoding Cheat Sheet</a> – then you must know this cheat sheet</li>
+<li><a href="http://linuxers.org/tutorial/ffmpeg-tutorial-beginners">A FFmpeg Tutorial For Beginners</a> – so so a tutorial after you see the first tutorial</li>
+<li><a href="http://rob.opendot.cl/index.php/useful-stuff/ffmpeg-x264-encoding-guide/#respond">Some useful parameters related to h264 using FFmpeg</a> – to be studied.</li>
+<li><a href="http://dranger.com/ffmpeg/ffmpeg.html">How to Write a Video Player in Less Than 1000 Lines</a> – deep into the FFmpeg source code</li>
+<li><a href="http://electron.mit.edu/%7Egsteele/ffmpeg/">Making movies from image files using FFmpeg/mencoder</a> – enjoy it.</li>
+<li><a href="http://wiki.multimedia.cx/index.php?title=Category:FFmpeg">Category:FFmpeg</a> – a wiki about FFmpeg.</li>
+</ul>
+<h2 id="related-tools">Related tools</h2>
+<ul>
+<li>transcode</li>
+<li>mencode(from mplayer)</li>
+</ul>
+<h2 id="yamdi-给视频增加关键帧">yamdi 给视频增加关键帧</h2>
+<ul>
+<li>Yet Another MetaData Injector, see <a href="http://yamdi.sourceforge.net/" class="uri">http://yamdi.sourceforge.net/</a></li>
+<li>options:
+<ul>
+<li><code>-i</code> – 输入文件</li>
+<li><code>-o</code> – 输出文件</li>
+<li><code>-x</code> – An XML file with the resulting metadata information.</li>
+<li><code>-l</code> – Adds the onLastSecond event(?).</li>
+</ul></li>
+<li>other tools:
+<ul>
+<li>flvtool2 – written by Ruby, slow, need more memory</li>
+<li>flvmdi – not open source</li>
+</ul></li>
+</ul>
+<h2 id="ffmpegthumbnailer-截取视频的-thumbnail">ffmpegthumbnailer 截取视频的 thumbnail</h2>
+<ul>
+<li>ubuntu: <code>sudo apt-get install ffmpegthumbnailer</code></li>
+<li>options:
+<ul>
+<li><code>-i&lt;s&gt;</code> – input file</li>
+<li><code>-o&lt;s&gt;</code> – output file</li>
+<li><code>-s&lt;n&gt;</code> – thumbnail size (default: 128)</li>
+<li><code>-q&lt;n&gt;</code> – image quality (0 = bad, 10 = best) (default: 8) (only for jpeg)</li>
+<li><code>-c&lt;s&gt;</code> – override image format (jpeg or png) (default: determined by filename)</li>
+<li><code>-t&lt;n|s&gt;</code> – time to seek to (percentage or absolute time hh:mm:ss) (default: 10%)</li>
+<li><code>-a</code> – ignore aspect ratio and generate square thumbnail</li>
+<li><code>-f</code> – create a movie strip overlay</li>
+</ul></li>
+</ul>
+<h2 id="youku-的一些探索">Youku 的一些探索</h2>
+<ul>
+<li>Youku 网站上的大部分视频都是分段的，一般每段视频在 5–10 分钟之内</li>
+<li>目前 Youku 网上的视频格式大概有三种：
+<ul>
+<li>高清 mp4 格式（h264 编码）</li>
+<li>高清 flv 格式（h264 编码）</li>
+<li>普通 flv 格式（应该是 h263 编码）</li>
+</ul></li>
+</ul>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2010-07-22</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#multimedia">
+          <div class="ui label">
+            Multimedia<sup>1</sup>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#ffmpeg">
+          <div class="ui label">
+            FFmpeg<sup>5</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#linux">
+          <div class="ui label">
+            Linux<sup>11</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#outdated">
+          <div class="ui label">
+            Outdated<sup>5</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/19458.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="新鲜的刚出炉的热乎乎的淘宝和 DeviceVM 面经" href="/posts/2010-06-23-interview-on-taobao-and-devicevm/">Prev</a><a class="item" title="一个人的自在" href="/posts/2010-08-02-comfortable-life/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
     </div>
     <div id="footer">
       <footer class="ui inverted vertical center aligned footer segment">
