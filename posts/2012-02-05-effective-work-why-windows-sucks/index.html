@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>打造高效的工作环境(1)：Why Windows Sucks</title>
+    <title>打造高效的工作环境（1）：Why Windows Sucks</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -39,206 +39,185 @@
           </div>
         </div>
       </nav><div class="ui stackable container">
-        <div class="ui very padded segment article">
-          <article class="ui stackable divided grid">
-            <header class="row article-head">
-              <div class="column">
-                <h1 class="ui header">
-                  打造高效的工作环境(1)：Why Windows Sucks
-                </h1>
-                <div class="ui divider"></div>
-              </div>
-            </header>
-            <div class="row article-body">
-              <section class="twelve wide column">
-                <p><span id="table-of-contents"></span></p>
-                <h2 id="table-of-contents">Table of Contents</h2>
-                <p><span id="text-table-of-contents"></span></p>
-                <ul>
-                <li><em>1 缘起 </em></li>
-                <li><em>2 Why Not Windows?</em></li>
-                <li><em>3 Save your life</em></li>
-                </ul>
-                <div id="outline-container-1" class="outline-2">
-                
-                <h2 id="缘起">1 缘起</h2>
-                <div id="text-1" class="outline-text-2">
-                
-                <p>这两天我的 ArchLinux 系统碰到了一个十分诡异的问题，就是电脑无法待机、关机，也无法重启，更令人拍案叫绝的是，电脑在关机重启的过程中，当硬盘停止转动后，整个系统就 Hang 住了，而屏幕终端还在，只是不再响应任何请求。解决这个问题的唯一办法就是强制关机，但是这种方法实在有失水准，有伤大雅。在尝试了增删内核模块、更新驱动的等多种方法后，我终于在 ArchLinux BBS 上找到了 <a href="https://bbs.archlinux.org/viewtopic.php?id=133108"> 解决方案 </a>。</p>
-                <p>Google了几个来回，再看一些关于操作系统 IT 历史的八卦，半个下午就耗掉了，从某种意义上来说，这是在浪费时间。而事实上，如果不算辞掉工作更换电脑被迫地系统调优的那次，我已经至少半年没有进行过 OS 和软件层面的 Tweak 工作了。这其中的缘由，大概是由于电脑折腾久了，就会折腾出一套适合自己口味的解决方案，这套解决方案，就是接下来一系列文章的主题 —— 打造高效的工作环境。</p>
-                <p>打造高效的工作环境，Wow，多么宏大的一个主题啊，不过我见识有限，就这个话题，我只能谈谈电脑相关的知识，和我个人的理解，我不会讲到：</p>
-                <ul>
-                <li>桌上要放几盆草</li>
-                <li>要不要听轻音乐</li>
-                <li><p>开放式的办公空间</p>
-                <p>等与电脑毫不相关的话题。除此之外，还有一个前提，那就是我的文章主要针对 Linux 和Mac用户，对 Windows 用户的参考价值不大。</p></li>
-                </ul>
-                <p>Why Not Windows？Why Linux？Why Mac？</p>
-                <p>我 100% 地相信，在中国，100%的人是通过 Windows 系统进入电脑的世界的，我也是。但是我也 100% 地相信，如果你是一个程序员 Geek，用 Linux 或者 Mac，会让你的生活变得更美好；如果你只是一个普通的电脑使用者，用 Mac 或者 Linux，至少不会让你的生活变得更差。</p>
-                <p>说到这里，很多人会跳出来争辩，多数论调是：</p>
-                <ul>
-                <li>Linux的驱动如何如何不好</li>
-                <li>Linux 的桌面如何如何烂</li>
-                <li>Linux 下的软件如何如何不完善</li>
-                <li><p>Linux 下的游戏如何如何匮乏</p>
-                <p>我的回应是，对于一件事情，对于一件事情，我认为，人的认知有四种状态，分别是：</p></li>
-                <li>You know you know.</li>
-                <li>You Know you don’t know.</li>
-                <li>You don’t know you know.</li>
-                <li><p>You don’t know you don’t know.</p></li>
-                </ul>
-                <p>“You know you know”说的是类似于 1+1=2 这类的常识，首先是你知道 “1+1=2” 这个知识点，进一步讲，你知道 “1+1=2” 这个知识点是一个认知事实，而你自己对于这个认知事实也是知晓的，所以归结下来是 “You know you know”，说的通俗点，就是“你是知道‘你本人是大学文化，所以会算 1+1=2’ 这个事实的”。</p>
-                <p>“You know you don’t know”说的是我这样的 Coder，知道自己水平不够，功力尚浅，不懂得 AI，不懂得数据库，不会算法，但好在还有自知之明，所为“吾生而有涯，而知也无涯”，“You know you don’t know”，学吧，学到白头学到老。</p>
-                <p>“You don’t know you know”的情况很少见，这种情况常见于某些天赋异禀而不自知的人，就好比练成了九阳神功的张无忌，明明已经武功盖世，却不自知，见到阿猫阿狗也会心底害怕。</p>
-                <p>“You don’t know you don’t know”，这句话用来形容那些狂妄自大目中无人之辈真是再合适不过。不过对于常人，我们能否从这句话中得到一些启示呢？当然可以。 *事实上，小到一个生活常识，大到一门学科领域，如果你对它不甚了解，甚至完全不知，那么这种 “You don’t know” 有很大的概率是 “You don’t know you don’t know”，而不是 “You know you don’t know”。仔细想想，这句话揭露了一个可怕的事实，那就是，随着知识爆炸的进行，人类在自己探索创建的辉煌文明成果面前，变得越来越无知；另一方面，人类的的知识再以指数级别的速度增长，但是培养人才的方式却没有本质的进步，这也就意味着现代人才的培养会越来越难 <sup><em>1</em></sup>。*</p>
-                <p>扯远了，说了这么多，就一个意思，在你对一个领域、一个知识有充分的调研学习之前，审行慎言。这也是“为什么上帝给了我们两只耳朵却只给了一张嘴巴 <sup><em>2</em></sup>”。我个人曾经有过 3 年的用 Linux 做主力桌面的经验，其中有 50% 的时间是整个电脑上只有一个 Linux 系统，其余双系统并用的时间，98%的时间也是在 Linux 上，所以对于 Linux 桌面的情况，我还算有些发言权：</p>
-                <ul>
-                <li>Linux的驱动确实是一个软肋，不过情况较 2000 年左右 Redhat 9.0 横行的年代已经改善了很多，在这方面，Ubuntu绝对是一个集大成者，现在已经很少找到装上 Ubuntu 驱动不能用的电脑了，其余的发行版，经过简单配置，也完全可以搞定驱动问题。</li>
-                <li>Linux的桌面已经非常完善了，Linux 并不是只有一个黑黑的令人敬畏的终端。KDE 4.8的设计和整合已经非常完美，各种软件的集成性比 Mac 有过之而无不及。</li>
-                <li>Linux下的软件如果不比 Windows 多，至少不会比 Windows 少。很多优秀的软件诸如 Amarok、Digikam、Emacs等等，都是以 Linux 为首要支持平台的，甚至有的软件只支持 Linux，很多工业级别的软件，诸如 Hadoop、MySQL、Apache等等，无一不是以 Linux 为最佳运行平台。</li>
-                <li>Linux下的游戏比较匮乏，这点是不争的事实。</li>
-                </ul>
-                <p>So，说了这么多，信也好，不信也罢，接下来谈谈：</p>
-                </div>
-                
-                </div>
-                
-                <div id="outline-container-2" class="outline-2">
-                
-                <h2 id="why-not-windows">2 Why Not Windows?</h2>
-                <div id="text-2" class="outline-text-2">
-                
-                <p>作为一个 Coder，每次用 Windows，我都有一种想要砸掉电脑的冲动。所以毕业设计时，在 Windows 上运行 VMware 里面跑着 Mac OS X，启动 Xcode 写Win32 Style风格的程序，那可真是痛不欲生、终身难忘的事前黑暗时代。我搞了首打油诗：</p>
-                <ul>
-                <li>/文件系统多盘拼，文件命名大小混 / ：Windows是多根文件系统，每个根称作一个盘，而 *nix 的系统是单根文件系统，新来磁盘只需要在文件系统树上新增个挂载点即可；Windows文件的命名和组织从来没有任何规律，而 *nix 的文件系统则有一个统一的 <a href="http://www.pathname.com/fhs/">FHS</a> 标准，并且，在 Linux 下，几乎所有的文件名都是小写字母，并且不含有空格，这对脚本批处理是一个大大的方便之处。</li>
-                <li>/权限控制小烦躁，命令终端很废柴 / ：Windows下的文件权限很困惑，我从来没搞明白，好像获得一个文件的某种特殊权限，还要去点击属性窗口；用户权限就更加混乱了，一个 Administrator，后来 Vista 和7又加入了貌似“家长模式”等等，太乱了；*nix下的权限控制则非常简单明了，三条命令如 chmod, chgrp, sudo 就可以全部搞清楚；Windows下的传统 cmd.exe 简直废柴的不能再废柴了， <strong>谁能告诉我为什么 cmd 窗口无法最大化？</strong> 真不明白这到底是哪门子的设计。</li>
-                <li>/弹出窗口满天飞，后台进程到处藏 / ：在 Windows 下还有一点非常让我难受，就是无论是搜狗输入法、迅雷下载，还是 QQ、360等，这些软件无一例外，都有一个爱好，就是首先把自己加入系统的启动项，然后呢，在你写代码看片练葵花宝典乾坤大挪移到了关口的时刻，“啪！”的一下给你整几个弹出窗口，放几条八卦新闻 …… 还有那废柴的任务管理器，从来都是杀不掉进程，自己倒先莫名其妙地卡死了，哪里像 *nix 上的 killall -9，手起刀落，快刀展乱麻，痛快痛快。</li>
-                <li>/一家独大搞垄断，格式兼容已败北 / ：在格式兼容方面，从来都是 *nix 下的软件想尽办法兼容 Windows 的软件，但是 Windows 一家独大，对于兼容别的系统的软件，从来不屑一顾，举例？OpenOffice，<a href="http://en.wikipedia.org/wiki/NTFS-3G">ntfs-3g</a>，数不胜数啊。</li>
-                <li>/病毒木马禁不止，杀毒软件赚钱忙 / ：每次我去帮别人修理 Windows 系统，别人的第一想法都是让我先替他们杀杀毒，可见，病毒和 Windows 故障一样，在人们的心中难解难分。</li>
-                <li>/硬盘整理除碎片，系统臃肿找管家 / ：Windows系统有一个特点，那就是任何系统装好后，都需要“深度优化”，然后才能用得比较舒畅，其中的优化包括但不限于硬盘碎片整理、软件增删、装机必备等等，这也是为什么各种优化大师、超级兔子、碎片整理等软件“屡禁不止”的原因吧。</li>
-                <li>/万年 IE 不升级，银行网商耍流氓 / ：IE 7.0+新增加了多标签的特性，但是呢，这个多标签特性默认情况下是只启动 20% 的 ——除非手工指定，否则点开的链接依然是在新窗口中。退一步讲，就算是手工新开个标签页，但是这个空白标签页的打开简直比乌龟还慢，至少要 5 秒钟，正是让人“屎可忍，而尿不可忍啊”。至于万年不变的 IE6，已经国内众网商网银流氓们的 ActiceX 插件，我已经无力吐槽了，历史会证明，一个不支持跨平台浏览器的银行网商，绝对会是软件史上的一个笑话，或者说，这是中国银行业的奇耻大辱。</li>
-                <li>/多情自古空余恨，聪明反被聪明误 / ：Windows下的很多软件都喜欢自作聪明，典型例子就是 Microsoft Word。且不说各种软硬回车，最简单的一个列表，回车之后默认又是一个列表项，但是如果我想新开段落呢？很多人就不知道怎么办了，于是就各种暴力手段地搞排版，排出来的东西，可想而知。我只能说，这种自作聪明，有时候不是真的聪明，是蛮横的自作主张，是对用户意志赤裸裸的强奸啊。</li>
-                </ul>
-                <p>个人吐槽到此结束，详情请进一步参考：</p>
-                <ul>
-                <li><a href="http://www.antiwindowscatalog.com/" class="uri">http://www.antiwindowscatalog.com/</a></li>
-                <li><a href="https://sites.google.com/site/imterry/computer/windowssucks" class="uri">https://sites.google.com/site/imterry/computer/windowssucks</a></li>
-                <li><a href="http://en.windows7sins.org/" class="uri">http://en.windows7sins.org/</a></li>
-                <li>Google: “Why Windows Sucks”</li>
-                <li>Google: “Anti Windows”</li>
-                </ul>
-                </div>
-                
-                </div>
-                
-                <div id="outline-container-3" class="outline-2">
-                
-                <h2 id="save-your-life">3 Save your life</h2>
-                <div id="text-3" class="outline-text-2">
-                
-                <p>在接下来的系列文章里面，我会分门别类地介绍我在 Linux 桌面使用上的一些日常经验，分享自己的一些心得。这些经验之谈对于刚刚踏入 Linux 大门的同志，以及对于初级 Mac 用户，甚至部分喜爱折腾的 Windows 用户，都有很大的参考价值。我觉得，在信息时代，电脑将伴随着我们的一生，高效地使用电脑，就能够在更短的时间内处理更复杂的事情，从而为自己节省出宝贵的时间，去做更有意义的事情，这是一种正向循环；而如果每天纠结于杀毒、木马、弹出窗口、软件破解，则会使你的思维受阻、降低你的工作效率，这是一种负向循环。</p>
-                <p>这一系列的读者群将以 Linux 用户为主（重点是 Coder），高级 Mac 用户可以作为参考，对于 Windows 用户，理解起来可能会有些困难。不过话又说回来，“不经一番寒彻骨，哪得梅花扑鼻香”。我给自己定下如下两个目标：</p>
-                <ul>
-                <li>*在键盘上舞蹈 *</li>
-                <li><p>思维不会受阻</p>
-                <p>至于主题，我初步想了分为如下几个</p></li>
-                <li>高效的文件管理</li>
-                <li>Just Find it：Findutils</li>
-                <li>细谈文本配置</li>
-                <li>Shell 之魂：管道</li>
-                <li>Screen：it not a screen</li>
-                <li>Zsh：终极 Shell</li>
-                <li>VIM：键盘上跳舞</li>
-                <li>CLI Tools：把玩终端</li>
-                <li>时光机：版本控制</li>
-                <li>抛弃 Office：LaTeX</li>
-                <li><p>KDE系列：</p>
-                <ul>
-                <li>Kwin</li>
-                <li>Dolphin &amp; Konqueror</li>
-                <li>Konsole &amp; Yakuake</li>
-                <li>Krunner</li>
-                </ul></li>
-                </ul>
-                <p>敬请期待！</p>
-                <p>–</p>
-                </div>
-                
-                </div>
-                
-                <p><span id="footnotes"></span></p>
-                <h2 id="footnotes" class="footnotes">Footnotes:</h2>
-                <p><span id="text-footnotes"></span> <sup><em>1</em></sup> 阮一峰博客：<a href="http://www.ruanyifeng.com/blog/2010/08/illustrated_guide_to_a_phd.html">什么是博士 </a></p>
-                <p><sup><em>2</em></sup> 这是西方的一句谚语，寓意在于告诫人们要多聆听，少说话</p>
-                
-                <div class="ui divider"></div>
-                <div class="ui small one item menu">
-                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
-                </div>
-                <div id="disqus_thread"></div>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </section>
-              <aside class="four wide column">
-                <div class="ui small header">
-                  License
-                </div>
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
-                <div class="ui small header">
-                  Committed
-                </div>
-                <date>2012-02-05</date>
-                <div class="ui small header">
-                  Updated
-                </div>
-                <date>2017-04-14</date>
-                <div class="ui small header">
-                  Category
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/categories#linux">
-                      <div class="ui label">
-                        Linux<sup>17</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Tags
-                </div>
-                <div class="ui list">
-                  <div class="item">
-                    <a href="/tags#linux">
-                      <div class="ui label">
-                        Linux<sup>11</sup>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="/tags#windows">
-                      <div class="ui label">
-                        Windows<sup>6</sup>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/31971.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
-                  Links
-                </div>
-                <div class="ui small two item menu">
-                  <a class="item" title="再见，2011" href="/posts/2012-01-01-2011-summary/">Prev</a><a class="item" title="闲谈 MapReduce（1）： Hadoop 初探" href="/posts/2012-02-15-introducing-mapreduce-with-hadoop/">Next</a>
-                </div>
-              </aside>
-            </div>
-          </article>
-        </div>
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      打造高效的工作环境（1）：Why Windows Sucks
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><h2 id="缘起">缘起</h2>
+<p>这两天我的 Arch Linux 系统碰到了一个十分诡异的问题，就是电脑无法待机、关机，也无法重启，更令人拍案叫绝的是，电脑在关机重启的过程中，当硬盘停止转动后，整个系统就 Hang 住了，而屏幕终端还在，只是不再响应任何请求。解决这个问题的唯一办法就是强制关机，但是这种方法实在有失水准，有伤大雅。在尝试了增删内核模块、更新驱动的等多种方法后，我终于在 Arch Linux BBS 上找到了<a href="https://bbs.archlinux.org/viewtopic.php?id=133108">解决方案</a>。</p>
+<p>Google 了几个来回，再看一些关于操作系统 IT 历史的八卦，半个下午就耗掉了，从某种意义上来说，这是在浪费时间。而事实上，如果不算辞掉工作更换电脑被迫地系统调优的那次，我已经至少半年没有进行过 OS 和软件层面的 Tweak 工作了。这其中的缘由，大概是由于电脑折腾久了，就会折腾出一套适合自己口味的解决方案，这套解决方案，就是接下来一系列文章的主题——打造高效的工作环境。</p>
+<p>打造高效的工作环境，Wow，多么宏大的一个主题啊，不过我见识有限，就这个话题，我只能谈谈电脑相关的知识，和我个人的理解，我不会讲到：</p>
+<ul>
+<li>桌上要放几盆草</li>
+<li>要不要听轻音乐</li>
+<li>开放式的办公空间</li>
+</ul>
+<p>等与电脑毫不相关的话题。除此之外，还有一个前提，那就是我的文章主要针对 Linux 和 Mac 用户，对 Windows 用户的参考价值不大。</p>
+<p>Why Not Windows？Why Linux？Why Mac？</p>
+<p>我 100% 地相信，在中国，100% 的人是通过 Windows 系统进入电脑的世界的，我也是。但是我也 100% 地相信，如果你是一个程序员 Geek，用 Linux 或者 Mac，会让你的生活变得更美好；如果你只是一个普通的电脑使用者，用 Mac 或者 Linux，至少不会让你的生活变得更差。</p>
+<p>说到这里，很多人会跳出来争辩，多数论调是：</p>
+<ul>
+<li>Linux 的驱动如何如何不好</li>
+<li>Linux 的桌面如何如何烂</li>
+<li>Linux 下的软件如何如何不完善</li>
+<li>Linux 下的游戏如何如何匮乏</li>
+</ul>
+<p>我的回应是，对于一件事情，对于一件事情，我认为，人的认知有四种状态，分别是：</p>
+<ul>
+<li>You know you know.</li>
+<li>You Know you don’t know.</li>
+<li>You don’t know you know.</li>
+<li>You don’t know you don’t know.</li>
+</ul>
+<p>“You know you know”说的是类似于 1+1=2 这类的常识，首先是你知道 “1+1=2” 这个知识点，进一步讲，你知道 “1+1=2” 这个知识点是一个认知事实，而你自己对于这个认知事实也是知晓的，所以归结下来是 “You know you know”，说的通俗点，就是“你是知道‘你本人是大学文化，所以会算 1+1=2’ 这个事实的”。</p>
+<p>“You know you don’t know”说的是我这样的 Coder，知道自己水平不够，功力尚浅，不懂得 AI，不懂得数据库，不会算法，但好在还有自知之明，所为“吾生而有涯，而知也无涯”， “You know you don’t know”，学吧，学到白头学到老。</p>
+<p>“You don’t know you know”的情况很少见，这种情况常见于某些天赋异禀而不自知的人， 就好比练成了九阳神功的张无忌，明明已经武功盖世，却不自知，见到阿猫阿狗也会心底害怕。</p>
+<p>“You don’t know you don’t know”，这句话用来形容那些狂妄自大目中无人之辈真是再合适不过。不过对于常人，我们能否从这句话中得到一些启示呢？当然可以。*事实上，小到一个生活常识，大到一门学科领域，如果你对它不甚了解，甚至完全不知，那么这种 “You don’t know” 有很大的概率是 “You don’t know you don’t know”，而不是 “You know you don’t know”。仔细想想，这句话揭露了一个可怕的事实，那就是，随着知识爆炸的进行， 人类在自己探索创建的辉煌文明成果面前，变得越来越无知；另一方面，人类的的知识再以指数级别的速度增长，但是培养人才的方式却没有本质的进步，这也就意味着现代人才的培养会越来越难<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。*</p>
+<p>扯远了，说了这么多，就一个意思，在你对一个领域、一个知识有充分的调研学习之前，审行慎言。这也是“为什么上帝给了我们两只耳朵却只给了一张嘴巴<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>”。我个人曾经有过 3 年的用 Linux 做主力桌面的经验，其中有 50% 的时间是整个电脑上只有一个 Linux 系统， 其余双系统并用的时间，98% 的时间也是在 Linux 上，所以对于 Linux 桌面的情况，我还算有些发言权：</p>
+<ul>
+<li>Linux 的驱动确实是一个软肋，不过情况较 2000 年左右 Redhat 9.0 横行的年代已经改善了很多，在这方面，Ubuntu 绝对是一个集大成者，现在已经很少找到装上 Ubuntu 驱动不能用的电脑了，其余的发行版，经过简单配置，也完全可以搞定驱动问题。</li>
+<li>Linux 的桌面已经非常完善了，Linux 并不是只有一个黑黑的令人敬畏的终端。KDE 4.8 的设计和整合已经非常完美，各种软件的集成性比 Mac 有过之而无不及。</li>
+<li>Linux 下的软件如果不比 Windows 多，至少不会比 Windows 少。很多优秀的软件诸如 Amarok、Digikam、Emacs 等等，都是以 Linux 为首要支持平台的，甚至有的软件只支持 Linux，很多工业级别的软件，诸如 Hadoop、MySQL、Apache 等等，无一不是以 Linux 为最佳运行平台。</li>
+<li>Linux下的游戏比较匮乏，这点是不争的事实。</li>
+</ul>
+<p>So，说了这么多，信也好，不信也罢，接下来谈谈：</p>
+<h2 id="why-not-windows">Why Not Windows?</h2>
+<p>作为一个 Coder，每次用 Windows，我都有一种想要砸掉电脑的冲动。所以毕业设计时，在 Windows 上运行 VMware 里面跑着 Mac OS X，启动 Xcode 写 Win32 Style风格的程序，那可真是痛不欲生、终身难忘的事前黑暗时代。我搞了首打油诗：</p>
+<ul>
+<li>文件系统多盘拼，文件命名大小混 – Windows 是多根文件系统，每个根称作一个盘，而 *nix 的系统是单根文件系统，新来磁盘只需要在文件系统树上新增个挂载点即可； Windows 文件的命名和组织从来没有任何规律，而 *nix 的文件系统则有一个统一的 <a href="http://www.pathname.com/fhs/">FHS</a> 标准，并且，在 Linux 下，几乎所有的文件名都是小写字母，并且不含有空格，这对脚本批处理是一个大大的方便之处。</li>
+<li>权限控制小烦躁，命令终端很废柴 – Windows 下的文件权限很困惑，我从来没搞明白， 好像获得一个文件的某种特殊权限，还要去点击属性窗口；用户权限就更加混乱了，一个 Administrator，后来 Vista 和7又加入了貌似“家长模式”等等，太乱了；*nix下的权限控制则非常简单明了，三条命令如 <code>chmod</code> 、 <code>chgrp</code> 、 <code>sudo</code> 就可以全部搞清楚； Windows 下的传统 cmd.exe 简直废柴的不能再废柴了， 谁能告诉我为什么 cmd 窗口无法最大化？ 真不明白这到底是哪门子的设计。</li>
+<li>弹出窗口满天飞，后台进程到处藏 – 在 Windows 下还有一点非常让我难受，就是无论是搜狗输入法、迅雷下载，还是 QQ、360 等，这些软件无一例外，都有一个爱好，就是首先把自己加入系统的启动项，然后呢，在你写代码看片练葵花宝典乾坤大挪移到了关口的时刻，“啪！”的一下给你整几个弹出窗口，放几条八卦新闻……还有那废柴的任务管理器， 从来都是杀不掉进程，自己倒先莫名其妙地卡死了，哪里像 *nix 上的 <code>killall -9</code> ， 手起刀落，快刀展乱麻，痛快痛快。</li>
+<li>一家独大搞垄断，格式兼容已败北 – 在格式兼容方面，从来都是 *nix 下的软件想尽办法兼容 Windows 的软件，但是 Windows 一家独大，对于兼容别的系统的软件，从来不屑一顾，举例？OpenOffice，<a href="http://en.wikipedia.org/wiki/NTFS-3G">ntfs-3g</a>，数不胜数啊。</li>
+<li>病毒木马禁不止，杀毒软件赚钱忙 – 每次我去帮别人修理 Windows 系统，别人的第一想法都是让我先替他们杀杀毒，可见，病毒和 Windows 故障一样，在人们的心中难解难分。</li>
+<li>硬盘整理除碎片，系统臃肿找管家 – Windows 系统有一个特点，那就是任何系统装好后， 都需要“深度优化”，然后才能用得比较舒畅，其中的优化包括但不限于硬盘碎片整理、软件增删、装机必备等等，这也是为什么各种优化大师、超级兔子、碎片整理等软件“屡禁不止”的原因吧。</li>
+<li>万年 IE 不升级，银行网商耍流氓 – IE 7.0+ 新增加了多标签的特性，但是呢，这个多标签特性默认情况下是只启动 20% 的——除非手工指定，否则点开的链接依然是在新窗口中。退一步讲，就算是手工新开个标签页，但是这个空白标签页的打开简直比乌龟还慢， 至少要 5 秒钟，正是让人“屎可忍，而尿不可忍啊”。至于万年不变的 IE6，已经国内众网商网银流氓们的 ActiceX 插件，我已经无力吐槽了，历史会证明，一个不支持跨平台浏览器的银行网商，绝对会是软件史上的一个笑话，或者说，这是中国银行业的奇耻大辱。</li>
+<li>多情自古空余恨，聪明反被聪明误 – Windows 下的很多软件都喜欢自作聪明，典型例子就是 Microsoft Word。且不说各种软硬回车，最简单的一个列表，回车之后默认又是一个列表项，但是如果我想新开段落呢？很多人就不知道怎么办了，于是就各种暴力手段地搞排版，排出来的东西，可想而知。我只能说，这种自作聪明，有时候不是真的聪明，是蛮横的自作主张，是对用户意志赤裸裸的强奸啊。</li>
+</ul>
+<p>个人吐槽到此结束，详情请进一步参考：</p>
+<ul>
+<li><a href="http://www.antiwindowscatalog.com/" class="uri">http://www.antiwindowscatalog.com/</a></li>
+<li><a href="https://sites.google.com/site/imterry/computer/windowssucks" class="uri">https://sites.google.com/site/imterry/computer/windowssucks</a></li>
+<li><a href="http://en.windows7sins.org/" class="uri">http://en.windows7sins.org/</a></li>
+<li>Google: “Why Windows Sucks”</li>
+<li>Google: “Anti Windows”</li>
+</ul>
+<h2 id="save-your-life">Save your life</h2>
+<p>在接下来的系列文章里面，我会分门别类地介绍我在 Linux 桌面使用上的一些日常经验， 分享自己的一些心得。这些经验之谈对于刚刚踏入 Linux 大门的同志，以及对于初级 Mac 用户，甚至部分喜爱折腾的 Windows 用户，都有很大的参考价值。我觉得，在信息时代， 电脑将伴随着我们的一生，高效地使用电脑，就能够在更短的时间内处理更复杂的事情，从而为自己节省出宝贵的时间，去做更有意义的事情，这是一种正向循环；而如果每天纠结于杀毒、木马、弹出窗口、软件破解，则会使你的思维受阻、降低你的工作效率，这是一种负向循环。</p>
+<p>这一系列的读者群将以 Linux 用户为主（重点是 Coder），高级 Mac 用户可以作为参考， 对于 Windows 用户，理解起来可能会有些困难。不过话又说回来，“不经一番寒彻骨，哪得梅花扑鼻香”。我给自己定下如下两个目标：</p>
+<ul>
+<li><strong>在键盘上舞蹈</strong></li>
+<li>思维不会受阻</li>
+</ul>
+<p>至于主题，我初步想了分为如下几个</p>
+<ul>
+<li>高效的文件管理</li>
+<li>Just Find it – Findutils</li>
+<li>细谈文本配置</li>
+<li>Shell 之魂 – 管道</li>
+<li>Screen – it not a screen</li>
+<li>Zsh – 终极 Shell</li>
+<li>VIM – 键盘上跳舞</li>
+<li>CLI Tools – 把玩终端</li>
+<li>时光机 – 版本控制</li>
+<li>抛弃 Office – LaTeX</li>
+<li>KDE 系列
+<ul>
+<li>Kwin</li>
+<li>Dolphin &amp; Konqueror</li>
+<li>Konsole &amp; Yakuake</li>
+<li>Krunner</li>
+</ul></li>
+</ul>
+<p>敬请期待！</p>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>阮一峰博客：<a href="http://www.ruanyifeng.com/blog/2010/08/illustrated_guide_to_a_phd.html">什么是博士</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>这是西方的一句谚语，寓意在于告诫人们要多聆听，少说话<a href="#fnref2">↩</a></p></li>
+</ol>
+</section>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2012-02-05</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#Linux">
+          <div class="ui label">
+            Linux<sup>17</sup>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#Linux">
+          <div class="ui label">
+            Linux<sup>11</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#Windows">
+          <div class="ui label">
+            Windows<sup>6</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#Outdated">
+          <div class="ui label">
+            Outdated<sup>27</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/31971.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="再见，2011" href="/posts/2012-01-01-2011-summary/">Prev</a><a class="item" title="闲谈 MapReduce（1）： Hadoop 初探" href="/posts/2012-02-15-introducing-mapreduce-with-hadoop/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
     </div>
     <div id="footer">
       <footer class="ui inverted vertical center aligned footer segment">
