@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>计算几何悲剧归</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;},{&quot;content&quot;:[&quot;沧海横流，血肉横飞，方显出英雄本色，当年万源保卫战，敌军在不到 30 华里的地面上，使用兵力竞达九十个团，数量十倍于红军，谁能记清当时打了多少次恶仗？每天要牺牲多少人？他却是不多的幸存者之一。而眼前，一切都沉寂了，流逝了。那惊心动魄的枪声，那撕肝裂肺的呐喊，那悲痛欲绝的咒骂和呻吟，那狼藉遍野的残肢断骨和头颅，那千疮百孔仍迎风飘扬的军旗；都沉寂了，流逝了，无影无踪了，犹如做了一场梦……&quot;],&quot;author&quot;:&quot;都梁&quot;,&quot;from&quot;:&quot;亮剑&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      计算几何悲剧归
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>计算几何悲剧归……</p>
+<p>感觉考试很难。当然与自己复习不当也有关系。昨天从hjc冰窖一般的图书馆回到温暖的寝室后身体就一直没缓过劲，感觉有些胸闷气短，看书愣是看不下去，虽然我明知道考试在即， 而自己还没怎么复习。觉得自己平时的 assignment 交了，midterm 考的个人感觉也还行， 怎么着也不会挂。结果今天看了考卷就知道悲剧了。midterm 都是书上的概念，考卷却都是乱七八糟没怎么见过的东西。也罢，东拼拼西凑凑，蒙了不少。但愿老师宽宏大量，我给您烧高香了。</p>
+<p>看来，以后不能乱选课，选了课以后不能随便跷课。</p>
+<p>而且我也发现，学术这条路我差不多走到尽头了。尽管这两个月自己很努力，但是似乎成效不大。而我对每周按部就班的上课又提不起兴趣，一门普通的如计算几何，计算机组成等课程就把我搞的焦头烂额，叫苦不迭。呃……</p>
+<p>我的学习基本属于兴趣驱动。兴趣来了，就会去看很多很多的东西，哪怕它与课程不相关， 甚至因此耽误了复习，导致成绩低下等等。算了，还是尽快毕业吧。</p>
+<p>考试周几日一直在 HJC，奈何遇上冰冻天气，在 HJC 图书馆冻的不行，叫苦不迭，不过大概低温使人清醒，使人难于犯困，所以效率还是有保障的。第一天复习了汇编语言，看的是清华大学那本经典的《IBM PC机汇编语言教程》，基本熟悉了程序的结构，各种模式。但是让我写一个象样的程序还有些小困难。汇编很难，难就难在将人脑变成电脑来使用。对此我兴趣不大。希望课程能够得过且过吧。</p>
+<p>后三天主攻图形学，看 OpenGL。三天的研究颇有成效，一股成就感油然而生，上几张图吧：</p>
+<p><a href="/static/image/2009/opengl1.png"><img src="/static/image/2009/opengl1.png" /></a></p>
+<p>这张图看上去很炫，其实是在GL<sub>SINGLE单缓冲模式下让一个三角形以一定的速率旋转而成</sub>。 在这个过程中不要清除GL<sub>COLORBUFFERBIT就行了</sub>。</p>
+<p><a href="/static/image/2009/opengl9.png"><img src="/static/image/2009/opengl9.png" /></a></p>
+<p>一个三角形的三个顶点绕v=(1,1,1)旋转而成。不要清除GL<sub>COLORBUFFERBIT</sub>。</p>
+<p><a href="/static/image/2009/opengl11.png"><img src="/static/image/2009/opengl11.png" /></a></p>
+<p>加了小虫子的纹理填充（不知道这样说是不是正确）。</p>
+<p><a href="/static/image/2009/opengl13.png"><img src="/static/image/2009/opengl13.png" /></a></p>
+<p>一个三维的立体 cube。我觉得很漂亮。呵呵。</p>
+<p><a href="/static/image/2009/opengl15.png"><img src="/static/image/2009/opengl15.png" /></a></p>
+<p>球体和正方体都可以旋转并且同时放大或者缩小。键盘控制旋转方向。</p>
+<p><a href="/static/image/2009/opengl_teapot.png"><img src="/static/image/2009/opengl_teapot.png" /></a></p>
+<p>图形学第三次作业，我自己加了个功能，就是可以让茶壶跳起来，呵呵。也是由键盘控制的。 蛮有趣的。顺便把源码发上来，做个备份好了：</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="co">/**</span>
+<span class="co"> * </span><span class="an">@file</span><span class="co">   </span><span class="cv">opengl_exp3.c</span>
+<span class="co"> * </span><span class="an">@author</span><span class="co">  </span><span class="kw">&lt;lox@freelox&gt;</span>
+<span class="ot"> * @date   Wed Nov 18 18:01:43 2009</span>
+<span class="ot"> *</span>
+<span class="ot"> * @brief  This program illustrate the opengl 3d transformation, such as modelview transformation, projection</span>
+<span class="ot"> * transformation, and some opengl animation skills</span>
+<span class="ot"> *</span>
+<span class="ot"> *</span>
+<span class="ot"> </span><span class="co">*/</span>
+
+<span class="pp">#include </span><span class="im">&lt;GL/glut.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;math.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
+
+<span class="pp">#define PERS 0                  </span><span class="co">/**&lt; define the perspecive projection method */</span>
+<span class="pp">#define ORTHO 1                 </span><span class="co">/**&lt; define the orthogonal projection method */</span>
+
+<span class="pp">#define WIRE 0                  </span><span class="co">/**&lt; draw the object with wire */</span>
+<span class="pp">#define SOLID 1                 </span><span class="co">/**&lt; draw the object with solid fill color */</span>
+
+<span class="dt">static</span> <span class="dt">int</span> winWidth = <span class="dv">0</span>;        <span class="co">/**&lt; the new view width */</span>
+<span class="dt">static</span> <span class="dt">int</span> winHeight = <span class="dv">0</span>;       <span class="co">/**&lt; the new view height */</span>
+
+<span class="dt">static</span> <span class="dt">int</span> projection = PERS;   <span class="co">/**&lt; determine whether perspective or orthogonal */</span>
+<span class="dt">static</span> <span class="dt">int</span> drawMethod = <span class="dv">1</span>;      <span class="co">/**&lt; determine the draw method */</span>
+
+<span class="dt">static</span> <span class="dt">float</span> cameraX = <span class="dv">0</span>;       <span class="co">/**&lt; the x position of the camera */</span>
+<span class="dt">static</span> <span class="dt">float</span> cameraY = <span class="fl">1.0</span>;     <span class="co">/**&lt; the y position of the camera */</span>
+<span class="dt">static</span> <span class="dt">float</span> cameraZ = <span class="dv">10</span>;      <span class="co">/**&lt; the z position of the camera */</span>
+
+<span class="dt">static</span> <span class="dt">float</span> teapotX = <span class="fl">0.0</span>;     <span class="co">/**&lt; the x position of the teapot */</span>
+<span class="dt">static</span> <span class="dt">float</span> teapotY = <span class="fl">1.2</span>;     <span class="co">/**&lt; the y position of the teapot */</span>
+<span class="dt">static</span> <span class="dt">float</span> teapotZ = <span class="fl">0.0</span>;     <span class="co">/**&lt; the z position of the teapot */</span>
+<span class="dt">static</span> <span class="dt">float</span> teapotRotateY = <span class="fl">0.0</span>; <span class="co">/**&lt; the rotation degree of the teapot along y axis  */</span>
+
+<span class="co">/**</span>
+<span class="co"> * I myself add a jump function to the teapot use i and ty[15]</span>
+<span class="co"> */</span>
+
+<span class="dt">int</span> i = <span class="dv">0</span>;
+<span class="dt">float</span> ty[<span class="dv">15</span>] = {<span class="fl">1.3</span>, <span class="fl">1.4</span>, <span class="fl">1.6</span>, <span class="fl">1.9</span>, <span class="fl">2.3</span>, <span class="fl">3.0</span>, <span class="fl">3.3</span>, <span class="fl">3.4</span>, <span class="fl">3.42</span>, <span class="fl">3.4</span>, <span class="fl">3.3</span>, <span class="fl">3.0</span>, <span class="fl">2.3</span>, <span class="fl">1.5</span>, <span class="fl">1.2</span>};
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> just init the background color</span>
+<span class="co"> *</span>
+<span class="co"> */</span>
+<span class="dt">void</span> init() {
+  glClearColor(<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>);
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> draw one leg of the Desk</span>
+<span class="co"> *</span>
+<span class="co"> */</span>
+<span class="dt">void</span> drawLeg() {
+  glPushMatrix();
+  glScalef(<span class="fl">1.0</span>, <span class="fl">3.0</span>, <span class="fl">1.0</span>);
+  glutSolidCube(<span class="fl">1.0</span>);
+  glPopMatrix();
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> draw the desktop</span>
+<span class="co"> *</span>
+<span class="co"> */</span>
+<span class="dt">void</span> drawDesktop() {
+  glPushMatrix();
+  glScalef(<span class="fl">5.0</span>, <span class="fl">1.0</span>, <span class="fl">4.0</span>);
+  glutSolidCube(<span class="fl">1.0</span>);
+  glPopMatrix();
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> draw the whole desk through drawing four legs and one desktop</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@see</span><span class="co"> drawDesktop</span>
+<span class="co"> * </span><span class="an">@see</span><span class="co"> drawLeg</span>
+<span class="co"> */</span>
+<span class="dt">void</span> drawDesk() {
+  glPushMatrix();
+  drawDesktop();
+  glPopMatrix();
+
+  glPushMatrix();
+  glTranslatef(-<span class="fl">1.5</span>, -<span class="dv">2</span>, -<span class="dv">1</span>);
+  drawLeg();
+  glPopMatrix();
+
+  glPushMatrix();
+  glTranslatef(<span class="fl">1.5</span>, -<span class="dv">2</span>, -<span class="dv">1</span>);
+  drawLeg();
+  glPopMatrix();
+
+  glPushMatrix();
+  glTranslatef(<span class="fl">1.5</span>, -<span class="dv">2</span>, <span class="dv">1</span>);
+  drawLeg();
+  glPopMatrix();
+
+  glPushMatrix();
+  glTranslatef(-<span class="fl">1.5</span>, -<span class="dv">2</span>, <span class="dv">1</span>);
+  drawLeg();
+  glPopMatrix();
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> draw the whole scene</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@see</span><span class="co"> drawDesk()</span>
+<span class="co"> */</span>
+<span class="dt">void</span> drawScene() {
+  drawDesk();
+  glPushMatrix();
+  glTranslatef(teapotX, teapotY, teapotZ);
+  glRotatef(teapotRotateY, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>);
+  glutSolidTeapot(<span class="fl">1.0</span>);
+  glPopMatrix();
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> display the three sides of the desktop</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@see</span><span class="co"> drawScene();</span>
+<span class="co"> */</span>
+<span class="dt">void</span> display() {
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+  glColor3f(<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>);
+  glLoadIdentity();
+
+  gluLookAt(cameraX, cameraY, cameraZ, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>);
+
+  <span class="cf">if</span>(drawMethod == SOLID) {
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+  }
+  <span class="cf">else</span> {
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+  }
+
+  glEnable(GL_DEPTH_TEST);
+
+  glEnable(GL_LIGHTING);
+  GLfloat white[] = {<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>};
+  GLfloat light_pos[] = {<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">1</span>};
+
+  glLightfv(GL_LIGHT0, GL_POSITION, light_pos);
+  glLightfv(GL_LIGHT0, GL_AMBIENT, white);
+  glEnable(GL_LIGHT0);
+
+  drawScene();
+
+  glFlush();
+
+  glutSwapBuffers();
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> update the viewport of the whole scene when press a special key</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">width</span><span class="co"> the width of the new viewport</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">height</span><span class="co"> the height of the new viewport</span>
+<span class="co"> */</span>
+<span class="dt">void</span> updateView(<span class="dt">int</span> width, <span class="dt">int</span> height) {
+  glViewport(<span class="dv">0</span>, <span class="dv">0</span>, (GLint)width, (GLint)height);
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+
+  <span class="cf">if</span> (projection == PERS) {
+    glFrustum(-<span class="fl">1.0</span>, <span class="fl">1.0</span>, -<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">0.5</span>, <span class="fl">40.0</span>);
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (projection == ORTHO) {
+    glOrtho(-<span class="fl">10.0</span>, <span class="fl">10.0</span>, -<span class="fl">10.0</span>, <span class="fl">10.0</span>, <span class="fl">0.5</span>, <span class="fl">40.0</span>);
+  }
+  <span class="cf">else</span> {
+    projection = PERS;
+  }
+
+  glMatrixMode(GL_MODELVIEW);
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> glut reshape function</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">width</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">height</span>
+<span class="co"> * </span><span class="an">@see</span><span class="co"> updateView()</span>
+<span class="co"> */</span>
+<span class="dt">void</span> reshape(<span class="dt">int</span> width, <span class="dt">int</span> height) {
+  <span class="cf">if</span> (height == <span class="dv">0</span>) {
+    height = <span class="dv">1</span>;
+  }
+
+  winWidth = width;
+  winHeight = height;
+
+  updateView(winWidth, winHeight);
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> glut idle function</span>
+<span class="co"> *</span>
+<span class="co"> */</span>
+<span class="dt">void</span> idle() {
+  glutPostRedisplay();
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> control the keyboard interactive actions</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">key</span><span class="co"> the key which pressed</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> the x mouse position</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">y</span><span class="co"> the y mouse position</span>
+<span class="co"> */</span>
+
+<span class="dt">void</span> keyboard(<span class="dt">unsigned</span> <span class="dt">char</span> key, <span class="dt">int</span> x, <span class="dt">int</span> y) {
+  <span class="cf">switch</span>(key) {
+  <span class="cf">case</span> <span class="dv">27</span>:
+  <span class="cf">case</span> <span class="ch">&#39;q&#39;</span>:                   <span class="co">/**&lt; press q or ESC to quit this program */</span>
+    exit(<span class="dv">0</span>);
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;p&#39;</span>:                   <span class="co">/**&lt; press x to switch between perspective and oothogonal view */</span>
+    projection = (projection + <span class="dv">1</span>) % <span class="dv">2</span>;
+    updateView(winWidth, winHeight);
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;t&#39;</span>:
+    drawMethod = (drawMethod + <span class="dv">1</span>) % <span class="dv">2</span>;
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;a&#39;</span>:                   <span class="co">/**&lt; press a to adjust camera position along negative x axis */</span>
+    cameraX--;
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;d&#39;</span>:
+    cameraX++;
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;w&#39;</span>:
+    cameraY++;
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;s&#39;</span>:
+    cameraY--;
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;z&#39;</span>:
+    cameraZ++;
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;c&#39;</span>:
+    cameraZ--;
+    <span class="cf">break</span>;
+    <span class="co">/**</span>
+<span class="co">     * operations about teapot</span>
+<span class="co">     *</span>
+<span class="co">     */</span>
+  <span class="cf">case</span> <span class="ch">&#39;l&#39;</span>:                   <span class="co">/**&lt; move the teapot along positive x axis */</span>
+    <span class="cf">if</span> (teapotX &gt;= <span class="fl">2.5</span>) {    <span class="co">/**&lt; the teapot cannot be moved out of the desktop */</span>
+      teapotX -= <span class="fl">2.5</span>;
+    }
+    teapotX += <span class="fl">0.1</span>;
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;j&#39;</span>:
+    <span class="cf">if</span> (teapotX &lt;= -<span class="fl">2.5</span>) {
+      teapotX += <span class="fl">2.5</span>;
+    }
+    teapotX -= <span class="fl">0.1</span>;
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;i&#39;</span>:
+    <span class="cf">if</span> (teapotZ &gt;= <span class="fl">2.0</span>) {
+      teapotZ -= <span class="fl">2.0</span>;
+    }
+    teapotZ += <span class="fl">0.1</span>;
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;k&#39;</span>:
+    <span class="cf">if</span> (teapotZ &lt;= -<span class="fl">2.0</span>) {
+      teapotZ += <span class="fl">2.0</span>;
+    }
+    teapotZ -= <span class="fl">0.1</span>;
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;e&#39;</span>:
+    teapotRotateY ++;
+    <span class="cf">break</span>;
+
+  <span class="cf">case</span> <span class="ch">&#39;o&#39;</span>:                   <span class="co">/**&lt; make the teapot jump on the desktop */</span>
+    teapotY = ty[i++];
+    <span class="cf">if</span> (i &gt;= <span class="dv">15</span>) {
+      i -= <span class="dv">15</span>;
+    }
+  }
+
+  glutPostRedisplay();
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> main function</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">argc</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">argv</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@return</span><span class="co"> 0</span>
+<span class="co"> */</span>
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span>** argv) {
+  glutInit(&amp;argc, argv);
+  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+
+  glutInitWindowSize(<span class="dv">500</span>, <span class="dv">500</span>);
+  glutInitWindowPosition(<span class="dv">100</span>, <span class="dv">100</span>);
+
+  glutCreateWindow(<span class="st">&quot;Simple opengl 3d modelview program&quot;</span>);
+
+  init();
+
+  glutDisplayFunc(display);
+  glutReshapeFunc(reshape);
+  glutKeyboardFunc(keyboard);
+  glutIdleFunc(idle);
+
+  glutMainLoop();
+
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+<p>思路还是蛮清晰的。理解起来也不是很难。这三天看了很多的资料，觉得自学的好处就是可以接触大量的资料，从多方面对同一个问题有更好的理解，但是缺点就是太耗费时间了。有些问题老师一句话就可以点明白，但是自己探索却要好长时间。不过我很享受这种探索的乐趣。</p>
+<p>前几日耗费了一天多的时间看完了开复自传《世界以你不同》，感慨颇多。毫无疑问，开复是幸运的，他有着良好的家庭条件，及早的接受了美国先进的教育，在那里又碰到了很多对他未来起着决定性作用的好老师，如教他英语的中学老师，他的大学课上说了那句“make a difference“的哲学老师，“不同意却支持他”的博士导师。正是这些人将开复推向了人生的顶峰。最喜欢的是开复的座右铭：</p>
+<blockquote>
+<p>用勇气去改变那些可以改变的事情，用胸怀来接纳那些不能改变的事情，用智慧来辨别两者的不同。</p>
+</blockquote>
+<p>说的非常好。开复精彩的一生就是这句话的写照。做任何事情总是“lead my heart”，这样的人活的潇洒、惬意。</p>
+<p>但是并不是所有人都能像开复一样。所以我觉得人生二字，唯机遇与奋斗两字。机遇是先天的，可遇而不可求，奋斗是后天的，自己可以掌控。你不可能指望偏远山区一个放牛的娃子去做科学研究，也不能指望有了机遇坐山吃空就能如何如何。哪些是机遇哪些需要奋斗，这需要用智慧来辨别。</p>
+<p>每次去 88 逛 work、careerlife 版块，就会给自己点压力。我告诉自己，要通过自己的努力，找到一份自己喜欢的工作，可能的话开创一片属于自己的事业。在海边有自己的一幢房子，落地大窗，听着海浪的声音入睡。四十岁之前赚足够多的钱，留下一部分，剩下的捐给需要钱的人，然后辞职，追随我心，去做自己想做的事情。这件事情可能是旅行，可能是慈善，可能是教育，或者是自己的事业。等等。</p>
+<p>网上有句话，当今的中国是政治精英、文化精英、经济精英三足鼎立，想想还是蛮形象的。 自己该选择那个呢？政治自己是干不来了。对所谓的马列毛邓着实感到恶心。文化，经济， 如果二者选一，我还是选择后者吧。我已经失去了对学术探索的热情和雄心了。</p>
+<p>两个月之前，浙大海归博士涂序新跳楼自杀，引起来学术界的轩然大波。越长大越孤单，随着年龄的增大，社会也在逐渐掀开那层层的面纱。当代中国人活的太辛苦了。我只能这么说， 这么说是因为我只知道中国。我觉得中国人活的很辛苦。别的国家我没有去过，没有切身感受。所以我喜欢旅行，我想要看看这大千世界。</p>
+<p>又罗嗦了这么多。吃饭去了。</p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2009-11-20</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#Linux">
+          <div class="ui label">
+            Linux<sup>20</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#Geometry">
+          <div class="ui label">
+            Geometry<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#OpenGL">
+          <div class="ui label">
+            OpenGL<sup>2</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/13390.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="草泥马的中国移动" href="/posts/2009-11-14-fucking-china-mobile/">Prev</a><a class="item" title="BST, AVL, C++, Inheritance, Template, Two days" href="/posts/2009-12-03-bst-avl-cpp-inheritance-templates-two-days/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>
