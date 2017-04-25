@@ -63,9 +63,9 @@
     <content type="html">&lt;h2 id="序"&gt;序&lt;/h2&gt;
 &lt;p&gt;2015 是在徘徊中缓步前行的一年。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="http://cnlox.is-programmer.com/posts/31605.html"&gt;再见，2011&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://cnlox.is-programmer.com/posts/37030.html"&gt;2012，静水深流&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://cnlox.is-programmer.com/posts/43206.html"&gt;2013，青春绝版&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2012-01-01-2011-summary/"&gt;再见，2011&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2013-01-11-2012-summary/"&gt;2012，静水深流&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2014-03-03-2013-summary/"&gt;2013，青春绝版&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2015-04-10-2014-summary/"&gt;2014，漫步&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;这一年技术上进步有限，收入上更是微薄，唯一值得一提的，也许是自己未来的路在渐渐明晰——接私活赚小钱逍遥一时并非长久之计，去企业找工作按部就班亦非心之所向，远程自由独立开发看上去自由潇洒，实则是一条小众且孤独的路，特别是在接近三十而立的年龄，看着自己的同龄人要么已经 PHD 毕业 Paper 在手，要么已经在大小企业里晋升技术专家，心里难免会有一丝恐慌。&lt;/p&gt;
@@ -225,9 +225,9 @@
     <link rel="alternate" href="http://xiaohanyu.me/posts/2015-04-10-2014-summary/"/>
     <content type="html">&lt;p&gt;“亡羊补牢，未为迟也”，15 年已然过了三分之一，而我才开始憋 14 年的年终总结，想来必是颓废日久，点墨已尽的缘故。Anyway, better late than never。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="http://cnlox.is-programmer.com/posts/31605.html"&gt;再见，2011&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://cnlox.is-programmer.com/posts/37030.html"&gt;2012，静水深流&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://cnlox.is-programmer.com/posts/43206.html"&gt;2013，青春绝版&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2012-01-01-2011-summary/"&gt;再见，2011&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2013-01-11-2012-summary/"&gt;2012，静水深流&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2014-03-03-2013-summary/"&gt;2013，青春绝版&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;自 11 年毕业后开始养成写年终总结的习惯。时过四载，本人依旧无功无业，闲散江湖。所赖家妻不弃，下嫁与我，如此，14 年才总算没有白过。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -755,7 +755,7 @@ JSON-formatted AST
     <updated>2017-04-14T09:29:39Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2013-09-29-announcing-ac-geiser-v0.2/"/>
     <content type="html">&lt;p&gt;由于某位&lt;a href="http://sunng.info/"&gt;仁兄&lt;/a&gt;的抬爱，&lt;a href="https://github.com/xiaohanyu/oh-my-emacs/"&gt;oh-my-emacs&lt;/a&gt; 发布之后，在 &lt;a href="http://www.reddit.com/r/emacs/comments/1mfnlo/ohmyemacs_yet_another_starter_kit_for_emacs_users/"&gt;reddit&lt;/a&gt; 上出人意料地受到了很多人的关注。而我也在一夜之间收获了 20 多个 github star，以及人生的第一个 pull request。 突如其来的关注让我有些欣喜，也让我看到了两个月工作的价值。技术上来讲， oh-my-emacs 根本算不上“高端大气上档次”的项目，无非就是读文档读文档写文档外加 el-get package 的整合测试。不过话说回来，这两个月以来真心是写了不少文档啊，要是按照一个 el-get package 一篇 blog 来算，平均下来两天就可以有一篇 Emacs Tips 这种文章了。连我都有些佩服自己的耐心了。&lt;/p&gt;
-&lt;p&gt;我想，oh-my-emacs 之所以受到了一些的关注，归根到底，还是 oh-my-emacs 确实解决了一些现实中的问题吧。&lt;a href="http://cnlox.is-programmer.com/posts/40749.html"&gt;上篇博文&lt;/a&gt;中我曾经提到，基于 &lt;a href="https://github.com/auto-complete/auto-complete"&gt;auto-complete&lt;/a&gt; 的语义补全是 oh-my-emacs 最看重的目标之一。&lt;/p&gt;
+&lt;p&gt;我想，oh-my-emacs 之所以受到了一些的关注，归根到底，还是 oh-my-emacs 确实解决了一些现实中的问题吧。&lt;a href="http://xiaohanyu.me/posts/2013-09-14-announcing-oh-my-emacs-v0.2/"&gt;上篇博文&lt;/a&gt;中我曾经提到，基于 &lt;a href="https://github.com/auto-complete/auto-complete"&gt;auto-complete&lt;/a&gt; 的语义补全是 oh-my-emacs 最看重的目标之一。&lt;/p&gt;
 &lt;p&gt;也正是基于这个宏伟的目标，我又花了一个晚上的时间，折腾出 &lt;a href="https://github.com/xiaohanyu/ac-geiser"&gt;ac-geiser&lt;/a&gt;，“an Emacs auto-complete backend for &lt;a href="http://www.nongnu.org/geiser/"&gt;geiser&lt;/a&gt;”。&lt;/p&gt;
 &lt;p&gt;去年学习 &lt;a href="http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs"&gt;SICP&lt;/a&gt; 的时候就一直希望能有个类似于 &lt;a href="http://common-lisp.net/project/slime/"&gt;SLIME&lt;/a&gt; 般强大方便的工作环境&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;，几番折腾之后未能如愿，乖乖用 Vim 作了一百多道 SICP 的习题。而我的 Scheme 经验也就止于这些习了，因此 ac-geiser 可能目前还不适合工程性的应用&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;。不过对于单个 Scheme 文件的程序，我觉得应该还是值得一试的。还是老样子，放张图吧：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/static/image/2013/ac_geiser.jpg"&gt;&lt;img src="/static/image/2013/ac_geiser.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
