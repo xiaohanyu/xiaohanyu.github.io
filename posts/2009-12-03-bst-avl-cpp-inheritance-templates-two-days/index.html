@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>BST, AVL, C++, Inheritance, Template, Two days</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;},{&quot;content&quot;:[&quot;沧海横流，血肉横飞，方显出英雄本色，当年万源保卫战，敌军在不到 30 华里的地面上，使用兵力竞达九十个团，数量十倍于红军，谁能记清当时打了多少次恶仗？每天要牺牲多少人？他却是不多的幸存者之一。而眼前，一切都沉寂了，流逝了。那惊心动魄的枪声，那撕肝裂肺的呐喊，那悲痛欲绝的咒骂和呻吟，那狼藉遍野的残肢断骨和头颅，那千疮百孔仍迎风飘扬的军旗；都沉寂了，流逝了，无影无踪了，犹如做了一场梦……&quot;],&quot;author&quot;:&quot;都梁&quot;,&quot;from&quot;:&quot;亮剑&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      BST, AVL, C++, Inheritance, Template, Two days
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><p>鉴于大二上年幼无知加上某些特殊的原因，导致我大三才开始修读高级数据结构。同一屋子大二的小朋友们上课，百般滋味，心中自知。第一次课迟到了，下课的时候随便找了两个学弟，算是组了个队，并申请做 project1（因为开始的 project 会比较简单）。</p>
+<p>实践起来也不是很难，就是让你比较下 BinarySearchTree, AVL Tree 和 Splay Tree 的插入删除效率的问题。两个学弟看样子都不愿意编码，于是乎，编码的重担就落在了我这个学长身上。可是只有我自己知道，我数据结构学的实在不咋的，C++ 又是个半吊子。唉，谁让咱是学长呢？</p>
+<p>学长嘛，自然要有个学长的样子。于是乎，C++、Template、Inheritance、Polymorphism， 能用上的都用上……呵呵。不过主要是想练一下手。《C++ Primer》 虽然看了大半，却没有多少应用的机会。这也算是一个练习吧。</p>
+<p>写着写着就知道，C++ 的强大是一把双刃剑，强大到你无法驾驭，尤其是应用了模板后，各种小问题，都是以前闻所未闻的。比如模板的分离编译问题，看书，查资料就花了两个小时。 加上昨天下午吐血恶心的同步时序电路的逻辑实验，做的我都想哭了。所以这么看上去很简单的 project，我竟然写了接近两天，倍感惭愧。</p>
+<p>不过总算出来了。但是有个瑕疵，AVL 的删除功能有些小问题，可能跟 Balance 函数和指针的引用问题有关。GDB 我用的不熟，转到强大的 Windows 下的 Visual Studio 2008 下， 调试了 3 个小时，找到错误所在，但是却不知道怎么改正。泪奔。</p>
+<p>计算几何最终还是低空坠毁，唉，不提也罢，看来以后不能乱选课，选了课不能随便混混。 混不好就低空坠毁。你说你没事选这么一门前沿课程干嘛，你是这块料嘛……</p>
+<p>计算几何过后开始准备计算理论的期中考试。什么有穷自动机，正则语言，上下文无关文法， 等等，计算理论基础的中文版，每个小时3页，龟速前进，发现还是太抽象，看不大懂，又找来一本计算理论导引，两本结合着看，顿觉顺畅很多，看来计算机的书还是要原汁原味的英文啊。</p>
+<p>感觉计算理论期中还不错。周一被导师叫去公司，让我参加项目，大意是让我写一个 TextArea。项目代码有四万左右，光理清这个体系，补 Windows 编程的基础知识就花了我三四天的时间。终于搞明白了什么叫 Windows CE，什么叫 GDI，学会了 Windows 下 SVN 的基本用法。可是看 Windows CE 的书还是一头雾水，什么 <code class="sourceCode c" rundoc-language="c">HINSTANCE</code> ，WINAPI <code class="sourceCode c" rundoc-language="c">WinMain()</code> ，叉叉的。基本流程我还不懂。于是去找 Windows 经典书目的书单，看到多人推荐Charles Petzold 的 Windows 程序设计，吐血买了下来，花了 150 元。 Microsoft 的书真 tn 的贵。</p>
+<p>不过书是好书。周六周日周一断续看了三天，看了四章，120页，顿时明白了很多。个人 Windows 的技术更新太快，不像 UNIX，二十年前的 Vim、Emacs、grep，等，万古不变。掌握 Win32 API才是一切的根本。永远不要指望跟上 Microsoft 的脚步。</p>
+<p>只不过到现在导师的项目还没有开工，我还夸下海口自不量力要一周写出来。这可如何是好。 还有图形学作业，操作系统作业，实验的作业，呃……少壮不努力，老大做it，大二不学习， 大三干苦力。要努力。恩。</p>
+<p><code>BinarySearchTree.h</code></p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#ifndef _BINARYSEARCHTREE_H_</span>
+<span class="pp">#define _BINARYSEARCHTREE_H_</span>
+
+<span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;stack&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="co">// 三种遍历方式</span>
+<span class="pp">#define PREORDERTRAVERSE 0</span>
+<span class="pp">#define INORDERTRAVERSE 1</span>
+<span class="pp">#define POSTORDERTRAVERSE 2</span>
+
+<span class="co">// 求两个元素的最大值</span>
+<span class="pp">#define max(x, y) ((x &gt; y) ? (x) : y)</span>
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@class</span><span class="co"> </span><span class="cv">BinaryNode</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> 树的结点，为了方便BST和AVL用了同一种结构。BST中所有结点的height域为默认值</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="kw">struct</span> BinaryNode {
+  Comparable element;
+  BinaryNode* left;
+  BinaryNode* right;
+
+  <span class="dt">int</span> height;
+
+  BinaryNode(<span class="at">const</span> Comparable &amp;theElement,
+             BinaryNode *lt,
+             BinaryNode *rt,
+             <span class="at">const</span> <span class="dt">int</span> theHeight = <span class="dv">0</span>)
+    : element(theElement), left(lt), right(rt), height(theHeight) {}
+};
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@class</span><span class="co"> </span><span class="cv">BinarySearchTree</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> 实现了常见的删除，插入功能。并作为AVL树的基类</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="kw">class</span> BinarySearchTree {
+<span class="kw">public</span>:
+  BinarySearchTree();
+
+  ~BinarySearchTree();
+
+  BinaryNode&lt;Comparable&gt;*&amp; GetRoot();
+
+  <span class="dt">void</span> BuildBinaryTree(Comparable *x, <span class="dt">int</span> length);
+
+  <span class="at">const</span> Comparable&amp; FindMin() <span class="at">const</span>;
+  <span class="at">const</span> Comparable&amp; FindMax() <span class="at">const</span>;
+  <span class="dt">bool</span> Contains(<span class="at">const</span> Comparable &amp;x) <span class="at">const</span>;
+  <span class="dt">bool</span> IsEmpty() <span class="at">const</span>;
+  <span class="dt">void</span> TraverseTree(<span class="dt">int</span> type);
+
+  <span class="dt">void</span> MakeEmpty();
+
+  <span class="kw">virtual</span> <span class="dt">void</span> Insert(<span class="at">const</span> Comparable &amp;x);
+  <span class="kw">virtual</span> <span class="dt">void</span> Remove(<span class="at">const</span> Comparable &amp;x);
+
+
+<span class="kw">private</span>:
+  BinaryNode&lt;Comparable&gt; *root;
+  <span class="kw">virtual</span> <span class="dt">void</span> Insert(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;
+  <span class="kw">virtual</span> <span class="dt">void</span> Remove(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;
+  BinaryNode&lt;Comparable&gt;* FindMin(BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;
+  BinaryNode&lt;Comparable&gt;* FindMax(BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;
+  <span class="dt">bool</span> Contains(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;
+  <span class="dt">void</span> MakeEmpty(BinaryNode&lt;Comparable&gt; *&amp;t);
+
+  <span class="dt">void</span> PreOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t);
+  <span class="dt">void</span> InOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t);
+  <span class="dt">void</span> PostOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t);
+};
+
+<span class="co">/**</span>
+<span class="co"> * 构造函数，默认 root=NULL</span>
+<span class="co"> *</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@return</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+BinarySearchTree&lt;Comparable&gt;::BinarySearchTree() : root(NULL) { }
+
+<span class="co">/**</span>
+<span class="co"> * 析构函数</span>
+<span class="co"> *</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@return</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+BinarySearchTree&lt;Comparable&gt;::~BinarySearchTree() {
+  MakeEmpty();
+}
+
+<span class="co">/**</span>
+<span class="co"> * 得到根节点的引用</span>
+<span class="co"> *</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@return</span><span class="co"> 返回根节点的引用</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+BinaryNode&lt;Comparable&gt;*&amp; BinarySearchTree&lt;Comparable&gt;::GetRoot() {
+  <span class="cf">return</span> root;
+}
+
+<span class="co">/**</span>
+<span class="co"> * 建立BST树，通过数组的方式传入元素，调用 Insert(x) 函数</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">length</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::BuildBinaryTree(Comparable *x, <span class="dt">int</span> length) {
+  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; length; ++i) {
+    Insert(x[i]);
+  }
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@return</span><span class="co"> BST 中的最小值</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="at">const</span> Comparable&amp; BinarySearchTree&lt;Comparable&gt;::FindMin() <span class="at">const</span> {
+  <span class="cf">return</span> FindMin(root)-&gt;element;
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@return</span><span class="co"> BST 中的最大值</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="at">const</span> Comparable&amp; BinarySearchTree&lt;Comparable&gt;::FindMax() <span class="at">const</span> {
+  <span class="cf">return</span> FindMax(root)-&gt;element;
+}
+
+<span class="co">/**</span>
+<span class="co"> * 测试 x 是否在 BST 中，调用私有函数 Contains(x, root)</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@return</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">bool</span> BinarySearchTree&lt;Comparable&gt;::Contains(<span class="at">const</span> Comparable &amp;x) <span class="at">const</span> {
+  <span class="cf">return</span> Contains(x, root);
+}
+
+<span class="co">/**</span>
+<span class="co"> * 测试树是否为空</span>
+<span class="co"> *</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@return</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">bool</span> BinarySearchTree&lt;Comparable&gt;::IsEmpty() <span class="at">const</span> {
+  <span class="cf">if</span> (root == NULL) {
+    <span class="cf">return</span> <span class="kw">true</span>;
+  }
+
+  <span class="cf">return</span> <span class="kw">false</span>;
+}
+
+<span class="co">/**</span>
+<span class="co"> * 以三种方式遍历树</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">type</span><span class="co"> 遍历树的方式</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::TraverseTree(<span class="dt">int</span> type) {
+  <span class="cf">if</span> (type == PREORDERTRAVERSE) {
+    cout &lt;&lt; <span class="st">&quot;PreOrderTraverse the tree:&quot;</span> &lt;&lt; endl;
+    PreOrderTraverse(root);
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;PreOrderTraverse ends.&quot;</span> &lt;&lt; endl;
+  }
+
+  <span class="cf">if</span> (type == INORDERTRAVERSE) {
+    cout &lt;&lt; <span class="st">&quot;InOrderTraverse the tree:&quot;</span> &lt;&lt; endl;
+    InOrderTraverse(root);
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;InOrderTraverse ends.&quot;</span> &lt;&lt; endl;
+  }
+
+  <span class="cf">if</span> (type == POSTORDERTRAVERSE) {
+    cout &lt;&lt; <span class="st">&quot;PostOrderTraverse the tree:&quot;</span> &lt;&lt; endl;
+    PostOrderTraverse(root);
+    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;InOrderTraverse ends.&quot;</span> &lt;&lt; endl;
+  }
+}
+
+<span class="co">/**</span>
+<span class="co"> * 清空 BST 树</span>
+<span class="co"> *</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::MakeEmpty() {
+  MakeEmpty(root);
+}
+
+<span class="co">/**</span>
+<span class="co"> * 向 BST 中插入一个元素</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 待插入的元素</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::Insert(<span class="at">const</span> Comparable &amp;x) {
+  Insert(x, root);
+}
+
+<span class="co">/**</span>
+<span class="co"> * 从 BST 中删除一个元素</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 被删除的元素</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::Remove(<span class="at">const</span> Comparable &amp;x) {
+  Remove(x, root);
+}
+
+<span class="co">/**</span>
+<span class="co"> * 向树根为 t 的树中插入一个元素</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 待插入的元素</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span><span class="co"> 树根</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::Insert(<span class="at">const</span> Comparable &amp;x,
+                                          BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {
+  <span class="cf">if</span> (t == NULL) {
+    t = <span class="kw">new</span> BinaryNode&lt;Comparable&gt;(x, NULL, NULL, <span class="dv">-3</span>);
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {
+    Insert(x, t-&gt;left);
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {
+    Insert(x, t-&gt;right);
+  }
+  <span class="cf">else</span>
+    ; <span class="co">// dupicate; you can do something, of course</span>
+}
+
+<span class="co">/**</span>
+<span class="co"> * 从树根为 t 的树中删除元素</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 被删除的元素</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span><span class="co"> 树根</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::Remove(<span class="at">const</span> Comparable &amp;x,
+                                          BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {
+  <span class="cf">if</span> (t == NULL) {
+    <span class="cf">return</span>;
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {
+    Remove(x, t-&gt;left);
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {
+    Remove(x, t-&gt;right);
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (t-&gt;left != NULL &amp;&amp; t-&gt;right != NULL) {
+    t-&gt;element = FindMin(t-&gt;right)-&gt;element;
+    Remove(t-&gt;element, t-&gt;right);
+  }
+  <span class="cf">else</span> {
+    BinaryNode&lt;Comparable&gt; *oldNode = t;
+    t = (t-&gt;left != NULL) ? t-&gt;left : t-&gt;right;
+    <span class="kw">delete</span> oldNode;
+  }
+}
+
+
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+BinaryNode&lt;Comparable&gt;* BinarySearchTree&lt;Comparable&gt;::FindMin(BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {
+  <span class="cf">if</span> (t != NULL) {
+    <span class="cf">while</span>(t-&gt;left != NULL)
+      t = t-&gt;left;
+  }
+
+  <span class="cf">return</span> t;
+}
+
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+BinaryNode&lt;Comparable&gt;* BinarySearchTree&lt;Comparable&gt;::FindMax(BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {
+  <span class="cf">if</span> (t != NULL) {
+    <span class="cf">while</span>(t-&gt;right != NULL)
+      t = t-&gt;right;
+  }
+
+  <span class="cf">return</span> t;
+}
+
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">bool</span> BinarySearchTree&lt;Comparable&gt;::Contains(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {
+  <span class="cf">if</span> (t == NULL) {
+    <span class="cf">return</span> <span class="kw">false</span>;
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {
+    <span class="cf">return</span> Contains(x, t-&gt;left);
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {
+    <span class="cf">return</span> Contains(x, t-&gt;right);
+  }
+  <span class="cf">else</span>
+    <span class="cf">return</span> <span class="kw">true</span>;
+}
+
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::MakeEmpty(BinaryNode&lt;Comparable&gt; *&amp;t) {
+  <span class="cf">if</span> (t != NULL) {
+    MakeEmpty(t-&gt;left);
+    MakeEmpty(t-&gt;right);
+    <span class="kw">delete</span> t;
+  }
+
+  t = NULL;
+}
+
+<span class="co">/**</span>
+<span class="co"> * 前序遍历</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::PreOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t) {
+  <span class="cf">if</span> (t != NULL) {
+    cout &lt;&lt; t-&gt;element &lt;&lt; <span class="st">&quot; &quot;</span>;
+    PreOrderTraverse(t-&gt;left);
+    PreOrderTraverse(t-&gt;right);
+  }
+}
+
+<span class="co">/**</span>
+<span class="co"> * 中序遍历</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::InOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t) {
+  <span class="cf">if</span> (t != NULL) {
+    InOrderTraverse(t-&gt;left);
+    cout &lt;&lt; t-&gt;element &lt;&lt; <span class="st">&quot; &quot;</span>;
+    InOrderTraverse(t-&gt;right);
+  }
+}
+
+<span class="co">/**</span>
+<span class="co"> * 后序遍历</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span>
+<span class="co"> */</span>
+
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::PostOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t) {
+  <span class="cf">if</span> (t != NULL) {
+    PostOrderTraverse(t-&gt;left);
+    PostOrderTraverse(t-&gt;right);
+    cout &lt;&lt; t-&gt;element &lt;&lt; <span class="st">&quot; &quot;</span>;
+  }
+}
+
+<span class="co">/**</span>
+<span class="co"> * </span><span class="an">@class</span><span class="co"> </span><span class="cv">AVLTree</span>
+<span class="co"> * </span><span class="an">@brief</span><span class="co"> 由于 AVLTree 本身是一种改进的 BST 树，所以绝大多数特性继承自 BST 树。</span>
+<span class="co"> * 其中的 Insert() 和 Remove() 方法和 BST 树中不同，</span>
+<span class="co"> * 因此在 BST 类中将此方法声明为 virtual function</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="kw">class</span> AVLTree : <span class="kw">public</span> BinarySearchTree&lt;Comparable&gt; {
+<span class="kw">public</span>:
+  AVLTree();
+  ~AVLTree();
+  <span class="dt">int</span> GetHeight();
+  <span class="dt">void</span> Insert(<span class="at">const</span> Comparable &amp;x);
+  <span class="dt">void</span> Remove(<span class="at">const</span> Comparable &amp;x);
+<span class="kw">protected</span>:
+  <span class="dt">int</span> GetHeight(BinaryNode&lt;Comparable&gt; *&amp;t);
+  <span class="dt">void</span> Insert(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t);
+  <span class="dt">void</span> Remove(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t);
+  <span class="dt">void</span> SingleRotateLeftChild(BinaryNode&lt;Comparable&gt; *&amp;k2);
+  <span class="dt">void</span> SingleRotateRightChild(BinaryNode&lt;Comparable&gt; *&amp;k2);
+  <span class="dt">void</span> DoubleRotateLeftChild(BinaryNode&lt;Comparable&gt; *&amp;k3);
+  <span class="dt">void</span> DoubleRotateRightChild(BinaryNode&lt;Comparable&gt; *&amp;k3);
+  <span class="dt">void</span> Balance(BinaryNode&lt;Comparable&gt; *&amp;t);
+};
+
+<span class="co">/**</span>
+<span class="co"> * 构造函数，调用 BST 基类的构造函数</span>
+<span class="co"> *</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@return</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+AVLTree&lt;Comparable&gt;::AVLTree() : BinarySearchTree&lt;Comparable&gt;::BinarySearchTree() {
+  <span class="co">// BinaryNode&lt;Comparable&gt;* root = BinarySearchTree&lt;Comparable&gt;::GetRoot();</span>
+  <span class="co">// root = NULL;</span>
+}
+
+<span class="co">/**</span>
+<span class="co"> * 析构函数，调用基类的 BST::MakeEmpty()</span>
+<span class="co"> *</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@return</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+AVLTree&lt;Comparable&gt;::~AVLTree() {
+  BinarySearchTree&lt;Comparable&gt;::MakeEmpty();
+}
+
+<span class="co">/**</span>
+<span class="co"> * 得到整棵 AVL 树的高度</span>
+<span class="co"> *</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@return</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">int</span> AVLTree&lt;Comparable&gt;::GetHeight() {
+  BinaryNode&lt;Comparable&gt;*&amp; root = BinarySearchTree&lt;Comparable&gt;::GetRoot();
+  <span class="cf">return</span> GetHeight(root);
+}
+
+<span class="co">/**</span>
+<span class="co"> * 向AVL中插入元素x</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 待插入的元素</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> AVLTree&lt;Comparable&gt;::Insert(<span class="at">const</span> Comparable &amp;x)
+{
+  BinaryNode&lt;Comparable&gt;*&amp; root = BinarySearchTree&lt;Comparable&gt;::GetRoot();
+  Insert(x, root);
+}
+
+<span class="co">/**</span>
+<span class="co"> * 从AVL中删除元素x</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 被删除的元素</span>
+<span class="co"> */</span>
+
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> AVLTree&lt;Comparable&gt;::Remove(<span class="at">const</span> Comparable &amp;x) {
+  BinaryNode&lt;Comparable&gt;*&amp; root = BinarySearchTree&lt;Comparable&gt;::GetRoot();
+  Remove(x, root);
+}
+
+<span class="co">/**</span>
+<span class="co"> * 得到结点t的高度</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@return</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">int</span> AVLTree&lt;Comparable&gt;::GetHeight(BinaryNode&lt;Comparable&gt; *&amp;t) {
+  <span class="cf">return</span> t == NULL ? <span class="dv">-1</span> : t-&gt;height;
+}
+
+
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> AVLTree&lt;Comparable&gt;::Insert(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) {
+  <span class="cf">if</span> (t == NULL) {
+    t = <span class="kw">new</span> BinaryNode&lt;Comparable&gt;(x, NULL, NULL);
+  }
+
+  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {
+    Insert(x, t-&gt;left);
+    Balance(t);
+    <span class="co">// if (GetHeight(t-&gt;left) - GetHeight(t-&gt;right) == 2)</span>
+    <span class="co">// {</span>
+    <span class="co">//     if (x &lt; t-&gt;left-&gt;element)</span>
+    <span class="co">//     {</span>
+    <span class="co">//         SingleRotateLeftChild(t);</span>
+    <span class="co">//     }</span>
+    <span class="co">//     else</span>
+    <span class="co">//         DoubleRotateLeftChild(t);</span>
+    <span class="co">// }</span>
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {
+    Insert(x, t-&gt;right);
+    Balance(t);
+    <span class="co">// if (GetHeight(t-&gt;right) - GetHeight(t-&gt;left) == 2)</span>
+    <span class="co">// {</span>
+    <span class="co">//     if (t-&gt;right-&gt;element &lt; x)</span>
+    <span class="co">//     {</span>
+    <span class="co">//         SingleRotateRightChild(t);</span>
+    <span class="co">//     }</span>
+    <span class="co">//     else</span>
+    <span class="co">//         DoubleRotateRightChild(t);</span>
+    <span class="co">// }</span>
+  }
+  <span class="cf">else</span>
+    ;
+
+  t-&gt;height = max(GetHeight(t-&gt;left), GetHeight(t-&gt;right)) + <span class="dv">1</span>;
+}
+
+<span class="co">/**</span>
+<span class="co"> * 有个小 bug，弄了一天也没弄出来，可能问题在 Balance() 和指针的引用上</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> AVLTree&lt;Comparable&gt;::Remove(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) {
+  <span class="at">static</span> stack&lt;BinaryNode&lt;Comparable&gt;*&gt; tStack; <span class="co">// 定义一个静态堆栈，存储访问结点的路径</span>
+  <span class="dt">int</span> tSize = tStack.size();                    <span class="co">// 得到栈的大小</span>
+
+  <span class="cf">if</span> (t == NULL) {
+    <span class="cf">return</span>;
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {
+    tStack.push(t);
+    cout &lt;&lt; <span class="st">&quot;traverse through &quot;</span> &lt;&lt; t-&gt;element &lt;&lt; endl;
+    Remove(x, t-&gt;left);
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {
+    tStack.push(t);
+    cout &lt;&lt; <span class="st">&quot;traverse through &quot;</span> &lt;&lt; t-&gt;element &lt;&lt; endl;
+    Remove(x, t-&gt;right);
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (t-&gt;left != NULL &amp;&amp; t-&gt;right != NULL) {
+    tStack.push(t);
+    cout &lt;&lt; <span class="st">&quot;traverse through &quot;</span> &lt;&lt; t-&gt;element &lt;&lt; endl;
+
+    BinaryNode&lt;Comparable&gt;*&amp; oldT = t-&gt;right;
+
+    <span class="cf">while</span> (oldT-&gt;left != NULL) {
+      tStack.push(oldT);
+      cout &lt;&lt; <span class="st">&quot;traverse through &quot;</span> &lt;&lt; oldT-&gt;element &lt;&lt; endl;
+      oldT = oldT-&gt;left;
+    }
+
+    t-&gt;element = oldT-&gt;element;
+    Remove(t-&gt;element, t-&gt;right);
+  }
+  <span class="cf">else</span> {
+    BinaryNode&lt;Comparable&gt;*&amp; oldNode = t;
+    t = (t-&gt;left != NULL) ? t-&gt;left : t-&gt;right;
+    <span class="kw">delete</span> oldNode;
+  }
+
+  BinaryNode&lt;Comparable&gt;* tempStack;
+
+  tSize = tStack.size();      <span class="co">// 更新堆栈大小</span>
+
+
+  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; tSize; i++) {
+    tempStack = tStack.top(); <span class="co">// 回溯访问结点</span>
+    Balance(tempStack);       <span class="co">// 对每个结点做Balance处理</span>
+    tStack.pop();             <span class="co">// 已经做过Balance处理的结点出栈</span>
+  }                             <span class="co">// 此处可以进一步优化</span>
+  <span class="cf">return</span> ;
+}
+
+
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> AVLTree&lt;Comparable&gt;::SingleRotateLeftChild(BinaryNode&lt;Comparable&gt; *&amp;k2) {
+  BinaryNode&lt;Comparable&gt; *k1 = k2-&gt;left;
+  k2-&gt;left = k1-&gt;right;
+  k1-&gt;right = k2;
+  k2-&gt;height = max(GetHeight(k2-&gt;left), GetHeight(k2-&gt;right)) + <span class="dv">1</span>;
+  k1-&gt;height = max(GetHeight(k1-&gt;left), k2-&gt;height) + <span class="dv">1</span>;
+  k2 = k1;
+}
+
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> AVLTree&lt;Comparable&gt;::SingleRotateRightChild(BinaryNode&lt;Comparable&gt; *&amp;k1) {
+  BinaryNode&lt;Comparable&gt; *k2 = k1-&gt;right;
+  k1-&gt;right = k2-&gt;left;
+  k2-&gt;left = k1;
+  k1-&gt;height = max(GetHeight(k1-&gt;left), GetHeight(k1-&gt;right)) + <span class="dv">1</span>;
+  k2-&gt;height = max(k1-&gt;height, GetHeight(k2-&gt;right)) + <span class="dv">1</span>;
+  k1 = k2;
+}
+
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> AVLTree&lt;Comparable&gt;::DoubleRotateLeftChild(BinaryNode&lt;Comparable&gt; *&amp;k3) {
+  SingleRotateRightChild(k3-&gt;left);
+  SingleRotateLeftChild(k3);
+}
+
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> AVLTree&lt;Comparable&gt;::DoubleRotateRightChild(BinaryNode&lt;Comparable&gt; *&amp;k1) {
+  SingleRotateLeftChild(k1-&gt;right);
+  SingleRotateRightChild(k1);
+}
+
+<span class="co">/**</span>
+<span class="co"> * 计算 t 的平衡因子，分为四种不同情况分别调用不同函数处理</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span><span class="co"> 树根</span>
+<span class="co"> */</span>
+<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
+<span class="dt">void</span> AVLTree&lt;Comparable&gt;::Balance(BinaryNode&lt;Comparable&gt; *&amp;t) {
+  <span class="cf">if</span> (GetHeight(t-&gt;left) - GetHeight(t-&gt;right) == <span class="dv">2</span>) {
+    <span class="cf">if</span> (GetHeight(t-&gt;left-&gt;left) &gt; GetHeight(t-&gt;left-&gt;right)) {
+      SingleRotateLeftChild(t);
+    }
+    <span class="cf">else</span> <span class="cf">if</span> (GetHeight(t-&gt;left-&gt;left) &lt; GetHeight(t-&gt;left-&gt;right)) {
+      DoubleRotateLeftChild(t);
+    }
+    <span class="cf">else</span>
+      ;
+  }
+
+  <span class="cf">if</span> (GetHeight(t-&gt;left) - GetHeight(t-&gt;right) == <span class="dv">-2</span>) {
+    <span class="cf">if</span> (GetHeight(t-&gt;right-&gt;right) &gt; GetHeight(t-&gt;right-&gt;left)) {
+      SingleRotateRightChild(t);
+    }
+    <span class="cf">else</span> <span class="cf">if</span> (GetHeight(t-&gt;right-&gt;right) &lt; GetHeight(t-&gt;right-&gt;left)) {
+      DoubleRotateRightChild(t);
+    }
+    <span class="cf">else</span>
+      ;
+  }
+}
+
+<span class="pp">#endif </span><span class="co">/* _BINARYSEARCHTREE_H_ */</span></code></pre></div>
+<p><code>main.h</code></p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="pp">#include </span><span class="im">&quot;BinarySearchTree.h&quot;</span>
+
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
+  <span class="dt">int</span> a[<span class="dv">10</span>] = {<span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">2</span>};
+
+  AVLTree&lt;<span class="dt">int</span>&gt; avl;
+  avl.BuildBinaryTree(a, <span class="dv">10</span>);
+  avl.Insert(<span class="dv">11</span>);
+  avl.TraverseTree(<span class="dv">0</span>);
+
+  avl.Remove(<span class="dv">9</span>);
+  avl.TraverseTree(<span class="dv">0</span>);
+
+  avl.Remove(<span class="dv">10</span>);
+  avl.TraverseTree(<span class="dv">0</span>);
+
+  <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2009-12-02</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-04-14</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#Linux">
+          <div class="ui label">
+            Linux<sup>19</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#C++">
+          <div class="ui label">
+            C++<sup>5</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#Windows">
+          <div class="ui label">
+            Windows<sup>7</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#BST">
+          <div class="ui label">
+            BST<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#AVL">
+          <div class="ui label">
+            AVL<sup>1</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Meta
+    </div>
+    <p>
+      Imported from <a href="http://cnlox.is-programmer.com/posts/13677.html">is-programmer</a>.
+    </p>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="草泥马的中国移动" href="/posts/2009-11-14-fucking-china-mobile/">Prev</a><a class="item" title="总结下上半年的课程" href="/posts/2010-03-12-summary-on-courses-of-last-term/">Next</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>

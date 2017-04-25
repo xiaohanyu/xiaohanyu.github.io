@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>IT 民工搞 Gentoo 与农民种庄稼之间的关系</title>
+    <title>DVD 视频提取转换初步研究</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -43,44 +43,116 @@
     <article class="ui stackable divided grid"><header class="row article-head">
   <div class="column">
     <h1 class="ui header">
-      IT 民工搞 Gentoo 与农民种庄稼之间的关系
+      DVD 视频提取转换初步研究
     </h1>
     <div class="ui divider"></div>
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>夜半果然是头脑发达四肢简单的时光啊。忽然想到自己花一个月时间安装调试的 Gentoo 系统和农民种庄稼是一个道理。种庄稼的流程大体是：</p>
-<pre class="example"><code>while(1)
-{
-  \\ Gentoo：硬盘里面划出一块分区，给个分区号  /dev/sdaX
-  先在荒山野岭开辟一块地，打上标号;
-  \\ Gentoo：格式化文件系统
-  拔草松土浇水整地;
-  \\ Gentoo：准备基本系统工具，GNU toolchain，编译器，基本目录结构
-  准备锄头，铁锨，人力，物力，必要时加上电力;
-  \\ Gentoo：下载内核，根据系统硬件不同做不同的组合配置
-  买种子化肥，根据地面情况和气候环境情况进行不同的搭配;
-  \\ Gentoo：编译内核，compiling、compiling、compiling，
-  \\ 注意 compiling 过程中不能断电死机，否则重新来过，
-  \\ 隔断时间需要人力保证系统正常运行编译
-  播种施肥种庄稼，必须保证天时地利人和，才能有好收成;
-  \\ Gentoo：内核在编译。根据硬件配置编译时间长短不一
-  庄稼在成长，根据不同地区气候条件生长周期也不一样;
-  \\ Gentoo：CPU 温度降了，说明内核编译完了，开始检查是否正确
-  秋天到了，天气转冷，开始收获庄稼;
-  \\ Gentoo：装个引导器，设置好分区和 timeout，看能否启动系统
-  找亮卡车，告诉他哪块地，让它在一定时间内把庄稼拉回来;
-  if (收成好) {
-    \\ Gentoo：各种美化配置字体窗口环境，最终手续若干，得到成品
-    加工倒卖;
-  }
-  else {
-    \\ Gentoo：重新来过
-    continue;
-  }
-}
-</code></pre>
-<p>妙哉妙哉！有空再完善下。睡了睡了。</p>
+  <section class="twelve wide column"><h2 id="关于-dvd-格式">关于 DVD 格式</h2>
+<ul>
+<li>Digital Versatile Disc</li>
+<li>DVD 五种格式
+<ul>
+<li>DVD-VIDEO – 可达 17 G</li>
+<li>DVD-ROM</li>
+<li>DVD-R – 4.7 G</li>
+<li>DVD-RAM – 可以作为虚拟硬盘</li>
+<li>DVD-AUDIO – 比 CD 的音频品质好一倍</li>
+</ul></li>
+<li>DVD 区域码
+<ul>
+<li>DVD 联盟将全世界依地理区域分为 1–6 区，而每一部 DVD 播放机及每一片 DVD 都会被锁定只能在某一区中播放（依产品贩卖的地区锁上相对应的区域码）</li>
+<li>影片的锁码必须配合播放机的锁码（第 1 区的影片配合第 1 区的播放机，第 2 区的影片配合第2区的播放机.）你才能顺利的观赏影片!</li>
+<li>后来产的 DVD 播放机一般可以播放全区域的 DVD</li>
+</ul></li>
+<li>DVD 版权保护
+<ul>
+<li>CSS（Content Scrambling System，内容乱码系统）</li>
+<li>防类比设备翻录</li>
+<li>区码限制</li>
+</ul></li>
+</ul>
+<h2 id="关于-vob-格式">关于 VOB 格式</h2>
+<ul>
+<li>vob 文件用来保存所有 MPEG-2 格式的音频和视频数据，这些数据不仅包含影片本身，而且还有供菜单和按钮用的画面以及多种字幕的子画面流</li>
+<li>.ifo 文件用于控制 VOB 文件的播放，在这个文件中可以找到如何控制 .vob 文件中数据播放的信息</li>
+<li>有时候 .ifo 文件保存了一份副本，即同名的 .bup 文件</li>
+<li>每个 DVD 光盘中都有视频管理器（VMG），它存放在 <code>VIDEOTS.ifo</code> 文件中，保存了光盘的全局信息，如光盘可以在哪个地区播放等</li>
+<li>光盘还将用于显示菜单的数据保存在 <code>VIDEOTS.vob</code> 文件中，当光盘插入到光驱中时播放器会首先显示这个菜单，大多数菜单可让观众指定场景、选择语言字幕等</li>
+</ul>
+<h2 id="关于-ts-流和-ps-流">关于 TS 流和 PS 流</h2>
+<h3 id="ts-流">TS 流</h3>
+<ul>
+<li>DVD 节目中的 MPEG-2 格式，TS 的全称则是 Transport Stream</li>
+<li>MPEG-TS 主要应用于实时传送的节目，比如实时广播的电视节目</li>
+<li>TS 码流由于采用了固定长度的包结构，当传输误码破坏了某一 TS 包的同步信息时，接收机可在固定的位置检测它后面包中的同步信息，从而恢复同步，避免了信息丢失</li>
+<li>信道环境较为恶劣，传输误码较高时，一般采用 TS 码流</li>
+<li>TS 流（DVB-T，DMB-TH等）如果断了码流，后面的随时可以再开始解码怎么看都行</li>
+</ul>
+<h3 id="ps-流">PS 流</h3>
+<ul>
+<li>DVD 节目中的 MPEG-2 格式，是 MPEG-PS，全称是 Program Stream</li>
+<li>PS 包由于长度是变化的，一旦某一 PS包的同步信息丢失，接收机无法确定下一包的同步位置，就会造成失步，导致严重的信息丢失</li>
+<li>在信道环境较好，传输误码较低时，一般采用 PS 码流如 DVD 等等</li>
+<li>PS 流（主要用在 DVD 上）如是中间丢了一断码流，后面的都没法播了</li>
+</ul>
+<h2 id="关于-dvd-格式转换">关于 DVD 格式转换</h2>
+<h3 id="几个概念">几个概念</h3>
+<ul>
+<li>angle – 高级的 DVD 支持同一段场景的不同视角（angle），一般的 DVD 只有一个视角</li>
+<li>Title Set – 基本上一个 Title Set 的视频为一组内容，有的 DVD 会有好几个 Title Set，第一个 Title Set 往往是最长的，包含了主体影片的内容; 其余的 Title Set 往往是一些影片花絮啥的</li>
+<li>chapter – 应该是 DVD 字幕上用于选择章节的东西</li>
+</ul>
+<h3 id="gui-抓取转换工具">GUI 抓取转换工具</h3>
+<ol>
+<li><p>Windows</p>
+<ul>
+<li><a href="http://www.formatoz.com/CN_index.html">格式工厂</a></li>
+<li><a href="http://www.onlinedown.net/soft/16280.htm">视频转换大师</a></li>
+<li>……还有很多……</li>
+</ul></li>
+<li><p>Linux</p>
+<ul>
+<li><a href="http://www.exit1.org/dvdrip/">dvd::rip</a>（Perl 写的 GTK 程序，好像只能抓取单段的视频，无法拼接）</li>
+<li><a href="http://untrepid.com/acidrip/">acidrip</a></li>
+<li><a href="http://thoggen.net/">thoggen</a></li>
+</ul></li>
+</ol>
+<h2 id="cli-工具自动化脚本形式的抓取转换工具">CLI 工具，自动化（脚本形式）的抓取转换工具</h2>
+<h3 id="基本工具">基本工具</h3>
+<ul>
+<li><a href="http://untrepid.com/acidrip/lsdvd.html">lsdvd</a> – 读取 DVD 信息，可以得到 title set、duration 信息等等</li>
+<li><a href="http://dvdbackup.sourceforge.net/">dvdbackup</a> – rip video DVDs from the command line，同样可以读取 DVD 信息，有时需要 <a href="http://www.videolan.org/developers/libdvdcss.html">libdvdcss</a> 的支持，Ubuntu 上的安装方法可以参考 <a href="https://help.ubuntu.com/community/RestrictedFormats">Ubuntu Wiki</a></li>
+<li><a href="http://h264enc.sourceforge.net/">h264enc</a> – 交互式的抓取工具，Bash 脚本，整个脚本将近一万行（支持非常多的配置选项）</li>
+<li><a href="http://ffmpeg.org/">FFmpeg</a> and <a href="http://www.mplayerhq.hu/DOCS/HTML/en/mencoder.html">MEncoder</a> – Linux 下两款主要的音频和视频格式转换工具，绝大多数的GUI 工具都是这两个命令行工具的封装. 很多Windows播放器底层也是这两个。FFmpeg 还有个有趣的 <a href="http://ffmpeg.org/shame.html">Hall of Shame</a></li>
+<li><a href="http://www.mplayerhq.hu/">MPlayer</a> and <a href="http://www.videolan.org/vlc/">VLC</a> – Linux 下两款非常有名的播放器，功能非常强大，支持 framebuffer 和 ascii lib 的输出，很有趣</li>
+</ul>
+<h3 id="土法炼钢提取-vob-视频文件并合成一整个视频文件">土法炼钢提取 vob 视频文件并合成一整个视频文件</h3>
+<ul>
+<li>原理: vob 文件可以直接拼接（ <code>cat file1.vob file2.vob &gt;&gt; new_file.vob</code> ），拼接出来的 vob 文件可以正常播放（测试了两个拼接的文件和拼接后转换的 f4v 文件，网页和本地播放器均正常播放到结尾）</li>
+<li>思路:
+<ul>
+<li>先将整个的 DVD 内容拷贝到硬盘（比较节省光驱资源）</li>
+<li>进入 DVD 视频文件目录（一般为 VIDEO<sub>TS</sub>）</li>
+<li>用 lsdvd 或者 dvdbackup 工具找出 duration 最长的 title set，提取出这个 title set 里面的 vob 文件</li>
+<li>cat 命令拼接这些 vob 成一个新的 vob 文件</li>
+<li>利用 FFmpeg 转换脚本转换成新的格式</li>
+</ul></li>
+</ul>
+<h3 id="h264enc-交互式脚本合并">h264enc 交互式脚本合并</h3>
+<ul>
+<li>原理: 给予 MEncoder 的转换工具，可以自动化的设置码率，滤镜，crop 参数，提取 vob文件合并到一个文件中（输出格式可以指定）</li>
+<li>思路:
+<ul>
+<li>多做实验，将每次做实验的结果进行对比，选出最好的一组参数写成配置文件，调用 h264enc 做自动化的处理</li>
+</ul></li>
+</ul>
+<h2 id="todo-list">Todo list</h2>
+<ul>
+<li>深入研究下 MEncoder 的使用方法，以及 MEncoder 和 FFmpeg 的不同和关联</li>
+<li>深入了解分析下 h264enc 工具的脚本，了解下 h264enc 的配置文件</li>
+</ul>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
@@ -97,7 +169,7 @@
     <div class="ui small header">
       Committed
     </div>
-    <date>2010-03-28</date>
+    <date>2010-08-05</date>
     <div class="ui small header">
       Updated
     </div>
@@ -119,9 +191,23 @@
     </div>
     <div class="ui list">
       <div class="item">
-        <a href="/tags#Gentoo">
+        <a href="/tags#DVD">
           <div class="ui label">
-            Gentoo<sup>5</sup>
+            DVD<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#mencoder">
+          <div class="ui label">
+            mencoder<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#h264enc">
+          <div class="ui label">
+            h264enc<sup>1</sup>
           </div>
         </a>
       </div>
@@ -130,13 +216,13 @@
       Meta
     </div>
     <p>
-      Imported from <a href="http://cnlox.is-programmer.com/posts/16375.html">is-programmer</a>.
+      Imported from <a href="http://cnlox.is-programmer.com/posts/19726.html">is-programmer</a>.
     </p>
     <div class="ui small header">
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="放浪形骸之功，略有小成" href="/posts/2010-03-27-little-crazy-life/">Prev</a><a class="item" title="ZOJ 1089" href="/posts/2010-03-30-zoj-1089/">Next</a>
+      <a class="item" title="一个 Shell Script 的诞生" href="/posts/2010-08-04-a-small-shell-script/">Prev</a><a class="item" title="W3Cschool JavaScript 笔记（1）" href="/posts/2010-08-30-notes-on-w3cschool-javascript/">Next</a>
     </div>
   </aside>
 </div>
