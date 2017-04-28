@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://xiaohanyu.me/</id>
   <title>行者无疆 始于足下</title>
-  <updated>2014-04-28T16:31:07Z</updated>
+  <updated>2017-04-29T09:31:07Z</updated>
   <link rel="alternate" href="http://xiaohanyu.me/"/>
   <link rel="self" href="http://xiaohanyu.me/atom.xml"/>
   <author>
@@ -127,7 +127,7 @@ c&lt;span class="co"&gt;#: C#&lt;/span&gt;
 &lt;div class="sourceCode"&gt;&lt;pre class="sourceCode yaml"&gt;&lt;code class="sourceCode yaml"&gt;&lt;span class="ot"&gt;---&lt;/span&gt;
 &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; &lt;/span&gt;&lt;span class="st"&gt;&amp;quot;计算机是懒人的科学&amp;quot;&lt;/span&gt;
 &lt;span class="fu"&gt;created_at:&lt;/span&gt;&lt;span class="at"&gt; 2009-06-04T05:41:13+08:00&lt;/span&gt;
-&lt;span class="fu"&gt;updated_at:&lt;/span&gt;&lt;span class="at"&gt; 2014-04-26T17:31:07+08:00&lt;/span&gt;
+&lt;span class="fu"&gt;updated_at:&lt;/span&gt;&lt;span class="at"&gt; 2017-04-26T17:31:07+08:00&lt;/span&gt;
 &lt;span class="fu"&gt;kind:&lt;/span&gt;&lt;span class="at"&gt; article&lt;/span&gt;
 &lt;span class="fu"&gt;category:&lt;/span&gt;&lt;span class="at"&gt; Linux&lt;/span&gt;
 &lt;span class="fu"&gt;tags:&lt;/span&gt;
@@ -301,7 +301,7 @@ require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
     <id>tag:xiaohanyu.me,2016-09-08:/posts/2016-09-08-ppresume-a-new-start/</id>
     <title type="html">PPResume，新的起点</title>
     <published>2016-09-08T15:29:37Z</published>
-    <updated>2014-04-26T08:08:52Z</updated>
+    <updated>2017-04-29T08:08:52Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2016-09-08-ppresume-a-new-start/"/>
     <content type="html">&lt;h2 id="缘起"&gt;缘起&lt;/h2&gt;
 &lt;p&gt;转瞬间，从事自由职业达三年之久。&lt;/p&gt;
@@ -346,7 +346,7 @@ require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
     <id>tag:xiaohanyu.me,2016-04-20:/posts/2016-04-20-2015-summary/</id>
     <title type="html">2015，徘徊</title>
     <published>2016-04-20T10:26:17Z</published>
-    <updated>2014-04-26T08:08:52Z</updated>
+    <updated>2017-04-29T08:08:52Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2016-04-20-2015-summary/"/>
     <content type="html">&lt;h2 id="序"&gt;序&lt;/h2&gt;
 &lt;p&gt;2015 是在徘徊中缓步前行的一年。&lt;/p&gt;
@@ -509,7 +509,7 @@ require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
     <id>tag:xiaohanyu.me,2015-04-10:/posts/2015-04-10-2014-summary/</id>
     <title type="html">2014，漫步</title>
     <published>2015-04-10T15:29:37Z</published>
-    <updated>2014-04-26T08:08:52Z</updated>
+    <updated>2017-04-29T08:08:52Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2015-04-10-2014-summary/"/>
     <content type="html">&lt;p&gt;“亡羊补牢，未为迟也”，15 年已然过了三分之一，而我才开始憋 14 年的年终总结，想来必是颓废日久，点墨已尽的缘故。Anyway, better late than never。&lt;/p&gt;
 &lt;ul&gt;
@@ -664,7 +664,7 @@ require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
     <id>tag:xiaohanyu.me,2014-07-25:/posts/2014-07-25-build-static-site-with-nanoc-2/</id>
     <title type="html">Build Static Site with Nanoc (II)</title>
     <published>2014-07-25T14:19:17Z</published>
-    <updated>2014-04-26T08:08:52Z</updated>
+    <updated>2017-04-29T08:08:52Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2014-07-25-build-static-site-with-nanoc-2/"/>
     <content type="html">&lt;p&gt;&lt;a href="http://xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/"&gt;上篇&lt;/a&gt;主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog 本身的一些设计。&lt;/p&gt;
 &lt;h2 id="bootstrap"&gt;Bootstrap&lt;/h2&gt;
@@ -751,7 +751,7 @@ route &lt;span class="ot"&gt;%r{/sitemap/|/atom/}&lt;/span&gt; &lt;span class="k
     <id>tag:xiaohanyu.me,2014-05-04:/posts/2014-05-04-build-static-site-with-nanoc-1/</id>
     <title type="html">Build Static Site with Nanoc (I)</title>
     <published>2014-05-04T10:19:30Z</published>
-    <updated>2014-04-26T08:08:52Z</updated>
+    <updated>2017-04-29T08:08:52Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2014-05-04-build-static-site-with-nanoc-1/"/>
     <content type="html">&lt;p&gt;07 年我开始学会上网，那时候写 blog 应该还是一件相当时髦的事情。而我个人，作为一枚外表木讷闷骚，内心感情丰富的三好有为青年，自然对 blog 保持着强烈的好奇心，从一路转载，到絮叨自嗨，四五年坚持下来，总算找到了一点 blog 的感觉。所谓“工欲善其行，必先利其器”，头上顶了“书写是为了更好的思考”这面响当当的思想大旗，手头自然也希望能升级下一直以来残破不勘凑合能用的写作工具。于是祭出几年前刚开始折腾 Linux 时的那份耐性，断续折腾一年有余，总算略有小成。本文（及后续文章）尝试记录下这个 blog 的一些技术细节，希望对后来人有所启发。&lt;/p&gt;
 &lt;h2 id="why-static"&gt;Why Static?&lt;/h2&gt;
@@ -937,7 +937,7 @@ JSON-formatted AST
     <id>tag:xiaohanyu.me,2014-04-16:/posts/2014-04-16-new-blog-new-start/</id>
     <title type="html">New Blog, New Start</title>
     <published>2014-04-16T15:29:37Z</published>
-    <updated>2014-04-26T08:08:52Z</updated>
+    <updated>2017-04-29T08:08:52Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2014-04-16-new-blog-new-start/"/>
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;书写是为了更好的思考。&lt;/p&gt;
@@ -959,7 +959,7 @@ JSON-formatted AST
     <id>tag:xiaohanyu.me,2014-03-02:/posts/2014-03-03-2013-summary/</id>
     <title type="html">2013，青春绝版</title>
     <published>2014-03-02T17:13:20Z</published>
-    <updated>2014-04-26T09:29:38Z</updated>
+    <updated>2017-04-29T09:29:38Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2014-03-03-2013-summary/"/>
     <content type="html">&lt;p&gt;年岁大了，人也变得愈发慵懒，前一分钟还梦见那些“偷得浮生半年闲”的美好午后时光，回过头来，2014 已经过去了六分之一，而我还欠着自己一篇 2013 的年终总结。写文章，总得要有个名字吧。2012 是“静水深流”，那 2013 就叫“波涛汹涌”吧。可是我仔细回想了下 2013，想了两个月，终于发现，这一年，没有波涛，更谈不上汹涌。唯一攒下的，似乎就是自己肚腩上那因久坐长宅而堆起来的摇摇欲坠的一圈肥肉。这仿佛是岁月老人在提醒自己， 生命的年轮又多了一圈，而你却多了一圈肥肉……&lt;/p&gt;
 &lt;p&gt;没有“波涛”，自然也无法“汹涌”，倒是年初无心写下的一篇&lt;a href="http://xiaohanyu.me/posts/2013-01-25-thoughts-on-baidu/"&gt;博文&lt;/a&gt;，让我平静的生活泛起了一大圈涟漪。一夜之间，我成了中国互联网的名人。我的博文先后被转载到网易科技和水木论坛并成为当日的十大第一，微博上有小一万的转发量，至于博客上，光这一篇文章的访问量就占了所有博客文章的五分之一。博文的转载方式和标题也是五花八门，什么“离职名录， 屌丝逆袭”，什么“百度前‘小资’员工的控诉牛文”，什么“前员工追忆百度乱象：上下异心狼性压制人性”，更有甚者，说这是什么 360 的水军写文专门黑百度的。而我也收到了各种邮件，有百度学长发来压惊的，有出版人夸赞文笔不错询向约稿的，有单独约谈要交朋友的， 有猎头询向跳槽的，有手握百度 offer 但是看了我的文章后犹豫不决过来征询意见的，还有一位仁兄口口声声要“拜我为师”，让我肝颤不已。无意之间，我经历了一场不大不小的互联网舆论风暴，而我就躲在风暴中心的某个角落里，静静地观察着整个事件的演绎发展，除了偶尔在博客上现身回复下评论外，不做过多的辩解和争论。虽是如此，这篇文章的受众之广还是远超我的预料，以致于三月份我去参加 &lt;a href="http://lisp.org.cn/wiki/lisp/event/2013-meetup"&gt;lisp-cn meetup&lt;/a&gt; 时，朋友见面介绍都说“这位就是某某文章的作者”……&lt;/p&gt;
@@ -980,7 +980,7 @@ JSON-formatted AST
     <id>tag:xiaohanyu.me,2013-12-30:/posts/2013-12-30-announcing-oh-my-emacs-v0.3/</id>
     <title type="html">Announcing oh-my-emacs v0.3</title>
     <published>2013-12-30T14:00:32Z</published>
-    <updated>2014-04-26T09:29:39Z</updated>
+    <updated>2017-04-29T09:29:39Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2013-12-30-announcing-oh-my-emacs-v0.3/"/>
     <content type="html">&lt;p&gt;Today I’m happy to announce &lt;a href="https://github.com/xiaohanyu/oh-my-emacs"&gt;oh-my-emacs&lt;/a&gt; v0.3.&lt;/p&gt;
 &lt;p&gt;It has been three months since I first released oh-my-emacs from my homebrew messy dotemacs project to public. To my suprise, oh-my-emacs has attracted many interests from all over the world.&lt;/p&gt;
@@ -1040,7 +1040,7 @@ JSON-formatted AST
     <id>tag:xiaohanyu.me,2013-09-29:/posts/2013-09-29-announcing-ac-geiser-v0.2/</id>
     <title type="html">Announcing ac-geiser v0.1</title>
     <published>2013-09-29T08:47:56Z</published>
-    <updated>2014-04-26T09:29:39Z</updated>
+    <updated>2017-04-29T09:29:39Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2013-09-29-announcing-ac-geiser-v0.2/"/>
     <content type="html">&lt;p&gt;由于某位&lt;a href="http://sunng.info/"&gt;仁兄&lt;/a&gt;的抬爱，&lt;a href="https://github.com/xiaohanyu/oh-my-emacs/"&gt;oh-my-emacs&lt;/a&gt; 发布之后，在 &lt;a href="http://www.reddit.com/r/emacs/comments/1mfnlo/ohmyemacs_yet_another_starter_kit_for_emacs_users/"&gt;reddit&lt;/a&gt; 上出人意料地受到了很多人的关注。而我也在一夜之间收获了 20 多个 github star，以及人生的第一个 pull request。 突如其来的关注让我有些欣喜，也让我看到了两个月工作的价值。技术上来讲， oh-my-emacs 根本算不上“高端大气上档次”的项目，无非就是读文档读文档写文档外加 el-get package 的整合测试。不过话说回来，这两个月以来真心是写了不少文档啊，要是按照一个 el-get package 一篇 blog 来算，平均下来两天就可以有一篇 Emacs Tips 这种文章了。连我都有些佩服自己的耐心了。&lt;/p&gt;
 &lt;p&gt;我想，oh-my-emacs 之所以受到了一些的关注，归根到底，还是 oh-my-emacs 确实解决了一些现实中的问题吧。&lt;a href="http://xiaohanyu.me/posts/2013-09-14-announcing-oh-my-emacs-v0.2/"&gt;上篇博文&lt;/a&gt;中我曾经提到，基于 &lt;a href="https://github.com/auto-complete/auto-complete"&gt;auto-complete&lt;/a&gt; 的语义补全是 oh-my-emacs 最看重的目标之一。&lt;/p&gt;
