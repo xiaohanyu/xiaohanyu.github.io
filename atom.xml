@@ -138,7 +138,7 @@ c&lt;span class="co"&gt;#: C#&lt;/span&gt;
 &lt;span class="kw"&gt;-&lt;/span&gt; Outdated
 &lt;span class="fu"&gt;meta:&lt;/span&gt;
   &lt;span class="fu"&gt;html:&lt;/span&gt;&lt;span class="at"&gt; Imported from &amp;lt;a href=&amp;quot;http://cnlox.is-programmer.com/posts/8790.html&amp;quot;&amp;gt;is-programmer&amp;lt;/a&amp;gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;程序是用 Ruby 写的，主要还是用了 Ruby 中内建的 &lt;a href="https://ruby-doc.org/core-2.3.0/Regexp.html"&gt;Regexp&lt;/a&gt;。正则表达式是非常强大和方便的工具，但是每种语言、工具的实现都在一些细节处有一些细小的差距，所以实际应用时， 耐心的调试和文档查询工作是少不了的。&lt;/p&gt;
+&lt;p&gt;程序是用 Ruby 写的，主要还是用了 Ruby 中内建的 &lt;a href="https://ruby-doc.org/core-2.3.0/Regexp.html"&gt;Regexp&lt;/a&gt;。正则表达式是非常强大和方便的工具，但是每种语言、工具的实现都在一些细节处有一些细小的差别，所以实际应用时， 耐心的调试和文档查询工作是少不了的。&lt;/p&gt;
 &lt;p&gt;程序清单如下&lt;a href="#fn3" class="footnoteRef" id="fnref3"&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;：&lt;/p&gt;
 &lt;div class="sourceCode"&gt;&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;span class="co"&gt;# spider.rb&lt;/span&gt;
 require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
