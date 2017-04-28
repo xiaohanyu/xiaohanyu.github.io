@@ -12,12 +12,12 @@
   <entry>
     <id>tag:xiaohanyu.me,2017-04-28:/posts/2017-04-26-notes-about-migrating-data/</id>
     <title type="html">Blog 数据迁移草记</title>
-    <published>2017-04-28T16:31:07Z</published>
+    <published>2017-04-28T16:11:07Z</published>
     <updated>2014-04-28T16:31:07Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2017-04-26-notes-about-migrating-data/"/>
     <content type="html">&lt;p&gt;我发现我以前的 &lt;a href="http://cnlox.is-programmer.com/"&gt;Blog&lt;/a&gt; 还是有挺多访问流量的，以前写的文章虽然有一半是流水帐，但毕竟还是记录了自己的成长，因此还是有点“敝帚自珍”的。is-programmer 最近也不是太稳定， 说不定哪天就挂了，因此我又花了快两周的时间，把原有 Blog 上的 126 篇文章全部迁移了过来。这里草记下数据迁移过程，仅做备忘。&lt;/p&gt;
 &lt;p&gt;一般而言，&lt;a href="https://en.wikipedia.org/wiki/User-generated_content"&gt;UGC&lt;/a&gt; 平台只有在关闭的时候才会提供一个数据导出的选项，默认情况下，一般都不会提供这个选项，否则用户迁移起来太容易，对一个 UGC 产品来说可不是什么太好的事情。&lt;/p&gt;
-&lt;p&gt;因为要拿到我原有的 126 篇文章的数据，比较土的办法就是一篇一篇地 Copy &amp;amp; Paste，稍微高级一些的方法就是写个小爬虫，把数据爬下来，再做处理。&lt;/p&gt;
+&lt;p&gt;因此要拿到我原有的 126 篇文章的数据，比较土的办法就是一篇一篇地 Copy &amp;amp; Paste，稍微高级一些的方法就是写个小爬虫，把数据爬下来，再做处理。&lt;/p&gt;
 &lt;p&gt;首先是拿到 126 篇文章的的一些基础数据：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;标题&lt;/li&gt;
@@ -113,8 +113,8 @@ c&lt;span class="co"&gt;#: C#&lt;/span&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;title&lt;/code&gt; – 文章标题&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;created_at&lt;/code&gt; – 创建时间&lt;/li&gt;
-&lt;li&gt;tags&lt;/li&gt;
-&lt;li&gt;category&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tags&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;category&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;原文章的 URL&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;用 &lt;a href="http://pandoc.org/"&gt;Pandoc&lt;/a&gt; 将抓取下的 HTML 转换成 Org-mode 格式&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
