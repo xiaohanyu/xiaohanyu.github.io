@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://xiaohanyu.me/</id>
   <title>行者无疆 始于足下</title>
-  <updated>2017-04-14T09:31:07Z</updated>
+  <updated>2014-04-28T16:31:07Z</updated>
   <link rel="alternate" href="http://xiaohanyu.me/"/>
   <link rel="self" href="http://xiaohanyu.me/atom.xml"/>
   <author>
@@ -10,10 +10,298 @@
     <uri>http://xiaohanyu.me</uri>
   </author>
   <entry>
+    <id>tag:xiaohanyu.me,2017-04-28:/posts/2017-04-26-notes-about-migrating-data/</id>
+    <title type="html">Blog 数据迁移草记</title>
+    <published>2017-04-28T16:31:07Z</published>
+    <updated>2014-04-28T16:31:07Z</updated>
+    <link rel="alternate" href="http://xiaohanyu.me/posts/2017-04-26-notes-about-migrating-data/"/>
+    <content type="html">&lt;p&gt;我发现我以前的 &lt;a href="http://cnlox.is-programmer.com/"&gt;Blog&lt;/a&gt; 还是有挺多访问流量的，以前写的文章虽然有一半是流水帐，但毕竟还是记录了自己的成长，因此还是有点“敝帚自珍”的。is-programmer 最近也不是太稳定， 说不定哪天就挂了，因此我又花了快两周的时间，把原有 Blog 上的 126 篇文章全部迁移了过来。这里草记下数据迁移过程，仅做备忘。&lt;/p&gt;
+&lt;p&gt;一般而言，&lt;a href="https://en.wikipedia.org/wiki/User-generated_content"&gt;UGC&lt;/a&gt; 平台只有在关闭的时候才会提供一个数据导出的选项，默认情况下，一般都不会提供这个选项，否则用户迁移起来太容易，对一个 UGC 产品来说可不是什么太好的事情。&lt;/p&gt;
+&lt;p&gt;因为要拿到我原有的 126 篇文章的数据，比较土的办法就是一篇一篇地 Copy &amp;amp; Paste，稍微高级一些的方法就是写个小爬虫，把数据爬下来，再做处理。&lt;/p&gt;
+&lt;p&gt;首先是拿到 126 篇文章的的一些基础数据：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;标题&lt;/li&gt;
+&lt;li&gt;URL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方式是通过 Wget 和 Bash 的 &lt;code class="sourceCode bash" rundoc-language="sh"&gt;&lt;span class="kw"&gt;for&lt;/span&gt;&lt;/code&gt; 循环：&lt;/p&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;$ &lt;span class="kw"&gt;for&lt;/span&gt; &lt;span class="ex"&gt;i&lt;/span&gt; in &lt;span class="kw"&gt;`&lt;/span&gt;&lt;span class="fu"&gt;seq&lt;/span&gt; 1 26&lt;span class="kw"&gt;`;&lt;/span&gt; &lt;span class="kw"&gt;do&lt;/span&gt; &lt;span class="fu"&gt;wget&lt;/span&gt; -c http://cnlox.is-programmer.com/\?page\=&lt;span class="va"&gt;$i&lt;/span&gt; -O &lt;span class="va"&gt;$i&lt;/span&gt;.html&lt;span class="kw"&gt;;&lt;/span&gt; &lt;span class="kw"&gt;done&lt;/span&gt;
+
+$ &lt;span class="fu"&gt;ls&lt;/span&gt;
+&lt;span class="ex"&gt;1.html&lt;/span&gt;    11.html   13.html   15.html   17.html   19.html   20.html   22.html   24.html   26.html   4.html    6.html    8.html
+&lt;span class="ex"&gt;10.html&lt;/span&gt;   12.html   14.html   16.html   18.html   2.html    21.html   23.html   25.html   3.html    5.html    7.html    9.html
+
+$ &lt;span class="kw"&gt;for&lt;/span&gt; &lt;span class="ex"&gt;i&lt;/span&gt; in &lt;span class="kw"&gt;`&lt;/span&gt;&lt;span class="fu"&gt;seq&lt;/span&gt; 1 26&lt;span class="kw"&gt;`;&lt;/span&gt; &lt;span class="kw"&gt;do&lt;/span&gt; &lt;span class="fu"&gt;grep&lt;/span&gt; link_to_post &lt;span class="va"&gt;$i&lt;/span&gt;.html&lt;span class="kw"&gt;;&lt;/span&gt; &lt;span class="kw"&gt;done&lt;/span&gt; &lt;span class="op"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ex"&gt;urls.html&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这样我们拿到了一个 &lt;code&gt;urls.html&lt;/code&gt;&lt;/p&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode html"&gt;&lt;code class="sourceCode html"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/44972.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;Goodbye and Thanks to is-programmer&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/43206.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;2013, 青春绝版&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/42237.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;Announcing oh-my-emacs v0.3&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/40912.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt; Announcing ac-geiser v0.1&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/40749.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;Announcing oh-my-emacs v0.1&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/39883.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;OpenStack开发杂谈&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37506.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;轻松一刻：电影条形码转换脚本&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37288.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;慎言多思&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37276.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;李彦宏的“罪己诏”&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37030.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;2012，静水深流&amp;lt;/a&amp;gt;&lt;span class="kw"&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37022.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;陪床记&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/35867.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;Emacs as a Python IDE&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/35680.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;读行记：孤单是一个人的狂欢&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/34489.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;偷得浮生半年闲&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class="co"&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;我通过 &lt;a href="http://vim.wikia.com/wiki/Macros"&gt;Vim Macro&lt;/a&gt;，把这个文件的内容变成 &lt;a href="http://yaml.org/"&gt;YAML&lt;/a&gt; 格式，并加入一个额外的 &lt;code&gt;english_title&lt;/code&gt; 字段，这个字段会变成新的文章的 &lt;a href="https://en.wikipedia.org/wiki/URL"&gt;URL Path&lt;/a&gt; 的一部分：&lt;/p&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode yaml"&gt;&lt;code class="sourceCode yaml"&gt;&lt;span class="co"&gt;# url_list.yaml&lt;/span&gt;
+&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/44972.html&lt;/span&gt;
+  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; Goodbye and Thanks to is-programmer.com&lt;/span&gt;
+  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; goodbye-and-thanks-to-is-programmer&lt;/span&gt;
+&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/43206.html&lt;/span&gt;
+  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 2013, 青春绝版&lt;/span&gt;
+  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; 2013-summary&lt;/span&gt;
+&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/42237.html&lt;/span&gt;
+  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; Announcing oh-my-emacs v0.3&lt;/span&gt;
+  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; announcing-oh-my-emacs-v0.3&lt;/span&gt;
+&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/40912.html&lt;/span&gt;
+  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; Announcing ac-geiser v0.1&lt;/span&gt;
+  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; announcing-ac-geiser-v0.2&lt;/span&gt;
+&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/40749.html&lt;/span&gt;
+  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; Announcing oh-my-emacs v0.1&lt;/span&gt;
+  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; announcing-oh-my-emacs-v0.2&lt;/span&gt;
+&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/39883.html&lt;/span&gt;
+  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; OpenStack开发杂谈&lt;/span&gt;
+  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; misc-thoughts-on-openstack-development&lt;/span&gt;
+&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37506.html&lt;/span&gt;
+  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 轻松一刻：电影条形码转换脚本&lt;/span&gt;
+  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; just-for-fun-moviebarcode-shell-script&lt;/span&gt;
+&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37288.html&lt;/span&gt;
+  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 慎言多思&lt;/span&gt;
+  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; fewer-words-more-thoughts&lt;/span&gt;
+&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37276.html&lt;/span&gt;
+  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 李彦宏的“罪己诏”&lt;/span&gt;
+  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; thoughts-on-baidu&lt;/span&gt;
+&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37030.html&lt;/span&gt;
+  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 2012，静水深流&lt;/span&gt;
+  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; 2012-summary&lt;/span&gt;
+&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37022.html&lt;/span&gt;
+  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 陪床记&lt;/span&gt;
+  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; for-my-father&lt;/span&gt;
+&lt;span class="co"&gt;# ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;我原有的 Blog 文章，每一篇都会有一些 tag，但是这些 tag 的拼写有很多是错误的，因此我又将所有的 tag 爬取下来并 fix，也是保存成 YAML 格式以方便程序读取：&lt;/p&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode yaml"&gt;&lt;code class="sourceCode yaml"&gt;&lt;span class="co"&gt;# tags_fix.yaml&lt;/span&gt;
+&lt;span class="fu"&gt;amarok:&lt;/span&gt;&lt;span class="at"&gt; Amarok&lt;/span&gt;
+&lt;span class="fu"&gt;animal:&lt;/span&gt;&lt;span class="at"&gt; Animal&lt;/span&gt;
+&lt;span class="fu"&gt;apache:&lt;/span&gt;&lt;span class="at"&gt; Apache&lt;/span&gt;
+&lt;span class="fu"&gt;api:&lt;/span&gt;&lt;span class="at"&gt; API&lt;/span&gt;
+&lt;span class="fu"&gt;archlinux:&lt;/span&gt;&lt;span class="at"&gt; Arch Linux&lt;/span&gt;
+&lt;span class="fu"&gt;assembly:&lt;/span&gt;&lt;span class="at"&gt; Assembly&lt;/span&gt;
+&lt;span class="fu"&gt;auctex:&lt;/span&gt;&lt;span class="at"&gt; AUCTeX&lt;/span&gt;
+&lt;span class="fu"&gt;avl:&lt;/span&gt;&lt;span class="at"&gt; AVL&lt;/span&gt;
+&lt;span class="fu"&gt;baidu:&lt;/span&gt;&lt;span class="at"&gt; Baidu&lt;/span&gt;
+&lt;span class="fu"&gt;budai:&lt;/span&gt;&lt;span class="at"&gt; Budai&lt;/span&gt;
+c&lt;span class="co"&gt;#: C#&lt;/span&gt;
+&lt;span class="fu"&gt;c++:&lt;/span&gt;&lt;span class="at"&gt; C++&lt;/span&gt;
+&lt;span class="fu"&gt;cc98:&lt;/span&gt;&lt;span class="at"&gt; CC98&lt;/span&gt;
+&lt;span class="fu"&gt;ccl:&lt;/span&gt;&lt;span class="at"&gt; CCL&lt;/span&gt;
+&lt;span class="fu"&gt;cdlatex:&lt;/span&gt;&lt;span class="at"&gt; CDLaTeX&lt;/span&gt;
+&lt;span class="fu"&gt;cmake:&lt;/span&gt;&lt;span class="at"&gt; CMAKE&lt;/span&gt;
+&lt;span class="fu"&gt;cocoa:&lt;/span&gt;&lt;span class="at"&gt; Cocoa&lt;/span&gt;
+&lt;span class="fu"&gt;colinux:&lt;/span&gt;&lt;span class="at"&gt; coLinux&lt;/span&gt;
+&lt;span class="fu"&gt;compiler:&lt;/span&gt;&lt;span class="at"&gt; Compiler&lt;/span&gt;
+&lt;span class="fu"&gt;conky:&lt;/span&gt;&lt;span class="at"&gt; conky&lt;/span&gt;
+&lt;span class="co"&gt;# ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;基础工作做好之后，接下来就是写程序，根据 &lt;code&gt;url_list.yaml&lt;/code&gt; 来对每一篇文章进行批量化的处理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;抓取文章内容&lt;/li&gt;
+&lt;li&gt;分析文章的 metadata，包括：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;title&lt;/code&gt; – 文章标题&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;created_at&lt;/code&gt; – 创建时间&lt;/li&gt;
+&lt;li&gt;tags&lt;/li&gt;
+&lt;li&gt;category&lt;/li&gt;
+&lt;li&gt;原文章的 URL&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;用 &lt;a href="http://pandoc.org/"&gt;Pandoc&lt;/a&gt; 将抓取下的 HTML 转换成 Org-mode 格式&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;确定迁移后的文章的 URL&lt;/li&gt;
+&lt;li&gt;修正 Tag&lt;/li&gt;
+&lt;li&gt;保存文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以 is-programmer 抓取下来的文章，最后会被保存成一个 &lt;code&gt;YYYY-MM-DD-some-title.org&lt;/code&gt; 文件和 &lt;code&gt;YYYY-MM-DD-some-title.yaml&lt;/code&gt; 文件，以符合 &lt;a href="https://nanoc.ws"&gt;Nanoc&lt;/a&gt; 的要求&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;保存后的 YAML 文件大约如下：&lt;/p&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode yaml"&gt;&lt;code class="sourceCode yaml"&gt;&lt;span class="ot"&gt;---&lt;/span&gt;
+&lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; &lt;/span&gt;&lt;span class="st"&gt;&amp;quot;计算机是懒人的科学&amp;quot;&lt;/span&gt;
+&lt;span class="fu"&gt;created_at:&lt;/span&gt;&lt;span class="at"&gt; 2009-06-04T05:41:13+08:00&lt;/span&gt;
+&lt;span class="fu"&gt;updated_at:&lt;/span&gt;&lt;span class="at"&gt; 2014-04-26T17:31:07+08:00&lt;/span&gt;
+&lt;span class="fu"&gt;kind:&lt;/span&gt;&lt;span class="at"&gt; article&lt;/span&gt;
+&lt;span class="fu"&gt;category:&lt;/span&gt;&lt;span class="at"&gt; Linux&lt;/span&gt;
+&lt;span class="fu"&gt;tags:&lt;/span&gt;
+&lt;span class="kw"&gt;-&lt;/span&gt; Ubuntu
+&lt;span class="kw"&gt;-&lt;/span&gt; LaTeX
+&lt;span class="kw"&gt;-&lt;/span&gt; Emacs
+&lt;span class="kw"&gt;-&lt;/span&gt; Firefox
+&lt;span class="kw"&gt;-&lt;/span&gt; Outdated
+&lt;span class="fu"&gt;meta:&lt;/span&gt;
+  &lt;span class="fu"&gt;html:&lt;/span&gt;&lt;span class="at"&gt; Imported from &amp;lt;a href=&amp;quot;http://cnlox.is-programmer.com/posts/8790.html&amp;quot;&amp;gt;is-programmer&amp;lt;/a&amp;gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;程序是用 Ruby 写的，主要还是用了 Ruby 中内建的 &lt;a href="https://ruby-doc.org/core-2.3.0/Regexp.html"&gt;Regexp&lt;/a&gt;。正则表达式是非常强大和方便的工具，但是每种语言、工具的实现都在一些细节处有一些细小的差距，所以实际应用时， 耐心的调试和文档查询工作是少不了的。&lt;/p&gt;
+&lt;p&gt;程序清单如下&lt;a href="#fn3" class="footnoteRef" id="fnref3"&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;：&lt;/p&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;span class="co"&gt;# spider.rb&lt;/span&gt;
+require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
+require &lt;span class="st"&gt;&amp;#39;net/http&amp;#39;&lt;/span&gt;
+
+list = &lt;span class="dt"&gt;YAML&lt;/span&gt;::load(&lt;span class="dt"&gt;File&lt;/span&gt;.open(&lt;span class="st"&gt;&amp;#39;url_list.yaml&amp;#39;&lt;/span&gt;).read)
+tags_fix = &lt;span class="dt"&gt;YAML&lt;/span&gt;::load(&lt;span class="dt"&gt;File&lt;/span&gt;.open(&lt;span class="st"&gt;&amp;#39;tags_fix.yaml&amp;#39;&lt;/span&gt;).read)
+
+list.each &lt;span class="kw"&gt;do&lt;/span&gt; |item|
+  uri = &lt;span class="dt"&gt;URI&lt;/span&gt;(item[&lt;span class="st"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;])
+  html = &lt;span class="dt"&gt;Net&lt;/span&gt;::&lt;span class="dt"&gt;HTTP&lt;/span&gt;.get(uri)
+  tags_re = &lt;span class="ot"&gt;/&amp;lt;a href=&amp;quot;\/tag\/[\S]*&amp;quot;&amp;gt;([\S]*)&amp;lt;\/a&amp;gt;/&lt;/span&gt;
+  tags = html.scan(tags_re).flatten
+
+  category_re = &lt;span class="ot"&gt;/&amp;lt;div id=&amp;quot;article_header&amp;quot;&amp;gt;.*&amp;lt;a href=&amp;quot;\/categories\/[\d]*\/posts&amp;quot;&amp;gt;([\S]*)&amp;lt;\/a&amp;gt;.*&amp;lt;\/div&amp;gt;/m&lt;/span&gt;
+  category = html.scan(category_re).flatten[&lt;span class="dv"&gt;0&lt;/span&gt;]
+
+  date_re = &lt;span class="ot"&gt;/posted.*@ (.* \+0800)/&lt;/span&gt;
+  created_at = &lt;span class="dt"&gt;DateTime&lt;/span&gt;.parse(html.scan(date_re).flatten[&lt;span class="dv"&gt;0&lt;/span&gt;])
+  updated_at = &lt;span class="dt"&gt;DateTime&lt;/span&gt;.now
+
+  title = item[&lt;span class="st"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;]
+
+  yaml = &amp;lt;&amp;lt;&lt;span class="kw"&gt;YAML&lt;/span&gt;
+&lt;span class="ot"&gt;---&lt;/span&gt;
+&lt;span class="ot"&gt;title: &amp;quot;#{&lt;/span&gt;item[&lt;span class="st"&gt;&amp;quot;title&amp;quot;&lt;/span&gt;]&lt;span class="ot"&gt;}&amp;quot;&lt;/span&gt;
+&lt;span class="ot"&gt;created_at: #{&lt;/span&gt;created_at.to_s&lt;span class="ot"&gt;}&lt;/span&gt;
+&lt;span class="ot"&gt;updated_at: #{&lt;/span&gt;updated_at.to_s&lt;span class="ot"&gt;}&lt;/span&gt;
+&lt;span class="ot"&gt;kind: article&lt;/span&gt;
+&lt;span class="ot"&gt;category: #{&lt;/span&gt;category&lt;span class="ot"&gt;}&lt;/span&gt;
+&lt;span class="ot"&gt;tags:&lt;/span&gt;
+&lt;span class="ot"&gt;YAML&lt;/span&gt;
+
+&lt;span class="ot"&gt;  tags.each do |tag|&lt;/span&gt;
+&lt;span class="ot"&gt;    yaml += &amp;quot;- #{&lt;/span&gt;tags_fix[tag].force_encoding(&lt;span class="dt"&gt;Encoding&lt;/span&gt;::&lt;span class="dt"&gt;UTF_8&lt;/span&gt;)&lt;span class="ot"&gt;}\n&amp;quot;&lt;/span&gt;
+&lt;span class="ot"&gt;  end&lt;/span&gt;
+
+&lt;span class="ot"&gt;  yaml += &amp;lt;&amp;lt;YAML&lt;/span&gt;
+&lt;span class="ot"&gt;meta:&lt;/span&gt;
+&lt;span class="ot"&gt;  html: Imported from &amp;lt;a href=&amp;quot;#{&lt;/span&gt;item[&lt;span class="st"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;]&lt;span class="ot"&gt;}&amp;quot;&amp;gt;is-programmer&amp;lt;/a&amp;gt;.&lt;/span&gt;
+&lt;span class="ot"&gt;YAML&lt;/span&gt;
+
+&lt;span class="ot"&gt;  yaml_file = &amp;quot;posts/&amp;quot; + created_at.strftime(&amp;#39;%Y-%m-%d&amp;#39;) + &amp;quot;-&amp;quot; + item[&amp;quot;english-title&amp;quot;] + &amp;quot;.yaml&amp;quot;&lt;/span&gt;
+
+&lt;span class="ot"&gt;  File.open(yaml_file, &amp;#39;w&amp;#39;) do |f|&lt;/span&gt;
+&lt;span class="ot"&gt;    f.write(yaml)&lt;/span&gt;
+&lt;span class="ot"&gt;  end&lt;/span&gt;
+
+&lt;span class="ot"&gt;  org_file = &amp;quot;posts/&amp;quot; + created_at.strftime(&amp;#39;%Y-%m-%d&amp;#39;) + &amp;quot;-&amp;quot; + item[&amp;quot;english-title&amp;quot;] + &amp;quot;.org&amp;quot;&lt;/span&gt;
+&lt;span class="ot"&gt;  article_content_re = /&amp;lt;div id=.article_content.&amp;gt;(.*)&amp;lt;\/div&amp;gt;.*&amp;lt;div id=.article_bar.&amp;gt;/m&lt;/span&gt;
+&lt;span class="ot"&gt;  article_content = html.scan(article_content_re).flatten[0]&lt;/span&gt;
+
+&lt;span class="ot"&gt;  File.open(&amp;#39;/tmp/test.html&amp;#39;, &amp;#39;w&amp;#39;) do |f|&lt;/span&gt;
+&lt;span class="ot"&gt;    f.write(article_content)&lt;/span&gt;
+&lt;span class="ot"&gt;  end&lt;/span&gt;
+
+&lt;span class="ot"&gt;  `pandoc /tmp/test.html -o #{&lt;/span&gt;org_file&lt;span class="ot"&gt;}`&lt;/span&gt;
+&lt;span class="ot"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;再之后，可以通过一些初级的正则替换，来完成一些最基本的文本修正工作。我这里最主要是通过 Ruby 的 Regexp，给文章中的中英文混排的英文单词两边加入了一个合适的半角空格。Ruby 的 Regexp 可以通过 &lt;code&gt;/(\p{Han})/&lt;/code&gt; 来直接匹配汉字，实在是非常方便。 程序清单如下：&lt;/p&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;span class="co"&gt;# article_fix.rb&lt;/span&gt;
+require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
+
+&lt;span class="kw"&gt;def&lt;/span&gt; fix_english_word(content)
+  alpha_re = &lt;span class="ot"&gt;/(\p{Han})([[:ascii:]]+?)(\p{Han})/&lt;/span&gt;
+  word_fix = &lt;span class="dt"&gt;YAML&lt;/span&gt;::load(&lt;span class="dt"&gt;File&lt;/span&gt;.open(&lt;span class="st"&gt;&amp;#39;tags_fix.yaml&amp;#39;&lt;/span&gt;).read)
+  new_word_fix = {}
+  word_fix.each_pair &lt;span class="kw"&gt;do&lt;/span&gt; |key, value|
+    new_word_fix[key.downcase] = value
+  &lt;span class="kw"&gt;end&lt;/span&gt;
+
+  content.gsub(alpha_re) &lt;span class="kw"&gt;do&lt;/span&gt;
+    &lt;span class="kw"&gt;if&lt;/span&gt; new_word_fix.has_key?(&lt;span class="dt"&gt;$2&lt;/span&gt;.downcase)
+      fix_word = new_word_fix[&lt;span class="dt"&gt;$2&lt;/span&gt;.downcase]
+    &lt;span class="kw"&gt;else&lt;/span&gt;
+      fix_word = &lt;span class="dt"&gt;$2&lt;/span&gt;
+    &lt;span class="kw"&gt;end&lt;/span&gt;
+    &lt;span class="dt"&gt;$1&lt;/span&gt; + &lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt; + fix_word +  &lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt; + &lt;span class="dt"&gt;$3&lt;/span&gt;
+  &lt;span class="kw"&gt;end&lt;/span&gt;
+&lt;span class="kw"&gt;end&lt;/span&gt;
+
+&lt;span class="kw"&gt;def&lt;/span&gt; fix_english_word_with_punct(content)
+  alpha_re = &lt;span class="ot"&gt;/(\p{Han})([[:ascii:]]+?)(\p{Punct})/&lt;/span&gt;
+  word_fix = &lt;span class="dt"&gt;YAML&lt;/span&gt;::load(&lt;span class="dt"&gt;File&lt;/span&gt;.open(&lt;span class="st"&gt;&amp;#39;tags_fix.yaml&amp;#39;&lt;/span&gt;).read)
+  new_word_fix = {}
+  word_fix.each_pair &lt;span class="kw"&gt;do&lt;/span&gt; |key, value|
+    new_word_fix[key.downcase] = value
+  &lt;span class="kw"&gt;end&lt;/span&gt;
+
+  content.gsub(alpha_re) &lt;span class="kw"&gt;do&lt;/span&gt;
+    &lt;span class="kw"&gt;if&lt;/span&gt; new_word_fix.has_key?(&lt;span class="dt"&gt;$2&lt;/span&gt;.downcase)
+      fix_word = new_word_fix[&lt;span class="dt"&gt;$2&lt;/span&gt;.downcase]
+    &lt;span class="kw"&gt;else&lt;/span&gt;
+      fix_word = &lt;span class="dt"&gt;$2&lt;/span&gt;
+    &lt;span class="kw"&gt;end&lt;/span&gt;
+    &lt;span class="dt"&gt;$1&lt;/span&gt; + &lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt; + fix_word +  &lt;span class="dt"&gt;$3&lt;/span&gt;
+  &lt;span class="kw"&gt;end&lt;/span&gt;
+&lt;span class="kw"&gt;end&lt;/span&gt;
+
+&lt;span class="kw"&gt;def&lt;/span&gt; fix_bullet_point(content)
+  content.gsub(&lt;span class="ot"&gt;/^-\s+/&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;- &amp;#39;&lt;/span&gt;)
+&lt;span class="kw"&gt;end&lt;/span&gt;
+
+&lt;span class="kw"&gt;def&lt;/span&gt; fix_org_properties(content)
+  content.gsub(&lt;span class="ot"&gt;/.*PROPERTIES.*\n\s+:CUSTOM_ID:.*\n.*END.*\n\n/&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;)
+&lt;span class="kw"&gt;end&lt;/span&gt;
+
+&lt;span class="kw"&gt;def&lt;/span&gt; fix_org_section_title(content)
+  content.gsub(&lt;span class="ot"&gt;/(^\*{1,4})\s*.*\[.*\]\[(.*)\]\]/&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;\1 \2&amp;#39;&lt;/span&gt;)
+&lt;span class="kw"&gt;end&lt;/span&gt;
+
+&lt;span class="kw"&gt;def&lt;/span&gt; fix_source_code(content)
+  content.gsub(&lt;span class="st"&gt;&amp;#39;BEGIN_EXAMPLE&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;BEGIN_SRC&amp;#39;&lt;/span&gt;).
+    gsub(&lt;span class="st"&gt;&amp;#39;END_EXAMPLE&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;END_SRC&amp;#39;&lt;/span&gt;).
+    gsub(&lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt;, &lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt;)
+&lt;span class="kw"&gt;end&lt;/span&gt;
+
+&lt;span class="kw"&gt;def&lt;/span&gt; main(file)
+  content = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+  &lt;span class="dt"&gt;File&lt;/span&gt;.open(file) &lt;span class="kw"&gt;do&lt;/span&gt; |f|
+    content = f.read
+  &lt;span class="kw"&gt;end&lt;/span&gt;
+
+  content =
+    fix_english_word_with_punct(
+      fix_english_word(
+        fix_bullet_point(
+          fix_org_properties(
+            fix_org_section_title(
+              fix_source_code(content)
+            )
+          )
+        )
+      )
+    )
+
+  &lt;span class="dt"&gt;File&lt;/span&gt;.open(file, &lt;span class="ch"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;) &lt;span class="kw"&gt;do&lt;/span&gt; |f|
+    f.write(content)
+  &lt;span class="kw"&gt;end&lt;/span&gt;
+&lt;span class="kw"&gt;end&lt;/span&gt;
+
+&lt;span class="kw"&gt;if&lt;/span&gt; &lt;span class="dv"&gt;__FILE__&lt;/span&gt; == &lt;span class="dt"&gt;$0&lt;/span&gt;
+  main(&lt;span class="dt"&gt;ARGV&lt;/span&gt;[&lt;span class="dv"&gt;0&lt;/span&gt;])
+&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;再之后就是十分枯燥的工作了，我主要是按照这份文案排版&lt;a href="http://ppresume.com/notes/guide-zh.html"&gt;方案&lt;/a&gt;来修正很多的文字错误，前后大概花了有 10 天的时间：&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2017/type_fix.png"&gt;&lt;img src="/static/image/2017/type_fix.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;加上调试程序，总共大约是花了两周的时间，于现在的我而言，是相当大的时间成本，这也是我迟迟没有动手做这个事的原因。不过好在下了决心后，快刀斩乱麻，坚持下也就完成了。&lt;/p&gt;
+&lt;p&gt;修订文章的过程中，又从头到尾回顾了下自己过去七八年的工作生活经历，文章中很多唠叨的琐事，若不是当时动笔叨扰一下，已然完全记不得了；还有些观点年少轻狂，现在再读也会哑然无言，略感羞愧，不过这毕竟是曾经的自己，因此除了一些必要的文法修正，内容依然保持原样。&lt;/p&gt;
+&lt;p&gt;当我写下第一篇&lt;a href="http://xiaohanyu.me/posts/2009-06-04-computer-science-for-lazy-guys/"&gt;文章&lt;/a&gt;时，我还只是个 20 岁出头的少年，刚刚挂了很多课，刚刚一只脚踏入计算机学习的大门；现如今当我有了足够的能力可以自己从前端到后端建立一个中小型网站写出还可以的文章之时，已近而立。这些年做了很多的选择，相对的，人生也少了很多选择——或者说是迷茫吧。而随着这种迷茫的消逝相伴而来的，是人生的选择面在逐渐减小。小十年的青春韶华，只落下几篇文章几万文字，想来不免要感慨——人生于世，大概就如那大河之水，或早或晚都要归于大海吧。&lt;/p&gt;
+&lt;section class="footnotes"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn1"&gt;&lt;p&gt;实际上也可以转换成 Markdown 或者其它任何方便编辑的文本标记格式，我个人是更喜欢使用 Org-mode。&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn2"&gt;&lt;p&gt;这个站点从创建之初就采用了 Nanoc，体验非常棒，具体可以参考我以前写的两篇&lt;a href="http://xiaohanyu.me/posts/2014-05-04-build-static-site-with-nanoc-1/"&gt;文&lt;/a&gt;&lt;a href="http://xiaohanyu.me/posts/2014-07-25-build-static-site-with-nanoc-2/"&gt;章&lt;/a&gt;。&lt;a href="#fnref2"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn3"&gt;&lt;p&gt;Pandoc 的代码语法高亮，对 Ruby 的 &lt;a href="https://ruby-doc.org/core-2.3.0/doc/syntax/literals_rdoc.html#label-Here+Documents"&gt;heredoc&lt;/a&gt; 解析好像是有 bug。&lt;a href="#fnref3"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+  </entry>
+  <entry>
     <id>tag:xiaohanyu.me,2016-09-08:/posts/2016-09-08-ppresume-a-new-start/</id>
     <title type="html">PPResume，新的起点</title>
     <published>2016-09-08T15:29:37Z</published>
-    <updated>2017-04-14T08:08:52Z</updated>
+    <updated>2014-04-26T08:08:52Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2016-09-08-ppresume-a-new-start/"/>
     <content type="html">&lt;h2 id="缘起"&gt;缘起&lt;/h2&gt;
 &lt;p&gt;转瞬间，从事自由职业达三年之久。&lt;/p&gt;
@@ -58,7 +346,7 @@
     <id>tag:xiaohanyu.me,2016-04-20:/posts/2016-04-20-2015-summary/</id>
     <title type="html">2015，徘徊</title>
     <published>2016-04-20T10:26:17Z</published>
-    <updated>2017-04-14T08:08:52Z</updated>
+    <updated>2014-04-26T08:08:52Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2016-04-20-2015-summary/"/>
     <content type="html">&lt;h2 id="序"&gt;序&lt;/h2&gt;
 &lt;p&gt;2015 是在徘徊中缓步前行的一年。&lt;/p&gt;
@@ -221,7 +509,7 @@
     <id>tag:xiaohanyu.me,2015-04-10:/posts/2015-04-10-2014-summary/</id>
     <title type="html">2014，漫步</title>
     <published>2015-04-10T15:29:37Z</published>
-    <updated>2017-04-14T08:08:52Z</updated>
+    <updated>2014-04-26T08:08:52Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2015-04-10-2014-summary/"/>
     <content type="html">&lt;p&gt;“亡羊补牢，未为迟也”，15 年已然过了三分之一，而我才开始憋 14 年的年终总结，想来必是颓废日久，点墨已尽的缘故。Anyway, better late than never。&lt;/p&gt;
 &lt;ul&gt;
@@ -376,7 +664,7 @@
     <id>tag:xiaohanyu.me,2014-07-25:/posts/2014-07-25-build-static-site-with-nanoc-2/</id>
     <title type="html">Build Static Site with Nanoc (II)</title>
     <published>2014-07-25T14:19:17Z</published>
-    <updated>2017-04-14T08:08:52Z</updated>
+    <updated>2014-04-26T08:08:52Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2014-07-25-build-static-site-with-nanoc-2/"/>
     <content type="html">&lt;p&gt;&lt;a href="http://xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/"&gt;上篇&lt;/a&gt;主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog 本身的一些设计。&lt;/p&gt;
 &lt;h2 id="bootstrap"&gt;Bootstrap&lt;/h2&gt;
@@ -463,7 +751,7 @@ route &lt;span class="ot"&gt;%r{/sitemap/|/atom/}&lt;/span&gt; &lt;span class="k
     <id>tag:xiaohanyu.me,2014-05-04:/posts/2014-05-04-build-static-site-with-nanoc-1/</id>
     <title type="html">Build Static Site with Nanoc (I)</title>
     <published>2014-05-04T10:19:30Z</published>
-    <updated>2017-04-14T08:08:52Z</updated>
+    <updated>2014-04-26T08:08:52Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2014-05-04-build-static-site-with-nanoc-1/"/>
     <content type="html">&lt;p&gt;07 年我开始学会上网，那时候写 blog 应该还是一件相当时髦的事情。而我个人，作为一枚外表木讷闷骚，内心感情丰富的三好有为青年，自然对 blog 保持着强烈的好奇心，从一路转载，到絮叨自嗨，四五年坚持下来，总算找到了一点 blog 的感觉。所谓“工欲善其行，必先利其器”，头上顶了“书写是为了更好的思考”这面响当当的思想大旗，手头自然也希望能升级下一直以来残破不勘凑合能用的写作工具。于是祭出几年前刚开始折腾 Linux 时的那份耐性，断续折腾一年有余，总算略有小成。本文（及后续文章）尝试记录下这个 blog 的一些技术细节，希望对后来人有所启发。&lt;/p&gt;
 &lt;h2 id="why-static"&gt;Why Static?&lt;/h2&gt;
@@ -649,7 +937,7 @@ JSON-formatted AST
     <id>tag:xiaohanyu.me,2014-04-16:/posts/2014-04-16-new-blog-new-start/</id>
     <title type="html">New Blog, New Start</title>
     <published>2014-04-16T15:29:37Z</published>
-    <updated>2017-04-14T08:08:52Z</updated>
+    <updated>2014-04-26T08:08:52Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2014-04-16-new-blog-new-start/"/>
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;书写是为了更好的思考。&lt;/p&gt;
@@ -671,7 +959,7 @@ JSON-formatted AST
     <id>tag:xiaohanyu.me,2014-03-02:/posts/2014-03-03-2013-summary/</id>
     <title type="html">2013，青春绝版</title>
     <published>2014-03-02T17:13:20Z</published>
-    <updated>2017-04-14T09:29:38Z</updated>
+    <updated>2014-04-26T09:29:38Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2014-03-03-2013-summary/"/>
     <content type="html">&lt;p&gt;年岁大了，人也变得愈发慵懒，前一分钟还梦见那些“偷得浮生半年闲”的美好午后时光，回过头来，2014 已经过去了六分之一，而我还欠着自己一篇 2013 的年终总结。写文章，总得要有个名字吧。2012 是“静水深流”，那 2013 就叫“波涛汹涌”吧。可是我仔细回想了下 2013，想了两个月，终于发现，这一年，没有波涛，更谈不上汹涌。唯一攒下的，似乎就是自己肚腩上那因久坐长宅而堆起来的摇摇欲坠的一圈肥肉。这仿佛是岁月老人在提醒自己， 生命的年轮又多了一圈，而你却多了一圈肥肉……&lt;/p&gt;
 &lt;p&gt;没有“波涛”，自然也无法“汹涌”，倒是年初无心写下的一篇&lt;a href="http://xiaohanyu.me/posts/2013-01-25-thoughts-on-baidu/"&gt;博文&lt;/a&gt;，让我平静的生活泛起了一大圈涟漪。一夜之间，我成了中国互联网的名人。我的博文先后被转载到网易科技和水木论坛并成为当日的十大第一，微博上有小一万的转发量，至于博客上，光这一篇文章的访问量就占了所有博客文章的五分之一。博文的转载方式和标题也是五花八门，什么“离职名录， 屌丝逆袭”，什么“百度前‘小资’员工的控诉牛文”，什么“前员工追忆百度乱象：上下异心狼性压制人性”，更有甚者，说这是什么 360 的水军写文专门黑百度的。而我也收到了各种邮件，有百度学长发来压惊的，有出版人夸赞文笔不错询向约稿的，有单独约谈要交朋友的， 有猎头询向跳槽的，有手握百度 offer 但是看了我的文章后犹豫不决过来征询意见的，还有一位仁兄口口声声要“拜我为师”，让我肝颤不已。无意之间，我经历了一场不大不小的互联网舆论风暴，而我就躲在风暴中心的某个角落里，静静地观察着整个事件的演绎发展，除了偶尔在博客上现身回复下评论外，不做过多的辩解和争论。虽是如此，这篇文章的受众之广还是远超我的预料，以致于三月份我去参加 &lt;a href="http://lisp.org.cn/wiki/lisp/event/2013-meetup"&gt;lisp-cn meetup&lt;/a&gt; 时，朋友见面介绍都说“这位就是某某文章的作者”……&lt;/p&gt;
@@ -692,7 +980,7 @@ JSON-formatted AST
     <id>tag:xiaohanyu.me,2013-12-30:/posts/2013-12-30-announcing-oh-my-emacs-v0.3/</id>
     <title type="html">Announcing oh-my-emacs v0.3</title>
     <published>2013-12-30T14:00:32Z</published>
-    <updated>2017-04-14T09:29:39Z</updated>
+    <updated>2014-04-26T09:29:39Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2013-12-30-announcing-oh-my-emacs-v0.3/"/>
     <content type="html">&lt;p&gt;Today I’m happy to announce &lt;a href="https://github.com/xiaohanyu/oh-my-emacs"&gt;oh-my-emacs&lt;/a&gt; v0.3.&lt;/p&gt;
 &lt;p&gt;It has been three months since I first released oh-my-emacs from my homebrew messy dotemacs project to public. To my suprise, oh-my-emacs has attracted many interests from all over the world.&lt;/p&gt;
@@ -752,7 +1040,7 @@ JSON-formatted AST
     <id>tag:xiaohanyu.me,2013-09-29:/posts/2013-09-29-announcing-ac-geiser-v0.2/</id>
     <title type="html">Announcing ac-geiser v0.1</title>
     <published>2013-09-29T08:47:56Z</published>
-    <updated>2017-04-14T09:29:39Z</updated>
+    <updated>2014-04-26T09:29:39Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2013-09-29-announcing-ac-geiser-v0.2/"/>
     <content type="html">&lt;p&gt;由于某位&lt;a href="http://sunng.info/"&gt;仁兄&lt;/a&gt;的抬爱，&lt;a href="https://github.com/xiaohanyu/oh-my-emacs/"&gt;oh-my-emacs&lt;/a&gt; 发布之后，在 &lt;a href="http://www.reddit.com/r/emacs/comments/1mfnlo/ohmyemacs_yet_another_starter_kit_for_emacs_users/"&gt;reddit&lt;/a&gt; 上出人意料地受到了很多人的关注。而我也在一夜之间收获了 20 多个 github star，以及人生的第一个 pull request。 突如其来的关注让我有些欣喜，也让我看到了两个月工作的价值。技术上来讲， oh-my-emacs 根本算不上“高端大气上档次”的项目，无非就是读文档读文档写文档外加 el-get package 的整合测试。不过话说回来，这两个月以来真心是写了不少文档啊，要是按照一个 el-get package 一篇 blog 来算，平均下来两天就可以有一篇 Emacs Tips 这种文章了。连我都有些佩服自己的耐心了。&lt;/p&gt;
 &lt;p&gt;我想，oh-my-emacs 之所以受到了一些的关注，归根到底，还是 oh-my-emacs 确实解决了一些现实中的问题吧。&lt;a href="http://xiaohanyu.me/posts/2013-09-14-announcing-oh-my-emacs-v0.2/"&gt;上篇博文&lt;/a&gt;中我曾经提到，基于 &lt;a href="https://github.com/auto-complete/auto-complete"&gt;auto-complete&lt;/a&gt; 的语义补全是 oh-my-emacs 最看重的目标之一。&lt;/p&gt;
@@ -765,54 +1053,6 @@ JSON-formatted AST
 &lt;ol&gt;
 &lt;li id="fn1"&gt;&lt;p&gt;如果你不知道 SLIME 如何强大，可以参考 &lt;a href="http://www.feime.net/2013/%E6%96%B0%E5%B9%B4%E7%AC%AC%E4%B8%80%E7%AF%87-%E7%BB%99lisp%E6%96%B0%E6%89%8B%E4%BB%8B%E7%BB%8D%E4%B8%8Bslime%E8%BF%99%E4%B8%AA%E7%A5%9E%E5%99%A8/"&gt; 这里 &lt;/a&gt;以及 &lt;a href="http://vimeo.com/22798433"&gt; 这里 &lt;/a&gt;。&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id="fn2"&gt;&lt;p&gt;话又说回来，Scheme 现在似乎也没有多少工程性的应用吧？各个 Scheme 实现中也没有遵循统一的 Module/Package 的标准。Scheme 本来又是极小核心的语言，因此这使得 Scheme 非常适合作为教学语言。但似乎除了教学，Scheme一直都没有走出校园过。以上纯属个人认知，欢迎指正批评。&lt;a href="#fnref2"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:xiaohanyu.me,2013-09-14:/posts/2013-09-14-announcing-oh-my-emacs-v0.2/</id>
-    <title type="html">Announcing oh-my-emacs v0.1</title>
-    <published>2013-09-14T13:23:17Z</published>
-    <updated>2017-04-14T09:29:40Z</updated>
-    <link rel="alternate" href="http://xiaohanyu.me/posts/2013-09-14-announcing-oh-my-emacs-v0.2/"/>
-    <content type="html">&lt;p&gt;去年偷闲的时候，挖了好多大坑（&lt;a href="http://xiaohanyu.me/posts/2012-06-09-introducing-lisp-development-with-emacs/"&gt;这里&lt;/a&gt;，&lt;a href="http://xiaohanyu.me/posts/2012-02-15-introducing-mapreduce-with-hadoop/"&gt;这里&lt;/a&gt;和&lt;a href="http://xiaohanyu.me/posts/2012-02-27-effective-work-with-file-management/"&gt;这里&lt;/a&gt;）怎奈挖坑容易填坑难……客观原因自然是“认真的写作有如雕刻”云云，主观上嘛，“懒”大概是逃不脱的一个字吧。&lt;/p&gt;
-&lt;p&gt;Wait，是谁说过，“懒惰是程序员的美德”来着。秉承这种美德，耗了将近两个月的业余时间， 尝试了不下 50 个 el-get package，并且认真读了不下 10 个 package 的 manual，遂成 &lt;a href="https://github.com/xiaohanyu/oh-my-emacs"&gt;oh-my-emacs&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;一切缘起于两个月前的某一天，我忽然心血来潮，想要整理下那一坨 “just works” 的 &lt;code&gt;.emacd.d&lt;/code&gt; 。我几乎尝试了所有 github 上比较流行的 &lt;code&gt;.emacs.d&lt;/code&gt; ，但是没有一个满足我的需求。“因为所以，科学道理”，&lt;a href="http://en.wikipedia.org/wiki/Reinventing_the_wheel"&gt;Reinventing the wheel&lt;/a&gt; 和 &lt;a href="http://en.wikipedia.org/wiki/Not_invented_here"&gt;Not invented here&lt;/a&gt; 大概是每个程序员必修的一课吧。索性不管那么多了，代码写的不好，又不输房子不输地，坑挖的不好，大不了留着自己用就是。&lt;/p&gt;
-&lt;p&gt;Oh-my-emacs 着重解决的问题是（引用自 oh-my-emacs 的 README）:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Better default settings with various eye candy, powerline, scrollbar, color-theme, fonts, etc.&lt;/li&gt;
-&lt;li&gt;Adopt &lt;code&gt;el-get&lt;/code&gt; as the default package manager for Emacs, instead of the default builtin &lt;code&gt;package.el&lt;/code&gt;, say goodbay to &lt;code&gt;./configure; make; make install&lt;/code&gt; and explicitly mananully management of &lt;code&gt;load-path&lt;/code&gt;. &lt;code&gt;el-get&lt;/code&gt; also provides automatic documentation management, customizable user’s recipe support, etc.&lt;/li&gt;
-&lt;li&gt;Self-adapted, only install necessary packages when it satisfy the prerequisities. You need to install &lt;a href="http://clang.llvm.org/"&gt;clang&lt;/a&gt; for &lt;a href="https://github.com/brianjcj/auto-complete-clang"&gt;auto-complete-clang&lt;/a&gt;, for example.&lt;/li&gt;
-&lt;li&gt;Modular, only load necessary packages as you need.&lt;/li&gt;
-&lt;li&gt;Literate, each package have comprehensive documentation or even a tiny tutorial with it, together with necessary web links. Say goodbye to old, out-dated emacs lisp code from Google.&lt;/li&gt;
-&lt;li&gt;Work as expected, completion every where when possible, semantic code completion through &lt;a href="https://github.com/auto-complete/auto-complete"&gt;auto-complete&lt;/a&gt; with various ac backend, &lt;a href="https://github.com/emacs-helm/helm"&gt;helm&lt;/a&gt; for minibuffer completion, etc.&lt;/li&gt;
-&lt;li&gt;Full-blown, oh-my-emacs is not another starter kit, it is hacker kit.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这其中，补全、文档、自适应性，是我特别看重的三点。补全自不必说，作为上古大牛也许是不需要补全的，但是对于我这样 21st Century 成长起来、尝试过 Visual Studio 强大补全甜头的程序员来讲，补全是最为迫切的需求。而 Emacs/Vim 作为 General Purpose Editor， 其最大的使用不便就是没有代码的语义补全 (semantic completion)。Emacs 有一个内置的 &lt;a href="http://www.gnu.org/software/emacs/manual/html_node/semantic/index.html#Top"&gt;Semantic&lt;/a&gt;，来源于 Emacs 社区鼎鼎大名，目标远大的 &lt;a href="http://cedet.sourceforge.net/"&gt;CEDET&lt;/a&gt;，但是 Semantic 的使用和配置都很复杂（参考 emacser.com 的 &lt;a href="http://emacser.com/cedet.htm"&gt;文章&lt;/a&gt;），而且很慢，有时会让 Emacs 卡住。 究其原因，我认为 Semantic 的思路是不对的。用性能本就不怎么好的 Elisp 去实现复杂如 C++ 这类语言的 Parser，其本身就是浩大的工作量。正确的思路是，对于不同的语言， 依赖于不同的 backend，然后用 Elisp 写相应补全的 interface。所以我认为， &lt;a href="https://github.com/auto-complete/auto-complete"&gt;auto-complete&lt;/a&gt; 的思路是正确的。Oh-my-emacs 利用已有的各种 auto-complete 的 backend（如 &lt;a href="https://github.com/purcell/ac-slime"&gt;ac-slime&lt;/a&gt;, &lt;a href="https://github.com/brianjcj/auto-complete-clang"&gt;auto-complete-clang&lt;/a&gt; 等）基本上实现了对 C/C++，Python， ELisp/Common Lisp/Clojure的语义补全。&lt;/p&gt;
-&lt;p&gt;第二点是文档，Emacs 的世界从来不会缺乏选择， &lt;code&gt;M-x el-get-list-packages&lt;/code&gt; ，2500 个 package，其中有很多 package 要么是已经过时，要么是年久失修，要么是语焉不详， 看上去一片繁华的 Emacs 世界，实则荆棘密布。如果你没有一点 Elisp 的功底，想开箱即用，那几乎是不可能的。单拿 Python 来说，Emacs 和 Python 社区就有两套不同的 python.el ，这给很多 Python 和 Emacs 的初学者造成了困惑。Google: Python Emacs， 其首页的几套解决方案，采用的是不同的 python.el……你说对于一个好容易学会翻墙，开始习惯用 Google 搜索技术文档的计算机初学者而言，看完这些文章，不晕菜才怪呢。稍微复杂一些的配置，比如 TeX Live，在比如 Common Lisp 的各种实现和 SLIME，想要得到一个比较舒适的环境，不但要配置好 Emacs，还要配置好系统环境，这又是一大难题。 Oh-my-emacs 借助 org-mode &lt;a href="http://orgmode.org/worg/org-contrib/babel/"&gt;Babel&lt;/a&gt;，采用 Literate 的方式&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;，将文档和代码写在一起， 在文档中尽量给出每个模块所需要的系统环境；对于有多个选择的情况，文档中尽量给出为什么选用 package A 而不是 package B 的理由和权衡过程。有一部分文档甚至可以当作 Tutorial 来看。Literate 方式最大的好处是保持文档和代码的同步，这样，oh-my-emacs 即可以用作是“开箱即用”的 &lt;code&gt;.emacs.d&lt;/code&gt; ，也可以当作是手把手的 Emacs 配置&lt;a href="http://xiaohanyu.github.io/oh-my-emacs/"&gt;教程&lt;/a&gt;（ 统计下来，oh-my-emacs 中文档和代码的 &lt;a href="http://en.wikipedia.org/wiki/Source_lines_of_code"&gt;LOC&lt;/a&gt; 比例约为 3:1 左右）。另外，操作系统的环境千差万别&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;，因此 oh-my-emacs 基本上在每个相关模块的文档里面都指明了使用这个模块所需的系统环境，这也可以看做是我为了填去年的坑所做的一点努力吧。&lt;/p&gt;
-&lt;p&gt;第三点是自适应性。这又是一个很宽泛的话题。什么叫自适应性？是支持多个操作系统吗？ 不是的，至少我没有打算让 oh-my-emacs 很好的支持 Windows，一方面是因为 Windows 没有一个好的类似于 apt-get 这种类型的 package manager&lt;a href="#fn3" class="footnoteRef" id="fnref3"&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;，oh-my-emacs 依赖的很多底层软件如 SSH，GCC/Clang，TeX Live 等在 Windows 上配置起来都很麻烦，远不如 apt-get/yum/pacman/homebrew 这种一条命令来的方便。我这里讲的自适应性，主要包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;采用 &lt;a href="https://github.com/dimitri/el-get"&gt;el-get&lt;/a&gt;，自动化管理 &lt;code class="elisp rundoc-block" rundoc-language="elisp"&gt;load-path&lt;/code&gt;，以及 info 文档等，say goodbay to &lt;code&gt;git submodule&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;如果系统环境不满足某个 package 的要求，就不要安装这个 package，免得装完了不能用。比如 &lt;a href="https://github.com/brianjcj/auto-complete-clang"&gt;auto-complete-clang&lt;/a&gt; 依赖于 &lt;a href="http://clang.llvm.org/"&gt;clang&lt;/a&gt;，如果系统中没有安装 clang，那么 oh-my-emacs 在启动的时候就不会安装 auto-complete-clang。反之，如果你意识到这个问题并安装了 clang，那么可要重启 Emacs，auto-complete-clang就应该可用了。&lt;/li&gt;
-&lt;li&gt;尽量借助工具和代码获取相关配置，而不是在代码中写死。比如，oh-my-emacs 大量使用 Elisp 中的 &lt;code&gt;executable-find&lt;/code&gt; ，这需要依赖于操作系统的 package manager 设置好相关的 &lt;code&gt;$PATH&lt;/code&gt; ， 这样带来的好处就是 oh-my-emacs 能够无缝的适应很多环境。
-&lt;ul&gt;
-&lt;li&gt;比如 AUCTeX 需要 PDF 阅读器作为 LaTeX 文档的 Viewer，oh-my-emacs 采取的策略是优先采用 &lt;a href="http://okular.kde.org/"&gt;Okular&lt;/a&gt;， 其次是 &lt;a href="https://projects.gnome.org/evince/"&gt;Evince&lt;/a&gt;，如果操作系统上即没有装 Okular 也没有装 Evince，那么 oh-my-emacs 会 fallback 到 &lt;a href="https://launchpad.net/xdg-utils"&gt;xdg-open&lt;/a&gt;，这样可以用可移植的代码获得最大限度的灵活性和自适应性&lt;a href="#fn4" class="footnoteRef" id="fnref4"&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;再比如 &lt;a href="http://common-lisp.net/project/slime/"&gt;SLIME&lt;/a&gt;支持多种 Common Lisp Implementation，oh-my-emacs 采取的策略是同时支持 &lt;a href="http://www.sbcl.org/"&gt;SBCL&lt;/a&gt;/&lt;a href="http://ccl.clozure.com/"&gt;Clozure CL&lt;/a&gt;/&lt;a href="http://www.clisp.org/"&gt;CLisp&lt;/a&gt;，也就是说，只要你安装了 SBCL/Clozure CL/CLisp 其中的一个，oh-my-emacs 的 Common Lisp 设置就应该是可以工作的。&lt;/li&gt;
-&lt;li&gt;针对 auto-complete-clang， oh-my-emacs 可以利用 &lt;a href="http://www.freedesktop.org/wiki/Software/pkg-config/"&gt;pkg-config&lt;/a&gt; 检测并设置正确的 &lt;code&gt;ac-clang-flags&lt;/code&gt; ，可以对系统中可用的任意 C/C++ lib 提供语义补全。比如，你可以用 &lt;code&gt;M-x ome-pkg-config-enable-clang-flag &amp;quot;QtGui&amp;quot; RET&lt;/code&gt; 来获得 QtGui 库的补全支持，效果如下：&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href="/static/image/2013/auto-complete-cpp-qt.jpg"&gt;&lt;img src="/static/image/2013/auto-complete-cpp-qt.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Oh-my-emacs 目前已经包含了对 C/C++/Python/Common Lisp/Clojure 的支持，基本上都提供了较好的语义补全。其他方面，设置了更友好的字体，powerline，color-theme。启用了一些比较好的内置 mode，诸如 recentf/savespace/uniquify。对 LaTeX 编辑提供了完整的支持，默认采用 XeTeX。&lt;/p&gt;
-&lt;p&gt;Oh-my-emacs 的名字来源于 &lt;a href="https://github.com/robbyrussell/oh-my-zsh"&gt;oh-my-zsh&lt;/a&gt;，用意嘛，自然是希望能将 oh-my-emacs 打造成 oh-my-zsh 那样。大话止于此，看行动。&lt;/p&gt;
-&lt;p&gt;最后放张图，更多美照在&lt;a href="https://github.com/xiaohanyu/oh-my-emacs/tree/master/screenshots"&gt;这里&lt;/a&gt; 。Enjoy emacs, and, your life.&lt;/p&gt;
-&lt;p&gt;&lt;a href="/static/image/2013/org-babel-emacs-lisp.jpg"&gt;&lt;img src="/static/image/2013/org-babel-emacs-lisp.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;section class="footnotes"&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id="fn1"&gt;&lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/Literate_programming"&gt;Literate programming&lt;/a&gt; 的概念来源于祖师爷 Donald Knuth。没记错的话，大名鼎鼎的 TeX 早期也是用 literate 的方式写成的。 Org-babel 提供了所谓的 “active code in Org-mode”，还有专门的 Paper 论述 Org-babel 的 workflow。Oh-my-emacs 这方面的灵感主要来自于 &lt;a href="https://github.com/eschulte/emacs24-starter-kit"&gt;emacs24-starter-kit&lt;/a&gt;。&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id="fn2"&gt;&lt;p&gt;也许正是如此，Puppet/Chef 这类工具才会大行其道吧。&lt;a href="#fnref2"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id="fn3"&gt;&lt;p&gt;&lt;a href="http://chocolatey.org/"&gt;chocolatey&lt;/a&gt; 也许是个不错的选择，但是我没有用过。&lt;a href="#fnref3"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id="fn4"&gt;&lt;p&gt;这个 PDF 阅读器的例子主要是在 Linux 下面测试的，我手头没有 Mac 的环境，so， patches are always welcome。&lt;a href="#fnref4"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </content>
