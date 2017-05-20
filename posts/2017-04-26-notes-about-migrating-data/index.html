@@ -49,7 +49,7 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>我发现我以前的 <a href="http://cnlox.is-programmer.com/">Blog</a> 还是有挺多访问流量的，以前写的文章虽然有一半是流水帐，但毕竟还是记录了自己的成长，因此还是有点“敝帚自珍”的。is-programmer 最近也不是太稳定， 说不定哪天就挂了，因此我又花了快两周的时间，把原有 Blog 上的 126 篇文章全部迁移了过来。这里草记下数据迁移过程，仅做备忘。</p>
+  <section class="twelve wide column"><p>我发现我以前的 <a href="http://cnlox.is-programmer.com/">Blog</a> 还是有挺多访问流量的，以前写的文章虽然有一半是流水帐，但毕竟还是记录了自己的成长，因此还是有点“敝帚自珍”的。is-programmer 最近也不是太稳定，说不定哪天就挂了，因此我又花了快两周的时间，把原有 Blog 上的 126 篇文章全部迁移了过来。这里草记下数据迁移过程，仅做备忘。</p>
 <p>一般而言，<a href="https://en.wikipedia.org/wiki/User-generated_content">UGC</a> 平台只有在关闭的时候才会提供一个数据导出的选项，默认情况下，一般都不会提供这个选项，否则用户迁移起来太容易，对一个 UGC 产品来说可不是什么太好的事情。</p>
 <p>因此要拿到我原有的 126 篇文章的数据，比较土的办法就是一篇一篇地 Copy &amp; Paste，稍微高级一些的方法就是写个小爬虫，把数据爬下来，再做处理。</p>
 <p>首先是拿到 126 篇文章的的一些基础数据：</p>
@@ -172,7 +172,7 @@ c<span class="co">#: C#</span>
 <span class="kw">-</span> Outdated
 <span class="fu">meta:</span>
   <span class="fu">html:</span><span class="at"> Imported from &lt;a href=&quot;http://cnlox.is-programmer.com/posts/8790.html&quot;&gt;is-programmer&lt;/a&gt;.</span></code></pre></div>
-<p>程序是用 Ruby 写的，主要还是用了 Ruby 中内建的 <a href="https://ruby-doc.org/core-2.3.0/Regexp.html">Regexp</a>。正则表达式是非常强大和方便的工具，但是每种语言、工具的实现都在一些细节处有一些细小的差别，所以实际应用时， 耐心的调试和文档查询工作是少不了的。</p>
+<p>程序是用 Ruby 写的，主要还是用了 Ruby 中内建的 <a href="https://ruby-doc.org/core-2.3.0/Regexp.html">Regexp</a>。正则表达式是非常强大和方便的工具，但是每种语言、工具的实现都在一些细节处有一些细小的差别，所以实际应用时，耐心的调试和文档查询工作是少不了的。</p>
 <p>程序清单如下<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>：</p>
 <div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="co"># spider.rb</span>
 require <span class="st">&#39;yaml&#39;</span>
@@ -231,7 +231,7 @@ list.each <span class="kw">do</span> |item|
 
 <span class="ot">  `pandoc /tmp/test.html -o #{</span>org_file<span class="ot">}`</span>
 <span class="ot">end</span></code></pre></div>
-<p>再之后，可以通过一些初级的正则替换，来完成一些最基本的文本修正工作。我这里最主要是通过 Ruby 的 Regexp，给文章中的中英文混排的英文单词两边加入了一个合适的半角空格。Ruby 的 Regexp 可以通过 <code>/(\p{Han})/</code> 来直接匹配汉字，实在是非常方便。 程序清单如下：</p>
+<p>再之后，可以通过一些初级的正则替换，来完成一些最基本的文本修正工作。我这里最主要是通过 Ruby 的 Regexp，给文章中的中英文混排的英文单词两边加入了一个合适的半角空格。Ruby 的 Regexp 可以通过 <code>/(\p{Han})/</code> 来直接匹配汉字，实在是非常方便。程序清单如下：</p>
 <div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="co"># article_fix.rb</span>
 require <span class="st">&#39;yaml&#39;</span>
 
@@ -357,7 +357,7 @@ require <span class="st">&#39;yaml&#39;</span>
       <div class="item">
         <a href="/categories#Writing">
           <div class="ui label">
-            Writing<sup>2</sup>
+            Writing<sup>1</sup>
           </div>
         </a>
       </div>

@@ -292,7 +292,7 @@ fi
 <p>第三个大问题是 FTP 自动登录上传文件的问题。如果我们把平时的 FTP 登录操作比作用 Vim 编辑文件，那么自动化的 FTP 登录就是用 <code>sed</code> 来处理文件。想象一下，我们平时登录FTP，Windows 下，我们会点开一个 FTP 软件，点击快速链接，输入 username 和 password，然后下载上传。Linux 有万能的 <a href="https://lftp.yar.ru/">LFTP</a> 命令行工具，因此实现自动化的功能，从 LFTP 的参数选项着手是比较有希望的选择。</p>
 <p>功夫不负有心人，LFTP 有两种手段能够实现自动化的登录上传下载。第一种方式是通过 <code>lftp -f lftp_script_file</code> 的方式， <code>-f</code> 指定一个文件 <code>LFTP_script_file</code> ，这个文件里面包含登录 LFTP 的命令和上传下载文件的命令。第二种方式是通过 LFTP 的 <code>-u</code> 参数指定登录名密码和 <code>-e</code> 选项指定登录后执行的 LFTP 命令。这种方式的缺点在于每执行一条命令都要登录一下 FTP——不过登录 FTP 所耗费的时间与上传文件的时间相比几乎可以忽略不计，所以也算不上一个大的缺点。</p>
 <p>除了以上两种方式，我在扫 <a href="http://tldp.org/LDP/abs/html/">ABS</a> 的时候偶然发现了 <a href="http://tldp.org/LDP/abs/html/here-docs.html">Here Documents</a> 这个东西——这个曾经听说过但从来没有认真看过的东西，才发现这东西也有很多妙处，使用的当，同样可以实现 LFTP 的自动登录上传。我采用的是 LFTP 的 <code>-f</code> 选项，touch 一个临时文件完成自动登录上传的。</p>
-<p>第四个问题是 URL 提取的问题。具体来说，比如你远端 FTP 和 HTTP 服务器的地址是 <code>hostname</code> ，远端目录是 <code>videos</code> ，本地上传文件是 <code>send_file.sh</code> 、 <code>hpm.avi</code> ， 你需要生成如下的 <code>[filename:url]</code> 的 list：</p>
+<p>第四个问题是 URL 提取的问题。具体来说，比如你远端 FTP 和 HTTP 服务器的地址是 <code>hostname</code> ，远端目录是 <code>videos</code> ，本地上传文件是 <code>send_file.sh</code> 、 <code>hpm.avi</code> ，你需要生成如下的 <code>[filename:url]</code> 的 list：</p>
 <pre class="example"><code>send_file    http://hostname/videos/send_file.sh
 hpm    http://hostname/videos/hpm.avi
 </code></pre>
@@ -327,7 +327,7 @@ hpm    http://hostname/videos/hpm.avi
 <span class="st">                echo &quot;!!Warning: $file not exist!&quot;</span>
 <span class="st">        fi</span>
 <span class="st">done</span></code></pre></div>
-<p>其中针对目录的处理尤为复杂，比如你可以指定 <code class="sourceCode bash" rundoc-language="sh"><span class="ex">../../tmp</span></code> 这样的目录，如果你不作合适的处理，生成的 URL 可能是 <code class="sourceCode bash" rundoc-language="sh"><span class="ex">http</span>://hostname/../../tmp/</code> 之类的东西。 我最开始想的方法是递归目录的处理方法，但是写了好几个版本依然没有写出 Bash 的递归目录遍历。后来偶然间想到了 tree，这个可以列出目录树的命令，仔细研究了它的参数选项，同时以管道的方式结合其他命令如 grep（正向和反向匹配）、tr（压缩相同字符）、 cut（提取某个 column，可以用 awk 的 print 实现同样的功能）、sed（字符串处理，去除文件的路径和后缀），终于胜利地完成了这个任务。所谓成就感就是这么来的，哈。</p>
+<p>其中针对目录的处理尤为复杂，比如你可以指定 <code class="sourceCode bash" rundoc-language="sh"><span class="ex">../../tmp</span></code> 这样的目录，如果你不作合适的处理，生成的 URL 可能是 <code class="sourceCode bash" rundoc-language="sh"><span class="ex">http</span>://hostname/../../tmp/</code> 之类的东西。我最开始想的方法是递归目录的处理方法，但是写了好几个版本依然没有写出 Bash 的递归目录遍历。后来偶然间想到了 tree，这个可以列出目录树的命令，仔细研究了它的参数选项，同时以管道的方式结合其他命令如 grep（正向和反向匹配）、tr（压缩相同字符）、 cut（提取某个 column，可以用 awk 的 print 实现同样的功能）、sed（字符串处理，去除文件的路径和后缀），终于胜利地完成了这个任务。所谓成就感就是这么来的，哈。</p>
 <p>至此，脚本需要解决的主要问题都已经阐述完毕，其余的问题都是一些小技俩，比如检查相关依赖工具是否安装、检查用户权限、提供帮助信息等等。目前发现一个 bug，还是目录上传的时候有时会出现递归上传的问题，非常奇怪。</p>
 <p>脚本的改进之处也有很多，比如：</p>
 <ul>

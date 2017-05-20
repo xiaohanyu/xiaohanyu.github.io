@@ -67,7 +67,7 @@
 <li>旅行者手册本来打算 8 月底完工的，但是真正做起来才发现工作量之大。手册打算以 pdf、html、doc 三种格式发行。为了保持文档的一致性，当初设想了三个方案：
 <ul>
 <li>docbook</li>
-<li>docbook已经成为技术文档撰写事实上的标准。但是一来 docbook 写起来比较麻烦； 二来对中文支持不太好；三来我看了几个 docbook 做出来的东西实在不怎么好看， 毕竟是用来写技术文档的；四来我还不怎么会用 docbook。所以此方案暂时不可行。</li>
+<li>docbook已经成为技术文档撰写事实上的标准。但是一来 docbook 写起来比较麻烦；二来对中文支持不太好；三来我看了几个 docbook 做出来的东西实在不怎么好看，毕竟是用来写技术文档的；四来我还不怎么会用 docbook。所以此方案暂时不可行。</li>
 <li>LaTeX + <a href="http://hutchinson.belmont.ma.us/tth/">TTH</a>
 <ol>
 <li>LaTeX 中文书签乱码问题</li>
@@ -75,7 +75,7 @@
 </ol></li>
 <li>LaTeX 的排版效果自不必说。问题在于：TTH 是个很优秀的软件。支持绝大部分的 LaTeX 环境，转换出来的 HTML 文档相当完美，并且支持中文。通过 HTML 再转换成 doc，也只不过是一盏茶的功夫。但是 TTH 转换出来的文档略显单调，而且是长长的一整篇，我琢磨这我这预算在 100 多页的文档转换成一页 HTML 文档，估计对看客是个考验。虽然可以事后重组，排版，但终究是很麻烦的一件事情。</li>
 <li>Emacs Muse</li>
-<li>想来想去还是回到了 Emacs Muse 的解决方案上。配上一定的 CSS，完美的 HTML 输出，然后输出 LaTeX 文件整合一下，套上个中文 CJK 的模板，基本上可以解决问题。 不过 Muse 会自动加上一些烦人的超连接，目前的解决方案就是利用 Emacs 的 <code>query-replace-regexp</code> 手工解决。当然也 Baidu 过 sed、awk 和 perl，以后再学。</li>
+<li>想来想去还是回到了 Emacs Muse 的解决方案上。配上一定的 CSS，完美的 HTML 输出，然后输出 LaTeX 文件整合一下，套上个中文 CJK 的模板，基本上可以解决问题。不过 Muse 会自动加上一些烦人的超连接，目前的解决方案就是利用 Emacs 的 <code>query-replace-regexp</code> 手工解决。当然也 Baidu 过 sed、awk 和 perl，以后再学。</li>
 </ul></li>
 </ol>
 <p>OK，继续 CSS。</p>

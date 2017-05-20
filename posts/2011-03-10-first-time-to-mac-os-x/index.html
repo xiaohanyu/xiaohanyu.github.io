@@ -60,12 +60,12 @@
 <p>Hacintosh 的版本有很多，比如东皇、iATKOS、iDeneb、OSXPCBETA 等等，boot loader 也有若干种方案，比如变色龙、EFI Emulation 等等，个中详细可以参考 <a href="http://en.wikipedia.org/wiki/OSx86">OSx86</a>。而由这些基本“元件”排列组合出来的网上作为“PC 变 Mac”的方案更是五花八门，让人目不暇接。照理说，对各种硬件的良好支持是一个 OS 安身立命的最基本条件，至于 Mac 如何在违背这个基本原则下打拼出自己的逍遥天地，容我另外一篇文章再做分析。</p>
 <p>好了，回到正题，继续我的 Mac OS X 遭遇记。我按照<a href="http://blog.zhaojie.me/2010/09/how-to-install-mac-os-x-snow-leopard-on-virtualbox.html">老赵点滴</a>上的指示在我的 Arch Linux + VirtualBox 4.0 上做实验，前面都是很顺利的，也出现了下面的 Kernel panic 情况：</p>
 <p><a href="/static/image/2011/mac_on_vbox.png"><img src="/static/image/2011/mac_on_vbox.png" /></a></p>
-<p>按照教程，重启之后就可以进入期盼的 Leopard，可是我却陷入了无限的灰色风火轮等待中。 重整多番，调整了多组参数，均以失败告终。</p>
-<p>于是转投 <a href="http://www.vmware.com/">VMware</a>，我按照 VMware 的要求，下载了 300+ M 的 VMware 7.1的 bundle，按照 <a href="https://wiki.archlinux.org/index.php/VMware">ArchWiki</a> 上的步骤，成功装上了 VMware，但是确始终启动不起来。无奈，转投 Windows吧。 之所以坚持 Linux，是因为我需要 LaTeX，我需要 Emacs + AUCTeX + CDLaTeX + Outline-mode 来完成我的毕业论文啊。</p>
+<p>按照教程，重启之后就可以进入期盼的 Leopard，可是我却陷入了无限的灰色风火轮等待中。重整多番，调整了多组参数，均以失败告终。</p>
+<p>于是转投 <a href="http://www.vmware.com/">VMware</a>，我按照 VMware 的要求，下载了 300+ M 的 VMware 7.1的 bundle，按照 <a href="https://wiki.archlinux.org/index.php/VMware">ArchWiki</a> 上的步骤，成功装上了 VMware，但是确始终启动不起来。无奈，转投 Windows吧。之所以坚持 Linux，是因为我需要 LaTeX，我需要 Emacs + AUCTeX + CDLaTeX + Outline-mode 来完成我的毕业论文啊。</p>
 <p>好在 Windows 下的 VMware 还算正常，安装过程也算顺利，我就不在细说了。具体过程可以参考《<a href="http://blog.csdn.net/zhanglei5415/archive/2010/12/22/6091717.aspx">VMWare下安装 MAC OS X Snow Leopard 10.6</a>》，需要注意的主要是：</p>
 <ul>
 <li>安装之前用 <a href="http://www.grc.com/securable.htm">SecurAble</a> 检测下 CPU 是否支持虚拟化；</li>
-<li>内存至少 1 G，最好主机配上 4 G 内存，而 VMware 配上 2 G 内存，否则慢起来很要命， 如果搞开发，硬盘最好 20 G 以上；</li>
+<li>内存至少 1 G，最好主机配上 4 G 内存，而 VMware 配上 2 G 内存，否则慢起来很要命，如果搞开发，硬盘最好 20 G 以上；</li>
 <li>注意修改 VMware 目录下的 <code>.vmx</code> 下的 guestOS 由 ~guestOS=“freebsd-64”~ 改为 ~guestOS=“darwin10”~ ；</li>
 <li>启动时始终需要 darwin.iso 来引导；</li>
 <li>成功安装系统后安装 darwin.iso 里面的 vmtools，获得更好地使用体验；</li>
@@ -73,7 +73,7 @@
 <p>放张图吧：</p>
 <p><a href="/static/image/2011/mac_on_vmware.png"><img src="/static/image/2011/mac_on_vmware.png" /></a></p>
 <p>顺便感叹下，VMware 的虚拟化技术还真是强大，2 G 虚拟内存跑 Mac OS X，速度还真是不赖，界面效果也都能跑的出来。如果再弄个分屏软件，再插上一个 LCD 的液晶屏，就真是两个系统了。</p>
-<p>至于 Xcode 和 iOS SDK 的安装就简单很多了，可能需要做一次系统升级。至于 iOS 上如何写 Win32-Style 的 GUI 程序，我现在也是丈二的和尚。至于额外的 Macintosh 吐槽文， 还是等以后心情不错的时候再写吧。</p>
+<p>至于 Xcode 和 iOS SDK 的安装就简单很多了，可能需要做一次系统升级。至于 iOS 上如何写 Win32-Style 的 GUI 程序，我现在也是丈二的和尚。至于额外的 Macintosh 吐槽文，还是等以后心情不错的时候再写吧。</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">

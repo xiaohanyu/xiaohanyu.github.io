@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>Facebook 面试记</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+  <div class="ui very padded segment article">
+    <article class="ui stackable divided grid"><header class="row article-head">
+  <div class="column">
+    <h1 class="ui header">
+      Facebook 面试记
+    </h1>
+    <div class="ui divider"></div>
+  </div>
+</header>
+<div class="row article-body">
+  <section class="twelve wide column"><h2 id="缘起">缘起</h2>
+<p>细说起来，Facebook 的面试还是一年前的事情了。因为最终没有 onsite，自然也就没有 offer，因此面试完收了拒信后，就没太在意这个事情了。之所以再度提笔涂墨，写下这个过程，主要原因是前些天花了些时间写了篇《<a href="http://xiaohanyu.me/posts/2017-04-30-google-foobar-interview/">Google foo.bar 面试记</a>》。为了有个对照，就索性再花些时间，写一下 Facebook 的面试经历。</p>
+<p>毕竟事隔一年，很多细节已然记不清楚了，主要内容还是翻看邮件，加上一些模糊的记忆，总结而来。</p>
+<p>16 月 4 月底，我在 Linkedin 上收到了 Facebook recruiter 的私信：</p>
+<p><a href="/static/image/2017/facebook-interview/recruiter-linkedin-invitation.png"><img src="/static/image/2017/facebook-interview/recruiter-linkedin-invitation.png" /></a></p>
+<p>我当时并没有要找一份全职工作的计划，但是 Facebook 就是 Facebook，有机会体验下 Facebook 的面试，我当然不会说“No”。</p>
+<p>Facebook 提供的岗位是 <a href="https://www.facebook.com/careers/jobs/a0I1200000JXoWrEAL/">Production Engineer</a>，从岗位职责上来说，大体上类似于 Google 的 <a href="https://landing.google.com/sre/">SRE</a>，技术层面上偏向于大规模网站的<a href="https://code.facebook.com/pe">基础设施</a>。就我个人而言，这几年一直在自己“小打小闹”，对于中等以上规模的生产系统手生已久，因此如果有机会去历练一下，还是会蛮期待的。</p>
+<p>工作地点是在 Facebook EMEA 区域——引用 recruiter 原话：“EMEA stands for Europe, Middle East and Africa region and our offices are in Dublin, London or Tel Aviv.”）而我其实对工作地点并没有特别的偏好，只是在国内待得久了，加上经常要与 GFW 斗智斗勇，因此只要换个国家换个城市，出去体验一段时间就 OK。</p>
+<p>邮件往复几轮，定于 5 月 12 日进行 recruiter 的 phone screen。</p>
+<p>另，初始的私信沟通中，有一个让我印象很深刻的细节，就是我在私信中询问要不要寄送一份我个人的 “updated resume”，recruiter 没有给肯定的回答，因此我也就没有再花时间去更新我的简历。当面试流程结束，回过头来细细回想一下，我发现 Facebook 的面试人员，无论是 recruiter 还是工程师，对我的个人背景都相当了解，可以肯定，在每轮面试之前，都做了充分的背景调研工作。比如我个人写 Python 比较多，其余的语言诸如 C/C++/Java/Ruby 这些倒也不是不能写，无非就是手生，在面试那种时间有限精神紧张的情况下，用手生的语言写东西，总是会出现很多意想不到的错误，因此 phone screen 之后面试我的三个面试官，就我个人交流而言，都是比较懂 Python 的，基本可以肯定，这是 Facebook 刻意安排的结果。其中还有一个面试官，面试过程中直接告诉我说，很了解我的背景，知道我是某个项目的 contributor。</p>
+<h2 id="recruiter-电话面试">Recruiter 电话面试</h2>
+<p>我现在想想，Google 和 Facebook recruiter 的 phone screen 流程大体上是相同的：</p>
+<ul>
+<li>了解下面试者的背景和现状</li>
+<li>了解下面试者对应聘岗位的理解和意向</li>
+<li>确认下面试者有基本的英文听说交流能力</li>
+<li>考查约 10–20 道非常基础的技术题，确保面试在这技术方面不是一无所知，亦即初筛，节省后续的面试官的正规面试时间</li>
+</ul>
+<p>英文口语过关的话，recruiter 的 phone screen 很简单的。</p>
+<h2 id="第一轮技术电话面试">第一轮技术电话面试</h2>
+<p>Phone screen 通过后，第二天就收到了 recruiter 一封长长的邮件。邮件中详细说明了第一轮电话面试要考查的内容，以及相应的应试策略。对比国内很多公司没有上下文不知所以的招聘邮件，Facebook 招聘工作的细致程度实在是让人印象深刻，好感倍增。</p>
+<p><a href="/static/image/2017/facebook-interview/first-interview-email.png"><img src="/static/image/2017/facebook-interview/first-interview-email.png" /></a></p>
+<p>和后来的 Google 面试类似，Facebook 的面试邮件中，同样也提到了对面试者身体方面 disability 的考虑。这个细节也给我留下了相当不错的印象。</p>
+<p><a href="/static/image/2017/facebook-interview/first-interview-confirmation.png"><img src="/static/image/2017/facebook-interview/first-interview-confirmation.png" /></a></p>
+<p>我的第一轮电面约在了 5 月 17 日。我反复查阅了邮件，几轮电面并没有特别明确的 <a href="https://en.wikipedia.org/wiki/Non-disclosure_agreement">NDA</a> 要求，但是很可惜，第一轮电面的具体题目我都忘了，当时也没有做特别详细的记录……只记得是 45 分钟考三道简单算法题，包括字符串处理和文件处理等。</p>
+<p>Facebook 电面的主要平台是 <a href="https://coderpad.io/">CoderPad</a>。就使用体验上而言，比 Google 自家的 Google Docs 要好用多啦。CoderPad 除了支持二十多种语言的代码高亮、正确缩进外，还支持实时在 Web 端运行代码，这比在 Google Docs 这种传统字处理软件中写代码要舒服多了。</p>
+<p>还有个趣事，我自觉一面面得还是可以的，可惜后来 recruiter 发邮件说 skype 的通话质量太差了，没有办法做出特别好的评估，因此要再加一轮面试……冤，实在是冤啊。</p>
+<h2 id="第二轮技术电话面试">第二轮技术电话面试</h2>
+<p>第二轮电话面试约在了 6 月 9 号。由于对 Facebook 的招聘体验印象不错，因此我开始花些时间，认真对待起这次面试。</p>
+<p>这一轮面试由于是第一轮的“加试”，因此仍旧是考查 Algorithm。而有了第一轮题目的印象之后，我自我评估，Algorithm 方面应该没有问题，但是后面的面试要考查 System，内容比较广泛，因此我开始花时间准备 System 方面的面试，而 Algorithm 方面就依靠现有的能力和积累。</p>
+<p>第二轮电话面试仍旧是 45 分钟，考了三道题目。</p>
+<p>第一道题大意是给定一个目录，目录里有很多 HTML 文件，每个 HTML 文件里可能会包含一些 email 地址，让你写个程序，把该目录下所有 HTML 文件中所有的 email 地址 obfuscate 一下，比如，把 <code>somebody@somewhere.com</code> 变成 <code>nobody@somewhere.com</code> 。</p>
+<p>这个题目相当简单，考查的主要的点是文件处理和正则表达式，即如何在一个目录中找出特定的文件并应用正则表达式。Bash 和 Python 均可以解决。核心代码样例：</p>
+<p>Bash：</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="ex">HTML_FILE</span> in find <span class="va">$HTML_DIR</span> -name <span class="st">&#39;*.html&#39;</span><span class="kw">;</span>
+<span class="kw">do</span>
+  <span class="fu">sed</span> ... <span class="va">$HTML_FILE</span><span class="kw">;</span>
+<span class="kw">done</span></code></pre></div>
+<p>Python：</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> os
+<span class="cf">for</span> root, dirs, files <span class="kw">in</span> os.walk(top):
+    <span class="co"># handle files with regexp</span></code></pre></div>
+<p>第二道题也很简单，大意是给定一个文件，找出文件中出现次数最多的 n 个单词。直观思路就是统计单词数量，然后排序；进一步的话，用最大堆即可。这个题目考查重点除了基础算法，还有现场写代码的能力。过程中，我提到 Python 标准库中有一个很好用的 <a href="https://docs.python.org/3/library/collections.html#collections.Counter">Counter</a> 类，用来计数很好用，面试官表示同意，然后让我不要用 Counter 类，自己手写，最好做到 bug free。</p>
+<p>第三道题大意是让你用 Bash，监控 <a href="https://en.wikipedia.org/wiki/Vmstat">vmstat</a> 工具的流式输出，然后根据一些设定的条件，发报警邮件。这个题目也很简单，稍有些运维经验，写过一些 Bash 脚本的人，很容易就能做出来。</p>
+<h2 id="第三轮技术电话面试">第三轮技术电话面试</h2>
+<p>第三轮电话面试约在了 6 月 20 日。这期间我买了一本《<a href="https://book.douban.com/subject/26586598/">性能之巅</a>》，花了两周的时间，看了约几百页的样子；同时也去 <a href="https://www.glassdoor.com/">Glassdoor</a> 上总结了一些 Facebook Production Engineer 岗位的面经。加起来准备了差不多有两周的时间，自我感觉是成竹在胸了。</p>
+<p>面试之前，recruiter 同样是发了一封长长的邮件，同样是包含了详细的面试内容，以及准备策略。</p>
+<p>同样，三面也是 45 分钟，考查了三道题目。</p>
+<p>第一道题目是考查 <a href="https://en.wikipedia.org/wiki/RAID">RAID</a> 的概念性知识。比如 RAID 0、RAID 1、RAID 5、RAID 6、RAID 0 + 1 是什么原理；磁盘空间利用率如何；最大可以容忍损失多少块盘；成本考量； database server 应该用哪种 RAID 方案，等等，考得非常仔细。</p>
+<p>第二道题考查地更加细致……面试官直接给我贴出了 vmstat 的输出，然后一个指标一个指标的问了下去，抓住各种细节死抠不放；同时以这些指标为引，考查很多操作系统的细节实现问题。比如：</p>
+<ul>
+<li>Intel CPU 的 <a href="https://en.wikipedia.org/wiki/Protection_ring">Protection ring</a></li>
+<li>User-mode 和 kernel-mode 的切换过程</li>
+<li>进程的状态切换流程</li>
+<li>进程的 wait time</li>
+<li>抢占式内核</li>
+<li>free/buff/cache memory 区别</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">procs</span>  -----------memory------------  -swap-  -----io----  ----system----  -------cpu--------
+<span class="ex">r</span>  b   swpd free    buff    cache     si  so  bi    bo     in      cs      us  sy  id  wa  st
+<span class="ex">22</span> 2   0    1146652 1607684 71245896  0   0   887   924    1       0       14  5   80  1   0
+<span class="ex">16</span> 1   0    1146636 1607684 71250720  0   0   60972 43424  87328   101211  59  10  29  2   0
+<span class="ex">25</span> 1   0    1140640 1607684 71254816  0   0   67480 44743  90786   105712  59  11  28  2   0
+<span class="ex">22</span> 3   0    1150448 1607684 71259792  0   0   71562 50304  103124  118792  62  11  25  2   0
+<span class="ex">19</span> 2   0    1147256 1607684 71265472  0   0   66002 44296  97948   108877  61  11  25  2   0
+<span class="ex">20</span> 1   0    1168160 1607684 71240872  0   0   61886 38201  88580   104312  59  10  29  2   0
+<span class="ex">16</span> 3   0    1163068 1607684 71245152  0   0   62196 37134  86042   99712   60  10  28  2   0
+<span class="ex">17</span> 3   0    1164736 1607684 71245072  0   0   66038 40845  89598   101818  60  11  27  2   0
+<span class="ex">25</span> 1   0    1152988 1607684 71249792  0   0   60422 39748  89534   112812  57  11  29  3   0</code></pre></div>
+<p>第三道题是考查系统编程中的 <a href="http://man7.org/linux/man-pages/man7/signal.7.html">signal</a>。面试官先是问了我一些 signal 都是什么意思，有哪些作用，我大体上都答上来了。然后问我，对于一个进程而言，具体哪些 signal 是不能被屏蔽的；我回答说 <a href="https://zh.wikipedia.org/wiki/SIGKILL">SIGKILL</a> 肯定是不能被屏蔽的。面试官不满意，还要我继续做答，但是当时我实在是答不上来了。考这么细节，我感觉是需要把 <a href="http://www.apuebook.com/">APUE</a> 整体背下来才能让面试官满意。</p>
+<p>话虽如此，我自评这轮面试还是不错的，想着也许没准可以去 Facebook London onsite 下，哈。</p>
+<h2 id="总结">总结</h2>
+<p>但是很可惜，第三轮面试完的第二天，就收到了 Facebook 的拒信——不得不说，Facebook recruiter 的工作效率实在是太高了……</p>
+<p><a href="/static/image/2017/facebook-interview/rejection.png"><img src="/static/image/2017/facebook-interview/rejection.png" /></a></p>
+<p>我自评的话，整体三轮面试表现，应该在 85 分以上，记忆中没有特别明显的瑕疵，因此收到拒信后就给 recruiter 发了封邮件去 argue 下。Facebook recruiter 也很大方，又约了个时间，打了 20 分钟的电话，洋洋洒洒把我这三轮面试过程从头到尾复述了一遍，包括每一道考题，我的答案，面试官对我的答案的评估，一口气说了 10 分钟——当然， recruiter 的英文口音并不是特别纯正，所以我听了 5 分钟后就有些晕菜了，后面的也没有听得特别细致。大体上讲，是我在几轮面试中，有一些题——就是我上面说的类似于“哪些信号不能被屏蔽”的问题——答得不完全正确，因此最终还是不能给我一个 onsite 的机会。</p>
+<p>实话讲，有些心有不甘，但也无可奈何。不过话又说回来，给你发了拒信，回头还打个电话告诉你为什么把你拒了的，在我面试的几十家公司中，Facebook 仅此一家，别无分号。冲这一点，如果以后有机会再去 Facebook 参加面试的话，我想我仍旧会认真对待。 Recruiter 在电话最后也鼓励我，让我半年后再联系她重新试一下，并且对我再次面试通过电面拿到 onsite 很有信心。</p>
+<p>以上就是去年，即 16 年 4–6 月参加 Facebook 面试的全过程。巧合的是，16 年 11 月份起我又参加了一次 Google 的<a href="http://xiaohanyu.me/posts/2017-04-30-google-foobar-interview/">面试</a>。两次面试都是突然而来的机会；我个人方面，由于一来当时没有找全职工作的计划，二是平时工作学习非常忙，因此在准备上也并不是特别充分。 Facebook 的面试没有走到 onsite，有些莫名其妙；Google 的面试起点非常有意思，最终也走完了 onsite，但是没有拿到 offer，有些可惜。总结起来，一是实力还不够出众；二，应该是人不在美国，海外应聘的门槛要求应该是要高一些；三，没有铁下心来花几个月的时间全职认真准备；最后，可能也是差了那么一点点的好运气吧。</p>
+<p>两家公司的招聘体验都做得非常非常棒，面试体验极好，特别是一些细节处理，让我感动，这是多年未有的体验。而我之所以不吝罗嗦，把这些流程一五一十地写下来，部分原因也是因为我以前在国内参加的很多面试太过糟糕，对比太过强烈。这也引发了我相当多的思考。</p>
+<p>我这里不去讨论考白板考算法到底能不能客允地评估程序员的技术能力这个大问题，也不去讨论 Hiring 到底有没有 <a href="https://medium.com/@evnowandforever/f-you-i-quit-hiring-is-broken-bb8f3a48d324">Broken</a>。事实是，以国内大多数公司的招聘体验，目前还没有资格去讨论 Hiring 到底有没有 Broken。</p>
+<p>比如有的公司让我大老远去参加面试，我人在杭州，公司在上海，然后我自己买了火车票转地铁去参加面试，一天面不完，第二周还要再去一次；第二周又去面了一次后，面完了就走了。而我往返沪杭，加起来约 400 元的火车票，没有人提报销的事情——虽然钱不多吧，但是好歹面子上的事情还是要做足的吧？</p>
+<p>有很多公司主动联系到我，然后我认真回了几封邮件后，就没有下文了……</p>
+<p>有的公司上来就让我去做题，不看我的背景，不看我做过的项目，非要我用 JavaScript 去写一些算法的 puzzles。我说我 JavaScript 写得不熟，能不能换 Python——对于一个常写 Python，写过 C/C++/Java/Ruby/Lisp 的人来说，换门语言简直就是分分钟的事啊。然后对方说不行。好吧，那就去用手生的 JavaScript 去写几个算法 puzzles，果不其然，拒信。</p>
+<p>总结起来，就两点：一，Google/Facebook 能在竞争如此激烈的互联网领域长期执牛耳，不是没有原因的；二， <strong>一个公司对应聘者给予足够的尊重，换来的必然也是应聘者认真的应聘准备，而这，无论是对公司，还是对应聘者来说，都是最省成本的做法</strong> 。</p>
+<p>此记。</p>
+
+    <div class="ui divider"></div>
+    <div class="ui small one item menu">
+      <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+    </div>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <aside class="four wide column">
+    <div class="ui small header">
+      License
+    </div>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+    <div class="ui small header">
+      Committed
+    </div>
+    <date>2017-05-20</date>
+    <div class="ui small header">
+      Updated
+    </div>
+    <date>2017-05-20</date>
+    <div class="ui small header">
+      Category
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/categories#Work">
+          <div class="ui label">
+            Work<sup>14</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Tags
+    </div>
+    <div class="ui list">
+      <div class="item">
+        <a href="/tags#Algorithm">
+          <div class="ui label">
+            Algorithm<sup>9</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#Facebook">
+          <div class="ui label">
+            Facebook<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#Linux">
+          <div class="ui label">
+            Linux<sup>12</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#System">
+          <div class="ui label">
+            System<sup>1</sup>
+          </div>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/tags#vmstat">
+          <div class="ui label">
+            vmstat<sup>1</sup>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="ui small header">
+      Links
+    </div>
+    <div class="ui small two item menu">
+      <a class="item" title="Google foo.bar 面试记" href="/posts/2017-04-30-google-foobar-interview/">Prev</a><a class="item" title="Archive" href="/archive">Archive</a>
+    </div>
+  </aside>
+</div>
+    </article>
+  </div>
+</div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2017 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>

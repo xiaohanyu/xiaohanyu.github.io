@@ -49,7 +49,7 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>初次接触 <a href="http://en.wikipedia.org/wiki/Framebuffer">framebuffer</a> 这个概念是在去年的 9 月，那个时候安装 Arch Linux，进入 X 后觉得 console 好丑，quark 一来，在 grub 启动的 <code>menu.lst</code> 上加了一句 <code>vga=792</code> ， 瞬间 console 就变成 1024*768 的分辨率了。先是感到惊喜，再叹 quark 的神通，三来意识到自己和别人的差距。关于怎样开启 framebuffer，grub 的配置文件注释里面有很好的说明，这里是我的部分配置 <code>menu.lst</code> ：</p>
+  <section class="twelve wide column"><p>初次接触 <a href="http://en.wikipedia.org/wiki/Framebuffer">framebuffer</a> 这个概念是在去年的 9 月，那个时候安装 Arch Linux，进入 X 后觉得 console 好丑，quark 一来，在 grub 启动的 <code>menu.lst</code> 上加了一句 <code>vga=792</code> ，瞬间 console 就变成 1024*768 的分辨率了。先是感到惊喜，再叹 quark 的神通，三来意识到自己和别人的差距。关于怎样开启 framebuffer，grub 的配置文件注释里面有很好的说明，这里是我的部分配置 <code>menu.lst</code> ：</p>
 <pre class="example"><code>#  FRAMEBUFFER RESOLUTION SETTINGS
 #     +-------------------------------------------------+
 #          | 640x480    800x600    1024x768   1280x1024
@@ -82,7 +82,7 @@ initrd /initrd
 </code></pre>
 <p>恰好今天下午做嵌入式系统的实验，LCD 显示缓冲区体验，要求编程序载入一张图片到 LCD 显示缓冲区，我回到实验室琢磨琢磨，看到了 Gentoo 开机启动时的那只小企鹅图片， tux，想到开机的时候没有启动 X，屏幕上显示出了 tux 图片，那么可以肯定的是，这张图片一定是通过某种驱动直接“写到显存”里面。而在 grub 的启动是否采用 framebuffer，则和这只 tux 的“生死”有着直接的联系，因此我敢肯定，framebuffer 肯定是这次实验的突破口之一。说干就干，回到实验室查了很多资料，对 framebuffer 的相关知识做一次小总结。</p>
 <p>FrameBuffer 是出现在 2.2.xx 内核当中的一种驱动程序接口。这种接口将显示设备抽象为帧缓冲区。用户可以将它看成是显示内存的一个映像，将其映射到进程地址空间之后，就可以直接进行读写操作，而写操作可以立即反应在屏幕上。该驱动程序的设备文件一般是 <code>/dev/fb0</code> 、 <code>/dev/fb1</code> 等等（具体内容请参见：<a href="http://www.ibm.com/developerworks/cn/linux/embed/minigui/guide/part8/">基于 Linux 和 MiniGUI 的嵌入式系统软件开发指南 </a>）。</p>
-<p>Framebuffer 需要内核的支持，如果没有 <code>/dev/fb0</code> 类似的文件，恐怕要重新编译内核了。 我们可以做两个简单的小实验，看看 frambuffer 究竟有怎样的魔力：</p>
+<p>Framebuffer 需要内核的支持，如果没有 <code>/dev/fb0</code> 类似的文件，恐怕要重新编译内核了。我们可以做两个简单的小实验，看看 frambuffer 究竟有怎样的魔力：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">cat</span> /dev/fb0 <span class="op">&gt;</span> screenshot
 <span class="co"># or, dd if=/dev/fb0 of=screenshot</span>
 <span class="co"># need super user privilege</span>
@@ -205,7 +205,7 @@ $ <span class="fu">clear</span></code></pre></div>
 <p>言归正传，事实上，有了 framebuffer，Linux的 console 可以变得无所不能！</p>
 <p>先上一张图：</p>
 <p><a href="/static/image/2010/gento_fb.png"><img src="/static/image/2010/gentoo_fb.png" /></a></p>
-<p>在 Gentoo 下，这种效果需要 fbsplash 的支持，参照 <a href="http://en.gentoo-wiki.com/wiki/Fbsplash">Gentoo Wiki</a>（其实当初装 Gentoo 的时候，自己也折腾过这个，但是一直没有启动起来，不明原因，大概是内核版本的问题， 可能同样是内核版本的问题，我的 <a href="http://www.google.com.hk/url?sa=t&amp;source=web&amp;cd=1&amp;ved=0CBQQFjAA&amp;url=http%3A%2F%2Fwww.bootchart.org%2F&amp;ei=na4PTKLSLcaDcLa7xN8M&amp;usg=AFQjCNF_z7mk6sxD0yhLlR0r973R7n4-fw">bootchart</a> 也无法启动）。还有一个类似的项目叫 <a href="http://splashy.alioth.debian.org/wiki/start">splashy</a>，不过貌似发展比较缓慢，而且应用也不多。</p>
+<p>在 Gentoo 下，这种效果需要 fbsplash 的支持，参照 <a href="http://en.gentoo-wiki.com/wiki/Fbsplash">Gentoo Wiki</a>（其实当初装 Gentoo 的时候，自己也折腾过这个，但是一直没有启动起来，不明原因，大概是内核版本的问题，可能同样是内核版本的问题，我的 <a href="http://www.google.com.hk/url?sa=t&amp;source=web&amp;cd=1&amp;ved=0CBQQFjAA&amp;url=http%3A%2F%2Fwww.bootchart.org%2F&amp;ei=na4PTKLSLcaDcLa7xN8M&amp;usg=AFQjCNF_z7mk6sxD0yhLlR0r973R7n4-fw">bootchart</a> 也无法启动）。还有一个类似的项目叫 <a href="http://splashy.alioth.debian.org/wiki/start">splashy</a>，不过貌似发展比较缓慢，而且应用也不多。</p>
 <p>可能你觉得这就是极限了吧……非也非也！其实有 Framebuffer，再加上 MPlayer，我们甚至可以在这样的终端下看 <a href="http://v.youku.com/v_show/id_XMTE5Njc2MDg0.html">视频</a>！！</p>
 <p><a href="/static/image/2010/mplayer_fb.jpg"><img src="/static/image/2010/mplayer_fb.jpg" /></a></p>
 <p>MPlayer 本身是支持多种 VIDEO OUTPUT OPTIONS，其中的一种就是 framebuffer:</p>

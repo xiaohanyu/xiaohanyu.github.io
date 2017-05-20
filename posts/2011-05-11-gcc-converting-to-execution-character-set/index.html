@@ -49,16 +49,16 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>跨平台的软件开发总会遇到各种各样的问题，尤其是在一个山寨小公司里面，更是无法避免， 因为程序最开始就没有考虑跨平台的事情……</p>
+  <section class="twelve wide column"><p>跨平台的软件开发总会遇到各种各样的问题，尤其是在一个山寨小公司里面，更是无法避免，因为程序最开始就没有考虑跨平台的事情……</p>
 <p>废话少说，话说前两天在编译程序的时候遇到一个诡异的问题，如题目所说，GCC 报错说 <code>cannot convert to execution character set</code> ，字面意思应该是有关字符集的问题。借助 Baidu，找到了 <a href="http://www.freebsdchina.org/forum/viewtopic.php?t=34539">FreeBSDChina</a> 的一个帖子，大概的解释是：</p>
 <p>C/C++ 中有这样两个编码概念：</p>
 <ul>
 <li>source character set — 源文件的编码</li>
 <li>execution character set — 执行环境的编码</li>
 </ul>
-<p>还有一些额外的环境变量就是 locale 类的 <code>LC_XXX</code> 在编译的时候，要执行从 source character set 到 execution character set 的转换。这个是由编译器来完成的。locale 是在程序的运行时决定程序的行为。 由于 Freebsd 下 GCC 的局限，你要使用 wide characters, 就是 <code class="sourceCode c" rundoc-language="c">L<span class="st">&quot;xxxx&quot;</span></code> 这样的，源文件的编码必须为 UTF-8。如果要在 Shell 下正确的看到 <code class="sourceCode cpp" rundoc-language="cpp"><span class="bu">std::</span>wcout</code> 输出的文字，则你的 Shell 的 locale 也必须为 UTF-8。另外，如果你使用的是 gnome-terminal, 注意它的显示编码也必须是 UTF-8 如果你采用了 UTF-8 的方式保存文件， <code class="sourceCode c" rundoc-language="c"><span class="st">&quot;xxx&quot;</span></code> 这样的字符串在你的程序中就是以 UTF-8 的方式保存的， <code class="sourceCode c" rundoc-language="c">L<span class="st">&quot;xxx&quot;</span></code> 这样的字符串在你的程序中就是以 UCS-4 的方式保存的。 为了永远摆脱乱码的困扰，我建议大家忍一忍，都使用 UTF-8 的方式保存文件吧。</p>
-<p>我忽然想起来，在我的 iOS 工程中，所有的源代码文件都是从原先的 Windows Mobile 工程引入的，自然所有的源文件编码都是 GBK 系列的（至于 GBK、GB2312 以及 GB18030 之间有哪些微妙的关系，我也懒得搞清楚了），而 VMware 里面的 Mac 系统编码是 Unicode， 所以可能会出现这个问题。不过为了确认，我又回到自己的 Linux 系统下，在 UTF-8 的终端下编译了一个 GBK 编码的 c 语言文件，结果也可以顺利执行，看来这可能与 GCC 的版本有关。我的 Arch Linux 下的 GCC 是 4.6版本，而 Mac OS X 下的 GCC 似乎还停留在 3.x 版本。</p>
-<p>至于字符编码的转换，在 Linux 下的基础工具和函数库都是 <a href="https://zh.wikipedia.org/zh-hans/Iconv">iconv</a>，但是 iconv 比较原始， 无法自动检测文件的编码，需要显式指定，<a href="http://freshmeat.net/projects/enca/">enca</a> 基于 iconv，但是提供了根据语言自动检测文件编码的功能，并且更加健壮，更适合于脚本批处理。我用下面的命令将所有的源文件编码转换成 UTF-8：</p>
+<p>还有一些额外的环境变量就是 locale 类的 <code>LC_XXX</code> 在编译的时候，要执行从 source character set 到 execution character set 的转换。这个是由编译器来完成的。locale 是在程序的运行时决定程序的行为。由于 Freebsd 下 GCC 的局限，你要使用 wide characters, 就是 <code class="sourceCode c" rundoc-language="c">L<span class="st">&quot;xxxx&quot;</span></code> 这样的，源文件的编码必须为 UTF-8。如果要在 Shell 下正确的看到 <code class="sourceCode cpp" rundoc-language="cpp"><span class="bu">std::</span>wcout</code> 输出的文字，则你的 Shell 的 locale 也必须为 UTF-8。另外，如果你使用的是 gnome-terminal, 注意它的显示编码也必须是 UTF-8 如果你采用了 UTF-8 的方式保存文件， <code class="sourceCode c" rundoc-language="c"><span class="st">&quot;xxx&quot;</span></code> 这样的字符串在你的程序中就是以 UTF-8 的方式保存的， <code class="sourceCode c" rundoc-language="c">L<span class="st">&quot;xxx&quot;</span></code> 这样的字符串在你的程序中就是以 UCS-4 的方式保存的。为了永远摆脱乱码的困扰，我建议大家忍一忍，都使用 UTF-8 的方式保存文件吧。</p>
+<p>我忽然想起来，在我的 iOS 工程中，所有的源代码文件都是从原先的 Windows Mobile 工程引入的，自然所有的源文件编码都是 GBK 系列的（至于 GBK、GB2312 以及 GB18030 之间有哪些微妙的关系，我也懒得搞清楚了），而 VMware 里面的 Mac 系统编码是 Unicode，所以可能会出现这个问题。不过为了确认，我又回到自己的 Linux 系统下，在 UTF-8 的终端下编译了一个 GBK 编码的 c 语言文件，结果也可以顺利执行，看来这可能与 GCC 的版本有关。我的 Arch Linux 下的 GCC 是 4.6版本，而 Mac OS X 下的 GCC 似乎还停留在 3.x 版本。</p>
+<p>至于字符编码的转换，在 Linux 下的基础工具和函数库都是 <a href="https://zh.wikipedia.org/zh-hans/Iconv">iconv</a>，但是 iconv 比较原始，无法自动检测文件的编码，需要显式指定，<a href="http://freshmeat.net/projects/enca/">enca</a> 基于 iconv，但是提供了根据语言自动检测文件编码的功能，并且更加健壮，更适合于脚本批处理。我用下面的命令将所有的源文件编码转换成 UTF-8：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">find</span> . -name <span class="dt">\*</span>.c -o -name <span class="dt">\*</span>.h -o -name <span class="dt">\*</span>.cpp <span class="kw">|</span> <span class="fu">xargs</span> enca -L zh_CN -x UTF-8</code></pre></div>
 <p>至于 Unicode、UTF-8、GB18030、ISO-8859、ASCII等，除了 ASCII，我一个都没有彻底搞明白。罢了罢了，还是期待 Unicode 早点“一统江湖，千秋万载”吧。</p>
 

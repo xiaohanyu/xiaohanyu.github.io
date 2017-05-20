@@ -50,7 +50,7 @@
 </header>
 <div class="row article-body">
   <section class="twelve wide column"><h2 id="序">序</h2>
-<p>折腾计算机两年多了，现在才算懂了点门道。从最开始的开机关机，到最初战战兢兢通宵装 XP 系统，到 VMware 带来的神奇，到 luckweb （缘网）的丰富，到 Fedora 8 的一丝不惑， 再到 Ubuntu 的博爱，我终于走进了 GNU 的大门。自由与开放的广阔世界，GNU，GNU is Not Unix，我越发感到，这，就是我需要的世界。</p>
+<p>折腾计算机两年多了，现在才算懂了点门道。从最开始的开机关机，到最初战战兢兢通宵装 XP 系统，到 VMware 带来的神奇，到 luckweb （缘网）的丰富，到 Fedora 8 的一丝不惑，再到 Ubuntu 的博爱，我终于走进了 GNU 的大门。自由与开放的广阔世界，GNU，GNU is Not Unix，我越发感到，这，就是我需要的世界。</p>
 <p>本文会教你：</p>
 <ul>
 <li>如何配置一个 Ubuntu 下完整，轻巧，高效的 C (C++, Java) 开发环境</li>
@@ -96,7 +96,7 @@ Tab</code> 切换的麻烦。</p>
 <p>安装完后打开浏览器访问 <a href="http://localhost/dwww"><a href="http://localhost/dwww" class="uri">http://localhost/dwww</a></a> 或者直接在终端调用即可<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>。</p>
 <p>顺便提一下，<a href="http://www.fifi.org/doc/dhelp/dhelp.html">dhelp</a> 和 <a href="https://wiki.gnome.org/Apps/Devhelp">devhelp</a> 也是类似的软件，大家可以装着用用。</p>
 <h3 id="nautilus-open-terminal">nautilus-open-terminal</h3>
-<p>在 <a href="https://wiki.gnome.org/action/show/Apps/Nautilus?action=show&amp;redirect=Nautilus">Nautilus</a> 中管理文件时，常常会希望在当前位置开个终端，以前的方法是：开终端 –&gt; cd 到当前目录，不过有了 nautilus-open-terminal 后，打开终端后 <code>pwd</code> 就是当前目录， 非常方便。</p>
+<p>在 <a href="https://wiki.gnome.org/action/show/Apps/Nautilus?action=show&amp;redirect=Nautilus">Nautilus</a> 中管理文件时，常常会希望在当前位置开个终端，以前的方法是：开终端 –&gt; cd 到当前目录，不过有了 nautilus-open-terminal 后，打开终端后 <code>pwd</code> 就是当前目录，非常方便。</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install nautilus-open-terminal</code></pre></div>
 <h2 id="emacs">Emacs</h2>
 <p>这个话题太沉重，我现在还不懂 elisp，无法进行太过详细的描述，先列下一个单子，容以后慢慢到来：</p>
@@ -267,11 +267,11 @@ extendedchars=false                  <span class="co">% 这一条命令可以解
 <span class="kw">\end</span>{<span class="ex">document</span>}</code></pre></div>
 <h2 id="让开发自动化">让开发自动化</h2>
 <h3 id="git">Git</h3>
-<p><a href="https://git-scm.com/">Git</a> 是一种分布式版本控制工具，是 Linus 为了管理 Linux 内核源代码而发明的版本控制工具。 什么是 Git？为什么用 Git？这个问题我解释不清楚。网上已经有了答案，请看<a href="http://linuxtoy.org/docs/guide/ch28s02.html">这里</a>。</p>
+<p><a href="https://git-scm.com/">Git</a> 是一种分布式版本控制工具，是 Linus 为了管理 Linux 内核源代码而发明的版本控制工具。什么是 Git？为什么用 Git？这个问题我解释不清楚。网上已经有了答案，请看<a href="http://linuxtoy.org/docs/guide/ch28s02.html">这里</a>。</p>
 <h3 id="doxygen">Doxygen</h3>
 <p>Java 有 Javadoc 作为 API 文档声称工具，C++ 呢？没错，就是大名鼎鼎的 <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a>。</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install doxygen doxygen-gui doxymacs doxygen-doc</code></pre></div>
-<p>Doxygen 使用非常简单，首先进入源代码目录，运行 <code>doxywizard</code> 生成一个 <code>Doxyfile</code> <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>， 根据个人需要钩选相应的选项，然后运行 <code>doxygen</code> 即可。具体的代码例子可以看 Doxygen 自带的文档 <a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>。<a href="http://www.fmddlmyy.cn/text21.html">这里</a>有个中文的入门介绍。简单的说，Doxygen 能够：</p>
+<p>Doxygen 使用非常简单，首先进入源代码目录，运行 <code>doxywizard</code> 生成一个 <code>Doxyfile</code> <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>，根据个人需要钩选相应的选项，然后运行 <code>doxygen</code> 即可。具体的代码例子可以看 Doxygen 自带的文档 <a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>。<a href="http://www.fmddlmyy.cn/text21.html">这里</a>有个中文的入门介绍。简单的说，Doxygen 能够：</p>
 <ul>
 <li>保持代码和 API 文档的一致性</li>
 <li>支持多种格式（LaTeX、HTML、PDF、DocBook、chm<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>）等格式文档的输出</li>

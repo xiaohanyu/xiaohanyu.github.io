@@ -52,21 +52,21 @@
   <section class="twelve wide column"><h2 id="引子的引子">引子的引子</h2>
 <p>金庸小说里的大侠们在行走江湖时，向来都是衣来伸手饭来张口，一不小心心情郁闷了还可以来个金盆洗手、笑傲江湖，就是从来不会考虑钱的问题。我不是大侠，生活也不是小说， “退隐闭关”半年啃了几十本书后，生活还是要继续。这几日满京城地找工作，各种笔试面试聊技术聊人生，也让我对自己的技术体系和职业规划做了一次全盘扫描，快哉快哉。</p>
 <h2 id="引子">引子</h2>
-<p>前几日面试了一家专注云计算的创业公司<a href="http://www.eayun.cn">易云捷讯</a>，一面是公司<a href="http://www.linkedin.com/in/jiyongzhang">创始人</a>从美国打来的越洋电话，聊什么我已经记不太清楚了，其中有一道题目是关于 Fibonacci 数列的，这个恰好问到了我的 G 点上，于是我就将我在《<a href="http://book.douban.com/subject/1148282/">SICP</a>》上学到的什么快速乘法啊、尾递归啊、迭代和递归啊啥的和盘托出，大大地吹嘘了一番，总之感觉还不错，算是了给面试官的一个小惊喜， 就这样胡乱通过了一面。一面之后邮件沟通被分配了一道编程题目，大意如下<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>：</p>
+<p>前几日面试了一家专注云计算的创业公司<a href="http://www.eayun.cn">易云捷讯</a>，一面是公司<a href="http://www.linkedin.com/in/jiyongzhang">创始人</a>从美国打来的越洋电话，聊什么我已经记不太清楚了，其中有一道题目是关于 Fibonacci 数列的，这个恰好问到了我的 G 点上，于是我就将我在《<a href="http://book.douban.com/subject/1148282/">SICP</a>》上学到的什么快速乘法啊、尾递归啊、迭代和递归啊啥的和盘托出，大大地吹嘘了一番，总之感觉还不错，算是了给面试官的一个小惊喜，就这样胡乱通过了一面。一面之后邮件沟通被分配了一道编程题目，大意如下<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>：</p>
 <p>在一个国际象棋 <span class="math inline">\(N \times N\)</span> 大小棋盘上，有一个棋子 “马 (Knight)”，处在任意位置 <span class="math inline">\((x, y)\)</span> ；马的走法是日字型，即其可以在一个方向上前进或后退两格，在另一方向上前进或后退一格。请编程找出马如何从位置 <span class="math inline">\((x, y)\)</span> 走到棋盘右下角 <span class="math inline">\((N, N)\)</span> 的位置的步骤。例如：假设棋盘大小为 <span class="math inline">\(3 \times 3\)</span> ，马处在 <span class="math inline">\((1, 2)\)</span> 位置，马只需要走一步，即 <span class="math inline">\((1, 2) -&gt; (3, 3)\)</span> 即可到达目的地。编程语言推荐的是 Python，程序能输出一种可行的方法即可（无需找出所有方式），还有一些软件工程的要求诸如文档、注释、代码风格这些 “无关痛痒”的东西。</p>
 <p>我是第一次在应聘时碰到这种不限时间自由 rush 的题目，坦白的讲，我还是比较喜欢这种形式的题目的。纸上谈兵的笔试有点八股，ACM 般的机试时间又太紧，面对面的聊天或者刺刀见红般的白板写代码算是比较好的了解一个人技术水平的手段，但是这三种方式的考核方式其实都和真实的工作流程相左；而这种 rush 类型的题目基本上可以反应一个人工作能力 —— 你可以利用 Google、可以去查算法书籍、可以在有限的时间内再去学习一些技术，唯一要求的就是诚信。</p>
-<p>我看到此题的第一想法就是暴力试探法，因为对于 knight <span class="math inline">\(p(x, y)\)</span> 而言， <span class="math inline">\(p(x-1, y)\)</span> 、 <span class="math inline">\(p(x + 1, y)\)</span> 、 <span class="math inline">\(p(x, y-1)\)</span> 、 <span class="math inline">\(p(x, y + 1)\)</span> 四个方向上相邻的点都是可达的。 按此思路只需要“步步为营，稳扎稳打”就可以到达“胜利的终点” <span class="math inline">\(p(N, N)\)</span> 。</p>
+<p>我看到此题的第一想法就是暴力试探法，因为对于 knight <span class="math inline">\(p(x, y)\)</span> 而言， <span class="math inline">\(p(x-1, y)\)</span> 、 <span class="math inline">\(p(x + 1, y)\)</span> 、 <span class="math inline">\(p(x, y-1)\)</span> 、 <span class="math inline">\(p(x, y + 1)\)</span> 四个方向上相邻的点都是可达的。按此思路只需要“步步为营，稳扎稳打”就可以到达“胜利的终点” <span class="math inline">\(p(N, N)\)</span> 。</p>
 <p>显然，这种策略不是对方想要的结果。适逢夜深燥热、大脑混沌，且先睡去，待次日云淡风清，再做打算。果不其然，早起在“响应大自然呼唤”的时候，我想到了理论上的最佳解决方案，不但能给出一条可行的路径，而且这条路径保证是最短的。聪明的你或许已经想到，没错，这个题目本质上就是一道 Unweighted Undirected <a href="https://en.wikipedia.org/wiki/Shortest_path_problem">Shortest Path</a> 的图论问题。转换的方法很简单：从左到右从上到下，将 <span class="math inline">\((N \times N)\)</span> 的棋盘上 <span class="math inline">\(N \times N\)</span> 个 point 顺次编号为 <span class="math inline">\(0, 1, ... N^{2}-1\)</span> ，对于棋盘上的一个点 <span class="math inline">\(p(x, y)\)</span> ，按照 knight 的走法，其下一步到达的点最多有 8 个：<span class="math inline">\(p1(x - 1, y - 2)\)</span> 、 <span class="math inline">\(p2(x - 1, y + 2)\)</span> 、 <span class="math inline">\(p3(x + 1, y - 2)\)</span> 、 <span class="math inline">\(p4(x + 1, y + 2)\)</span> 、 <span class="math inline">\(p5(x - 2, y - 1)\)</span> 、 <span class="math inline">\(p6(x - 2, y +
 1)\)</span> 、 <span class="math inline">\(p7(x + 2, y - 1)\)</span> 、 <span class="math inline">\(p8(x + 2, y + 1)\)</span> ，所有这些点的集合构成了点 <span class="math inline">\(p\)</span> 在 unweighted undirected graph 中的邻接表。接下来 BFS 算一下最短路径（由于是无权图，因此还是不劳烦 Dijkstra 大侠的高招了，简单的 BFS 就够了），再做一些简单的输入输出和错误处理就 OK 啦。那么最后的一块骨头就是 Coding 了。</p>
-<p>我最后大概花了 15 个小时左右完成了 C++/Lisp/Python 三种不同语言的程序，三者的 Coding 时间比大概是 5:2:3，这也是我第一次用不同的语言来写同样的程序，原本设想起来不算太难的工作，写完后还是很有收获的<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>，勿在浮沙筑高台，Coding 这种工匠手艺活， 眼高手低是最要不得的。</p>
+<p>我最后大概花了 15 个小时左右完成了 C++/Lisp/Python 三种不同语言的程序，三者的 Coding 时间比大概是 5:2:3，这也是我第一次用不同的语言来写同样的程序，原本设想起来不算太难的工作，写完后还是很有收获的<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>，勿在浮沙筑高台，Coding 这种工匠手艺活，眼高手低是最要不得的。</p>
 <p>文既至此，我就顺便谈谈语言学习的问题，高贤见笑后，如有时间，万望不吝赐教。</p>
 <h2 id="c">C++</h2>
-<p>按照我所了解的当代中国本科计算机教育，大多人工科学生学习的第一门编程语言应该是 C， 接下来如果还有需要的话，就是 C++ 或者 Java 了。不幸的是，鄙人也是这样过来的，幸运的是，鄙人天资愚鲁，学了半年 C++ 后知难而退，转战了实战主义的 Shell Script 和 Python，这一年来闹中取静，为了探寻 MapReduce 算法模型的本原，啃了几本 Lisp 的书， 回过头来，总算对 C++ 的诸多繁杂特性有了一些全局性的认识，这种认识来自于跨语言的佐证和思考，而非来自于 C++ 语言本身。事实上 C++ 中的很多概念在 C++ 中是无法学到通透的，比如：</p>
+<p>按照我所了解的当代中国本科计算机教育，大多人工科学生学习的第一门编程语言应该是 C，接下来如果还有需要的话，就是 C++ 或者 Java 了。不幸的是，鄙人也是这样过来的，幸运的是，鄙人天资愚鲁，学了半年 C++ 后知难而退，转战了实战主义的 Shell Script 和 Python，这一年来闹中取静，为了探寻 MapReduce 算法模型的本原，啃了几本 Lisp 的书，回过头来，总算对 C++ 的诸多繁杂特性有了一些全局性的认识，这种认识来自于跨语言的佐证和思考，而非来自于 C++ 语言本身。事实上 C++ 中的很多概念在 C++ 中是无法学到通透的，比如：</p>
 <ul>
 <li>C++ 11 的 lambda：你可以不知道 <a href="http://en.wikipedia.org/wiki/Alonzo_Church">Alonzo Church</a>，也可以不会 <a href="http://en.wikipedia.org/wiki/Lambda_calculus">Lambda calculus</a><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>，但是如果你不知道什么叫 <a href="http://en.wikipedia.org/wiki/Higher_order_function">Higher-order function</a><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> 的话，你怎么好意思说，你会 lambda？lambda 仅仅是匿名函数那么简单吗？匿名函数有何用？匿名函数的递归问题怎么解决<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>？STL 里的 functor 究竟是语言机制设计的经典还是为了弥补语言不足所贴的狗屁膏药？</li>
 <li>STL：STL 几乎就是 C++ 经典库和设计的代名词，通过迭代器将算法和组件分离<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>，力求达到性能和代码重用的双重顶点。
 <ul>
-<li>可惜你不知道的是，迭代器并不是一个高层次的抽象机制，迭代器的本质是一种迭代遍历操作，至于通过什么手段来迭代遍历，这些本不应该是使用者所应该关心的细节问题。 所以对于下面的这段 C++ 伪代码：</li>
+<li>可惜你不知道的是，迭代器并不是一个高层次的抽象机制，迭代器的本质是一种迭代遍历操作，至于通过什么手段来迭代遍历，这些本不应该是使用者所应该关心的细节问题。所以对于下面的这段 C++ 伪代码：</li>
 </ul></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="cf">for</span> (vector&lt;<span class="dt">int</span>&gt;::iterator itr = v.begin(); itr != v.end(); ++itr) {
@@ -81,18 +81,18 @@
 </ul>
 <div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">mapcar</span> #&#39;do_something v)</code></pre></div>
 <ul>
-<li>每次你写 <code>v.begin(), v.end()</code> 这样的代码时，你就不知不觉地降低了自己的抽象层次， 使自己脱离问题域而转向去纠结于实现域，不要小看这种力量， <strong>软件工程的一切欢乐和痛苦，只是聚沙成塔的两个极端而已。</strong>
+<li>每次你写 <code>v.begin(), v.end()</code> 这样的代码时，你就不知不觉地降低了自己的抽象层次，使自己脱离问题域而转向去纠结于实现域，不要小看这种力量， <strong>软件工程的一切欢乐和痛苦，只是聚沙成塔的两个极端而已。</strong>
 <ul>
 <li>事实上 STL 本身包含很多函数式编程的思想，比如说 functor 这种组件，其实质是将在 C++ 中作为 second-class 的函数通过类封装的手段提升至 first-class，如此一来，函数的核心操作摇身一变成为 functor 的时候，就可以像函数式语言里面的 higher-order function 一样，可以用类成员变量来模拟实现闭包，可以被当做普通参数传递返回（这样就不用费力去写令很多新手语法不过关的函数指针了），甚至可以通过 <code>std::bind1st</code> / <code>std::bind2nd</code> 这种奇技淫巧实现一个蹩脚的线性代数级别的函数映射与变换<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>。</li>
 <li>STL 里面大量的算法都是基于迭代器的抽象而进行序列的批量化操作，同种算法多种容器的核心技术是 <strong>基于 C++ 模板实现的静多态</strong> ，“It is better to have 100 functions operate on one data structure than 10 functions on 10 data structures”，从这个角度上来讲，STL 算法和 Lisp 中针对 sequence 类型数据的各种函数（ <code>mapcar</code> / <code>remove</code> / <code>remove_if</code> / <code>member</code> 等）有异曲同工之妙。</li>
 <li>最后来八一八 STL 之父 <a href="http://en.wikipedia.org/wiki/Alexander_Stepanov">Alexander Stepanov</a>，其实人家是莫斯科大学数学系毕业的高材生，所以 STL 背后有着很深的数学思想，“<a href="http://book.douban.com/subject/4722718/">Elements of Programming</a>”或许是解开这个谜题的钥匙。另外，Alexander 是反对 OOP 的。</li>
 </ul></li>
-<li>泛型与模板：这大概是 Modern C++ 中最重口味的话题了，也是很多 C++ 初学者的噩梦。 我认为 C++ 模板足够强大，但同时也足够扭曲且非人道，布满了大大小小的地雷和陷阱。 探究起来，C++ 模板之所以有那么多坑，其历史原因在于 C++ 模板是一种被发现而非被发明的技术<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>。C++ 最初引入模板的动机非常简单，无非就是写一些通用的 <code>min</code> / <code>max</code> 函数和一些简单的泛型类，但是人们后来发现 C++ 模板竟然是图灵完备的，这件事极大的刺激了 C++ 程序员的神经，于是乎，一个又一个神乎其技的 ad hoc 的模板编程的奇技淫巧被挖掘出来，这些奇技淫巧分布在 C++ 标准库的各个角落，而这些奇技淫巧本身也成了许多 C++ 程序员绕不开躲不过的必修课。C++ 的学习就像练剑一样，练到一定境界总会碰到这样那样的瓶颈，这个时候很多人就会认为自己功力不够，或者是练得不够刻苦，于是乎找来一本又一本的“武功秘籍”<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a> 更加刻苦地练剑。殊不知，如果方向不对，再怎么努力刻苦也难免事倍功半。你可知道，繁杂的 C++ 模板特性的背后，其本质到底是什么？
+<li>泛型与模板：这大概是 Modern C++ 中最重口味的话题了，也是很多 C++ 初学者的噩梦。我认为 C++ 模板足够强大，但同时也足够扭曲且非人道，布满了大大小小的地雷和陷阱。探究起来，C++ 模板之所以有那么多坑，其历史原因在于 C++ 模板是一种被发现而非被发明的技术<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>。C++ 最初引入模板的动机非常简单，无非就是写一些通用的 <code>min</code> / <code>max</code> 函数和一些简单的泛型类，但是人们后来发现 C++ 模板竟然是图灵完备的，这件事极大的刺激了 C++ 程序员的神经，于是乎，一个又一个神乎其技的 ad hoc 的模板编程的奇技淫巧被挖掘出来，这些奇技淫巧分布在 C++ 标准库的各个角落，而这些奇技淫巧本身也成了许多 C++ 程序员绕不开躲不过的必修课。C++ 的学习就像练剑一样，练到一定境界总会碰到这样那样的瓶颈，这个时候很多人就会认为自己功力不够，或者是练得不够刻苦，于是乎找来一本又一本的“武功秘籍”<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a> 更加刻苦地练剑。殊不知，如果方向不对，再怎么努力刻苦也难免事倍功半。你可知道，繁杂的 C++ 模板特性的背后，其本质到底是什么？
 <ul>
 <li>C++ 模板的本质在于用编程的手段显式地控制编译器的代码生成。没错，聪明的你已经想到，Lisp 的 macro 做的也是同样的事情。但是不同于 Lisp 的 macro，由于 C++ 模板的先天不足和 C++ 静态类型系统的限制，C++ 在语言层面上对模板编程的支持非常有限。<a href="http://www.royaloo.com/">荣耀</a>先生有一篇非常精炼的PPT《<a href="http://wenku.baidu.com/view/efb7a9a6f524ccbff12184b5.html">C++模板元编程技术与应用</a>》，基本上概括了 C++ 模板编程的核心机制和语言实现，我摘录了一些如下：
 <ul>
 <li>模板元编程使用静态 C++ 语言成分，编程风格类似于函数式编程，其中不可以使用变量、赋值语句和迭代结构等。</li>
-<li>在模板元编程中，主要操作整型（包括布尔类型、字符类型、整数类型）常量和类型。 被操纵的实体也称为元数据（Metadata）。所有元数据均可作为模板参数。</li>
+<li>在模板元编程中，主要操作整型（包括布尔类型、字符类型、整数类型）常量和类型。被操纵的实体也称为元数据（Metadata）。所有元数据均可作为模板参数。</li>
 <li>由于在模板元编程中不可以使用变量，我们只能使用 typedef 名字和整型常量。它们分别采用一个类型和整数值进行初始化，之后不能再赋予新的类型或数值。如果需要新的类型或数值，必须引入新的 typedef 名字或常量。</li>
 <li>编译期赋值通过整型常量初始化和 typedef 语句实现。例如：
 <ul>
@@ -103,16 +103,16 @@
 <ul>
 <li><code>typedef T1 Result;</code></li>
 </ul></li>
-<li>条件结构采用模板特化或条件操作符实现。如果需要从两个或更多种类型中选其一， 可以使用模板特化，如前述的 ~IfThenElse~<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a>。
+<li>条件结构采用模板特化或条件操作符实现。如果需要从两个或更多种类型中选其一，可以使用模板特化，如前述的 ~IfThenElse~<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a>。
 <ul>
 <li>静态 C++ 代码使用递归而不是循环语句。递归的终结采用模板特化实现。如果没有充当终结条件的特化版，编译器将一直实例化下去，一直到达编译器的极限<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>。</li>
 </ul></li>
 </ul>
 <ul>
-<li>而正是由于底层支撑性语言机制的匮乏，使得 C++ 模板编程非常的冗长、丑陋，甚至有些扭曲乃至非人道<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>。我以为，用一门连 <code>IfThenElse</code> 都要靠 Hack 去实现的子语言去写高阶代码，和用汇编语言去写高级数据结构是差不多的。所以你去看 STL 的代码，看 <code>std::binary_function</code> ，你会发现大量的 typedef 做类型推导。可是你想过没有，类型推导真的是必须的吗？未必。这么多 typedef 完全是拜 C++ 的静态类型系统所赐。我不是说静态类型不好，事实上关于静态类型和动态类型历来都是学术界和工业界乐此不疲的热门口水战。我想说明的是， <strong>有时候你想要舞蹈的时候， 要低头看看，你的脚上是否带着不必要的镣铐</strong> 。C++ 的静态类型系统对于泛型编程而言，就是这样的镣铐。</li>
+<li>而正是由于底层支撑性语言机制的匮乏，使得 C++ 模板编程非常的冗长、丑陋，甚至有些扭曲乃至非人道<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>。我以为，用一门连 <code>IfThenElse</code> 都要靠 Hack 去实现的子语言去写高阶代码，和用汇编语言去写高级数据结构是差不多的。所以你去看 STL 的代码，看 <code>std::binary_function</code> ，你会发现大量的 typedef 做类型推导。可是你想过没有，类型推导真的是必须的吗？未必。这么多 typedef 完全是拜 C++ 的静态类型系统所赐。我不是说静态类型不好，事实上关于静态类型和动态类型历来都是学术界和工业界乐此不疲的热门口水战。我想说明的是， <strong>有时候你想要舞蹈的时候，要低头看看，你的脚上是否带着不必要的镣铐</strong> 。C++ 的静态类型系统对于泛型编程而言，就是这样的镣铐。</li>
 </ul></li>
 </ul></li>
-<li>引用、指针、const、static 等：除了以上比较“重口味”的 C++ 语言特性，C++ 里还有各种各样的语言小尾巴，而且这个尾巴一般都拉的特别长。当然，尾巴长的好处之一就是可以养活很多语言专家，什么 effective 啊、exceptional 啊、faq 啊啥的，在所有的编程语言中，C++ 这点绝对是独树一帜。其实每个语言特性的背后都有值得深究的知识， <strong>没有任何事情是想当然的<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a>。</strong> <code>const</code> 够简单了吧？可是你知道 const pointer 和 pointer to const 的区别吗？你知道什么时候用 const 引用传参什么时候返回 const 引用什么时候返回值吗？你知道 const 成员函数吗？你知道为什么会有初始化成员列表的存在吗？再来说说引用这个概念，其本质上就是一种受限指针加上编译器层面上的语法糖修饰，按理说不太难，但是什么时候传引用返回引用确是值得深究的好问题，搞清楚了这点，你就会搞明白 C++ 中的 copy constructor/copy assignment operator，Java 中的 <code>Object.clone()</code> ，Python中的 <code>is</code> 、和 Lisp 中的 <code>eq</code> / <code>eql</code> / <code>equal</code> 。 传引用 / 指针还是传值涉及到深刻的程序语言原理，并不是你想象的那么简单而已。</li>
+<li>引用、指针、const、static 等：除了以上比较“重口味”的 C++ 语言特性，C++ 里还有各种各样的语言小尾巴，而且这个尾巴一般都拉的特别长。当然，尾巴长的好处之一就是可以养活很多语言专家，什么 effective 啊、exceptional 啊、faq 啊啥的，在所有的编程语言中，C++ 这点绝对是独树一帜。其实每个语言特性的背后都有值得深究的知识， <strong>没有任何事情是想当然的<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a>。</strong> <code>const</code> 够简单了吧？可是你知道 const pointer 和 pointer to const 的区别吗？你知道什么时候用 const 引用传参什么时候返回 const 引用什么时候返回值吗？你知道 const 成员函数吗？你知道为什么会有初始化成员列表的存在吗？再来说说引用这个概念，其本质上就是一种受限指针加上编译器层面上的语法糖修饰，按理说不太难，但是什么时候传引用返回引用确是值得深究的好问题，搞清楚了这点，你就会搞明白 C++ 中的 copy constructor/copy assignment operator，Java 中的 <code>Object.clone()</code> ，Python中的 <code>is</code> 、和 Lisp 中的 <code>eq</code> / <code>eql</code> / <code>equal</code> 。传引用 / 指针还是传值涉及到深刻的程序语言原理，并不是你想象的那么简单而已。</li>
 <li>以上谈了这么多，读者可能会问，既然 C++ 如此繁杂，还要不要学习 C++？学，当然要学，否则你怎么批判呢？怎么学？批判地学。要去学习语言机制的根源和本质而不要迷失在语言特性的森林里<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a>。</li>
 <li>最后，还是回到面试题上，还是放上鄙人的 C++ 代码，也好和 Lisp/Python 版的程序做一个小对比：</li>
 </ul>
@@ -465,17 +465,17 @@ chessboard::point chessboard::next_point(<span class="at">const</span> point &am
   <span class="cf">return</span> <span class="dv">0</span>;
 }</code></pre></div>
 <h2 id="lisp">Lisp</h2>
-<p>Lisp 是一门阳春白雪的语言，前两天我去面试一个 Linux 后端开发的职位，面试官看到我的简历还当面问我“Lisp 是一个什么东西”……Lisp 最广为人知的特点，大概就是——括号了吧。 因此 Lisp 除了代表 “List Processing”，还有一个别名 “Lots of Irritating Superfluous Parentheses”。括号的背后其实是 S-expression。诈看上去，S-expression <code>(+ 1 2)</code> 比之于我们熟悉的 <code>1 + 2</code> 确实要晦涩一点，但是你要明白的是，我们之所以比较喜欢 <code>1 + 2</code> 这种形式的写法，那完全是我们小学教育的错<a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a>。想想高等数学吧， 函数 <span class="math inline">\(f(x, y, z)\)</span> ，翻译成 Lisp 的 S-expression l就是 <code>(f x y z)</code> ，但是如何翻译成 <code>1 + 2</code> 形式的语句呢？事实上在 Lisp 发明之初，确实有人指出说 S-expression 写起来特别的别扭，John McCarthy 也曾经试图将 S-expression 转换成 <a href="http://en.wikipedia.org/wiki/M-expression">M-expression</a>的形式，可是后来人们发现 S-expression 所带来的好处远远超出其微末的学习成本， M-expression 的计划也就无疾而终了。S-expression是 Lisp 程序员一切欢乐与痛苦的来源<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a>。</p>
+<p>Lisp 是一门阳春白雪的语言，前两天我去面试一个 Linux 后端开发的职位，面试官看到我的简历还当面问我“Lisp 是一个什么东西”……Lisp 最广为人知的特点，大概就是——括号了吧。因此 Lisp 除了代表 “List Processing”，还有一个别名 “Lots of Irritating Superfluous Parentheses”。括号的背后其实是 S-expression。诈看上去，S-expression <code>(+ 1 2)</code> 比之于我们熟悉的 <code>1 + 2</code> 确实要晦涩一点，但是你要明白的是，我们之所以比较喜欢 <code>1 + 2</code> 这种形式的写法，那完全是我们小学教育的错<a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a>。想想高等数学吧，函数 <span class="math inline">\(f(x, y, z)\)</span> ，翻译成 Lisp 的 S-expression l就是 <code>(f x y z)</code> ，但是如何翻译成 <code>1 + 2</code> 形式的语句呢？事实上在 Lisp 发明之初，确实有人指出说 S-expression 写起来特别的别扭，John McCarthy 也曾经试图将 S-expression 转换成 <a href="http://en.wikipedia.org/wiki/M-expression">M-expression</a>的形式，可是后来人们发现 S-expression 所带来的好处远远超出其微末的学习成本， M-expression 的计划也就无疾而终了。S-expression是 Lisp 程序员一切欢乐与痛苦的来源<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a>。</p>
 <ul>
 <li>S-expression 带给 Lisp 的第一个好处是语法的简单一致性。显而易见的例子就是 Lisp 中没有类似于 C 语言中的运算符优先表。</li>
 <li>S-expression 带给 Lisp 的第二个好处是 <a href="http://en.wikipedia.org/wiki/Homoiconicity">Homoiconicity</a>，体现在 Lisp 中，就是 “code is data”<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a>。</li>
 <li>基于 “code is data”，S-expreesion 带给 Lisp 的第三个好处就是强大的 macro。前面我们曾经讲到，“C++ 模板的本质在于用编程的手段显式地控制编译器的代码生成”，也就是所谓的<a href="http://en.wikipedia.org/wiki/Meta-programming%20">元编程 meta-programming</a>。我们还提到，C++ 在语言层面上对 meta-programming 的支持非常匮乏，因此才会有各种各样的 workarounds（effective/exceptional 中称为 idioms 或者 techniques）。与 C++ 模板不同，Lisp 的 macro 可以调用几乎所有 Lisp 的语言机制。正式由于 S-expression 的存在，使得 Lisp 代码本身不经解析就是一颗完美的对编译器极度友好的<a href="http://en.wikipedia.org/wiki/Abstract_syntax_tree">抽象语法树</a>， <strong>当我们写 Lisp macro 的时候，我们其实是在和 Lisp 编译器交谈</strong> ，我们告诉 Lisp 编译器，那些参数需要求值<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>，那些代码需要循环执行 ( <code>do</code> / <code>dolist</code> / <code>dotimes</code> )，那些结构需要定义 getter/setter(<code>defstruct</code>) 等等。要知道，Lisp 的老本行就是 List Processing，而任何合法的 Lisp 的代码本身也一个 List，用 Lisp 的能力来操作自身的代码，进行代码变换，这就是 Lisp 的 macro。
 <ul>
-<li>好学的读者可能会问，元编程到底有什么用？其实很简单，当你在写一句句 C 语言代码的时候，你就已经在用元编程了。广义上来讲，任何能够控制代码生成的编程方法都可以看作是元编程，元编程其实是编译器的主要工作职能。不明白？好吧。我们要从遥远的汇编时代讲起。没有 C 语言（高级语言）之前，人们在汇编语言的酱缸中浸淫。 终于有一天，有那么几位智者大神跳出来，总结出说编程语言的控制结构无非就是顺序、 选择、循环三种，于是就有了 <code>if</code> ，有了 <code>for</code> / <code>while</code> ，从此程序员就快乐写写 <code>if</code> / <code>for</code> ，抛弃了汇编，因为有一个叫做编译器的助手可以自动生成 <code>if</code> / <code>for</code> 的底层汇编代码。如果说编程是为了解决重复性的工作，那么元编程就是为了解决重复性的编程代码工作。</li>
+<li>好学的读者可能会问，元编程到底有什么用？其实很简单，当你在写一句句 C 语言代码的时候，你就已经在用元编程了。广义上来讲，任何能够控制代码生成的编程方法都可以看作是元编程，元编程其实是编译器的主要工作职能。不明白？好吧。我们要从遥远的汇编时代讲起。没有 C 语言（高级语言）之前，人们在汇编语言的酱缸中浸淫。终于有一天，有那么几位智者大神跳出来，总结出说编程语言的控制结构无非就是顺序、 选择、循环三种，于是就有了 <code>if</code> ，有了 <code>for</code> / <code>while</code> ，从此程序员就快乐写写 <code>if</code> / <code>for</code> ，抛弃了汇编，因为有一个叫做编译器的助手可以自动生成 <code>if</code> / <code>for</code> 的底层汇编代码。如果说编程是为了解决重复性的工作，那么元编程就是为了解决重复性的编程代码工作。</li>
 <li>Lisp 的 macro 所带来的元编程能力与其他语言相比，其最大的特点在于 Lisp 的 macro 元编程是可扩展的，也就是说，我们可以通过 Lisp 的 macro 写一些库，而这些库和语言本身的机制能够很好的融合在一起；其余的语言诸如 C++/Java，其语言机制的扩展则需要进行漫长的标准化进程。</li>
 </ul></li>
 </ul>
-<p>除了以上，Lisp还有一些非常独特的优点，使得这么古老的阳春白雪般的语言虽然尚未蓬勃， 但注定不会消亡：</p>
+<p>除了以上，Lisp还有一些非常独特的优点，使得这么古老的阳春白雪般的语言虽然尚未蓬勃，但注定不会消亡：</p>
 <ul>
 <li>快速反馈的交互式开发模型。是的，谈到 Lisp 开发就不能不谈到 Emacs + SLIME 这套革命性的开发环境，没有 SLIME 的 Lisp，就像没有武器的战士一样。不同于 C++ 的先构建再运行的开发模型，Lisp 的开发模型是交互式的。你写了一个 <code>defun</code> 一个 <code>defstruct</code> ，不需要去 main 函数中写一段测试代码和 print 语句，然后编译运行看看结果是否符合预期；在 SLIME + Lisp 的开发环境中，写了一个 <code>defun</code> ， <code>C-c
  C-c</code> 即可编译完成， <code>C-x C-e</code> 即可执行当前的一个表达式，快速的反馈和修改能够最大程度上保证你思维的连续性。关于这点可以参考我写的<a href="http://xiaohanyu.me/posts/2012-06-09-introducing-lisp-development-with-emacs/">走进 Lisp 的世界——兼谈 Emacs 下 Lisp的开发环境（上）</a>。</li>
@@ -483,7 +483,7 @@ chessboard::point chessboard::next_point(<span class="at">const</span> point &am
 <ul>
 <li><a href="http://www.paulgraham.com/">Paul Graham</a> 在 <a href="http://www.paulgraham.com/rootsoflisp.html">The Roots of Lisp</a> 中写到 “It’s worth understanding what McCarthy discovered, not just as a landmark in the history of computers, but as a model for what programming is tending to become in our own time. It seems to me that there have been two really clean, consistent models of programming so far: the C model and the Lisp model. These two seem points of high ground, with swampy lowlands between them. As computers have grown more powerful, the new languages being developed have been moving steadily toward the Lisp model. A popular recipe for new programming languages in the past 20 years has been to take the C model of computing and add to it, piecemeal, parts taken from the Lisp model, like runtime typing and garbage collection.”</li>
 <li>按照我的理解，我们可以对中文“计算机”这个词语做一次咬文嚼字的分拆，Lisp 代表着“计算”，而 C 语言则代表“机”。</li>
-<li>Lisp 具有强烈的数学色彩，Lisp 程序中大量使用递归，深刻理解递归几乎是 Lisp 程序员的必备生存技能<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>。而 C 语言则终点关注底层机器模型， <code>short</code> / <code>int</code> / <code>long</code> / <code>long long</code> ，不同数据类型的区分，榨干机器的内存空间；大量使用指针， 将完整的冯诺依曼机器模型暴露给程序员，榨干机器的整体性能。</li>
+<li>Lisp 具有强烈的数学色彩，Lisp 程序中大量使用递归，深刻理解递归几乎是 Lisp 程序员的必备生存技能<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>。而 C 语言则终点关注底层机器模型， <code>short</code> / <code>int</code> / <code>long</code> / <code>long long</code> ，不同数据类型的区分，榨干机器的内存空间；大量使用指针，将完整的冯诺依曼机器模型暴露给程序员，榨干机器的整体性能。</li>
 <li>在 Lisp 中更加强调 what you want，而 C 中则更加倾向于给出长长的算法步骤和状态变换指令，专注于 how to get it。
 <ul>
 <li>比如求一个 list 的长度，在 Lisp 中，其核心代码就是 (+ 1 (lenght (cdr lst)))；而在 C 中，恐怕要设置 int i = 0 和各种计数器了<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a>。</li>
@@ -783,7 +783,7 @@ chessboard::point chessboard::next_point(<span class="at">const</span> point &am
 <li id="fn16"><p>就好比我们喜欢十进制而非二进制，完全是因为上帝赐予了我们十根手指。<a href="#fnref16">↩</a></p></li>
 <li id="fn17"><p>你也可以说，指针是 C 程序员一切欢乐与痛苦的来源。其实我想说的是，每种编程语言的核心关注点不同，在此至上，语言本身会围绕着这个核心点发展出自己的一套设计哲学，然后根据这套哲学来指导语言本身的设计和发展。<a href="#fnref17">↩</a></p></li>
 <li id="fn18"><p>“Data is just dumb code, and code is just smart data”，关于 “code is data” 的话题涉及到计算机科学里面很多深刻的论题。比如说 C 程序中的 <code>.text</code> 段和 <code>.data</code> 段，<a href="http://en.wikipedia.org/wiki/Von_Neumann_architecture">冯诺依曼体系结构</a>和<a href="http://en.wikipedia.org/wiki/Harvard_architecture">哈佛体系结构</a>，编译器代码生成等等。<a href="http://www.bofh.org.uk/2008/04/07/code-is-data-and-it-always-has-been">Code is data，and it always has been</a>。<a href="#fnref18">↩</a></p></li>
-<li id="fn19"><p>学习 Lisp 带给你的一个思想革新就是，一个对象和这个对象的值是完全不同的东西 <code>(eval (quote x))</code> 。这是个很重要的概念，但这个概念在其余语言中往往是混为一体的， 至少在语法上是这样的。最简单的例子，比如 C 中的语句： <code>x = x</code> ，等式的右边是 <code>x</code> 的值而不是 <code>x</code> 本身，等式的左边是 <code>x</code> 本身而不是 <code>x</code> 的值，理解了这点，你就能理解 C++ 中左值和右值的概念区别。如果有机会，我会专门写篇文章，探讨下这个主题。<a href="#fnref19">↩</a></p></li>
+<li id="fn19"><p>学习 Lisp 带给你的一个思想革新就是，一个对象和这个对象的值是完全不同的东西 <code>(eval (quote x))</code> 。这是个很重要的概念，但这个概念在其余语言中往往是混为一体的，至少在语法上是这样的。最简单的例子，比如 C 中的语句： <code>x = x</code> ，等式的右边是 <code>x</code> 的值而不是 <code>x</code> 本身，等式的左边是 <code>x</code> 本身而不是 <code>x</code> 的值，理解了这点，你就能理解 C++ 中左值和右值的概念区别。如果有机会，我会专门写篇文章，探讨下这个主题。<a href="#fnref19">↩</a></p></li>
 <li id="fn20"><p>Lisp 编程中的递归主要是数学归纳法的一种程式化转换，《<a href="http://book.douban.com/subject/2267922/">Common Lisp: A Gentle Introduction to Symbolic Computation</a>》8.11 节里面详细介绍了 Lisp 中递归的几种模式，清晰易懂，强烈推荐。<a href="#fnref20">↩</a></p></li>
 <li id="fn21"><p>这么简单的例子也许并不足以体现出 Lisp 和 C 这两种语言不同思维模式的区别，事实上如果读者不去稍微深入地学习下 Lisp 的话，是很难体会到这种思维转变的。<a href="#fnref21">↩</a></p></li>
 <li id="fn22"><p>具体可以参考孟岩先生的两篇文章，<a href="http://blog.csdn.net/myan/article/details/1778843">用 C 设计，用 C++ 编码</a>和<a href="http://blog.csdn.net/myan/article/details/1777230">Linux之父话糙理不糙</a>。<a href="#fnref22">↩</a></p></li>

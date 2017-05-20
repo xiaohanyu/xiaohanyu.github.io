@@ -49,8 +49,8 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>毕竟是做题经验不足，开始看题被唬住了。题目大意是给定一个数据 <code>a[i]</code> ，寻找四个数字 <code>i</code> 、 <code>j</code> 、 <code>k</code> 、 <code>m</code> ， 使得 <code>a[m] = a[i] + a[j] + a[k]</code> ，并求出 <code>max(a[m])</code> 。</p>
-<p>最容易想到的是暴力算法。求出每个三元组的和，然后再搜索，复杂度为 <span class="math inline">\(O(n^{3})\)</span> 级别的。但是我觉得应该会有更好的解法，就去百度上查。事实上最终我用的也是这种暴力方法。 参考别人代码，结合 STL。思路大体上是先排序，然后再二分搜索。最后通过的时间是 50 ms。看了下本题目的 status，前面的高人通过时间都是 0ms，由此看来本题肯定有优化的可能。只是我不知道罢了。暂且放下。</p>
+  <section class="twelve wide column"><p>毕竟是做题经验不足，开始看题被唬住了。题目大意是给定一个数据 <code>a[i]</code> ，寻找四个数字 <code>i</code> 、 <code>j</code> 、 <code>k</code> 、 <code>m</code> ，使得 <code>a[m] = a[i] + a[j] + a[k]</code> ，并求出 <code>max(a[m])</code> 。</p>
+<p>最容易想到的是暴力算法。求出每个三元组的和，然后再搜索，复杂度为 <span class="math inline">\(O(n^{3})\)</span> 级别的。但是我觉得应该会有更好的解法，就去百度上查。事实上最终我用的也是这种暴力方法。参考别人代码，结合 STL。思路大体上是先排序，然后再二分搜索。最后通过的时间是 50 ms。看了下本题目的 status，前面的高人通过时间都是 0ms，由此看来本题肯定有优化的可能。只是我不知道罢了。暂且放下。</p>
 <p>STL应用太过生疏，仿函数和函数指针的应用还经常混淆。需要加强。</p>
 <div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
 <span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span>

@@ -60,7 +60,7 @@
 <li><a href="http://sourceforge.net/projects/pgf/">PGF/TikZ</a></li>
 <li><a href="http://tug.org/PSTricks/main.cgi/">PSTricks</a></li>
 </ol>
-<p>前两者属于离线做图工具；后两者属于在线做图工具。可能你又会问，什么叫离线做图工具？ 什么又叫在线做图工具？</p>
+<p>前两者属于离线做图工具；后两者属于在线做图工具。可能你又会问，什么叫离线做图工具？什么又叫在线做图工具？</p>
 <p>简单来说，离线做图就是单独建立文件，然后生成 eps 等独立的图形文件，通过 <code>\includegraphics</code> 等类似的命令将图形文件嵌入到 LaTeX 文件中（这样说也许不妥，因为 LaTeX 文件经过不同处理可以生成多种类型的文件如 dvi、ps、pdf 等等，嵌入到 LaTeX 中意思是“图形”嵌入到生成的文件中）。MetaPost 和 Asymptote 属于这种。</p>
 <p>在线做图就是直接在 TeX 文件中敲相应宏包的绘图命令，经过处理后直接生成图形。 PGF/TikZ 和 PSTricks 属于此类。两种方式并没有优劣之别。离线做图更灵活，在线做图则更加方便。</p>
 <p>从历史上来说，MetaPost和 PSTricks 历史更长久一点，而 Asymptote 和 PGF/TikZ 则相对年轻。</p>
@@ -92,7 +92,7 @@
 <li><a href="http://ctan.org/tex-archive/help/Catalogue/entries/dot2texi.html">dot2texi</a></li>
 </ul>
 <p>可以将 Graphviz 的 dot 文件转换为 TeX 兼容的格式，直接嵌入 TeX 文件中，具体我就没有用过了。</p>
-<p>最后一个推荐的 CLI 派的绘图干将就是 <a href="http://www.gnuplot.info/">gnuplot</a> 了。gnuplot 主要擅长数学数据的可视化， 结合 <a href="http://maxima.sourceforge.net/">Maxima</a>、<a href="http://www.gnu.org/software/octave/">Octave</a> 等等可以形成一套完备的 <a href="http://en.wikipedia.org/wiki/Computer_algebra_system">CAS</a> 系统。而且据我所知，gnuplot 本身也是支持 MetaPost 接口导出的。这是 gnuplot 的 <a href="http://www.gnuplot.info/screenshots/index.html#demos">gallery</a>，看看什么叫数学之美。</p>
+<p>最后一个推荐的 CLI 派的绘图干将就是 <a href="http://www.gnuplot.info/">gnuplot</a> 了。gnuplot 主要擅长数学数据的可视化，结合 <a href="http://maxima.sourceforge.net/">Maxima</a>、<a href="http://www.gnu.org/software/octave/">Octave</a> 等等可以形成一套完备的 <a href="http://en.wikipedia.org/wiki/Computer_algebra_system">CAS</a> 系统。而且据我所知，gnuplot 本身也是支持 MetaPost 接口导出的。这是 gnuplot 的 <a href="http://www.gnuplot.info/screenshots/index.html#demos">gallery</a>，看看什么叫数学之美。</p>
 <p>说了这么多废话，第一类总算数的差不多了。接下来再简单数数第二类。基于 GUI 的画图工具，汗牛充栋，大块的如 GIMP、Inkscape 等，做尔等工作，牛刀杀鸡也。</p>
 <p>还是一些小工具来得实惠。首先推荐的当然是大名鼎鼎的 <a href="http://projects.gnome.org/dia/">Dia</a> 了。引用其官方主页上的介绍：</p>
 <blockquote>

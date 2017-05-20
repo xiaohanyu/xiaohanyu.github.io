@@ -60,7 +60,7 @@
 <li>为了提交作业方便，数据库使用 access，提供对话框让用户选择数据库</li>
 </ul>
 <p>我大概花了一周左右的时间完成了程序，这其中包括：三天的时间熟悉 C# 和 Mono，一天的时间复习 SQL 语法并学习 <a href="https://www.sqlite.org/">SQLite</a> 的使用，一天的时间学习下 ASP.NET，一天时间完成程序，最后一天的时间用来看新版《水浒传》……^_^。</p>
-<p>最终的效果自然是十分“简陋”，只实现了第 1、4、5 条的需求和第 2、3 条的部分需求， 而且还存在严重的 bug。不过时间紧迫，加上我对微软的快餐文化无爱，就匆匆忙忙交了作业，忙下一门考试去了。</p>
+<p>最终的效果自然是十分“简陋”，只实现了第 1、4、5 条的需求和第 2、3 条的部分需求，而且还存在严重的 bug。不过时间紧迫，加上我对微软的快餐文化无爱，就匆匆忙忙交了作业，忙下一门考试去了。</p>
 <p>简单说下实现思路吧，顺便总结下学习 C# 过程中的一些心得。</p>
 <p>实验的基本条件：</p>
 <ul>
@@ -71,7 +71,7 @@
 <li>Database: SQLite 3.7.4</li>
 </ul>
 <h2 id="mono">Mono</h2>
-<p>引用 <a href="http://www.mono-project.com/">mono-project 主页</a>上的说法，“Mono is an open source, cross-platform, implementation of C# and the CLR that is binary compatible with Microsoft.NET”， MonoDevelop is “An open Source C# and .NET development environment for Linux, Windows, and Mac OS X”。虽然在 Linux 下用 Mono 来搞 C# 是件不怎么“光彩”的事情， 但是 Mono 却给我留下了极佳的用户体验。代码补全、重构，多语言支持，内建 XSP server，集成调试功能，还有让我欢呼流泪的 Editor 的 Vi-mode的支持。</p>
+<p>引用 <a href="http://www.mono-project.com/">mono-project 主页</a>上的说法，“Mono is an open source, cross-platform, implementation of C# and the CLR that is binary compatible with Microsoft.NET”， MonoDevelop is “An open Source C# and .NET development environment for Linux, Windows, and Mac OS X”。虽然在 Linux 下用 Mono 来搞 C# 是件不怎么“光彩”的事情，但是 Mono 却给我留下了极佳的用户体验。代码补全、重构，多语言支持，内建 XSP server，集成调试功能，还有让我欢呼流泪的 Editor 的 Vi-mode的支持。</p>
 <p>那么 Mono 到底是个什么东西呢？直白点的说法就是，Mono是 Microsoft .NET 的跨平台实现。比如我们可以用 C# 写如下一个程序 <code>winform.cs</code> ：</p>
 <div class="sourceCode"><pre class="sourceCode cs"><code class="sourceCode cs"><span class="kw">using</span> System;
 <span class="kw">using</span> System.<span class="fu">Windows</span>.<span class="fu">Forms</span>;
@@ -181,10 +181,10 @@
 }</code></pre></div>
 <p>话说 ADO.NET 的 DataSet 和 ASP.NET 中某些控件的 bind 功能还真是挺方便的。</p>
 <h2 id="asp.net">ASP.NET</h2>
-<p>ASP.NET？这究竟是个什么东西？大一时学了一门课叫做《WEB数据库设计》，讲的是 ASP， 诸如如何配置 IIS，如何在 Dreamweaver 中添加 Access 数据源、连接数据库，以及 VBScript 的入门语法等等。三年之后我才知道，IIS 并不是 Apache 的对手，Apache 在某些方面也不如 nginx，LAMP 架构才是 web 服务中基础中的基础；编写 HTML 最好用的不是 Dreamweaver 而是 Vim；Access 充其量只是个不跨平台比 Excel 强点有限的玩具数据库产品；ASP 日薄西山，已经躺在了历史的博物馆里了；当初对 ASP 的吹嘘——动态网页技术， 如今又成了 ASP 的最大诟病——代码混杂，无法分离网页设计和业务逻辑——而这又成了 ASP.NET 横空出世的理由。至于 ASP.NET 能活多久，我不关心也不在乎，我所在乎的只是用这个东西尽快地完成我的大程序。</p>
-<p>MVC（Model, View, Control）是当今网站中比较流行的架构。其最大的贡献在于实现了网站业务逻辑与页面表现美工的分离。最初的动态网页，无论是 ASP、JSP 还是 PHP 也好， 静态的 HTML 代码和程序语言代码混杂在一起，造成了大规模 Web 程序非常难于书写和维护。后来 Java 出现了各种各样的框架如当下流行的 SSH（Struts、Spring、Hibernate）； 微软革了 ASP 的命推出了 ASP.NET，以 C# 和 VB.NET 为后端实现 MVC 架构；PHP 也有各种各样现成的数不清的框架。框架这个东西是最容易过时的。所以我觉得框架这个东西就像山东大饼，饱腹可以，太过深究细节就有些得不偿失，重要的还是要掌握柴米油盐。用框架人人都会，但是设计并实现出一个优秀的框架，就不是嘴上说说那么容易了。微软的快餐产品让千百万人踏入了程序设计的大门，也让他们陷入了跟潮流的漩涡。而一切微软技术的核心，定有躲不开的核心，那就是 Win32 API 和消息循环机制。</p>
+<p>ASP.NET？这究竟是个什么东西？大一时学了一门课叫做《WEB数据库设计》，讲的是 ASP，诸如如何配置 IIS，如何在 Dreamweaver 中添加 Access 数据源、连接数据库，以及 VBScript 的入门语法等等。三年之后我才知道，IIS 并不是 Apache 的对手，Apache 在某些方面也不如 nginx，LAMP 架构才是 web 服务中基础中的基础；编写 HTML 最好用的不是 Dreamweaver 而是 Vim；Access 充其量只是个不跨平台比 Excel 强点有限的玩具数据库产品；ASP 日薄西山，已经躺在了历史的博物馆里了；当初对 ASP 的吹嘘——动态网页技术，如今又成了 ASP 的最大诟病——代码混杂，无法分离网页设计和业务逻辑——而这又成了 ASP.NET 横空出世的理由。至于 ASP.NET 能活多久，我不关心也不在乎，我所在乎的只是用这个东西尽快地完成我的大程序。</p>
+<p>MVC（Model, View, Control）是当今网站中比较流行的架构。其最大的贡献在于实现了网站业务逻辑与页面表现美工的分离。最初的动态网页，无论是 ASP、JSP 还是 PHP 也好，静态的 HTML 代码和程序语言代码混杂在一起，造成了大规模 Web 程序非常难于书写和维护。后来 Java 出现了各种各样的框架如当下流行的 SSH（Struts、Spring、Hibernate）；微软革了 ASP 的命推出了 ASP.NET，以 C# 和 VB.NET 为后端实现 MVC 架构；PHP 也有各种各样现成的数不清的框架。框架这个东西是最容易过时的。所以我觉得框架这个东西就像山东大饼，饱腹可以，太过深究细节就有些得不偿失，重要的还是要掌握柴米油盐。用框架人人都会，但是设计并实现出一个优秀的框架，就不是嘴上说说那么容易了。微软的快餐产品让千百万人踏入了程序设计的大门，也让他们陷入了跟潮流的漩涡。而一切微软技术的核心，定有躲不开的核心，那就是 Win32 API 和消息循环机制。</p>
 <p>理解 ASP.NET 的核心在于亮点，一是 MVC 架构的理解，即业务逻辑和页面表现的分离；二是 Windows 事件机制和消息循环机制。</p>
-<p>深入探讨这个问题已经远远超出了本人的能力。本人也只是窥探了几章《Windows 程序设计》，才到这里才大放厥词。什么是消息循环？事实上消息循环绝不向消息循环那么简单， 消息循环和 OO、结构化程序设计一样，是一种 Architectural Patterns。常见的 Architectural Patterns（参考 <a href="http://book.douban.com/subject/1984921/">Software Architecture in Practice (2nd Edition)</a> 有：</p>
+<p>深入探讨这个问题已经远远超出了本人的能力。本人也只是窥探了几章《Windows 程序设计》，才到这里才大放厥词。什么是消息循环？事实上消息循环绝不向消息循环那么简单，消息循环和 OO、结构化程序设计一样，是一种 Architectural Patterns。常见的 Architectural Patterns（参考 <a href="http://book.douban.com/subject/1984921/">Software Architecture in Practice (2nd Edition)</a> 有：</p>
 <ul>
 <li>Layered</li>
 <li>Generalization (OO)</li>
@@ -196,8 +196,8 @@
 <li>Communicating process</li>
 <li>……</li>
 </ul>
-<p>消息循环属于 Publish-subscribe ，它是 Windows 事件机制的基础。而消息循环中很重要的两点一个是消息队列，另外就是 Callback Functions（回调函数）。形像的讲，我们设每个事件为 x，而处理事件 x 的函数为 X。假设我们的一个系统软件依次出发 a、b、c、d 四个事件，那么消息队列中有 abcd 四个事件，然后由操作系统根据消息队列来决定下一步该做哪些事情。比如 Windows 看到了消息队列中的第一个事件为 a，那么 Windows 就会调用 A 来处理事件 a，a 处理完毕后出队，接下来的事件是 b，那么就调用 B 来处理时间 b。 没错，ABCD 等 Callback Function 是有操作系统来调用，而不需要程序员在程序中显示调用，这也是它们被叫做 Callback Function 的原因。</p>
-<p>理解消息循环对 Windows 程序设计是至关重要的，诸如 MFC、C# Windows Forms 和 ASP.NET 的所有事件处理机制都是基于消息循环。在一开始写 GUI 程序的时候常常程序的时候常常无法理解程序的执行流行，一来是结构化编程的思想根深蒂固，二来是没有完全理解 Event-based 程序的处理模式。那么另一个问题是，回调函数的机制又是怎样的呢？这个问题答案的关键字是函数指针，一个我们在 C 语言中学过、有点印象却很少用到的东西。 函数指针也是 C++ 多态性 <a href="http://en.wikipedia.org/wiki/RTTI">RTTI</a> 的关键所在！（参考《<a href="http://book.douban.com/subject/1094797/">Thinking in C++, Volume 1</a>》）。 Java Swing 的 listener，QT 的 signal and slots 机制，归根到底应该也是消息循环。 Publish-subscribe, core of GUI programming。</p>
+<p>消息循环属于 Publish-subscribe ，它是 Windows 事件机制的基础。而消息循环中很重要的两点一个是消息队列，另外就是 Callback Functions（回调函数）。形像的讲，我们设每个事件为 x，而处理事件 x 的函数为 X。假设我们的一个系统软件依次出发 a、b、c、d 四个事件，那么消息队列中有 abcd 四个事件，然后由操作系统根据消息队列来决定下一步该做哪些事情。比如 Windows 看到了消息队列中的第一个事件为 a，那么 Windows 就会调用 A 来处理事件 a，a 处理完毕后出队，接下来的事件是 b，那么就调用 B 来处理时间 b。没错，ABCD 等 Callback Function 是有操作系统来调用，而不需要程序员在程序中显示调用，这也是它们被叫做 Callback Function 的原因。</p>
+<p>理解消息循环对 Windows 程序设计是至关重要的，诸如 MFC、C# Windows Forms 和 ASP.NET 的所有事件处理机制都是基于消息循环。在一开始写 GUI 程序的时候常常程序的时候常常无法理解程序的执行流行，一来是结构化编程的思想根深蒂固，二来是没有完全理解 Event-based 程序的处理模式。那么另一个问题是，回调函数的机制又是怎样的呢？这个问题答案的关键字是函数指针，一个我们在 C 语言中学过、有点印象却很少用到的东西。函数指针也是 C++ 多态性 <a href="http://en.wikipedia.org/wiki/RTTI">RTTI</a> 的关键所在！（参考《<a href="http://book.douban.com/subject/1094797/">Thinking in C++, Volume 1</a>》）。 Java Swing 的 listener，QT 的 signal and slots 机制，归根到底应该也是消息循环。 Publish-subscribe, core of GUI programming。</p>
 <p>差不多了。关于 ASP.NET 的絮叨到此为止吧，再下去就黔驴技穷了。如果再加一句，就是 ASP.NET 的控件还是挺好用的^_^。</p>
 <h2 id="c">C#</h2>
 <p>最后谈到 C#。简单的说，C++ 和 Java 入门之后，完全没有必要再学 C#。C# 能做的东西， Java 都能做到，而且能做的更好。也算学了若干门 Programming Languages，对语言之争已经看的很淡，更谈不上对某一门语言的死忠。在我看来，学习一门编程语言只能有两个结果：</p>
@@ -210,7 +210,7 @@
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> pull git://github.com/git/hello-world.git</code></pre></div>
 <p>面对如此多的编程语言，我们又该如何选择呢？著名黑客 Eric Raymond 给了我们有说服力的<a href="http://www.catb.org/~esr/faqs/hacker-howto.html#skills1">答案</a>：</p>
 <p>“It’s best, actually, to learn all five of Python, C/C++, Java, Perl, and Lisp. Besides being the most important hacking languages, they represent very different approaches to programming, and each will educate you in valuable ways.”</p>
-<p>没错。虽然说解决问题是最终目的，方法手段有千千万，语言不是关键，思想是最重要的， 但是选择语言往往也决定着你的思想，就比如你不太可能去用 Python lambda, map, reduce 去实现 Functional Programming，也不太可能用 Lisp 去写 OO 程序等等。</p>
+<p>没错。虽然说解决问题是最终目的，方法手段有千千万，语言不是关键，思想是最重要的，但是选择语言往往也决定着你的思想，就比如你不太可能去用 Python lambda, map, reduce 去实现 Functional Programming，也不太可能用 Lisp 去写 OO 程序等等。</p>
 <h2 id="learning-resources">Learning Resources</h2>
 <p>.NET 语言并没有 C++ 语言如《The C++ Programming Language》和《C++ Template》这种重量级的传世著作，O’Reilly的《<a href="http://book.douban.com/subject/1457194/">Programmig C#</a>》和《<a href="http://book.douban.com/subject/1459239/">Programming ASP.NET</a>》是非常不错的入门教材了。其余一切国内的中文 xx 教程、xx 精通一虑不要看。</p>
 <p>理解消息循环和 Windows 事件机制，最经典的莫过于 Charles Petzold 的《<a href="http://book.douban.com/subject/3411191/">Programming Windows</a>》，我虽然只看过前几章，但已经受益匪浅。</p>

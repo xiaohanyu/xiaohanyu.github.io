@@ -51,16 +51,16 @@
 <div class="row article-body">
   <section class="twelve wide column"><h2 id="缘起">缘起</h2>
 <p>16 年 10 月 27 日，我用 Google 搜索 “Haskell QuickCheck”，没想到 Google 放了一小段网页动画，然后就弹出一句 “You are speaking our language. Up for a challenge?”</p>
-<p><a href="/static/image/2017/google_foobar_invitation.png"><img src="/static/image/2017/google_foobar_invitation.png" /></a></p>
+<p><a href="/static/image/2017/google-foobar/invitation.png"><img src="/static/image/2017/google-foobar/invitation.png" /></a></p>
 <p>我有些不明所以，原以为是浏览器出现了一些莫名其妙的 bug，不过并没有太在意，就点了 “I want to play”，紧接着就进入了一个算法闯关游戏。</p>
-<p>游戏的模式有点类似于传统的 Online Judge，但是又不完全一样；交互界面模仿了 UNIX Shell：你可以通过命令来请求（ <code>request</code> ）一个新的 Challenge、 提交 （ <code>submit</code> ）代码、验证（ <code>verify</code> ）代码正确与否。</p>
+<p>游戏的模式有点类似于传统的 Online Judge，但是又不完全一样；交互界面模仿了 UNIX Shell：你可以通过命令来请求（ <code>request</code> ）一个新的 Challenge、 提交（ <code>submit</code> ）代码、验证（ <code>verify</code> ）代码正确与否。</p>
 <p>整个 foo.bar 游戏分为 5 个 level，题目的难度随着 level 的增长会逐渐增加。</p>
 <p>我个人经历中，level 1 有 1 道题目，level 2 有 2 道，level 3 有 3 道。level 1 和 level 2 的题目十分简单，每个题目会给 24–48 个小时的做答时间，考的主要是一些基础的编程概念；level 3 会考一些简单的算法，每个题目会给 96 个小时的做答时间；level 4 的题目就比较难了，会考一些不常见的算法。</p>
-<p><a href="/static/image/2017/google_foobar_page.png"><img src="/static/image/2017/google_foobar_welcome.png" /></a></p>
-<p><a href="/static/image/2017/google_foobar_code_editor.png"><img src="/static/image/2017/google_foobar_code_editor.png" /></a></p>
-<p><a href="/static/image/2017/google_foobar_verify.png"><img src="/static/image/2017/google_foobar_verify.png" /></a></p>
-<p><a href="/static/image/2017/google_foobar_progress.png"><img src="/static/image/2017/google_foobar_progress.png" /></a></p>
-<p>我大概花了 4–6 个小时的时间完成了 level 1–3 的 6 道题目——其中有 30% 的时间花在英文阅读理解上，50% 的时间编码，剩下 20% 的时间 debug 一些 test case。由于 foo.bar 并没有 <a href="https://en.wikipedia.org/wiki/Non-disclosure_agreement">NDA</a> 的限制，我这里贴出 level 3 的 3 个题目以及我个人的测试代码， 供读者参考：</p>
+<p><a href="/static/image/2017/google-foobar/page.png"><img src="/static/image/2017/google-foobar/welcome.png" /></a></p>
+<p><a href="/static/image/2017/google-foobar/code-editor.png"><img src="/static/image/2017/google-foobar/code-editor.png" /></a></p>
+<p><a href="/static/image/2017/google-foobar/verify.png"><img src="/static/image/2017/google-foobar/verify.png" /></a></p>
+<p><a href="/static/image/2017/google-foobar/progress.png"><img src="/static/image/2017/google-foobar/progress.png" /></a></p>
+<p>我大概花了 4–6 个小时的时间完成了 level 1–3 的 6 道题目——其中有 30% 的时间花在英文阅读理解上，50% 的时间编码，剩下 20% 的时间 debug 一些 test case。由于 foo.bar 并没有 <a href="https://en.wikipedia.org/wiki/Non-disclosure_agreement">NDA</a> 的限制，我这里贴出 level 3 的 3 个题目以及我个人的测试代码，供读者参考：</p>
 <hr />
 <p>Problem 1 in level 3:</p>
 <pre class="example"><code>Queue To Do
@@ -333,7 +333,7 @@ solution passes the test cases, it will be removed from your home folder.
 <span class="co">#     print(&quot;%s: %s&quot; % (n, answer(n)))</span></code></pre></div>
 <hr />
 <p>实际上做完了 level 3，就可以等 Google recruiter 回复了。而 Level 3 中难度最大的一题目，也就是考了一个简单的 <a href="https://en.wikipedia.org/wiki/Dynamic_programming">DP</a> 而已——事实上也不需要太复杂的 DP，稍微对 Functional Programming 中常见的 <a href="https://en.wikipedia.org/wiki/Memoization">Memoization</a> 手法有个印象，就能搞定了。</p>
-<p><a href="/static/image/2017/google_foobar_recruiter.png"><img src="/static/image/2017/google_foobar_recruiter.png" /></a></p>
+<p><a href="/static/image/2017/google-foobar/recruiter.png"><img src="/static/image/2017/google-foobar/recruiter.png" /></a></p>
 <p>我做完了 level 3 后，抱着玩一玩的心思，做 level 4 的第一题，直接就栽到了<a href="https://en.wikipedia.org/wiki/Network_flow">网络流</a>的大坑里，Google 也知道这类题比较难<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>，因此给了 168 个小时的做答时间。于是我又翻开了那本尘封已久的《算法导论》，简单扫了下网络流那一章，最后花了几天的时间写了个 <a href="https://en.wikipedia.org/wiki/Ford%25E2%2580%2593Fulkerson_algorithm">Ford-Fulkerson Algorithm</a> 的 Python 实现。</p>
 <hr />
 <p>Problem 1 in level 4:</p>
@@ -581,7 +581,7 @@ solution passes the test cases, it will be removed from your home folder.
 <hr />
 <h2 id="recruiter-电话面试">Recruiter 电话面试</h2>
 <p>做完 level 3 之后，我就忙我的事情去了，虽然我那时并没有找份全职工作的计划，但是对 Google recruiter 的回复还是有些小期待的。果不其然，11 月 8 日，收到了 Google recruiter 的邮件：</p>
-<p><a href="/static/image/2017/google_foobar_recruiter_first_email.jpg"><img src="/static/image/2017/google_foobar_recruiter_first_email.jpg" /></a></p>
+<p><a href="/static/image/2017/google-foobar/recruiter-first-email.jpg"><img src="/static/image/2017/google-foobar/recruiter-first-email.jpg" /></a></p>
 <p>于是花了一天的时间，更新了下简历，回复了邮件。接下来 Google recruiter 问了下个人倾向于什么岗位，可选 SRE 或者 SWE，我的答复是 SRE。</p>
 <p>然后在 11 月 24 日收到了 Google recruiter 的电话，全程英文聊了约半个小时：</p>
 <ul>
@@ -597,21 +597,21 @@ solution passes the test cases, it will be removed from your home folder.
 </blockquote>
 <p>我个人推想是，相较于“本土”求职者，海外求职者一次 onsite 的成本比较高，因为 onsite 要谨慎一些。</p>
 <p>电话聊完之后，recruiter 发送了一个 self-rating form 给我，让你自助式地评估下自己的技术水准，形式如下：</p>
-<p><a href="/static/image/2017/google_foobar_self_rating_form.png"><img src="/static/image/2017/google_foobar_self_rating_form.png" /></a></p>
+<p><a href="/static/image/2017/google-foobar/self-rating-form.png"><img src="/static/image/2017/google-foobar/self-rating-form.png" /></a></p>
 <p>与此同时，recruiter 还发送了一份长达 6 页的非常详尽的求职面试指南文档《Guide to Getting an SRE job with Google》，内容包含了岗位需求、面试要求、考查题目范围、样例面试题目等等。</p>
-<p><a href="/static/image/2017/google_foobar_sre_guide.png"><img src="/static/image/2017/google_foobar_sre_guide.png" /></a></p>
+<p><a href="/static/image/2017/google-foobar/sre-guide.png"><img src="/static/image/2017/google-foobar/sre-guide.png" /></a></p>
 <p>还有一个非常贴心的细节是，Google 安排面试时，会特别问你有没有一些身体上的 disability，是否需要一些特别的协助，诸如“documents in an alternate format, a sign language interpreter, or specialized equipment.”等等</p>
-<p><a href="/static/image/2017/google_foobar_celebrate_difference.jpg"><img src="/static/image/2017/google_foobar_celebrate_difference.jpg" /></a></p>
-<p>我看到这封邮件时真的是有些感动——相较于我以前经历过的国内公司的各种面试，这种对比实在是太过强烈——这也让我开始理解，Google 能在竞争如此激烈的互联网领域长期保持领先， 不是没有原因的——一个公司对面试者展现出足够的尊重，换来的必然也是面试者对面试的重视。相对而言，这种相互之间的尊重其实也很大程度上降低了双方的成本，一举两得。</p>
+<p><a href="/static/image/2017/google-foobar/celebrate-difference.jpg"><img src="/static/image/2017/google-foobar/celebrate-difference.jpg" /></a></p>
+<p>我看到这封邮件时真的是有些感动——相较于我以前经历过的国内公司的各种面试，这种对比实在是太过强烈——这也让我开始理解，Google 能在竞争如此激烈的互联网领域长期保持领先，不是没有原因的——一个公司对面试者展现出足够的尊重，换来的必然也是面试者对面试的重视。相对而言，这种相互之间的尊重其实也很大程度上降低了双方的成本，一举两得。</p>
 <h2 id="第一轮技术电话面试">第一轮技术电话面试</h2>
 <p>12 月 9 日，来自 Google Sydney 的第一轮电面。限于 NDA，这里我不能透露具体题目的内容。面试约一个小时，全程英文，问了三个题目，包括一个大数估算题、一个操作系统概念题、一个算法题。Google 邮件中有一个 Google Docs 的链接用来共享屏幕写代码的，但是实际上面试中并没有用到，可能是面试官不喜欢吧。</p>
 <p>Anyway，这轮面试表现还不错，特别是第二道题目的表现远超面试官的预期，面试官说这道题我的表现是他面过的所有求职者中最棒的，因此面试快结束的时候面试官告诉我说他这一轮会刷掉相当多的人，过了他这一轮后一定要多去“study, study, study, practice, practice, practice”——事后想想，应该就是去多刷刷 LeetCode 吧……</p>
 <h2 id="第二轮技术电话面试">第二轮技术电话面试</h2>
 <p>1 月 13 日，来自 Google Sydney 的第二轮电面，仍然是全程英文。面试约一个小时，考了 Bash/Python/C 的知识。这次又没有用上 Google Docs 链接，所有题目都是面试官“口述”的……最后的 C 语言题目还涉及到了位运算的一些考点，我听了第一遍完全没听明白，反复了 5 分钟之后，其中充斥着诸如 “Pardon”、“Left bracket”、“Oh, I’m sorry”、 “Ampersand”、“Question mark”、“Exclamation mark” 之类的单词，最后总算搞明白了题意，不难，很快给出了答复。</p>
-<p>这轮面试我自我感觉题目都不难，都是很基础的知识，但是英文听说能力要求非常高。好在我自己英文能力还可以，虽然开始时会有些紧张，但只要说顺了，后面的听说就都很顺畅， 毫无滞碍。我没有去特别考过 TOFEL 和 GRE，也没有特别训练过，想来应该还是自己多年坚持英文读写实践的积攒下的功底。</p>
+<p>这轮面试我自我感觉题目都不难，都是很基础的知识，但是英文听说能力要求非常高。好在我自己英文能力还可以，虽然开始时会有些紧张，但只要说顺了，后面的听说就都很顺畅，毫无滞碍。我没有去特别考过 TOFEL 和 GRE，也没有特别训练过，想来应该还是自己多年坚持英文读写实践的积攒下的功底。</p>
 <h2 id="sydney-onsite">Sydney onsite</h2>
 <p>1 月 16 日收到了 Google recruiter 的邮件，告知电话面试通过，可以去 Sydney office onsite 了。考虑到 2 月要过个春节长假，加上办签证需要一些时间，以及自己也需要一些时间从日常工作状态切换到面试找工作状态，所以和 Google recruiter 联系，暂时把 onsite 的时间约到了 3 月初。</p>
-<p><a href="/static/image/2017/google_foobar_onsite_email.png"><img src="/static/image/2017/google_foobar_onsite_email.png" /></a></p>
+<p><a href="/static/image/2017/google-foobar/onsite-email.png"><img src="/static/image/2017/google-foobar/onsite-email.png" /></a></p>
 <p>Google 的 onsite 流程安排得非常完备：</p>
 <ul>
 <li>Google 会报销往返机票、3 天的 4 星级酒店、签证费用，以及每天 50 AUD 的餐费补助</li>
@@ -621,9 +621,9 @@ solution passes the test cases, it will be removed from your home folder.
 <p>还有一个非常有意思的细节，Google Sydney 专门做了一个导航<a href="https://sites.google.com/site/sydneyofficedirections/">页面</a>，告诉你从机场到 office 的交通方式和路线。虽然这些都不是什么太重要的事情，但是 Google 的招聘在细节方面做得真的是非常棒，远超我的预期。</p>
 <p>我原本是打算安排一个月的时间认真准备下 onsite 面试的，但事与愿违。一来我当时原本就没有找一份全职工作的计划，Google foo.bar 这个游戏也一直是抱着玩玩的态度，但是 Google 的招聘体验实在是太好，同时也想到如果能去 Google SRE 体验下 Google 的基础设施，于我而言也是不错的职业选择，因此就玩到了 onsite；二来我个人平时非常忙，有很多自己的事情，拿出一个月的时间来“刷题”，于我而言时间成本太大了；三来是过了个春节；四是春节后我随手在豆瓣上写的一篇<a href="https://www.douban.com/note/606247970/">文章</a>引起了广泛的关注，各种交流回复又耗掉了我大量的时间。所以到最后，我大概只剩下 10 天左右的时间，来“全职”准备这个 onsite 面试。我也没做别的事情，就是读了读《算法导论》和刘新宇先生的新书《<a href="https://book.douban.com/subject/26931430/">算法新解</a>》，并提交了一些 <a href="https://github.com/liuxinyu95/AlgoXY/commits?author=xiaohanyu">Patch</a>——而最重要的传说中的 LeetCode，我一道题也没有刷……这可能是导致最终面试失败的重要原因之一吧。</p>
 <p>3 月 11 日从杭州出发飞 Sydney，航程 10+ 小时，算起来自己还是第一次坐这么长时间的航班。 12 日上午到 Sydney，见了见朋友，在 Darling Harbour 和悉尼歌剧院周边逛了逛，晚上宿 Darling Harbour 旁边的酒店，睡得很不错。</p>
-<p>3 月 12 日早起步行去 Google Sydney office，领了访客证之后被 recruiter 带着去会议室。面试之前还是有些紧张——可能是自己一个人在家工作久了，出去交流，而且还是全英文， 因此心率有些高。去了趟洗手间，洗了把脸挠挠头平静了下心情，就“上战场”了。</p>
+<p>3 月 12 日早起步行去 Google Sydney office，领了访客证之后被 recruiter 带着去会议室。面试之前还是有些紧张——可能是自己一个人在家工作久了，出去交流，而且还是全英文，因此心率有些高。去了趟洗手间，洗了把脸挠挠头平静了下心情，就“上战场”了。</p>
 <p>好在第一轮面试的第一道题不难，我听完了就有了思路，因此有了一个还不错的开端，这之后加起来总共 5 轮面试，都没有出现过于紧张的情况。面试完后自评感觉还是不错的，觉得应该是有 offer 了。</p>
-<p>说下具体的 onsite 面试流程吧。限于 NDA，我这里并不能透露具体的题目内容，只会说明下考查的大概范围。Google 的 onsite 面试共有 5 轮，每轮 45 分钟，一般会从上午 10 点开始，上午 2–3 轮，然后 recruiter 会带你去 Google 那天下闻名的食堂吃个午饭， 让你休整下放松下心情，饭后回到会议室再面 2–3 轮。</p>
+<p>说下具体的 onsite 面试流程吧。限于 NDA，我这里并不能透露具体的题目内容，只会说明下考查的大概范围。Google 的 onsite 面试共有 5 轮，每轮 45 分钟，一般会从上午 10 点开始，上午 2–3 轮，然后 recruiter 会带你去 Google 那天下闻名的食堂吃个午饭，让你休整下放松下心情，饭后回到会议室再面 2–3 轮。</p>
 <p>SRE 岗 5 轮面试大致考查如下方向：</p>
 <ul>
 <li>Coding &amp; Algorithm</li>
@@ -632,7 +632,7 @@ solution passes the test cases, it will be removed from your home folder.
 <li>Networking</li>
 <li>Linux/UNIX system</li>
 </ul>
-<p>其中，Coding &amp; Algorithm 方面，编程语言不限，选择自己擅长的就好（我个人推荐用 Python，写起来比 C++/Java 要快很多）；Linux/UNIX system 方面，文件系统、内存、系统调用、进程调度方面都有可能考，而且几乎没有办法准备，也没有办法刷题，靠的是平时的积累；SRE 岗还会考一些 Shell Script 方面的细节问题；Networking 方面考的不多， 需要你对 Web Application 的常见网络架构有一个基础的理解，经典的题目有“从浏览器输入一个 URL 到页面渲染完成，其中发生了什么？”、“DNS 的基本原理”等等； Troubleshooting考查的是现实工作场景中如何 debug 的能力；System design 会考查在 45 分钟之内从无到有写一个具有良好 API 接口、满足基础性能要求的一个 library/class 层面上的小程序。</p>
+<p>其中，Coding &amp; Algorithm 方面，编程语言不限，选择自己擅长的就好（我个人推荐用 Python，写起来比 C++/Java 要快很多）；Linux/UNIX system 方面，文件系统、内存、系统调用、进程调度方面都有可能考，而且几乎没有办法准备，也没有办法刷题，靠的是平时的积累；SRE 岗还会考一些 Shell Script 方面的细节问题；Networking 方面考的不多，需要你对 Web Application 的常见网络架构有一个基础的理解，经典的题目有“从浏览器输入一个 URL 到页面渲染完成，其中发生了什么？”、“DNS 的基本原理”等等； Troubleshooting考查的是现实工作场景中如何 debug 的能力；System design 会考查在 45 分钟之内从无到有写一个具有良好 API 接口、满足基础性能要求的一个 library/class 层面上的小程序。</p>
 <p>这里还有一些让我印象十分深刻的细节：</p>
 <ul>
 <li>会议室的桌子上有一个小的电子设备，上面会显示你当前的 onsite 进度，诸如当前面试官是谁，下一轮是谁，每轮面试开始和结束的时间等等。</li>
@@ -649,16 +649,16 @@ solution passes the test cases, it will be removed from your home folder.
 <li>午饭自助餐也是免费的，果汁是大厨现榨的，:-)</li>
 </ul>
 <p>就 onsite 面试整体的考查思路来看，大体上还是需要面试者尽可能地主动，不断地去 push 面试官给出一些 hint 或者正确与否的 feedback，在这个基础上尽可能地去优化解决方案——这个优化可能上算法复杂度上的优化，可能是 test case 的覆盖，可能是架构上的优化等等吧。我自我感觉，onsite 面试中，比较忌讳长时间的“冷场”，你可以跟面试官请求一两分钟来思考，但是过了这一两分钟，无论有什么样的思考，一定要说出来，让面试官看到你的思考过程，而不是思考十几分钟，最后给出一个答案——这个答案很可能是错的。</p>
-<p>这样的面试风格和考查思路也让面试者的体力和脑力消耗非常大——一是需要精力和脑力高度集中，这种状态维持下来是非常累的；二是 onsite 面试，无论是写代码、还是手头可能的软硬件设备，以及周边的环境，都和平时的工作状态差异太大，这就让临场发挥和心理素质成为一个非常重要的决定面试结果的因素；三是人在解决问题时，多数都是一个人静心思考， 而 onsite 面试则是需要在有限的时间有限的资源限制下并且还要在外部不断 push 的同时解决一个可能未知的问题，有时会难免紧张；特别是碰到没有思路的题目卡壳之后，状态会变得非常差。</p>
-<p>我的 onsite 面试从上午 10 点开始，一直持续到下午 15:00，除了中间和 recruiter 一起吃了顿午饭休整了半小时外，中途没有任何休息。面试结束走出 Google office 的时候， 感觉人有些晃晃忽忽的，于是就在路边长椅休息了 30 分钟，晒晒太阳。我当时自评感觉还是蛮不错的——有一道算法题，给出了 brute force 的代码后也给出了最优解决方案的思路， 但是限于时间并没有给出最终的优化版的代码，这个应该是比较大的瑕疵；还有个小瑕疵是， Troubleshooting 题，由于以前没有碰到过类似的题目的解答思路，在前面绕了很长时间， 给出了很多“正确但无用”的大段阐述。相比较而言，别的题目都是面试官主动问面试者问题， 而面试者需要给出答案；但是 Troubleshooting 更多的是需要面试者去问面试官问题，面试官给出每个问题的答案，面试者通过这些信息，逐渐缩小 Troubleshooting 的目标，最终定位到问题所在。我一开始完全没有理解到 Troubleshooting 正确的解题思路和交流方式，一直傻傻地等着面试官问我问题，而面试官也在一直等着我问他问题，这样他好给出答案，推进 Troubleshooting 的过程，就这样耽误了很长时间。等到我后来明白了应对 Troubleshooting 题目正确的交流方式怎么一回事时，时间已然所剩不多了，所以到最后这个题也没有答得特别好。我后来和一个同样面试过 Google 的朋友前辈探讨了下这个问题， 他说“我所经历的面试，都是要竭力揣测和理解面试官的心思，他想考什么知识点。而我面试别人的的时候总是在竭力理解对方想说什么，生怕错过对方的闪光点”。</p>
+<p>这样的面试风格和考查思路也让面试者的体力和脑力消耗非常大——一是需要精力和脑力高度集中，这种状态维持下来是非常累的；二是 onsite 面试，无论是写代码、还是手头可能的软硬件设备，以及周边的环境，都和平时的工作状态差异太大，这就让临场发挥和心理素质成为一个非常重要的决定面试结果的因素；三是人在解决问题时，多数都是一个人静心思考，而 onsite 面试则是需要在有限的时间有限的资源限制下并且还要在外部不断 push 的同时解决一个可能未知的问题，有时会难免紧张；特别是碰到没有思路的题目卡壳之后，状态会变得非常差。</p>
+<p>我的 onsite 面试从上午 10 点开始，一直持续到下午 15:00，除了中间和 recruiter 一起吃了顿午饭休整了半小时外，中途没有任何休息。面试结束走出 Google office 的时候，感觉人有些晃晃忽忽的，于是就在路边长椅休息了 30 分钟，晒晒太阳。我当时自评感觉还是蛮不错的——有一道算法题，给出了 brute force 的代码后也给出了最优解决方案的思路，但是限于时间并没有给出最终的优化版的代码，这个应该是比较大的瑕疵；还有个小瑕疵是， Troubleshooting 题，由于以前没有碰到过类似的题目的解答思路，在前面绕了很长时间，给出了很多“正确但无用”的大段阐述。相比较而言，别的题目都是面试官主动问面试者问题，而面试者需要给出答案；但是 Troubleshooting 更多的是需要面试者去问面试官问题，面试官给出每个问题的答案，面试者通过这些信息，逐渐缩小 Troubleshooting 的目标，最终定位到问题所在。我一开始完全没有理解到 Troubleshooting 正确的解题思路和交流方式，一直傻傻地等着面试官问我问题，而面试官也在一直等着我问他问题，这样他好给出答案，推进 Troubleshooting 的过程，就这样耽误了很长时间。等到我后来明白了应对 Troubleshooting 题目正确的交流方式怎么一回事时，时间已然所剩不多了，所以到最后这个题也没有答得特别好。我后来和一个同样面试过 Google 的朋友前辈探讨了下这个问题，他说“我所经历的面试，都是要竭力揣测和理解面试官的心思，他想考什么知识点。而我面试别人的的时候总是在竭力理解对方想说什么，生怕错过对方的闪光点”。</p>
 <p>剩下其余别的题目，我自评都没有太大的问题，所以我想如果 Google 不是标准太严苛并且不刻意卡人的话，我应该是通过 onsite 了。不过很可惜，几周之后还是收到了 Google 的拒信：</p>
-<p><a href="/static/image/2017/google_foobar_rejection.png"><img src="/static/image/2017/google_foobar_rejection.png" /></a></p>
-<p>拒信里所说的 Troubleshooting 和 Algorithm 方面的问题，我是有所预料的，但是“you didn’t make much progress in the system design” 实在是让我有些莫名其妙，我最终也没想起来 system design 哪里出了差错。不过木已成舟，我倒并没有特别在意这个结果， 相较于很多公司面试后杳无音信的“默拒”，Google 的这个 “constructive feedback”已经算是不错的了。还有，再怎么说，蹭了机票酒店在澳洲玩了一圈，怎么着也不是个亏本的买卖，对吧？</p>
+<p><a href="/static/image/2017/google-foobar/rejection.png"><img src="/static/image/2017/google-foobar/rejection.png" /></a></p>
+<p>拒信里所说的 Troubleshooting 和 Algorithm 方面的问题，我是有所预料的，但是“you didn’t make much progress in the system design” 实在是让我有些莫名其妙，我最终也没想起来 system design 哪里出了差错。不过木已成舟，我倒并没有特别在意这个结果，相较于很多公司面试后杳无音信的“默拒”，Google 的这个 “constructive feedback”已经算是不错的了。还有，再怎么说，蹭了机票酒店在澳洲玩了一圈，怎么着也不是个亏本的买卖，对吧？</p>
 <h2 id="总结">总结</h2>
-<p>1 轮 foo.bar，2.5 轮电话面试，5 轮 onsite 面试，持续 4 个月，总体耗时 3–4 周， 尽管没有拿到 offer，但这依然是一段很有意思的经历，引发了我很多思考。</p>
-<p>整个应聘的流程，至少接触了 4 位 recruiter，8 个面试官，2 个第三方服务者，算上人力的时间成本，加上 onsite 的机票酒店餐饮签证成本，最后再考虑下 onsite 的通过率， 我估计 Google 要招聘到一个合格的员工，成本至少是在十万人民币级别的。可见顶尖的人才是相当昂贵的，这还仅仅只是招聘成本。</p>
+<p>1 轮 foo.bar，2.5 轮电话面试，5 轮 onsite 面试，持续 4 个月，总体耗时 3–4 周，尽管没有拿到 offer，但这依然是一段很有意思的经历，引发了我很多思考。</p>
+<p>整个应聘的流程，至少接触了 4 位 recruiter，8 个面试官，2 个第三方服务者，算上人力的时间成本，加上 onsite 的机票酒店餐饮签证成本，最后再考虑下 onsite 的通过率，我估计 Google 要招聘到一个合格的员工，成本至少是在十万人民币级别的。可见顶尖的人才是相当昂贵的，这还仅仅只是招聘成本。</p>
 <p>话说回来，于我而言，自信一点地说，虽然 Google 这加起来 8.5 轮的技术面试考查足够广泛，但是这依然只覆盖到了我所有计算机知识储备的 1/10 左右。在前端 CSS/JavaScript、Functional Programming (Lisp/Scheme)、Web Development (Django/Flask/HTTP/RESTful)，Automation Tools (Ansible/Jenkins/CI)、 Emacs/Vim/Git、LaTeX/TikZ 等等我日常工作中广泛使用的技术或工具，Google 的面试都没有考查。</p>
-<p>所以如何准确地评估一个人的技术能力，是招聘中的最大难题。就现在的 IT 技术招聘体制而言，大多数公司采用的无非就是在一定的时间和资源限制下，解决一些面试官心中有明确标准答案的 puzzles——但是这种选拔真得能很好的反应一个面试者在实际工作中的能力么<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>？ 无妨举几个例子。</p>
+<p>所以如何准确地评估一个人的技术能力，是招聘中的最大难题。就现在的 IT 技术招聘体制而言，大多数公司采用的无非就是在一定的时间和资源限制下，解决一些面试官心中有明确标准答案的 puzzles——但是这种选拔真得能很好的反应一个面试者在实际工作中的能力么<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>？无妨举几个例子。</p>
 <p><a href="https://brew.sh/">Homebrew</a> 是 macOS 上应用最广泛的包管理器，用 Ruby 实现，截止到 2017 年 4 月，在 Github 上有 7000+ 个 star、13000+ 个 commit、540+ 个 contributor。其作者 <a href="https://github.com/mxcl">Max Howell</a> 去 Google 面试时，因为一道基础的 Invert Binary Tree 的算法 puzzle 没有答好而被拒，事后 Max Howell 在 Twitter 上说：</p>
 <blockquote>
 <p>Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so fuck off.</p>
@@ -677,7 +677,7 @@ solution passes the test cases, it will be removed from your home folder.
 <p>— <a href="https://www.quora.com/Can-every-CS-professor-pass-Googles-interview/answer/Shane-Ryoo" class="uri">https://www.quora.com/Can-every-CS-professor-pass-Googles-interview/answer/Shane-Ryoo</a></p>
 </blockquote>
 <p>而事实上，这几年关于 <a href="https://medium.com/@evnowandforever/f-you-i-quit-hiring-is-broken-bb8f3a48d324">Hiring Is Broken</a> 的<a href="https://news.ycombinator.com/item?id=11579757">讨论</a>不绝于耳，以至于 Github 有人专门建立了一个项目，就叫 <a href="https://github.com/poteto/hiring-without-whiteboards">hiring-without-whiteboards</a>。这个项目列出了几百家不采用白板写代码面试方式的公司——我粗略看了下，这些公司更多的时采用更接近于真实工作方式的通过 Take-home project + onsite discuss 的方式来进行招聘。</p>
-<p>所以 Hiring 到底是不是 Broken，这个问题归根结底是怎样在一定的资源限制下（包括时间、金钱等等）快速评估一个人的技术能力。事实上最好的评估一个人的技术能力的办法， 就是和他一起工作一段时间，但是这个成本，无论是时间成本还是金钱成本，无论是对个人还是公司，都太高了。而我也越来越有种感觉，就是流水线化标准的 Phone Screening + Onsite Interview，恐怕也会越来越不再适应新时代的发展了。</p>
+<p>所以 Hiring 到底是不是 Broken，这个问题归根结底是怎样在一定的资源限制下（包括时间、金钱等等）快速评估一个人的技术能力。事实上最好的评估一个人的技术能力的办法，就是和他一起工作一段时间，但是这个成本，无论是时间成本还是金钱成本，无论是对个人还是公司，都太高了。而我也越来越有种感觉，就是流水线化标准的 Phone Screening + Onsite Interview，恐怕也会越来越不再适应新时代的发展了。</p>
 <p>Hiring 会走向何方？我认为未鹏几年前的的文章《<a href="http://mindhacks.cn/2011/11/04/how-to-interview-a-person-for-two-years/">怎样花两年时间去面试一个人</a>》提供了一个很好的思路。</p>
 <p>此记。</p>
 <section class="footnotes">
@@ -714,9 +714,9 @@ solution passes the test cases, it will be removed from your home folder.
     </div>
     <div class="ui list">
       <div class="item">
-        <a href="/categories#Writing">
+        <a href="/categories#Work">
           <div class="ui label">
-            Writing<sup>2</sup>
+            Work<sup>14</sup>
           </div>
         </a>
       </div>
@@ -728,7 +728,7 @@ solution passes the test cases, it will be removed from your home folder.
       <div class="item">
         <a href="/tags#Algorithm">
           <div class="ui label">
-            Algorithm<sup>8</sup>
+            Algorithm<sup>9</sup>
           </div>
         </a>
       </div>
@@ -758,7 +758,7 @@ solution passes the test cases, it will be removed from your home folder.
       Links
     </div>
     <div class="ui small two item menu">
-      <a class="item" title="Blog 数据迁移草记" href="/posts/2017-04-26-notes-about-migrating-data/">Prev</a><a class="item" title="Archive" href="/archive">Archive</a>
+      <a class="item" title="Blog 数据迁移草记" href="/posts/2017-04-26-notes-about-migrating-data/">Prev</a><a class="item" title="Facebook 面试记" href="/posts/2017-05-20-facebook-interview/">Next</a>
     </div>
   </aside>
 </div>

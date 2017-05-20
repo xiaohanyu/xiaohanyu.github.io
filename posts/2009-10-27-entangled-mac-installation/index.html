@@ -50,14 +50,14 @@
 </header>
 <div class="row article-body">
   <section class="twelve wide column"><p>导师让我研究 iPhone 下的程序开发。迫于经济窘迫，手头没有 Mac，四处查资料，终于搞出来了一个跨平台的解决方案，写了 20 多页的英文文档美其名曰 <a href="http://xiaohanyu.me/static/asset/2009/iphone_develop_cross_platform.pdf">The Cross-Platform Developing Skills for Mac Applications</a>，认真进行了排版，给导师发了过去。可是导师太忙了没有时间看呃。于是我一股脑的跟导师倾诉了一番 Mac、Objective-C、GNUStep 等等之类的东西，虽然我也不太懂。导师看我做的十分认真，比较满意，中午一起吃了饭，下午来了个学长，一起坐下交流一番。我刚想倾诉我伟大的跨平台解决方案，学长说，“现在 Mac OS 可以装载 PC 上了”。于是我就悲剧了。</p>
-<p>周五下午去公司跟学长借了盘，插进光驱，改下 BIOS 从 CD 启动，哇，竟然能启动，而且见到了安装界面。窃以为到这步，我的 PC 装苹果之路已经走完了一半。哪知这仅仅是噩梦的开始。整个下午就在网上乱逛，了解下 PC 安装苹果的知识，了解下多系统的安装与启动。 晚上回到寝室，真刀真枪，开始干了。</p>
-<p>首先是硬盘的问题。由于我的头脑发热，整个硬盘 250 G，就一个 Arch Linux，这么一来要想安装苹果先得给苹果腾点地方啊。于是找到了传说中的 <a href="http://gparted.org/">GParted</a>，但是系统正在运行， <code>/</code> 分区和 <code>/home</code> 分区无法 <code>umount</code> ，因此更无法 <code>resize</code> ，于是就找到了 <a href="http://gparted.sourceforge.net/livecd.php">GParted Live CD</a>。 wget 拖了半个小时，用 <a href="https://wiki.gnome.org/Apps/Brasero">Brasero</a> 刻盘，第一次可能用了全速刻盘，最后出现了莫名其妙的错误，刻录失败，废了一张 CD。于是又想到了伟大的 <a href="https://ultraiso.en.softonic.com/">UltraISO</a> 9.3 版。咱不是有 VirtualBox 嘛。马上去神网下了 UltraISO，装上，插上 U 盘，打算搞个 GParted Live USB 出来。依然宣告失败。还剩一张 CD，又用 Brasero 刻录了下，这下降低了刻录速度， 终于成功。Reboot。</p>
-<p>加载了 3、4 分钟的样子，GParted 终于出来了。桌面环境采用的是 <a href="http://fluxbox.org/">Fluxbox</a>，虽然没用过。 先把 <code>/home</code> 分区 <code>resize</code> 一下，成功。重启，进入 Arch Linux， <code>df -h</code> 看看文件系统，成功！！很是兴奋的样子。reboot again，又进入了 GParted Live CD，打算给 Mac 腾 30 G 的空间。不知怎么的，我试探性的用了一个貌似叫 <code>new partition table</code> 的功能，谈出个窗口，我点了个确定，又一个窗口，我又点了确定，这下糟了！整个硬盘被重新格式化了，整个过程不超过 1s 中的时间，我想这 GParted 也太 nb 了。250 G 的硬盘， 1s 中不到就全部搞定格式化了。</p>
+<p>周五下午去公司跟学长借了盘，插进光驱，改下 BIOS 从 CD 启动，哇，竟然能启动，而且见到了安装界面。窃以为到这步，我的 PC 装苹果之路已经走完了一半。哪知这仅仅是噩梦的开始。整个下午就在网上乱逛，了解下 PC 安装苹果的知识，了解下多系统的安装与启动。晚上回到寝室，真刀真枪，开始干了。</p>
+<p>首先是硬盘的问题。由于我的头脑发热，整个硬盘 250 G，就一个 Arch Linux，这么一来要想安装苹果先得给苹果腾点地方啊。于是找到了传说中的 <a href="http://gparted.org/">GParted</a>，但是系统正在运行， <code>/</code> 分区和 <code>/home</code> 分区无法 <code>umount</code> ，因此更无法 <code>resize</code> ，于是就找到了 <a href="http://gparted.sourceforge.net/livecd.php">GParted Live CD</a>。 wget 拖了半个小时，用 <a href="https://wiki.gnome.org/Apps/Brasero">Brasero</a> 刻盘，第一次可能用了全速刻盘，最后出现了莫名其妙的错误，刻录失败，废了一张 CD。于是又想到了伟大的 <a href="https://ultraiso.en.softonic.com/">UltraISO</a> 9.3 版。咱不是有 VirtualBox 嘛。马上去神网下了 UltraISO，装上，插上 U 盘，打算搞个 GParted Live USB 出来。依然宣告失败。还剩一张 CD，又用 Brasero 刻录了下，这下降低了刻录速度，终于成功。Reboot。</p>
+<p>加载了 3、4 分钟的样子，GParted 终于出来了。桌面环境采用的是 <a href="http://fluxbox.org/">Fluxbox</a>，虽然没用过。先把 <code>/home</code> 分区 <code>resize</code> 一下，成功。重启，进入 Arch Linux， <code>df -h</code> 看看文件系统，成功！！很是兴奋的样子。reboot again，又进入了 GParted Live CD，打算给 Mac 腾 30 G 的空间。不知怎么的，我试探性的用了一个貌似叫 <code>new partition table</code> 的功能，谈出个窗口，我点了个确定，又一个窗口，我又点了确定，这下糟了！整个硬盘被重新格式化了，整个过程不超过 1s 中的时间，我想这 GParted 也太 nb 了。250 G 的硬盘， 1s 中不到就全部搞定格式化了。</p>
 <p>呜呜，我的 Arch Linux，我的心血啊。索性，一不做，二不休，先装苹果吧。苹果的盘是 ideneb 的 Leopard 10.5.7 的版本。从晚上 7 点到午夜 12 点，总共装了不下 6 次。终于还是没装上。症状是安装完所有软件重启后风火轮转几圈后就黑屏无反应。可能是各种驱动的问题，但是我用手机上网，反复设置，反复选择，还是没有成功，这使我彻底失望。 Mac 的安装确实是一个关乎 rp 的问题。怎么办？</p>
-<p>思前想后，还是决定装 Windows 7，再重新装个 Linux 吧。于是找室友帮忙，下载了 Windows MSDN 英文原版，还是用伟大的 UltraISO，刻成了 Live USB，启动，开始安装。 半个小时，一个华丽的启动界面出现在我的眼前——果然很绚丽。简单使用了一下，相比 Vista，对 Windows 7 确实做的非常非常不错。尤其是独具匠心的 UI 设计。超级任务栏， Aero Peak，动态的主题效果，重新设计的 Media Center，便捷的网络 VPN 链接，还有许多我觉得不错但是叫不出名字的功能，真的很强大。而且运行起来比 Vista 要轻快多了。 看来 MS 这次是下了血本了。</p>
-<p>盗版，这个字眼对于中国的 IT 人来说是一种挥之不去的痛。虽然我也不想用盗版，虽然我可以用 Linux 满足自己开发、办公、学习方方面面的需要，但是某些时候环境是不一样的。 譬如实验室的同组同学都在用 Visual Studio 2008 做开发，这种情况下想不用盗版的 MS 产品恐怕都很难。据说即将面试的 Visual Studio 2010 正版要 11100+ 美刀。简直是不可想象了。算了。这是在中国。CC98 上有几个 MSDN 的 key，也许这次 rp 不错，竟然能电话激活了。此时已经半夜两点多了，撑不住了，睡了。</p>
-<p>第二天早晨 10 点才爬起来。继续搞电脑。得装个 Linux。装哪个版本好呢？Arch，自己配置还是蛮麻烦的。说实话现在对系统安装已经没有多大的兴趣了。每次重装系统都是把自己的精心调制的作品一点一点碾碎，然后再一点一点搭建起来。我是需要 XeTeX 最新版本的， 自从用了 LaTeX 后，已经完全不能习惯 Word。Google 了下，Ubuntu 9.10 中的 TeX Live 貌似还停留在 2007 版本。算了，还是 Arch 吧。</p>
-<p>有了上次的安装经验，这次的安装也算是轻车熟路了。但是自己又没有十全的把握与信心， 于是在 Windows 7 下把 Arch Linux 官网 wiki 上的 <a href="http://wiki.archlinux.org/index.php/Beginners%27_Guide">Beginner’s Guide</a> 打印了下来，七十多页。具体的安装过程不讲了，大体上都一样的，真想自己装的话看 Beginner’s Guide。 只是记录一下安装过程中遇到的几个小问题。</p>
+<p>思前想后，还是决定装 Windows 7，再重新装个 Linux 吧。于是找室友帮忙，下载了 Windows MSDN 英文原版，还是用伟大的 UltraISO，刻成了 Live USB，启动，开始安装。半个小时，一个华丽的启动界面出现在我的眼前——果然很绚丽。简单使用了一下，相比 Vista，对 Windows 7 确实做的非常非常不错。尤其是独具匠心的 UI 设计。超级任务栏， Aero Peak，动态的主题效果，重新设计的 Media Center，便捷的网络 VPN 链接，还有许多我觉得不错但是叫不出名字的功能，真的很强大。而且运行起来比 Vista 要轻快多了。看来 MS 这次是下了血本了。</p>
+<p>盗版，这个字眼对于中国的 IT 人来说是一种挥之不去的痛。虽然我也不想用盗版，虽然我可以用 Linux 满足自己开发、办公、学习方方面面的需要，但是某些时候环境是不一样的。譬如实验室的同组同学都在用 Visual Studio 2008 做开发，这种情况下想不用盗版的 MS 产品恐怕都很难。据说即将面试的 Visual Studio 2010 正版要 11100+ 美刀。简直是不可想象了。算了。这是在中国。CC98 上有几个 MSDN 的 key，也许这次 rp 不错，竟然能电话激活了。此时已经半夜两点多了，撑不住了，睡了。</p>
+<p>第二天早晨 10 点才爬起来。继续搞电脑。得装个 Linux。装哪个版本好呢？Arch，自己配置还是蛮麻烦的。说实话现在对系统安装已经没有多大的兴趣了。每次重装系统都是把自己的精心调制的作品一点一点碾碎，然后再一点一点搭建起来。我是需要 XeTeX 最新版本的，自从用了 LaTeX 后，已经完全不能习惯 Word。Google 了下，Ubuntu 9.10 中的 TeX Live 貌似还停留在 2007 版本。算了，还是 Arch 吧。</p>
+<p>有了上次的安装经验，这次的安装也算是轻车熟路了。但是自己又没有十全的把握与信心，于是在 Windows 7 下把 Arch Linux 官网 wiki 上的 <a href="http://wiki.archlinux.org/index.php/Beginners%27_Guide">Beginner’s Guide</a> 打印了下来，七十多页。具体的安装过程不讲了，大体上都一样的，真想自己装的话看 Beginner’s Guide。只是记录一下安装过程中遇到的几个小问题。</p>
 <ul>
 <li>GRUB 的引导问题。很幸运的是 Arch Linux 自动识别了 Windows 7，只需要在 GRUB 的 <code>menu.lst</code> 文件中去掉几行注释就行。这是我的 <code>menu.lst</code> 文件：</li>
 </ul>
@@ -96,12 +96,12 @@ rootnoverify (hd0,0)
 chainloader +1
 </code></pre>
 <ul>
-<li><code>rc.conf</code> 的问题，最重要的是要安装 <a href="https://wiki.archlinux.org/index.php?title=HAL&amp;redirect=no">HAL</a>，并把它放到 <code>rc.conf</code> 的 <code>daemons</code> 里面， 否则进入 GUI 后无法识别键盘鼠标。这是我的 <code>daemons</code> 设置：</li>
+<li><code>rc.conf</code> 的问题，最重要的是要安装 <a href="https://wiki.archlinux.org/index.php?title=HAL&amp;redirect=no">HAL</a>，并把它放到 <code>rc.conf</code> 的 <code>daemons</code> 里面，否则进入 GUI 后无法识别键盘鼠标。这是我的 <code>daemons</code> 设置：</li>
 </ul>
 <pre class="example"><code>DAEMONS=(@syslog-ng @network @netfs @crond @hal @kdm @alsa)
 </code></pre>
 <ul>
-<li><p>语言选择问题，在 <code>rc.conf</code> 会有一个 <code>LOCALE</code> 的设置问题，建议不要更改成中文， 保持默认就好。我就是看了某个教程的知道改成了 <code>zh_CN.utf8</code> ，结果进入 KDE 时， 界面字体非常难看。也可能是我的字体还没有配置好的原因。</p></li>
+<li><p>语言选择问题，在 <code>rc.conf</code> 会有一个 <code>LOCALE</code> 的设置问题，建议不要更改成中文，保持默认就好。我就是看了某个教程的知道改成了 <code>zh_CN.utf8</code> ，结果进入 KDE 时，界面字体非常难看。也可能是我的字体还没有配置好的原因。</p></li>
 <li><p>localtime 和 UTC 的选择。wiki上说如果是 Windows 和 Linux 双系统，还是选择 localtime 比较好。</p></li>
 </ul>
 <pre class="example"><code>LOCALE=&quot;en_US.utf8&quot;

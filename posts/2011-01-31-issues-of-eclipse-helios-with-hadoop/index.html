@@ -54,7 +54,7 @@
 <p>为什么是 Eclipse 而不是 NetBeans? 其实没啥特别的原因，就是 Eclipse 的界面更加和谐一点，对 Java Swing 的丑陋效果和蜗牛般的速度实在是心有余悸。Eclipse 确实也是非常优秀的软件，跨平台，多语言，丰富的插件和和谐统一的插件安装系统，良好的社区支持。 Emacs 也是。</p>
 <p>好了，废话少说，说说今天纠结的 Eclipse Hadoop 之旅吧。我用的软件版本是 Eclipse 3.6，安装的时候顺便将 eclipse-cdt 也装上了：</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">pacman</span> -S eclipse eclipse-cdt</code></pre></div>
-<p>启动 Eclipse 一切正常，试着建立一个 Project 却发现无论如何也找不到 C++ 的项目， 照理说不应该，不过不打紧，C++ 和今天的主题无关，继续。</p>
+<p>启动 Eclipse 一切正常，试着建立一个 Project 却发现无论如何也找不到 C++ 的项目，照理说不应该，不过不打紧，C++ 和今天的主题无关，继续。</p>
 <p>Eclipse 开发 Hadoop MapReduce 程序需要安装一个 hadoop eclipse plugin，而根据 Eclipse 和 Hadoop 版本不同，所需选择的插件也不一样，有官方 hadoop contrib 里的 jar 包，有 <a href="http://code.google.com/p/hadoop-eclipse-plugin/downloads/list">google code</a> 上的，还有<a href="http://www.harshj.com/2010/07/18/making-the-eclipse-plugin-work-for-hadoop/">打过 patch 的山寨 jar</a> 包。而 <a href="http://www.ibm.com/developerworks/opensource/library/os-ecfeat/">Eclipse 安装插件</a> 的方法也有很多，比如：</p>
 <ul>
 <li>安装到 plugins 目录</li>
@@ -68,7 +68,7 @@
 <p>然后将 eclipse-hadoop-plugin 放到 plugins 目录下，终于看到了可爱的小象。究竟是怎么回事呢？</p>
 <p>定位好久，还是没有任何头绪。首先是 Eclipse 没有 Linux Manual，输入 <code>eclipse
 --help</code> 也没有任何信息，所以我不知道 eclipse CLI 有没有什么可用的参数；其次是我不知道 Eclipse 有没有自己的 log，或者有我也不知道在什么位置，无法发现启动过程中的蛛丝马迹。</p>
-<p>此时已经有些心灰意冷，寻思着要不就用 Eclipse 3.5 得了。无意中在网上发现了 Hadoop 的另一个插件，<a href="http://karmasphere.com/Studio-Eclipse/installation.html">Karmasphere</a>，看了下介绍还是蛮强大的，而且有 community 和 professional 两个版本，前者是免费的，只是下载的时候需要简单注册下。最重要的是， 这个插件有 Eclipse 和 NetBeans 两个版本，真实太令人激动了。照着教程配只好 NetBeans 6.9 的开发环境，可以用，很强大。于是心情大好，继续配置 Eclipse 3.6 版本， 这下 Eclipse 3.6 无法安装插件的问题终于露出了狐狸尾巴：</p>
+<p>此时已经有些心灰意冷，寻思着要不就用 Eclipse 3.5 得了。无意中在网上发现了 Hadoop 的另一个插件，<a href="http://karmasphere.com/Studio-Eclipse/installation.html">Karmasphere</a>，看了下介绍还是蛮强大的，而且有 community 和 professional 两个版本，前者是免费的，只是下载的时候需要简单注册下。最重要的是，这个插件有 Eclipse 和 NetBeans 两个版本，真实太令人激动了。照着教程配只好 NetBeans 6.9 的开发环境，可以用，很强大。于是心情大好，继续配置 Eclipse 3.6 版本，这下 Eclipse 3.6 无法安装插件的问题终于露出了狐狸尾巴：</p>
 <p><a href="/static/image/2011/eclipse_dialog.png"><img src="/static/image/2011/eclipse_dialog.png" /></a></p>
 <pre class="example"><code>&quot;Cannot complete the install because one or more required items could not be
 found. Software currently installed: Shared profile 1.0.0.1284044641500

@@ -68,7 +68,7 @@
 <li>“Emacs 是伪装成操作系统的编辑器<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>（emacs isn’t a text editor but more of an operating system that incidentally happens to include a text editor.）。</li>
 <li>没错，Emacs就是一个操作系统，只是这个操作系统本身缺少类似于 Vim 这样高效的编辑器<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>。如果你去看下 Emacs 和 Elisp 合起来将近 2000 页的手册，你就会发现，Emacs 这货真不是一个编辑器这么简单，实在是一个以编辑器为核心构建起来的操作系统，有自己的编程语言 (Elisp)，API，API 文档，Window、Frame……</li>
 <li>很多人说 Emacs 反 UNIX 哲学的，因为 UNIX 的哲学是提供简明的接口（这个接口主要是文本流），透过小工具的组合完成所有的工作。但 Emacs 似乎野心太大，妄图以一己之力完成从编程、上网、邮件、听音乐等所有的工作<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>。从某种意义上而言，这种说法是正确的。但是换一个角度，如果我们真的将 Emacs 看成一个类似于 UNIX 这样的操作系统的话，那么 Elisp 之于 Emacs 就相当于 C 之于 UNIX；Emacs 的各种插件扩展就相当于 UNIX 下的各种小工具；Unix通过 Shell 管道将各种小工具粘合起来完成复杂的工作，而 Emacs 通过自己的 Elisp 环境将各种扩展插件整合起来，让他们完美合作，完成各种各样对编辑器而言几乎不可能的工作。从这个意义上而言，如果你真的把 Emacs 当做一种平台而不仅仅是一个编辑器的话，那么 UNIX 的哲学和 Emacs 是不冲突的。因为 UNIX 的哲学针对的是工具，而不是工具底层的平台，不是吗？</li>
-<li>可能你会问，Emacs 到底能干些什么？Easy，除了 Adobe 能干的，Emacs 都能干。具体而言，Emacs 不擅长做图形图像视频音频方面的工作，这方面是 Adobe CS 系列软件的天下。而除了这些基于图形图像的工作， 其余 <strong>基于文本流的工作，Emacs都能干的不错 <a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a></strong> 。</li>
+<li>可能你会问，Emacs 到底能干些什么？Easy，除了 Adobe 能干的，Emacs 都能干。具体而言，Emacs 不擅长做图形图像视频音频方面的工作，这方面是 Adobe CS 系列软件的天下。而除了这些基于图形图像的工作，其余 <strong>基于文本流的工作，Emacs都能干的不错 <a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a></strong> 。</li>
 <li>如果你想看看 Emacs 到底长什么样，<a href="http://emacser.com/emacs.htm">emacser.com</a> 一定会让你大开眼界。</li>
 <li>Ruby语言的创始人松本行弘在 LibrePlanet 2012 conference 上讲述了 “<a href="http://www.slideshare.net/yukihiro_matz/how-emacs-changed-my-life">How emacs changed my life</a>”。</li>
 <li>当然，Emacs 并不是完美的，体型巨大、启动速度慢、Elisp 的性能、多线程支持还有统一的扩展管理，这些一直被人诟病。</li>
@@ -86,7 +86,7 @@
 </ul></li>
 <li>Emacs 作为一个老牌自由软件，以无限的可扩展性作为核心竞争力，但直到近年来才出现了一些比较好的扩展管理工具，细节可以参考 <a href="http://blog.pluskid.org/?p=206">ELPA: Emacs Lisp Package Archive</a>、<a href="http://emacser.com/el-get.htm">GNU Emacs的终极扩展管理工具</a>。在此强烈推荐下 <a href="https://github.com/dimitri/el-get">El-Get</a>，结合 Eshell，让我在 Emacs 身上闻到了一丝 <a href="http://en.wikipedia.org/wiki/Lisp_machine">Lisp Machine</a> 的味道。
 <ul>
-<li>Eshell是可以直接调用 Elisp 函数的（这是我无意间发现的，惭愧），结合 el-get， 使得 Emacs 扩展的安装可以像 debian 的 <code>apt-get</code> 一般简单。比如说，你可以通过如下的 Elisp 代码“一键安装” AUCTeX、auto-complete、CDLaTeX-mode、Slime、 YASnippet：</li>
+<li>Eshell是可以直接调用 Elisp 函数的（这是我无意间发现的，惭愧），结合 el-get，使得 Emacs 扩展的安装可以像 debian 的 <code>apt-get</code> 一般简单。比如说，你可以通过如下的 Elisp 代码“一键安装” AUCTeX、auto-complete、CDLaTeX-mode、Slime、 YASnippet：</li>
 </ul></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">let</span> ((pkgs &#39;(auctex auto-complete cdlatex-mode slime yasnippet)))
@@ -174,7 +174,7 @@ CL-USER&gt;</code></pre></div>
 <section class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>《<a href="http://book.douban.com/subject/4743790/">The Joy of Clojure</a>》有这样一段话：“Writing code is often a constant struggle against distraction, and every time a language requires you to think about syntax, operator precedence, or inheritance hierarchies, it exacerbates the problem. ”任何反紧凑的语言，其繁杂的语言特性往往会使得人们在解决问题的过程中脱离问题本身而陷入语言细节的泥沼，要么是像 C++ 那样到处是坑到处是禁忌到处是编程规范，要么是像 Java 那样到处是架屋叠床的类。问题域和实现域是我最近常常思考的问题， 其深度超越于编程语言的范畴，后续我会再写文章深入探讨下这个主题。<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>《<a href="http://book.douban.com/subject/4743790/">The Joy of Clojure</a>》有这样一段话：“Writing code is often a constant struggle against distraction, and every time a language requires you to think about syntax, operator precedence, or inheritance hierarchies, it exacerbates the problem. ”任何反紧凑的语言，其繁杂的语言特性往往会使得人们在解决问题的过程中脱离问题本身而陷入语言细节的泥沼，要么是像 C++ 那样到处是坑到处是禁忌到处是编程规范，要么是像 Java 那样到处是架屋叠床的类。问题域和实现域是我最近常常思考的问题，其深度超越于编程语言的范畴，后续我会再写文章深入探讨下这个主题。<a href="#fnref1">↩</a></p></li>
 <li id="fn2"><p><a href="http://www.techcn.com.cn/index.php?doc-view-132647.html" class="uri">http://www.techcn.com.cn/index.php?doc-view-132647.html</a><a href="#fnref2">↩</a></p></li>
 <li id="fn3"><p>“The only thing the emacs OS lacks is a really good editor”，更多的八卦，<a href="http://www.reddit.com/r/programming/comments/ai71t/vlc_developers_have_started_working_on_a_video/c0holsd">这里</a>。<a href="#fnref3">↩</a></p></li>
 <li id="fn4"><p>坦白的讲，如果以击键次数为标准，单单比较文本编辑的效率，我认为 Vim 的效率确实比Emacs 强很多。考虑可扩展性的话，我认为 Emacs 的elisp还是要比 Vim 的vimscript 强很多的。<a href="#fnref4">↩</a></p></li>
@@ -183,7 +183,7 @@ CL-USER&gt;</code></pre></div>
 <li id="fn7"><p>这个主要是解决 Emacs 中文输入法的问题，细节可以参考<a href="http://blog.pluskid.org/?p=328">解决 IBus 在 gVim/Emacs下不能使用的问题</a>、还有<a href="https://www.csslayer.info/wordpress/fcitx-dev/input-method-env-story/">输入法环境变量的故事</a>。<a href="#fnref7">↩</a></p></li>
 <li id="fn8"><p>架屋叠床这么有创造力的词来源于<a href="http://blog.csdn.net/myan/article/details/5928531">function/bind 的救赎</a>，“尽管如此，Java还是沾染上了“面向类设计”的癌症，基础类库里就有很多架床叠屋的设计……”<a href="#fnref8">↩</a></p></li>
 <li id="fn9"><p><a href="http://www.reddit.com/r/programming/comments/7ij3j/why_there_is_no_slime_for_python_or_ruby_or/">Why there is no SLIME for Python (or Ruby or…)?</a><a href="#fnref9">↩</a></p></li>
-<li id="fn10"><p><a href="http://tianchunbinghe.blog.163.com/blog/static/700120089175316746/">All Common Lisp Implementations</a>，伞哥的博客有很多关于 Lisp 极有价值的文章， 他对 Lisp 的执着和不断学习的精神也让我很是景仰。<a href="#fnref10">↩</a></p></li>
+<li id="fn10"><p><a href="http://tianchunbinghe.blog.163.com/blog/static/700120089175316746/">All Common Lisp Implementations</a>，伞哥的博客有很多关于 Lisp 极有价值的文章，他对 Lisp 的执着和不断学习的精神也让我很是景仰。<a href="#fnref10">↩</a></p></li>
 <li id="fn11"><p><a href="http://www.catb.org/~esr/faqs/hacker-howto.html">How to Become a Hacker</a><a href="#fnref11">↩</a></p></li>
 </ol>
 </section>

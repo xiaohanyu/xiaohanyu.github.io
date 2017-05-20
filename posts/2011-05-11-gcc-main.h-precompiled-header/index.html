@@ -49,7 +49,7 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>C 语言的开发总会遇到各种各样的障碍，诸如字节顺序、换行符、文件编码，以及复杂的工程构建问题，等等；而时不时冒出来的似曾熟悉的新概念，也会让你由衷的感叹：“C语言， 简约而不简单”。</p>
+  <section class="twelve wide column"><p>C 语言的开发总会遇到各种各样的障碍，诸如字节顺序、换行符、文件编码，以及复杂的工程构建问题，等等；而时不时冒出来的似曾熟悉的新概念，也会让你由衷的感叹：“C语言，简约而不简单”。</p>
 <p>给定两个文件 <code>main.h</code> 以及 <code>main.c</code> ：</p>
 <div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="co">/* main.h */</span>
 <span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></code></pre></div>
@@ -73,7 +73,7 @@ total 1.7M
 -rw-rw-r-- 1 lox users 1.7M May 11 20:03 main.h.gch
 </code></pre>
 <p>我们得到了一个新的文件， <code>main.h.gch</code> ，并且，这个文件竟然有 1.7 M 这么大。这个文件，就是我们要谈到的预编译头文件（<a href="http://en.wikipedia.org/wiki/Precompiled_header">Precompiled header</a>）。</p>
-<p>这个预编译头文件究竟有何作用？为何我们要多此一举？这要从编译器的具体工作原理讲起。 大体来讲，编译器的主要工作过程为：预处理 –&gt; 词法分析 –&gt; 语法分析 –&gt; 语义分析 –&gt; 代码生成与优化这几个过程。而对 C 语言来说，预处理的过程主要是处理源代码文件中的以 “#” 开始的预编译指令，诸如 <code class="sourceCode cpp" rundoc-language="cpp"><span class="pp">#include</span></code> 、 <code class="sourceCode cpp" rundoc-language="cpp"><span class="pp">#define</span></code> 等，这个过程包括（参考《<a href="http://book.douban.com/subject/3652388/">程序员的自我修养 </a>》P39）：</p>
+<p>这个预编译头文件究竟有何作用？为何我们要多此一举？这要从编译器的具体工作原理讲起。大体来讲，编译器的主要工作过程为：预处理 –&gt; 词法分析 –&gt; 语法分析 –&gt; 语义分析 –&gt; 代码生成与优化这几个过程。而对 C 语言来说，预处理的过程主要是处理源代码文件中的以 “#” 开始的预编译指令，诸如 <code class="sourceCode cpp" rundoc-language="cpp"><span class="pp">#include</span></code> 、 <code class="sourceCode cpp" rundoc-language="cpp"><span class="pp">#define</span></code> 等，这个过程包括（参考《<a href="http://book.douban.com/subject/3652388/">程序员的自我修养 </a>》P39）：</p>
 <ul>
 <li>删除 <code class="sourceCode cpp" rundoc-language="cpp"><span class="pp">#define</span></code> ，展开所有的宏定义</li>
 <li>处理所有的条件编译指令</li>
@@ -82,9 +82,9 @@ total 1.7M
 <li>添加行号和文件名标识，用于调试信息</li>
 <li>保留所有的 <code class="sourceCode cpp" rundoc-language="cpp"><span class="pp">#pragma</span></code> 编译器指令</li>
 </ul>
-<p>可以看出，对于巨型的头文件，诸如 Windows 系统的 <code>Windows.h</code> 和 Mac 系统的 <code>Cocoa.h</code> ，这个预处理的过程也是相当的耗费编译时间的，而这类的头文件都有一个特点， 就是头文件的内容基本不会改变，但是每次编译都要重新分析这些头文件，无疑是一种巨大的浪费，所以 <code>gcc main.h</code> 做的工作就是，将 <code>main.h</code> 的预处理结果存储位 <code>main.h.gch</code> 文件，以后再用 gcc main.c 编译的时候，gcc会先搜索 main.h.gch 这样的预编译头文件，如果预编译头文件存在，那么 GCC 就省去了重新分析 <code>main.h</code> 的过程。对于大型的工程来讲，这样的策略带来的编译时间上的减少，还是相当可观的。</p>
+<p>可以看出，对于巨型的头文件，诸如 Windows 系统的 <code>Windows.h</code> 和 Mac 系统的 <code>Cocoa.h</code> ，这个预处理的过程也是相当的耗费编译时间的，而这类的头文件都有一个特点，就是头文件的内容基本不会改变，但是每次编译都要重新分析这些头文件，无疑是一种巨大的浪费，所以 <code>gcc main.h</code> 做的工作就是，将 <code>main.h</code> 的预处理结果存储位 <code>main.h.gch</code> 文件，以后再用 gcc main.c 编译的时候，gcc会先搜索 main.h.gch 这样的预编译头文件，如果预编译头文件存在，那么 GCC 就省去了重新分析 <code>main.h</code> 的过程。对于大型的工程来讲，这样的策略带来的编译时间上的减少，还是相当可观的。</p>
 <p>Visual Studio 某些工程中常见的 <code>stdafx.h</code> ，以及 Xcode 中大部分工程默认带有的 <code>.pch</code> 文件，都是预编译头文件。</p>
-<p>与预编译头文件相关的还有一个 <a href="http://en.wikipedia.org/wiki/Prefix_header">Prefix header</a> 的概念，我将它翻译成“预包含头文件”， 这种 Prefix header 不但会默认被预编译，而且会默认被每个源文件包含，目前我所知道的，只有 Xcode 才有这么邪恶的做法。</p>
+<p>与预编译头文件相关的还有一个 <a href="http://en.wikipedia.org/wiki/Prefix_header">Prefix header</a> 的概念，我将它翻译成“预包含头文件”，这种 Prefix header 不但会默认被预编译，而且会默认被每个源文件包含，目前我所知道的，只有 Xcode 才有这么邪恶的做法。</p>
 <p>事实上我不太喜欢这种 Xcode 这种出于好意的做法，当然并不是所有的开发者都需要了解这么多，多数人只需要按照模版新建工程然后用 Interface Builder 拖拖拽拽就好，至于背后生成了哪些肮脏的代码，who cares。</p>
 <p><strong>真正了不起的程序员对自己的程序的每一个字节都了如指掌。</strong></p>
 <p>所以我还是喜欢开个终端，架上 Vim 和 Emacs，搭好 Makefile，all from scratch。谈到这里，我们再稍微挖掘一下 GCC 的潜力： <code>gcc -H main.h</code> ：</p>
@@ -116,7 +116,7 @@ Multiple include guards may be useful for:
 /usr/include/wchar.h
 </code></pre>
 <p>看到了吧， <code>gcc -H</code> 给出了一个头文件中递归包含的所有头文件。</p>
-<p>事实上最近我在做毕业设计，一套 Window Mobile 代码向 iOS 的移植，常常会看到源代码中包含一些无用头文件，虽有使用了 <a href="http://en.wikipedia.org/wiki/Include_guard">include guard</a>，但是某些时候还是会引起定义冲突， 比如我就碰到了源代码中 <code class="sourceCode cpp" rundoc-language="cpp"><span class="kw">typedef</span> <span class="dt">int</span> Boolean</code> 和 <code>MacTypes.h</code> 中 <code class="sourceCode cpp" rundoc-language="cpp"><span class="kw">typedef</span> <span class="dt">unsigned</span> <span class="dt">char</span> Boolean</code> 之间的冲突。我在想有没有这样一款工具，可以扫描整个工程中无用的头文件以及所有源代码中无用的 <code class="sourceCode cpp" rundoc-language="cpp"><span class="pp">#include</span></code> ，然后做自动的清理工作呢？ <code>gcc -H</code> 应该可以作为一个开端。</p>
+<p>事实上最近我在做毕业设计，一套 Window Mobile 代码向 iOS 的移植，常常会看到源代码中包含一些无用头文件，虽有使用了 <a href="http://en.wikipedia.org/wiki/Include_guard">include guard</a>，但是某些时候还是会引起定义冲突，比如我就碰到了源代码中 <code class="sourceCode cpp" rundoc-language="cpp"><span class="kw">typedef</span> <span class="dt">int</span> Boolean</code> 和 <code>MacTypes.h</code> 中 <code class="sourceCode cpp" rundoc-language="cpp"><span class="kw">typedef</span> <span class="dt">unsigned</span> <span class="dt">char</span> Boolean</code> 之间的冲突。我在想有没有这样一款工具，可以扫描整个工程中无用的头文件以及所有源代码中无用的 <code class="sourceCode cpp" rundoc-language="cpp"><span class="pp">#include</span></code> ，然后做自动的清理工作呢？ <code>gcc -H</code> 应该可以作为一个开端。</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">

@@ -54,15 +54,15 @@
 <p>主要是想体验一下传说中的 GNOME 2.30 和 GNOME shell，探索半天才知道我原来的 Gentoo 用的是 stable version，这样一改就改成“以后要用 testing version“。</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> emerge -avuND world</code></pre></div>
 <p>这下好了，乖乖，总共有 573 个软件包要更新，需要下载 1.7G 的东西。天知道这 1.7G 的代码在我的本本上要编译多长时间。不过，量小非君子，无毒不丈夫，索性心一横，就输了 yes，让本本自己在那边呼啸去了。</p>
-<p>编译到 170 左右个包时出现了麻烦，libmtp 无法编译，我一看是因为其依赖的 libpng 是 1.2 版本的，而 gentoo testing version 的libpng是 1.4 版本的，这样来来回回搞了许久， 终于在 Google 上找到了<a href="https://forums.gentoo.org/viewtopic-t-827262.html">这篇文章</a>，暂且解决了这个问题。</p>
+<p>编译到 170 左右个包时出现了麻烦，libmtp 无法编译，我一看是因为其依赖的 libpng 是 1.2 版本的，而 gentoo testing version 的libpng是 1.4 版本的，这样来来回回搞了许久，终于在 Google 上找到了<a href="https://forums.gentoo.org/viewtopic-t-827262.html">这篇文章</a>，暂且解决了这个问题。</p>
 <p>折腾期间又扫了一眼 emerge man page，了解了几个有用的参数如：</p>
 <ul>
 <li><code>--skip-first</code></li>
 <li><code>--keep-going</code></li>
 <li><code>--resume</code></li>
 </ul>
-<p>中途还有几个 blocked 的包，解决方法大概是先 uninstall 再 reinstall，一般就行了； 再不行看看 USE 参数，略微改一下，总之，元发行版，麻烦与灵活共存。</p>
-<p>编译的过程 Emacs 死掉了，于是再也无法打开^~^……就这能干看一些题目。ZOJ 1372，第一眼一看就是图论的题目。反正也是闲着，临阵磨枪，找来了算法导论，补补图论的基础知识。 进一步了解了 BFS 和 DFS，看懂了最小生成树的 Prim 算法，并参照着别人的代码，采用邻接矩阵的方式，还 AC 了。真实不容易啊。不过收获也是大大的。</p>
+<p>中途还有几个 blocked 的包，解决方法大概是先 uninstall 再 reinstall，一般就行了；再不行看看 USE 参数，略微改一下，总之，元发行版，麻烦与灵活共存。</p>
+<p>编译的过程 Emacs 死掉了，于是再也无法打开^~^……就这能干看一些题目。ZOJ 1372，第一眼一看就是图论的题目。反正也是闲着，临阵磨枪，找来了算法导论，补补图论的基础知识。进一步了解了 BFS 和 DFS，看懂了最小生成树的 Prim 算法，并参照着别人的代码，采用邻接矩阵的方式，还 AC 了。真实不容易啊。不过收获也是大大的。</p>
 <p>代码：</p>
 <div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
 <span class="pp">#include </span><span class="im">&lt;string&gt;</span>
@@ -200,7 +200,7 @@ vertex v[max_points];
       <div class="item">
         <a href="/tags#Algorithm">
           <div class="ui label">
-            Algorithm<sup>8</sup>
+            Algorithm<sup>9</sup>
           </div>
         </a>
       </div>

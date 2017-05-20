@@ -50,7 +50,7 @@
 </header>
 <div class="row article-body">
   <section class="twelve wide column"><p>前两天自用的 Arch Linux 系统出了点小问题，索性重新搞了一下，由 i686 迁移到 x86-64 平台。原先一直以为 64 位系统是高不可攀的贵族产品，后来才知道原来 64 位处理器最早是由 AMD 1999 年设计，几年前的 Intel Core Duo 早已经支持 64 位系统，只是软件产品和内存还跟不上，所以多数应用还是 32 位为主。</p>
-<p>OS 版本用的是 <a href="http://linuxtoy.org/archives/arch-linux-2010-05.html">Arch Linux 2010.05</a>，在 <a href="http://mirrors.sohu.com/">mirrors.sohu.com</a> 上下载 <a href="http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso">支持 32 位及 64 位架构的 Dual映像</a>，用 UltraISO 刻录硬盘镜像到 U 盘上。基本的安装过程不再赘述， <a href="https://wiki.archlinux.org/index.php/Beginners&#39;_Guide">ArchWiki Beginner’s Guide</a> 讲的明明白白。唯一注意的是分区格式化的时候需要格外注意， 不要把自己原先的系统搞丢我曾经有过惨痛的教训，不过幸好那次做了数据备份。不过 100 G 的东西备份还原也是件耗时耗力的工作啊 ^)^。</p>
+<p>OS 版本用的是 <a href="http://linuxtoy.org/archives/arch-linux-2010-05.html">Arch Linux 2010.05</a>，在 <a href="http://mirrors.sohu.com/">mirrors.sohu.com</a> 上下载 <a href="http://mirrors.sohu.com/archlinux/iso/2010.05/archlinux-2010.05-core-dual.iso">支持 32 位及 64 位架构的 Dual映像</a>，用 UltraISO 刻录硬盘镜像到 U 盘上。基本的安装过程不再赘述， <a href="https://wiki.archlinux.org/index.php/Beginners&#39;_Guide">ArchWiki Beginner’s Guide</a> 讲的明明白白。唯一注意的是分区格式化的时候需要格外注意，不要把自己原先的系统搞丢我曾经有过惨痛的教训，不过幸好那次做了数据备份。不过 100 G 的东西备份还原也是件耗时耗力的工作啊 ^)^。</p>
 <p>基本系统装好后，装个 Desktop Environment，然后再做一下系统美化和针对小黑的特殊配置。过程还是挺繁琐的，因此写下来做个备忘。先上张图，KDE 4.6 我承认我越来越浮云了……</p>
 <p><a href="/static/image/2011/kde4.6.png"><img src="/static/image/2011/kde4.6.png" /></a></p>
 <p>最新的 Xorg 已经变得十分人性化，再也不需要手工配置恼人的 <code>xorg.conf</code> ，最新的 Linux 内核驱动也能自动识别鼠标和键盘，不会再出现进入图形界面却无法使用鼠标键盘的窘境至少两年前是这样的。有个东西叫做 <a href="http://en.wikipedia.org/wiki/Hardware_abstraction_layer">HAL</a>，最近又出来个 evdev。总体而言 Linux 的驱动程序还是比较混乱的，hal、evdev、mesa、xorg、xf86、wayland、alsa、oss、 pulseaudio 等等，令人头大。</p>
@@ -233,7 +233,7 @@ ROUTES=(!gateway)
 #
 DAEMONS=(@syslog-ng @dbus !hal !network !netfs @acpid @tpfand @crond @hdapsd @laptop-mode @wicd @kdm bluetooth @trackpoint)
 </code></pre>
-<p>大概就这么多吧。都是些琐碎的东西，能用就好了。想想 Linux 的东西变动如此之快，有些东西是真的不必深究的。比如关于中键模拟有上面的方案，也有改 <code>xorg.conf</code> 的方案。 比如 hal 这个东西，再比如 X Window 和未来的 <a href="http://wayland.freedesktop.org/">Wayland</a>，比如 ext4 和 <a href="http://en.wikipedia.org/wiki/Btrfs">btrfs</a>。想想自己走的也有些偏了，过于追求工具化的东西，倒是忽略了最本质的知识，如体系结构，算法等等。这就比如户外旅行，总是想方设法装一辆拉风的自行车，却很少去骑车领略旅行的真谛。四年，四年前的我还只会开机关机，四年后的我折腾系统小打小闹颇有一套，最本质的计算机基础却一塌糊涂。希望自己的折腾之旅到此位置吧。接下来的关键词是，Lisp、 TCP/IP、Hadoop。</p>
+<p>大概就这么多吧。都是些琐碎的东西，能用就好了。想想 Linux 的东西变动如此之快，有些东西是真的不必深究的。比如关于中键模拟有上面的方案，也有改 <code>xorg.conf</code> 的方案。比如 hal 这个东西，再比如 X Window 和未来的 <a href="http://wayland.freedesktop.org/">Wayland</a>，比如 ext4 和 <a href="http://en.wikipedia.org/wiki/Btrfs">btrfs</a>。想想自己走的也有些偏了，过于追求工具化的东西，倒是忽略了最本质的知识，如体系结构，算法等等。这就比如户外旅行，总是想方设法装一辆拉风的自行车，却很少去骑车领略旅行的真谛。四年，四年前的我还只会开机关机，四年后的我折腾系统小打小闹颇有一套，最本质的计算机基础却一塌糊涂。希望自己的折腾之旅到此位置吧。接下来的关键词是，Lisp、 TCP/IP、Hadoop。</p>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">

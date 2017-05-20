@@ -49,9 +49,9 @@
   </div>
 </header>
 <div class="row article-body">
-  <section class="twelve wide column"><p>百度离职后，随着递归式学习的深入，我的涉猎从 Lisp/Scheme/SICP，到 APUE，最近又转入到了汇编语言上。老实说，汇编这种文物级的东西，在一般的计算机编程中是绝难碰到的。 但是计算机工程学到一定层次，瓶颈所在，就会发现，总是有那么几样东西，诸如汇编、C、 算法、编译原理、体系结构、操作系统、网络数据库等，这些基础知识绕不过，躲不开，而能否跨越这些坎，从某种意义上决定了一个程序员能否从合格到优秀、从优秀到卓越。</p>
+  <section class="twelve wide column"><p>百度离职后，随着递归式学习的深入，我的涉猎从 Lisp/Scheme/SICP，到 APUE，最近又转入到了汇编语言上。老实说，汇编这种文物级的东西，在一般的计算机编程中是绝难碰到的。但是计算机工程学到一定层次，瓶颈所在，就会发现，总是有那么几样东西，诸如汇编、C、 算法、编译原理、体系结构、操作系统、网络数据库等，这些基础知识绕不过，躲不开，而能否跨越这些坎，从某种意义上决定了一个程序员能否从合格到优秀、从优秀到卓越。</p>
 <p>最早接触汇编还是在大一上一门计算机硬件基础的导论课上，我原以为这课既然叫计算机硬件基础，讲的应该都是软驱硬盘主板鼠标等如何拆卸组装选购的科普杂事。要知道，那个时候的我刚刚学会在 Windows XP 控制面板里面装卸软件。给我们讲课的是一个老头，用的是自己编写的教材。老头最津津乐道的事情是在 90 年代中期自己花了 400 块钱买了一个 32M 的 U 盘，却因为 U 盘容量太大而束手无策，不知道该存些啥东西。这课开始几次讲的确实是硬盘、鼠标组成科普原理啥的，后来讲着讲着就拐到了 16-bit DOS 下的 Debug 汇编编程， <code>mov ax, bx</code> 这种，结果可想而知，我们全班同学一下子就晕的不行，弃考了一小半，剩余勉强坚持到最后的，又挂了好几个。</p>
-<p>大二下又上了一门汇编语言的通识课，仍旧是 16-bit DOS，仍旧是不得要领。直到大三， 上了专业的汇编课，硬着头皮，在 Linux + <a href="http://www.dosemu.org/">DOSEMU</a> + <a href="http://www.masm32.com/">MASM</a> 5.0 的环境下编了一个 300 多行的软件模拟浮点数算数指令的汇编程序，这才对 16-bit 汇编中的一些基本概念诸如段、 寻址方式、中断等等，有了一个初步的了解。不过说实话，大学里的汇编学习和实际脱节太远，多数的汇编教育还停留在 16-bit DOS 环境下，用得教材以清华的那本《IBM-PC汇编语言程序设计》居多，做得实验也都是 Window 98 DOS 子系统下步进电机、控制电灯明暗这种实验，一到实际编程，32-bit 和 64-bit 的保护模式下编程，加上复杂的 MMX 指令，浮点数指令，就傻眼了。</p>
+<p>大二下又上了一门汇编语言的通识课，仍旧是 16-bit DOS，仍旧是不得要领。直到大三，上了专业的汇编课，硬着头皮，在 Linux + <a href="http://www.dosemu.org/">DOSEMU</a> + <a href="http://www.masm32.com/">MASM</a> 5.0 的环境下编了一个 300 多行的软件模拟浮点数算数指令的汇编程序，这才对 16-bit 汇编中的一些基本概念诸如段、 寻址方式、中断等等，有了一个初步的了解。不过说实话，大学里的汇编学习和实际脱节太远，多数的汇编教育还停留在 16-bit DOS 环境下，用得教材以清华的那本《IBM-PC汇编语言程序设计》居多，做得实验也都是 Window 98 DOS 子系统下步进电机、控制电灯明暗这种实验，一到实际编程，32-bit 和 64-bit 的保护模式下编程，加上复杂的 MMX 指令，浮点数指令，就傻眼了。</p>
 <p>本文介绍 Linux 平台下 32-bit 的GAS汇编语言编程，GAS是 GCC 编译器的汇编器。之所以采用这套工具，主要的原因在于 GCC 工具链非常成熟，GAS配合 Emacs、GDB，加上 Shell 命令行，和 <a href="https://sourceware.org/binutils/docs/binutils/objdump.html">objdump</a>、od 等工具，对于我这个 Linux fans 和命令行控有莫大的吸引力，工作效率自不必说，谁用谁知道。</p>
 <p>x86 汇编编程有两种截然不同的语法风格，我们常见的是 Intel 语法风格，类似这种：</p>
 <div class="sourceCode"><pre class="sourceCode asm"><code class="sourceCode fasm"><span class="bu">mov</span> <span class="kw">eax</span>, <span class="dv">32</span></code></pre></div>
@@ -63,8 +63,8 @@
 <li><a href="http://book.douban.com/subject/1787855">Programming From The Ground Up</a> – 此书还有一个非常好的配套的网站， <a href="http://savannah.nongnu.org/" class="uri">http://savannah.nongnu.org/</a></li>
 </ul>
 <p>我粗略的看完了第一本，第二本正在进行中，这样的学习已经让我对 C 语言中很多高级的概念，诸如指针、编译连接过程、内存布局和分布有了比较深入的理解。</p>
-<p>不过对于计算机的学习，光说不练是远远不够的。书本上看懂并不代表就能快速写出准确、 实用、高效的程序来。我学习一门计算机语言，往往都会去找一本评价较好的书籍，把书上所有的示例代码看懂，自己亲自敲一遍。这不，刚刚起步，就碰到了两个小问题，记录下来， 作为 GAS 汇编学习的起点。</p>
-<p>首先是 Emacs 编辑器的问题。Emacs 本身对汇编语言编辑功能的支持远比不上对其余高级编程语言的支持。一个内建的 ASM Mode，乃是 <a href="http://en.wikipedia.org/wiki/Eric_S._Raymond">ESR</a> 的大作，粗略看了下，两百多行的代码， 功能有限，要命的是还有个小 bug，那就是默认的注释符号为 <code>;</code> ，而不是 GAS 汇编接受的 <code>#</code> 。恰好这个月花费了大量精力研习了 Emacs Manual 和 Elisp Manual，因此不自量力写了两个小函数，专门用于 GAS 汇编语言的注释（代码很初级，elisp 高手轻拍）：</p>
+<p>不过对于计算机的学习，光说不练是远远不够的。书本上看懂并不代表就能快速写出准确、 实用、高效的程序来。我学习一门计算机语言，往往都会去找一本评价较好的书籍，把书上所有的示例代码看懂，自己亲自敲一遍。这不，刚刚起步，就碰到了两个小问题，记录下来，作为 GAS 汇编学习的起点。</p>
+<p>首先是 Emacs 编辑器的问题。Emacs 本身对汇编语言编辑功能的支持远比不上对其余高级编程语言的支持。一个内建的 ASM Mode，乃是 <a href="http://en.wikipedia.org/wiki/Eric_S._Raymond">ESR</a> 的大作，粗略看了下，两百多行的代码，功能有限，要命的是还有个小 bug，那就是默认的注释符号为 <code>;</code> ，而不是 GAS 汇编接受的 <code>#</code> 。恰好这个月花费了大量精力研习了 Emacs Manual 和 Elisp Manual，因此不自量力写了两个小函数，专门用于 GAS 汇编语言的注释（代码很初级，elisp 高手轻拍）：</p>
 <div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> gas-comment-region </span>(start end)
   comment region for AT&amp;T syntax assembly language
 The default comment-char for gas is &#39;<span class="co">;&#39;, we need &#39;#&#39; instead</span>
