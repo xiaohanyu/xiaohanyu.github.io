@@ -56,7 +56,7 @@
 <p><a href="/static/image/2017/facebook-interview/recruiter-linkedin-invitation.png"><img src="/static/image/2017/facebook-interview/recruiter-linkedin-invitation.png" /></a></p>
 <p>我当时并没有要找一份全职工作的计划，但是 Facebook 就是 Facebook，有机会体验下 Facebook 的面试，我当然不会说“No”。</p>
 <p>Facebook 提供的岗位是 <a href="https://www.facebook.com/careers/jobs/a0I1200000JXoWrEAL/">Production Engineer</a>，从岗位职责上来说，大体上类似于 Google 的 <a href="https://landing.google.com/sre/">SRE</a>，技术层面上偏向于大规模网站的<a href="https://code.facebook.com/pe">基础设施</a>。就我个人而言，这几年一直在自己“小打小闹”，对于中等以上规模的生产系统手生已久，因此如果有机会去历练一下，还是会蛮期待的。</p>
-<p>工作地点是在 Facebook EMEA 区域——引用 recruiter 原话：“EMEA stands for Europe, Middle East and Africa region and our offices are in Dublin, London or Tel Aviv.”）而我其实对工作地点并没有特别的偏好，只是在国内待得久了，加上经常要与 GFW 斗智斗勇，因此只要换个国家换个城市，出去体验一段时间就 OK。</p>
+<p>工作地点是在 Facebook EMEA 区域——引用 recruiter 原话：“EMEA stands for Europe, Middle East and Africa region and our offices are in Dublin, London or Tel Aviv.”）。而我其实对工作地点并没有特别的偏好，只是在国内待得久了，加上经常要与 GFW 斗智斗勇，因此只要换个国家换个城市，出去体验一段时间就 OK。</p>
 <p>邮件往复几轮，定于 5 月 12 日进行 recruiter 的 phone screen。</p>
 <p>另，初始的私信沟通中，有一个让我印象很深刻的细节，就是我在私信中询问要不要寄送一份我个人的 “updated resume”，recruiter 没有给肯定的回答，因此我也就没有再花时间去更新我的简历。当面试流程结束，回过头来细细回想一下，我发现 Facebook 的面试人员，无论是 recruiter 还是工程师，对我的个人背景都相当了解，可以肯定，在每轮面试之前，都做了充分的背景调研工作。比如我个人写 Python 比较多，其余的语言诸如 C/C++/Java/Ruby 这些倒也不是不能写，无非就是手生，在面试那种时间有限精神紧张的情况下，用手生的语言写东西，总是会出现很多意想不到的错误，因此 phone screen 之后面试我的三个面试官，就我个人交流而言，都是比较懂 Python 的，基本可以肯定，这是 Facebook 刻意安排的结果。其中还有一个面试官，面试过程中直接告诉我说，很了解我的背景，知道我是某个项目的 contributor。</p>
 <h2 id="recruiter-电话面试">Recruiter 电话面试</h2>
@@ -100,7 +100,7 @@
 <p>第一道题目是考查 <a href="https://en.wikipedia.org/wiki/RAID">RAID</a> 的概念性知识。比如 RAID 0、RAID 1、RAID 5、RAID 6、RAID 0 + 1 是什么原理；磁盘空间利用率如何；最大可以容忍损失多少块盘；成本考量； database server 应该用哪种 RAID 方案，等等，考得非常仔细。</p>
 <p>第二道题考查地更加细致……面试官直接给我贴出了 vmstat 的输出，然后一个指标一个指标的问了下去，抓住各种细节死抠不放；同时以这些指标为引，考查很多操作系统的细节实现问题。比如：</p>
 <ul>
-<li>Intel CPU 的 <a href="https://en.wikipedia.org/wiki/Protection_ring">Protection ring</a></li>
+<li>Intel CPU 的 <a href="https://en.wikipedia.org/wiki/Protection_ring">protection ring</a></li>
 <li>User-mode 和 kernel-mode 的切换过程</li>
 <li>进程的状态切换流程</li>
 <li>进程的 wait time</li>
@@ -123,12 +123,12 @@
 <h2 id="总结">总结</h2>
 <p>但是很可惜，第三轮面试完的第二天，就收到了 Facebook 的拒信——不得不说，Facebook recruiter 的工作效率实在是太高了……</p>
 <p><a href="/static/image/2017/facebook-interview/rejection.png"><img src="/static/image/2017/facebook-interview/rejection.png" /></a></p>
-<p>我自评的话，整体三轮面试表现，应该在 85 分以上，记忆中没有特别明显的瑕疵，因此收到拒信后就给 recruiter 发了封邮件去 argue 下。Facebook recruiter 也很大方，又约了个时间，打了 20 分钟的电话，洋洋洒洒把我这三轮面试过程从头到尾复述了一遍，包括每一道考题，我的答案，面试官对我的答案的评估，一口气说了 10 分钟——当然， recruiter 的英文口音并不是特别纯正，所以我听了 5 分钟后就有些晕菜了，后面的也没有听得特别细致。大体上讲，是我在几轮面试中，有一些题——就是我上面说的类似于“哪些信号不能被屏蔽”的问题——答得不完全正确，因此最终还是不能给我一个 onsite 的机会。</p>
-<p>实话讲，有些心有不甘，但也无可奈何。不过话又说回来，给你发了拒信，回头还打个电话告诉你为什么把你拒了的，在我面试的几十家公司中，Facebook 仅此一家，别无分号。冲这一点，如果以后有机会再去 Facebook 参加面试的话，我想我仍旧会认真对待。 Recruiter 在电话最后也鼓励我，让我半年后再联系她重新试一下，并且对我再次面试通过电面拿到 onsite 很有信心。</p>
-<p>以上就是去年，即 16 年 4–6 月参加 Facebook 面试的全过程。巧合的是，16 年 11 月份起我又参加了一次 Google 的<a href="http://xiaohanyu.me/posts/2017-04-30-google-foobar-interview/">面试</a>。两次面试都是突然而来的机会；我个人方面，由于一来当时没有找全职工作的计划，二是平时工作学习非常忙，因此在准备上也并不是特别充分。 Facebook 的面试没有走到 onsite，有些莫名其妙；Google 的面试起点非常有意思，最终也走完了 onsite，但是没有拿到 offer，有些可惜。总结起来，一是实力还不够出众；二，应该是人不在美国，海外应聘的门槛要求应该是要高一些；三，没有铁下心来花几个月的时间全职认真准备；最后，可能也是差了那么一点点的好运气吧。</p>
-<p>两家公司的招聘体验都做得非常非常棒，面试体验极好，特别是一些细节处理，让我感动，这是多年未有的体验。而我之所以不吝罗嗦，把这些流程一五一十地写下来，部分原因也是因为我以前在国内参加的很多面试太过糟糕，对比太过强烈。这也引发了我相当多的思考。</p>
-<p>我这里不去讨论考白板考算法到底能不能客允地评估程序员的技术能力这个大问题，也不去讨论 Hiring 到底有没有 <a href="https://medium.com/@evnowandforever/f-you-i-quit-hiring-is-broken-bb8f3a48d324">Broken</a>。事实是，以国内大多数公司的招聘体验，目前还没有资格去讨论 Hiring 到底有没有 Broken。</p>
-<p>比如有的公司让我大老远去参加面试，我人在杭州，公司在上海，然后我自己买了火车票转地铁去参加面试，一天面不完，第二周还要再去一次；第二周又去面了一次后，面完了就走了。而我往返沪杭，加起来约 400 元的火车票，没有人提报销的事情——虽然钱不多吧，但是好歹面子上的事情还是要做足的吧？</p>
+<p>我自评的话，整体三轮面试表现，应该在 85 分以上，记忆中没有特别明显的瑕疵，因此收到拒信后就给 recruiter 发了封邮件去 argue 下。Facebook recruiter 也很大方，又约了个时间，打了 20 分钟的电话，洋洋洒洒把我这三轮面试过程从头到尾复述了一遍，包括每一道考题、我的答案、面试官对我的答案的评估，一口气说了 10 分钟——当然， recruiter 的英文口音并不是特别纯正，所以我听了 5 分钟后就有些晕菜了，后面的也没有听得特别细致。大体上讲，是我在几轮面试中，有一些题——就是我上面说的类似于“哪些 signal 不能被屏蔽”的问题——答得不完全正确，因此最终还是不能给我一个 onsite 的机会。</p>
+<p>实话讲，有些心有不甘，但也无可奈何。不过话又说回来，给你发了拒信，回头还打个电话告诉你为什么把你拒了的，在我面试过的几十家公司中，Facebook 仅此一家，别无分号。冲这一点，如果以后有机会再去 Facebook 参加面试的话，我想我仍旧会认真对待。 Recruiter 在电话最后也鼓励我，让我半年后再联系她重新试一下，并且对我再次面试通过电面拿到 onsite 很有信心。</p>
+<p>以上就是去年，即 16 年 4–6 月参加 Facebook 面试的全过程。巧合的是，16 年 11 月份起我又参加了一次 Google 的<a href="http://xiaohanyu.me/posts/2017-04-30-google-foobar-interview/">面试</a>。两次面试都是突然而来的机会。Facebook 的面试没有走到 onsite，有些莫名其妙；Google 的面试起点非常有意思，最终也走完了 onsite，但是没有拿到 offer，有些可惜。总结起来，一是实力还不够出众；二，应该是人不在美国，海外应聘的门槛要求应该是要高一些；三，没有铁下心来花几个月的时间全职认真准备；最后，可能也是差了那么一点点的好运气吧。</p>
+<p>两家公司的招聘体验都做得非常非常棒，面试体验极好，特别是一些细节处理，让我感动，这是多年未有过的体验。而我之所以不吝罗嗦，把这些流程一五一十地写下来，部分原因也是因为我以前在国内参加的很多面试太过糟糕，对比太过强烈。这也引发了我相当多的思考。</p>
+<p>我这里不去讨论考白板考算法到底能不能客观公允地评估程序员的技术能力这个大问题，也不去讨论 hiring 到底有没有 <a href="https://medium.com/@evnowandforever/f-you-i-quit-hiring-is-broken-bb8f3a48d324">broken</a>。事实是，以国内大多数公司的招聘体验，目前还没有资格去讨论 hiring 到底有没有 broken。</p>
+<p>比如有的公司让我大老远去参加面试，我人在杭州，公司在上海，然后我自己买了火车票转地铁去参加面试，一天还面不完，还非要第二周再去一次；第二周又去面了一次后，面完了就走了。而我往返沪杭，加起来约 400 元的火车票，没有人提报销的事情——虽然钱不多吧，但是好歹面子上的事情还是要做足的吧？</p>
 <p>有很多公司主动联系到我，然后我认真回了几封邮件后，就没有下文了……</p>
 <p>有的公司上来就让我去做题，不看我的背景，不看我做过的项目，非要我用 JavaScript 去写一些算法的 puzzles。我说我 JavaScript 写得不熟，能不能换 Python——对于一个常写 Python，写过 C/C++/Java/Ruby/Lisp 的人来说，换门语言简直就是分分钟的事啊。然后对方说不行。好吧，那就去用手生的 JavaScript 去写几个算法 puzzles，果不其然，拒信。</p>
 <p>总结起来，就两点：一，Google/Facebook 能在竞争如此激烈的互联网领域长期执牛耳，不是没有原因的；二， <strong>一个公司对应聘者给予足够的尊重，换来的必然也是应聘者认真的应聘准备，而这，无论是对公司，还是对应聘者来说，都是最省成本的做法</strong> 。</p>
