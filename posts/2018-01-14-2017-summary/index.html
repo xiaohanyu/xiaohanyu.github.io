@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>2017，迈向未知</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item desktop-only" href="/categories">Categories</a><a class="item desktop-only" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item desktop-only">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu"><i class="github icon"></i></a><a class="item desktop-only" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+        <div class="ui very padded segment article">
+          <article class="ui stackable divided grid">
+            <header class="row article-head">
+              <div class="column">
+                <h1 class="ui header">
+                  2017，迈向未知
+                </h1>
+                <div class="ui divider"></div>
+              </div>
+            </header>
+            <div class="row article-body">
+              <section class="twelve wide column">
+                <h2 id="序">序</h2>
+                <p>17 年是暂别自由，迈向未知的一年。</p>
+                <ul>
+                <li><a href="http://xiaohanyu.me/posts/2012-01-01-2011-summary/">再见，2011</a></li>
+                <li><a href="http://xiaohanyu.me/posts/2013-01-11-2012-summary/">2012，静水深流</a></li>
+                <li><a href="http://xiaohanyu.me/posts/2014-03-03-2013-summary/">2013，青春绝版</a></li>
+                <li><a href="http://xiaohanyu.me/posts/2015-04-10-2014-summary/">2014，漫步</a></li>
+                <li><a href="http://xiaohanyu.me/posts/2016-04-20-2015-summary/">2015，徘徊</a></li>
+                <li><a href="http://xiaohanyu.me/posts/2017-05-23-2016-summary/">2016，清风徐来</a></li>
+                </ul>
+                <p>引用我在 5 月 17 日的一条广播：</p>
+                <blockquote>
+                <p>正式接受了狮城公司的 offer，Amsterdam 之行应该会取消了。于是乎，在帝都漂了三年，杭城散了三年后，接下来要去狮城生活一段时间。至于到底会待多久？Who knows。我倒是挺享受这种状态，正如旅行一样，最大的乐趣不在于到达终点，而在于在路上那种可控却不完全可知的生活。</p>
+                </blockquote>
+                <p>这一年最重要的变化是暂时告别了三年的自由职业生涯，接受了 <a href="https://shopee.sg/">Shopee</a> 的 offer，离开杭州来到新加坡，重新踏入了两点一线的职场生活。</p>
+                <p>“一切都在掌控之中”，是我一直以来的生活准则，但我又不希望我的生活被这种掌控感限得太死，毕竟一眼望到头的生活还是有些过于无聊了，因此我从不排斥生活中多一点变数，让可控可知的生活变成可控却不完全可知——这是我喜欢的一种生活状态。</p>
+                <p>1 月份通过了 Google 的 3 轮电话面试，确定了 3 月份去 Sydney onsite interview 的行程；2 月份写了篇«<a href="http://xiaohanyu.me/posts/2017-02-13-about-education/">教育对人的改变有多大</a>»的文章，未曾想火遍中文互联网，在我的生活中激起了不小的涟漪；3 月份澳洲之行，一为面试，二是旅行，虽然最终有些可惜，没能拿到 Google 的 offer，但毕竟博闻强识，也算不虚此行；4 月份一个偶然的机会通过了 Shopee 的面试，基本敲定了 offer，和妞简单商议后就决定接受 offer 来新加坡；5 月份在国内办理各种手续杂事，月底一个人来到新加坡正式入职。</p>
+                <p>暂别自由，迈向未知，总得来说，17 年的生活中还是多了许多别样的色彩。</p>
+                <p><a href="/static/image/2018/2017-summary/art-academy-color.jpg"><img src="/static/image/2018/2017-summary/art-academy-color.jpg" /></a></p>
+                <h2 id="工作">工作</h2>
+                <p><a href="/static/image/2018/2017-summary/github-2017.jpg"><img src="/static/image/2018/2017-summary/github-2017.jpg" /></a></p>
+                <h3 id="freelance">Freelance</h3>
+                <p>上半年的 freelance 工作，重点是收尾自己的一些小项目，做了一个基于 Semantic-UI 的前端的小项目：<a href="http://semantic-ui-forest.com/">Semantic-UI-Forest</a>，目的是想借此加强上自己的前端能力，并进一步熟悉下 Semantic-UI 的使用，反馈还可以，但是好长时间没有精力去维护了，惭愧惭愧。</p>
+                <p>兼职方面，接到了一些零散的网站制作和排版优化方面的订单，断续做到了 6、7 月份才收尾。</p>
+                <p>除此之外，应朋友之约，5 月 4 日在杭州 36kr 氪空间做了一场关于数字排版的<a href="http://h5.welian.com/event/i/eyJhaWQiOjMzMzg5fQ==/oUMiajva6J5ljsqqgSJr6hl4_XyA">分享</a>，虽然听众不多，但是自评讲得还可以，只是承诺的演讲资料一直拖到现在也还没时间整理出来，再次惭愧惭愧……</p>
+                <p><a href="/static/image/2018/2017-summary/hangzhou-typography-slides-1.jpg"><img src="/static/image/2018/2017-summary/hangzhou-typography-slides-1.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/hangzhou-typography-slides-2.jpg"><img src="/static/image/2018/2017-summary/hangzhou-typography-slides-2.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/hangzhou-typography-lecture-1.jpg"><img src="/static/image/2018/2017-summary/hangzhou-typography-lecture-1.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/hangzhou-typography-lecture-2.jpg"><img src="/static/image/2018/2017-summary/hangzhou-typography-lecture-2.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/hangzhou-typography-lecture-3.jpg"><img src="/static/image/2018/2017-summary/hangzhou-typography-lecture-3.jpg" /></a></p>
+                <h3 id="shopee">Shopee</h3>
+                <p>6 月份入职 Shopee Data Engineering 组，工作上大概有以下三点：</p>
+                <ul>
+                <li>技术方面，接手了一款基于 <a href="https://github.com/apache/incubator-superset">Apache Superset</a> 做一些内部工具类产品的开发，重整代码结构，开发新的 feature 满足内部各个 team 的需求，并第一次尝试基于 docker 和 docker-compose 的开发部署流程，到目前为止，收益良好；</li>
+                <li>团队方面，全面负责 fullstack web developer 招聘的技术面试，半年以来大概面试了 30 多位候选人，通过率大概在 15% 左右，同时尝试了 2–3 次的全英文面试——这一次我是以面试官的身份用英文和候选人交流，别有一番体验；</li>
+                <li>于此同时，开始以 mentor 的身份带一些新人，这也是我毕业后第一次在企业里担任 mentor。坦白讲，自由职业单打独斗的时间长了，面对面的沟通能力是会有所下降的。这个角色也给了我机会，让我恢复下自己的沟通能力，并第一次从团队建设的角度上思考问题。</li>
+                </ul>
+                <p>经过大半年的努力，我的工作获得了组内组外各方面的好评，我所负责的产品也开始在 Shopee 内部各个团队落地生根。</p>
+                <h3 id="interviews">Interviews</h3>
+                <p>面试方面，除了 Google 的面试被据，Shopee 面试拿到 offer 外，也拿到了 Booking Amsterdam onsite 的机会和 Bloomberg London 的面试邀约，但是由于接受了 Shopee 的 offer，最终都没有成行；我还体验了一次 Toptal 的面试流程，走到了 <a href="https://www.toptal.com/top-3-percent">Test Project</a> 这一轮，但是最终还是失败了，主要原因是我白天要工作，抽不出足够的时间来做 project。</p>
+                <p>在此之前，我已经自由工作了三年，这几次面试虽然花了一些精力，但好在让我对自己在市场上的身价有了一个更清晰的认知。</p>
+                <h2 id="学习">学习</h2>
+                <h3 id="阅读">阅读</h3>
+                <p>阅读方面，豆瓣上标记过的完整阅读过的书籍大概在 20 本左右，一半是技术一半文史。实际上阅读过的书籍要比这个数字要多一些，只是因为没有完全读完，因此没有在豆瓣上做标记。</p>
+                <p>技术方面对我启发最大的是«<a href="https://book.douban.com/subject/2011397/">Programming Erlang: Software for a Concurrent World</a>»；文史方面，中译版的«<a href="https://book.douban.com/subject/7060185/">江城</a>»带给我了久违的感动；企业史方面，吴晓波写的«<a href="https://book.douban.com/subject/26929955/">腾讯传</a>»相当棒；至于人物传记方面，«<a href="https://book.douban.com/subject/26664352/">褚时健传</a>»则给我带来了相当大的震撼。值得一提的是，后两本书都是在杭州家中的马桶上读完的。</p>
+                <p>购书方面，今年开始转向电子阅读，在多看上充值购买了约千余元的书籍，用以打发地铁通勤时光。</p>
+                <h3 id="技术">技术</h3>
+                <p>技术方面，今年重点学习的技术栈是 <a href="https://elixir-lang.org/">Elixir</a>，并借此机会了解了下 <a href="https://www.erlang.org/">Erlang</a> 以及基于 Elixir 的 <a href="http://phoenixframework.org/">Phoenix</a> web framework。</p>
+                <p>在 Shopee 日常工作时，重点实践了基于 docker + docker-compose 的开发部署流程，收益良好；与此同时，初步了解了下 <a href="https://reactjs.org/">React</a> 生态，并花了一个月的时间重新阅读了一遍 «<a href="https://book.douban.com/subject/7157249/">Professional JavaScript for Web Developers</a>»，夯实了下 JavaScript 基础。</p>
+                <h2 id="生活">生活</h2>
+                <h3 id="写作">写作</h3>
+                <p>年初和弟弟聊天时，随手写了篇«<a href="https://www.douban.com/note/606247970/">教育对人的改变有多大</a>»的文章，在网络上引起了很大的反响——截止到本文发出时，豆瓣上显示的阅读量大概有 26 万左右，“喜欢” 21000，“推荐” 2700，评论约 2350 条。在文章发表初期，我还收到了约一百封左右的豆邮——就是豆瓣的私信系统。</p>
+                <p>网络上的转载也有很多，在初期有很多默认授权的转载，不过后面太多杂七杂八的网络公众号等断章取义，将我的文章随意演绎，让我十分不快，因此到后来我在文末加了比较严格的转载授权限制。文章发表初期曾上过豆瓣热门话题的第一名；在 12 月授权<a href="https://mp.weixin.qq.com/s/5SwqgwO4OH-od_4TxmDnMQ">豆瓣读书</a>的官方公众号进行全文转载。</p>
+                <p>当然，网络上还是有很多侵权转载，比如这位号称 6 年互联网品牌积淀知名 IT 博主卢松松先生的<a href="http://lusongsong.com/info/post/8495.html">转载</a>。还有一位新东方的教师姐姐未经沟通就把我的文章转成的 <a href="https://www.lizhi.fm/1593609/2586637918973458438">podcast</a>，如若是颂读得很好，也就罢了，可惜她的颂读也不很出彩，因此我曾经主动联系让其删除；她也答应了下来，没成想过了几天同样的录音 podcast 又上线了，我……我本来是想严肃处理一下这些事情的，后来去新加坡后，实在是抽不出精力，就暂且了之了。</p>
+                <p>纸媒方面，要特别感谢«读者»和«青年文摘»杂志社各自主动提出付费转载的请求，虽然稿费不多，但还是让我很感动，因此我毫不犹豫地给予了授权。</p>
+                <p>这也是我的文字第一次正式见刊，我申请了一些样刊，送给父母一份，送给同学一份，其余留作纪念。</p>
+                <p><a href="/static/image/2018/2017-summary/qingnianwenzhai-1.jpg"><img src="/static/image/2018/2017-summary/qingnianwenzhai-1.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/qingnianwenzhai-2.jpg"><img src="/static/image/2018/2017-summary/qingnianwenzhai-2.jpg" /></a></p>
+                <p>除此之外，我还借此机会认识了<a href="http://mindhacks.cn/">未鹏</a>，未鹏曾建议我把文章写一个扩充版，详细解释下文中那个令人捉摸不透的“转变的契机”到底从何而来，而我一来是比较犹豫，因为要解释清楚，就要把自己和家庭放在公众面前进行详细的解剖，二来我也确实写了一点扩充的说明，不过并不达意，因此就暂时雪藏，没有发表了。</p>
+                <p>希望后面当我更从容的时候，能够把这个故事写得更完整些，从而给更多的人带来一些帮助吧。</p>
+                <h3 id="健身">健身</h3>
+                <p>来到新加坡后，前几个月住在有泳池有健身房的 condo 里，因此又拾起了荒废多年的健身运动。总得来说，年龄渐长，身体素质有所下降，这是难以避免的事情。腰背方面的问题依旧，不过总算没有加重，健身游泳加上装备上的改善，多管齐下，目前看来，完全自愈是很难了，但是控制症状不使其加重，应该还是办得到的。</p>
+                <p><a href="/static/image/2018/2017-summary/body-building.jpg"><img src="/static/image/2018/2017-summary/body-building.jpg" /></a></p>
+                <h3 id="经济">经济</h3>
+                <p>全职工作的最大好处也许就是收入比较稳定吧，因此今年有条件购置一些“重型”装备，继续迭代自己的工作平台。最大项的投入是购置了 Synology <a href="https://www.synology.com/en-global/products/DS1517+">DS1517+</a> 加上 5 块西数 4 TB 红盘，大约 10000 RMB 左右，配合新加坡通畅无墙的网络，工作效率大大提升，原来在国内工作日常与 GFW 斗智斗勇的便秘感一扫而光，十分畅快。</p>
+                <p><a href="/static/image/2018/2017-summary/singapore-workstation.jpg"><img src="/static/image/2018/2017-summary/singapore-workstation.jpg" /></a></p>
+                <p>另外，购置 iPad Pro 10’5、Smart Keyboard 和 Apple Pencil，结合多看，在地铁通勤时看一些书籍，总计阅读大概有三五本的样子，应该算是收回成本了。</p>
+                <p>我还尝试用 Apple Pencil 临了两幅“画作”，虽知贻笑大方，但自得其乐，足矣足矣。</p>
+                <p><a href="/static/image/2018/2017-summary/ipad-pro-drawing-1.png"><img src="/static/image/2018/2017-summary/ipad-pro-drawing-1.png" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/ipad-pro-drawing-2.png"><img src="/static/image/2018/2017-summary/ipad-pro-drawing-2.png" /></a></p>
+                <h2 id="旅行">旅行</h2>
+                <h3 id="澳洲">澳洲</h3>
+                <p>3 月份借着去 Google Sydney onsite 的机会，花了一周的时间，和妞一起在 Sydney 和 Melbourne 逛了逛，总得来说还是非常开心的一次旅程。在国内雾茫茫的天空下待得久了，来到南太平洋边上透个气，天空蓝得沁人心脾。</p>
+                <p>对比而言，更喜欢 Melbourne 一些，如果说 Sydney 是一个现代都市，那 Melbourne 则完全是被音乐和色彩浸润透的生活。</p>
+                <p>在 Melbourne 和<a href="http://wenshanren.org/">肉山</a>一起吃了顿饭，还聊了聊 Emacs 和自由软件，很开心，哈哈。</p>
+                <p><a href="/static/image/2018/2017-summary/australia-sydney-darling-harbor.jpg"><img src="/static/image/2018/2017-summary/australia-sydney-darling-harbor.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/australia-sydney-street.jpg"><img src="/static/image/2018/2017-summary/australia-sydney-street.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/australia-melbourne-color.jpg"><img src="/static/image/2018/2017-summary/australia-melbourne-color.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/australia-melbourne-museum.jpg"><img src="/static/image/2018/2017-summary/australia-melbourne-museum.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/australia-melbourne-south-pacific.jpg"><img src="/static/image/2018/2017-summary/australia-melbourne-south-pacific.jpg" /></a></p>
+                <video src="/static/image/2018/2017-summary/australia-melbourne-coast.mov"
+                       width="100%"
+                       controls>
+                </video>
+                
+                <h3 id="新加坡">新加坡</h3>
+                <p>如果我把 2 月份写文章的精力省下来，多去刷几道 Leetcode，那么也许我就能拿到 Google Sydney 的 offer，留在 Sydney；又或者我没有接受 Shopee 的 offer，那么就有可能去灯红酒绿的 Amsterdam。</p>
+                <p>不过我最终还是来到了新加坡。</p>
+                <p>到目前为止，还是挺满意的选择。</p>
+                <p>要感谢阿黎，在前面几个月“收留”我，给了我一个容身之处——虽然两个年近 30 的大老爷们挤在一张 1.5 米的小破沙发床上，画面有点美，但是只要你不嫌弃，我也就不嫌你睡觉打呼声声响；还要感谢你帮我介绍了很多新加坡的“风土人情”，让我快速适应新的生活。</p>
+                <p>总得来说，在新加坡的生活还是蛮省心的吧。天气没有想象中的那么热，适逢最近雨季，睡觉也不用开空调，还是蛮舒服的；空气环境这些自不必说；于我而言，最大的好处还是在于第一次有了完全通畅无阻的网络，让工作学习效率得到了极大的提升。当然，高铁、移动支付、物流电商方面还是在天朝生活更加便利。对比而言，我愿意牺牲一些物理世界的便利，来换取一些数字世界的好处。</p>
+                <p>妞在 8 月底的时候过来“省亲”，因此我们花了一周的时间，走了新加坡的很多地方，还是蛮开心的。</p>
+                <p><a href="/static/image/2018/2017-summary/singapore-street.jpg"><img src="/static/image/2018/2017-summary/singapore-street.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/singapore-sunset.jpg"><img src="/static/image/2018/2017-summary/singapore-sunset.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/singapore-galaxis-office-view.jpg"><img src="/static/image/2018/2017-summary/singapore-galaxis-office-view.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/singapore-drink-with-eddie.jpg"><img src="/static/image/2018/2017-summary/singapore-drink-with-eddie.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/singapore-marina-bay-garden-night.jpg"><img src="/static/image/2018/2017-summary/singapore-marina-bay-garden-night.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/singapore-marina-bay-sands-hotel.jpg"><img src="/static/image/2018/2017-summary/singapore-marina-bay-sands-hotel.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/singapore-artscience-museum-color.jpg"><img src="/static/image/2018/2017-summary/singapore-artscience-museum-color.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/singapore-zoo.jpg"><img src="/static/image/2018/2017-summary/singapore-zoo.jpg" /></a></p>
+                <p><a href="/static/image/2018/2017-summary/singapore-sentosa.jpg"><img src="/static/image/2018/2017-summary/singapore-sentosa.jpg" /></a></p>
+                <h2 id="尾">尾</h2>
+                <p>“人生得意须尽欢，莫使金樽空对月”。</p>
+                <p>一个人读书写码累了的时候，常常会对着下面这张照片发会呆。豆瓣上有人在这张照片下<a href="https://www.douban.com/people/xiaohanyu/status/1965706471/">留言</a>给我说：“牵着的两只手让人感觉安详又甜美”。</p>
+                <p>“安详又甜美”，嗯，2017 年过去了，我很怀念它。</p>
+                <p><a href="/static/image/2018/2017-summary/australia-sydney-theatre-with-my-girl.jpg"><img src="/static/image/2018/2017-summary/australia-sydney-theatre-with-my-girl.jpg" /></a></p>
+                <blockquote>
+                <p>阵阵晚风吹动着松涛</p>
+                <p>吹响这风铃声如天籁</p>
+                <p>站在这城市的寂静处</p>
+                <p>让一切喧嚣走远</p>
+                <p>只有青山藏在白云间</p>
+                <p>蝴蝶自由穿行在清涧</p>
+                <p>看那晚霞盛开在天边</p>
+                <p>有一群向西归鸟</p>
+                <p>谁画出这天地</p>
+                <p>又画下我和你</p>
+                <p>让我们的世界绚丽多彩</p>
+                <p>谁让我们哭泣</p>
+                <p>又给我们惊喜</p>
+                <p>让我们就这样相爱相遇</p>
+                <p>总是要说再见</p>
+                <p>相聚又分离</p>
+                <p>总是走在漫长的路上</p>
+                <p>— 许巍 «旅行»</p>
+                </blockquote>
+                
+                <div class="ui divider"></div>
+                <div class="ui small one item menu">
+                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+                </div>
+                <div id="disqus_thread"></div>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+              </section>
+              <aside class="four wide column">
+                <div class="ui small header">
+                  License
+                </div>
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+                <div class="ui small header">
+                  Committed
+                </div>
+                <date>2018-01-14</date>
+                <div class="ui small header">
+                  Updated
+                </div>
+                <date>2018-01-14</date>
+                <div class="ui small header">
+                  Category
+                </div>
+                <div class="ui list">
+                  <div class="item">
+                    <a href="/categories#Life">
+                      <div class="ui label">
+                        Life<sup>46</sup>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="ui small header">
+                  Tags
+                </div>
+                <div class="ui list">
+                  <div class="item">
+                    <a href="/tags#Summary">
+                      <div class="ui label">
+                        Summary<sup>8</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Google">
+                      <div class="ui label">
+                        Google<sup>3</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Shopee">
+                      <div class="ui label">
+                        Shopee<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Singapore">
+                      <div class="ui label">
+                        Singapore<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Stripe">
+                      <div class="ui label">
+                        Stripe<sup>2</sup>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="ui small header">
+                  Links
+                </div>
+                <div class="ui small two item menu">
+                  <a class="item" title="2016，清风徐来" href="/posts/2017-05-23-2016-summary/">Prev</a><a class="item" title="Archive" href="/archive">Archive</a>
+                </div>
+              </aside>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2018 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>

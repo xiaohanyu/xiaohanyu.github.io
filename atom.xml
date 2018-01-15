@@ -2,13 +2,147 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://xiaohanyu.me/</id>
   <title>行者无疆 始于足下</title>
-  <updated>2018-01-14T04:26:17Z</updated>
+  <updated>2018-01-14T12:26:17Z</updated>
   <link rel="alternate" href="http://xiaohanyu.me/"/>
   <link rel="self" href="http://xiaohanyu.me/atom.xml"/>
   <author>
     <name>Xiao Hanyu</name>
     <uri>http://xiaohanyu.me</uri>
   </author>
+  <entry>
+    <id>tag:xiaohanyu.me,2018-01-14:/posts/2018-01-14-2017-summary/</id>
+    <title type="html">2017，迈向未知</title>
+    <published>2018-01-14T12:26:17Z</published>
+    <updated>2018-01-14T12:26:17Z</updated>
+    <link rel="alternate" href="http://xiaohanyu.me/posts/2018-01-14-2017-summary/"/>
+    <content type="html">&lt;h2 id="序"&gt;序&lt;/h2&gt;
+&lt;p&gt;17 年是暂别自由，迈向未知的一年。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2012-01-01-2011-summary/"&gt;再见，2011&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2013-01-11-2012-summary/"&gt;2012，静水深流&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2014-03-03-2013-summary/"&gt;2013，青春绝版&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2015-04-10-2014-summary/"&gt;2014，漫步&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2016-04-20-2015-summary/"&gt;2015，徘徊&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2017-05-23-2016-summary/"&gt;2016，清风徐来&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;引用我在 5 月 17 日的一条广播：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;正式接受了狮城公司的 offer，Amsterdam 之行应该会取消了。于是乎，在帝都漂了三年，杭城散了三年后，接下来要去狮城生活一段时间。至于到底会待多久？Who knows。我倒是挺享受这种状态，正如旅行一样，最大的乐趣不在于到达终点，而在于在路上那种可控却不完全可知的生活。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这一年最重要的变化是暂时告别了三年的自由职业生涯，接受了 &lt;a href="https://shopee.sg/"&gt;Shopee&lt;/a&gt; 的 offer，离开杭州来到新加坡，重新踏入了两点一线的职场生活。&lt;/p&gt;
+&lt;p&gt;“一切都在掌控之中”，是我一直以来的生活准则，但我又不希望我的生活被这种掌控感限得太死，毕竟一眼望到头的生活还是有些过于无聊了，因此我从不排斥生活中多一点变数，让可控可知的生活变成可控却不完全可知——这是我喜欢的一种生活状态。&lt;/p&gt;
+&lt;p&gt;1 月份通过了 Google 的 3 轮电话面试，确定了 3 月份去 Sydney onsite interview 的行程；2 月份写了篇«&lt;a href="http://xiaohanyu.me/posts/2017-02-13-about-education/"&gt;教育对人的改变有多大&lt;/a&gt;»的文章，未曾想火遍中文互联网，在我的生活中激起了不小的涟漪；3 月份澳洲之行，一为面试，二是旅行，虽然最终有些可惜，没能拿到 Google 的 offer，但毕竟博闻强识，也算不虚此行；4 月份一个偶然的机会通过了 Shopee 的面试，基本敲定了 offer，和妞简单商议后就决定接受 offer 来新加坡；5 月份在国内办理各种手续杂事，月底一个人来到新加坡正式入职。&lt;/p&gt;
+&lt;p&gt;暂别自由，迈向未知，总得来说，17 年的生活中还是多了许多别样的色彩。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/art-academy-color.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/art-academy-color.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="工作"&gt;工作&lt;/h2&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/github-2017.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/github-2017.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="freelance"&gt;Freelance&lt;/h3&gt;
+&lt;p&gt;上半年的 freelance 工作，重点是收尾自己的一些小项目，做了一个基于 Semantic-UI 的前端的小项目：&lt;a href="http://semantic-ui-forest.com/"&gt;Semantic-UI-Forest&lt;/a&gt;，目的是想借此加强上自己的前端能力，并进一步熟悉下 Semantic-UI 的使用，反馈还可以，但是好长时间没有精力去维护了，惭愧惭愧。&lt;/p&gt;
+&lt;p&gt;兼职方面，接到了一些零散的网站制作和排版优化方面的订单，断续做到了 6、7 月份才收尾。&lt;/p&gt;
+&lt;p&gt;除此之外，应朋友之约，5 月 4 日在杭州 36kr 氪空间做了一场关于数字排版的&lt;a href="http://h5.welian.com/event/i/eyJhaWQiOjMzMzg5fQ==/oUMiajva6J5ljsqqgSJr6hl4_XyA"&gt;分享&lt;/a&gt;，虽然听众不多，但是自评讲得还可以，只是承诺的演讲资料一直拖到现在也还没时间整理出来，再次惭愧惭愧……&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/hangzhou-typography-slides-1.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/hangzhou-typography-slides-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/hangzhou-typography-slides-2.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/hangzhou-typography-slides-2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/hangzhou-typography-lecture-1.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/hangzhou-typography-lecture-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/hangzhou-typography-lecture-2.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/hangzhou-typography-lecture-2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/hangzhou-typography-lecture-3.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/hangzhou-typography-lecture-3.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="shopee"&gt;Shopee&lt;/h3&gt;
+&lt;p&gt;6 月份入职 Shopee Data Engineering 组，工作上大概有以下三点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;技术方面，接手了一款基于 &lt;a href="https://github.com/apache/incubator-superset"&gt;Apache Superset&lt;/a&gt; 做一些内部工具类产品的开发，重整代码结构，开发新的 feature 满足内部各个 team 的需求，并第一次尝试基于 docker 和 docker-compose 的开发部署流程，到目前为止，收益良好；&lt;/li&gt;
+&lt;li&gt;团队方面，全面负责 fullstack web developer 招聘的技术面试，半年以来大概面试了 30 多位候选人，通过率大概在 15% 左右，同时尝试了 2–3 次的全英文面试——这一次我是以面试官的身份用英文和候选人交流，别有一番体验；&lt;/li&gt;
+&lt;li&gt;于此同时，开始以 mentor 的身份带一些新人，这也是我毕业后第一次在企业里担任 mentor。坦白讲，自由职业单打独斗的时间长了，面对面的沟通能力是会有所下降的。这个角色也给了我机会，让我恢复下自己的沟通能力，并第一次从团队建设的角度上思考问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;经过大半年的努力，我的工作获得了组内组外各方面的好评，我所负责的产品也开始在 Shopee 内部各个团队落地生根。&lt;/p&gt;
+&lt;h3 id="interviews"&gt;Interviews&lt;/h3&gt;
+&lt;p&gt;面试方面，除了 Google 的面试被据，Shopee 面试拿到 offer 外，也拿到了 Booking Amsterdam onsite 的机会和 Bloomberg London 的面试邀约，但是由于接受了 Shopee 的 offer，最终都没有成行；我还体验了一次 Toptal 的面试流程，走到了 &lt;a href="https://www.toptal.com/top-3-percent"&gt;Test Project&lt;/a&gt; 这一轮，但是最终还是失败了，主要原因是我白天要工作，抽不出足够的时间来做 project。&lt;/p&gt;
+&lt;p&gt;在此之前，我已经自由工作了三年，这几次面试虽然花了一些精力，但好在让我对自己在市场上的身价有了一个更清晰的认知。&lt;/p&gt;
+&lt;h2 id="学习"&gt;学习&lt;/h2&gt;
+&lt;h3 id="阅读"&gt;阅读&lt;/h3&gt;
+&lt;p&gt;阅读方面，豆瓣上标记过的完整阅读过的书籍大概在 20 本左右，一半是技术一半文史。实际上阅读过的书籍要比这个数字要多一些，只是因为没有完全读完，因此没有在豆瓣上做标记。&lt;/p&gt;
+&lt;p&gt;技术方面对我启发最大的是«&lt;a href="https://book.douban.com/subject/2011397/"&gt;Programming Erlang: Software for a Concurrent World&lt;/a&gt;»；文史方面，中译版的«&lt;a href="https://book.douban.com/subject/7060185/"&gt;江城&lt;/a&gt;»带给我了久违的感动；企业史方面，吴晓波写的«&lt;a href="https://book.douban.com/subject/26929955/"&gt;腾讯传&lt;/a&gt;»相当棒；至于人物传记方面，«&lt;a href="https://book.douban.com/subject/26664352/"&gt;褚时健传&lt;/a&gt;»则给我带来了相当大的震撼。值得一提的是，后两本书都是在杭州家中的马桶上读完的。&lt;/p&gt;
+&lt;p&gt;购书方面，今年开始转向电子阅读，在多看上充值购买了约千余元的书籍，用以打发地铁通勤时光。&lt;/p&gt;
+&lt;h3 id="技术"&gt;技术&lt;/h3&gt;
+&lt;p&gt;技术方面，今年重点学习的技术栈是 &lt;a href="https://elixir-lang.org/"&gt;Elixir&lt;/a&gt;，并借此机会了解了下 &lt;a href="https://www.erlang.org/"&gt;Erlang&lt;/a&gt; 以及基于 Elixir 的 &lt;a href="http://phoenixframework.org/"&gt;Phoenix&lt;/a&gt; web framework。&lt;/p&gt;
+&lt;p&gt;在 Shopee 日常工作时，重点实践了基于 docker + docker-compose 的开发部署流程，收益良好；与此同时，初步了解了下 &lt;a href="https://reactjs.org/"&gt;React&lt;/a&gt; 生态，并花了一个月的时间重新阅读了一遍 «&lt;a href="https://book.douban.com/subject/7157249/"&gt;Professional JavaScript for Web Developers&lt;/a&gt;»，夯实了下 JavaScript 基础。&lt;/p&gt;
+&lt;h2 id="生活"&gt;生活&lt;/h2&gt;
+&lt;h3 id="写作"&gt;写作&lt;/h3&gt;
+&lt;p&gt;年初和弟弟聊天时，随手写了篇«&lt;a href="https://www.douban.com/note/606247970/"&gt;教育对人的改变有多大&lt;/a&gt;»的文章，在网络上引起了很大的反响——截止到本文发出时，豆瓣上显示的阅读量大概有 26 万左右，“喜欢” 21000，“推荐” 2700，评论约 2350 条。在文章发表初期，我还收到了约一百封左右的豆邮——就是豆瓣的私信系统。&lt;/p&gt;
+&lt;p&gt;网络上的转载也有很多，在初期有很多默认授权的转载，不过后面太多杂七杂八的网络公众号等断章取义，将我的文章随意演绎，让我十分不快，因此到后来我在文末加了比较严格的转载授权限制。文章发表初期曾上过豆瓣热门话题的第一名；在 12 月授权&lt;a href="https://mp.weixin.qq.com/s/5SwqgwO4OH-od_4TxmDnMQ"&gt;豆瓣读书&lt;/a&gt;的官方公众号进行全文转载。&lt;/p&gt;
+&lt;p&gt;当然，网络上还是有很多侵权转载，比如这位号称 6 年互联网品牌积淀知名 IT 博主卢松松先生的&lt;a href="http://lusongsong.com/info/post/8495.html"&gt;转载&lt;/a&gt;。还有一位新东方的教师姐姐未经沟通就把我的文章转成的 &lt;a href="https://www.lizhi.fm/1593609/2586637918973458438"&gt;podcast&lt;/a&gt;，如若是颂读得很好，也就罢了，可惜她的颂读也不很出彩，因此我曾经主动联系让其删除；她也答应了下来，没成想过了几天同样的录音 podcast 又上线了，我……我本来是想严肃处理一下这些事情的，后来去新加坡后，实在是抽不出精力，就暂且了之了。&lt;/p&gt;
+&lt;p&gt;纸媒方面，要特别感谢«读者»和«青年文摘»杂志社各自主动提出付费转载的请求，虽然稿费不多，但还是让我很感动，因此我毫不犹豫地给予了授权。&lt;/p&gt;
+&lt;p&gt;这也是我的文字第一次正式见刊，我申请了一些样刊，送给父母一份，送给同学一份，其余留作纪念。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/qingnianwenzhai-1.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/qingnianwenzhai-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/qingnianwenzhai-2.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/qingnianwenzhai-2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;除此之外，我还借此机会认识了&lt;a href="http://mindhacks.cn/"&gt;未鹏&lt;/a&gt;，未鹏曾建议我把文章写一个扩充版，详细解释下文中那个令人捉摸不透的“转变的契机”到底从何而来，而我一来是比较犹豫，因为要解释清楚，就要把自己和家庭放在公众面前进行详细的解剖，二来我也确实写了一点扩充的说明，不过并不达意，因此就暂时雪藏，没有发表了。&lt;/p&gt;
+&lt;p&gt;希望后面当我更从容的时候，能够把这个故事写得更完整些，从而给更多的人带来一些帮助吧。&lt;/p&gt;
+&lt;h3 id="健身"&gt;健身&lt;/h3&gt;
+&lt;p&gt;来到新加坡后，前几个月住在有泳池有健身房的 condo 里，因此又拾起了荒废多年的健身运动。总得来说，年龄渐长，身体素质有所下降，这是难以避免的事情。腰背方面的问题依旧，不过总算没有加重，健身游泳加上装备上的改善，多管齐下，目前看来，完全自愈是很难了，但是控制症状不使其加重，应该还是办得到的。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/body-building.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/body-building.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="经济"&gt;经济&lt;/h3&gt;
+&lt;p&gt;全职工作的最大好处也许就是收入比较稳定吧，因此今年有条件购置一些“重型”装备，继续迭代自己的工作平台。最大项的投入是购置了 Synology &lt;a href="https://www.synology.com/en-global/products/DS1517+"&gt;DS1517+&lt;/a&gt; 加上 5 块西数 4 TB 红盘，大约 10000 RMB 左右，配合新加坡通畅无墙的网络，工作效率大大提升，原来在国内工作日常与 GFW 斗智斗勇的便秘感一扫而光，十分畅快。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/singapore-workstation.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/singapore-workstation.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;另外，购置 iPad Pro 10’5、Smart Keyboard 和 Apple Pencil，结合多看，在地铁通勤时看一些书籍，总计阅读大概有三五本的样子，应该算是收回成本了。&lt;/p&gt;
+&lt;p&gt;我还尝试用 Apple Pencil 临了两幅“画作”，虽知贻笑大方，但自得其乐，足矣足矣。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/ipad-pro-drawing-1.png"&gt;&lt;img src="/static/image/2018/2017-summary/ipad-pro-drawing-1.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/ipad-pro-drawing-2.png"&gt;&lt;img src="/static/image/2018/2017-summary/ipad-pro-drawing-2.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="旅行"&gt;旅行&lt;/h2&gt;
+&lt;h3 id="澳洲"&gt;澳洲&lt;/h3&gt;
+&lt;p&gt;3 月份借着去 Google Sydney onsite 的机会，花了一周的时间，和妞一起在 Sydney 和 Melbourne 逛了逛，总得来说还是非常开心的一次旅程。在国内雾茫茫的天空下待得久了，来到南太平洋边上透个气，天空蓝得沁人心脾。&lt;/p&gt;
+&lt;p&gt;对比而言，更喜欢 Melbourne 一些，如果说 Sydney 是一个现代都市，那 Melbourne 则完全是被音乐和色彩浸润透的生活。&lt;/p&gt;
+&lt;p&gt;在 Melbourne 和&lt;a href="http://wenshanren.org/"&gt;肉山&lt;/a&gt;一起吃了顿饭，还聊了聊 Emacs 和自由软件，很开心，哈哈。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/australia-sydney-darling-harbor.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/australia-sydney-darling-harbor.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/australia-sydney-street.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/australia-sydney-street.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/australia-melbourne-color.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/australia-melbourne-color.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/australia-melbourne-museum.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/australia-melbourne-museum.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/australia-melbourne-south-pacific.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/australia-melbourne-south-pacific.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;video src="/static/image/2018/2017-summary/australia-melbourne-coast.mov"
+       width="100%"
+       controls&gt;
+&lt;/video&gt;
+
+&lt;h3 id="新加坡"&gt;新加坡&lt;/h3&gt;
+&lt;p&gt;如果我把 2 月份写文章的精力省下来，多去刷几道 Leetcode，那么也许我就能拿到 Google Sydney 的 offer，留在 Sydney；又或者我没有接受 Shopee 的 offer，那么就有可能去灯红酒绿的 Amsterdam。&lt;/p&gt;
+&lt;p&gt;不过我最终还是来到了新加坡。&lt;/p&gt;
+&lt;p&gt;到目前为止，还是挺满意的选择。&lt;/p&gt;
+&lt;p&gt;要感谢阿黎，在前面几个月“收留”我，给了我一个容身之处——虽然两个年近 30 的大老爷们挤在一张 1.5 米的小破沙发床上，画面有点美，但是只要你不嫌弃，我也就不嫌你睡觉打呼声声响；还要感谢你帮我介绍了很多新加坡的“风土人情”，让我快速适应新的生活。&lt;/p&gt;
+&lt;p&gt;总得来说，在新加坡的生活还是蛮省心的吧。天气没有想象中的那么热，适逢最近雨季，睡觉也不用开空调，还是蛮舒服的；空气环境这些自不必说；于我而言，最大的好处还是在于第一次有了完全通畅无阻的网络，让工作学习效率得到了极大的提升。当然，高铁、移动支付、物流电商方面还是在天朝生活更加便利。对比而言，我愿意牺牲一些物理世界的便利，来换取一些数字世界的好处。&lt;/p&gt;
+&lt;p&gt;妞在 8 月底的时候过来“省亲”，因此我们花了一周的时间，走了新加坡的很多地方，还是蛮开心的。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/singapore-street.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/singapore-street.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/singapore-sunset.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/singapore-sunset.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/singapore-galaxis-office-view.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/singapore-galaxis-office-view.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/singapore-drink-with-eddie.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/singapore-drink-with-eddie.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/singapore-marina-bay-garden-night.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/singapore-marina-bay-garden-night.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/singapore-marina-bay-sands-hotel.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/singapore-marina-bay-sands-hotel.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/singapore-artscience-museum-color.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/singapore-artscience-museum-color.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/singapore-zoo.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/singapore-zoo.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/singapore-sentosa.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/singapore-sentosa.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="尾"&gt;尾&lt;/h2&gt;
+&lt;p&gt;“人生得意须尽欢，莫使金樽空对月”。&lt;/p&gt;
+&lt;p&gt;一个人读书写码累了的时候，常常会对着下面这张照片发会呆。豆瓣上有人在这张照片下&lt;a href="https://www.douban.com/people/xiaohanyu/status/1965706471/"&gt;留言&lt;/a&gt;给我说：“牵着的两只手让人感觉安详又甜美”。&lt;/p&gt;
+&lt;p&gt;“安详又甜美”，嗯，2017 年过去了，我很怀念它。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2018/2017-summary/australia-sydney-theatre-with-my-girl.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/australia-sydney-theatre-with-my-girl.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;阵阵晚风吹动着松涛&lt;/p&gt;
+&lt;p&gt;吹响这风铃声如天籁&lt;/p&gt;
+&lt;p&gt;站在这城市的寂静处&lt;/p&gt;
+&lt;p&gt;让一切喧嚣走远&lt;/p&gt;
+&lt;p&gt;只有青山藏在白云间&lt;/p&gt;
+&lt;p&gt;蝴蝶自由穿行在清涧&lt;/p&gt;
+&lt;p&gt;看那晚霞盛开在天边&lt;/p&gt;
+&lt;p&gt;有一群向西归鸟&lt;/p&gt;
+&lt;p&gt;谁画出这天地&lt;/p&gt;
+&lt;p&gt;又画下我和你&lt;/p&gt;
+&lt;p&gt;让我们的世界绚丽多彩&lt;/p&gt;
+&lt;p&gt;谁让我们哭泣&lt;/p&gt;
+&lt;p&gt;又给我们惊喜&lt;/p&gt;
+&lt;p&gt;让我们就这样相爱相遇&lt;/p&gt;
+&lt;p&gt;总是要说再见&lt;/p&gt;
+&lt;p&gt;相聚又分离&lt;/p&gt;
+&lt;p&gt;总是走在漫长的路上&lt;/p&gt;
+&lt;p&gt;— 许巍 «旅行»&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:xiaohanyu.me,2017-05-23:/posts/2017-05-23-2016-summary/</id>
     <title type="html">2016，清风徐来</title>
@@ -1729,192 +1863,6 @@ route &lt;span class="ot"&gt;%r{/sitemap/|/atom/}&lt;/span&gt; &lt;span class="k
 &lt;p&gt;最后，我在 &lt;a href="http://wxiaohanyu.me/about/index.html"&gt;about page&lt;/a&gt; 中加入了一些 random quotes 的小把戏，这样每次访问/刷新 about page 的时候，你看到的 quotes 都是随机的。至于原理，暂且不表 ^_^。&lt;/p&gt;
 &lt;h2 id="总结"&gt;总结&lt;/h2&gt;
 &lt;p&gt;以上，大概记录了我个人建站的基本过程，从基本的技术选型，到版式字体的设计，以及一些 nanoc 的小技巧，希望对您有用。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:xiaohanyu.me,2014-05-04:/posts/2014-05-04-build-static-site-with-nanoc-1/</id>
-    <title type="html">Build Static Site with Nanoc (I)</title>
-    <published>2014-05-04T10:19:30Z</published>
-    <updated>2017-04-29T08:08:52Z</updated>
-    <link rel="alternate" href="http://xiaohanyu.me/posts/2014-05-04-build-static-site-with-nanoc-1/"/>
-    <content type="html">&lt;p&gt;07 年我开始学会上网，那时候写 blog 应该还是一件相当时髦的事情。而我个人，作为一枚外表木讷闷骚，内心感情丰富的三好有为青年，自然对 blog 保持着强烈的好奇心，从一路转载，到絮叨自嗨，四五年坚持下来，总算找到了一点 blog 的感觉。所谓“工欲善其行，必先利其器”，头上顶了“书写是为了更好的思考”这面响当当的思想大旗，手头自然也希望能升级下一直以来残破不勘凑合能用的写作工具。于是祭出几年前刚开始折腾 Linux 时的那份耐性，断续折腾一年有余，总算略有小成。本文（及后续文章）尝试记录下这个 blog 的一些技术细节，希望对后来人有所启发。&lt;/p&gt;
-&lt;h2 id="why-static"&gt;Why Static?&lt;/h2&gt;
-&lt;p&gt;最原始的 blog 应该就是纯静态的个人主页，后来 blog 开始火的时候，各种线上平台一统天下，而对于有点折腾能力的人来说， &lt;a href="https://wordpress.org/"&gt;WordPress&lt;/a&gt; 则一支独秀。现如今，在 GitHub 当道的年代，由 &lt;a href="https://pages.github.com/"&gt;GitHub Pages&lt;/a&gt; 及其工具链 &lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;/&lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt; 所组成的生态系统，则在程序员的圈子里吸引了足够的眼球和人气，也宣告着所谓 &lt;a href="http://staticsitegenerators.net/"&gt;static site generator&lt;/a&gt;（本文简称为 SSG）在某种程度上的回归。&lt;/p&gt;
-&lt;p&gt;So, why static?&lt;/p&gt;
-&lt;p&gt;从技术上来讲，传统的 blog 就是一个简化的 &lt;a href="http://en.wikipedia.org/wiki/Content_management_system"&gt;CMS&lt;/a&gt; 系统。相较于 CMS，blog 更多的是个人开放给外界的一个展示窗口，并不需要太多的交互和额外的用户注册管理系统（如各种 bbs/forum/group 等），其主要技术特性是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;面向个人&lt;/li&gt;
-&lt;li&gt;页面排版较为简单&lt;/li&gt;
-&lt;li&gt;内容管理相对单一，基本上以 post 为主&lt;/li&gt;
-&lt;li&gt;需求模块较少，基本上就是 Comments, Categories, Tags, Archives&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;显然，动用各种 dynamic 语言和各种高大上的 SQL 数据库来实现这么几条简单的 blog 平台需求，有些牛刀杀鸡之嫌。在这方面，SSG 所遵循的 fast, lightweight, easy-deployment 是很有优势的。最简单的 blog 完全可以只是一个 post list 页面。但是纯静态的 blog 又太简陋了，因此需要通过一些 hack 的手段，在 static 的页面上加入一些 dynamic 的东西，这个 hack 的手段，就是各种 SSG 中所谓的 compile 步骤。&lt;/p&gt;
-&lt;p&gt;compile 步骤是所有 SSG 的核心，它的设计好坏决定了一个 SSG 的品质。大体上讲，SSG 的工作方式如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;格式转换：&lt;/strong&gt; 扫描所有 post，进行初步 compile（这步 compile 主要作用是进行格式转换，比如 markdown/textile -&amp;gt; html）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;汇总 metadata：&lt;/strong&gt; 汇总所有 post 的 metadata（比如 tag/category 可以用来做反向映射，datetime 可以用来给 post 进行排序），这些 metadata 信息可以在 template 渲染的时候访问。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;渲染模板：&lt;/strong&gt; 根据相应的 layout 规则，将 compile 后的 content 以及已有的 metadata 信息渲染成相应的页面（比如每篇 post 都需要有 navbar 和 footbar，这可以设定一下基础的页面 layout，包含公用的页面元素，然后通过模板继承或组合的方式，将 post 的内容以及相应的 metadata 信息渲染到这个 layout 中合适的位置，这就形成了你最终看到的 static page）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;SSG 最终会生成一坨静态的 html/css/js 文件，只要将其上传托管起来，所谓的 static site 就算大功告成了。不需要配置数据库，也不需要装什么 php/python(wsgi)/WordPress，怎么样，够简单吧？与 static site 部署简单相对的就是本地写作环境搭建的复杂，多数情况下，你需要至少掌握一门编程语言的工具链，从头到尾搭建一套完整的写作环境；你需要自己设计前端，页面排版（layout）；你还需要找到自己钟意的 Editor 和自己喜欢的 &lt;a href="http://en.wikipedia.org/wiki/Comparison_of_document_markup_languages"&gt;document markup language&lt;/a&gt; 。选择意味着纠结，也意味着灵活。 &lt;strong&gt;没有了浏览器的牵绊，你可以在自己钟爱的 Editor 里运指如飞，畅写欲言。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;不同的 SSG 有不同的设计侧重点，有的提供内建的 out-of-box 的主题（&lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt; 基本上千篇一律），有的只提供机制（&lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt;）;有的只支持一种模板语言（&lt;a href="http://ruhoh.com/"&gt;Ruhoh&lt;/a&gt; 默认支持 &lt;a href="http://mustache.github.io/"&gt;mustache&lt;/a&gt;），有的只提供机制（&lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt;）;有的只支持一种标记语言（多数默认支持 &lt;a href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt;），有的只提供机制（&lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt;）;&lt;/p&gt;
-&lt;p&gt;相较于广大人民群众，程序员群体对于 blog 平台往往还有一些特别的需求：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;没有代码高亮是不能忍的&lt;/li&gt;
-&lt;li&gt;能支持数学公式的话就很高大上&lt;/li&gt;
-&lt;li&gt;没有版本控制你叫我怎么活？&lt;/li&gt;
-&lt;li&gt;不能一键 deploy，自动 compile/refresh，还叫程序员吗？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;SSG 的先天不足在于，传统 blog 平台所必须的一些模块，如 Comments, Search 等必须借助第三方的服务来实现。比如 Comments 可以用 &lt;a href="https://disqus.com/"&gt;Disqus&lt;/a&gt; ，而 Search 可以用 google site search。&lt;/p&gt;
-&lt;p&gt;总得来说，SSG 的门槛还是比较高的。高效灵活的背后，是耐心和时间。这或许就是 hack 的乐趣所在吧。&lt;/p&gt;
-&lt;h2 id="org-mode"&gt;Org-mode&lt;/h2&gt;
-&lt;p&gt;我选择 SSG 的第一个标准就是必须支持 &lt;a href="http://orgmode.org/"&gt;org-mode&lt;/a&gt; 。&lt;/p&gt;
-&lt;p&gt;Why org-mode?&lt;/p&gt;
-&lt;p&gt;其实 &lt;a href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; 是相当好的文档标记语言，绝大多数 SSG 对 Markdown 都有良好的支持。多数线上服务如 GitHub、Stackoverflow 也是以 Markdown 为默认文档标记语言。Markdown 的生态圈也相当繁荣，有很多优秀的线上线下的 Editor&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;。不过 Markdown 的先天不足在于，其设计初衷导致 Markdown 的标准过于简单，功能不够，而各方英雄为了一已之私，不得不提出各种 Markdown 扩展来满足自己的日常需求。这样看来，Markdown 生态圈一片繁荣百花争春的背后，实则是一片混乱，没有一个统一的标准，容易“厂商锁定”。所有的扩展 Markdown 语言之中， &lt;a href="https://help.github.com/articles/github-flavored-markdown"&gt;GitHub Flavored Markdown&lt;/a&gt; 和 &lt;a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown"&gt;Pandoc’s markdown&lt;/a&gt; 是比较不错的。特别是 Pandoc’s Markdown，功能完善、规范、强大，如果你不是我这样的 org-mode 死忠，那么我强烈推荐你用 Pandoc’s Markdown。&lt;/p&gt;
-&lt;p&gt;而我之所以离不开 org-mode，其一在于我个人患有严重的 Emacs 依赖症，其二是 &lt;a href="http://orgmode.org/worg/org-contrib/babel/"&gt;org-babel&lt;/a&gt; ，一个你用上了就再也离不开的东西。org-babel 让简单静态的文档变成了完整的 live 的 workflow，关于这点，学术界甚至有一些专门的 &lt;a href="http://orgmode.org/worg/org-papers.html"&gt;Papers&lt;/a&gt; 论述。限于篇幅，不在这里展开讨论。Emacs 配上 org-mode，更如香车搭上美女，快感连连，高潮不断也。&lt;/p&gt;
-&lt;p&gt;但是很不幸，对 org-mode 的坚持让我被迫放弃了一大半的 SSG。事实上，在我刚开始着手调研 SSG 的时候，没有一个 SSG 提供对 org-mode 的良好支持。org-mode 本身有一个非常原始并且极其难用的 &lt;a href="http://orgmode.org/manual/Publishing.html"&gt;org-publish&lt;/a&gt; ，稍加配置也可以当成一个原始的 SSG 来用。还有一些 &lt;a href="http://orgmode.org/worg/org-blog-wiki.html"&gt;Emacs packages&lt;/a&gt; ，基于 org-publish，可以用来生成 static site，但是大多数都非常难用。 &lt;a href="http://renard.github.io/o-blog/"&gt;o-blog&lt;/a&gt; 看上去很漂亮，但是我始终没有搞明白怎么用。后来又尝试了下 &lt;a href="https://github.com/kelvinh/org-page"&gt;org-page&lt;/a&gt; ，还提了几个 patch，但终究也不是很满意。于是就只能自己操刀，开始写 &lt;a href="https://github.com/xiaohanyu/org-site"&gt;org-site&lt;/a&gt; 。断续写了一个月，出来一个原型，但最终还是放弃：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Elisp 写起来并不是很 happy，没有 namespace 是一大硬伤。&lt;/li&gt;
-&lt;li&gt;Org-mode 的代码设计并没有为开放式的 API 做过考虑。理论上，我可以把 Emacs org-mode 当成一个文档格式转换器，将 org-mode 转换成 html/pdf，但是由于 Emacs 的特殊性，很多 Elisp API 都是以 Emacs &lt;a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Buffers.html"&gt;buffer&lt;/a&gt; 而不是 file 为操作对象，这就让我必须写很多的 wrapper 代码，然后通过类似于 &lt;code&gt;(with-temp-buffer (do-some-thing))&lt;/code&gt; 的手段来绕过这个限制。&lt;/li&gt;
-&lt;li&gt;org-publish API 依赖很多全局变量，写起来很别扭，经常要去翻原代码才能搞明白某个变量的意思。&lt;/li&gt;
-&lt;li&gt;org-mode 7.x 和 8.x 之间变动很大，代码兼容性维护任重道远。&lt;/li&gt;
-&lt;li&gt;org-mode 生成的 html 模块性太差，需要用各种 regexp 提取有用的 body/&lt;a href="http://en.wikipedia.org/wiki/Table_of_contents"&gt;TOC&lt;/a&gt; 并过滤掉不需要的 header/footer，不美。&lt;/li&gt;
-&lt;li&gt;一个优秀的 SSG，除了格式转换，还需要很多配套的模块，比如自动检测文件改动、自动编译、灵活的路由规则等，而这些用 Elisp 实现起来都很麻烦。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;至此，自动动手丰衣足食的计划宣告破产，被迫寻找并尝试 hack 一些成型的 SSG，来支持 org-mode 写作。我最终的选择是 &lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt; 。&lt;/p&gt;
-&lt;h2 id="nanoc"&gt;Nanoc&lt;/h2&gt;
-&lt;p&gt;&lt;a href="http://nanoc.ws/"&gt;Nanoc&lt;/a&gt; 是我用过的所有 SSG 中最为灵活，也是使用门槛最高的一个。Nanoc 官方的入门 &lt;a href="http://nanoc.ws/docs/tutorial/"&gt;Tutorial&lt;/a&gt; 中明确说明，你必须 “have a basic understanding of Ruby and command line”，才有可能玩得通 Nanoc。在我个人看来，Nanoc 的设计基本上严格遵循了 Unix 中 “Provide mechanism, not policy” 的哲学。用软件工程的术语来说，Nanoc 提供的是 library，而非一套成型的 SSG 软件。Nanoc 既不限定你所用的文档标记语言 — 你可以用 Markdown/Textile/Org-mode，也不指定相应的编译规则，更不提供默认的 out-of-box 的主题样式。总之，一切要自己来，学习曲线颇为陡峭，但学成之后可以随心所欲。&lt;/p&gt;
-&lt;p&gt;Nanoc 创造了自己的术语体系，每个概念相互独立又彼此联系。理解了这些术语也就理解了 nanoc 的工作原理：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;item: 是 nanoc 要处理的实体。一个 item 可以是 html/css/markdown 等文本文件，也可以是图片，还可以是你自己凭空创造出来的虚拟文件。&lt;/li&gt;
-&lt;li&gt;rule: 决定 nanoc 处理 item 的步骤。rule 分为两种，compilation rule 和 routing rule。其中 compilation rule 又分为 filter rule 和 layout rule。filter rule 一般用于文档格式转换，而 layout rule 则用于页面布局排版。routing rule 决定 item 在 compile 之后在 output 中的路径。&lt;/li&gt;
-&lt;li&gt;helper: 一些辅助代码，用于扩展 nanoc。&lt;/li&gt;
-&lt;li&gt;metadata: 元信息。nanoc 对于每个 item 可附加的 metadata 没有任何限制。典型的 metadata 可以是 tag/category/datatime。&lt;/li&gt;
-&lt;li&gt;representation: 可以理解为输出格式。比如，同一个 item 可以同时 compile 为 html/pdf 两种格式。每种格式可以用自己独立的 rule。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;可以说，nanoc 为 SSG 的领域制定了一套相当棒的 standard。事实上，确实有人仿照着 nanoc 的 standard，用 Haskell 重新实现了 nanoc，这就是 &lt;a href="http://jaspervdj.be/hakyll/"&gt;hakyll&lt;/a&gt;&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; 。我曾经短暂尝试过 hakyll，但最终放弃，回到了 nanoc 的怀抱。而这基本上要归功于 Ruby。&lt;/p&gt;
-&lt;h2 id="ruby"&gt;Ruby&lt;/h2&gt;
-&lt;p&gt;我并不是某一门编程语言的死忠。如果让我用一个字来形容 Ruby，那就是“舒服”。是的， &lt;a href="http://en.wikipedia.org/wiki/Yukihiro_Matsumoto"&gt;Matz&lt;/a&gt; 没有骗你，Ruby 是写起来相当舒服的一门语言。Ruby 的包管理机制 &lt;a href="http://bundler.io/"&gt;bundler&lt;/a&gt; + &lt;a href="https://rubygems.org/"&gt;gem&lt;/a&gt; 是我用过的所有包管理器中最先进最好用的，比之于什么 Python 的 &lt;a href="http://www.virtualenv.org/en/latest/"&gt;virtualenv&lt;/a&gt; + &lt;a href="http://www.pip-installer.org/en/latest/"&gt;pip&lt;/a&gt; 之流要好用太多。至于 Haskell 的 &lt;a href="http://www.haskell.org/cabal/"&gt;cabal&lt;/a&gt; 基本上就是个奇葩的存在，连基本的 uninstall 功能都没有（是不是想起了 Python 的 &lt;code&gt;easy_install&lt;/code&gt; ？），更不用提类似于 virtualenv/sandbox 这类先进功能了。不过这些都还可以忍受，Haskell 的 cabal 最蛋疼最奇葩的一点就是，好好的用着 &lt;code&gt;cabal install&lt;/code&gt; ，说不定哪一天就会蹦出来各种莫名其妙的依赖问题， &lt;a href="http://en.wikipedia.org/wiki/Dependency_hell"&gt;dependency hell&lt;/a&gt; ，唯一的解决办法就是 &lt;code&gt;rm -rf $HOME/.cabal&lt;/code&gt; ，然后重装然后祈祷……而 Haskell 又是一门编译型的静态语言，这就使得装 package 的时间很长，令人不快。&lt;/p&gt;
-&lt;p&gt;语言层面，Ruby 中内置的 regexp（对比下 Python 的 &lt;code&gt;re.compile&lt;/code&gt; ）强大易用；其完整的对 lambda/block 的支持（对比下 Python 中阉割的 lambda），能让每一个有点 Lisp 基础的人找到熟悉的感觉；Ruby 从 Unix Shell 以及 Perl 中借鉴而来的很多小聪明如 &lt;a href="http://en.wikipedia.org/wiki/Here_document"&gt;here document&lt;/a&gt;/&lt;a href="http://en.wikipedia.org/wiki/String_interpolation"&gt;string interpolation&lt;/a&gt;/command interpolation(Ruby backticks)，使 Ruby 超越了 Python/Perl/Shell，成为写 quick and dirty 的 Unix Script 的上上之选；Ruby 社区一些极富创造力的一些 package 如 &lt;a href="http://rake.rubyforge.org/"&gt;rake&lt;/a&gt;/&lt;a href="https://github.com/guard/guard"&gt;guard&lt;/a&gt; ，则让你的 hack 之旅充满了快乐。&lt;/p&gt;
-&lt;p&gt;尽管 Ruby 这样那样好，但是 Haskell 社区有一枚神器，让人欲罢不能，这就是文档格式转换的瑞士军刀 — &lt;a href="http://johnmacfarlane.net/pandoc/"&gt;Pandoc&lt;/a&gt; 。&lt;/p&gt;
-&lt;h2 id="pandoc"&gt;Pandoc&lt;/h2&gt;
-&lt;p&gt;文档格式转换一直是一大难题，究其原因，是在于不同的文档格式有不同的表现能力和设计侧重点。比如原始的 Markdown 格式没有 table（表格）的支持，你怎么把 html 转换成 Markdown ? 反过来，html 中的 form 转换成其它格式，又该如何表现？Microsoft Word 2003 及之前版本的文档格式都是二进制且没有公开的文档格式标准，想要完整的支持这种格式需要做大量的反向工程（ &lt;a href="https://www.openoffice.org/"&gt;OpenOffice&lt;/a&gt; 和 &lt;a href="https://www.libreoffice.org/"&gt;LibreOffice&lt;/a&gt; 干的就是这事，可想这工作量）。&lt;/p&gt;
-&lt;p&gt;文档格式转换的软件千千万万，但是多数都只是 ad-hoc 的办法，pandoc 的创新之处在于发明了一种中间格式（&lt;a href="http://johnmacfarlane.net/pandoc/scripting.html"&gt;json-formatted AST&lt;/a&gt;），即先将原始文档格式先解析并转换成这种中间格式，然后经过系列处理转换成目标文档格式，从而提供了大一统的解决方案。&lt;/p&gt;
-&lt;pre class="example"&gt;&lt;code&gt;   source format
-        ↓
-     (pandoc)
-        ↓
-JSON-formatted AST
-        ↓
-     (filter)
-        ↓
-JSON-formatted AST
-        ↓
-     (pandoc)
-        ↓
-  target format
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Pandoc 对于每种支持的输入格式，都提供了完整的 parser（pandoc 中叫做 reader），通过 parser 将输入文档转换成结构化 json 格式的 &lt;a href="http://en.wikipedia.org/wiki/Abstract_syntax_tree"&gt;AST&lt;/a&gt; 。然后我们可以根据自己的需求，写一些脚本来操作 pandoc AST，再转换成最终的输出目标格式（Pandoc 中叫做 writer）。Pandoc 把这个操作 AST 的程序脚本叫做 &lt;a href="http://johnmacfarlane.net/pandoc/scripting.html#json-filters"&gt;filter&lt;/a&gt; ，借助 filter，理论上可以实现非常丰富的功能。至于调用 filter 的方法，最简单的是通过 Unix 管道操作，比如：&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;&lt;span class="ex"&gt;pandoc&lt;/span&gt; -f SOURCEFORMAT -t json &lt;span class="kw"&gt;|&lt;/span&gt; &lt;span class="ex"&gt;runhaskell&lt;/span&gt; filter.hs &lt;span class="kw"&gt;|&lt;/span&gt; &lt;span class="ex"&gt;pandoc&lt;/span&gt; -f json -t TARGETFORMAT&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Pandoc 的首选格式语言是 Markdown。为了弥补 Markdown 的先天不足，pandoc 在原始 Markdown 的基础上增加了许多有用的扩展。通过这些扩展， &lt;a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown"&gt;Pandoc’s markdown&lt;/a&gt; 自成一套完备、规范、通用、强大的文档标记语言。&lt;/p&gt;
-&lt;p&gt;Pandoc 在 1.12.3.2 版本之前是不支持 org-mode 作为输入格式的。这也让我头疼了许久。我最原始的想法是将 Emacs 当成一个 org-mode 的文档格式转换器，定制 emacs org-mode filter 集成到 nanoc：&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;span class="kw"&gt;module&lt;/span&gt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filters&lt;/span&gt;
-
-  &lt;span class="kw"&gt;class&lt;/span&gt; &lt;span class="dt"&gt;OrgModeHtml&lt;/span&gt; &amp;lt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filter&lt;/span&gt;
-    identifier &lt;span class="st"&gt;:org_mode_html&lt;/span&gt;
-    type &lt;span class="st"&gt;:text&lt;/span&gt; =&amp;gt; &lt;span class="st"&gt;:text&lt;/span&gt;
-
-    require &lt;span class="st"&gt;&amp;#39;systemu&amp;#39;&lt;/span&gt;
-    require &lt;span class="st"&gt;&amp;#39;tempfile&amp;#39;&lt;/span&gt;
-
-    &lt;span class="kw"&gt;def&lt;/span&gt; run(content, params = {})
-      &lt;span class="co"&gt;# Run command&lt;/span&gt;
-
-      tmp_org_file = &lt;span class="dt"&gt;Tempfile&lt;/span&gt;.new(&lt;span class="st"&gt;&amp;#39;nanoc_tmp_org_file&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;/tmp&amp;#39;&lt;/span&gt;)
-      tmp_org_file &amp;lt;&amp;lt; content
-      tmp_org_file.close(&lt;span class="dv"&gt;nil&lt;/span&gt;)
-
-      elisp_code =&lt;span class="ot"&gt; %{&lt;/span&gt;
-&lt;span class="st"&gt;(progn&lt;/span&gt;
-&lt;span class="st"&gt;  (require &amp;#39;org)&lt;/span&gt;
-&lt;span class="st"&gt;  (find-file-read-only &amp;quot;&lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;tmp_org_file.path&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;)&lt;/span&gt;
-&lt;span class="st"&gt;  (org-mode)&lt;/span&gt;
-&lt;span class="st"&gt;  (if (version&amp;lt; org-version &amp;quot;8.0&amp;quot;)&lt;/span&gt;
-&lt;span class="st"&gt;      (progn&lt;/span&gt;
-&lt;span class="st"&gt;        (setq org-export-html-postamble nil)&lt;/span&gt;
-&lt;span class="st"&gt;        (org-export-as-html 3))&lt;/span&gt;
-&lt;span class="st"&gt;    (progn&lt;/span&gt;
-&lt;span class="st"&gt;      (setq org-html-postamble nil)&lt;/span&gt;
-&lt;span class="st"&gt;      (org-html-export-as-html)))&lt;/span&gt;
-&lt;span class="st"&gt;  (message &amp;quot;%s&amp;quot; (buffer-string)))&lt;/span&gt;
-&lt;span class="ot"&gt;}&lt;/span&gt;
-
-      cmd = [&lt;span class="st"&gt;&amp;#39;emacs&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;-Q&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;--batch&amp;#39;&lt;/span&gt;,
-             &lt;span class="st"&gt;&amp;#39;--eval&amp;#39;&lt;/span&gt;, elisp_code]
-
-      stdout = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
-      stderr = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
-      status = systemu(cmd,
-                       &lt;span class="st"&gt;&amp;#39;stdout&amp;#39;&lt;/span&gt; =&amp;gt; stdout,
-                       &lt;span class="st"&gt;&amp;#39;stderr&amp;#39;&lt;/span&gt; =&amp;gt; stderr)
-
-      &lt;span class="co"&gt;# Show errors&lt;/span&gt;
-      &lt;span class="kw"&gt;unless&lt;/span&gt; status.success?
-        &lt;span class="dt"&gt;$stderr&lt;/span&gt;.puts stderr
-        raise &lt;span class="st"&gt;&amp;quot;Emacs org-mode filter failed with status &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;status&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;&lt;/span&gt;
-      &lt;span class="kw"&gt;end&lt;/span&gt;
-
-      &lt;span class="co"&gt;# Get result&lt;/span&gt;
-      body = &lt;span class="ot"&gt;/&amp;lt;body&amp;gt;.*&amp;lt;\/body&amp;gt;/m&lt;/span&gt;.match(stderr)
-      body[&lt;span class="dv"&gt;0&lt;/span&gt;]
-    &lt;span class="kw"&gt;end&lt;/span&gt;
-
-  &lt;span class="kw"&gt;end&lt;/span&gt;
-
-&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;这段代码的大体思路是将 emacs 当成 elisp 的解释器，喂给其一段 elisp 代码，调用 org-mode 的 export 功能（org-mode 7.x 版本中调用 &lt;code&gt;(org-export-as-html)&lt;/code&gt; ，8.x 版本中调用 &lt;code&gt;(org-html-export-as-html)&lt;/code&gt; ），然后再通过 regexp 正则匹配的方式提取出 html 中的 body 部分作为 nanoc filter 的返回值。显而易见，这段代码冗长，乏味，别扭，不美。&lt;/p&gt;
-&lt;p&gt;好在我生逢其时，英雄出世， &lt;a href="http://zeitlens.com/"&gt;Albert Krewinkel&lt;/a&gt; 大手笔横空祭出几个 patch，给 pandoc 提供了一个完备的 org-reader，把我感动得一塌糊涂，我还特别写了封邮件感谢人家。一番 &lt;code&gt;cabal install&lt;/code&gt; 之后，pandoc 总算能支持 org-mode 作为其输入格式了，很完美。&lt;/p&gt;
-&lt;p&gt;最后要解决的问题就是 pandoc 和 nanoc 的集成。nanoc 本身有一个内建的 &lt;code&gt;Nanoc::Filters::Pandoc&lt;/code&gt; ，调用的是 &lt;a href="https://github.com/alphabetum/pandoc-ruby"&gt;PandocRuby&lt;/a&gt; 。但是 nanoc 本身的 API 和 PandocRuby API 并不是很匹配，无法传递一些参数来启用 pandoc 的某些高级特性（参考 &lt;a href="http://stackoverflow.com/questions/14646741/nanoc-how-can-i-pass-options-to-pandoc-ruby"&gt;stackoverflow&lt;/a&gt; ）。万般无奈之下，只能自己动手，重写一个 nanoc pandoc filter，完整代码参考 &lt;a href="https://gist.github.com/xiaohanyu/9866531"&gt;github gist&lt;/a&gt; 。&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;span class="kw"&gt;module&lt;/span&gt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filters&lt;/span&gt;
-
-  &lt;span class="kw"&gt;class&lt;/span&gt; &lt;span class="dt"&gt;PandocHtml&lt;/span&gt; &amp;lt; &lt;span class="dt"&gt;Nanoc&lt;/span&gt;::&lt;span class="dt"&gt;Filter&lt;/span&gt;
-    identifier &lt;span class="st"&gt;:pandoc_html&lt;/span&gt;
-    type &lt;span class="st"&gt;:text&lt;/span&gt; =&amp;gt; &lt;span class="st"&gt;:text&lt;/span&gt;
-
-    &lt;span class="kw"&gt;def&lt;/span&gt; run(content, params = {})
-      input_format = &lt;span class="kw"&gt;case&lt;/span&gt; item[&lt;span class="st"&gt;:extension&lt;/span&gt;]
-                     &lt;span class="kw"&gt;when&lt;/span&gt; &lt;span class="st"&gt;&amp;#39;org&amp;#39;&lt;/span&gt;
-                       &lt;span class="st"&gt;&amp;#39;org&amp;#39;&lt;/span&gt;
-                     &lt;span class="kw"&gt;when&lt;/span&gt; &lt;span class="st"&gt;&amp;#39;md&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;
-                       &lt;span class="st"&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;
-                     &lt;span class="kw"&gt;end&lt;/span&gt;
-
-      &lt;span class="st"&gt;`pandoc --mathjax -f &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;input_format&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt; -t html5 &amp;lt; &lt;/span&gt;&lt;span class="ot"&gt;#{&lt;/span&gt;item.raw_filename&lt;span class="ot"&gt;}&lt;/span&gt;&lt;span class="st"&gt;`&lt;/span&gt;
-    &lt;span class="kw"&gt;end&lt;/span&gt;
-
-  &lt;span class="kw"&gt;end&lt;/span&gt;
-
-&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;代码思路很简单，就是通过 Ruby backticks 直接调用 pandoc，然后将 pandoc 命令的 stdout 作为 nanoc filter 的返回值。通过进一步配置，nanoc 可以调用 pandoc 同时生成 html 和 pdf，这样一来，同样的文章，即可以线上浏览，也可以打印下载，得益于 pandoc 的优秀设计，html 和 pdf 版本的文章具有一致出色的排版效果。&lt;/p&gt;
-&lt;p&gt;至此，核心的技术问题已经基本解决，剩下的就是前端设计了，这是我的弱项，为了能让这个 blog 有一个“不那么难看”的样式，我特别花时间学习系统地学习了下 HTML5 和 CSS3。这部分内容冗长乏味，非核心所在，下篇再表。&lt;/p&gt;
-&lt;h2 id="reference"&gt;Reference&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;«&lt;a href="http://freemind.pluskid.org/technology/the-unbearable-madness-of-static-blog-generators/"&gt;The Unbearable Madness of Static Blog Generators&lt;/a&gt;»，pluskid 的 blog，重点介绍了 ruhoh。&lt;/li&gt;
-&lt;li&gt;«&lt;a href="http://clarkdave.net/2012/02/building-a-static-blog-with-nanoc/"&gt;Building a static blog with nanoc&lt;/a&gt;»，nanoc 入门教程，简洁明了。&lt;/li&gt;
-&lt;li&gt;nanoc powered 的网站包括：
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://developer.github.com/"&gt;GitHub Developer Site&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://guides.spreecommerce.com/api/"&gt;Spree Commerce API site&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;SSG 名录大全：http://staticsitegenerators.net/&lt;/li&gt;
-&lt;li&gt;«&lt;a href="http://kelvinh.github.io/blog/2012/11/27/growth-process-of-org-page/"&gt;Org-page 的成长史&lt;/a&gt;»，介绍了基于 org-mode 的 SSG。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;section class="footnotes"&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id="fn1"&gt;&lt;p&gt;线上 Editor： &lt;a href="http://dillinger.io/"&gt;Dillinger&lt;/a&gt;/&lt;a href="https://stackedit.io/"&gt;StackEdit&lt;/a&gt; ；线下 Editor： &lt;a href="http://mouapp.com/"&gt;Mou&lt;/a&gt; 。&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id="fn2"&gt;&lt;p&gt;这其中有个八卦，hakyll 的作者 &lt;a href="http://jaspervdj.be/"&gt;Jasper&lt;/a&gt; 和 nanoc 的作者 &lt;a href="http://stoneship.org/"&gt;Denis Defreyne&lt;/a&gt; 在生活中是好朋友。而在某一年的 April fools’ day，Denis 写了篇 &amp;lt;&lt;a href="http://nanoc.ws/the-road-to-nanoc-4-0/"&gt;The road to nanoc 4.0&lt;/a&gt;&amp;gt; ，大意是要用 haskell 重写 nanoc。&lt;a href="#fnref2"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
 </content>
   </entry>
 </feed>
