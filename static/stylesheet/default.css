@@ -79,6 +79,7 @@ img {
 
 .ui.menu {
   box-shadow: none;
+  margin-top: 0;
   margin-bottom: 0;
   -moz-font-feature-settings: "smcp" 0, "onum" 0;
   -ms-font-feature-settings: "smcp" 0, "onum" 0;
@@ -118,6 +119,8 @@ img {
   .ui.article > .ui.grid > .row.article-body .ui.vertical.segment {
     padding-top: 2rem;
     padding-bottom: 2rem; }
+  .ui.article > .ui.grid > .row.article-body .ui.one.item.menu {
+    margin-top: 16px; }
   .ui.article > .ui.grid > .row.article-body > aside {
     display: table; }
     .ui.article > .ui.grid > .row.article-body > aside > .ui.header {
@@ -164,9 +167,12 @@ img {
 #disqus_thread {
   margin-top: 2rem; }
 
+@media only screen and (min-width: 768px) {
+  .mobile {
+    display: none !important; } }
 @media only screen and (max-width: 767px) {
-  .ui.menu .item.desktop-only {
-    display: none; }
+  .desktop {
+    display: none !important; }
 
   .ui[class*="padded"].segment {
     padding: 1.5rem; }
