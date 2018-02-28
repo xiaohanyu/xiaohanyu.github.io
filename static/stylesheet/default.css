@@ -174,12 +174,23 @@ img {
   .desktop {
     display: none !important; }
 
-  .ui[class*="padded"].segment {
-    padding: 1.5rem; }
-
   .ui.grid .ui.stackable.grid {
     margin-left: 0 !important;
-    margin-right: 0 !important; } }
+    margin-right: 0 !important; }
+
+  .ui.stackable.container {
+    margin-left: 0 !important;
+    margin-right: 0 !important; }
+
+  .ui[class*="padded"].segment {
+    padding: 1rem; }
+
+  .ui.article.segment {
+    box-shadow: none;
+    margin: -1px 0 0 0; }
+
+  .row.article-head .ui.header {
+    margin-bottom: 0; } }
 caption,
 figcaption {
   text-align: center;
