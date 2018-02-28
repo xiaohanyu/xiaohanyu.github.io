@@ -2,13 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://xiaohanyu.me/</id>
   <title>行者无疆 始于足下</title>
-  <updated>2018-01-14T12:26:17Z</updated>
+  <updated>2018-02-28T18:26:17Z</updated>
   <link rel="alternate" href="http://xiaohanyu.me/"/>
   <link rel="self" href="http://xiaohanyu.me/atom.xml"/>
   <author>
     <name>Xiao Hanyu</name>
     <uri>http://xiaohanyu.me</uri>
   </author>
+  <entry>
+    <id>tag:xiaohanyu.me,2018-02-28:/posts/2018-03-01-open-this-website-to-public/</id>
+    <title type="html">网站开源</title>
+    <published>2018-02-28T18:26:17Z</published>
+    <updated>2018-02-28T18:26:17Z</updated>
+    <link rel="alternate" href="http://xiaohanyu.me/posts/2018-03-01-open-this-website-to-public/"/>
+    <content type="html">&lt;h2 id="序"&gt;序&lt;/h2&gt;
+&lt;p&gt;时局“动荡”之下&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;，找个能自由写字的地方，似乎是越来越难了。&lt;/p&gt;
+&lt;h2 id="源"&gt;源&lt;/h2&gt;
+&lt;p&gt;这个网站的第一次 &lt;a href="https://github.com/xiaohanyu/xiaohanyu/commit/f084f1ab0e704990de94a479f7566060e1917e66"&gt;commit&lt;/a&gt; 起于 2014 年 3 月 24 日，当时我正在北大的某间教室里系统化地学习 &lt;a href="https://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt;，想给自己找个实战项目练练手，于是就琢磨着把自己原来在 &lt;a href="http://xiaohanyu.me/posts/2014-04-16-new-blog-new-start/"&gt;is-programmer&lt;/a&gt; 上的 blog 静态化并迁移到独立的域名之下，于是就奢侈地花了一个月的时间，完成了初版。&lt;/p&gt;
+&lt;p&gt;再后来我又学习了 &lt;a href="https://semantic-ui.com"&gt;Semantic-UI&lt;/a&gt; 并用之重新设计实现了网站的第二版，加上自己对字体排版的理解有所深入，因此自觉就设计和细节上而言，比初版要上一个档次。&lt;/p&gt;
+&lt;p&gt;17 年 2 月份又花了十几天的时间，把原有 is-programmer 上所写的百十来篇不成文章的文章统一迁移并作了大量&lt;a href="http://xiaohanyu.me/posts/2017-04-26-notes-about-migrating-data/"&gt;修订&lt;/a&gt;，一并合到了这个网站里。&lt;/p&gt;
+&lt;p&gt;这两日趁休假在家，又花了些许精力给网站增加了响应式支持。不知不觉中，算上写文章，码代码，累计已经有 500 次迭代，所投入的时间应该不少于 500–1000 小时了。&lt;/p&gt;
+&lt;h2 id="思"&gt;思&lt;/h2&gt;
+&lt;p&gt;在知识付费蓬勃生机，社交平台层出不穷的时景之下，维护这样一个独立博客，似乎有些太耗精力了……然而我们也看到，在世界上某个巨大的互联网生态孤岛中，我们越来越难以获取我们想要看到的信息，越来越多的词被标记成“敏感”，躲在一个个光鲜网站背后夜以继日工作的审查员们悄无声息地埋葬着这个互联网孤岛上的一丝又一丝的光明，虽说“全世界的黑暗，都不足以影响一枝蜡烛的光辉”，然而作为一只蜡烛，它的寿命终究是有限的，在有限的生命燃尽之后，世界终究还是一片黑暗。&lt;/p&gt;
+&lt;p&gt;我只是希望，哪怕世界一片黑暗，蜡烛燃尽，这个世界上终究还是能留下些什么。&lt;/p&gt;
+&lt;p&gt;“天空未留痕迹，鸟儿却已飞过”，也许鸟儿确实没有在天空中留下些什么，然后我们的课本上却多了这么一句诗。&lt;/p&gt;
+&lt;h2 id="结"&gt;结&lt;/h2&gt;
+&lt;p&gt;开放这个网站的源码，是想给那些想独立建站自由表达的朋友们一些参考。我几乎没有多少时间去整理这个网站的技术细节和文档，因为本来这个网站从最初诞生就没有被设计成一个通用的项目——毕竟这只是我个人的一个私人空间而已——然而在这几日看到越来越多“乱七八糟”的时局新闻后，我还是决定再花些时间，给网站加上响应式的支持，然后把网站“源码” 开放出来，是的，所有代码采用 &lt;a href="https://tldrlegal.com/license/bsd-3-clause-license-(revised)"&gt;BSD 3-Clause License&lt;/a&gt;，而文章除特别说明，全部采用 CC &lt;a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;BY-NC-SA&lt;/a&gt; License。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;网站源码：&lt;a href="https://github.com/xiaohanyu/xiaohanyu"&gt;xiaohanyu/xiaohanyu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;文章源码：&lt;a href="https://github.com/xiaohanyu/xiaohanyu/tree/master/content/posts"&gt;xiaohanyu/content/posts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;生成静态网站：&lt;a href="https://github.com/xiaohanyu/xiaohanyu.github.io"&gt;xiaohanyu/xiaohanyu.github.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;希望对有缘人有用，我会再抽些时间整理下技术文档。&lt;/p&gt;
+&lt;section class="footnotes"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn1"&gt;&lt;p&gt;&lt;a href="https://www.nytimes.com/2018/02/25/world/asia/china-xi-jinping.html" class="uri"&gt;https://www.nytimes.com/2018/02/25/world/asia/china-xi-jinping.html&lt;/a&gt;&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:xiaohanyu.me,2018-01-14:/posts/2018-01-14-2017-summary/</id>
     <title type="html">2017，迈向未知</title>
@@ -1776,93 +1809,6 @@ require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
 &lt;p&gt;而这无形之中带给了我们相当大的心理压力。因此不到万不得已，我们不会向父母开口。&lt;/p&gt;
 &lt;p&gt;这次买车是刚需。一方面，妞的工作性质决定每天上下班要 30km，并且经常要到处出差，另一方面，买车之后公司提供的补助也足够我们负担养车的所有费用并能有点结余。&lt;/p&gt;
 &lt;p&gt;Anyway, 有车之后望着天窗听雨打在车顶上的声音，感觉还是很不错的。跨年夜，当我们开着车在夜黑风高空无一车的高速公路上急驰时，我们未曾意识到， &lt;strong&gt;彼时此刻，不经意间，我们都已长大成人，要开始新的征程了&lt;/strong&gt; 。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:xiaohanyu.me,2014-07-25:/posts/2014-07-25-build-static-site-with-nanoc-2/</id>
-    <title type="html">Build Static Site with Nanoc (II)</title>
-    <published>2014-07-25T14:19:17Z</published>
-    <updated>2017-04-29T08:08:52Z</updated>
-    <link rel="alternate" href="http://xiaohanyu.me/posts/2014-07-25-build-static-site-with-nanoc-2/"/>
-    <content type="html">&lt;p&gt;&lt;a href="http://xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/"&gt;上篇&lt;/a&gt;主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog 本身的一些设计。&lt;/p&gt;
-&lt;h2 id="bootstrap"&gt;Bootstrap&lt;/h2&gt;
-&lt;p&gt;&lt;a href="http://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt; 现在大概已经成为像我一样的半吊子前端写网站的标配了吧，简单，明了，快捷，简直是为我这种人量身定做的。最开始我也是想一切自己动手，奈何还是没有禁住 Bootstrap 各种漂亮主题及插件的诱惑，最终还是不能免俗，从了 Bootstrap。&lt;/p&gt;
-&lt;p&gt;其实类似于 Bootstrap 的前端框架还是有一些的，比如 &lt;a href="http://foundation.zurb.com/"&gt;Foundation&lt;/a&gt; 和 &lt;a href="http://semantic-ui.com/"&gt;Semantic UI&lt;/a&gt; 。Semantic UI 甚至在其官方主页上指出了 Bootstrap 命名规则的混乱。不过 Bootstrap 最大的优势在于它的普及(&lt;del&gt;烂大街&lt;/del&gt;)，这种普及甚至使得 Bootstrap 成了一个平台。&lt;/p&gt;
-&lt;p&gt;较好的 Bootstrap 主题和模板：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://startbootstrap.com/" class="uri"&gt;http://startbootstrap.com/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://wrapbootstrap.com/" class="uri"&gt;https://wrapbootstrap.com/&lt;/a&gt; ，很多收费&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.blacktie.co/" class="uri"&gt;http://www.blacktie.co/&lt;/a&gt; ，似乎是由个人设计师设计维护的 Bootstrap 主题站，质量都很不错&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://bootswatch.com/" class="uri"&gt;http://bootswatch.com/&lt;/a&gt; ，免费的 CSS 主题文件，使用简单，替换原有 Bootstrap 的 CSS 文件即可。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;另外， &lt;a href="http://bootsnipp.com/"&gt;Bootsnipp&lt;/a&gt; 提供了非常全面的各种有用的基于 Bootstrap 的 code snippets 和设计元素。本 blog 的 timeline 类型的 Archives 页面就来源于此。&lt;/p&gt;
-&lt;h2 id="jscss-compress"&gt;JS/CSS compress&lt;/h2&gt;
-&lt;p&gt;JS/CSS compress/minify 应该是前端开发的基本常识了。nanoc 中提供了 &lt;a href="http://nanoc.ws/docs/api/Nanoc/Filters/Rainpress.html"&gt;rainpress&lt;/a&gt; 和 &lt;a href="http://nanoc.ws/docs/api/Nanoc/Filters/UglifyJS.html"&gt;uglify_js&lt;/a&gt; 两个 filter，分别用于 CSS 和 JS 文件的压缩。但实际中，我们往往会有多个 JS/CSS 文件，而我们希望能将其压缩成单个 JS/CSS 文件。这方面 nanoc 没有提供内置的解决方案。好在 Google 是万能的，完美的&lt;a href="http://jakoblaegdsmand.com/blog/2012/12/minifying-js-and-css-in-nanoc/"&gt;解决方案&lt;/a&gt;也是存在的，感谢 &lt;a href="http://jakoblaegdsmand.com/"&gt;Jakob&lt;/a&gt; 。&lt;/p&gt;
-&lt;p&gt;Jakob 的 blog 写得浅显易懂，其主要的优点是可以通过 &lt;code&gt;nanoc.yml&lt;/code&gt; 中的 &lt;code&gt;debug&lt;/code&gt; 选项来启停 JS/CSS 的压缩。具体的原理和代码我就不再这里重复了，看博文吧。&lt;/p&gt;
-&lt;h2 id="nanoc-cachebuster"&gt;nanoc-cachebuster&lt;/h2&gt;
-&lt;p&gt;我们已经解决了 JS/CSS 的压缩问题，还差一步，就可以形成 nanoc static site frontend 的完美解决方案，那就是我们离不开的 cache。这个 cache 主要是浏览器端的 cache。Cache 是个好东西，只是有时会给开发人员造成一些小麻烦。比如我们修改 JS/CSS 文件并且 push 到“线上”的时候，在一定时间段内浏览器并不会请求最新的 JS/CSS 文件，而是会使用已有的尚未过期的 cache 中的 JS/CSS 文件，这就使得我们没有办法实时地看到 JS/CSS 修改后的前端效果。解决方案就是在开发时绕过 cache，让浏览器每次都请求最新的 JS/CSS 文件。这有两种办法，一是在浏览器端，可以强制刷新或者直接禁用浏览器的 cache，但是这种方案的局限性在于，每种浏览器都有自己的设置方法，并且做为开发人员，你没有办法保证你的用户都禁用 cache；第二种办法就是在服务器端做一些手脚，这就是 &lt;a href="http://webassets.readthedocs.org/en/latest/expiring.html"&gt;cache busting&lt;/a&gt; 。&lt;/p&gt;
-&lt;p&gt;Cache busting 的原理是每次修改 JS/CSS 文件后，通过在 JS/CSS 的文件名上加入一个版本号或者类似的手段，来保证浏览器请求的都是最新的 JS/CSS 文件，这样就能确保 JS/CSS 的效果能够实时地起到作用。Nanoc 有一个 &lt;a href="http://avdgaag.github.io/nanoc-cachebuster/"&gt;nanoc-cachebuster&lt;/a&gt; ，其作者写了一篇详细的 &lt;a href="http://arjanvandergaag.nl/blog/nanoc-cachebuster.html"&gt;post&lt;/a&gt; 来阐述 nanoc-cachebuster 的实现原理，我就不再多言了。&lt;/p&gt;
-&lt;h2 id="font-selection"&gt;Font Selection&lt;/h2&gt;
-&lt;p&gt;就观感上来讲，除了基本的版面设计，字体选择是第二重要的因素。你至少要知道&lt;a href="http://zh.wikipedia.org/wiki/%25E8%25A1%25AC%25E7%25BA%25BF%25E4%25BD%2593"&gt;衬线字体&lt;/a&gt;和&lt;a href="http://zh.wikipedia.org/wiki/%25E6%2597%25A0%25E8%25A1%25AC%25E7%25BA%25BF%25E4%25BD%2593"&gt;无衬线字体&lt;/a&gt;的基本概念。而在 Web 上应用这些概念，你还需要了解一些有关以 &lt;a href="http://en.wikipedia.org/wiki/Web_typography"&gt;web font&lt;/a&gt; 的一些知识。关于这点我就不展开写了，任何一本不错的 CSS 书籍都会用一章的内容来详细讲解字体以及 web font 的概念。我个人的选择是 &lt;a href="https://www.google.com/fonts/specimen/Lora"&gt;Lora&lt;/a&gt; ，灵感来自于 &lt;a href="http://bootswatch.com/readable/"&gt;bootswatch readable theme&lt;/a&gt; 。&lt;/p&gt;
-&lt;p&gt;这里还有两个小技巧，和大家分享。一是在 CSS 中，字体的样式是依照 &lt;code&gt;font-family&lt;/code&gt; 的值以及相应的字体本身的特性决定的。比如：&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode css"&gt;&lt;code class="sourceCode css"&gt;body &lt;span class="kw"&gt;{&lt;/span&gt;
-  &lt;span class="kw"&gt;background-color:&lt;/span&gt; &lt;span class="dt"&gt;#ffffff&lt;/span&gt;&lt;span class="kw"&gt;;&lt;/span&gt;
-  &lt;span class="kw"&gt;font-family:&lt;/span&gt; &lt;span class="st"&gt;&amp;#39;Lora&amp;#39;&lt;/span&gt;, Georgia, &lt;span class="st"&gt;&amp;#39;Times New Roman&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;SimSun&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;Microsoft YaHei&amp;#39;&lt;/span&gt;, &lt;span class="dt"&gt;serif&lt;/span&gt;&lt;span class="kw"&gt;;&lt;/span&gt;
-&lt;span class="kw"&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;这里指定 &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; 的字体为 Lora，但是 Lora 本身是一款英文字体，对于汉字是“无能为力”的，因此如果 &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; 中有汉字的话，浏览器会按照 &lt;code&gt;font-family&lt;/code&gt; 所指定的值依次找下去，直到找到一款从 web 上加载的或者系统中已经存在的汉字字体。另外，在 Chrome 和 Firefox 的 Developer Tools 中可以看到浏览器渲染页面时所使用的字体的细节，具体参考 &lt;a href="http://stackoverflow.com/questions/884177/how-can-i-determine-what-font-a-browser-is-actually-using-to-render-some-text"&gt;StackOverflow&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id="third-party-plugins"&gt;Third-party Plugins&lt;/h2&gt;
-&lt;p&gt;由于静态站点本身并没有数据库之类的标配的本地存储，因此像评论、站内搜索，以及统计这类功能需要借助第三方的服务。站内搜索比较简单，直接调用 Google 的 &lt;code&gt;site:xiaohanyu.me&lt;/code&gt; 搜索即可：&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode html"&gt;&lt;code class="sourceCode html"&gt;&lt;span class="kw"&gt;&amp;lt;form&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;form-inline&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; target=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; method=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;get&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; action=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://google.com/search&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="kw"&gt;&amp;lt;input&lt;/span&gt;&lt;span class="ot"&gt; type=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; value=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;site:xiaohanyu.me&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; name=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;q&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="kw"&gt;&amp;lt;input&lt;/span&gt;&lt;span class="ot"&gt; type=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;form-control pull-left&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; placeholder=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;Search&amp;quot;&lt;/span&gt;&lt;span class="ot"&gt; name=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;q&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;至于评论系统，我用的也就是现今最流行的第三方评论系统 &lt;a href="https://disqus.com/"&gt;Disqus&lt;/a&gt; 了。其安装设置非常简单，不再赘述。使用体验也不错。但是由于国内网络的原因，Disqus 加载的时候还是需要 2-4 秒的时间，因此我写了个 JS 函数，来按需加载 Disqus 评论。与此同时，我还在每篇 post 的 metadata 里面设置了新的属性： &lt;code&gt;disable_disqus&lt;/code&gt; ，这样如果 &lt;code&gt;disable_disqus&lt;/code&gt; 为真，那么相应的 post 就是禁用评论的。&lt;/p&gt;
-&lt;p&gt;最后就是站点统计，最简单的就是传统 Blog 上的网站访问计数。这个我用的是 &lt;a href="http://www.google.com/analytics/"&gt;Google Analytics&lt;/a&gt; ，很强大，安装配置也很简单，同样不再赘述。&lt;/p&gt;
-&lt;h2 id="atomsitemaprobots.txt"&gt;Atom/Sitemap/Robots.txt&lt;/h2&gt;
-&lt;p&gt;除了以上，一个有节操有品味的网站还应该配备 atom/sitemap/robots.txt。在 nanoc 中，这三种的解决方案是差不多的。以 atom 为例，nanoc3 内置的 &lt;a href="http://nanoc.ws/docs/api/Nanoc/Helpers/Blogging.html"&gt;Blogging&lt;/a&gt; 辅助模块提供了基本的 atom 生成函数 &lt;a href="http://nanoc.ws/docs/api/Nanoc/Helpers/Blogging.html#atom_feed-instance_method"&gt;atom_feed&lt;/a&gt; ，我们需要做的就是动态创建一个 nanoc item，而这个 item 的任务就是生成实际的 &lt;code&gt;atom.xml&lt;/code&gt; 文件。nanoc 支持 &lt;a href="http://nanoc.ws/docs/basics/"&gt;preprocess&lt;/a&gt; ，我们可以在 nanoc compile 之前做一些准备工作：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Rules&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;preprocess &lt;span class="kw"&gt;do&lt;/span&gt;
-  create_github_cname
-  create_robots_txt
-  create_sitemap
-  create_atom
-&lt;span class="kw"&gt;end&lt;/span&gt;
-
-compile &lt;span class="ot"&gt;%r{/sitemap/|/atom/|/robots/}&lt;/span&gt; &lt;span class="kw"&gt;do&lt;/span&gt;
-  filter &lt;span class="st"&gt;:erb&lt;/span&gt;
-&lt;span class="kw"&gt;end&lt;/span&gt;
-
-route &lt;span class="ot"&gt;%r{/sitemap/|/atom/}&lt;/span&gt; &lt;span class="kw"&gt;do&lt;/span&gt;
-  item.identifier.chop + &lt;span class="st"&gt;&amp;#39;.xml&amp;#39;&lt;/span&gt;
-&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;在 &lt;code&gt;create_atom&lt;/code&gt; 函数中，我们动态创建一个 &lt;a href="http://nanoc.ws/docs/api/Nanoc/Item.html"&gt;nanoc item&lt;/a&gt; （所谓动态创建的 item 就是这个 item 在实际的文件系统中没有相对应的文件）。这样的 preprocess 之后，nanoc compile 会按照指定的规则来处理生成 atom 的 item，最终生成所需的 &lt;code&gt;atom.xml&lt;/code&gt; 。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;lib/preprocessors.rb&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; create_atom
-  content = &amp;lt;&amp;lt;&lt;span class="kw"&gt;EOS&lt;/span&gt;
-&lt;span class="ot"&gt;&amp;lt;%= atom_feed \&lt;/span&gt;
-&lt;span class="ot"&gt;:title =&amp;gt; &amp;#39;#{@site&lt;/span&gt;.config[&lt;span class="st"&gt;:meta_data&lt;/span&gt;][&lt;span class="st"&gt;:title&lt;/span&gt;]&lt;span class="ot"&gt;}&amp;#39;,&lt;/span&gt;
-&lt;span class="ot"&gt;:author_name =&amp;gt; &amp;#39;#{@site&lt;/span&gt;.config[&lt;span class="st"&gt;:meta_data&lt;/span&gt;][&lt;span class="st"&gt;:author&lt;/span&gt;]&lt;span class="ot"&gt;}&amp;#39;,&lt;/span&gt;
-&lt;span class="ot"&gt;:author_uri =&amp;gt; &amp;#39;#{@site&lt;/span&gt;.config[&lt;span class="st"&gt;:base_url&lt;/span&gt;]&lt;span class="ot"&gt;}&amp;#39;,&lt;/span&gt;
-&lt;span class="ot"&gt;:limit =&amp;gt; 10 %&amp;gt;&lt;/span&gt;
-&lt;span class="ot"&gt;EOS&lt;/span&gt;
-
-&lt;span class="ot"&gt;  @items &amp;lt;&amp;lt; Nanoc3::Item.new(content,&lt;/span&gt;
-&lt;span class="ot"&gt;                             {:extension =&amp;gt; &amp;#39;xml&amp;#39;, :is_hidden =&amp;gt; true},&lt;/span&gt;
-&lt;span class="ot"&gt;                             &amp;#39;/atom/&amp;#39;)&lt;/span&gt;
-&lt;span class="ot"&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="cute-things"&gt;Cute Things&lt;/h2&gt;
-&lt;p&gt;除此之外，我还设计了一些有趣的小东西，当然，如果您是资深的前端工程师，那么可以直接忽略这一节，我怕班门弄斧，贻笑大方。&lt;/p&gt;
-&lt;p&gt;一是我给每篇 post 加上了 next 和 previous 的 link button， &lt;del&gt;当然如果有一天我的文章写的足够好能让人流连忘返的话&lt;/del&gt; ，这两个 button 或许是有用的。具体的技术细节可以参考&lt;a href="https://ecarmi.org/writing/next-previous-links-nanoc/"&gt;这里&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;二是我在页面上加了一个 &lt;strong&gt;back-to-top&lt;/strong&gt; 的 button，这样在页面滚了一点进度时，back-to-top button 会出现在右下角，然后你可以点击这个 button 回到页面的最顶端。&lt;/p&gt;
-&lt;p&gt;三是我参考一些成型的设计，给自己的 blog 设计了一个还算满意的 &lt;a href="http://xiaohanyu.me/does-not-exist"&gt;404 page&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;最后，我在 &lt;a href="http://wxiaohanyu.me/about/index.html"&gt;about page&lt;/a&gt; 中加入了一些 random quotes 的小把戏，这样每次访问/刷新 about page 的时候，你看到的 quotes 都是随机的。至于原理，暂且不表 ^_^。&lt;/p&gt;
-&lt;h2 id="总结"&gt;总结&lt;/h2&gt;
-&lt;p&gt;以上，大概记录了我个人建站的基本过程，从基本的技术选型，到版式字体的设计，以及一些 nanoc 的小技巧，希望对您有用。&lt;/p&gt;
 </content>
   </entry>
 </feed>

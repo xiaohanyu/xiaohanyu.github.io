@@ -13,7 +13,7 @@
     <link href="/manifest.json" rel="manifest" />
     <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#ffffff" name="theme-color" />
-    <title>国庆一周</title>
+    <title>网站开源</title>
     <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
@@ -52,34 +52,38 @@
             <header class="row article-head">
               <div class="column">
                 <h1 class="ui header">
-                  国庆一周
+                  网站开源
                 </h1>
                 <div class="ui divider desktop"></div>
               </div>
             </header>
             <div class="row article-body">
               <section class="twelve wide column">
-                <p>2 号 ZZF 携家属来杭，上午陪着走了苏堤，中午到了雷峰塔，他们买票进去，我一个人回 YQ 睡了一觉。五点不到，WM 来到 YQ，给我带了两件 The North Face 的衣服，汗…… 让我想起了去年暑假在四川甘孜逛街碰见五十块钱一件的 TNF 羽绒服。晚上在留食一起吃了饭， 99 元，我买单。</p>
-                <p>晚上俩人去游泳，闹了点小别扭，直接导致我 3 号一天的萎靡状态，看了好几部电影， 《绝命速递》真不错，男主角很帅。</p>
-                <p>4 号去 HJC 赔礼道歉。天气不错，是我来杭州两年碰见的最好的天气，荡舟池上，心旷神怡，一切烦恼随风而去。</p>
-                <p>5号 WJ 也来到杭州，中途交接出了问题，我去城站，他却在汽车东站下了车…… 于是一起打的到 HJC 图书馆。中午 WM 请客，89 元 8 个菜，留食，很是实惠，非常完美。下午划完船后回到 YQ，晚饭在北门外边一农家土菜馆，土豆炒的不错。晚上去游泳，被 BS 了，悲剧……回到寝室已经十点，简单拾掇下就睡了。岂料室友兴奋过度，滔滔不绝侃到夜里三点多……直接导致六号两人都是中午才起床……</p>
-                <p>6 号下午两人去之江看潮，只看到了钱塘江人潮……人潮散去，车也坐不到，遂沿九溪走到龙井，回到人间，上了公交。完饭在河坊街高祖生煎，67 元，比较完美。饭毕逛河坊街和新开的南宋御街。来到杭州两年多第一次来这里逛。还是挺有特色的。</p>
-                <p>7 号早起去植物园玉泉鱼跃看鱼，大开眼界，一米多长的青鱼，第一次看到这么大的鱼…… 临近中午公交去灵隐，其实我对灵隐不怎么感兴趣……中途逃票失败，花钱若干，不在赘述。灵隐寺里面碰见一小姑娘，义务导游，拿着本资料带我们在寺庙里面转。交谈中得知是浙江工商大学的大一新生，在下沙，学电子商务。竟然还在学 Linux，于是留了联系方式，说以后有问题可以找我。晚上去河坊街吃了正宗的杭帮菜。WJ 埋单。饭毕走路去火车站，十五分钟，恰好剩下一张 T 字头车票。候车半个小时，就此分别。WJ 的第三次杭州之旅到此结束。</p>
-                <p>8 号回到寝室，看了一天的资料。GNUstep、Cocoa API。导师布置的任务：在 Linux 或 Windows 平台下写一个 hello,world 的 iPhone 程序。现在初步解决：</p>
+                <h2 id="序">序</h2>
+                <p>时局“动荡”之下<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>，找个能自由写字的地方，似乎是越来越难了。</p>
+                <h2 id="源">源</h2>
+                <p>这个网站的第一次 <a href="https://github.com/xiaohanyu/xiaohanyu/commit/f084f1ab0e704990de94a479f7566060e1917e66">commit</a> 起于 2014 年 3 月 24 日，当时我正在北大的某间教室里系统化地学习 <a href="https://getbootstrap.com/">Bootstrap</a>，想给自己找个实战项目练练手，于是就琢磨着把自己原来在 <a href="http://xiaohanyu.me/posts/2014-04-16-new-blog-new-start/">is-programmer</a> 上的 blog 静态化并迁移到独立的域名之下，于是就奢侈地花了一个月的时间，完成了初版。</p>
+                <p>再后来我又学习了 <a href="https://semantic-ui.com">Semantic-UI</a> 并用之重新设计实现了网站的第二版，加上自己对字体排版的理解有所深入，因此自觉就设计和细节上而言，比初版要上一个档次。</p>
+                <p>17 年 2 月份又花了十几天的时间，把原有 is-programmer 上所写的百十来篇不成文章的文章统一迁移并作了大量<a href="http://xiaohanyu.me/posts/2017-04-26-notes-about-migrating-data/">修订</a>，一并合到了这个网站里。</p>
+                <p>这两日趁休假在家，又花了些许精力给网站增加了响应式支持。不知不觉中，算上写文章，码代码，累计已经有 500 次迭代，所投入的时间应该不少于 500–1000 小时了。</p>
+                <h2 id="思">思</h2>
+                <p>在知识付费蓬勃生机，社交平台层出不穷的时景之下，维护这样一个独立博客，似乎有些太耗精力了……然而我们也看到，在世界上某个巨大的互联网生态孤岛中，我们越来越难以获取我们想要看到的信息，越来越多的词被标记成“敏感”，躲在一个个光鲜网站背后夜以继日工作的审查员们悄无声息地埋葬着这个互联网孤岛上的一丝又一丝的光明，虽说“全世界的黑暗，都不足以影响一枝蜡烛的光辉”，然而作为一只蜡烛，它的寿命终究是有限的，在有限的生命燃尽之后，世界终究还是一片黑暗。</p>
+                <p>我只是希望，哪怕世界一片黑暗，蜡烛燃尽，这个世界上终究还是能留下些什么。</p>
+                <p>“天空未留痕迹，鸟儿却已飞过”，也许鸟儿确实没有在天空中留下些什么，然后我们的课本上却多了这么一句诗。</p>
+                <h2 id="结">结</h2>
+                <p>开放这个网站的源码，是想给那些想独立建站自由表达的朋友们一些参考。我几乎没有多少时间去整理这个网站的技术细节和文档，因为本来这个网站从最初诞生就没有被设计成一个通用的项目——毕竟这只是我个人的一个私人空间而已——然而在这几日看到越来越多“乱七八糟”的时局新闻后，我还是决定再花些时间，给网站加上响应式的支持，然后把网站“源码” 开放出来，是的，所有代码采用 <a href="https://tldrlegal.com/license/bsd-3-clause-license-(revised)">BSD 3-Clause License</a>，而文章除特别说明，全部采用 CC <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">BY-NC-SA</a> License。</p>
                 <ul>
-                <li>苹果系统开发体系的了解——我没有 Mac，只能了解</li>
-                <li>Arch Linux 下交叉编译环境的建立</li>
-                <li>GNUstep 的安装和初步使用</li>
-                <li>Windows Maker 配置成功</li>
+                <li>网站源码：<a href="https://github.com/xiaohanyu/xiaohanyu">xiaohanyu/xiaohanyu</a></li>
+                <li>文章源码：<a href="https://github.com/xiaohanyu/xiaohanyu/tree/master/content/posts">xiaohanyu/content/posts</a></li>
+                <li>生成静态网站：<a href="https://github.com/xiaohanyu/xiaohanyu.github.io">xiaohanyu/xiaohanyu.github.io</a></li>
                 </ul>
-                <p>接下来需要解决：</p>
-                <ul>
-                <li>Objective-C 的学习</li>
-                <li>Makefile 的深入研究</li>
-                <li>GNUstep 程序向 Cocoa 体系的迁移</li>
-                </ul>
-                <p>还有操作系统的一篇关于进程和线程的论文，以及计算几何的作业，呃……</p>
-                <p>十一前看了 Gentoo 的安装指导，打印纸质版，56页，这两天在看 LPI 的 study guide，找个机会把 LPI1 考掉。加油加油。</p>
+                <p>希望对有缘人有用，我会再抽些时间整理下技术文档。</p>
+                <section class="footnotes">
+                <hr />
+                <ol>
+                <li id="fn1"><p><a href="https://www.nytimes.com/2018/02/25/world/asia/china-xi-jinping.html" class="uri">https://www.nytimes.com/2018/02/25/world/asia/china-xi-jinping.html</a><a href="#fnref1">↩</a></p></li>
+                </ol>
+                </section>
                 
                 <div class="ui divider"></div>
                 <div class="ui small one item menu">
@@ -96,11 +100,11 @@
                 <div class="ui small header">
                   Committed
                 </div>
-                <date>2009-10-09</date>
+                <date>2018-02-28</date>
                 <div class="ui small header">
                   Updated
                 </div>
-                <date>2017-04-29</date>
+                <date>2018-02-28</date>
                 <div class="ui small header">
                   Category
                 </div>
@@ -118,31 +122,39 @@
                 </div>
                 <div class="ui list">
                   <div class="item">
-                    <a href="/tags#Cocoa">
+                    <a href="/tags#Emacs">
                       <div class="ui label">
-                        Cocoa<sup>1</sup>
+                        Emacs<sup>15</sup>
                       </div>
                     </a>
                   </div>
                   <div class="item">
-                    <a href="/tags#GNUstep">
+                    <a href="/tags#Nanoc">
                       <div class="ui label">
-                        GNUstep<sup>2</sup>
+                        Nanoc<sup>4</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Responsive">
+                      <div class="ui label">
+                        Responsive<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Open">
+                      <div class="ui label">
+                        Open<sup>1</sup>
                       </div>
                     </a>
                   </div>
                 </div>
                 <div class="ui small header">
-                  Meta
-                </div>
-                <p>
-                  Imported from <a href="http://cnlox.is-programmer.com/posts/12006.html">is-programmer</a>.
-                </p>
-                <div class="ui small header">
                   Links
                 </div>
                 <div class="ui small two item menu">
-                  <a class="item" title="咱也是有老板的人了" href="/posts/2009-09-25-i-have-a-boss-now/">Prev</a><a class="item" title="左手马云，右手史玉柱" href="/posts/2009-10-13-a-book-about-mayun-and-shiyuzhu/">Next</a>
+                  <a class="item" title="2017，迈向未知" href="/posts/2018-01-14-2017-summary/">Prev</a><a class="item" title="Archive" href="/archive">Archive</a>
                 </div>
               </aside>
             </div>
