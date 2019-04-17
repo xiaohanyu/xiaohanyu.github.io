@@ -58,9 +58,9 @@
 </header>
 <div class="row article-body">
   <section class="twelve wide column"><h2 id="缘起">缘起</h2>
-<p>16 年 10 月 27 日，我用 Google 搜索 “Haskell QuickCheck”，没想到 Google 放了一小段网页动画，然后就弹出一句 “You are speaking our language. Up for a challenge?”</p>
+<p>16 年 10 月 27 日，我用 Google 搜索 "Haskell QuickCheck"，没想到 Google 放了一小段网页动画，然后就弹出一句 "You are speaking our language. Up for a challenge?"</p>
 <p><a href="/static/image/2017/google-foobar/invitation.png"><img src="/static/image/2017/google-foobar/invitation.png" /></a></p>
-<p>我有些不明所以，原以为是浏览器出现了一些莫名其妙的 bug，不过并没有太在意，就点了 “I want to play”，紧接着就进入了一个算法闯关游戏。</p>
+<p>我有些不明所以，原以为是浏览器出现了一些莫名其妙的 bug，不过并没有太在意，就点了 "I want to play"，紧接着就进入了一个算法闯关游戏。</p>
 <p>游戏的模式有点类似于传统的 Online Judge，但是又不完全一样；交互界面模仿了 UNIX Shell：你可以通过命令来请求（ <code>request</code> ）一个新的 Challenge、 提交（ <code>submit</code> ）代码、验证（ <code>verify</code> ）代码正确与否。</p>
 <p>整个 foo.bar 游戏分为 5 个 level，题目的难度随着 level 的增长会逐渐增加。</p>
 <p>我个人经历中，level 1 有 1 道题目，level 2 有 2 道，level 3 有 3 道。level 1 和 level 2 的题目十分简单，每个题目会给 24–48 个小时的做答时间，考的主要是一些基础的编程概念；level 3 会考一些简单的算法，每个题目会给 96 个小时的做答时间；level 4 的题目就比较难了，会考一些不常见的算法。</p>
@@ -125,33 +125,33 @@ of the first worker to be checked (start) and the length of the line (length)
 before the automatic review occurs, so your program must generate the proper
 checksum with just those two values.
 </code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># solution for problem 1 in level 3</span>
-<span class="kw">def</span> answer(start, length):
-    worker_list <span class="op">=</span> [(start <span class="op">+</span> (length <span class="op">-</span> l) <span class="op">*</span> length,
-                    start <span class="op">+</span> (length <span class="op">-</span> l) <span class="op">*</span> length <span class="op">+</span> l)
-                   <span class="cf">for</span> l <span class="kw">in</span> <span class="bu">range</span>(length, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>)]
-
-    reduced_xor <span class="op">=</span> [xor_range(start, end) <span class="cf">for</span> start, end <span class="kw">in</span> worker_list]
-
-    <span class="cf">return</span> <span class="bu">reduce</span>(<span class="kw">lambda</span> x, y: x <span class="op">^</span> y, reduced_xor)
-
-<span class="kw">def</span> xor_range(start, end):
-    <span class="co"># inclusive start and exclusive end</span>
-    <span class="cf">if</span> (end <span class="op">-</span> start) <span class="op">==</span> <span class="dv">0</span>:
-        <span class="cf">return</span> <span class="dv">0</span>
-    <span class="cf">if</span> (end <span class="op">-</span> start) <span class="op">==</span> <span class="dv">1</span>:
-        <span class="cf">return</span> start
-    <span class="cf">if</span> (end <span class="op">-</span> start) <span class="op">&lt;=</span> <span class="dv">4</span>:
-        <span class="cf">return</span> <span class="bu">reduce</span>(<span class="kw">lambda</span> x, y: x <span class="op">^</span> y, <span class="bu">range</span>(start, end))
-    <span class="cf">else</span>:
-        begin_range <span class="op">=</span> (start, start <span class="op">/</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span> <span class="op">+</span> <span class="dv">4</span>)
-        end_range <span class="op">=</span> (end <span class="op">/</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span>, end)
-        <span class="cf">return</span> xor_range(<span class="op">*</span>begin_range) <span class="op">^</span> xor_range(<span class="op">*</span>end_range)
-
-<span class="co"># print(answer(0, 3))</span>
-<span class="co"># print(answer(17, 4))</span>
-<span class="co"># print(answer(17, 250))</span>
-<span class="co"># print(answer(17, 2500))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># solution for problem 1 in level 3</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">def</span> answer(start, length):</a>
+<a class="sourceLine" id="cb2-3" title="3">    worker_list <span class="op">=</span> [(start <span class="op">+</span> (length <span class="op">-</span> l) <span class="op">*</span> length,</a>
+<a class="sourceLine" id="cb2-4" title="4">                    start <span class="op">+</span> (length <span class="op">-</span> l) <span class="op">*</span> length <span class="op">+</span> l)</a>
+<a class="sourceLine" id="cb2-5" title="5">                   <span class="cf">for</span> l <span class="kw">in</span> <span class="bu">range</span>(length, <span class="dv">0</span>, <span class="dv">-1</span>)]</a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7">    reduced_xor <span class="op">=</span> [xor_range(start, end) <span class="cf">for</span> start, end <span class="kw">in</span> worker_list]</a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9">    <span class="cf">return</span> <span class="bu">reduce</span>(<span class="kw">lambda</span> x, y: x <span class="op">^</span> y, reduced_xor)</a>
+<a class="sourceLine" id="cb2-10" title="10"></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="kw">def</span> xor_range(start, end):</a>
+<a class="sourceLine" id="cb2-12" title="12">    <span class="co"># inclusive start and exclusive end</span></a>
+<a class="sourceLine" id="cb2-13" title="13">    <span class="cf">if</span> (end <span class="op">-</span> start) <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb2-14" title="14">        <span class="cf">return</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb2-15" title="15">    <span class="cf">if</span> (end <span class="op">-</span> start) <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb2-16" title="16">        <span class="cf">return</span> start</a>
+<a class="sourceLine" id="cb2-17" title="17">    <span class="cf">if</span> (end <span class="op">-</span> start) <span class="op">&lt;=</span> <span class="dv">4</span>:</a>
+<a class="sourceLine" id="cb2-18" title="18">        <span class="cf">return</span> <span class="bu">reduce</span>(<span class="kw">lambda</span> x, y: x <span class="op">^</span> y, <span class="bu">range</span>(start, end))</a>
+<a class="sourceLine" id="cb2-19" title="19">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb2-20" title="20">        begin_range <span class="op">=</span> (start, start <span class="op">/</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span> <span class="op">+</span> <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb2-21" title="21">        end_range <span class="op">=</span> (end <span class="op">/</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span>, end)</a>
+<a class="sourceLine" id="cb2-22" title="22">        <span class="cf">return</span> xor_range(<span class="op">*</span>begin_range) <span class="op">^</span> xor_range(<span class="op">*</span>end_range)</a>
+<a class="sourceLine" id="cb2-23" title="23"></a>
+<a class="sourceLine" id="cb2-24" title="24"><span class="co"># print(answer(0, 3))</span></a>
+<a class="sourceLine" id="cb2-25" title="25"><span class="co"># print(answer(17, 4))</span></a>
+<a class="sourceLine" id="cb2-26" title="26"><span class="co"># print(answer(17, 250))</span></a>
+<a class="sourceLine" id="cb2-27" title="27"><span class="co"># print(answer(17, 2500))</span></a></code></pre></div>
 <p>Problem 2 in level 3:</p>
 <pre class="example"><code>Bomb, Baby!
 ===========
@@ -217,49 +217,49 @@ Use verify [file] to test your solution and see how it does. When you are
 finished editing your code, use submit [file] to submit your answer. If your
 solution passes the test cases, it will be removed from your home folder.
 </code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># solution for problem 2 in level 3</span>
-<span class="kw">def</span> answer(M, F):
-    m <span class="op">=</span> <span class="bu">int</span>(M)
-    f <span class="op">=</span> <span class="bu">int</span>(F)
-
-    <span class="cf">if</span> m <span class="op">*</span> f <span class="op">==</span> <span class="dv">0</span>:
-        <span class="cf">return</span> <span class="st">&quot;impossible&quot;</span>
-
-    g <span class="op">=</span> gcd(m, f)
-    <span class="cf">if</span> g <span class="op">!=</span> <span class="dv">1</span> <span class="kw">and</span> (<span class="bu">abs</span>(m <span class="op">-</span> f) <span class="op">%</span> g <span class="op">==</span> <span class="dv">0</span>):
-        <span class="cf">return</span> <span class="st">&quot;impossible&quot;</span>
-
-    <span class="cf">return</span> <span class="bu">str</span>(answer_helper(m, f))
-
-<span class="kw">def</span> answer_helper(m, f):
-    <span class="cf">if</span> m <span class="op">==</span> <span class="dv">1</span>:
-        <span class="cf">return</span> f <span class="op">-</span> <span class="dv">1</span>
-    <span class="cf">elif</span> f <span class="op">==</span> <span class="dv">1</span>:
-        <span class="cf">return</span> m <span class="op">-</span> <span class="dv">1</span>
-    <span class="cf">else</span>:
-        <span class="cf">if</span> m <span class="op">&lt;</span> f:
-            <span class="cf">return</span> answer_helper(f, m)
-        <span class="cf">else</span>:
-            <span class="cf">return</span> (m <span class="op">/</span> f) <span class="op">+</span> answer_helper(m <span class="op">-</span> m <span class="op">/</span> f <span class="op">*</span> f, f)
-
-<span class="kw">def</span> gcd(x, y):
-    <span class="cf">if</span> y <span class="op">==</span> <span class="dv">0</span>:
-        <span class="cf">return</span> x
-    <span class="cf">else</span>:
-        <span class="cf">return</span> gcd(y, x <span class="op">%</span> y)
-
-<span class="co"># print(answer(&quot;1&quot;, &quot;1&quot;))</span>
-<span class="co"># print(answer(&quot;2&quot;, &quot;1&quot;))</span>
-<span class="co"># print(answer(&quot;4&quot;, &quot;7&quot;))</span>
-<span class="co"># print(answer(&quot;9&quot;, &quot;37&quot;))</span>
-<span class="co"># print(answer(&quot;2&quot;, &quot;38&quot;))</span>
-<span class="co"># print(answer(&quot;2978183212347123467888&quot;, &quot;8832131497&quot;))</span>
-<span class="co"># print(answer(&quot;0&quot;, &quot;100&quot;))</span>
-<span class="co"># print(answer(&quot;9&quot;, &quot;9&quot;))</span>
-<span class="co"># print(answer(&quot;0&quot;, &quot;0&quot;))</span>
-<span class="co"># print(answer(&quot;1&quot;, &quot;1&quot;))</span>
-<span class="co"># print(answer(&quot;2&quot;, &quot;2&quot;))</span>
-<span class="co"># print(answer(&quot;12&quot;, &quot;9&quot;))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># solution for problem 2 in level 3</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">def</span> answer(M, F):</a>
+<a class="sourceLine" id="cb4-3" title="3">    m <span class="op">=</span> <span class="bu">int</span>(M)</a>
+<a class="sourceLine" id="cb4-4" title="4">    f <span class="op">=</span> <span class="bu">int</span>(F)</a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6">    <span class="cf">if</span> m <span class="op">*</span> f <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb4-7" title="7">        <span class="cf">return</span> <span class="st">&quot;impossible&quot;</span></a>
+<a class="sourceLine" id="cb4-8" title="8"></a>
+<a class="sourceLine" id="cb4-9" title="9">    g <span class="op">=</span> gcd(m, f)</a>
+<a class="sourceLine" id="cb4-10" title="10">    <span class="cf">if</span> g <span class="op">!=</span> <span class="dv">1</span> <span class="kw">and</span> (<span class="bu">abs</span>(m <span class="op">-</span> f) <span class="op">%</span> g <span class="op">==</span> <span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb4-11" title="11">        <span class="cf">return</span> <span class="st">&quot;impossible&quot;</span></a>
+<a class="sourceLine" id="cb4-12" title="12"></a>
+<a class="sourceLine" id="cb4-13" title="13">    <span class="cf">return</span> <span class="bu">str</span>(answer_helper(m, f))</a>
+<a class="sourceLine" id="cb4-14" title="14"></a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="kw">def</span> answer_helper(m, f):</a>
+<a class="sourceLine" id="cb4-16" title="16">    <span class="cf">if</span> m <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb4-17" title="17">        <span class="cf">return</span> f <span class="op">-</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb4-18" title="18">    <span class="cf">elif</span> f <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb4-19" title="19">        <span class="cf">return</span> m <span class="op">-</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb4-20" title="20">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb4-21" title="21">        <span class="cf">if</span> m <span class="op">&lt;</span> f:</a>
+<a class="sourceLine" id="cb4-22" title="22">            <span class="cf">return</span> answer_helper(f, m)</a>
+<a class="sourceLine" id="cb4-23" title="23">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb4-24" title="24">            <span class="cf">return</span> (m <span class="op">/</span> f) <span class="op">+</span> answer_helper(m <span class="op">-</span> m <span class="op">/</span> f <span class="op">*</span> f, f)</a>
+<a class="sourceLine" id="cb4-25" title="25"></a>
+<a class="sourceLine" id="cb4-26" title="26"><span class="kw">def</span> gcd(x, y):</a>
+<a class="sourceLine" id="cb4-27" title="27">    <span class="cf">if</span> y <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb4-28" title="28">        <span class="cf">return</span> x</a>
+<a class="sourceLine" id="cb4-29" title="29">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb4-30" title="30">        <span class="cf">return</span> gcd(y, x <span class="op">%</span> y)</a>
+<a class="sourceLine" id="cb4-31" title="31"></a>
+<a class="sourceLine" id="cb4-32" title="32"><span class="co"># print(answer(&quot;1&quot;, &quot;1&quot;))</span></a>
+<a class="sourceLine" id="cb4-33" title="33"><span class="co"># print(answer(&quot;2&quot;, &quot;1&quot;))</span></a>
+<a class="sourceLine" id="cb4-34" title="34"><span class="co"># print(answer(&quot;4&quot;, &quot;7&quot;))</span></a>
+<a class="sourceLine" id="cb4-35" title="35"><span class="co"># print(answer(&quot;9&quot;, &quot;37&quot;))</span></a>
+<a class="sourceLine" id="cb4-36" title="36"><span class="co"># print(answer(&quot;2&quot;, &quot;38&quot;))</span></a>
+<a class="sourceLine" id="cb4-37" title="37"><span class="co"># print(answer(&quot;2978183212347123467888&quot;, &quot;8832131497&quot;))</span></a>
+<a class="sourceLine" id="cb4-38" title="38"><span class="co"># print(answer(&quot;0&quot;, &quot;100&quot;))</span></a>
+<a class="sourceLine" id="cb4-39" title="39"><span class="co"># print(answer(&quot;9&quot;, &quot;9&quot;))</span></a>
+<a class="sourceLine" id="cb4-40" title="40"><span class="co"># print(answer(&quot;0&quot;, &quot;0&quot;))</span></a>
+<a class="sourceLine" id="cb4-41" title="41"><span class="co"># print(answer(&quot;1&quot;, &quot;1&quot;))</span></a>
+<a class="sourceLine" id="cb4-42" title="42"><span class="co"># print(answer(&quot;2&quot;, &quot;2&quot;))</span></a>
+<a class="sourceLine" id="cb4-43" title="43"><span class="co"># print(answer(&quot;12&quot;, &quot;9&quot;))</span></a></code></pre></div>
 <p>Problem 3 in level 3:</p>
 <pre class="example"><code>Fuel Injection Perfection
 =========================
@@ -316,33 +316,33 @@ Use verify [file] to test your solution and see how it does. When you are
 finished editing your code, use submit [file] to submit your answer. If your
 solution passes the test cases, it will be removed from your home folder.
 </code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># solution for problem 3 in level 3</span>
-<span class="kw">def</span> answer(n):
-    <span class="co"># your code here</span>
-    n <span class="op">=</span> <span class="bu">int</span>(n)
-
-    table <span class="op">=</span> {<span class="dv">1</span>: <span class="dv">0</span>, <span class="dv">2</span>: <span class="dv">1</span>}
-
-    <span class="kw">def</span> answer_helper(n):
-        <span class="cf">if</span> n <span class="kw">in</span> table:
-            <span class="cf">return</span> table[n]
-
-        <span class="cf">if</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span>:
-            table[n] <span class="op">=</span> <span class="bu">min</span>(answer_helper((n <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span>) <span class="op">+</span> <span class="dv">2</span>,
-                           answer_helper((n <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span>) <span class="op">+</span> <span class="dv">2</span>)
-        <span class="cf">else</span>:
-            table[n] <span class="op">=</span> answer_helper(n <span class="op">/</span> <span class="dv">2</span>) <span class="op">+</span> <span class="dv">1</span>
-
-        <span class="cf">return</span> table[n]
-
-    <span class="cf">return</span> answer_helper(n)
-
-<span class="co"># for n in range(1, 65):</span>
-<span class="co">#     print(&quot;%s: %s&quot; % (n, answer(n)))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># solution for problem 3 in level 3</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">def</span> answer(n):</a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="co"># your code here</span></a>
+<a class="sourceLine" id="cb6-4" title="4">    n <span class="op">=</span> <span class="bu">int</span>(n)</a>
+<a class="sourceLine" id="cb6-5" title="5"></a>
+<a class="sourceLine" id="cb6-6" title="6">    table <span class="op">=</span> {<span class="dv">1</span>: <span class="dv">0</span>, <span class="dv">2</span>: <span class="dv">1</span>}</a>
+<a class="sourceLine" id="cb6-7" title="7"></a>
+<a class="sourceLine" id="cb6-8" title="8">    <span class="kw">def</span> answer_helper(n):</a>
+<a class="sourceLine" id="cb6-9" title="9">        <span class="cf">if</span> n <span class="kw">in</span> table:</a>
+<a class="sourceLine" id="cb6-10" title="10">            <span class="cf">return</span> table[n]</a>
+<a class="sourceLine" id="cb6-11" title="11"></a>
+<a class="sourceLine" id="cb6-12" title="12">        <span class="cf">if</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb6-13" title="13">            table[n] <span class="op">=</span> <span class="bu">min</span>(answer_helper((n <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span>) <span class="op">+</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb6-14" title="14">                           answer_helper((n <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span>) <span class="op">+</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb6-15" title="15">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb6-16" title="16">            table[n] <span class="op">=</span> answer_helper(n <span class="op">/</span> <span class="dv">2</span>) <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb6-17" title="17"></a>
+<a class="sourceLine" id="cb6-18" title="18">        <span class="cf">return</span> table[n]</a>
+<a class="sourceLine" id="cb6-19" title="19"></a>
+<a class="sourceLine" id="cb6-20" title="20">    <span class="cf">return</span> answer_helper(n)</a>
+<a class="sourceLine" id="cb6-21" title="21"></a>
+<a class="sourceLine" id="cb6-22" title="22"><span class="co"># for n in range(1, 65):</span></a>
+<a class="sourceLine" id="cb6-23" title="23"><span class="co">#     print(&quot;%s: %s&quot; % (n, answer(n)))</span></a></code></pre></div>
 <hr />
 <p>实际上做完了 level 3，就可以等 Google recruiter 回复了。而 Level 3 中难度最大的一题目，也就是考了一个简单的 <a href="https://en.wikipedia.org/wiki/Dynamic_programming">DP</a> 而已——事实上也不需要太复杂的 DP，稍微对 Functional Programming 中常见的 <a href="https://en.wikipedia.org/wiki/Memoization">Memoization</a> 手法有个印象，就能搞定了。</p>
 <p><a href="/static/image/2017/google-foobar/recruiter.png"><img src="/static/image/2017/google-foobar/recruiter.png" /></a></p>
-<p>我做完了 level 3 后，抱着玩一玩的心思，做 level 4 的第一题，直接就栽到了<a href="https://en.wikipedia.org/wiki/Network_flow">网络流</a>的大坑里，Google 也知道这类题比较难<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>，因此给了 168 个小时的做答时间。于是我又翻开了那本尘封已久的《算法导论》，简单扫了下网络流那一章，最后花了几天的时间写了个 <a href="https://en.wikipedia.org/wiki/Ford%25E2%2580%2593Fulkerson_algorithm">Ford-Fulkerson Algorithm</a> 的 Python 实现。</p>
+<p>我做完了 level 3 后，抱着玩一玩的心思，做 level 4 的第一题，直接就栽到了<a href="https://en.wikipedia.org/wiki/Network_flow">网络流</a>的大坑里，Google 也知道这类题比较难<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>，因此给了 168 个小时的做答时间。于是我又翻开了那本尘封已久的《算法导论》，简单扫了下网络流那一章，最后花了几天的时间写了个 <a href="https://en.wikipedia.org/wiki/Ford%25E2%2580%2593Fulkerson_algorithm">Ford-Fulkerson Algorithm</a> 的 Python 实现。</p>
 <hr />
 <p>Problem 1 in level 4:</p>
 <pre class="example"><code>Escape Pods
@@ -422,77 +422,77 @@ Use verify [file] to test your solution and see how it does. When you are
 finished editing your code, use submit [file] to submit your answer. If your
 solution passes the test cases, it will be removed from your home folder.
 </code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> decimal
-inf <span class="op">=</span> decimal.Decimal(<span class="st">&quot;Infinity&quot;</span>)
-
-<span class="kw">def</span> answer(entrances, exits, path):
-    transform(entrances, exits, path)
-    flow <span class="op">=</span> <span class="dv">0</span>
-    length <span class="op">=</span> <span class="bu">len</span>(path)
-    flows <span class="op">=</span> [[<span class="dv">0</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(length)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(length)]
-    start <span class="op">=</span> <span class="dv">0</span>
-    end <span class="op">=</span> length <span class="op">-</span> <span class="dv">1</span>
-    <span class="cf">while</span> <span class="va">True</span>:
-        ap_flow, parents <span class="op">=</span> bfs(start, end, path, flows)
-        <span class="cf">if</span> ap_flow <span class="op">==</span> <span class="dv">0</span>:
-            <span class="cf">break</span>
-        flow <span class="op">+=</span> ap_flow
-        v <span class="op">=</span> end
-        <span class="cf">while</span> v <span class="op">!=</span> start:
-            u <span class="op">=</span> parents[v]
-            flows[u][v] <span class="op">+=</span> ap_flow
-            flows[v][u] <span class="op">-=</span> ap_flow
-            v <span class="op">=</span> u
-    <span class="cf">return</span> flow
-
-<span class="kw">def</span> bfs(start, end, path, flows):
-    <span class="kw">global</span> inf
-    length <span class="op">=</span> <span class="bu">len</span>(path)
-    parents <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> length     <span class="co"># parent table for reverse tracing path</span>
-    parents[start] <span class="op">=</span> <span class="op">-</span><span class="dv">2</span>         <span class="co"># differentiate start point from others</span>
-
-    queue <span class="op">=</span> []
-    queue.append(start)
-    <span class="cf">while</span> queue <span class="kw">and</span> parents[end] <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>:
-        u <span class="op">=</span> queue.pop(<span class="dv">0</span>)
-        <span class="cf">for</span> v <span class="kw">in</span> <span class="bu">range</span>(length):
-            cf <span class="op">=</span> path[u][v] <span class="op">-</span> flows[u][v]
-            <span class="cf">if</span> cf <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> parents[v] <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>:
-                queue.append(v)
-                parents[v] <span class="op">=</span> u
-
-    <span class="cf">if</span> parents[end] <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>:      <span class="co"># if t can not been reached</span>
-        <span class="cf">return</span> <span class="dv">0</span>, parents
-
-    v <span class="op">=</span> end
-    delta <span class="op">=</span> inf
-    <span class="cf">while</span> v <span class="op">!=</span> start:
-        u <span class="op">=</span> parents[v]
-        cf <span class="op">=</span> path[u][v] <span class="op">-</span> flows[u][v]
-        delta <span class="op">=</span> <span class="bu">min</span>(delta, cf)
-        v <span class="op">=</span> u
-
-    <span class="cf">return</span> delta, parents
-
-<span class="kw">def</span> transform(entrances, exits, path):
-    <span class="co"># transform multi-source, multi-sink flow network to single-source,</span>
-    <span class="co"># single-sink flow network</span>
-    <span class="kw">global</span> inf
-    length <span class="op">=</span> <span class="bu">len</span>(path)
-    entrances <span class="op">=</span> [i <span class="op">+</span> <span class="dv">1</span> <span class="cf">for</span> i <span class="kw">in</span> entrances]
-    exits <span class="op">=</span> [i <span class="op">+</span> <span class="dv">1</span> <span class="cf">for</span> i <span class="kw">in</span> exits]
-    <span class="cf">for</span> row <span class="kw">in</span> path:
-        row.insert(<span class="dv">0</span>, <span class="dv">0</span>)
-        row.append(<span class="dv">0</span>)
-    start_row <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> (length <span class="op">+</span> <span class="dv">2</span>)
-    <span class="cf">for</span> i <span class="kw">in</span> entrances:
-        start_row[i] <span class="op">=</span> inf
-    path.insert(<span class="dv">0</span>, start_row)
-    end_row <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> (length <span class="op">+</span> <span class="dv">2</span>)
-    <span class="cf">for</span> i <span class="kw">in</span> exits:
-        path[i][<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> inf
-    path.append(end_row)
-    <span class="cf">return</span> entrances, exits, path</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1"><span class="im">import</span> decimal</a>
+<a class="sourceLine" id="cb8-2" title="2">inf <span class="op">=</span> decimal.Decimal(<span class="st">&quot;Infinity&quot;</span>)</a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="kw">def</span> answer(entrances, exits, path):</a>
+<a class="sourceLine" id="cb8-5" title="5">    transform(entrances, exits, path)</a>
+<a class="sourceLine" id="cb8-6" title="6">    flow <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb8-7" title="7">    length <span class="op">=</span> <span class="bu">len</span>(path)</a>
+<a class="sourceLine" id="cb8-8" title="8">    flows <span class="op">=</span> [[<span class="dv">0</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(length)] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(length)]</a>
+<a class="sourceLine" id="cb8-9" title="9">    start <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb8-10" title="10">    end <span class="op">=</span> length <span class="op">-</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb8-11" title="11">    <span class="cf">while</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb8-12" title="12">        ap_flow, parents <span class="op">=</span> bfs(start, end, path, flows)</a>
+<a class="sourceLine" id="cb8-13" title="13">        <span class="cf">if</span> ap_flow <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb8-14" title="14">            <span class="cf">break</span></a>
+<a class="sourceLine" id="cb8-15" title="15">        flow <span class="op">+=</span> ap_flow</a>
+<a class="sourceLine" id="cb8-16" title="16">        v <span class="op">=</span> end</a>
+<a class="sourceLine" id="cb8-17" title="17">        <span class="cf">while</span> v <span class="op">!=</span> start:</a>
+<a class="sourceLine" id="cb8-18" title="18">            u <span class="op">=</span> parents[v]</a>
+<a class="sourceLine" id="cb8-19" title="19">            flows[u][v] <span class="op">+=</span> ap_flow</a>
+<a class="sourceLine" id="cb8-20" title="20">            flows[v][u] <span class="op">-=</span> ap_flow</a>
+<a class="sourceLine" id="cb8-21" title="21">            v <span class="op">=</span> u</a>
+<a class="sourceLine" id="cb8-22" title="22">    <span class="cf">return</span> flow</a>
+<a class="sourceLine" id="cb8-23" title="23"></a>
+<a class="sourceLine" id="cb8-24" title="24"><span class="kw">def</span> bfs(start, end, path, flows):</a>
+<a class="sourceLine" id="cb8-25" title="25">    <span class="kw">global</span> inf</a>
+<a class="sourceLine" id="cb8-26" title="26">    length <span class="op">=</span> <span class="bu">len</span>(path)</a>
+<a class="sourceLine" id="cb8-27" title="27">    parents <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> length     <span class="co"># parent table for reverse tracing path</span></a>
+<a class="sourceLine" id="cb8-28" title="28">    parents[start] <span class="op">=</span> <span class="dv">-2</span>         <span class="co"># differentiate start point from others</span></a>
+<a class="sourceLine" id="cb8-29" title="29"></a>
+<a class="sourceLine" id="cb8-30" title="30">    queue <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb8-31" title="31">    queue.append(start)</a>
+<a class="sourceLine" id="cb8-32" title="32">    <span class="cf">while</span> queue <span class="kw">and</span> parents[end] <span class="op">==</span> <span class="dv">-1</span>:</a>
+<a class="sourceLine" id="cb8-33" title="33">        u <span class="op">=</span> queue.pop(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb8-34" title="34">        <span class="cf">for</span> v <span class="kw">in</span> <span class="bu">range</span>(length):</a>
+<a class="sourceLine" id="cb8-35" title="35">            cf <span class="op">=</span> path[u][v] <span class="op">-</span> flows[u][v]</a>
+<a class="sourceLine" id="cb8-36" title="36">            <span class="cf">if</span> cf <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> parents[v] <span class="op">==</span> <span class="dv">-1</span>:</a>
+<a class="sourceLine" id="cb8-37" title="37">                queue.append(v)</a>
+<a class="sourceLine" id="cb8-38" title="38">                parents[v] <span class="op">=</span> u</a>
+<a class="sourceLine" id="cb8-39" title="39"></a>
+<a class="sourceLine" id="cb8-40" title="40">    <span class="cf">if</span> parents[end] <span class="op">==</span> <span class="dv">-1</span>:      <span class="co"># if t can not been reached</span></a>
+<a class="sourceLine" id="cb8-41" title="41">        <span class="cf">return</span> <span class="dv">0</span>, parents</a>
+<a class="sourceLine" id="cb8-42" title="42"></a>
+<a class="sourceLine" id="cb8-43" title="43">    v <span class="op">=</span> end</a>
+<a class="sourceLine" id="cb8-44" title="44">    delta <span class="op">=</span> inf</a>
+<a class="sourceLine" id="cb8-45" title="45">    <span class="cf">while</span> v <span class="op">!=</span> start:</a>
+<a class="sourceLine" id="cb8-46" title="46">        u <span class="op">=</span> parents[v]</a>
+<a class="sourceLine" id="cb8-47" title="47">        cf <span class="op">=</span> path[u][v] <span class="op">-</span> flows[u][v]</a>
+<a class="sourceLine" id="cb8-48" title="48">        delta <span class="op">=</span> <span class="bu">min</span>(delta, cf)</a>
+<a class="sourceLine" id="cb8-49" title="49">        v <span class="op">=</span> u</a>
+<a class="sourceLine" id="cb8-50" title="50"></a>
+<a class="sourceLine" id="cb8-51" title="51">    <span class="cf">return</span> delta, parents</a>
+<a class="sourceLine" id="cb8-52" title="52"></a>
+<a class="sourceLine" id="cb8-53" title="53"><span class="kw">def</span> transform(entrances, exits, path):</a>
+<a class="sourceLine" id="cb8-54" title="54">    <span class="co"># transform multi-source, multi-sink flow network to single-source,</span></a>
+<a class="sourceLine" id="cb8-55" title="55">    <span class="co"># single-sink flow network</span></a>
+<a class="sourceLine" id="cb8-56" title="56">    <span class="kw">global</span> inf</a>
+<a class="sourceLine" id="cb8-57" title="57">    length <span class="op">=</span> <span class="bu">len</span>(path)</a>
+<a class="sourceLine" id="cb8-58" title="58">    entrances <span class="op">=</span> [i <span class="op">+</span> <span class="dv">1</span> <span class="cf">for</span> i <span class="kw">in</span> entrances]</a>
+<a class="sourceLine" id="cb8-59" title="59">    exits <span class="op">=</span> [i <span class="op">+</span> <span class="dv">1</span> <span class="cf">for</span> i <span class="kw">in</span> exits]</a>
+<a class="sourceLine" id="cb8-60" title="60">    <span class="cf">for</span> row <span class="kw">in</span> path:</a>
+<a class="sourceLine" id="cb8-61" title="61">        row.insert(<span class="dv">0</span>, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb8-62" title="62">        row.append(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb8-63" title="63">    start_row <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> (length <span class="op">+</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb8-64" title="64">    <span class="cf">for</span> i <span class="kw">in</span> entrances:</a>
+<a class="sourceLine" id="cb8-65" title="65">        start_row[i] <span class="op">=</span> inf</a>
+<a class="sourceLine" id="cb8-66" title="66">    path.insert(<span class="dv">0</span>, start_row)</a>
+<a class="sourceLine" id="cb8-67" title="67">    end_row <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> (length <span class="op">+</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb8-68" title="68">    <span class="cf">for</span> i <span class="kw">in</span> exits:</a>
+<a class="sourceLine" id="cb8-69" title="69">        path[i][<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> inf</a>
+<a class="sourceLine" id="cb8-70" title="70">    path.append(end_row)</a>
+<a class="sourceLine" id="cb8-71" title="71">    <span class="cf">return</span> entrances, exits, path</a></code></pre></div>
 <hr />
 <p>测试通过后做第 8 道题目，到这里我一眼扫完题目，已经连题目要考什么算法都看不出来了，加上也没有再多的时间来继续“玩”这个游戏，索性就放弃了。</p>
 <hr />
@@ -601,7 +601,7 @@ solution passes the test cases, it will be removed from your home folder.
 <p>而我在网上查到的资料是，有人通过了 foobar 之后，Google 直接就给了 onsite：</p>
 <blockquote>
 <p>Google’s recruiting process is well documented online, and from this point my experience was pretty typical. The only difference is that I didn’t need to go through a technical phone screen since I had already demonstrated some proficiency with coding through the foo.bar exercises.</p>
-<p>— <a href="https://thehustle.co/the-secret-google-interview-that-landed-me-a-job" class="uri">https://thehustle.co/the-secret-google-interview-that-landed-me-a-job</a></p>
+<p>— <a href="https://thehustle.co/the-secret-google-interview-that-landed-me-a-job">https://thehustle.co/the-secret-google-interview-that-landed-me-a-job</a></p>
 </blockquote>
 <p>我个人推想是，相较于“本土”求职者，海外求职者一次 onsite 的成本比较高，因为 onsite 要谨慎一些。</p>
 <p>电话聊完之后，recruiter 发送了一个 self-rating form 给我，让你自助式地评估下自己的技术水准，形式如下：</p>
@@ -613,9 +613,9 @@ solution passes the test cases, it will be removed from your home folder.
 <p>我看到这封邮件时真的是有些感动——相较于我以前经历过的国内公司的各种面试，这种对比实在是太过强烈——这也让我开始理解，Google 能在竞争如此激烈的互联网领域长期保持领先，不是没有原因的——一个公司对面试者展现出足够的尊重，换来的必然也是面试者对面试的重视。相对而言，这种相互之间的尊重其实也很大程度上降低了双方的成本，一举两得。</p>
 <h2 id="第一轮技术电话面试">第一轮技术电话面试</h2>
 <p>12 月 9 日，来自 Google Sydney 的第一轮电面。限于 NDA，这里我不能透露具体题目的内容。面试约一个小时，全程英文，问了三个题目，包括一个大数估算题、一个操作系统概念题、一个算法题。Google 邮件中有一个 Google Docs 的链接用来共享屏幕写代码的，但是实际上面试中并没有用到，可能是面试官不喜欢吧。</p>
-<p>Anyway，这轮面试表现还不错，特别是第二道题目的表现远超面试官的预期，面试官说这道题我的表现是他面过的所有求职者中最棒的，因此面试快结束的时候面试官告诉我说他这一轮会刷掉相当多的人，过了他这一轮后一定要多去“study, study, study, practice, practice, practice”——事后想想，应该就是去多刷刷 LeetCode 吧……</p>
+<p>Anyway，这轮面试表现还不错，特别是第二道题目的表现远超面试官的预期，面试官说这道题我的表现是他面过的所有求职者中最棒的，因此面试快结束的时候面试官告诉我说他这一轮会刷掉相当多的人，过了他这一轮后一定要多去"study, study, study, practice, practice, practice"——事后想想，应该就是去多刷刷 LeetCode 吧……</p>
 <h2 id="第二轮技术电话面试">第二轮技术电话面试</h2>
-<p>1 月 13 日，来自 Google Sydney 的第二轮电面，仍然是全程英文。面试约一个小时，考了 Bash/Python/C 的知识。这次又没有用上 Google Docs 链接，所有题目都是面试官“口述”的……最后的 C 语言题目还涉及到了位运算的一些考点，我听了第一遍完全没听明白，反复了 5 分钟之后，其中充斥着诸如 “Pardon”、“Left bracket”、“Oh, I’m sorry”、 “Ampersand”、“Question mark”、“Exclamation mark” 之类的单词，最后总算搞明白了题意，不难，很快给出了答复。</p>
+<p>1 月 13 日，来自 Google Sydney 的第二轮电面，仍然是全程英文。面试约一个小时，考了 Bash/Python/C 的知识。这次又没有用上 Google Docs 链接，所有题目都是面试官“口述”的……最后的 C 语言题目还涉及到了位运算的一些考点，我听了第一遍完全没听明白，反复了 5 分钟之后，其中充斥着诸如 "Pardon"、"Left bracket"、"Oh, I'm sorry"、 "Ampersand"、"Question mark"、"Exclamation mark" 之类的单词，最后总算搞明白了题意，不难，很快给出了答复。</p>
 <p>这轮面试我自我感觉题目都不难，都是很基础的知识，但是英文听说能力要求非常高。好在我自己英文能力还可以，虽然开始时会有些紧张，但只要说顺了，后面的听说就都很顺畅，毫无滞碍。我没有去特别考过 TOFEL 和 GRE，也没有特别训练过，想来应该还是自己多年坚持英文读写实践的积攒下的功底。</p>
 <h2 id="sydney-onsite">Sydney onsite</h2>
 <p>1 月 16 日收到了 Google recruiter 的邮件，告知电话面试通过，可以去 Sydney office onsite 了。考虑到 2 月要过个春节长假，加上办签证需要一些时间，以及自己也需要一些时间从日常工作状态切换到面试找工作状态，所以和 Google recruiter 联系，暂时把 onsite 的时间约到了 3 月初。</p>
@@ -650,9 +650,9 @@ solution passes the test cases, it will be removed from your home folder.
 <li>Google 会保证面试者在 onsite 期间，在任何一个时间点都有人陪伴——这可能是为了保密要求——Google 的 office 是禁止拍照的。我在 onsite 午饭后，我的面试官因为一些临时事件要迟到几分钟，因此 recruiter 在把我送到会议室就马上就找来了另一位工程师陪我闲聊了一段时间。</li>
 <li>每一轮面试结束，面试官都会把你在 Google Docs 上写下的东西备份下来，用来做后续的评估。</li>
 <li>除了 Google Docs，会议室里还有两个白板，可以用来写代码，也可以用来画图讨论。</li>
-<li>我经历的 5 轮面试 6 个面试官中，有一半看上去像 35 岁以上的<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>。</li>
-<li>有一个面试官看了我的简历，说：“Ah, you’re a Chinese, then you can speak more languages than me. I’m a native English speaker and I can only speak English.”</li>
-<li>有一轮面试是两个面试官，其中一个面试官主导面试，另一个面试官在旁边记录一些东西——我猜有可能是见习面试官在学习该如何面试吧。同样是这轮面试，我在 Google Docs 上写代码，由于是写 Python，会有“缩进”的问题，面试官一边提醒我说“Don’t care about indentation”，同时又在 Google Docs 里帮我设置了写代码用的等宽字体。</li>
+<li>我经历的 5 轮面试 6 个面试官中，有一半看上去像 35 岁以上的<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</li>
+<li>有一个面试官看了我的简历，说："Ah, you're a Chinese, then you can speak more languages than me. I'm a native English speaker and I can only speak English."</li>
+<li>有一轮面试是两个面试官，其中一个面试官主导面试，另一个面试官在旁边记录一些东西——我猜有可能是见习面试官在学习该如何面试吧。同样是这轮面试，我在 Google Docs 上写代码，由于是写 Python，会有“缩进”的问题，面试官一边提醒我说"Don't care about indentation"，同时又在 Google Docs 里帮我设置了写代码用的等宽字体。</li>
 <li>所有的饮料都是免费的，:-)</li>
 <li>午饭自助餐也是免费的，果汁是大厨现榨的，:-)</li>
 </ul>
@@ -661,12 +661,12 @@ solution passes the test cases, it will be removed from your home folder.
 <p>我的 onsite 面试从上午 10 点开始，一直持续到下午 15:00，除了中间和 recruiter 一起吃了顿午饭休整了半小时外，中途没有任何休息。面试结束走出 Google office 的时候，感觉人有些晃晃忽忽的，于是就在路边长椅休息了 30 分钟，晒晒太阳。我当时自评感觉还是蛮不错的——有一道算法题，给出了 brute force 的代码后也给出了最优解决方案的思路，但是限于时间并没有给出最终的优化版的代码，这个应该是比较大的瑕疵；还有个小瑕疵是， Troubleshooting 题，由于以前没有碰到过类似的题目的解答思路，在前面绕了很长时间，给出了很多“正确但无用”的大段阐述。相比较而言，别的题目都是面试官主动问面试者问题，而面试者需要给出答案；但是 Troubleshooting 更多的是需要面试者去问面试官问题，面试官给出每个问题的答案，面试者通过这些信息，逐渐缩小 Troubleshooting 的目标，最终定位到问题所在。我一开始完全没有理解到 Troubleshooting 正确的解题思路和交流方式，一直傻傻地等着面试官问我问题，而面试官也在一直等着我问他问题，这样他好给出答案，推进 Troubleshooting 的过程，就这样耽误了很长时间。等到我后来明白了应对 Troubleshooting 题目正确的交流方式怎么一回事时，时间已然所剩不多了，所以到最后这个题也没有答得特别好。我后来和一个同样面试过 Google 的朋友前辈探讨了下这个问题，他说“我所经历的面试，都是要竭力揣测和理解面试官的心思，他想考什么知识点。而我面试别人的的时候总是在竭力理解对方想说什么，生怕错过对方的闪光点”。</p>
 <p>剩下其余别的题目，我自评都没有太大的问题，所以我想如果 Google 不是标准太严苛并且不刻意卡人的话，我应该是通过 onsite 了。不过很可惜，几周之后还是收到了 Google 的拒信：</p>
 <p><a href="/static/image/2017/google-foobar/rejection.png"><img src="/static/image/2017/google-foobar/rejection.png" /></a></p>
-<p>拒信里所说的 Troubleshooting 和 Algorithm 方面的问题，我是有所预料的，但是“you didn’t make much progress in the system design” 实在是让我有些莫名其妙，我最终也没想起来 system design 哪里出了差错。不过木已成舟，我倒并没有特别在意这个结果，相较于很多公司面试后杳无音信的“默拒”，Google 的这个 “constructive feedback”已经算是不错的了。还有，再怎么说，蹭了机票酒店在澳洲玩了一圈，怎么着也不是个亏本的买卖，对吧？</p>
+<p>拒信里所说的 Troubleshooting 和 Algorithm 方面的问题，我是有所预料的，但是"you didn't make much progress in the system design" 实在是让我有些莫名其妙，我最终也没想起来 system design 哪里出了差错。不过木已成舟，我倒并没有特别在意这个结果，相较于很多公司面试后杳无音信的“默拒”，Google 的这个 "constructive feedback"已经算是不错的了。还有，再怎么说，蹭了机票酒店在澳洲玩了一圈，怎么着也不是个亏本的买卖，对吧？</p>
 <h2 id="总结">总结</h2>
 <p>1 轮 foo.bar，2.5 轮电话面试，5 轮 onsite 面试，持续 4 个月，总体耗时 3–4 周，尽管没有拿到 offer，但这依然是一段很有意思的经历，引发了我很多思考。</p>
 <p>整个应聘的流程，至少接触了 4 位 recruiter，8 个面试官，2 个第三方服务者，算上人力的时间成本，加上 onsite 的机票酒店餐饮签证成本，最后再考虑下 onsite 的通过率，我估计 Google 要招聘到一个合格的员工，成本至少是在十万人民币级别的。可见顶尖的人才是相当昂贵的，这还仅仅只是招聘成本。</p>
 <p>话说回来，于我而言，自信一点地说，虽然 Google 这加起来 8.5 轮的技术面试考查足够广泛，但是这依然只覆盖到了我所有计算机知识储备的 1/10 左右。在前端 CSS/JavaScript、Functional Programming (Lisp/Scheme)、Web Development (Django/Flask/HTTP/RESTful)，Automation Tools (Ansible/Jenkins/CI)、 Emacs/Vim/Git、LaTeX/TikZ 等等我日常工作中广泛使用的技术或工具，Google 的面试都没有考查。</p>
-<p>所以如何准确地评估一个人的技术能力，是招聘中的最大难题。就现在的 IT 技术招聘体制而言，大多数公司采用的无非就是在一定的时间和资源限制下，解决一些面试官心中有明确标准答案的 puzzles——但是这种选拔真得能很好的反应一个面试者在实际工作中的能力么<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>？无妨举几个例子。</p>
+<p>所以如何准确地评估一个人的技术能力，是招聘中的最大难题。就现在的 IT 技术招聘体制而言，大多数公司采用的无非就是在一定的时间和资源限制下，解决一些面试官心中有明确标准答案的 puzzles——但是这种选拔真得能很好的反应一个面试者在实际工作中的能力么<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>？无妨举几个例子。</p>
 <p><a href="https://brew.sh/">Homebrew</a> 是 macOS 上应用最广泛的包管理器，用 Ruby 实现，截止到 2017 年 4 月，在 Github 上有 7000+ 个 star、13000+ 个 commit、540+ 个 contributor。其作者 <a href="https://github.com/mxcl">Max Howell</a> 去 Google 面试时，因为一道基础的 Invert Binary Tree 的算法 puzzle 没有答好而被拒，事后 Max Howell 在 Twitter 上说：</p>
 <blockquote>
 <p>Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so fuck off.</p>
@@ -674,26 +674,26 @@ solution passes the test cases, it will be removed from your home folder.
 <p>这个事情在<a href="https://www.zhihu.com/question/31202353">知乎</a>、<a href="https://www.quora.com/Whats-the-logic-behind-Google-rejecting-Max-Howell-the-author-of-Homebrew-for-not-being-able-to-invert-a-binary-tree">Quora</a>、<a href="https://news.ycombinator.com/item?id=9695102">HackerNews</a> 以及很多社区引起了相当广泛的讨论。</p>
 <p><a href="http://david.heinemeierhansson.com/">DHH</a>，<a href="http://rubyonrails.org/">Rails</a> 的作者，发 Twitter 说：</p>
 <blockquote>
-<p>Hello, my name is David. I would fail to write bubble sort on a whiteboard. I look code up on the internet all the time. I don’t do riddles.</p>
+<p>Hello, my name is David. I would fail to write bubble sort on a whiteboard. I look code up on the internet all the time. I don't do riddles.</p>
 </blockquote>
 <p>相关讨论：<a href="https://news.ycombinator.com/item?id=13739329">HackerNews</a>。</p>
-<p>Quora 上还有一个非常有意思的讨论：<a href="https://www.quora.com/Can-every-CS-professor-pass-Googles-interview">Can every CS professor pass Google’s interview?</a>，推荐看看，很有意思。有一个 UIUC 的 PhD 是这样说的：</p>
+<p>Quora 上还有一个非常有意思的讨论：<a href="https://www.quora.com/Can-every-CS-professor-pass-Googles-interview">Can every CS professor pass Google's interview?</a>，推荐看看，很有意思。有一个 UIUC 的 PhD 是这样说的：</p>
 <blockquote>
 <p>No, as far as software engineering positions are concerned.</p>
 <p>Interviewing Google-style, coding on whiteboards, and other skills and knowledge needed for software engineering positions are learned skills. Professors generally do not gain these skills during the course of their jobs.</p>
 <p>I would be willing to bet several thousand dollars that at least half of my CS professors at UIUC would fail the normal Google software engineer interview process, especially the older ones. Most of them would never pursue such a position in any case.</p>
-<p>— <a href="https://www.quora.com/Can-every-CS-professor-pass-Googles-interview/answer/Shane-Ryoo" class="uri">https://www.quora.com/Can-every-CS-professor-pass-Googles-interview/answer/Shane-Ryoo</a></p>
+<p>— <a href="https://www.quora.com/Can-every-CS-professor-pass-Googles-interview/answer/Shane-Ryoo">https://www.quora.com/Can-every-CS-professor-pass-Googles-interview/answer/Shane-Ryoo</a></p>
 </blockquote>
 <p>而事实上，这几年关于 <a href="https://medium.com/@evnowandforever/f-you-i-quit-hiring-is-broken-bb8f3a48d324">Hiring Is Broken</a> 的<a href="https://news.ycombinator.com/item?id=11579757">讨论</a>不绝于耳，以至于 Github 有人专门建立了一个项目，就叫 <a href="https://github.com/poteto/hiring-without-whiteboards">hiring-without-whiteboards</a>。这个项目列出了几百家不采用白板写代码面试方式的公司——我粗略看了下，这些公司更多的时采用更接近于真实工作方式的通过 Take-home project + onsite discuss 的方式来进行招聘。</p>
 <p>所以 Hiring 到底是不是 Broken，这个问题归根结底是怎样在一定的资源限制下（包括时间、金钱等等）快速评估一个人的技术能力。事实上最好的评估一个人的技术能力的办法，就是和他一起工作一段时间，但是这个成本，无论是时间成本还是金钱成本，无论是对个人还是公司，都太高了。而我也越来越有种感觉，就是流水线化标准的 Phone Screening + Onsite Interview，恐怕也会越来越不再适应新时代的发展了。</p>
 <p>Hiring 会走向何方？我认为未鹏几年前的的文章《<a href="http://mindhacks.cn/2011/11/04/how-to-interview-a-person-for-two-years/">怎样花两年时间去面试一个人</a>》提供了一个很好的思路。</p>
 <p>此记。</p>
-<section class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>事实上，对于非专业的算法选手，网络流算法的在实际应用中是相当少见的，<a href="https://www.zhihu.com/question/54539746/answer/141266553">这里</a>有现任搜狗公司 CEO 王小川先生参加 96 年 IOI 比赛时的一个小故事。<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>所以有些诸如“编程是个青春饭，只能干到 35 岁”的说法，应该是个伪命题吧，:-)<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>知乎上有一些很有价值的讨论，参考<a href="https://www.zhihu.com/question/48743482">这里</a>和<a href="https://www.zhihu.com/question/56065457">这里</a>。<a href="#fnref3">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p>事实上，对于非专业的算法选手，网络流算法的在实际应用中是相当少见的，<a href="https://www.zhihu.com/question/54539746/answer/141266553">这里</a>有现任搜狗公司 CEO 王小川先生参加 96 年 IOI 比赛时的一个小故事。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn2" role="doc-endnote"><p>所以有些诸如“编程是个青春饭，只能干到 35 岁”的说法，应该是个伪命题吧，:-)<a href="#fnref2" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn3" role="doc-endnote"><p>知乎上有一些很有价值的讨论，参考<a href="https://www.zhihu.com/question/48743482">这里</a>和<a href="https://www.zhihu.com/question/56065457">这里</a>。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩</a></p></li>
 </ol>
 </section>
 

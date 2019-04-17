@@ -59,38 +59,38 @@
 <div class="row article-body">
   <section class="twelve wide column"><p>赋闲脱产的半年里，自己用 C++/Java/Lisp 胡乱写了几万行的代码，到了现在的公司，给 OpenStack 项目贴牛皮藓，反倒是 Python 用得最多。作为公司里面唯一的 Emacser（没准也是公司里 JJ 最长的吧，<a href="http://www.douban.com/note/232209060/">笑</a>），我一直致力于在 Emacs 平台上折腾出一套顺手的 Python 开发环境，所幸有些小心得，付诸纸面，以飨大家。</p>
 <h2 id="python.el-的选择">Python.el 的选择</h2>
-<p>Emacs 的 python-mode 有两套，一个是 Emacs 官方提供的 Python.el，另外一套是 Python 社区提供的 Python-mode.el。不过 Python.el 和 Python-mode.el 都有各种各样的小问题，Python.el 似乎是无法正确处理 Python 的 docstring，而 python-mode.el 的 menu项太过繁杂，而且很多 menu 无法正确工作。这里用到的 python.el 来自于 <a href="https://github.com/fgallina/python.el" class="uri">https://github.com/fgallina/python.el</a>，细节可以参考水木社区的<a href="http://ar.newsmth.net/thread-4c0bb9b270679d-1.html">讨论</a>。</p>
+<p>Emacs 的 python-mode 有两套，一个是 Emacs 官方提供的 Python.el，另外一套是 Python 社区提供的 Python-mode.el。不过 Python.el 和 Python-mode.el 都有各种各样的小问题，Python.el 似乎是无法正确处理 Python 的 docstring，而 python-mode.el 的 menu项太过繁杂，而且很多 menu 无法正确工作。这里用到的 python.el 来自于 <a href="https://github.com/fgallina/python.el">https://github.com/fgallina/python.el</a>，细节可以参考水木社区的<a href="http://ar.newsmth.net/thread-4c0bb9b270679d-1.html">讨论</a>。</p>
 <p>安装方法可以参考项目主页的 README，我自己针对 <a href="https://github.com/dimitri/el-get">el-get</a> 做了一个 recipe，这样以后更新装卸都会方便很多，recipe如下：</p>
-<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="bu">:name</span> python
-       :website <span class="st">&quot;https://github.com/fgallina/python.el&quot;</span>
-       :description <span class="st">&quot;improved python.el from Fabián Ezequiel Gallina&quot;</span>
-       <span class="bu">:type</span> github
-       :pkgname <span class="st">&quot;fgallina/python.el&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb1" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb1-1" title="1">(<span class="bu">:name</span> python</a>
+<a class="sourceLine" id="cb1-2" title="2">       :website <span class="st">&quot;https://github.com/fgallina/python.el&quot;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">       :description <span class="st">&quot;improved python.el from Fabián Ezequiel Gallina&quot;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">       <span class="bu">:type</span> github</a>
+<a class="sourceLine" id="cb1-5" title="5">       :pkgname <span class="st">&quot;fgallina/python.el&quot;</span>)</a></code></pre></div>
 <p>不过这个 patch 并没有被 el-get 接收，限于时间精力，我没有再去细究 el-get 撰写 recipe 的规范。</p>
 <h3 id="ipython-集成">IPython 集成</h3>
 <p>交互式的开发是 Python/Ruby/Lisp 这类动态语言的重要特性，它让程序员从“编码 –&gt; 编译 –&gt; 运行 –&gt; 调试”的程序开发工程链中解放出来，从老旧的批处理是开发过渡到现代的交互式开发。如果你用过 <a href="http://v.youku.com/v_show/id_XMjYxNjM4MDQ0.html">SLIME</a>，你就会知道，交互式的开发不仅仅是一种开发模式， SLIME 也不仅仅是一种工具，而是一种编程的革命。Emacs 集成 IPython，虽然没有 SLIME 那么强大，但是对于提高开发效率还是有莫大的帮助的。幸运的是，fgalling/python.el 是支持 <a href="https://ipython.org/">IPython</a> 的。关于 fgalling/python.el 的参考设置如下：</p>
-<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(add-to-list &#39;load-path (expand-file-name
-                         <span class="st">&quot;~/.emacs.d/el-get/python&quot;</span>))
-(<span class="kw">require</span> &#39;python)
-(add-to-list &#39;auto-mode-alist &#39;(<span class="st">&quot;</span>\\<span class="st">.py</span>\\<span class="st">&#39;&quot;</span> . python-mode))
-(<span class="kw">setq</span>
- python-shell-interpreter <span class="st">&quot;ipython2&quot;</span>
- python-shell-interpreter-args <span class="st">&quot;&quot;</span>
- python-shell-prompt-regexp <span class="st">&quot;In </span>\\<span class="st">[[0-9]+</span>\\<span class="st">]: &quot;</span>
- python-shell-prompt-output-regexp <span class="st">&quot;Out</span>\\<span class="st">[[0-9]+</span>\\<span class="st">]: &quot;</span>
- python-shell-completion-setup-code
- <span class="st">&quot;from IPython.core.completerlib import module_completion&quot;</span>
- python-shell-completion-module-string-code
- <span class="st">&quot;&#39;;&#39;.join(module_completion(&#39;&#39;&#39;%s&#39;&#39;&#39;))</span>\n<span class="st">&quot;</span>
- python-shell-completion-string-code
- <span class="st">&quot;&#39;;&#39;.join(get_ipython().Completer.all_completions(&#39;&#39;&#39;%s&#39;&#39;&#39;))</span>\n<span class="st">&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb2" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb2-1" title="1">(add-to-list &#39;load-path (expand-file-name</a>
+<a class="sourceLine" id="cb2-2" title="2">                         <span class="st">&quot;~/.emacs.d/el-get/python&quot;</span>))</a>
+<a class="sourceLine" id="cb2-3" title="3">(<span class="kw">require</span> &#39;python)</a>
+<a class="sourceLine" id="cb2-4" title="4">(add-to-list &#39;auto-mode-alist &#39;(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">.py</span><span class="sc">\\</span><span class="st">&#39;&quot;</span> . python-mode))</a>
+<a class="sourceLine" id="cb2-5" title="5">(<span class="kw">setq</span></a>
+<a class="sourceLine" id="cb2-6" title="6"> python-shell-interpreter <span class="st">&quot;ipython2&quot;</span></a>
+<a class="sourceLine" id="cb2-7" title="7"> python-shell-interpreter-args <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb2-8" title="8"> python-shell-prompt-regexp <span class="st">&quot;In </span><span class="sc">\\</span><span class="st">[[0-9]+</span><span class="sc">\\</span><span class="st">]: &quot;</span></a>
+<a class="sourceLine" id="cb2-9" title="9"> python-shell-prompt-output-regexp <span class="st">&quot;Out</span><span class="sc">\\</span><span class="st">[[0-9]+</span><span class="sc">\\</span><span class="st">]: &quot;</span></a>
+<a class="sourceLine" id="cb2-10" title="10"> python-shell-completion-setup-code</a>
+<a class="sourceLine" id="cb2-11" title="11"> <span class="st">&quot;from IPython.core.completerlib import module_completion&quot;</span></a>
+<a class="sourceLine" id="cb2-12" title="12"> python-shell-completion-module-string-code</a>
+<a class="sourceLine" id="cb2-13" title="13"> <span class="st">&quot;&#39;;&#39;.join(module_completion(&#39;&#39;&#39;%s&#39;&#39;&#39;))</span><span class="sc">\n</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb2-14" title="14"> python-shell-completion-string-code</a>
+<a class="sourceLine" id="cb2-15" title="15"> <span class="st">&quot;&#39;;&#39;.join(get_ipython().Completer.all_completions(&#39;&#39;&#39;%s&#39;&#39;&#39;))</span><span class="sc">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
 <p>常用快捷键：</p>
 <ul>
 <li><code>C-c C-z</code> – <code>(python-shell-switch-to-shell)</code> ，切换至 IPython 解释器</li>
 <li><code>C-c C-c</code> – <code>(python-shell-send-buffer &amp;optional ARG)</code> ，发送整个 buffer 内容到 IPython 解释器运行</li>
 </ul>
 <h2 id="emacs-补全-pymacs-和-ropemacs">Emacs 补全： Pymacs 和 Ropemacs</h2>
-<p>语言补全一直是 Vim/Emacs 这类上古 “IDE” 的弱项，每种语言都有自己的补全插件、配置方法和版本差异，而网上资料、特别是中文资料，或是陈旧潦草，或是语焉不详，常常让初学者们不知所措。本文所载内容恐怕两年左右就会过时，诸位看官高贤注意鉴别……</p>
+<p>语言补全一直是 Vim/Emacs 这类上古 "IDE" 的弱项，每种语言都有自己的补全插件、配置方法和版本差异，而网上资料、特别是中文资料，或是陈旧潦草，或是语焉不详，常常让初学者们不知所措。本文所载内容恐怕两年左右就会过时，诸位看官高贤注意鉴别……</p>
 <p>Emacs 下的通用补全插件大概就是 <a href="http://cx4a.org/software/auto-complete">auto-complete</a> 和 <a href="http://capitaomorte.github.com/yasnippet/">yasnippet</a> 了，前者可以做出基于 buffer 分词的补全，后者可以基于特定编程语言语法结构的补全。不过基于语义的补全， Emacs + Python下用的是 Pymacs 和 Ropemacs。需要安装的有</p>
 <ul>
 <li>pymacs</li>
@@ -99,22 +99,22 @@
 <li>ropemode</li>
 </ul>
 <p>以上均可通过 el-get 安装。如若使用过程中出现莫名问题，不要纠缠，有可能是版本问题，无妨试验下用 apt-get/pacman/yum 安装。我本机上的配置如下：</p>
-<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span class="co">;;; pymacs, rope and ropemacs</span>
-(add-to-list &#39;load-path <span class="st">&quot;~/.emacs.d/el-get/pymacs&quot;</span>)
-(<span class="kw">require</span> &#39;pymacs)
-
-(<span class="kw">setq</span> pymacs-load-path &#39;(<span class="st">&quot;~/.emacs.d/el-get/rope&quot;</span>
-                         <span class="st">&quot;~/.emacs.d/el-get/ropemacs&quot;</span>))
-
-<span class="co">;; Initialize Pymacs</span>
-(autoload &#39;pymacs-apply <span class="st">&quot;pymacs&quot;</span>)
-(autoload &#39;pymacs-call <span class="st">&quot;pymacs&quot;</span>)
-(autoload &#39;pymacs-eval <span class="st">&quot;pymacs&quot;</span> <span class="kw">nil</span> <span class="kw">t</span>)
-(autoload &#39;pymacs-exec <span class="st">&quot;pymacs&quot;</span> <span class="kw">nil</span> <span class="kw">t</span>)
-(autoload &#39;pymacs-load <span class="st">&quot;pymacs&quot;</span> <span class="kw">nil</span> <span class="kw">t</span>)
-<span class="co">;; Initialize Rope</span>
-(pymacs-load <span class="st">&quot;ropemacs&quot;</span> <span class="st">&quot;rope-&quot;</span>)
-(<span class="kw">setq</span> ropemacs-enable-autoimport <span class="kw">t</span>)</code></pre></div>
+<div class="sourceCode" id="cb3" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb3-1" title="1"><span class="co">;;; pymacs, rope and ropemacs</span></a>
+<a class="sourceLine" id="cb3-2" title="2">(add-to-list &#39;load-path <span class="st">&quot;~/.emacs.d/el-get/pymacs&quot;</span>)</a>
+<a class="sourceLine" id="cb3-3" title="3">(<span class="kw">require</span> &#39;pymacs)</a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">(<span class="kw">setq</span> pymacs-load-path &#39;(<span class="st">&quot;~/.emacs.d/el-get/rope&quot;</span></a>
+<a class="sourceLine" id="cb3-6" title="6">                         <span class="st">&quot;~/.emacs.d/el-get/ropemacs&quot;</span>))</a>
+<a class="sourceLine" id="cb3-7" title="7"></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co">;; Initialize Pymacs</span></a>
+<a class="sourceLine" id="cb3-9" title="9">(autoload &#39;pymacs-apply <span class="st">&quot;pymacs&quot;</span>)</a>
+<a class="sourceLine" id="cb3-10" title="10">(autoload &#39;pymacs-call <span class="st">&quot;pymacs&quot;</span>)</a>
+<a class="sourceLine" id="cb3-11" title="11">(autoload &#39;pymacs-eval <span class="st">&quot;pymacs&quot;</span> <span class="kw">nil</span> <span class="kw">t</span>)</a>
+<a class="sourceLine" id="cb3-12" title="12">(autoload &#39;pymacs-exec <span class="st">&quot;pymacs&quot;</span> <span class="kw">nil</span> <span class="kw">t</span>)</a>
+<a class="sourceLine" id="cb3-13" title="13">(autoload &#39;pymacs-load <span class="st">&quot;pymacs&quot;</span> <span class="kw">nil</span> <span class="kw">t</span>)</a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="co">;; Initialize Rope</span></a>
+<a class="sourceLine" id="cb3-15" title="15">(pymacs-load <span class="st">&quot;ropemacs&quot;</span> <span class="st">&quot;rope-&quot;</span>)</a>
+<a class="sourceLine" id="cb3-16" title="16">(<span class="kw">setq</span> ropemacs-enable-autoimport <span class="kw">t</span>)</a></code></pre></div>
 <h2 id="virtualenv">virtualenv</h2>
 <p><a href="http://www.virtualenv.org/en/latest/index.html">virtualenv</a> 是 Python 的 sandbox（沙盒）。那么什么是 sandbox 呢？</p>
 <p>在日常开发中我们常常碰到这样的场景：</p>
@@ -131,7 +131,7 @@
 <h3 id="virtualenvwrapper">virtualenvwrapper</h3>
 <p>virtualenv 默认是在当前目录下建立一个 .venv 目录，但是这样有一个问题，就是 virtualenv 本身的管理很不方便，因为需要记忆不同的 .venv 的存放位置、具体用途等等。 <a href="http://www.doughellmann.com/projects/virtualenvwrapper/">virtualenvwrapper</a> 则通过一些 Python 和 shell 脚本，在 virtualenv 的基础上建立了一层抽象，实现了对 virtualenv 本身的统一管理。virtualenvwrapper 会默认在 <code>$HOME/.virtualenvs</code> 目录下创建所有的 virtualenv。</p>
 <p>virtualenv 和 virtualenvwrapper 均可以通过 python pip 安装：</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">pip</span> install virtualenv virtualenvwrapper</code></pre></div>
+<div class="sourceCode" id="cb4" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">pip</span> install virtualenv virtualenvwrapper</a></code></pre></div>
 <p>常用命令：</p>
 <ul>
 <li><code>mkvirtualenv venv_name</code> – 建立一个新的 virtualenv，</li>
@@ -140,22 +140,22 @@
 <h3 id="virtualenv.el">virtualenv.el</h3>
 <p><a href="https://github.com/aculich/virtualenv.el">virtualenv.el</a> 可以配合 Emacs 集成 virtualenv，可以通过 el-get 安装。 virtualenv.el需要 virtualenv 和 virtualenvwrapper。</p>
 <p>配置：</p>
-<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span class="co">;; virtualenv support</span>
-(add-to-list &#39;load-path (expand-file-name
-                         <span class="st">&quot;~/.emacs.d/el-get/virtualenv&quot;</span>))
-(<span class="kw">require</span> &#39;virtualenv)</code></pre></div>
+<div class="sourceCode" id="cb5" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb5-1" title="1"><span class="co">;; virtualenv support</span></a>
+<a class="sourceLine" id="cb5-2" title="2">(add-to-list &#39;load-path (expand-file-name</a>
+<a class="sourceLine" id="cb5-3" title="3">                         <span class="st">&quot;~/.emacs.d/el-get/virtualenv&quot;</span>))</a>
+<a class="sourceLine" id="cb5-4" title="4">(<span class="kw">require</span> &#39;virtualenv)</a></code></pre></div>
 <p>常用命令：</p>
 <ul>
 <li><code>M-x virtualenv-workon</code> – 切换 virtualenv</li>
 </ul>
 <h2 id="miscs">Miscs</h2>
 <p>一些 hook 设置：</p>
-<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(add-hook &#39;python-mode-hook
-          (<span class="kw">lambda</span> ()
-            (ropemacs-mode)
-            (global-set-key (kbd <span class="st">&quot;RET&quot;</span>) &#39;newline-and-indent)
-            (auto-fill-mode <span class="dv">1</span>)
-            (virtualenv-minor-mode <span class="dv">1</span>)))</code></pre></div>
+<div class="sourceCode" id="cb6" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb6-1" title="1">(add-hook &#39;python-mode-hook</a>
+<a class="sourceLine" id="cb6-2" title="2">          (<span class="kw">lambda</span> ()</a>
+<a class="sourceLine" id="cb6-3" title="3">            (ropemacs-mode)</a>
+<a class="sourceLine" id="cb6-4" title="4">            (global-set-key (kbd <span class="st">&quot;RET&quot;</span>) &#39;newline-and-indent)</a>
+<a class="sourceLine" id="cb6-5" title="5">            (auto-fill-mode <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb6-6" title="6">            (virtualenv-minor-mode <span class="dv">1</span>)))</a></code></pre></div>
 <p>除了以上，Emacs 中和 Python 开发有关的插件还可以有 pylint、pep8、pyflakes 等，参考文章：</p>
 <ul>
 <li><a href="http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/">Configuring Emacs as a Python IDE</a></li>

@@ -65,89 +65,89 @@
 <li>标题</li>
 <li>URL</li>
 </ul>
-<p>方式是通过 Wget 和 Bash 的 <code class="sourceCode bash" rundoc-language="sh"><span class="kw">for</span></code> 循环：</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="ex">i</span> in <span class="kw">`</span><span class="fu">seq</span> 1 26<span class="kw">`;</span> <span class="kw">do</span> <span class="fu">wget</span> -c http://cnlox.is-programmer.com/\?page\=<span class="va">$i</span> -O <span class="va">$i</span>.html<span class="kw">;</span> <span class="kw">done</span>
-
-$ <span class="fu">ls</span>
-<span class="ex">1.html</span>    11.html   13.html   15.html   17.html   19.html   20.html   22.html   24.html   26.html   4.html    6.html    8.html
-<span class="ex">10.html</span>   12.html   14.html   16.html   18.html   2.html    21.html   23.html   25.html   3.html    5.html    7.html    9.html
-
-$ <span class="kw">for</span> <span class="ex">i</span> in <span class="kw">`</span><span class="fu">seq</span> 1 26<span class="kw">`;</span> <span class="kw">do</span> <span class="fu">grep</span> link_to_post <span class="va">$i</span>.html<span class="kw">;</span> <span class="kw">done</span> <span class="op">&gt;</span> <span class="ex">urls.html</span></code></pre></div>
+<p>方式是通过 Wget 和 Bash 的 <code class="sourceCode bash" data-org-language="sh"><span class="kw">for</span></code> 循环：</p>
+<div class="sourceCode" id="cb1" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="kw">for</span> <span class="ex">i</span> in <span class="kw">`</span><span class="fu">seq</span> 1 26<span class="kw">`;</span> <span class="kw">do</span> <span class="fu">wget</span> -c http://cnlox.is-programmer.com/\?page\=<span class="va">$i</span> -O <span class="va">$i</span>.html<span class="kw">;</span> <span class="kw">done</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3">$ <span class="fu">ls</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="ex">1.html</span>    11.html   13.html   15.html   17.html   19.html   20.html   22.html   24.html   26.html   4.html    6.html    8.html</a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="ex">10.html</span>   12.html   14.html   16.html   18.html   2.html    21.html   23.html   25.html   3.html    5.html    7.html    9.html</a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7">$ <span class="kw">for</span> <span class="ex">i</span> in <span class="kw">`</span><span class="fu">seq</span> 1 26<span class="kw">`;</span> <span class="kw">do</span> <span class="fu">grep</span> link_to_post <span class="va">$i</span>.html<span class="kw">;</span> <span class="kw">done</span> <span class="op">&gt;</span> <span class="ex">urls.html</span></a></code></pre></div>
 <p>这样我们拿到了一个 <code>urls.html</code></p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/44972.html&quot;</span><span class="kw">&gt;</span>Goodbye and Thanks to is-programmer<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/43206.html&quot;</span><span class="kw">&gt;</span>2013, 青春绝版<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/42237.html&quot;</span><span class="kw">&gt;</span>Announcing oh-my-emacs v0.3<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/40912.html&quot;</span><span class="kw">&gt;</span> Announcing ac-geiser v0.1<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/40749.html&quot;</span><span class="kw">&gt;</span>Announcing oh-my-emacs v0.1<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/39883.html&quot;</span><span class="kw">&gt;</span>OpenStack开发杂谈<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/37506.html&quot;</span><span class="kw">&gt;</span>轻松一刻：电影条形码转换脚本<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/37288.html&quot;</span><span class="kw">&gt;</span>慎言多思<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/37276.html&quot;</span><span class="kw">&gt;</span>李彦宏的“罪己诏”<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/37030.html&quot;</span><span class="kw">&gt;</span>2012，静水深流&lt;/a&gt;<span class="kw">&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/37022.html&quot;</span><span class="kw">&gt;</span>陪床记<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/35867.html&quot;</span><span class="kw">&gt;</span>Emacs as a Python IDE<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/35680.html&quot;</span><span class="kw">&gt;</span>读行记：孤单是一个人的狂欢<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/34489.html&quot;</span><span class="kw">&gt;</span>偷得浮生半年闲<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span>
-<span class="co">&lt;!-- ... --&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/44972.html&quot;</span><span class="kw">&gt;</span>Goodbye and Thanks to is-programmer<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/43206.html&quot;</span><span class="kw">&gt;</span>2013, 青春绝版<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/42237.html&quot;</span><span class="kw">&gt;</span>Announcing oh-my-emacs v0.3<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/40912.html&quot;</span><span class="kw">&gt;</span> Announcing ac-geiser v0.1<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/40749.html&quot;</span><span class="kw">&gt;</span>Announcing oh-my-emacs v0.1<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/39883.html&quot;</span><span class="kw">&gt;</span>OpenStack开发杂谈<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/37506.html&quot;</span><span class="kw">&gt;</span>轻松一刻：电影条形码转换脚本<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/37288.html&quot;</span><span class="kw">&gt;</span>慎言多思<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/37276.html&quot;</span><span class="kw">&gt;</span>李彦宏的“罪己诏”<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/37030.html&quot;</span><span class="kw">&gt;</span>2012，静水深流&lt;/a&gt;<span class="kw">&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/37022.html&quot;</span><span class="kw">&gt;</span>陪床记<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/35867.html&quot;</span><span class="kw">&gt;</span>Emacs as a Python IDE<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/35680.html&quot;</span><span class="kw">&gt;</span>读行记：孤单是一个人的狂欢<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;link_to_post&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://cnlox.is-programmer.com/posts/34489.html&quot;</span><span class="kw">&gt;</span>偷得浮生半年闲<span class="kw">&lt;/a&gt;&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-15" title="15"><span class="co">&lt;!-- ... --&gt;</span></a></code></pre></div>
 <p>我通过 <a href="http://vim.wikia.com/wiki/Macros">Vim Macro</a>，把这个文件的内容变成 <a href="http://yaml.org/">YAML</a> 格式，并加入一个额外的 <code>english_title</code> 字段，这个字段会变成新的文章的 <a href="https://en.wikipedia.org/wiki/URL">URL Path</a> 的一部分：</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="co"># url_list.yaml</span>
-<span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/44972.html</span>
-  <span class="fu">title:</span><span class="at"> Goodbye and Thanks to is-programmer.com</span>
-  <span class="fu">english-title:</span><span class="at"> goodbye-and-thanks-to-is-programmer</span>
-<span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/43206.html</span>
-  <span class="fu">title:</span><span class="at"> 2013, 青春绝版</span>
-  <span class="fu">english-title:</span><span class="at"> 2013-summary</span>
-<span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/42237.html</span>
-  <span class="fu">title:</span><span class="at"> Announcing oh-my-emacs v0.3</span>
-  <span class="fu">english-title:</span><span class="at"> announcing-oh-my-emacs-v0.3</span>
-<span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/40912.html</span>
-  <span class="fu">title:</span><span class="at"> Announcing ac-geiser v0.1</span>
-  <span class="fu">english-title:</span><span class="at"> announcing-ac-geiser-v0.2</span>
-<span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/40749.html</span>
-  <span class="fu">title:</span><span class="at"> Announcing oh-my-emacs v0.1</span>
-  <span class="fu">english-title:</span><span class="at"> announcing-oh-my-emacs-v0.2</span>
-<span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/39883.html</span>
-  <span class="fu">title:</span><span class="at"> OpenStack开发杂谈</span>
-  <span class="fu">english-title:</span><span class="at"> misc-thoughts-on-openstack-development</span>
-<span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/37506.html</span>
-  <span class="fu">title:</span><span class="at"> 轻松一刻：电影条形码转换脚本</span>
-  <span class="fu">english-title:</span><span class="at"> just-for-fun-moviebarcode-shell-script</span>
-<span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/37288.html</span>
-  <span class="fu">title:</span><span class="at"> 慎言多思</span>
-  <span class="fu">english-title:</span><span class="at"> fewer-words-more-thoughts</span>
-<span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/37276.html</span>
-  <span class="fu">title:</span><span class="at"> 李彦宏的“罪己诏”</span>
-  <span class="fu">english-title:</span><span class="at"> thoughts-on-baidu</span>
-<span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/37030.html</span>
-  <span class="fu">title:</span><span class="at"> 2012，静水深流</span>
-  <span class="fu">english-title:</span><span class="at"> 2012-summary</span>
-<span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/37022.html</span>
-  <span class="fu">title:</span><span class="at"> 陪床记</span>
-  <span class="fu">english-title:</span><span class="at"> for-my-father</span>
-<span class="co"># ...</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># url_list.yaml</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/44972.html</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="fu">title:</span><span class="at"> Goodbye and Thanks to is-programmer.com</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="fu">english-title:</span><span class="at"> goodbye-and-thanks-to-is-programmer</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/43206.html</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="fu">title:</span><span class="at"> 2013, 青春绝版</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="fu">english-title:</span><span class="at"> 2013-summary</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/42237.html</span></a>
+<a class="sourceLine" id="cb3-9" title="9">  <span class="fu">title:</span><span class="at"> Announcing oh-my-emacs v0.3</span></a>
+<a class="sourceLine" id="cb3-10" title="10">  <span class="fu">english-title:</span><span class="at"> announcing-oh-my-emacs-v0.3</span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/40912.html</span></a>
+<a class="sourceLine" id="cb3-12" title="12">  <span class="fu">title:</span><span class="at"> Announcing ac-geiser v0.1</span></a>
+<a class="sourceLine" id="cb3-13" title="13">  <span class="fu">english-title:</span><span class="at"> announcing-ac-geiser-v0.2</span></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/40749.html</span></a>
+<a class="sourceLine" id="cb3-15" title="15">  <span class="fu">title:</span><span class="at"> Announcing oh-my-emacs v0.1</span></a>
+<a class="sourceLine" id="cb3-16" title="16">  <span class="fu">english-title:</span><span class="at"> announcing-oh-my-emacs-v0.2</span></a>
+<a class="sourceLine" id="cb3-17" title="17"><span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/39883.html</span></a>
+<a class="sourceLine" id="cb3-18" title="18">  <span class="fu">title:</span><span class="at"> OpenStack开发杂谈</span></a>
+<a class="sourceLine" id="cb3-19" title="19">  <span class="fu">english-title:</span><span class="at"> misc-thoughts-on-openstack-development</span></a>
+<a class="sourceLine" id="cb3-20" title="20"><span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/37506.html</span></a>
+<a class="sourceLine" id="cb3-21" title="21">  <span class="fu">title:</span><span class="at"> 轻松一刻：电影条形码转换脚本</span></a>
+<a class="sourceLine" id="cb3-22" title="22">  <span class="fu">english-title:</span><span class="at"> just-for-fun-moviebarcode-shell-script</span></a>
+<a class="sourceLine" id="cb3-23" title="23"><span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/37288.html</span></a>
+<a class="sourceLine" id="cb3-24" title="24">  <span class="fu">title:</span><span class="at"> 慎言多思</span></a>
+<a class="sourceLine" id="cb3-25" title="25">  <span class="fu">english-title:</span><span class="at"> fewer-words-more-thoughts</span></a>
+<a class="sourceLine" id="cb3-26" title="26"><span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/37276.html</span></a>
+<a class="sourceLine" id="cb3-27" title="27">  <span class="fu">title:</span><span class="at"> 李彦宏的“罪己诏”</span></a>
+<a class="sourceLine" id="cb3-28" title="28">  <span class="fu">english-title:</span><span class="at"> thoughts-on-baidu</span></a>
+<a class="sourceLine" id="cb3-29" title="29"><span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/37030.html</span></a>
+<a class="sourceLine" id="cb3-30" title="30">  <span class="fu">title:</span><span class="at"> 2012，静水深流</span></a>
+<a class="sourceLine" id="cb3-31" title="31">  <span class="fu">english-title:</span><span class="at"> 2012-summary</span></a>
+<a class="sourceLine" id="cb3-32" title="32"><span class="kw">-</span> <span class="fu">url:</span><span class="at"> http://cnlox.is-programmer.com/posts/37022.html</span></a>
+<a class="sourceLine" id="cb3-33" title="33">  <span class="fu">title:</span><span class="at"> 陪床记</span></a>
+<a class="sourceLine" id="cb3-34" title="34">  <span class="fu">english-title:</span><span class="at"> for-my-father</span></a>
+<a class="sourceLine" id="cb3-35" title="35"><span class="co"># ...</span></a></code></pre></div>
 <p>我原有的 Blog 文章，每一篇都会有一些 tag，但是这些 tag 的拼写有很多是错误的，因此我又将所有的 tag 爬取下来并 fix，也是保存成 YAML 格式以方便程序读取：</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="co"># tags_fix.yaml</span>
-<span class="fu">amarok:</span><span class="at"> Amarok</span>
-<span class="fu">animal:</span><span class="at"> Animal</span>
-<span class="fu">apache:</span><span class="at"> Apache</span>
-<span class="fu">api:</span><span class="at"> API</span>
-<span class="fu">archlinux:</span><span class="at"> Arch Linux</span>
-<span class="fu">assembly:</span><span class="at"> Assembly</span>
-<span class="fu">auctex:</span><span class="at"> AUCTeX</span>
-<span class="fu">avl:</span><span class="at"> AVL</span>
-<span class="fu">baidu:</span><span class="at"> Baidu</span>
-<span class="fu">budai:</span><span class="at"> Budai</span>
-c<span class="co">#: C#</span>
-<span class="fu">c++:</span><span class="at"> C++</span>
-<span class="fu">cc98:</span><span class="at"> CC98</span>
-<span class="fu">ccl:</span><span class="at"> CCL</span>
-<span class="fu">cdlatex:</span><span class="at"> CDLaTeX</span>
-<span class="fu">cmake:</span><span class="at"> CMAKE</span>
-<span class="fu">cocoa:</span><span class="at"> Cocoa</span>
-<span class="fu">colinux:</span><span class="at"> coLinux</span>
-<span class="fu">compiler:</span><span class="at"> Compiler</span>
-<span class="fu">conky:</span><span class="at"> conky</span>
-<span class="co"># ...</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># tags_fix.yaml</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="fu">amarok:</span><span class="at"> Amarok</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="fu">animal:</span><span class="at"> Animal</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="fu">apache:</span><span class="at"> Apache</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="fu">api:</span><span class="at"> API</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="fu">archlinux:</span><span class="at"> Arch Linux</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="fu">assembly:</span><span class="at"> Assembly</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="fu">auctex:</span><span class="at"> AUCTeX</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="fu">avl:</span><span class="at"> AVL</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="fu">baidu:</span><span class="at"> Baidu</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="fu">budai:</span><span class="at"> Budai</span></a>
+<a class="sourceLine" id="cb4-12" title="12">c<span class="co">#: C#</span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="fu">c++:</span><span class="at"> C++</span></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="fu">cc98:</span><span class="at"> CC98</span></a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="fu">ccl:</span><span class="at"> CCL</span></a>
+<a class="sourceLine" id="cb4-16" title="16"><span class="fu">cdlatex:</span><span class="at"> CDLaTeX</span></a>
+<a class="sourceLine" id="cb4-17" title="17"><span class="fu">cmake:</span><span class="at"> CMAKE</span></a>
+<a class="sourceLine" id="cb4-18" title="18"><span class="fu">cocoa:</span><span class="at"> Cocoa</span></a>
+<a class="sourceLine" id="cb4-19" title="19"><span class="fu">colinux:</span><span class="at"> coLinux</span></a>
+<a class="sourceLine" id="cb4-20" title="20"><span class="fu">compiler:</span><span class="at"> Compiler</span></a>
+<a class="sourceLine" id="cb4-21" title="21"><span class="fu">conky:</span><span class="at"> conky</span></a>
+<a class="sourceLine" id="cb4-22" title="22"><span class="co"># ...</span></a></code></pre></div>
 <p>基础工作做好之后，接下来就是写程序，根据 <code>url_list.yaml</code> 来对每一篇文章进行批量化的处理：</p>
 <ul>
 <li>抓取文章内容</li>
@@ -159,182 +159,182 @@ c<span class="co">#: C#</span>
 <li><code>category</code></li>
 <li>原文章的 URL</li>
 </ul></li>
-<li>用 <a href="http://pandoc.org/">Pandoc</a> 将抓取下的 HTML 转换成 Org-mode 格式<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></li>
+<li>用 <a href="http://pandoc.org/">Pandoc</a> 将抓取下的 HTML 转换成 Org-mode 格式<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 <li>确定迁移后的文章的 URL</li>
 <li>修正 Tag</li>
 <li>保存文件</li>
 </ul>
-<p>所以 is-programmer 抓取下来的文章，最后会被保存成一个 <code>YYYY-MM-DD-some-title.org</code> 文件和 <code>YYYY-MM-DD-some-title.yaml</code> 文件，以符合 <a href="https://nanoc.ws">Nanoc</a> 的要求<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>。</p>
+<p>所以 is-programmer 抓取下来的文章，最后会被保存成一个 <code>YYYY-MM-DD-some-title.org</code> 文件和 <code>YYYY-MM-DD-some-title.yaml</code> 文件，以符合 <a href="https://nanoc.ws">Nanoc</a> 的要求<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
 <p>保存后的 YAML 文件大约如下：</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">title:</span><span class="at"> </span><span class="st">&quot;计算机是懒人的科学&quot;</span>
-<span class="fu">created_at:</span><span class="at"> 2009-06-04T05:41:13+08:00</span>
-<span class="fu">updated_at:</span><span class="at"> 2017-04-26T17:31:07+08:00</span>
-<span class="fu">kind:</span><span class="at"> article</span>
-<span class="fu">category:</span><span class="at"> Linux</span>
-<span class="fu">tags:</span>
-<span class="kw">-</span> Ubuntu
-<span class="kw">-</span> LaTeX
-<span class="kw">-</span> Emacs
-<span class="kw">-</span> Firefox
-<span class="kw">-</span> Outdated
-<span class="fu">meta:</span>
-  <span class="fu">html:</span><span class="at"> Imported from &lt;a href=&quot;http://cnlox.is-programmer.com/posts/8790.html&quot;&gt;is-programmer&lt;/a&gt;.</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb5-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;计算机是懒人的科学&quot;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="fu">created_at:</span><span class="at"> 2009-06-04T05:41:13+08:00</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="fu">updated_at:</span><span class="at"> 2017-04-26T17:31:07+08:00</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="fu">kind:</span><span class="at"> article</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="fu">category:</span><span class="at"> Linux</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="fu">tags:</span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="kw">-</span> Ubuntu</a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="kw">-</span> LaTeX</a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="kw">-</span> Emacs</a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="kw">-</span> Firefox</a>
+<a class="sourceLine" id="cb5-12" title="12"><span class="kw">-</span> Outdated</a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="fu">meta:</span></a>
+<a class="sourceLine" id="cb5-14" title="14">  <span class="fu">html:</span><span class="at"> Imported from &lt;a href=&quot;http://cnlox.is-programmer.com/posts/8790.html&quot;&gt;is-programmer&lt;/a&gt;.</span></a></code></pre></div>
 <p>程序是用 Ruby 写的，主要还是用了 Ruby 中内建的 <a href="https://ruby-doc.org/core-2.3.0/Regexp.html">Regexp</a>。正则表达式是非常强大和方便的工具，但是每种语言、工具的实现都在一些细节处有一些细小的差别，所以实际应用时，耐心的调试和文档查询工作是少不了的。</p>
-<p>程序清单如下<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>：</p>
-<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="co"># spider.rb</span>
-require <span class="st">&#39;yaml&#39;</span>
-require <span class="st">&#39;net/http&#39;</span>
-
-list = <span class="dt">YAML</span>::load(<span class="dt">File</span>.open(<span class="st">&#39;url_list.yaml&#39;</span>).read)
-tags_fix = <span class="dt">YAML</span>::load(<span class="dt">File</span>.open(<span class="st">&#39;tags_fix.yaml&#39;</span>).read)
-
-list.each <span class="kw">do</span> |item|
-  uri = <span class="dt">URI</span>(item[<span class="st">&#39;url&#39;</span>])
-  html = <span class="dt">Net</span>::<span class="dt">HTTP</span>.get(uri)
-  tags_re = <span class="ot">/&lt;a href=&quot;\/tag\/[\S]*&quot;&gt;([\S]*)&lt;\/a&gt;/</span>
-  tags = html.scan(tags_re).flatten
-
-  category_re = <span class="ot">/&lt;div id=&quot;article_header&quot;&gt;.*&lt;a href=&quot;\/categories\/[\d]*\/posts&quot;&gt;([\S]*)&lt;\/a&gt;.*&lt;\/div&gt;/m</span>
-  category = html.scan(category_re).flatten[<span class="dv">0</span>]
-
-  date_re = <span class="ot">/posted.*@ (.* \+0800)/</span>
-  created_at = <span class="dt">DateTime</span>.parse(html.scan(date_re).flatten[<span class="dv">0</span>])
-  updated_at = <span class="dt">DateTime</span>.now
-
-  title = item[<span class="st">&#39;title&#39;</span>]
-
-  yaml = &lt;&lt;<span class="kw">YAML</span>
-<span class="ot">---</span>
-<span class="ot">title: &quot;#{</span>item[<span class="st">&quot;title&quot;</span>]<span class="ot">}&quot;</span>
-<span class="ot">created_at: #{</span>created_at.to_s<span class="ot">}</span>
-<span class="ot">updated_at: #{</span>updated_at.to_s<span class="ot">}</span>
-<span class="ot">kind: article</span>
-<span class="ot">category: #{</span>category<span class="ot">}</span>
-<span class="ot">tags:</span>
-<span class="ot">YAML</span>
-
-<span class="ot">  tags.each do |tag|</span>
-<span class="ot">    yaml += &quot;- #{</span>tags_fix[tag].force_encoding(<span class="dt">Encoding</span>::<span class="dt">UTF_8</span>)<span class="ot">}\n&quot;</span>
-<span class="ot">  end</span>
-
-<span class="ot">  yaml += &lt;&lt;YAML</span>
-<span class="ot">meta:</span>
-<span class="ot">  html: Imported from &lt;a href=&quot;#{</span>item[<span class="st">&#39;url&#39;</span>]<span class="ot">}&quot;&gt;is-programmer&lt;/a&gt;.</span>
-<span class="ot">YAML</span>
-
-<span class="ot">  yaml_file = &quot;posts/&quot; + created_at.strftime(&#39;%Y-%m-%d&#39;) + &quot;-&quot; + item[&quot;english-title&quot;] + &quot;.yaml&quot;</span>
-
-<span class="ot">  File.open(yaml_file, &#39;w&#39;) do |f|</span>
-<span class="ot">    f.write(yaml)</span>
-<span class="ot">  end</span>
-
-<span class="ot">  org_file = &quot;posts/&quot; + created_at.strftime(&#39;%Y-%m-%d&#39;) + &quot;-&quot; + item[&quot;english-title&quot;] + &quot;.org&quot;</span>
-<span class="ot">  article_content_re = /&lt;div id=.article_content.&gt;(.*)&lt;\/div&gt;.*&lt;div id=.article_bar.&gt;/m</span>
-<span class="ot">  article_content = html.scan(article_content_re).flatten[0]</span>
-
-<span class="ot">  File.open(&#39;/tmp/test.html&#39;, &#39;w&#39;) do |f|</span>
-<span class="ot">    f.write(article_content)</span>
-<span class="ot">  end</span>
-
-<span class="ot">  `pandoc /tmp/test.html -o #{</span>org_file<span class="ot">}`</span>
-<span class="ot">end</span></code></pre></div>
+<p>程序清单如下<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># spider.rb</span></a>
+<a class="sourceLine" id="cb6-2" title="2">require <span class="st">&#39;yaml&#39;</span></a>
+<a class="sourceLine" id="cb6-3" title="3">require <span class="st">&#39;net/http&#39;</span></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5">list = <span class="dt">YAML</span>::load(<span class="dt">File</span>.open(<span class="st">&#39;url_list.yaml&#39;</span>).read)</a>
+<a class="sourceLine" id="cb6-6" title="6">tags_fix = <span class="dt">YAML</span>::load(<span class="dt">File</span>.open(<span class="st">&#39;tags_fix.yaml&#39;</span>).read)</a>
+<a class="sourceLine" id="cb6-7" title="7"></a>
+<a class="sourceLine" id="cb6-8" title="8">list.each <span class="kw">do</span> |item|</a>
+<a class="sourceLine" id="cb6-9" title="9">  uri = <span class="dt">URI</span>(item[<span class="st">&#39;url&#39;</span>])</a>
+<a class="sourceLine" id="cb6-10" title="10">  html = <span class="dt">Net</span>::<span class="dt">HTTP</span>.get(uri)</a>
+<a class="sourceLine" id="cb6-11" title="11">  tags_re = <span class="ot">/&lt;a href=&quot;\/tag\/[\S]*&quot;&gt;([\S]*)&lt;\/a&gt;/</span></a>
+<a class="sourceLine" id="cb6-12" title="12">  tags = html.scan(tags_re).flatten</a>
+<a class="sourceLine" id="cb6-13" title="13"></a>
+<a class="sourceLine" id="cb6-14" title="14">  category_re = <span class="ot">/&lt;div id=&quot;article_header&quot;&gt;.*&lt;a href=&quot;\/categories\/[\d]*\/posts&quot;&gt;([\S]*)&lt;\/a&gt;.*&lt;\/div&gt;/m</span></a>
+<a class="sourceLine" id="cb6-15" title="15">  category = html.scan(category_re).flatten[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb6-16" title="16"></a>
+<a class="sourceLine" id="cb6-17" title="17">  date_re = <span class="ot">/posted.*@ (.* \+0800)/</span></a>
+<a class="sourceLine" id="cb6-18" title="18">  created_at = <span class="dt">DateTime</span>.parse(html.scan(date_re).flatten[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb6-19" title="19">  updated_at = <span class="dt">DateTime</span>.now</a>
+<a class="sourceLine" id="cb6-20" title="20"></a>
+<a class="sourceLine" id="cb6-21" title="21">  title = item[<span class="st">&#39;title&#39;</span>]</a>
+<a class="sourceLine" id="cb6-22" title="22"></a>
+<a class="sourceLine" id="cb6-23" title="23">  yaml = &lt;&lt;<span class="kw">YAML</span></a>
+<a class="sourceLine" id="cb6-24" title="24"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb6-25" title="25"><span class="ot">title: &quot;#{</span>item[<span class="st">&quot;title&quot;</span>]<span class="ot">}&quot;</span></a>
+<a class="sourceLine" id="cb6-26" title="26"><span class="ot">created_at: #{</span>created_at.to_s<span class="ot">}</span></a>
+<a class="sourceLine" id="cb6-27" title="27"><span class="ot">updated_at: #{</span>updated_at.to_s<span class="ot">}</span></a>
+<a class="sourceLine" id="cb6-28" title="28"><span class="ot">kind: article</span></a>
+<a class="sourceLine" id="cb6-29" title="29"><span class="ot">category: #{</span>category<span class="ot">}</span></a>
+<a class="sourceLine" id="cb6-30" title="30"><span class="ot">tags:</span></a>
+<a class="sourceLine" id="cb6-31" title="31"><span class="ot">YAML</span></a>
+<a class="sourceLine" id="cb6-32" title="32"></a>
+<a class="sourceLine" id="cb6-33" title="33"><span class="ot">  tags.each do |tag|</span></a>
+<a class="sourceLine" id="cb6-34" title="34"><span class="ot">    yaml += &quot;- #{</span>tags_fix[tag].force_encoding(<span class="dt">Encoding</span>::<span class="dt">UTF_8</span>)<span class="ot">}\n&quot;</span></a>
+<a class="sourceLine" id="cb6-35" title="35"><span class="ot">  end</span></a>
+<a class="sourceLine" id="cb6-36" title="36"></a>
+<a class="sourceLine" id="cb6-37" title="37"><span class="ot">  yaml += &lt;&lt;YAML</span></a>
+<a class="sourceLine" id="cb6-38" title="38"><span class="ot">meta:</span></a>
+<a class="sourceLine" id="cb6-39" title="39"><span class="ot">  html: Imported from &lt;a href=&quot;#{</span>item[<span class="st">&#39;url&#39;</span>]<span class="ot">}&quot;&gt;is-programmer&lt;/a&gt;.</span></a>
+<a class="sourceLine" id="cb6-40" title="40"><span class="ot">YAML</span></a>
+<a class="sourceLine" id="cb6-41" title="41"></a>
+<a class="sourceLine" id="cb6-42" title="42"><span class="ot">  yaml_file = &quot;posts/&quot; + created_at.strftime(&#39;%Y-%m-%d&#39;) + &quot;-&quot; + item[&quot;english-title&quot;] + &quot;.yaml&quot;</span></a>
+<a class="sourceLine" id="cb6-43" title="43"></a>
+<a class="sourceLine" id="cb6-44" title="44"><span class="ot">  File.open(yaml_file, &#39;w&#39;) do |f|</span></a>
+<a class="sourceLine" id="cb6-45" title="45"><span class="ot">    f.write(yaml)</span></a>
+<a class="sourceLine" id="cb6-46" title="46"><span class="ot">  end</span></a>
+<a class="sourceLine" id="cb6-47" title="47"></a>
+<a class="sourceLine" id="cb6-48" title="48"><span class="ot">  org_file = &quot;posts/&quot; + created_at.strftime(&#39;%Y-%m-%d&#39;) + &quot;-&quot; + item[&quot;english-title&quot;] + &quot;.org&quot;</span></a>
+<a class="sourceLine" id="cb6-49" title="49"><span class="ot">  article_content_re = /&lt;div id=.article_content.&gt;(.*)&lt;\/div&gt;.*&lt;div id=.article_bar.&gt;/m</span></a>
+<a class="sourceLine" id="cb6-50" title="50"><span class="ot">  article_content = html.scan(article_content_re).flatten[0]</span></a>
+<a class="sourceLine" id="cb6-51" title="51"></a>
+<a class="sourceLine" id="cb6-52" title="52"><span class="ot">  File.open(&#39;/tmp/test.html&#39;, &#39;w&#39;) do |f|</span></a>
+<a class="sourceLine" id="cb6-53" title="53"><span class="ot">    f.write(article_content)</span></a>
+<a class="sourceLine" id="cb6-54" title="54"><span class="ot">  end</span></a>
+<a class="sourceLine" id="cb6-55" title="55"></a>
+<a class="sourceLine" id="cb6-56" title="56"><span class="ot">  `pandoc /tmp/test.html -o #{</span>org_file<span class="ot">}`</span></a>
+<a class="sourceLine" id="cb6-57" title="57"><span class="ot">end</span></a></code></pre></div>
 <p>再之后，可以通过一些初级的正则替换，来完成一些最基本的文本修正工作。我这里最主要是通过 Ruby 的 Regexp，给文章中的中英文混排的英文单词两边加入了一个合适的半角空格。Ruby 的 Regexp 可以通过 <code>/(\p{Han})/</code> 来直接匹配汉字，实在是非常方便。程序清单如下：</p>
-<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="co"># article_fix.rb</span>
-require <span class="st">&#39;yaml&#39;</span>
-
-<span class="kw">def</span> fix_english_word(content)
-  alpha_re = <span class="ot">/(\p{Han})([[:ascii:]]+?)(\p{Han})/</span>
-  word_fix = <span class="dt">YAML</span>::load(<span class="dt">File</span>.open(<span class="st">&#39;tags_fix.yaml&#39;</span>).read)
-  new_word_fix = {}
-  word_fix.each_pair <span class="kw">do</span> |key, value|
-    new_word_fix[key.downcase] = value
-  <span class="kw">end</span>
-
-  content.gsub(alpha_re) <span class="kw">do</span>
-    <span class="kw">if</span> new_word_fix.has_key?(<span class="dt">$2</span>.downcase)
-      fix_word = new_word_fix[<span class="dt">$2</span>.downcase]
-    <span class="kw">else</span>
-      fix_word = <span class="dt">$2</span>
-    <span class="kw">end</span>
-    <span class="dt">$1</span> + <span class="ch">&#39; &#39;</span> + fix_word +  <span class="ch">&#39; &#39;</span> + <span class="dt">$3</span>
-  <span class="kw">end</span>
-<span class="kw">end</span>
-
-<span class="kw">def</span> fix_english_word_with_punct(content)
-  alpha_re = <span class="ot">/(\p{Han})([[:ascii:]]+?)(\p{Punct})/</span>
-  word_fix = <span class="dt">YAML</span>::load(<span class="dt">File</span>.open(<span class="st">&#39;tags_fix.yaml&#39;</span>).read)
-  new_word_fix = {}
-  word_fix.each_pair <span class="kw">do</span> |key, value|
-    new_word_fix[key.downcase] = value
-  <span class="kw">end</span>
-
-  content.gsub(alpha_re) <span class="kw">do</span>
-    <span class="kw">if</span> new_word_fix.has_key?(<span class="dt">$2</span>.downcase)
-      fix_word = new_word_fix[<span class="dt">$2</span>.downcase]
-    <span class="kw">else</span>
-      fix_word = <span class="dt">$2</span>
-    <span class="kw">end</span>
-    <span class="dt">$1</span> + <span class="ch">&#39; &#39;</span> + fix_word +  <span class="dt">$3</span>
-  <span class="kw">end</span>
-<span class="kw">end</span>
-
-<span class="kw">def</span> fix_bullet_point(content)
-  content.gsub(<span class="ot">/^-\s+/</span>, <span class="st">&#39;- &#39;</span>)
-<span class="kw">end</span>
-
-<span class="kw">def</span> fix_org_properties(content)
-  content.gsub(<span class="ot">/.*PROPERTIES.*\n\s+:CUSTOM_ID:.*\n.*END.*\n\n/</span>, <span class="st">&#39;&#39;</span>)
-<span class="kw">end</span>
-
-<span class="kw">def</span> fix_org_section_title(content)
-  content.gsub(<span class="ot">/(^\*{1,4})\s*.*\[.*\]\[(.*)\]\]/</span>, <span class="st">&#39;\1 \2&#39;</span>)
-<span class="kw">end</span>
-
-<span class="kw">def</span> fix_source_code(content)
-  content.gsub(<span class="st">&#39;BEGIN_EXAMPLE&#39;</span>, <span class="st">&#39;BEGIN_SRC&#39;</span>).
-    gsub(<span class="st">&#39;END_EXAMPLE&#39;</span>, <span class="st">&#39;END_SRC&#39;</span>).
-    gsub(<span class="ch">&#39; &#39;</span>, <span class="ch">&#39; &#39;</span>)
-<span class="kw">end</span>
-
-<span class="kw">def</span> main(file)
-  content = <span class="st">&#39;&#39;</span>
-  <span class="dt">File</span>.open(file) <span class="kw">do</span> |f|
-    content = f.read
-  <span class="kw">end</span>
-
-  content =
-    fix_english_word_with_punct(
-      fix_english_word(
-        fix_bullet_point(
-          fix_org_properties(
-            fix_org_section_title(
-              fix_source_code(content)
-            )
-          )
-        )
-      )
-    )
-
-  <span class="dt">File</span>.open(file, <span class="ch">&#39;w&#39;</span>) <span class="kw">do</span> |f|
-    f.write(content)
-  <span class="kw">end</span>
-<span class="kw">end</span>
-
-<span class="kw">if</span> <span class="dv">__FILE__</span> == <span class="dt">$0</span>
-  main(<span class="dt">ARGV</span>[<span class="dv">0</span>])
-<span class="kw">end</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># article_fix.rb</span></a>
+<a class="sourceLine" id="cb7-2" title="2">require <span class="st">&#39;yaml&#39;</span></a>
+<a class="sourceLine" id="cb7-3" title="3"></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="kw">def</span> fix_english_word(content)</a>
+<a class="sourceLine" id="cb7-5" title="5">  alpha_re = <span class="ot">/(\p{Han})([[:ascii:]]+?)(\p{Han})/</span></a>
+<a class="sourceLine" id="cb7-6" title="6">  word_fix = <span class="dt">YAML</span>::load(<span class="dt">File</span>.open(<span class="st">&#39;tags_fix.yaml&#39;</span>).read)</a>
+<a class="sourceLine" id="cb7-7" title="7">  new_word_fix = {}</a>
+<a class="sourceLine" id="cb7-8" title="8">  word_fix.each_pair <span class="kw">do</span> |key, value|</a>
+<a class="sourceLine" id="cb7-9" title="9">    new_word_fix[key.downcase] = value</a>
+<a class="sourceLine" id="cb7-10" title="10">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-11" title="11"></a>
+<a class="sourceLine" id="cb7-12" title="12">  content.gsub(alpha_re) <span class="kw">do</span></a>
+<a class="sourceLine" id="cb7-13" title="13">    <span class="kw">if</span> new_word_fix.has_key?(<span class="dt">$2</span>.downcase)</a>
+<a class="sourceLine" id="cb7-14" title="14">      fix_word = new_word_fix[<span class="dt">$2</span>.downcase]</a>
+<a class="sourceLine" id="cb7-15" title="15">    <span class="kw">else</span></a>
+<a class="sourceLine" id="cb7-16" title="16">      fix_word = <span class="dt">$2</span></a>
+<a class="sourceLine" id="cb7-17" title="17">    <span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-18" title="18">    <span class="dt">$1</span> + <span class="ch">&#39; &#39;</span> + fix_word +  <span class="ch">&#39; &#39;</span> + <span class="dt">$3</span></a>
+<a class="sourceLine" id="cb7-19" title="19">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-20" title="20"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-21" title="21"></a>
+<a class="sourceLine" id="cb7-22" title="22"><span class="kw">def</span> fix_english_word_with_punct(content)</a>
+<a class="sourceLine" id="cb7-23" title="23">  alpha_re = <span class="ot">/(\p{Han})([[:ascii:]]+?)(\p{Punct})/</span></a>
+<a class="sourceLine" id="cb7-24" title="24">  word_fix = <span class="dt">YAML</span>::load(<span class="dt">File</span>.open(<span class="st">&#39;tags_fix.yaml&#39;</span>).read)</a>
+<a class="sourceLine" id="cb7-25" title="25">  new_word_fix = {}</a>
+<a class="sourceLine" id="cb7-26" title="26">  word_fix.each_pair <span class="kw">do</span> |key, value|</a>
+<a class="sourceLine" id="cb7-27" title="27">    new_word_fix[key.downcase] = value</a>
+<a class="sourceLine" id="cb7-28" title="28">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-29" title="29"></a>
+<a class="sourceLine" id="cb7-30" title="30">  content.gsub(alpha_re) <span class="kw">do</span></a>
+<a class="sourceLine" id="cb7-31" title="31">    <span class="kw">if</span> new_word_fix.has_key?(<span class="dt">$2</span>.downcase)</a>
+<a class="sourceLine" id="cb7-32" title="32">      fix_word = new_word_fix[<span class="dt">$2</span>.downcase]</a>
+<a class="sourceLine" id="cb7-33" title="33">    <span class="kw">else</span></a>
+<a class="sourceLine" id="cb7-34" title="34">      fix_word = <span class="dt">$2</span></a>
+<a class="sourceLine" id="cb7-35" title="35">    <span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-36" title="36">    <span class="dt">$1</span> + <span class="ch">&#39; &#39;</span> + fix_word +  <span class="dt">$3</span></a>
+<a class="sourceLine" id="cb7-37" title="37">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-38" title="38"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-39" title="39"></a>
+<a class="sourceLine" id="cb7-40" title="40"><span class="kw">def</span> fix_bullet_point(content)</a>
+<a class="sourceLine" id="cb7-41" title="41">  content.gsub(<span class="ot">/^-\s+/</span>, <span class="st">&#39;- &#39;</span>)</a>
+<a class="sourceLine" id="cb7-42" title="42"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-43" title="43"></a>
+<a class="sourceLine" id="cb7-44" title="44"><span class="kw">def</span> fix_org_properties(content)</a>
+<a class="sourceLine" id="cb7-45" title="45">  content.gsub(<span class="ot">/.*PROPERTIES.*\n\s+:CUSTOM_ID:.*\n.*END.*\n\n/</span>, <span class="st">&#39;&#39;</span>)</a>
+<a class="sourceLine" id="cb7-46" title="46"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-47" title="47"></a>
+<a class="sourceLine" id="cb7-48" title="48"><span class="kw">def</span> fix_org_section_title(content)</a>
+<a class="sourceLine" id="cb7-49" title="49">  content.gsub(<span class="ot">/(^\*{1,4})\s*.*\[.*\]\[(.*)\]\]/</span>, <span class="st">&#39;\1 \2&#39;</span>)</a>
+<a class="sourceLine" id="cb7-50" title="50"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-51" title="51"></a>
+<a class="sourceLine" id="cb7-52" title="52"><span class="kw">def</span> fix_source_code(content)</a>
+<a class="sourceLine" id="cb7-53" title="53">  content.gsub(<span class="st">&#39;BEGIN_EXAMPLE&#39;</span>, <span class="st">&#39;BEGIN_SRC&#39;</span>).</a>
+<a class="sourceLine" id="cb7-54" title="54">    gsub(<span class="st">&#39;END_EXAMPLE&#39;</span>, <span class="st">&#39;END_SRC&#39;</span>).</a>
+<a class="sourceLine" id="cb7-55" title="55">    gsub(<span class="st">&#39; &#39;</span>, <span class="ch">&#39; &#39;</span>)</a>
+<a class="sourceLine" id="cb7-56" title="56"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-57" title="57"></a>
+<a class="sourceLine" id="cb7-58" title="58"><span class="kw">def</span> main(file)</a>
+<a class="sourceLine" id="cb7-59" title="59">  content = <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb7-60" title="60">  <span class="dt">File</span>.open(file) <span class="kw">do</span> |f|</a>
+<a class="sourceLine" id="cb7-61" title="61">    content = f.read</a>
+<a class="sourceLine" id="cb7-62" title="62">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-63" title="63"></a>
+<a class="sourceLine" id="cb7-64" title="64">  content =</a>
+<a class="sourceLine" id="cb7-65" title="65">    fix_english_word_with_punct(</a>
+<a class="sourceLine" id="cb7-66" title="66">      fix_english_word(</a>
+<a class="sourceLine" id="cb7-67" title="67">        fix_bullet_point(</a>
+<a class="sourceLine" id="cb7-68" title="68">          fix_org_properties(</a>
+<a class="sourceLine" id="cb7-69" title="69">            fix_org_section_title(</a>
+<a class="sourceLine" id="cb7-70" title="70">              fix_source_code(content)</a>
+<a class="sourceLine" id="cb7-71" title="71">            )</a>
+<a class="sourceLine" id="cb7-72" title="72">          )</a>
+<a class="sourceLine" id="cb7-73" title="73">        )</a>
+<a class="sourceLine" id="cb7-74" title="74">      )</a>
+<a class="sourceLine" id="cb7-75" title="75">    )</a>
+<a class="sourceLine" id="cb7-76" title="76"></a>
+<a class="sourceLine" id="cb7-77" title="77">  <span class="dt">File</span>.open(file, <span class="ch">&#39;w&#39;</span>) <span class="kw">do</span> |f|</a>
+<a class="sourceLine" id="cb7-78" title="78">    f.write(content)</a>
+<a class="sourceLine" id="cb7-79" title="79">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-80" title="80"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-81" title="81"></a>
+<a class="sourceLine" id="cb7-82" title="82"><span class="kw">if</span> <span class="dv">__FILE__</span> == <span class="dt">$0</span></a>
+<a class="sourceLine" id="cb7-83" title="83">  main(<span class="dt">ARGV</span>[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb7-84" title="84"><span class="kw">end</span></a></code></pre></div>
 <p>再之后就是十分枯燥的工作了，我主要是按照这份文案排版<a href="http://ppresume.com/notes/guide-zh.html">方案</a>来修正很多的文字错误，前后大概花了有 10 天的时间：</p>
 <p><a href="/static/image/2017/type_fix.png"><img src="/static/image/2017/type_fix.png" /></a></p>
 <p>加上调试程序，总共大约是花了两周的时间，于现在的我而言，是相当大的时间成本，这也是我迟迟没有动手做这个事的原因。不过好在下了决心后，快刀斩乱麻，坚持下也就完成了。</p>
 <p>修订文章的过程中，又从头到尾回顾了下自己过去七八年的工作生活经历，文章中很多唠叨的琐事，若不是当时动笔叨扰一下，已然完全记不得了；还有些观点年少轻狂，现在再读也会哑然无言，略感羞愧，不过这毕竟是曾经的自己，因此除了一些必要的文法修正，内容依然保持原样。</p>
 <p>当我写下第一篇<a href="http://xiaohanyu.me/posts/2009-06-04-computer-science-for-lazy-guys/">文章</a>时，我还只是个 20 岁出头的少年，刚刚挂了很多课，刚刚一只脚踏入计算机学习的大门；现如今当我有了足够的能力可以自己从前端到后端建立一个中小型网站写出还可以的文章之时，已近而立。这些年做了很多的选择，相对的，人生也少了很多选择——或者说是迷茫吧。而随着这种迷茫的消逝相伴而来的，是人生的选择面在逐渐减小。小十年的青春韶华，只落下几篇文章几万文字，想来不免要感慨——人生于世，大概就如那大河之水，或早或晚都要归于大海吧。</p>
-<section class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>实际上也可以转换成 Markdown 或者其它任何方便编辑的文本标记格式，我个人是更喜欢使用 Org-mode。<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>这个站点从创建之初就采用了 Nanoc，体验非常棒，具体可以参考我以前写的两篇<a href="http://xiaohanyu.me/posts/2014-05-04-build-static-site-with-nanoc-1/">文</a><a href="http://xiaohanyu.me/posts/2014-07-25-build-static-site-with-nanoc-2/">章</a>。<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>Pandoc 的代码语法高亮，对 Ruby 的 <a href="https://ruby-doc.org/core-2.3.0/doc/syntax/literals_rdoc.html#label-Here+Documents">heredoc</a> 解析好像是有 bug。<a href="#fnref3">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p>实际上也可以转换成 Markdown 或者其它任何方便编辑的文本标记格式，我个人是更喜欢使用 Org-mode。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn2" role="doc-endnote"><p>这个站点从创建之初就采用了 Nanoc，体验非常棒，具体可以参考我以前写的两篇<a href="http://xiaohanyu.me/posts/2014-05-04-build-static-site-with-nanoc-1/">文</a><a href="http://xiaohanyu.me/posts/2014-07-25-build-static-site-with-nanoc-2/">章</a>。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Pandoc 的代码语法高亮，对 Ruby 的 <a href="https://ruby-doc.org/core-2.3.0/doc/syntax/literals_rdoc.html#label-Here+Documents">heredoc</a> 解析好像是有 bug。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩</a></p></li>
 </ol>
 </section>
 
@@ -353,11 +353,11 @@ require <span class="st">&#39;yaml&#39;</span>
     <div class="ui small header">
       Committed
     </div>
-    <date>2017-04-25</date>
+    <date>2017-04-26</date>
     <div class="ui small header">
       Updated
     </div>
-    <date>2014-04-28</date>
+    <date>2014-04-29</date>
     <div class="ui small header">
       Category
     </div>

@@ -68,7 +68,7 @@
 <p>但我终究是忍不住的。电脑之于黑客，相当于宝剑之于剑客。没有顺手的系统，自然没有高效的工作和良好的心情。</p>
 <p>于是不得不换一种思路：尝试手动去下载 Intel 网卡的驱动，然后编译安装，搞定网卡驱动后再联网升级到新的内核。事实证明这个策略是奏效的，所需要的网卡驱动程序可以在 Intel 的网站上<a href="http://downloadcenter.intel.com/Detail_Desc.aspx?DwnldID=9180">下载</a>。安装过程不再赘述，按照安装包里的说明即可。装好驱动后升级内核，装 X，装 KDE，简单配置下字体，一切顺理成章，不亦乐乎。</p>
 <p>最后的两个问题依然是驱动相关。一个是显卡的问题，这个可以通过更新内核来搞定。一个是 ThinkPad 风扇的问题，x201i 上的方案迁移到 X220i 上并不奏效，tpfand 基本不可用。好在有 thinkfan，通过 yaourt 安装下。设置主要参考<a href="http://apps.hi.baidu.com/share/detail/39726097">这里</a>，但是原文中所设置的：</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">sensor</span> /proc/acpi/ibm/thermal (0, 3, 3, 2, 10, 0, 10, 0, 2, 2)</code></pre></div>
+<div class="sourceCode" id="cb1" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">sensor</span> /proc/acpi/ibm/thermal (0, 3, 3, 2, 10, 0, 10, 0, 2, 2)</a></code></pre></div>
 <p>并不存在。在 X220i 上的 <code>/etc/thinkfan.conf</code> 设置为：</p>
 <pre class="example"><code># I use this on my T61p:
 #sensor /proc/acpi/ibm/thermal (0, 10, 15, 2, 10, 5, 0, 3, 0, 3)

@@ -58,13 +58,13 @@
 </header>
 <div class="row article-body">
   <section class="twelve wide column"><p><strong>数学是神造科学，计算机是人造科学</strong> 。</p>
-<p>所以在计算机的底层软件中，有着数不清的 tricks，让人很无奈，但又无法避免。譬如 Big-endian 和 Little-endian 的问题，据说 UNIX 曾经移植到另外一台不同 “endian” 的机器上，结果系统启动显示的是 NUXI 而不是 UNIX；再比如 ASCII 和 Unicode，以及各种各样地方编码纠结的关系；连最简单的 hello world，放到不同的平台上，生成的字符串也是不同的，考虑下面的程序：</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
-<span class="kw">using</span> <span class="kw">namespace</span> std;
-
-<span class="dt">int</span> main( <span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
-  cout &lt;&lt; <span class="st">&quot;Hello</span><span class="sc">\n</span><span class="st">World&quot;</span>;
-}</code></pre></div>
+<p>所以在计算机的底层软件中，有着数不清的 tricks，让人很无奈，但又无法避免。譬如 Big-endian 和 Little-endian 的问题，据说 UNIX 曾经移植到另外一台不同 "endian" 的机器上，结果系统启动显示的是 NUXI 而不是 UNIX；再比如 ASCII 和 Unicode，以及各种各样地方编码纠结的关系；连最简单的 hello world，放到不同的平台上，生成的字符串也是不同的，考虑下面的程序：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="dt">int</span> main( <span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {</a>
+<a class="sourceLine" id="cb1-5" title="5">  cout &lt;&lt; <span class="st">&quot;Hello</span><span class="sc">\n</span><span class="st">World&quot;</span>;</a>
+<a class="sourceLine" id="cb1-6" title="6">}</a></code></pre></div>
 <p>这个程序如果在 *nix 平台下执行，生成的字符串的长度是 11：</p>
 <pre class="example"><code>lox@lox-pad ~/tmp&gt; clang++ main.cxx -o main
 lox@lox-pad ~/tmp&gt; ./main | wc -c
@@ -74,15 +74,15 @@ lox@lox-pad ~/tmp&gt; ./main | od -c
 0000013
 lox@lox-pad ~/tmp&gt;
 </code></pre>
-<p>但是如果放到 Windows 上执行，那么程序生成的字符串的长度是 12，字符串的值是 <code class="sourceCode c" rundoc-language="c"><span class="st">&quot;Hello</span><span class="sc">\r\n</span><span class="st">World&quot;</span></code> ，so，what is <code class="sourceCode c" rundoc-language="c"><span class="ch">&#39;\r&#39;</span></code>？</p>
-<p>细究起来，我们发现，一个小小的 newline 字符也有如此多的故事，或者说，历史包袱。 <a href="http://en.wikipedia.org/wiki/Line_feed">Wikipedia</a> 里面给出了完整的解释。简单来讲， <code class="sourceCode c" rundoc-language="c"><span class="ch">&#39;\n&#39;</span></code> 和 <code class="sourceCode c" rundoc-language="c"><span class="ch">&#39;\r&#39;</span></code> 的概念来源于早期的打字机， <code class="sourceCode c" rundoc-language="c"><span class="ch">&#39;\n&#39;</span></code> 代表 “line feed”，表示打字机打完一整行后相对纸面向下移动一整行的距离，而 <code class="sourceCode c" rundoc-language="c"><span class="ch">&#39;\r&#39;</span></code> 则代表 “carriage return”，就是控制打字机重新回到一行的行首， <code class="sourceCode c" rundoc-language="c"><span class="st">&quot;</span><span class="sc">\r\n</span><span class="st">&quot;</span></code> 连在一起用才会使得打字机移动到新的一行的行首开始工作。而在后来的 OS 设计中，由于在 TTY 终端并没有实体的打印机控制操作，所以在设计上将 <code class="sourceCode c" rundoc-language="c"><span class="st">&quot;</span><span class="sc">\r\n</span><span class="st">&quot;</span></code> 进行了简化处理，只是不同的 OS 采取的策略不一样。我们仅以 Windows、Linux、Mac这三种最流行的系统来做说明。</p>
+<p>但是如果放到 Windows 上执行，那么程序生成的字符串的长度是 12，字符串的值是 <code class="sourceCode c"><span class="st">&quot;Hello</span><span class="sc">\r\n</span><span class="st">World&quot;</span></code> ，so，what is <code class="sourceCode c"><span class="ch">&#39;\r&#39;</span></code>？</p>
+<p>细究起来，我们发现，一个小小的 newline 字符也有如此多的故事，或者说，历史包袱。 <a href="http://en.wikipedia.org/wiki/Line_feed">Wikipedia</a> 里面给出了完整的解释。简单来讲， <code class="sourceCode c"><span class="ch">&#39;\n&#39;</span></code> 和 <code class="sourceCode c"><span class="ch">&#39;\r&#39;</span></code> 的概念来源于早期的打字机， <code class="sourceCode c"><span class="ch">&#39;\n&#39;</span></code> 代表 "line feed"，表示打字机打完一整行后相对纸面向下移动一整行的距离，而 <code class="sourceCode c"><span class="ch">&#39;\r&#39;</span></code> 则代表 "carriage return"，就是控制打字机重新回到一行的行首， <code class="sourceCode c"><span class="st">&quot;</span><span class="sc">\r\n</span><span class="st">&quot;</span></code> 连在一起用才会使得打字机移动到新的一行的行首开始工作。而在后来的 OS 设计中，由于在 TTY 终端并没有实体的打印机控制操作，所以在设计上将 <code class="sourceCode c"><span class="st">&quot;</span><span class="sc">\r\n</span><span class="st">&quot;</span></code> 进行了简化处理，只是不同的 OS 采取的策略不一样。我们仅以 Windows、Linux、Mac这三种最流行的系统来做说明。</p>
 <ul>
-<li>Windows – <code class="sourceCode c" rundoc-language="c"><span class="st">&quot;</span><span class="sc">\r\n</span><span class="st">&quot;</span></code></li>
-<li>Linux – <code class="sourceCode c" rundoc-language="c"><span class="ch">&#39;\n&#39;</span></code></li>
-<li>Mac – <code class="sourceCode c" rundoc-language="c"><span class="ch">&#39;\r&#39;</span></code></li>
+<li>Windows – <code class="sourceCode c"><span class="st">&quot;</span><span class="sc">\r\n</span><span class="st">&quot;</span></code></li>
+<li>Linux – <code class="sourceCode c"><span class="ch">&#39;\n&#39;</span></code></li>
+<li>Mac – <code class="sourceCode c"><span class="ch">&#39;\r&#39;</span></code></li>
 </ul>
-<p>所以 Linux 和 Mac 上的多行文本文件用 Windows 的 Notepad 打开，常常会出现多行并做一整行的现象，而 Windows 上的文本文件用 Linux 上的 Vim 或者 Emacs 等editor来访问，往往会看到奇怪的 <code class="sourceCode c" rundoc-language="c">&#39;^M&#39;</code> 字符，事实上这个 <code class="sourceCode c" rundoc-language="c">&#39;^M&#39;</code> 并不是 <code class="sourceCode c" rundoc-language="c"><span class="ch">&#39;^&#39;</span></code> + <code class="sourceCode c" rundoc-language="c"><span class="ch">&#39;M&#39;</span></code> 的组合，它就是 Windows 中的 <code class="sourceCode c" rundoc-language="c"><span class="ch">&#39;\r&#39;</span></code> 。在 Linux 终端中你可以通过输入 <code>Ctrl+v Ctrl+m</code> 来获得 <code class="sourceCode c" rundoc-language="c"><span class="ch">&#39;\r&#39;</span></code> 这个输入。</p>
-<p>那么，我们怎样去掉这写讨厌的影响心情和版面美感的 <code class="sourceCode c" rundoc-language="c"><span class="ch">&#39;\r&#39;</span></code> 呢？方法有很多，最简单的，安装 <a href="http://linuxcommand.org/man_pages/dos2unix1.html">dos2unix</a> 这个小软件，然后直接 <code>dos2unix filename</code> 即可，Arch Linux 可以通过 <code>pacman -S hd2u</code> 来获取 dos2unix，反过来也有 <a href="http://en.wikipedia.org/wiki/Unix2dos">unix2dos</a> 这样的命令。</p>
+<p>所以 Linux 和 Mac 上的多行文本文件用 Windows 的 Notepad 打开，常常会出现多行并做一整行的现象，而 Windows 上的文本文件用 Linux 上的 Vim 或者 Emacs 等editor来访问，往往会看到奇怪的 <code class="sourceCode c">&#39;^M&#39;</code> 字符，事实上这个 <code class="sourceCode c">&#39;^M&#39;</code> 并不是 <code class="sourceCode c"><span class="ch">&#39;^&#39;</span></code> + <code class="sourceCode c"><span class="ch">&#39;M&#39;</span></code> 的组合，它就是 Windows 中的 <code class="sourceCode c"><span class="ch">&#39;\r&#39;</span></code> 。在 Linux 终端中你可以通过输入 <code>Ctrl+v Ctrl+m</code> 来获得 <code class="sourceCode c"><span class="ch">&#39;\r&#39;</span></code> 这个输入。</p>
+<p>那么，我们怎样去掉这写讨厌的影响心情和版面美感的 <code class="sourceCode c"><span class="ch">&#39;\r&#39;</span></code> 呢？方法有很多，最简单的，安装 <a href="http://linuxcommand.org/man_pages/dos2unix1.html">dos2unix</a> 这个小软件，然后直接 <code>dos2unix filename</code> 即可，Arch Linux 可以通过 <code>pacman -S hd2u</code> 来获取 dos2unix，反过来也有 <a href="http://en.wikipedia.org/wiki/Unix2dos">unix2dos</a> 这样的命令。</p>
 <p>除了 dos2unix，利用 Linux 本身的 shell 工具，也可以达到目的，比如：</p>
 <ul>
 <li><code>sed 's/\^M//g' filename</code></li>

@@ -66,10 +66,10 @@
 <ul>
 <li>What：通俗的讲，Cygwin是 Windows 上的一个模拟软件，最初是由 <a href="http://zh.wikipedia.org/wiki/Cygnus_Solutions">Cygnus Solutions</a> 公司开发的。
 <ul>
-<li>Cygwin 通过对 Windows API 的整合封装模拟出一套 POSIX API。有了这套基础性的 POSIX API（就是 Linux C 编程的什么 <code class="sourceCode c" rundoc-language="c">fork</code>/<code class="sourceCode c" rundoc-language="c">wait</code> 啊、 <code class="sourceCode c" rundoc-language="c">signal</code> 啊、 <code class="sourceCode c" rundoc-language="c">open</code>/<code class="sourceCode c" rundoc-language="c">close</code> 啊这套东西），再加上一套合适的交叉编译器（就是大名鼎鼎的 GCC 了），就有了在 Windows 上模拟运行 *nix 软件的基础。</li>
+<li>Cygwin 通过对 Windows API 的整合封装模拟出一套 POSIX API。有了这套基础性的 POSIX API（就是 Linux C 编程的什么 <code class="sourceCode c">fork</code>/<code class="sourceCode c">wait</code> 啊、 <code class="sourceCode c">signal</code> 啊、 <code class="sourceCode c">open</code>/<code class="sourceCode c">close</code> 啊这套东西），再加上一套合适的交叉编译器（就是大名鼎鼎的 GCC 了），就有了在 Windows 上模拟运行 *nix 软件的基础。</li>
 <li>Cygwin 本身也包含了很多常用的自由软件，包括核心的 bash、coreutils、findutils 等，配合 <a href="http://x.cygwin.com/">Cygwin/X</a> 这个东西，甚至可以直接运行许多 X Windows 上的软件，包括 Emacs，gVim 等等。</li>
 </ul></li>
-<li>How – 看脚注<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></li>
+<li>How – 看脚注<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 <li>Pros – 傻瓜式安装；可以和 host 文件系统方便互通</li>
 <li>Cons – 没有类似于 apt-get 这种杀手级的软件包管理工具，安装一些额外的软件颇费周折，而且官方软件库更新较慢</li>
 <li>可用性 – 3 星
@@ -103,7 +103,7 @@
 <li>再 NB 一点的话甚至可以<a href="http://lihdd.net/host-os-in-virtualbox/">启动真实磁盘上的系统</a>，impossible is nothing。</li>
 </ul></li>
 </ul></li>
-<li>Pros – 虚拟机能够给你 100% 原生的 Linux 观感和体验，而且使用过程中无毒无害，更不用担心将系统不小心搞挂，配合上 VirtualBox 的文件共享功能和全屏功能，再加上一个稍微给力点的电脑<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>，有时候能够达到<a href="http://blog.zhaojie.me/2010/09/how-to-install-mac-os-x-snow-leopard-on-virtualbox.html">以假乱真的效果</a></li>
+<li>Pros – 虚拟机能够给你 100% 原生的 Linux 观感和体验，而且使用过程中无毒无害，更不用担心将系统不小心搞挂，配合上 VirtualBox 的文件共享功能和全屏功能，再加上一个稍微给力点的电脑<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>，有时候能够达到<a href="http://blog.zhaojie.me/2010/09/how-to-install-mac-os-x-snow-leopard-on-virtualbox.html">以假乱真的效果</a></li>
 <li>Cons – 性能上还是有些损失的；除了 VMware，其余虚拟机软件好像没有特别方便的方法支持 bridge network，有时候很不方便</li>
 <li>可用性 – 4 星</li>
 <li>结论：VirtualBox 乃居家旅行杀人越货必备良品</li>
@@ -124,11 +124,11 @@
 </ul>
 <h2 id="其余解决方案">其余解决方案</h2>
 <p>除了以上谈到的，<a href="http://windows.kde.org">KDE for Windows</a> 是在 Windows 上体验 KDE 桌面环境的一种可行的方案，虽然其目前 bug 依然多多；如果你玩腻了以上所有，想装个真家伙，又怕手生一不小心误删重要文件，那么 <a href="https://wiki.ubuntu.com/WubiGuide">Ubuntu Wubi</a> 应该是一个不错的解决方案。如果你已经开始讨厌 Ubuntu Wubi 了，那么恭喜你，你已经成功地被我忽悠，进入 *nix 的精彩世界，just enjoy it。</p>
-<section class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>什么？你不会问我 Cygwin 要怎么安装吧？<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>不够 2 G 内存的同志赶紧去花钱加内存吧，当然，有双屏更好。<a href="#fnref2">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p>什么？你不会问我 Cygwin 要怎么安装吧？<a href="#fnref1" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn2" role="doc-endnote"><p>不够 2 G 内存的同志赶紧去花钱加内存吧，当然，有双屏更好。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩</a></p></li>
 </ol>
 </section>
 

@@ -79,23 +79,23 @@
 <li>Database: SQLite 3.7.4</li>
 </ul>
 <h2 id="mono">Mono</h2>
-<p>引用 <a href="http://www.mono-project.com/">mono-project 主页</a>上的说法，“Mono is an open source, cross-platform, implementation of C# and the CLR that is binary compatible with Microsoft.NET”， MonoDevelop is “An open Source C# and .NET development environment for Linux, Windows, and Mac OS X”。虽然在 Linux 下用 Mono 来搞 C# 是件不怎么“光彩”的事情，但是 Mono 却给我留下了极佳的用户体验。代码补全、重构，多语言支持，内建 XSP server，集成调试功能，还有让我欢呼流泪的 Editor 的 Vi-mode的支持。</p>
+<p>引用 <a href="http://www.mono-project.com/">mono-project 主页</a>上的说法，"Mono is an open source, cross-platform, implementation of C# and the CLR that is binary compatible with Microsoft.NET"， MonoDevelop is "An open Source C# and .NET development environment for Linux, Windows, and Mac OS X"。虽然在 Linux 下用 Mono 来搞 C# 是件不怎么“光彩”的事情，但是 Mono 却给我留下了极佳的用户体验。代码补全、重构，多语言支持，内建 XSP server，集成调试功能，还有让我欢呼流泪的 Editor 的 Vi-mode的支持。</p>
 <p>那么 Mono 到底是个什么东西呢？直白点的说法就是，Mono是 Microsoft .NET 的跨平台实现。比如我们可以用 C# 写如下一个程序 <code>winform.cs</code> ：</p>
-<div class="sourceCode"><pre class="sourceCode cs"><code class="sourceCode cs"><span class="kw">using</span> System;
-<span class="kw">using</span> System.<span class="fu">Windows</span>.<span class="fu">Forms</span>;
-
-<span class="kw">public</span> <span class="kw">class</span> HelloWorld : Form {
-    <span class="kw">static</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Main</span>() {
-        Application.<span class="fu">Run</span>(<span class="kw">new</span> <span class="fu">HelloWorld</span>());
-    }
-
-    <span class="kw">public</span> <span class="fu">HelloWorld</span>() {
-        Text = <span class="st">&quot;Hello, Mono World&quot;</span>;
-    }
-}</code></pre></div>
-<p>程序的功能十分简单：创建一个窗口并将窗口标题设为 “Hello, Mono World”。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">using</span> System;</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">using</span> System.<span class="fu">Windows</span>.<span class="fu">Forms</span>;</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">public</span> <span class="kw">class</span> HelloWorld : Form {</a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="kw">static</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Main</span>() {</a>
+<a class="sourceLine" id="cb1-6" title="6">        Application.<span class="fu">Run</span>(<span class="kw">new</span> <span class="fu">HelloWorld</span>());</a>
+<a class="sourceLine" id="cb1-7" title="7">    }</a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9">    <span class="kw">public</span> <span class="fu">HelloWorld</span>() {</a>
+<a class="sourceLine" id="cb1-10" title="10">        Text = <span class="st">&quot;Hello, Mono World&quot;</span>;</a>
+<a class="sourceLine" id="cb1-11" title="11">    }</a>
+<a class="sourceLine" id="cb1-12" title="12">}</a></code></pre></div>
+<p>程序的功能十分简单：创建一个窗口并将窗口标题设为 "Hello, Mono World"。</p>
 <p>我们用如下的命令编译运行此程序：</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">gmcs</span> -pkg:dotnet winform.cs <span class="kw">&amp;&amp;</span> <span class="ex">mono</span> winform.exe</code></pre></div>
+<div class="sourceCode" id="cb2" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">gmcs</span> -pkg:dotnet winform.cs <span class="kw">&amp;&amp;</span> <span class="ex">mono</span> winform.exe</a></code></pre></div>
 <p>然后屏幕上就会显示一个窗口。将 winform.exe 拷贝到一个装有 .NET 的windows中，程序也是可以运行的。</p>
 <h2 id="sqlite">SQLite</h2>
 <p>基于程序跨平台的考虑，C# 的运行环境我选择了 Mono，而数据库则抛弃了 Microsoft Access，选择了 <a href="http://www.sqlite.org">SQLite</a>，也借此契机学习下这个世界上最流行的嵌入式数据库引擎。</p>
@@ -115,78 +115,78 @@
 </ul>
 <p>SQLite 作为一个示范性的学习型开源项目也是一个非常理想的选择。在 SQLite 的主页上有 <a href="http://www.sqlite.org/sqlite-amalgamation-3070400.zip">sqlite-amalgamation-3070400.zip</a> 下载，这是一个组合了所有 SQLite 的 C 代码在一个单独文件中的压缩挡。是学习数据库设计与实现的极好资源。</p>
 <p>SQLite 在很多著名的开源软件项目中都有重要的应用。引用《The Definisive Guide to Sqlite》中的一段话：</p>
-<p>“If you are a programmer, imagine how much code it would take to implement the following SQL statement in your program:</p>
-<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">AVG</span>(z-y) <span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">GROUP</span> <span class="kw">BY</span> x <span class="kw">HAVING</span> x &gt; <span class="fu">MIN</span>(z) <span class="kw">OR</span> x &lt; <span class="fu">MAX</span>(y) <span class="kw">ORDER</span> <span class="kw">BY</span> y <span class="kw">DESC</span> <span class="kw">LIMIT</span> <span class="dv">10</span> OFFSET <span class="dv">3</span>;</code></pre></div>
-<p>If you are already familiar with SQL, imagine coding the equivalent of a subquery, compound query, GROUP BY clause or multiway join—in C. SQLite embeds all of this functionality into your application with minimal cost. With a database engine integrated directly into your code, you can begin to think of SQL as a domain-specific language in which to implement complex sorting algorithms in your program. &quot;</p>
+<p>"If you are a programmer, imagine how much code it would take to implement the following SQL statement in your program:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">SELECT</span> <span class="fu">AVG</span>(z<span class="op">-</span>y) <span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">GROUP</span> <span class="kw">BY</span> x <span class="kw">HAVING</span> x <span class="op">&gt;</span> <span class="fu">MIN</span>(z) <span class="kw">OR</span> x <span class="op">&lt;</span> <span class="fu">MAX</span>(y) <span class="kw">ORDER</span> <span class="kw">BY</span> y <span class="kw">DESC</span> <span class="kw">LIMIT</span> <span class="dv">10</span> OFFSET <span class="dv">3</span>;</a></code></pre></div>
+<p>If you are already familiar with SQL, imagine coding the equivalent of a subquery, compound query, GROUP BY clause or multiway join—in C. SQLite embeds all of this functionality into your application with minimal cost. With a database engine integrated directly into your code, you can begin to think of SQL as a domain-specific language in which to implement complex sorting algorithms in your program. "</p>
 <p>记得大二下学期伊始学习 Java，要编写一个浙江大学校车查询系统的软件，那个时候还没有学过数据库，就想破脑门地琢磨该怎么样采用 Java 实现复杂的校车查询算法，甚至想要去研究各种图论算法云云。直到两个月后学习了数据库原理，情况才逐渐明朗。最终的程序采用的是 Apache Derby，另一款 Java 实现的嵌入式数据库。关于 SQLite 和 Derby 的对比，可以参考 <a href="http://www.sqlite.org/cvstrac/wiki?p=SqliteVersusDerby">Sqlite Versus Derby</a>。</p>
 <p>我们可以用如下的命令找出系统中的 Sqlite 数据库文件：</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> updatedb <span class="kw">&amp;&amp;</span> <span class="kw">for</span> <span class="fu">file</span> in <span class="kw">`</span><span class="fu">locate</span> *.db<span class="kw">`</span>
-<span class="kw">do</span>
-<span class="fu">file</span> <span class="va">$file</span>
-<span class="kw">done</span> <span class="kw">|</span> <span class="fu">grep</span> -i <span class="st">&quot;sqlite&quot;</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{print $1}&#39;</span></code></pre></div>
+<div class="sourceCode" id="cb4" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">sudo</span> updatedb <span class="kw">&amp;&amp;</span> <span class="kw">for</span> <span class="fu">file</span> in <span class="kw">`</span><span class="fu">locate</span> *.db<span class="kw">`</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">do</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="fu">file</span> <span class="va">$file</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="kw">done</span> <span class="kw">|</span> <span class="fu">grep</span> -i <span class="st">&quot;sqlite&quot;</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{print $1}&#39;</span></a></code></pre></div>
 <p>SQLite 比较好用的 GUI 工具有 <a href="http://sqlitebrowser.sourceforge.net/">sqlitebrowser</a> 和 <a href="http://sqliteman.com/">sqliteman</a>。</p>
 <p>SQLite 具有多种语言的 bindings，关于 C# 的 binding 还有些小小的麻烦，因为 SQLite 的 binding 并不是 ECMA C# 标准的一部分，所以 MS C# 和 Mono C#对此的实现有些许差别。Mono 通过 Mono.Data.SQLite 实现访问 SQLite 的 ADO.NET，具体的示例代码如下所示：</p>
 <ul>
 <li>通过 <code>IDataReader</code> ：</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode cs"><code class="sourceCode cs"><span class="kw">using</span> System;
-<span class="kw">using</span> System.<span class="fu">Data</span>;
-<span class="kw">using</span> Mono.<span class="fu">Data</span>.<span class="fu">Sqlite</span>;
-
-<span class="kw">public</span> <span class="kw">class</span> Test {
-    <span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span> (<span class="dt">string</span>[] args) {
-        <span class="dt">string</span> connectionString = <span class="st">&quot;URI=file:/home/lox/test.db&quot;</span>;
-        IDbConnection dbcon;
-        dbcon = (IDbConnection)<span class="kw">new</span> <span class="fu">SqliteConnection</span> (connectionString);
-        dbcon.<span class="fu">Open</span> ();
-        IDbCommand dbcmd = dbcon.<span class="fu">CreateCommand</span> ();
-        <span class="co">// requires a table to be created named employee</span>
-        <span class="co">// with columns firstname and lastname</span>
-        <span class="co">// such as,</span>
-        <span class="co">//        CREATE TABLE employee (</span>
-        <span class="co">//           firstname varchar(32),</span>
-        <span class="co">//           lastname varchar(32));</span>
-        <span class="dt">string</span> sql = <span class="st">&quot;SELECT * &quot;</span> + <span class="st">&quot;FROM test&quot;</span>;
-        dbcmd.<span class="fu">CommandText</span> = sql;
-        IDataReader reader = dbcmd.<span class="fu">ExecuteReader</span> ();
-        <span class="kw">while</span> (reader.<span class="fu">Read</span> ()) {
-            <span class="dt">int</span> FirstName = reader.<span class="fu">GetInt32</span>(<span class="dv">0</span>);
-            <span class="dt">string</span> LastName = reader.<span class="fu">GetString</span> (<span class="dv">1</span>);
-            Console.<span class="fu">WriteLine</span> (<span class="st">&quot;Name: &quot;</span> + FirstName.<span class="fu">ToString</span>() + <span class="st">&quot; &quot;</span> + LastName);
-        }
-        <span class="co">// clean up</span>
-        reader.<span class="fu">Close</span> ();
-        reader = <span class="kw">null</span>;
-        dbcmd.<span class="fu">Dispose</span> ();
-        dbcmd = <span class="kw">null</span>;
-        dbcon.<span class="fu">Close</span> ();
-        dbcon = <span class="kw">null</span>;
-    }
-}</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cs"><code class="sourceCode cs"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">using</span> System;</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">using</span> System.<span class="fu">Data</span>;</a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="kw">using</span> Mono.<span class="fu">Data</span>.<span class="fu">Sqlite</span>;</a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="kw">public</span> <span class="kw">class</span> Test {</a>
+<a class="sourceLine" id="cb5-6" title="6">    <span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span> (<span class="dt">string</span>[] args) {</a>
+<a class="sourceLine" id="cb5-7" title="7">        <span class="dt">string</span> connectionString = <span class="st">&quot;URI=file:/home/lox/test.db&quot;</span>;</a>
+<a class="sourceLine" id="cb5-8" title="8">        IDbConnection dbcon;</a>
+<a class="sourceLine" id="cb5-9" title="9">        dbcon = (IDbConnection)<span class="kw">new</span> <span class="fu">SqliteConnection</span> (connectionString);</a>
+<a class="sourceLine" id="cb5-10" title="10">        dbcon.<span class="fu">Open</span> ();</a>
+<a class="sourceLine" id="cb5-11" title="11">        IDbCommand dbcmd = dbcon.<span class="fu">CreateCommand</span> ();</a>
+<a class="sourceLine" id="cb5-12" title="12">        <span class="co">// requires a table to be created named employee</span></a>
+<a class="sourceLine" id="cb5-13" title="13">        <span class="co">// with columns firstname and lastname</span></a>
+<a class="sourceLine" id="cb5-14" title="14">        <span class="co">// such as,</span></a>
+<a class="sourceLine" id="cb5-15" title="15">        <span class="co">//        CREATE TABLE employee (</span></a>
+<a class="sourceLine" id="cb5-16" title="16">        <span class="co">//           firstname varchar(32),</span></a>
+<a class="sourceLine" id="cb5-17" title="17">        <span class="co">//           lastname varchar(32));</span></a>
+<a class="sourceLine" id="cb5-18" title="18">        <span class="dt">string</span> sql = <span class="st">&quot;SELECT * &quot;</span> + <span class="st">&quot;FROM test&quot;</span>;</a>
+<a class="sourceLine" id="cb5-19" title="19">        dbcmd.<span class="fu">CommandText</span> = sql;</a>
+<a class="sourceLine" id="cb5-20" title="20">        IDataReader reader = dbcmd.<span class="fu">ExecuteReader</span> ();</a>
+<a class="sourceLine" id="cb5-21" title="21">        <span class="kw">while</span> (reader.<span class="fu">Read</span> ()) {</a>
+<a class="sourceLine" id="cb5-22" title="22">            <span class="dt">int</span> FirstName = reader.<span class="fu">GetInt32</span>(<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb5-23" title="23">            <span class="dt">string</span> LastName = reader.<span class="fu">GetString</span> (<span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb5-24" title="24">            Console.<span class="fu">WriteLine</span> (<span class="st">&quot;Name: &quot;</span> + FirstName.<span class="fu">ToString</span>() + <span class="st">&quot; &quot;</span> + LastName);</a>
+<a class="sourceLine" id="cb5-25" title="25">        }</a>
+<a class="sourceLine" id="cb5-26" title="26">        <span class="co">// clean up</span></a>
+<a class="sourceLine" id="cb5-27" title="27">        reader.<span class="fu">Close</span> ();</a>
+<a class="sourceLine" id="cb5-28" title="28">        reader = <span class="kw">null</span>;</a>
+<a class="sourceLine" id="cb5-29" title="29">        dbcmd.<span class="fu">Dispose</span> ();</a>
+<a class="sourceLine" id="cb5-30" title="30">        dbcmd = <span class="kw">null</span>;</a>
+<a class="sourceLine" id="cb5-31" title="31">        dbcon.<span class="fu">Close</span> ();</a>
+<a class="sourceLine" id="cb5-32" title="32">        dbcon = <span class="kw">null</span>;</a>
+<a class="sourceLine" id="cb5-33" title="33">    }</a>
+<a class="sourceLine" id="cb5-34" title="34">}</a></code></pre></div>
 <ul>
 <li>通过 <code>DataSet</code> ：</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode cs"><code class="sourceCode cs"><span class="kw">using</span> System;
-<span class="kw">using</span> System.<span class="fu">Data</span>;
-<span class="kw">using</span> System.<span class="fu">Data</span>.<span class="fu">SqlClient</span>;
-<span class="kw">using</span> Mono.<span class="fu">Data</span>.<span class="fu">Sqlite</span>;
-
-<span class="kw">public</span> <span class="kw">class</span> Test {
-    <span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span> (<span class="dt">string</span>[] args) {
-        <span class="dt">string</span> connectionString = <span class="st">&quot;URI=file:/home/lox/user.db&quot;</span>;
-        <span class="dt">string</span> commandString = <span class="st">&quot;select * from py_phrase_0&quot;</span>;
-
-        SqliteDataAdapter dataAdapter =
-            <span class="kw">new</span> <span class="fu">SqliteDataAdapter</span>(commandString, connectionString);
-
-        DataTable dataTable = <span class="kw">new</span> <span class="fu">DataTable</span>();
-        dataAdapter.<span class="fu">Fill</span>(dataTable);
-
-        <span class="kw">foreach</span> (DataRow dataRow <span class="kw">in</span> dataTable.<span class="fu">Rows</span>) {
-            Console.<span class="fu">WriteLine</span>(dataRow[<span class="st">&quot;phrase&quot;</span>].<span class="fu">ToString</span>());
-        }
-    }
-}</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">using</span> System;</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">using</span> System.<span class="fu">Data</span>;</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw">using</span> System.<span class="fu">Data</span>.<span class="fu">SqlClient</span>;</a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="kw">using</span> Mono.<span class="fu">Data</span>.<span class="fu">Sqlite</span>;</a>
+<a class="sourceLine" id="cb6-5" title="5"></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="kw">public</span> <span class="kw">class</span> Test {</a>
+<a class="sourceLine" id="cb6-7" title="7">    <span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span> (<span class="dt">string</span>[] args) {</a>
+<a class="sourceLine" id="cb6-8" title="8">        <span class="dt">string</span> connectionString = <span class="st">&quot;URI=file:/home/lox/user.db&quot;</span>;</a>
+<a class="sourceLine" id="cb6-9" title="9">        <span class="dt">string</span> commandString = <span class="st">&quot;select * from py_phrase_0&quot;</span>;</a>
+<a class="sourceLine" id="cb6-10" title="10"></a>
+<a class="sourceLine" id="cb6-11" title="11">        SqliteDataAdapter dataAdapter =</a>
+<a class="sourceLine" id="cb6-12" title="12">            <span class="kw">new</span> <span class="fu">SqliteDataAdapter</span>(commandString, connectionString);</a>
+<a class="sourceLine" id="cb6-13" title="13"></a>
+<a class="sourceLine" id="cb6-14" title="14">        DataTable dataTable = <span class="kw">new</span> <span class="fu">DataTable</span>();</a>
+<a class="sourceLine" id="cb6-15" title="15">        dataAdapter.<span class="fu">Fill</span>(dataTable);</a>
+<a class="sourceLine" id="cb6-16" title="16"></a>
+<a class="sourceLine" id="cb6-17" title="17">        <span class="kw">foreach</span> (DataRow dataRow <span class="kw">in</span> dataTable.<span class="fu">Rows</span>) {</a>
+<a class="sourceLine" id="cb6-18" title="18">            Console.<span class="fu">WriteLine</span>(dataRow[<span class="st">&quot;phrase&quot;</span>].<span class="fu">ToString</span>());</a>
+<a class="sourceLine" id="cb6-19" title="19">        }</a>
+<a class="sourceLine" id="cb6-20" title="20">    }</a>
+<a class="sourceLine" id="cb6-21" title="21">}</a></code></pre></div>
 <p>话说 ADO.NET 的 DataSet 和 ASP.NET 中某些控件的 bind 功能还真是挺方便的。</p>
 <h2 id="asp.net">ASP.NET</h2>
 <p>ASP.NET？这究竟是个什么东西？大一时学了一门课叫做《WEB数据库设计》，讲的是 ASP，诸如如何配置 IIS，如何在 Dreamweaver 中添加 Access 数据源、连接数据库，以及 VBScript 的入门语法等等。三年之后我才知道，IIS 并不是 Apache 的对手，Apache 在某些方面也不如 nginx，LAMP 架构才是 web 服务中基础中的基础；编写 HTML 最好用的不是 Dreamweaver 而是 Vim；Access 充其量只是个不跨平台比 Excel 强点有限的玩具数据库产品；ASP 日薄西山，已经躺在了历史的博物馆里了；当初对 ASP 的吹嘘——动态网页技术，如今又成了 ASP 的最大诟病——代码混杂，无法分离网页设计和业务逻辑——而这又成了 ASP.NET 横空出世的理由。至于 ASP.NET 能活多久，我不关心也不在乎，我所在乎的只是用这个东西尽快地完成我的大程序。</p>
@@ -213,14 +213,14 @@
 <li>给你的编程思想打开了新的一道门；</li>
 <li>让你明白或巩固一个道理：trade-off是很重要的！</li>
 </ol>
-<p>很不幸，对我来说，C# 属于第二种，而 Python 和 Shell Script 属于第一种。C 语言是指针的艺术，C++ 则有试图设计一种智能指针，Java 抛弃了指针，只有 C#，哆哆嗦嗦地使用着指针： <code>unsafe code</code> 和 <code>delegate</code> ；C# 的继承控制更为复杂，除了传统的 <code>public</code> 、 <code>protected</code> 、 <code>private</code> ，还有 <code>internal</code> 和 <code>protected internal</code> ；Java 用 <code>import</code> ，包和文件目录有统一的物理逻辑关系，C# 用 <code>using</code> ，包和文件目录很混乱，这到底是个优点还是个缺点？C++ 的 <code>class</code> 和 <code>struct</code> 几乎相同，C# 却限制了 <code>struct</code> 的使用；C# 还有一种类成员 get/set 的语法，我觉得这种语法糖特别恶心。更多的语言特性比较可以参考 <a href="http://tech.it168.com/a2010/0817/1091/000001091254.shtml" class="uri">http://tech.it168.com/a2010/0817/1091/000001091254.shtml</a>。</p>
+<p>很不幸，对我来说，C# 属于第二种，而 Python 和 Shell Script 属于第一种。C 语言是指针的艺术，C++ 则有试图设计一种智能指针，Java 抛弃了指针，只有 C#，哆哆嗦嗦地使用着指针： <code>unsafe code</code> 和 <code>delegate</code> ；C# 的继承控制更为复杂，除了传统的 <code>public</code> 、 <code>protected</code> 、 <code>private</code> ，还有 <code>internal</code> 和 <code>protected internal</code> ；Java 用 <code>import</code> ，包和文件目录有统一的物理逻辑关系，C# 用 <code>using</code> ，包和文件目录很混乱，这到底是个优点还是个缺点？C++ 的 <code>class</code> 和 <code>struct</code> 几乎相同，C# 却限制了 <code>struct</code> 的使用；C# 还有一种类成员 get/set 的语法，我觉得这种语法糖特别恶心。更多的语言特性比较可以参考 <a href="http://tech.it168.com/a2010/0817/1091/000001091254.shtml">http://tech.it168.com/a2010/0817/1091/000001091254.shtml</a>。</p>
 <p>写到这里我又想到，为什么会有如此多的 Programmig Languages 呢。假设把这些编程语言按照字母顺序排一下，让一个人去学，恐怕一辈子也学不完。<a href="http://github.com">Github</a> 上有一个有趣的 hello world 项目，汇集了众多语言写的 hello world 程序，你可以通过如下命令获取这些程序：</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> pull git://github.com/git/hello-world.git</code></pre></div>
+<div class="sourceCode" id="cb7" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="fu">git</span> pull git://github.com/git/hello-world.git</a></code></pre></div>
 <p>面对如此多的编程语言，我们又该如何选择呢？著名黑客 Eric Raymond 给了我们有说服力的<a href="http://www.catb.org/~esr/faqs/hacker-howto.html#skills1">答案</a>：</p>
-<p>“It’s best, actually, to learn all five of Python, C/C++, Java, Perl, and Lisp. Besides being the most important hacking languages, they represent very different approaches to programming, and each will educate you in valuable ways.”</p>
+<p>"It's best, actually, to learn all five of Python, C/C++, Java, Perl, and Lisp. Besides being the most important hacking languages, they represent very different approaches to programming, and each will educate you in valuable ways."</p>
 <p>没错。虽然说解决问题是最终目的，方法手段有千千万，语言不是关键，思想是最重要的，但是选择语言往往也决定着你的思想，就比如你不太可能去用 Python lambda, map, reduce 去实现 Functional Programming，也不太可能用 Lisp 去写 OO 程序等等。</p>
 <h2 id="learning-resources">Learning Resources</h2>
-<p>.NET 语言并没有 C++ 语言如《The C++ Programming Language》和《C++ Template》这种重量级的传世著作，O’Reilly的《<a href="http://book.douban.com/subject/1457194/">Programmig C#</a>》和《<a href="http://book.douban.com/subject/1459239/">Programming ASP.NET</a>》是非常不错的入门教材了。其余一切国内的中文 xx 教程、xx 精通一虑不要看。</p>
+<p>.NET 语言并没有 C++ 语言如《The C++ Programming Language》和《C++ Template》这种重量级的传世著作，O'Reilly的《<a href="http://book.douban.com/subject/1457194/">Programmig C#</a>》和《<a href="http://book.douban.com/subject/1459239/">Programming ASP.NET</a>》是非常不错的入门教材了。其余一切国内的中文 xx 教程、xx 精通一虑不要看。</p>
 <p>理解消息循环和 Windows 事件机制，最经典的莫过于 Charles Petzold 的《<a href="http://book.douban.com/subject/3411191/">Programming Windows</a>》，我虽然只看过前几章，但已经受益匪浅。</p>
 <p>最终版的程序就不给了。区区几百行，bug 一大堆，丢人的。如果实在有需要参考，可以给我发邮件。xiaohanyu1988@gmail.com。谢谢捧场。</p>
 

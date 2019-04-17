@@ -61,25 +61,25 @@
 <p>这是 3 月 25 日晚上的照片。</p>
 <p>首先是解决了 Emacs 和ibus输入法冲突的问题，总结起来，大概原因有三：</p>
 <p>一是系统环境变量 LC<sub>CTYPE</sub> 设置错误，应该设置城 zh<sub>CN</sub>.UTF-8，下面是我的 locale:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">LANG=</span>en_US.UTF-8
-<span class="va">LC_CTYPE=</span>zh_CN.UTF-8
-<span class="va">LC_NUMERIC=</span>en_US.UTF-8
-<span class="va">LC_TIME=</span>en_US.UTF-8
-<span class="va">LC_COLLATE=</span>en_US.UTF-8
-<span class="va">LC_MONETARY=</span>en_US.UTF-8
-<span class="va">LC_MESSAGES=</span>en_US.UTF-8
-<span class="va">LC_PAPER=</span>en_US.UTF-8
-<span class="va">LC_NAME=</span>en_US.UTF-8
-<span class="va">LC_ADDRESS=</span>en_US.UTF-8
-<span class="va">LC_TELEPHONE=</span>en_US.UTF-8
-<span class="va">LC_MEASUREMENT=</span>en_US.UTF-8
-<span class="va">LC_IDENTIFICATION=</span>en_US.UTF-8
-<span class="va">LC_ALL=</span></code></pre></div>
+<div class="sourceCode" id="cb1" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="va">LANG=</span>en_US.UTF-8</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">LC_CTYPE=</span>zh_CN.UTF-8</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="va">LC_NUMERIC=</span>en_US.UTF-8</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="va">LC_TIME=</span>en_US.UTF-8</a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="va">LC_COLLATE=</span>en_US.UTF-8</a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="va">LC_MONETARY=</span>en_US.UTF-8</a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="va">LC_MESSAGES=</span>en_US.UTF-8</a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="va">LC_PAPER=</span>en_US.UTF-8</a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="va">LC_NAME=</span>en_US.UTF-8</a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="va">LC_ADDRESS=</span>en_US.UTF-8</a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="va">LC_TELEPHONE=</span>en_US.UTF-8</a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="va">LC_MEASUREMENT=</span>en_US.UTF-8</a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="va">LC_IDENTIFICATION=</span>en_US.UTF-8</a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="va">LC_ALL=</span></a></code></pre></div>
 <p>二是没有设定好正确的 IBus 启动环境，应该在系统启动文件（如 <code>~/.xprofile</code> , <code>~/.xinitrc</code> 等，看系统版本而定）中加入如下语句：</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">export</span> <span class="va">XMODIFIERS=</span><span class="st">&quot;@im=ibus&quot;</span>
-<span class="bu">export</span> <span class="va">GTK_IM_MODULE=</span><span class="st">&quot;ibus&quot;</span>
-<span class="bu">export</span> <span class="va">QT_IM_MODULE=</span><span class="st">&quot;ibus&quot;</span>
-<span class="ex">ibus-daemon</span> -x -d -r</code></pre></div>
+<div class="sourceCode" id="cb2" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="bu">export</span> <span class="va">XMODIFIERS=</span><span class="st">&quot;@im=ibus&quot;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="bu">export</span> <span class="va">GTK_IM_MODULE=</span><span class="st">&quot;ibus&quot;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="bu">export</span> <span class="va">QT_IM_MODULE=</span><span class="st">&quot;ibus&quot;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="ex">ibus-daemon</span> -x -d -r</a></code></pre></div>
 <p>三是字体问题。昨天出于系统洁癖原因，卸载了 Xorg-11，装上了 xorg-server 更精简的包，这么一卸一装少了几十款恐怕一辈子都用不到的字体。可是 Emacs 却无法使用 IBus 输入法了。无奈，重新装上 Xorg-x11，重启后问题得到解决。</p>
 <p>有的论坛说修改一下 Emacs 中 <code>Ctrl + SPACE</code> 快捷键的设置。其实不对的。默认情况下 xim 快捷键的优先级应该比 Emacs 的快捷键高， <code>Ctrl + SPACE</code> 默认应该被 X 系统截取，调出 IBus 输入法的。</p>
 <p>解决完了 IBus 的问题，晚上去 ZJG 做实验，还是 Verilog，只是这次换了两台电脑，依然没有找到“成品”。无奈只得自己动手丰衣足食。好在照着前人的一份实验报告，折腾了良久，竟然成功了。三个仿真一个板载，运行成功。天，有史以来第一次靠着自己的力量搞懂了 Verilog 代码完成了实验。不过 Xilinx 还是比较恶心。Bug 不断，所谓下载到板子上究竟是怎么回事，鬼才知道。学生也就就着糊涂装糊涂，copy 来 copy 去，索然无味。不过好好学还是有收获的，逻辑，组成加体系结构，三门理论碰上三门实验，抵得上国外大学体系结构的真家伙了。</p>
@@ -143,7 +143,7 @@
       <div class="item">
         <a href="/categories#Life">
           <div class="ui label">
-            Life<sup>47</sup>
+            Life<sup>48</sup>
           </div>
         </a>
       </div>

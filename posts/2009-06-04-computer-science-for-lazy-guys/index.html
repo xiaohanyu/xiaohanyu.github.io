@@ -84,28 +84,28 @@
 <p>为了更好的排版质量，Knuth 大人冲冠一怒，整整十年，发明了伟大的 TeX 排版系统。</p>
 <p>后来 Leslie　Lamport 说：Knuth 你那个 Tex 系统简直太 tmd 的难用了，于是他就写了个 LaTeX，极大地简化了 TeX 的使用，使得一个初学者在半天的时间内也能排出具有国际水准的文档来。</p>
 <p>后来中国人发现这 LaTeX 先天不支持中文，于是就有人站出来发明了 CCT，德国人还发明了 CJK（Chinese, Japanese, Korean）。</p>
-<p>后来人们又发现 CJK 生成字体太 tmd 的麻烦了，于是有勇士站出来，写了 XeTeX，直接调用系统字体，这下好了。世界清静了<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。</p>
+<p>后来人们又发现 CJK 生成字体太 tmd 的麻烦了，于是有勇士站出来，写了 XeTeX，直接调用系统字体，这下好了。世界清静了<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。</p>
 <p>为了更高效的编辑文本，人们就发明了 Vim 和 Emacs。</p>
 <p>后来人们又给 Emacs 增添了很多乱七八糟的功能，于是 Emacs 成了一中生活。</p>
 <p>人们发现文件管理真是件无聊的事情，于是就发明了 Shell 脚本语言。</p>
-<p>人们发现程序的 API 文档撰写麻烦死了，于是 Java 有了 Javadoc，C++ 有了 Doxygen<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>。</p>
+<p>人们发现程序的 API 文档撰写麻烦死了，于是 Java 有了 Javadoc，C++ 有了 Doxygen<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
 <p>再后来的后来，cnlox 发现 Emacs <a href="https://www.gnu.org/software/emacs-muse/">Muse</a> 这个记笔记的好东西，于是就用 Muse 写了这么一篇东西，记录下来最近的一些心得和学习笔记。^_^</p>
 <h2 id="几个小软件">几个小软件</h2>
 <h3 id="yakuake">yakuake</h3>
 <p>用 *nix 的人进入系统第一件事往往就是开一个 terminal，然后在那里打开 Emacs，开 Firefox 等等。<a href="https://www.kde.org/applications/system/yakuake/">Yakuake</a> 的使用十分方便，初次安装完毕后，默认用 <code>F12</code> 键调出，像一幕卷帘挂在屏幕上，不用的时候， <code>F12</code> 调走，自动隐藏，既不占用任务栏，又免除了 <code>Alt +
 Tab</code> 切换的麻烦。</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install yakuake</code></pre></div>
+<div class="sourceCode" id="cb1" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">sudo</span> apt-get install yakuake</a></code></pre></div>
 <h3 id="gnome-do">gnome-do</h3>
 <p>Mac 下有 <a href="https://qsapp.com/">QuickSilver</a>，Windows 下有 <a href="https://www.launchy.net/">Launchy</a>，三个程序的设计思想是差不多的，就是程序的快速启动器，免除从菜单中搜索的麻烦。谁用谁知道。</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install gnome-do</code></pre></div>
+<div class="sourceCode" id="cb2" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">sudo</span> apt-get install gnome-do</a></code></pre></div>
 <h3 id="dwww">dwww</h3>
 <p>我想信大多数玩 Linuxer 都是爱折腾不安分的人。Ubuntu 虽然打着博爱的口号，其易用性堪比 Windows，依然难免会遇到各种各样的问题，此时程序本身的文档就成了最好的解决问题的良师益友。</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install dwww info2www swish++</code></pre></div>
-<p>安装完后打开浏览器访问 <a href="http://localhost/dwww"><a href="http://localhost/dwww" class="uri">http://localhost/dwww</a></a> 或者直接在终端调用即可<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>。</p>
+<div class="sourceCode" id="cb3" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">sudo</span> apt-get install dwww info2www swish++</a></code></pre></div>
+<p>安装完后打开浏览器访问 <a href="http://localhost/dwww"><a href="http://localhost/dwww">http://localhost/dwww</a></a> 或者直接在终端调用即可<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>。</p>
 <p>顺便提一下，<a href="http://www.fifi.org/doc/dhelp/dhelp.html">dhelp</a> 和 <a href="https://wiki.gnome.org/Apps/Devhelp">devhelp</a> 也是类似的软件，大家可以装着用用。</p>
 <h3 id="nautilus-open-terminal">nautilus-open-terminal</h3>
 <p>在 <a href="https://wiki.gnome.org/action/show/Apps/Nautilus?action=show&amp;redirect=Nautilus">Nautilus</a> 中管理文件时，常常会希望在当前位置开个终端，以前的方法是：开终端 –&gt; cd 到当前目录，不过有了 nautilus-open-terminal 后，打开终端后 <code>pwd</code> 就是当前目录，非常方便。</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install nautilus-open-terminal</code></pre></div>
+<div class="sourceCode" id="cb4" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">sudo</span> apt-get install nautilus-open-terminal</a></code></pre></div>
 <h2 id="emacs">Emacs</h2>
 <p>这个话题太沉重，我现在还不懂 elisp，无法进行太过详细的描述，先列下一个单子，容以后慢慢到来：</p>
 <ul>
@@ -140,149 +140,149 @@ Tab</code> 切换的麻烦。</p>
 <h2 id="latex">LaTeX</h2>
 <p>LaTeX 的中文化配置一直是件很麻烦的事情。尤其是在 Linux 下。在 Windows 下有 CTeX 网站制作的 CTeX 套装，直接安装一般没有太大的问题。但是在 <a href="file:///home/lox/muse/publish/myhtml/Ubuntu/index.html">Ubuntu</a> 下，LaTeX 装完后一般并不能直接用于中文，需要生成一堆的字体和配置一堆的参数，Baidu 上随便一搜一大堆，下面是我的配置方法 :</p>
 <p>首先安装 <a href="https://www.tug.org/texlive/">TeX Live</a> 套装，硬盘充裕的话安装全套支持好了,</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install texlive-full latex-beamer</code></pre></div>
+<div class="sourceCode" id="cb5" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">sudo</span> apt-get install texlive-full latex-beamer</a></code></pre></div>
 <p>然后安装 CJK 支持，</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install latex-cjk-all</code></pre></div>
+<div class="sourceCode" id="cb6" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">sudo</span> apt-get install latex-cjk-all</a></code></pre></div>
 <p>其实现在已经可以使用中文了。</p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="bu">\documentclass</span>{<span class="ex">article</span>}
-<span class="bu">\usepackage</span>{<span class="ex">CJK</span>}
-<span class="kw">\begin</span>{<span class="ex">document</span>}
-<span class="kw">\begin</span>{<span class="ex">CJK</span>}{UTF8}{gbsn}
-欢迎来到 CJK！这里使用的是 CJK 宏包里有的文鼎宋体。
-<span class="kw">\end</span>{<span class="ex">CJK</span>}
-<span class="kw">\end</span>{<span class="ex">document</span>}</code></pre></div>
-<p>但是 gbsn 字体过于简陋，比如说朱熔基的’熔’字就显示不出来，这怎么能行呢？而且现在有很多 LaTeX 文档都是用 LaTeX ＋ CJK 生成的，以后万一遇上这种情况，会很麻烦。网上的方法多是自己编译字体配置参数，我看的头都大了。不过好在最后找到一种方法——网上搜索生成好的 <a href="ftp://202.38.75.75/pub/linux_soft/texlive/YueWang-zhfonts-final_1.01.tar.bz2">YueWang-zhfonts-final_1.01.tar.bz2</a>，复制到主目录。</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> texhash</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb7-1" title="1"><span class="bu">\documentclass</span>{<span class="ex">article</span>}</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="bu">\usepackage</span>{<span class="ex">CJK</span>}</a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">\begin</span>{<span class="ex">document</span>}</a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="kw">\begin</span>{<span class="ex">CJK</span>}{UTF8}{gbsn}</a>
+<a class="sourceLine" id="cb7-5" title="5">欢迎来到 CJK！这里使用的是 CJK 宏包里有的文鼎宋体。</a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="kw">\end</span>{<span class="ex">CJK</span>}</a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="kw">\end</span>{<span class="ex">document</span>}</a></code></pre></div>
+<p>但是 gbsn 字体过于简陋，比如说朱熔基的'熔'字就显示不出来，这怎么能行呢？而且现在有很多 LaTeX 文档都是用 LaTeX ＋ CJK 生成的，以后万一遇上这种情况，会很麻烦。网上的方法多是自己编译字体配置参数，我看的头都大了。不过好在最后找到一种方法——网上搜索生成好的 <a href="ftp://202.38.75.75/pub/linux_soft/texlive/YueWang-zhfonts-final_1.01.tar.bz2">YueWang-zhfonts-final\<sub>1</sub>.01.tar.bz2</a>，复制到主目录。</p>
+<div class="sourceCode" id="cb8" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="fu">sudo</span> texhash</a></code></pre></div>
 <p>然后就看人品了。我那天下载字体包就下载了一个下午，都是下载到一半就停住了，不知道怎么回事。</p>
 <p>下面是我写 LaTeX 文档的一个简单模板，供大家参考。</p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="bu">\documentclass</span>[a4paper, 11pt, openany]{<span class="ex">article</span>}
-<span class="bu">\usepackage</span>[top=2.5cm, bottom=3cm, left=2cm, right=2cm]{<span class="ex">geometry</span>}
-                                     <span class="co">% 控制页边距</span>
-<span class="bu">\usepackage</span>{<span class="ex">enumerate</span>}               <span class="co">% 控制项目列表</span>
-<span class="bu">\usepackage</span>{<span class="ex">multicol</span>}                <span class="co">% 多栏显示</span>
-
-<span class="bu">\usepackage</span>{<span class="ex">graphicx</span>}
-
-<span class="bu">\usepackage</span>{<span class="ex">indentfirst</span>}
-<span class="bu">\usepackage</span>[perpage,symbol]{<span class="ex">footmisc</span>}<span class="co">% 脚注控制</span>
-<span class="bu">\usepackage</span>[sf]{<span class="ex">titlesec</span>}            <span class="co">% 控制标题</span>
-<span class="bu">\usepackage</span>{<span class="ex">titletoc</span>}                <span class="co">% 控制目录</span>
-<span class="bu">\usepackage</span>{<span class="ex">fancyhdr</span>}                <span class="co">% 页眉页脚</span>
-<span class="bu">\usepackage</span>{<span class="ex">type1cm</span>}                 <span class="co">% 控制字体大小</span>
-<span class="bu">\usepackage</span>{<span class="ex">indentfirst</span>}             <span class="co">% 首行缩进</span>
-<span class="bu">\usepackage</span>{<span class="ex">makeidx</span>}                 <span class="co">% 建立索引</span>
-<span class="bu">\usepackage</span>{<span class="ex">textcomp</span>}                <span class="co">% 千分号等特殊符号</span>
-<span class="bu">\usepackage</span>{<span class="ex">layouts</span>}                 <span class="co">% 打印当前页面格式</span>
-<span class="bu">\usepackage</span>{<span class="ex">bbding</span>}                  <span class="co">% 一些特殊符号</span>
-<span class="bu">\usepackage</span>{<span class="ex">cite</span>}                    <span class="co">% 支持引用</span>
-<span class="bu">\usepackage</span>{<span class="ex">color,xcolor</span>}            <span class="co">% 支持彩色文本、底色、文本框等</span>
-<span class="bu">\usepackage</span>{<span class="ex">listings</span>}                <span class="co">% 粘贴源代码</span>
-<span class="fu">\lstloadlanguages</span>{}                  <span class="co">% 所要粘贴代码的编程语言</span>
-
-<span class="co">%%%% 设置 listings 宏包的一些全局样式  %%%%</span>
-<span class="co">%%%% 参见  http://hi.baidu.com/shawpinlee/blog/item/9ec431cbae28e41cbe09e6e4.html%%%%</span>
-<span class="fu">\lstset</span>{numbers=left,
-numberstyle=<span class="fu">\tiny</span>,
-keywordstyle=<span class="fu">\color</span>{blue!70}, commentstyle=<span class="fu">\color</span>{red!50!green!50!blue!50},
-frame=shadowbox,
-rulesepcolor=<span class="fu">\color</span>{red!20!green!20!blue!20},
-escapechar=`,
-xleftmargin=2em,xrightmargin=2em, aboveskip=1em,
-breaklines,                          <span class="co">% 这条命令可以让 LaTeX 自动将长的代码行换行排版</span>
-extendedchars=false                  <span class="co">% 这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题</span>
-}
-
-<span class="bu">\usepackage</span>{<span class="ex">latexsym</span>}
-<span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}                 <span class="co">% AMS LaTeX 宏包</span>
-<span class="bu">\usepackage</span>{<span class="ex">amssymb</span>}                 <span class="co">% 用来排版漂亮的数学公式</span>
-<span class="bu">\usepackage</span>{<span class="ex">amsbsy</span>}
-<span class="bu">\usepackage</span>{<span class="ex">amsthm</span>}
-<span class="bu">\usepackage</span>{<span class="ex">amsfonts</span>}
-<span class="bu">\usepackage</span>{<span class="ex">mathrsfs</span>}                <span class="co">% 英文花体字体</span>
-<span class="bu">\usepackage</span>{<span class="ex">bm</span>}                      <span class="co">% 数学公式中的黑斜体</span>
-<span class="bu">\usepackage</span>{<span class="ex">relsize</span>}                 <span class="co">% 调整公式字体大小：\mathsmaller, \mathlarger</span>
-<span class="bu">\usepackage</span>{<span class="ex">caption2</span>}                <span class="co">% 浮动图形和表格标题样式</span>
-
-<span class="bu">\usepackage</span>{<span class="ex">CJKutf8</span>}
-<span class="fu">\makeindex</span>                           <span class="co">% 生成索引</span>
-<span class="fu">\pagestyle</span>{fancy}                    <span class="co">% 页眉页脚风格</span>
-<span class="co">%\fancyhf{}                          % 清空当前页眉页脚的默认设置</span>
-
-
-<span class="bu">\usepackage</span>{<span class="ex">CJK</span>}
-<span class="kw">\begin</span>{<span class="ex">document</span>}
-<span class="kw">\begin</span>{<span class="ex">CJK*</span>}{UTF8}{song}
-<span class="fu">\CJKindent</span>
-<span class="fu">\sloppy\CJKspace</span>                     <span class="co">% 中英文混排的断行</span>
-<span class="fu">\CJKtilde</span>                            <span class="co">% 重新定义 ~，用 ~ 隔开中英文</span>
-
-<span class="co">%%%%%%%%%% 一些新定义 %%%%%%%%%%</span>
-<span class="fu">\newcommand</span>{<span class="ex">\song</span>}{<span class="fu">\CJKfamily</span>{song}} <span class="co">% 宋体</span>
-<span class="fu">\newcommand</span>{<span class="ex">\hei</span>}{<span class="fu">\CJKfamily</span>{hei}}   <span class="co">% 黑体</span>
-<span class="fu">\newcommand</span>{<span class="ex">\fs</span>}{<span class="fu">\CJKfamily</span>{fs}}     <span class="co">% 仿宋</span>
-<span class="fu">\newcommand</span>{<span class="ex">\kai</span>}{<span class="fu">\CJKfamily</span>{kai}}   <span class="co">% 楷体</span>
-
-<span class="co">%%%%%%%%%% 定理类环境的定义 %%%%%%%%%%</span>
-<span class="co">%% 必须在导入中文环境之后</span>
-<span class="fu">\newtheorem</span>{example}{例 }             <span class="co">% 整体编号</span>
-<span class="fu">\newtheorem</span>{algorithm}{算法}
-<span class="fu">\newtheorem</span>{theorem}{定理}[section]   <span class="co">% 按 section 编号</span>
-<span class="fu">\newtheorem</span>{definition}{定义}
-<span class="fu">\newtheorem</span>{axiom}{公理}
-<span class="fu">\newtheorem</span>{property}{性质}
-<span class="fu">\newtheorem</span>{proposition}{命题}
-<span class="fu">\newtheorem</span>{lemma}{引理}
-<span class="fu">\newtheorem</span>{corollary}{推论}
-<span class="fu">\newtheorem</span>{remark}{注解}
-<span class="fu">\newtheorem</span>{condition}{条件}
-<span class="fu">\newtheorem</span>{conclusion}{结论}
-<span class="fu">\newtheorem</span>{assumption}{假设}
-
-<span class="co">%%%%%%%%%% 一些重定义 %%%%%%%%%%</span>
-<span class="co">%% 必须在导入中文环境之后</span>
-<span class="fu">\renewcommand</span>{<span class="ex">\contentsname</span>}{目录}     <span class="co">% 将Contents改为目录</span>
-<span class="fu">\renewcommand</span>{<span class="ex">\abstractname</span>}{摘要}     <span class="co">% 将Abstract改为摘要</span>
-<span class="fu">\renewcommand</span>{<span class="ex">\refname</span>}{参考文献}       <span class="co">% 将References改为参考文献</span>
-<span class="fu">\renewcommand</span>{<span class="ex">\indexname</span>}{索引}
-<span class="fu">\renewcommand</span>{<span class="ex">\figurename</span>}{图 }
-<span class="fu">\renewcommand</span>{<span class="ex">\tablename</span>}{表}
-<span class="fu">\renewcommand</span>{<span class="ex">\appendixname</span>}{附录}
-<span class="fu">\renewcommand</span>{<span class="ex">\proofname</span>}{<span class="fu">\hei</span> 证明}
-<span class="fu">\renewcommand</span>{<span class="ex">\algorithm</span>}{<span class="fu">\hei</span> 算法}
-
-<span class="co">%%%%%%%%%% 重定义字号命令 %%%%%%%%%%</span>
-<span class="fu">\newcommand</span>{<span class="ex">\yihao</span>}{<span class="fu">\fontsize</span>{26pt}{36pt}<span class="fu">\selectfont</span>}       <span class="co">% 一号，1.4 倍行距</span>
-<span class="fu">\newcommand</span>{<span class="ex">\erhao</span>}{<span class="fu">\fontsize</span>{22pt}{28pt}<span class="fu">\selectfont</span>}       <span class="co">% 二号，1.25 倍行距</span>
-<span class="fu">\newcommand</span>{<span class="ex">\xiaoer</span>}{<span class="fu">\fontsize</span>{18pt}{18pt}<span class="fu">\selectfont</span>}      <span class="co">% 小二，单倍行距</span>
-<span class="fu">\newcommand</span>{<span class="ex">\sanhao</span>}{<span class="fu">\fontsize</span>{16pt}{24pt}<span class="fu">\selectfont</span>}      <span class="co">% 三号，1.5 倍行距</span>
-<span class="fu">\newcommand</span>{<span class="ex">\xiaosan</span>}{<span class="fu">\fontsize</span>{15pt}{22pt}<span class="fu">\selectfont</span>}     <span class="co">% 小三，1.5 倍行距</span>
-<span class="fu">\newcommand</span>{<span class="ex">\sihao</span>}{<span class="fu">\fontsize</span>{14pt}{21pt}<span class="fu">\selectfont</span>}       <span class="co">% 四号，1.5 倍行距</span>
-<span class="fu">\newcommand</span>{<span class="ex">\bansi</span>}{<span class="fu">\fontsize</span>{13pt}{19.5pt}<span class="fu">\selectfont</span>}     <span class="co">% 半四，1.5 倍行距</span>
-<span class="fu">\newcommand</span>{<span class="ex">\xiaosi</span>}{<span class="fu">\fontsize</span>{12pt}{18pt}<span class="fu">\selectfont</span>}      <span class="co">% 小四，1.5 倍行距</span>
-<span class="fu">\newcommand</span>{<span class="ex">\dawu</span>}{<span class="fu">\fontsize</span>{11pt}{11pt}<span class="fu">\selectfont</span>}        <span class="co">% 大五，单倍行距</span>
-<span class="fu">\newcommand</span>{<span class="ex">\wuhao</span>}{<span class="fu">\fontsize</span>{10.5pt}{10.5pt}<span class="fu">\selectfont</span>}   <span class="co">% 五号，单倍行距</span>
-
-<span class="co">%%%%%%%%%% 论文标题、作者等 %%%%%%%%%%</span>
-<span class="fu">\title</span>{<span class="fu">\LaTeX</span> 测试文档}
-<span class="fu">\author</span>{Lox Freeman}
-<span class="fu">\date</span>{2009 年5月 31 日 }
-<span class="fu">\maketitle</span>
-<span class="fu">\tableofcontents</span>
-
-这是 <span class="fu">\LaTeX</span> 中文文档。
-<span class="fu">\newpage</span>
-<span class="kw">\end</span>{<span class="ex">CJK*</span>}
-<span class="kw">\end</span>{<span class="ex">document</span>}</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb9-1" title="1"><span class="bu">\documentclass</span>[a4paper, 11pt, openany]{<span class="ex">article</span>}</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="bu">\usepackage</span>[top=2.5cm, bottom=3cm, left=2cm, right=2cm]{<span class="ex">geometry</span>}</a>
+<a class="sourceLine" id="cb9-3" title="3">                                     <span class="co">% 控制页边距</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="bu">\usepackage</span>{<span class="ex">enumerate</span>}               <span class="co">% 控制项目列表</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="bu">\usepackage</span>{<span class="ex">multicol</span>}                <span class="co">% 多栏显示</span></a>
+<a class="sourceLine" id="cb9-6" title="6"></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="bu">\usepackage</span>{<span class="ex">graphicx</span>}</a>
+<a class="sourceLine" id="cb9-8" title="8"></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="bu">\usepackage</span>{<span class="ex">indentfirst</span>}</a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="bu">\usepackage</span>[perpage,symbol]{<span class="ex">footmisc</span>}<span class="co">% 脚注控制</span></a>
+<a class="sourceLine" id="cb9-11" title="11"><span class="bu">\usepackage</span>[sf]{<span class="ex">titlesec</span>}            <span class="co">% 控制标题</span></a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="bu">\usepackage</span>{<span class="ex">titletoc</span>}                <span class="co">% 控制目录</span></a>
+<a class="sourceLine" id="cb9-13" title="13"><span class="bu">\usepackage</span>{<span class="ex">fancyhdr</span>}                <span class="co">% 页眉页脚</span></a>
+<a class="sourceLine" id="cb9-14" title="14"><span class="bu">\usepackage</span>{<span class="ex">type1cm</span>}                 <span class="co">% 控制字体大小</span></a>
+<a class="sourceLine" id="cb9-15" title="15"><span class="bu">\usepackage</span>{<span class="ex">indentfirst</span>}             <span class="co">% 首行缩进</span></a>
+<a class="sourceLine" id="cb9-16" title="16"><span class="bu">\usepackage</span>{<span class="ex">makeidx</span>}                 <span class="co">% 建立索引</span></a>
+<a class="sourceLine" id="cb9-17" title="17"><span class="bu">\usepackage</span>{<span class="ex">textcomp</span>}                <span class="co">% 千分号等特殊符号</span></a>
+<a class="sourceLine" id="cb9-18" title="18"><span class="bu">\usepackage</span>{<span class="ex">layouts</span>}                 <span class="co">% 打印当前页面格式</span></a>
+<a class="sourceLine" id="cb9-19" title="19"><span class="bu">\usepackage</span>{<span class="ex">bbding</span>}                  <span class="co">% 一些特殊符号</span></a>
+<a class="sourceLine" id="cb9-20" title="20"><span class="bu">\usepackage</span>{<span class="ex">cite</span>}                    <span class="co">% 支持引用</span></a>
+<a class="sourceLine" id="cb9-21" title="21"><span class="bu">\usepackage</span>{<span class="ex">color,xcolor</span>}            <span class="co">% 支持彩色文本、底色、文本框等</span></a>
+<a class="sourceLine" id="cb9-22" title="22"><span class="bu">\usepackage</span>{<span class="ex">listings</span>}                <span class="co">% 粘贴源代码</span></a>
+<a class="sourceLine" id="cb9-23" title="23"><span class="fu">\lstloadlanguages</span>{}                  <span class="co">% 所要粘贴代码的编程语言</span></a>
+<a class="sourceLine" id="cb9-24" title="24"></a>
+<a class="sourceLine" id="cb9-25" title="25"><span class="co">%%%% 设置 listings 宏包的一些全局样式  %%%%</span></a>
+<a class="sourceLine" id="cb9-26" title="26"><span class="co">%%%% 参见  http://hi.baidu.com/shawpinlee/blog/item/9ec431cbae28e41cbe09e6e4.html%%%%</span></a>
+<a class="sourceLine" id="cb9-27" title="27"><span class="fu">\lstset</span>{numbers=left,</a>
+<a class="sourceLine" id="cb9-28" title="28">numberstyle=<span class="fu">\tiny</span>,</a>
+<a class="sourceLine" id="cb9-29" title="29">keywordstyle=<span class="fu">\color</span>{blue!70}, commentstyle=<span class="fu">\color</span>{red!50!green!50!blue!50},</a>
+<a class="sourceLine" id="cb9-30" title="30">frame=shadowbox,</a>
+<a class="sourceLine" id="cb9-31" title="31">rulesepcolor=<span class="fu">\color</span>{red!20!green!20!blue!20},</a>
+<a class="sourceLine" id="cb9-32" title="32">escapechar=`,</a>
+<a class="sourceLine" id="cb9-33" title="33">xleftmargin=2em,xrightmargin=2em, aboveskip=1em,</a>
+<a class="sourceLine" id="cb9-34" title="34">breaklines,                          <span class="co">% 这条命令可以让 LaTeX 自动将长的代码行换行排版</span></a>
+<a class="sourceLine" id="cb9-35" title="35">extendedchars=false                  <span class="co">% 这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题</span></a>
+<a class="sourceLine" id="cb9-36" title="36">}</a>
+<a class="sourceLine" id="cb9-37" title="37"></a>
+<a class="sourceLine" id="cb9-38" title="38"><span class="bu">\usepackage</span>{<span class="ex">latexsym</span>}</a>
+<a class="sourceLine" id="cb9-39" title="39"><span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}                 <span class="co">% AMS LaTeX 宏包</span></a>
+<a class="sourceLine" id="cb9-40" title="40"><span class="bu">\usepackage</span>{<span class="ex">amssymb</span>}                 <span class="co">% 用来排版漂亮的数学公式</span></a>
+<a class="sourceLine" id="cb9-41" title="41"><span class="bu">\usepackage</span>{<span class="ex">amsbsy</span>}</a>
+<a class="sourceLine" id="cb9-42" title="42"><span class="bu">\usepackage</span>{<span class="ex">amsthm</span>}</a>
+<a class="sourceLine" id="cb9-43" title="43"><span class="bu">\usepackage</span>{<span class="ex">amsfonts</span>}</a>
+<a class="sourceLine" id="cb9-44" title="44"><span class="bu">\usepackage</span>{<span class="ex">mathrsfs</span>}                <span class="co">% 英文花体字体</span></a>
+<a class="sourceLine" id="cb9-45" title="45"><span class="bu">\usepackage</span>{<span class="ex">bm</span>}                      <span class="co">% 数学公式中的黑斜体</span></a>
+<a class="sourceLine" id="cb9-46" title="46"><span class="bu">\usepackage</span>{<span class="ex">relsize</span>}                 <span class="co">% 调整公式字体大小：\mathsmaller, \mathlarger</span></a>
+<a class="sourceLine" id="cb9-47" title="47"><span class="bu">\usepackage</span>{<span class="ex">caption2</span>}                <span class="co">% 浮动图形和表格标题样式</span></a>
+<a class="sourceLine" id="cb9-48" title="48"></a>
+<a class="sourceLine" id="cb9-49" title="49"><span class="bu">\usepackage</span>{<span class="ex">CJKutf8</span>}</a>
+<a class="sourceLine" id="cb9-50" title="50"><span class="fu">\makeindex</span>                           <span class="co">% 生成索引</span></a>
+<a class="sourceLine" id="cb9-51" title="51"><span class="fu">\pagestyle</span>{fancy}                    <span class="co">% 页眉页脚风格</span></a>
+<a class="sourceLine" id="cb9-52" title="52"><span class="co">%\fancyhf{}                          % 清空当前页眉页脚的默认设置</span></a>
+<a class="sourceLine" id="cb9-53" title="53"></a>
+<a class="sourceLine" id="cb9-54" title="54"></a>
+<a class="sourceLine" id="cb9-55" title="55"><span class="bu">\usepackage</span>{<span class="ex">CJK</span>}</a>
+<a class="sourceLine" id="cb9-56" title="56"><span class="kw">\begin</span>{<span class="ex">document</span>}</a>
+<a class="sourceLine" id="cb9-57" title="57"><span class="kw">\begin</span>{<span class="ex">CJK*</span>}{UTF8}{song}</a>
+<a class="sourceLine" id="cb9-58" title="58"><span class="fu">\CJKindent</span></a>
+<a class="sourceLine" id="cb9-59" title="59"><span class="fu">\sloppy\CJKspace</span>                     <span class="co">% 中英文混排的断行</span></a>
+<a class="sourceLine" id="cb9-60" title="60"><span class="fu">\CJKtilde</span>                            <span class="co">% 重新定义 ~，用 ~ 隔开中英文</span></a>
+<a class="sourceLine" id="cb9-61" title="61"></a>
+<a class="sourceLine" id="cb9-62" title="62"><span class="co">%%%%%%%%%% 一些新定义 %%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb9-63" title="63"><span class="fu">\newcommand</span>{<span class="ex">\song</span>}{<span class="fu">\CJKfamily</span>{song}} <span class="co">% 宋体</span></a>
+<a class="sourceLine" id="cb9-64" title="64"><span class="fu">\newcommand</span>{<span class="ex">\hei</span>}{<span class="fu">\CJKfamily</span>{hei}}   <span class="co">% 黑体</span></a>
+<a class="sourceLine" id="cb9-65" title="65"><span class="fu">\newcommand</span>{<span class="ex">\fs</span>}{<span class="fu">\CJKfamily</span>{fs}}     <span class="co">% 仿宋</span></a>
+<a class="sourceLine" id="cb9-66" title="66"><span class="fu">\newcommand</span>{<span class="ex">\kai</span>}{<span class="fu">\CJKfamily</span>{kai}}   <span class="co">% 楷体</span></a>
+<a class="sourceLine" id="cb9-67" title="67"></a>
+<a class="sourceLine" id="cb9-68" title="68"><span class="co">%%%%%%%%%% 定理类环境的定义 %%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb9-69" title="69"><span class="co">%% 必须在导入中文环境之后</span></a>
+<a class="sourceLine" id="cb9-70" title="70"><span class="fu">\newtheorem</span>{example}{例 }             <span class="co">% 整体编号</span></a>
+<a class="sourceLine" id="cb9-71" title="71"><span class="fu">\newtheorem</span>{algorithm}{算法}</a>
+<a class="sourceLine" id="cb9-72" title="72"><span class="fu">\newtheorem</span>{theorem}{定理}[section]   <span class="co">% 按 section 编号</span></a>
+<a class="sourceLine" id="cb9-73" title="73"><span class="fu">\newtheorem</span>{definition}{定义}</a>
+<a class="sourceLine" id="cb9-74" title="74"><span class="fu">\newtheorem</span>{axiom}{公理}</a>
+<a class="sourceLine" id="cb9-75" title="75"><span class="fu">\newtheorem</span>{property}{性质}</a>
+<a class="sourceLine" id="cb9-76" title="76"><span class="fu">\newtheorem</span>{proposition}{命题}</a>
+<a class="sourceLine" id="cb9-77" title="77"><span class="fu">\newtheorem</span>{lemma}{引理}</a>
+<a class="sourceLine" id="cb9-78" title="78"><span class="fu">\newtheorem</span>{corollary}{推论}</a>
+<a class="sourceLine" id="cb9-79" title="79"><span class="fu">\newtheorem</span>{remark}{注解}</a>
+<a class="sourceLine" id="cb9-80" title="80"><span class="fu">\newtheorem</span>{condition}{条件}</a>
+<a class="sourceLine" id="cb9-81" title="81"><span class="fu">\newtheorem</span>{conclusion}{结论}</a>
+<a class="sourceLine" id="cb9-82" title="82"><span class="fu">\newtheorem</span>{assumption}{假设}</a>
+<a class="sourceLine" id="cb9-83" title="83"></a>
+<a class="sourceLine" id="cb9-84" title="84"><span class="co">%%%%%%%%%% 一些重定义 %%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb9-85" title="85"><span class="co">%% 必须在导入中文环境之后</span></a>
+<a class="sourceLine" id="cb9-86" title="86"><span class="fu">\renewcommand</span>{<span class="ex">\contentsname</span>}{目录}     <span class="co">% 将Contents改为目录</span></a>
+<a class="sourceLine" id="cb9-87" title="87"><span class="fu">\renewcommand</span>{<span class="ex">\abstractname</span>}{摘要}     <span class="co">% 将Abstract改为摘要</span></a>
+<a class="sourceLine" id="cb9-88" title="88"><span class="fu">\renewcommand</span>{<span class="ex">\refname</span>}{参考文献}       <span class="co">% 将References改为参考文献</span></a>
+<a class="sourceLine" id="cb9-89" title="89"><span class="fu">\renewcommand</span>{<span class="ex">\indexname</span>}{索引}</a>
+<a class="sourceLine" id="cb9-90" title="90"><span class="fu">\renewcommand</span>{<span class="ex">\figurename</span>}{图 }</a>
+<a class="sourceLine" id="cb9-91" title="91"><span class="fu">\renewcommand</span>{<span class="ex">\tablename</span>}{表}</a>
+<a class="sourceLine" id="cb9-92" title="92"><span class="fu">\renewcommand</span>{<span class="ex">\appendixname</span>}{附录}</a>
+<a class="sourceLine" id="cb9-93" title="93"><span class="fu">\renewcommand</span>{<span class="ex">\proofname</span>}{<span class="fu">\hei</span> 证明}</a>
+<a class="sourceLine" id="cb9-94" title="94"><span class="fu">\renewcommand</span>{<span class="ex">\algorithm</span>}{<span class="fu">\hei</span> 算法}</a>
+<a class="sourceLine" id="cb9-95" title="95"></a>
+<a class="sourceLine" id="cb9-96" title="96"><span class="co">%%%%%%%%%% 重定义字号命令 %%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb9-97" title="97"><span class="fu">\newcommand</span>{<span class="ex">\yihao</span>}{<span class="fu">\fontsize</span>{26pt}{36pt}<span class="fu">\selectfont</span>}       <span class="co">% 一号，1.4 倍行距</span></a>
+<a class="sourceLine" id="cb9-98" title="98"><span class="fu">\newcommand</span>{<span class="ex">\erhao</span>}{<span class="fu">\fontsize</span>{22pt}{28pt}<span class="fu">\selectfont</span>}       <span class="co">% 二号，1.25 倍行距</span></a>
+<a class="sourceLine" id="cb9-99" title="99"><span class="fu">\newcommand</span>{<span class="ex">\xiaoer</span>}{<span class="fu">\fontsize</span>{18pt}{18pt}<span class="fu">\selectfont</span>}      <span class="co">% 小二，单倍行距</span></a>
+<a class="sourceLine" id="cb9-100" title="100"><span class="fu">\newcommand</span>{<span class="ex">\sanhao</span>}{<span class="fu">\fontsize</span>{16pt}{24pt}<span class="fu">\selectfont</span>}      <span class="co">% 三号，1.5 倍行距</span></a>
+<a class="sourceLine" id="cb9-101" title="101"><span class="fu">\newcommand</span>{<span class="ex">\xiaosan</span>}{<span class="fu">\fontsize</span>{15pt}{22pt}<span class="fu">\selectfont</span>}     <span class="co">% 小三，1.5 倍行距</span></a>
+<a class="sourceLine" id="cb9-102" title="102"><span class="fu">\newcommand</span>{<span class="ex">\sihao</span>}{<span class="fu">\fontsize</span>{14pt}{21pt}<span class="fu">\selectfont</span>}       <span class="co">% 四号，1.5 倍行距</span></a>
+<a class="sourceLine" id="cb9-103" title="103"><span class="fu">\newcommand</span>{<span class="ex">\bansi</span>}{<span class="fu">\fontsize</span>{13pt}{19.5pt}<span class="fu">\selectfont</span>}     <span class="co">% 半四，1.5 倍行距</span></a>
+<a class="sourceLine" id="cb9-104" title="104"><span class="fu">\newcommand</span>{<span class="ex">\xiaosi</span>}{<span class="fu">\fontsize</span>{12pt}{18pt}<span class="fu">\selectfont</span>}      <span class="co">% 小四，1.5 倍行距</span></a>
+<a class="sourceLine" id="cb9-105" title="105"><span class="fu">\newcommand</span>{<span class="ex">\dawu</span>}{<span class="fu">\fontsize</span>{11pt}{11pt}<span class="fu">\selectfont</span>}        <span class="co">% 大五，单倍行距</span></a>
+<a class="sourceLine" id="cb9-106" title="106"><span class="fu">\newcommand</span>{<span class="ex">\wuhao</span>}{<span class="fu">\fontsize</span>{10.5pt}{10.5pt}<span class="fu">\selectfont</span>}   <span class="co">% 五号，单倍行距</span></a>
+<a class="sourceLine" id="cb9-107" title="107"></a>
+<a class="sourceLine" id="cb9-108" title="108"><span class="co">%%%%%%%%%% 论文标题、作者等 %%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb9-109" title="109"><span class="fu">\title</span>{<span class="fu">\LaTeX</span> 测试文档}</a>
+<a class="sourceLine" id="cb9-110" title="110"><span class="fu">\author</span>{Lox Freeman}</a>
+<a class="sourceLine" id="cb9-111" title="111"><span class="fu">\date</span>{2009 年5月 31 日 }</a>
+<a class="sourceLine" id="cb9-112" title="112"><span class="fu">\maketitle</span></a>
+<a class="sourceLine" id="cb9-113" title="113"><span class="fu">\tableofcontents</span></a>
+<a class="sourceLine" id="cb9-114" title="114"></a>
+<a class="sourceLine" id="cb9-115" title="115">这是 <span class="fu">\LaTeX</span> 中文文档。</a>
+<a class="sourceLine" id="cb9-116" title="116"><span class="fu">\newpage</span></a>
+<a class="sourceLine" id="cb9-117" title="117"><span class="kw">\end</span>{<span class="ex">CJK*</span>}</a>
+<a class="sourceLine" id="cb9-118" title="118"><span class="kw">\end</span>{<span class="ex">document</span>}</a></code></pre></div>
 <h2 id="让开发自动化">让开发自动化</h2>
 <h3 id="git">Git</h3>
 <p><a href="https://git-scm.com/">Git</a> 是一种分布式版本控制工具，是 Linus 为了管理 Linux 内核源代码而发明的版本控制工具。什么是 Git？为什么用 Git？这个问题我解释不清楚。网上已经有了答案，请看<a href="http://linuxtoy.org/docs/guide/ch28s02.html">这里</a>。</p>
 <h3 id="doxygen">Doxygen</h3>
 <p>Java 有 Javadoc 作为 API 文档声称工具，C++ 呢？没错，就是大名鼎鼎的 <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a>。</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install doxygen doxygen-gui doxymacs doxygen-doc</code></pre></div>
-<p>Doxygen 使用非常简单，首先进入源代码目录，运行 <code>doxywizard</code> 生成一个 <code>Doxyfile</code> <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>，根据个人需要钩选相应的选项，然后运行 <code>doxygen</code> 即可。具体的代码例子可以看 Doxygen 自带的文档 <a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>。<a href="http://www.fmddlmyy.cn/text21.html">这里</a>有个中文的入门介绍。简单的说，Doxygen 能够：</p>
+<div class="sourceCode" id="cb10" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="fu">sudo</span> apt-get install doxygen doxygen-gui doxymacs doxygen-doc</a></code></pre></div>
+<p>Doxygen 使用非常简单，首先进入源代码目录，运行 <code>doxywizard</code> 生成一个 <code>Doxyfile</code> <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>，根据个人需要钩选相应的选项，然后运行 <code>doxygen</code> 即可。具体的代码例子可以看 Doxygen 自带的文档 <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>。<a href="http://www.fmddlmyy.cn/text21.html">这里</a>有个中文的入门介绍。简单的说，Doxygen 能够：</p>
 <ul>
 <li>保持代码和 API 文档的一致性</li>
-<li>支持多种格式（LaTeX、HTML、PDF、DocBook、chm<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>）等格式文档的输出</li>
+<li>支持多种格式（LaTeX、HTML、PDF、DocBook、chm<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>）等格式文档的输出</li>
 <li>支持多种语言</li>
 <li>支持风格多样的注解方式（Javadoc 风格、QtDoc风格）</li>
 <li>支持多种编程语言（C、C++、Java、Python 等等）</li>
@@ -290,7 +290,7 @@ extendedchars=false                  <span class="co">% 这一条命令可以解
 </ul>
 <p>有了这个，以后写大程序的 API 文档就简单多了。^_^</p>
 <h2 id="原来生活可以更美好">原来生活可以更美好</h2>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install sl tree fortunes</code></pre></div>
+<div class="sourceCode" id="cb11" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="fu">sudo</span> apt-get install sl tree fortunes</a></code></pre></div>
 <p>Enjoy them.</p>
 <h2 id="学习资源">学习资源</h2>
 <h3 id="latex-1">LaTeX</h3>
@@ -299,7 +299,7 @@ extendedchars=false                  <span class="co">% 这一条命令可以解
 <li><a href="http://tobi.oetiker.ch/lshort/lshort.pdf">lshort</a> – 非常好的 LaTeX 入门教材，看完了基本可以应付绝大部分的问题</li>
 <li><a href="http://latex.yo2.cn/">LaTeX 学习</a> – 非常好的 LaTeX 学习博客</li>
 <li><a href="http://www.ctan.org/get/info/lnotes/lnotes.pdf">lnotes</a> – 中国人写的 LaTeX 笔记，行文非常风趣，针对中文做了进一步讲解，推荐</li>
-<li><a href="http://cohomo.blogbus.com/"><a href="http://cohomo.blogbus.com/" class="uri">http://cohomo.blogbus.com/</a></a> – 非常好的一个博客</li>
+<li><a href="http://cohomo.blogbus.com/"><a href="http://cohomo.blogbus.com/">http://cohomo.blogbus.com/</a></a> – 非常好的一个博客</li>
 </ul>
 <h3 id="emacs-1">Emacs</h3>
 <ul>
@@ -317,15 +317,15 @@ extendedchars=false                  <span class="co">% 这一条命令可以解
 <li><a href="http://www.gentoo.org/doc/zh_cn/index.xml">Gentoo中文文档</a> – Gentoo</li>
 <li><a href="http://wiki.ubuntu.org.cn/index.php?title=%E9%A6%96%E9%A1%B5&amp;variant=zh-cn">Ubuntu 中文 wiki</a> – 入门很不错</li>
 </ul>
-<section class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>个人觉得 XeTeX 目前还不太成熟，网上很多东西还是基于 LaTeX + CJK 的。<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>当然 doxygen 可以用于多种语言。<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>dwww 貌似不支持 Arch，其余的我没有做过测试。欢迎指教。<a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p>其实 <code>doxygen -g</code> 也可以生成 <code>Doxyfile</code> ，但是不如 <code>doxywizard</code> 直观方便。<a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p>运行 dwww，搜索 doxygen 即可。<a href="#fnref5">↩</a></p></li>
-<li id="fn6"><p>chm 是微软专有文档格式，Linux 下只能查看，无法制作生成。<a href="#fnref6">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p>个人觉得 XeTeX 目前还不太成熟，网上很多东西还是基于 LaTeX + CJK 的。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn2" role="doc-endnote"><p>当然 doxygen 可以用于多种语言。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn3" role="doc-endnote"><p>dwww 貌似不支持 Arch，其余的我没有做过测试。欢迎指教。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn4" role="doc-endnote"><p>其实 <code>doxygen -g</code> 也可以生成 <code>Doxyfile</code> ，但是不如 <code>doxywizard</code> 直观方便。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn5" role="doc-endnote"><p>运行 dwww，搜索 doxygen 即可。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn6" role="doc-endnote"><p>chm 是微软专有文档格式，Linux 下只能查看，无法制作生成。<a href="#fnref6" class="footnote-back" role="doc-backlink">↩</a></p></li>
 </ol>
 </section>
 
@@ -344,7 +344,7 @@ extendedchars=false                  <span class="co">% 这一条命令可以解
     <div class="ui small header">
       Committed
     </div>
-    <date>2009-06-03</date>
+    <date>2009-06-04</date>
     <div class="ui small header">
       Updated
     </div>

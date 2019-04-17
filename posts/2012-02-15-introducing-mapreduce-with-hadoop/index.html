@@ -58,11 +58,11 @@
 </header>
 <div class="row article-body">
   <section class="twelve wide column"><h2 id="缘起">缘起</h2>
-<p>MapReduce 是这几年 IT 界很热的一个名词，从某种意义上讲，MapReduce 引领了当代海量数据处理的趋势和潮流。与 IT 界的其他名词一样，MapReduce 听起来也是个很玄乎的名词， MapReduce？Map？Reduce？如果你是一名初级 Coder，那么你可能从某处知道，Map 的翻译是映射，Reduce 的翻译是归约。MapReduce 就是映射归约，是一种数据并行处理的一种编程模型。如果很不幸，你不是一名光荣的 Coder，只是中国网民大军中的五万万分之一<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>，那么没关系，MapReduce 离你并不遥远，有一个名词你一定很熟悉，那就是——云计算。关于云计算，互联网上有一个经典笑话，“中国一留学生去美国打工的当过报童，不带计算器，习惯动作抬头望天时心算找零。顾客大为惊讶，纷纷掏出计算器验证，皆无误，也抬头望天，惊恐问：‘云计算？’”不过云计算的真正含义，用工程师的语言，准确地定义，应当是“超大规模的，可扩展的，低成本，但是高可靠性的服务器集群系统”<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>。</p>
-<p>从大的层面上来讲，云计算并不仅仅是 MapReduce，MapReduce 只是云计算的一个技术性开端，或者说，是互联网的发展需求推动技术的发展进步，最后由 Google 临门一脚创造出来的一种处理海量数据的并行编程模型。真正的云计算包含诸如 IDC 建设、海量存储、网络规划、商业模式、网络安全等等诸多技术的难题，还有很多被一些所谓的专家炒作起来的社会意义。不过本系列文章并不打算探讨这些过于宏大的主题，我本人也没有这样的水准和资格来说三到四。本系列文章的目的只有一个，那就是搞明白，MapReduce 中的 Map 和 Reduce，到底源自何处<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>？</p>
+<p>MapReduce 是这几年 IT 界很热的一个名词，从某种意义上讲，MapReduce 引领了当代海量数据处理的趋势和潮流。与 IT 界的其他名词一样，MapReduce 听起来也是个很玄乎的名词， MapReduce？Map？Reduce？如果你是一名初级 Coder，那么你可能从某处知道，Map 的翻译是映射，Reduce 的翻译是归约。MapReduce 就是映射归约，是一种数据并行处理的一种编程模型。如果很不幸，你不是一名光荣的 Coder，只是中国网民大军中的五万万分之一<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>，那么没关系，MapReduce 离你并不遥远，有一个名词你一定很熟悉，那就是——云计算。关于云计算，互联网上有一个经典笑话，“中国一留学生去美国打工的当过报童，不带计算器，习惯动作抬头望天时心算找零。顾客大为惊讶，纷纷掏出计算器验证，皆无误，也抬头望天，惊恐问：‘云计算？’”不过云计算的真正含义，用工程师的语言，准确地定义，应当是“超大规模的，可扩展的，低成本，但是高可靠性的服务器集群系统”<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
+<p>从大的层面上来讲，云计算并不仅仅是 MapReduce，MapReduce 只是云计算的一个技术性开端，或者说，是互联网的发展需求推动技术的发展进步，最后由 Google 临门一脚创造出来的一种处理海量数据的并行编程模型。真正的云计算包含诸如 IDC 建设、海量存储、网络规划、商业模式、网络安全等等诸多技术的难题，还有很多被一些所谓的专家炒作起来的社会意义。不过本系列文章并不打算探讨这些过于宏大的主题，我本人也没有这样的水准和资格来说三到四。本系列文章的目的只有一个，那就是搞明白，MapReduce 中的 Map 和 Reduce，到底源自何处<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>？</p>
 <p>我第一次听说 MapReduce 这个名词，是在 2010 年 9 月，那时百度来浙大宣讲，顺带开了一个<a href="http://proxy3.zju88.net/agent/thread.do?id=CS-4c90acfa-9ec9d42102e73a42f7c03a2fcbb20589&amp;page=0&amp;bd=CS&amp;bp=0&amp;m=0">技术讲座</a>，主讲人<a href="http://www.zdxb.zju.edu.cn/article/show_article_one.php?article_id=4086">徐串</a>曾是 Google 中国编程挑战赛冠军。当然，讲座内容我是听不懂的，随心记下来的几个技术名词，至今为止，还能记住的，只剩下 MapReduce 了。后来面试百度运维部，期间和面试官聊到我暑期实习在华数淘宝做的一个视频转码入库系统，面试官大概觉得这个系统有点分布式的意思，因此题目结束的时候给了我一个建议，就是让我学习下MapReduce。再后来，阴差阳错，我进入了百度的分布式运维小组学习 Hadoop 运维，学习MapReduce 就成了一个身不由己的任务。</p>
 <p>在百度的半年，我初步接触了大规模 Hadoop 集群（3000个节点的规模）的运维工作。但比较讽刺的是，运维 Hadoop 集群的我，自身并没有写过多少真正的 MapReduce 程序，对 Hadoop 的理解也浅尝辄止。而我也始终没有搞明白，好端端的一个程序，为什么要按照 MapReduce 这样别扭的模型重构运行？</p>
-<p>大概是看了 Paul Graham 的《<a href="http://book.douban.com/subject/6021440/">黑客与画家</a>》后，我开始正式认真学习 Lisp 这门语言，至今已有小半年时间，这期间我利用业余时间，和最近一个月的休假时间，基本上看完了Paul Graham 的《<a href="http://book.douban.com/subject/1456906/">ANSI Common Lisp</a>》和《<a href="http://book.douban.com/subject/1432683/">On Lisp</a>》，《<a href="http://book.douban.com/subject/1148282/">SICP</a>》太难，我穷尽脑力至今也只窥得前面三章，做了 100 道习题左右，不过即便如此，也令我受益匪浅<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>。半年 Lisp 的学习让我搞明白了 MapReduce 中，Map 和 Reduce 的来龙去脉。这个问题我 Google 了很久，但是始终没有一个满意的答案，现如今，我自己找到了满意的答案。</p>
+<p>大概是看了 Paul Graham 的《<a href="http://book.douban.com/subject/6021440/">黑客与画家</a>》后，我开始正式认真学习 Lisp 这门语言，至今已有小半年时间，这期间我利用业余时间，和最近一个月的休假时间，基本上看完了Paul Graham 的《<a href="http://book.douban.com/subject/1456906/">ANSI Common Lisp</a>》和《<a href="http://book.douban.com/subject/1432683/">On Lisp</a>》，《<a href="http://book.douban.com/subject/1148282/">SICP</a>》太难，我穷尽脑力至今也只窥得前面三章，做了 100 道习题左右，不过即便如此，也令我受益匪浅<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>。半年 Lisp 的学习让我搞明白了 MapReduce 中，Map 和 Reduce 的来龙去脉。这个问题我 Google 了很久，但是始终没有一个满意的答案，现如今，我自己找到了满意的答案。</p>
 <h2 id="抽象漏洞兼谈数学和计算机工程">抽象漏洞（兼谈数学和计算机工程）</h2>
 <p>在正式开始我们的探险之旅前，我们还面临这一个问题，那就是，这次探险的必要性在哪里？既然 MapReduce 已然为我们提供了成熟的理论编程模型，Hadoop 生态圈也给我们提供了一整套成熟的工程实现，我们为什么还要纠缠这些学究般的历史问题？我的解答是， <strong>一个学科的历史往往就是这个学科的本身</strong> 。无论是一门编程语言、编程范式、编程模型，或者 IT 业的任何一项新技术新名词，在学习的过程中，一定要搞明白：</p>
 <ul>
@@ -71,9 +71,9 @@
 <li>它的优点是什么？什么样的问题一定会手到禽来？</li>
 <li>它的不足是什么？什么样的问题是它解决不了的？</li>
 </ul>
-<p>这就好比解一道很难数学题，如果光告诉你一个正确的数字，那么这个数字对你来说一点意义都没有；如果进一步，告诉你标准的解题过程，那么你可能会对这个题目有一个粗浅的认识；如果有那么一个白痴，不但告诉你正确的答案和解题过程，还把他的演算纸送给了你，并热切地给你讲解他在解题过程中碰到了哪些问题和陷阱，是怎样解决怎样解决问题怎样规规避这些陷阱的，那么你对这道题目的理解则会大大加深，日后再碰到同样类型的问题就会轻车熟路，手到拈来。从某种意义上而言，一个完整的解题的探寻过程才是一个题目所具有的全部信息价值，扔掉这些而仅仅记住一个解题结果或者一个标准的解题证明，无疑是买椟还珠<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>。但是比较可悲的是，计算机是一个年轻的学科，所以专门讲述计算机历史的书籍并不像数学史书籍一般汗牛充栋。</p>
-<p>从另一个角度上讲，计算机和数学的都是一座不断分层的抽象大厦。数学是从基本的整数，到数系的扩充，到微积分的诞生，到非欧几何等等宏大的诗篇；而计算机则是从最基本的与非门，到 Bit、Byte、Word，到汇编、C、高级语言，到设计模式、分布式等等现代工业的大厦和基础。“计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>”，不过很不幸， <strong>计算机的抽象和数学的抽象有一个本质的不同，那就是计算机的抽象是有漏洞的</strong> ，这就是<a href="http://en.wikipedia.org/wiki/Leaky_abstraction#The_Law_of_Leaky_Abstractions">抽象漏洞法则</a>：All non-trivial abstractions, to some degree, are leaky。在数学领域，我们从来不用担心说某个定理“因为空调故障的原因宕机了，或者因为内存吃紧运行特别缓慢，似乎是发生内存泄漏了”，等等诸如此类的各种各样令人头疼的问题。这条法则深刻的影响了计算机软件和数学定理的生产过程——在计算机中，我们不可能找到一个能困惑世间智者 358 年的谜<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>；在数学领域，我们也不可能找到一个耗费人类 5000 万人年人力的定理<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>。如果说，基于抽象的数学，考验的是人类大脑思考深度的极限，那么同样是基于抽象，并且脱胎于数学的计算机工程，挑战的就是人类大脑思考广度的极限——软件工程中瓶瓶罐罐的细节太多了，所以大凡软件开发，走的都是兵团作战的策略；而数学就不一样，“10个产妇无法在一个月内生出孩子<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>”，数学领域中辉煌定理的产出，往往依靠少数几个，甚至单个天才数学家的苦苦思索和灵感涌现。</p>
-<h2 id="lets-go">Let’s Go</h2>
+<p>这就好比解一道很难数学题，如果光告诉你一个正确的数字，那么这个数字对你来说一点意义都没有；如果进一步，告诉你标准的解题过程，那么你可能会对这个题目有一个粗浅的认识；如果有那么一个白痴，不但告诉你正确的答案和解题过程，还把他的演算纸送给了你，并热切地给你讲解他在解题过程中碰到了哪些问题和陷阱，是怎样解决怎样解决问题怎样规规避这些陷阱的，那么你对这道题目的理解则会大大加深，日后再碰到同样类型的问题就会轻车熟路，手到拈来。从某种意义上而言，一个完整的解题的探寻过程才是一个题目所具有的全部信息价值，扔掉这些而仅仅记住一个解题结果或者一个标准的解题证明，无疑是买椟还珠<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>。但是比较可悲的是，计算机是一个年轻的学科，所以专门讲述计算机历史的书籍并不像数学史书籍一般汗牛充栋。</p>
+<p>从另一个角度上讲，计算机和数学的都是一座不断分层的抽象大厦。数学是从基本的整数，到数系的扩充，到微积分的诞生，到非欧几何等等宏大的诗篇；而计算机则是从最基本的与非门，到 Bit、Byte、Word，到汇编、C、高级语言，到设计模式、分布式等等现代工业的大厦和基础。“计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>”，不过很不幸， <strong>计算机的抽象和数学的抽象有一个本质的不同，那就是计算机的抽象是有漏洞的</strong> ，这就是<a href="http://en.wikipedia.org/wiki/Leaky_abstraction#The_Law_of_Leaky_Abstractions">抽象漏洞法则</a>：All non-trivial abstractions, to some degree, are leaky。在数学领域，我们从来不用担心说某个定理“因为空调故障的原因宕机了，或者因为内存吃紧运行特别缓慢，似乎是发生内存泄漏了”，等等诸如此类的各种各样令人头疼的问题。这条法则深刻的影响了计算机软件和数学定理的生产过程——在计算机中，我们不可能找到一个能困惑世间智者 358 年的谜<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>；在数学领域，我们也不可能找到一个耗费人类 5000 万人年人力的定理<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>。如果说，基于抽象的数学，考验的是人类大脑思考深度的极限，那么同样是基于抽象，并且脱胎于数学的计算机工程，挑战的就是人类大脑思考广度的极限——软件工程中瓶瓶罐罐的细节太多了，所以大凡软件开发，走的都是兵团作战的策略；而数学就不一样，“10个产妇无法在一个月内生出孩子<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>”，数学领域中辉煌定理的产出，往往依靠少数几个，甚至单个天才数学家的苦苦思索和灵感涌现。</p>
+<h2 id="lets-go">Let's Go</h2>
 <p>以上，废话了这么多，所要强调的无非就是，了解 MapReduce 的来龙去脉，对于写出更好的 MapReduce 程序，甚至将来拨开层层抽象，解决 MapReduce 的底层问题，乃至改善 MapReduce，都是大有裨益的。不过，在正式踏上我们的探险旅程之前，我们需要检查一下手头的“装备”是否合格，很简单：</p>
 <ul>
 <li>你需要一台 *nix 系统，最好是 GNU Linux，苹果也行，如果实在不方便，Windows 下装个 Cygwin 也还能凑合；</li>
@@ -81,7 +81,7 @@
 <li>你需要了解一些常见的 *nix 软件开发工具，包括但不限于 Vim 的使用、Ant 和 Make 构建工具、Git 和 SVN 版本控制软件；</li>
 <li>你需要对 POSIX 系统标准有一定了解，包括但不限于 *nix 的文件系统结构、用户属组、 文件权限、管道等等。</li>
 </ul>
-<p>Now, Let’s Go!</p>
+<p>Now, Let's Go!</p>
 <h2 id="hadoop">Hadoop</h2>
 <p>行文至此，相信众位读者已经知晓了云计算的一些基础概念，最起码知道了所谓 Google 技术的三驾马车是什么，如果能看过 Hadoop 代码中 WordCount 的例子并能看懂的话，那你简直是太天才了。为了保证我们的探险顺利进行，我们需要一套开源的 MapReduce 平台实现来验证我们的学习成果，Hadoop是不二选择。关于 Hadoop 本身有太多太多的资料，因此我在这里就不再劳心劳力的 copy 别人的劳动成果了。推荐以下三本书，作为 Hadoop 的入门：</p>
 <ul>
@@ -166,75 +166,75 @@ export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
 ...
 ...
 </code></pre>
-<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="co">&lt;!-- core-site.xml --&gt;</span>
-
-<span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span>
-<span class="kw">&lt;?xml-stylesheet</span> type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;<span class="kw">?&gt;</span>
-
-<span class="co">&lt;!-- Put site-specific property overrides in this file. --&gt;</span>
-
-<span class="kw">&lt;configuration&gt;</span>
-  <span class="kw">&lt;property&gt;</span>
-    <span class="kw">&lt;name&gt;</span>fs.default.name<span class="kw">&lt;/name&gt;</span>
-    <span class="kw">&lt;value&gt;</span>hdfs://localhost:9000<span class="kw">&lt;/value&gt;</span>
-  <span class="kw">&lt;/property&gt;</span>
-  <span class="kw">&lt;property&gt;</span>
-    <span class="kw">&lt;name&gt;</span>fs.trash.interval<span class="kw">&lt;/name&gt;</span>
-    <span class="kw">&lt;value&gt;</span>1440<span class="kw">&lt;/value&gt;</span>
-  <span class="kw">&lt;/property&gt;</span>
-  <span class="kw">&lt;property&gt;</span>
-    <span class="kw">&lt;name&gt;</span>hadoop.tmp.dir<span class="kw">&lt;/name&gt;</span>
-    <span class="kw">&lt;value&gt;</span>/home/lox/tmp/hadoop-data/tmp<span class="kw">&lt;/value&gt;</span>
-  <span class="kw">&lt;/property&gt;</span>
-<span class="kw">&lt;/configuratione&gt;</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="co">&lt;!-- hdfs-site.xml --&gt;</span>
-
-<span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span>
-<span class="kw">&lt;?xml-stylesheet</span> type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;<span class="kw">?&gt;</span>
-
-<span class="co">&lt;!-- Put site-specific property overrides in this file. --&gt;</span>
-
-<span class="kw">&lt;configuration&gt;</span>
-  <span class="kw">&lt;property&gt;</span>
-    <span class="kw">&lt;name&gt;</span>dfs.replication<span class="kw">&lt;/name&gt;</span>
-    <span class="kw">&lt;value&gt;</span>1<span class="kw">&lt;/value&gt;</span>
-  <span class="kw">&lt;/property&gt;</span>
-  <span class="kw">&lt;property&gt;</span>
-    <span class="kw">&lt;name&gt;</span>dfs.name.dir<span class="kw">&lt;/name&gt;</span>
-    <span class="kw">&lt;value&gt;</span>/home/lox/tmp/hadoop-data/name<span class="kw">&lt;/value&gt;</span>
-    <span class="kw">&lt;final&gt;</span>true<span class="kw">&lt;/final&gt;</span>
-  <span class="kw">&lt;/property&gt;</span>
-  <span class="kw">&lt;property&gt;</span>
-    <span class="kw">&lt;name&gt;</span>dfs.data.dir<span class="kw">&lt;/name&gt;</span>
-    <span class="kw">&lt;value&gt;</span>/home/lox/tmp/hadoop-data/data<span class="kw">&lt;/value&gt;</span>
-    <span class="kw">&lt;final&gt;</span>true<span class="kw">&lt;/final&gt;</span>
-  <span class="kw">&lt;/property&gt;</span>
-<span class="kw">&lt;/configuration&gt;</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="co">&lt;!-- mapred-site.xml --&gt;</span>
-
-<span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span>
-<span class="kw">&lt;?xml-stylesheet</span> type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;<span class="kw">?&gt;</span>
-
-<span class="co">&lt;!-- Put site-specific property overrides in this file. --&gt;</span>
-
-<span class="kw">&lt;configuration&gt;</span>
-  <span class="kw">&lt;property&gt;</span>
-    <span class="kw">&lt;name&gt;</span>mapred.job.tracker<span class="kw">&lt;/name&gt;</span>
-    <span class="kw">&lt;value&gt;</span>localhost:9001<span class="kw">&lt;/value&gt;</span>
-  <span class="kw">&lt;/property&gt;</span>
-  <span class="kw">&lt;property&gt;</span>
-    <span class="kw">&lt;name&gt;</span>mapred.tasktracker.map.tasks.maximum<span class="kw">&lt;/name&gt;</span>
-    <span class="kw">&lt;value&gt;</span>5<span class="kw">&lt;/value&gt;</span>
-  <span class="kw">&lt;/property&gt;</span>
-  <span class="kw">&lt;property&gt;</span>
-    <span class="kw">&lt;name&gt;</span>mapred.tasktracker.reduce.tasks.maximum<span class="kw">&lt;/name&gt;</span>
-    <span class="kw">&lt;value&gt;</span>5<span class="kw">&lt;/value&gt;</span>
-  <span class="kw">&lt;/property&gt;</span>
-  <span class="kw">&lt;property&gt;</span>
-    <span class="kw">&lt;name&gt;</span>mapred.child.java.opts<span class="kw">&lt;/name&gt;</span>
-    <span class="kw">&lt;value&gt;</span>-Xmx512m<span class="kw">&lt;/value&gt;</span>
-  <span class="kw">&lt;/property&gt;</span>
-<span class="kw">&lt;/configuration&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb4-1" title="1"><span class="co">&lt;!-- core-site.xml --&gt;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="kw">&lt;?xml-stylesheet</span> type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;<span class="kw">?&gt;</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="co">&lt;!-- Put site-specific property overrides in this file. --&gt;</span></a>
+<a class="sourceLine" id="cb4-7" title="7"></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="kw">&lt;configuration&gt;</span></a>
+<a class="sourceLine" id="cb4-9" title="9">  <span class="kw">&lt;property&gt;</span></a>
+<a class="sourceLine" id="cb4-10" title="10">    <span class="kw">&lt;name&gt;</span>fs.default.name<span class="kw">&lt;/name&gt;</span></a>
+<a class="sourceLine" id="cb4-11" title="11">    <span class="kw">&lt;value&gt;</span>hdfs://localhost:9000<span class="kw">&lt;/value&gt;</span></a>
+<a class="sourceLine" id="cb4-12" title="12">  <span class="kw">&lt;/property&gt;</span></a>
+<a class="sourceLine" id="cb4-13" title="13">  <span class="kw">&lt;property&gt;</span></a>
+<a class="sourceLine" id="cb4-14" title="14">    <span class="kw">&lt;name&gt;</span>fs.trash.interval<span class="kw">&lt;/name&gt;</span></a>
+<a class="sourceLine" id="cb4-15" title="15">    <span class="kw">&lt;value&gt;</span>1440<span class="kw">&lt;/value&gt;</span></a>
+<a class="sourceLine" id="cb4-16" title="16">  <span class="kw">&lt;/property&gt;</span></a>
+<a class="sourceLine" id="cb4-17" title="17">  <span class="kw">&lt;property&gt;</span></a>
+<a class="sourceLine" id="cb4-18" title="18">    <span class="kw">&lt;name&gt;</span>hadoop.tmp.dir<span class="kw">&lt;/name&gt;</span></a>
+<a class="sourceLine" id="cb4-19" title="19">    <span class="kw">&lt;value&gt;</span>/home/lox/tmp/hadoop-data/tmp<span class="kw">&lt;/value&gt;</span></a>
+<a class="sourceLine" id="cb4-20" title="20">  <span class="kw">&lt;/property&gt;</span></a>
+<a class="sourceLine" id="cb4-21" title="21"><span class="kw">&lt;/configuratione&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb5-1" title="1"><span class="co">&lt;!-- hdfs-site.xml --&gt;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="kw">&lt;?xml-stylesheet</span> type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;<span class="kw">?&gt;</span></a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="co">&lt;!-- Put site-specific property overrides in this file. --&gt;</span></a>
+<a class="sourceLine" id="cb5-7" title="7"></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="kw">&lt;configuration&gt;</span></a>
+<a class="sourceLine" id="cb5-9" title="9">  <span class="kw">&lt;property&gt;</span></a>
+<a class="sourceLine" id="cb5-10" title="10">    <span class="kw">&lt;name&gt;</span>dfs.replication<span class="kw">&lt;/name&gt;</span></a>
+<a class="sourceLine" id="cb5-11" title="11">    <span class="kw">&lt;value&gt;</span>1<span class="kw">&lt;/value&gt;</span></a>
+<a class="sourceLine" id="cb5-12" title="12">  <span class="kw">&lt;/property&gt;</span></a>
+<a class="sourceLine" id="cb5-13" title="13">  <span class="kw">&lt;property&gt;</span></a>
+<a class="sourceLine" id="cb5-14" title="14">    <span class="kw">&lt;name&gt;</span>dfs.name.dir<span class="kw">&lt;/name&gt;</span></a>
+<a class="sourceLine" id="cb5-15" title="15">    <span class="kw">&lt;value&gt;</span>/home/lox/tmp/hadoop-data/name<span class="kw">&lt;/value&gt;</span></a>
+<a class="sourceLine" id="cb5-16" title="16">    <span class="kw">&lt;final&gt;</span>true<span class="kw">&lt;/final&gt;</span></a>
+<a class="sourceLine" id="cb5-17" title="17">  <span class="kw">&lt;/property&gt;</span></a>
+<a class="sourceLine" id="cb5-18" title="18">  <span class="kw">&lt;property&gt;</span></a>
+<a class="sourceLine" id="cb5-19" title="19">    <span class="kw">&lt;name&gt;</span>dfs.data.dir<span class="kw">&lt;/name&gt;</span></a>
+<a class="sourceLine" id="cb5-20" title="20">    <span class="kw">&lt;value&gt;</span>/home/lox/tmp/hadoop-data/data<span class="kw">&lt;/value&gt;</span></a>
+<a class="sourceLine" id="cb5-21" title="21">    <span class="kw">&lt;final&gt;</span>true<span class="kw">&lt;/final&gt;</span></a>
+<a class="sourceLine" id="cb5-22" title="22">  <span class="kw">&lt;/property&gt;</span></a>
+<a class="sourceLine" id="cb5-23" title="23"><span class="kw">&lt;/configuration&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb6-1" title="1"><span class="co">&lt;!-- mapred-site.xml --&gt;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="kw">&lt;?xml-stylesheet</span> type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;<span class="kw">?&gt;</span></a>
+<a class="sourceLine" id="cb6-5" title="5"></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="co">&lt;!-- Put site-specific property overrides in this file. --&gt;</span></a>
+<a class="sourceLine" id="cb6-7" title="7"></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="kw">&lt;configuration&gt;</span></a>
+<a class="sourceLine" id="cb6-9" title="9">  <span class="kw">&lt;property&gt;</span></a>
+<a class="sourceLine" id="cb6-10" title="10">    <span class="kw">&lt;name&gt;</span>mapred.job.tracker<span class="kw">&lt;/name&gt;</span></a>
+<a class="sourceLine" id="cb6-11" title="11">    <span class="kw">&lt;value&gt;</span>localhost:9001<span class="kw">&lt;/value&gt;</span></a>
+<a class="sourceLine" id="cb6-12" title="12">  <span class="kw">&lt;/property&gt;</span></a>
+<a class="sourceLine" id="cb6-13" title="13">  <span class="kw">&lt;property&gt;</span></a>
+<a class="sourceLine" id="cb6-14" title="14">    <span class="kw">&lt;name&gt;</span>mapred.tasktracker.map.tasks.maximum<span class="kw">&lt;/name&gt;</span></a>
+<a class="sourceLine" id="cb6-15" title="15">    <span class="kw">&lt;value&gt;</span>5<span class="kw">&lt;/value&gt;</span></a>
+<a class="sourceLine" id="cb6-16" title="16">  <span class="kw">&lt;/property&gt;</span></a>
+<a class="sourceLine" id="cb6-17" title="17">  <span class="kw">&lt;property&gt;</span></a>
+<a class="sourceLine" id="cb6-18" title="18">    <span class="kw">&lt;name&gt;</span>mapred.tasktracker.reduce.tasks.maximum<span class="kw">&lt;/name&gt;</span></a>
+<a class="sourceLine" id="cb6-19" title="19">    <span class="kw">&lt;value&gt;</span>5<span class="kw">&lt;/value&gt;</span></a>
+<a class="sourceLine" id="cb6-20" title="20">  <span class="kw">&lt;/property&gt;</span></a>
+<a class="sourceLine" id="cb6-21" title="21">  <span class="kw">&lt;property&gt;</span></a>
+<a class="sourceLine" id="cb6-22" title="22">    <span class="kw">&lt;name&gt;</span>mapred.child.java.opts<span class="kw">&lt;/name&gt;</span></a>
+<a class="sourceLine" id="cb6-23" title="23">    <span class="kw">&lt;value&gt;</span>-Xmx512m<span class="kw">&lt;/value&gt;</span></a>
+<a class="sourceLine" id="cb6-24" title="24">  <span class="kw">&lt;/property&gt;</span></a>
+<a class="sourceLine" id="cb6-25" title="25"><span class="kw">&lt;/configuration&gt;</span></a></code></pre></div>
 <ul>
 <li>启动 Hadoop，如果能用 Hadoop FS Shell 做一些常规的 <code>mkdir</code> 和 <code>ls</code> 操作， Hadoop 搭建就算大功告成了：</li>
 </ul>
@@ -273,18 +273,18 @@ drwxr-xr-x   - lox supergroup          0 2012-02-15 00:08 /tmp/this-is-a-test-di
 $
 </code></pre>
 <p>好了。基础工作已经准备好，在接下来的旅程中，我会初步讲解一下 Hadoop 的基本概念和使用方法，进而转入 Lisp（Scheme）函数式编程的美妙世界，带你逐本溯源，领略一下原生态的 Map 和 Reduce 到底是什么模样，并且会顺带谈到一些我在 Lisp 学习过程中领略到的别样风景，包括但不限于 Java 的反射、序列化等一些高级特性，XML、JSON 的数据语言的特性特点等等。敬请期待！</p>
-<section class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="http://tech.163.com/special/cnnic29/">第 29 次中国互联网络发展状况统计报告</a>显示，2012年初，中国网民共计 5.13 亿。<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>关于这个定义的出处可以参考<a href="http://www.tektalk.org">弯曲评论</a>上一篇非常好的关于云计算的科普文章“<a href="http://www.tektalk.org/2010/03/23/云里雾里云计算 -【1】云计算解决什么问题？/">云里雾里云计算 </a>”，本文不打算探讨云计算的社会意义、产业变革、安全等过于宏大的主题（其实我对这些一点都不了解）。<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>MapReduce的第一篇论文<a href="http://research.google.com/archive/mapreduce.html">“MapReduce: Simplified Data Processing on Large Clusters”</a>曾写到：“Our abstraction is inspired by the map and reduce primitives present in Lisp and many other functional languages.”可见，MapReduce 的思想来自于古老的 Lisp 语言。<a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p>广告一下，在我有限的阅读经历中，《<a href="http://book.douban.com/subject/1148282/">SICP</a>》是我读过的计算机书籍中最棒的一本，没有之一。如果能认真做完这本书里面的 356 道题目，绝对会让你对编程本质的理解有一个脱胎换骨般的提高。<a href="https://bitbucket.org/xiaohanyu/learning_sicp/">这里</a>有我个人的部分习题解答代码和学习笔记。<a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p>关于这一点，刘未鹏的《<a href="http://mindhacks.cn/2008/07/07/the-importance-of-knowing-why/">知其所以然</a>》系列文章里有更好的解读，我就不再重复了。<a href="#fnref5">↩</a></p></li>
-<li id="fn6"><p>参考《<a href="http://book.douban.com/subject/3652388/">程序员的自我修养</a>》。<a href="#fnref6">↩</a></p></li>
-<li id="fn7"><p>参考《<a href="http://book.douban.com/subject/1322358/">费马大定理 :一个困惑了世间智者 358 年的谜</a>》。<a href="#fnref7">↩</a></p></li>
-<li id="fn8"><p>据《<a href="http://book.douban.com/subject/1909192/">UNIX编程艺术》</a>的序言里的脚注：“从 1969 年到 2003 年，35 年世间并不短。以这期间众多 UNIX 站点数量的历史曲线来估算，人们在 UNIX 系统的开发方面投入了约 5000 万人年”。<a href="#fnref8">↩</a></p></li>
-<li id="fn9"><p>这原本是 <a href="http://en.wikipedia.org/wiki/Brooks&#39;s_law">Brooks’s Law</a> 的一种观点。<a href="#fnref9">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="http://tech.163.com/special/cnnic29/">第 29 次中国互联网络发展状况统计报告</a>显示，2012年初，中国网民共计 5.13 亿。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn2" role="doc-endnote"><p>关于这个定义的出处可以参考<a href="http://www.tektalk.org">弯曲评论</a>上一篇非常好的关于云计算的科普文章“<a href="http://www.tektalk.org/2010/03/23/云里雾里云计算 -【1】云计算解决什么问题？/">云里雾里云计算 </a>”，本文不打算探讨云计算的社会意义、产业变革、安全等过于宏大的主题（其实我对这些一点都不了解）。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn3" role="doc-endnote"><p>MapReduce的第一篇论文<a href="http://research.google.com/archive/mapreduce.html">"MapReduce: Simplified Data Processing on Large Clusters"</a>曾写到："Our abstraction is inspired by the map and reduce primitives present in Lisp and many other functional languages."可见，MapReduce 的思想来自于古老的 Lisp 语言。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn4" role="doc-endnote"><p>广告一下，在我有限的阅读经历中，《<a href="http://book.douban.com/subject/1148282/">SICP</a>》是我读过的计算机书籍中最棒的一本，没有之一。如果能认真做完这本书里面的 356 道题目，绝对会让你对编程本质的理解有一个脱胎换骨般的提高。<a href="https://bitbucket.org/xiaohanyu/learning_sicp/">这里</a>有我个人的部分习题解答代码和学习笔记。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn5" role="doc-endnote"><p>关于这一点，刘未鹏的《<a href="http://mindhacks.cn/2008/07/07/the-importance-of-knowing-why/">知其所以然</a>》系列文章里有更好的解读，我就不再重复了。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn6" role="doc-endnote"><p>参考《<a href="http://book.douban.com/subject/3652388/">程序员的自我修养</a>》。<a href="#fnref6" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn7" role="doc-endnote"><p>参考《<a href="http://book.douban.com/subject/1322358/">费马大定理 :一个困惑了世间智者 358 年的谜</a>》。<a href="#fnref7" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn8" role="doc-endnote"><p>据《<a href="http://book.douban.com/subject/1909192/">UNIX编程艺术》</a>的序言里的脚注：“从 1969 年到 2003 年，35 年世间并不短。以这期间众多 UNIX 站点数量的历史曲线来估算，人们在 UNIX 系统的开发方面投入了约 5000 万人年”。<a href="#fnref8" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn9" role="doc-endnote"><p>这原本是 <a href="http://en.wikipedia.org/wiki/Brooks&#39;s_law">Brooks's Law</a> 的一种观点。<a href="#fnref9" class="footnote-back" role="doc-backlink">↩</a></p></li>
 </ol>
 </section>
 
@@ -303,7 +303,7 @@ $
     <div class="ui small header">
       Committed
     </div>
-    <date>2012-02-14</date>
+    <date>2012-02-15</date>
     <div class="ui small header">
       Updated
     </div>

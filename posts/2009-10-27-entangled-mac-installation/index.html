@@ -65,7 +65,7 @@
 <p>思前想后，还是决定装 Windows 7，再重新装个 Linux 吧。于是找室友帮忙，下载了 Windows MSDN 英文原版，还是用伟大的 UltraISO，刻成了 Live USB，启动，开始安装。半个小时，一个华丽的启动界面出现在我的眼前——果然很绚丽。简单使用了一下，相比 Vista，对 Windows 7 确实做的非常非常不错。尤其是独具匠心的 UI 设计。超级任务栏， Aero Peak，动态的主题效果，重新设计的 Media Center，便捷的网络 VPN 链接，还有许多我觉得不错但是叫不出名字的功能，真的很强大。而且运行起来比 Vista 要轻快多了。看来 MS 这次是下了血本了。</p>
 <p>盗版，这个字眼对于中国的 IT 人来说是一种挥之不去的痛。虽然我也不想用盗版，虽然我可以用 Linux 满足自己开发、办公、学习方方面面的需要，但是某些时候环境是不一样的。譬如实验室的同组同学都在用 Visual Studio 2008 做开发，这种情况下想不用盗版的 MS 产品恐怕都很难。据说即将面试的 Visual Studio 2010 正版要 11100+ 美刀。简直是不可想象了。算了。这是在中国。CC98 上有几个 MSDN 的 key，也许这次 rp 不错，竟然能电话激活了。此时已经半夜两点多了，撑不住了，睡了。</p>
 <p>第二天早晨 10 点才爬起来。继续搞电脑。得装个 Linux。装哪个版本好呢？Arch，自己配置还是蛮麻烦的。说实话现在对系统安装已经没有多大的兴趣了。每次重装系统都是把自己的精心调制的作品一点一点碾碎，然后再一点一点搭建起来。我是需要 XeTeX 最新版本的，自从用了 LaTeX 后，已经完全不能习惯 Word。Google 了下，Ubuntu 9.10 中的 TeX Live 貌似还停留在 2007 版本。算了，还是 Arch 吧。</p>
-<p>有了上次的安装经验，这次的安装也算是轻车熟路了。但是自己又没有十全的把握与信心，于是在 Windows 7 下把 Arch Linux 官网 wiki 上的 <a href="http://wiki.archlinux.org/index.php/Beginners%27_Guide">Beginner’s Guide</a> 打印了下来，七十多页。具体的安装过程不讲了，大体上都一样的，真想自己装的话看 Beginner’s Guide。只是记录一下安装过程中遇到的几个小问题。</p>
+<p>有了上次的安装经验，这次的安装也算是轻车熟路了。但是自己又没有十全的把握与信心，于是在 Windows 7 下把 Arch Linux 官网 wiki 上的 <a href="http://wiki.archlinux.org/index.php/Beginners%27_Guide">Beginner's Guide</a> 打印了下来，七十多页。具体的安装过程不讲了，大体上都一样的，真想自己装的话看 Beginner's Guide。只是记录一下安装过程中遇到的几个小问题。</p>
 <ul>
 <li>GRUB 的引导问题。很幸运的是 Arch Linux 自动识别了 Windows 7，只需要在 GRUB 的 <code>menu.lst</code> 文件中去掉几行注释就行。这是我的 <code>menu.lst</code> 文件：</li>
 </ul>
@@ -133,11 +133,11 @@ vga=773
 <ul>
 <li>XeTeX 的字体问题。直接将下载的字体 <code>cp</code> 到 <code>/usr/share/fonts</code> 里面，最好建一个目录来存放自己的字体，然后</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">fc-cache</span> -f -v</code></pre></div>
+<div class="sourceCode" id="cb6" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">fc-cache</span> -f -v</a></code></pre></div>
 <ul>
 <li><a href="https://okular.kde.org/">Okular</a>、<a href="https://wiki.gnome.org/Apps/Evince">Evince</a> 不能显示中文问题。据说二者都是基于 <a href="https://poppler.freedesktop.org/">Poppler</a> 的，安装 poppler-data 即可完美解决这个问题：</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> pacman -S poppler-data</code></pre></div>
+<div class="sourceCode" id="cb7" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="fu">sudo</span> pacman -S poppler-data</a></code></pre></div>
 <ul>
 <li>从普通用户到 root 用户 GUI 程序无法启动的问题：</li>
 </ul>
@@ -179,7 +179,7 @@ Password:
     <div class="ui small header">
       Committed
     </div>
-    <date>2009-10-26</date>
+    <date>2009-10-27</date>
     <div class="ui small header">
       Updated
     </div>
@@ -191,7 +191,7 @@ Password:
       <div class="item">
         <a href="/categories#Life">
           <div class="ui label">
-            Life<sup>47</sup>
+            Life<sup>48</sup>
           </div>
         </a>
       </div>

@@ -61,205 +61,205 @@
 <p>主要内容包括：</p>
 <p><a href="/static/asset/2009/ubuntu_xetex_xecjk_toc.jpg"><img src="/static/asset/2009/ubuntu_xetex_xecjk_toc.jpg" /></a></p>
 <p>这是我使用的 xeCJK 模板。</p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="co">% Name: XeTeX + xeCJK日常使用模板</span>
-<span class="co">% Author: Lox Freeman</span>
-<span class="co">% Email: xiaohanyu1988@gmail.com</span>
-<span class="co">%</span>
-<span class="co">% 本文档可以自由转载、修改，希望能给广大 TeXer 的中文之路提供一些方便。</span>
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-
-<span class="bu">\documentclass</span>[a4paper, 12pt, titlepage]{<span class="ex">article</span>}
-
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% xeCJK相关宏包 %%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="bu">\usepackage</span>{<span class="ex">xltxtra, fontspec, xunicode</span>}
-
-<span class="bu">\usepackage</span>[slantfont, boldfont, CJKaddspaces, CJKchecksingle]{<span class="ex">xeCJK</span>}
-<span class="fu">\CJKsetecglue</span>{<span class="fu">\hskip</span> 0.15em plus 0.05em minus 0.05em}
-<span class="co">% slanfont: 允许斜体</span>
-<span class="co">% boldfont: 允许粗体</span>
-<span class="co">% CJKnormalspaces: 仅忽略汉字之间的空白，但保留中英文之间的空白。</span>
-<span class="co">% CJKchecksingle: 避免单个汉字单独占一行。</span>
-<span class="co">% CJKaddspaces: [备选] 忽略汉字之间的空白，并且自动在中英文转换时插入空白。</span>
-
-<span class="fu">\CJKlanguage</span>{zh-cn}                <span class="co">% 中文标点特殊处理</span>
-<span class="fu">\XeTeXlinebreaklocale</span> &quot;zh&quot;         <span class="co">% 针对中文进行断行</span>
-<span class="fu">\XeTeXlinebreakskip</span> = 0pt plus 1pt minus 0.1pt
-                                   <span class="co">% 给予 TeX 断行一定自由度</span>
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% xeCJK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-
-<span class="co">%%%%%%%%%%%%% 日常所用宏包、通通放在一起 %%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="co">% 什么常用的宏包都可以放这里。下面是我常用的宏包，每个都给出了简要注释</span>
-<span class="bu">\usepackage</span>[top=2.5cm, bottom=3cm, left=2cm, right=2cm]{<span class="ex">geometry</span>}
-
-                                   <span class="co">% 控制页边距</span>
-<span class="bu">\usepackage</span>{<span class="ex">enumerate</span>}             <span class="co">% 控制项目列表</span>
-<span class="bu">\usepackage</span>{<span class="ex">multicol</span>}              <span class="co">% 多栏显示</span>
-
-<span class="bu">\usepackage</span>[<span class="co">%</span>
-    pdfstartview=FitH,<span class="co">%</span>
-    CJKbookmarks=true,<span class="co">%</span>
-    bookmarks=true,<span class="co">%</span>
-    bookmarksnumbered=true,<span class="co">%</span>
-    bookmarksopen=true,<span class="co">%</span>
-    colorlinks=true,<span class="co">%</span>
-    citecolor=blue,<span class="co">%</span>
-    linkcolor=blue,<span class="co">%</span>
-    anchorcolor=green,<span class="co">%</span>
-    urlcolor=blue<span class="co">%</span>
-]{<span class="ex">hyperref</span>}
-
-<span class="bu">\usepackage</span>{<span class="ex">titlesec</span>}              <span class="co">% 控制标题</span>
-<span class="bu">\usepackage</span>{<span class="ex">titletoc</span>}              <span class="co">% 控制目录</span>
-<span class="bu">\usepackage</span>{<span class="ex">type1cm</span>}               <span class="co">% 控制字体大小</span>
-<span class="bu">\usepackage</span>{<span class="ex">indentfirst</span>}           <span class="co">%</span>
- 首行缩进，用  <span class="fu">\noindent</span> 取消某段缩进
-<span class="bu">\usepackage</span>{<span class="ex">bbding</span>}                <span class="co">% 一些特殊符号</span>
-<span class="bu">\usepackage</span>{<span class="ex">cite</span>}                  <span class="co">% 支持引用</span>
-<span class="bu">\usepackage</span>{<span class="ex">color,xcolor</span>}          <span class="co">% 支持彩色文本、底色、文本框等</span>
-<span class="bu">\usepackage</span>{<span class="ex">latexsym</span>}              <span class="co">% LaTeX 一些特殊符号宏包</span>
-<span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}               <span class="co">% AMS LaTeX 宏包</span>
-<span class="bu">\usepackage</span>{<span class="ex">bm</span>}                    <span class="co">% 数学公式中的黑斜体</span>
-<span class="bu">\usepackage</span>{<span class="ex">relsize</span>}               <span class="co">% 调整公式字体大小：\mathsmaller,</span>
-<span class="fu">\mathlarger</span>
-<span class="co">%\makeindex                        % 生成索引</span>
-
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 基本插图方法 %%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="bu">\usepackage</span>{<span class="ex">graphicx</span>}              <span class="co">% 图形宏包</span>
-<span class="co">% \begin{figure}[htbp]             % 控制插图位置</span>
-<span class="co">%   \setlength{\abovecaptionskip}{0pt}</span>
-<span class="co">%   \setlength{\belowcaptionskip}{10pt}</span>
-                                   <span class="co">% 控制图形和上下文的距离</span>
-<span class="co">%   \centering                     % 使图形居中显示</span>
-<span class="co">%   \includegraphics[width=0.8\textwidth]{CTeXLive2008.jpg}</span>
-                                   <span class="co">% 控制图形显示宽度为  0.8\textwidth</span>
-<span class="co">%   \caption{CTeXLive2008 安装过程} \label{fig:CTeXLive2008}</span>
-                                   <span class="co">% 图形题目和交叉引用标签</span>
-<span class="co">% \end{figure}</span>
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 插图方法结束 %%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-
-
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%fancyhdr 设置页眉页脚 %%%%%%%%%%%%%%%%%%%%</span>
-<span class="bu">\usepackage</span>{<span class="ex">fancyhdr</span>}              <span class="co">% 页眉页脚</span>
-<span class="fu">\pagestyle</span>{fancy}                  <span class="co">% 页眉页脚风格</span>
-<span class="fu">\setlength</span>{<span class="fu">\headheight</span>}{15pt}      <span class="co">% 有时会出现  \headheight too small 的 warning</span>
-<span class="co">%\fancyhf{}                        % 清空当前页眉页脚的默认设置</span>
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%fancyhdr 设置结束 %%%%%%%%%%%%%%%%%%%%%%%</span>
-
-
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%listings 宏包粘贴源码 %%%%%%%%%%%%%%%%%%%%</span>
-<span class="bu">\usepackage</span>{<span class="ex">listings</span>}              <span class="co">% 方便粘贴源代码，部分代码高亮功能</span>
-<span class="fu">\lstloadlanguages</span>{}                <span class="co">% 所要粘贴代码的编程语言</span>
-
-<span class="co">%%%% 设置 listings 宏包的一些全局样式 %%%%</span>
-<span class="co">%%%% 参见  http://hi.baidu.com/shawpinlee/blog/item/9ec431cbae28e41cbe09e6e4.html%%%%</span>
-<span class="fu">\lstset</span>{
-numbers=left,                      <span class="co">% 在左边显示行号</span>
-numberstyle=<span class="fu">\tiny</span>,
-keywordstyle=<span class="fu">\color</span>{blue!70},
-commentstyle=<span class="fu">\color</span>{red!50!green!50!blue!50},
-                                   <span class="co">% 关键字高亮</span>
-frame=shadowbox,                   <span class="co">% 给代码加框</span>
-rulesepcolor=<span class="fu">\color</span>{red!20!green!20!blue!20},
-escapechar=`,                      <span class="co">% 中文逃逸字符</span>
-xleftmargin=2em,xrightmargin=2em, aboveskip=1em,
-breaklines,                        <span class="co">% 这条命令可以让 LaTeX 自动将长的代码行换行排版</span>
-extendedchars=false                <span class="co">% 这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题</span>
-}
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%listings 宏包设置结束 %%%%%%%%%%%%%%%%%%%%</span>
-
-
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%xeCJK 字体设置 %%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="fu">\punctstyle</span>{kaiming}                                      <span class="co">% 设置中文标点样式</span>
-                                                          <span class="co">% 支持 quanjiao、banjiao、kaiming等多种方式</span>
-<span class="fu">\setCJKmainfont</span>[BoldFont=Adobe Heiti Std]{Adobe Song Std} <span class="co">% 设置缺省中文字体</span>
-<span class="fu">\setCJKsansfont</span>[BoldFont=Adobe Heiti Std]{Adobe Kaiti Std} <span class="co">% 设置中文无衬线字体</span>
-<span class="fu">\setCJKmonofont</span>{Adobe Heiti Std}                          <span class="co">% 设置等宽字体</span>
-<span class="fu">\setmainfont</span>{DejaVu Serif}                                <span class="co">% 英文衬线字体</span>
-<span class="fu">\setmonofont</span>{DejaVu Sans Mono}                            <span class="co">% 英文等宽字体</span>
-<span class="fu">\setsansfont</span>{DejaVu Sans}                                 <span class="co">% 英文无衬线字体</span>
-
-<span class="co">%%%% 定义新字体 %%%%</span>
-<span class="fu">\setCJKfamilyfont</span>{song}{Adobe Song Std}
-<span class="fu">\setCJKfamilyfont</span>{kai}{Adobe Kaiti Std}
-<span class="fu">\setCJKfamilyfont</span>{hei}{Adobe Heiti Std}
-<span class="fu">\setCJKfamilyfont</span>{fangsong}{Adobe Fangsong Std}
-<span class="fu">\setCJKfamilyfont</span>{lisu}{LiSu}
-<span class="fu">\setCJKfamilyfont</span>{youyuan}{YouYuan}
-
-<span class="fu">\newcommand</span>{<span class="ex">\song</span>}{<span class="fu">\CJKfamily</span>{song}}                     <span class="co">% 自定义宋体</span>
-<span class="fu">\newcommand</span>{<span class="ex">\kai</span>}{<span class="fu">\CJKfamily</span>{kai}}                       <span class="co">% 自定义楷体</span>
-<span class="fu">\newcommand</span>{<span class="ex">\hei</span>}{<span class="fu">\CJKfamily</span>{hei}}                       <span class="co">% 自定义黑体</span>
-<span class="fu">\newcommand</span>{<span class="ex">\fangsong</span>}{<span class="fu">\CJKfamily</span>{fangsong}}             <span class="co">% 自定义仿宋体</span>
-<span class="fu">\newcommand</span>{<span class="ex">\lisu</span>}{<span class="fu">\CJKfamily</span>{lisu}}                     <span class="co">% 自定义隶书</span>
-<span class="fu">\newcommand</span>{<span class="ex">\youyuan</span>}{<span class="fu">\CJKfamily</span>{youyuan}}               <span class="co">% 自定义幼圆</span>
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%xeCJK 字体设置结束 %%%%%%%%%%%%%%%%%%%%%%</span>
-
-
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 一些关于中文文档的重定义 %%%%%%%%%%%%%%%%%</span>
-
-<span class="co">%%%% 数学公式定理的重定义 %%%%</span>
-<span class="fu">\newtheorem</span>{example}{例}                                 <span class="co">% 整体编号</span>
-<span class="fu">\newtheorem</span>{algorithm}{算法}
-<span class="fu">\newtheorem</span>{theorem}{定理}[section]                      <span class="co">% 按 section 编号</span>
-<span class="fu">\newtheorem</span>{definition}{定义}
-<span class="fu">\newtheorem</span>{axiom}{公理}
-<span class="fu">\newtheorem</span>{property}{性质}
-<span class="fu">\newtheorem</span>{proposition}{命题}
-<span class="fu">\newtheorem</span>{lemma}{引理}
-<span class="fu">\newtheorem</span>{corollary}{推论}
-<span class="fu">\newtheorem</span>{remark}{注解}
-<span class="fu">\newtheorem</span>{condition}{条件}
-<span class="fu">\newtheorem</span>{conclusion}{结论}
-<span class="fu">\newtheorem</span>{assumption}{假设}
-
-<span class="co">%%%% 章节等名称重定义 %%%%</span>
-<span class="fu">\renewcommand</span>{<span class="ex">\contentsname</span>}{目录}
-<span class="fu">\renewcommand</span>{<span class="ex">\indexname</span>}{索引}
-<span class="fu">\renewcommand</span>{<span class="ex">\listfigurename</span>}{插图目录}
-<span class="fu">\renewcommand</span>{<span class="ex">\listtablename</span>}{表格目录}
-<span class="fu">\renewcommand</span>{<span class="ex">\figurename</span>}{图}
-<span class="fu">\renewcommand</span>{<span class="ex">\tablename</span>}{表}
-<span class="fu">\renewcommand</span>{<span class="ex">\appendixname</span>}{附录}
-
-<span class="co">%%%% 设置 chapter、section与 subsection 的格式 %%%%</span>
-<span class="fu">\titleformat</span>{<span class="fu">\chapter</span>}{<span class="fu">\centering\huge</span>}{第 <span class="fu">\thechapter</span>{}章}{1em}{<span class="fu">\textbf</span>}
-<span class="fu">\titleformat</span>{<span class="fu">\section</span>}{<span class="fu">\centering\LARGE</span>}{<span class="fu">\thesection</span>}{1em}{<span class="fu">\textbf</span>}
-<span class="fu">\titleformat</span>{<span class="fu">\subsection</span>}{<span class="fu">\Large</span>}{<span class="fu">\thesubsection</span>}{1em}{<span class="fu">\textbf</span>}
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 中文重定义结束 %%%%%%%%%%%%%%%%%%%%</span>
-
-
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 一些个性设置 %%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="co">% \renewcommand{\baselinestretch}{1.3}   % 效果同  \linespread{1.3}</span>
-<span class="co">% \pagenumbering{arabic}                 % 设定页码方式，包括 arabic、roman等方式</span>
-<span class="co">% \sloppy                                % 有时 LaTeX 无从断行，产生 overfull 的错误，</span>
-                                         <span class="co">% 这条命令降低 LaTeX 断行标准</span>
-<span class="fu">\setlength</span>{<span class="fu">\parskip</span>}{0.5<span class="fu">\baselineskip</span>}   <span class="co">% 设定段间距</span>
-<span class="fu">\linespread</span>{1.2}                         <span class="co">% 设定行距</span>
-<span class="fu">\newcommand</span>{<span class="ex">\pozhehao</span>}{<span class="fu">\kern</span>0.3ex<span class="fu">\rule</span>[0.8ex]{2em}{0.1ex}<span class="fu">\kern</span>0.3ex}
-                                         <span class="co">% 中文破折号，据说来自清华模板</span>
-
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 个性设置结束 %%%%%%%%%%%%%%%%%%%%%%</span>
-
-
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 正文部分 %%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="kw">\begin</span>{<span class="ex">document</span>}
-<span class="fu">\setlength</span>{<span class="fu">\parindent</span>}{2em}
-<span class="co">% 设定首行缩进为 2em。注意此设置一定要在 document 环境之中。</span>
-<span class="co">% 这可能与 \setlength 作用范围相关</span>
-
-<span class="fu">\title</span>{Ubuntu 9.04 环境下 <span class="fu">\TeX</span> 中文化配置}
-<span class="fu">\author</span>{Lox Freeman}
-<span class="fu">\date</span>{<span class="fu">\today</span>}
-
-<span class="fu">\maketitle</span>
-
-<span class="fu">\tableofcontents</span>
-
-<span class="fu">\newpage</span>
-
-<span class="kw">\end</span>{<span class="ex">document</span>}
-<span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 正文部分结束 %%%%%%%%%%%%%%%%%%%%%%</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb1-1" title="1"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">% Name: XeTeX + xeCJK日常使用模板</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">% Author: Lox Freeman</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">% Email: xiaohanyu1988@gmail.com</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">%</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co">% 本文档可以自由转载、修改，希望能给广大 TeXer 的中文之路提供一些方便。</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="bu">\documentclass</span>[a4paper, 12pt, titlepage]{<span class="ex">article</span>}</a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% xeCJK相关宏包 %%%%%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="bu">\usepackage</span>{<span class="ex">xltxtra, fontspec, xunicode</span>}</a>
+<a class="sourceLine" id="cb1-13" title="13"></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="bu">\usepackage</span>[slantfont, boldfont, CJKaddspaces, CJKchecksingle]{<span class="ex">xeCJK</span>}</a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="fu">\CJKsetecglue</span>{<span class="fu">\hskip</span> 0.15em plus 0.05em minus 0.05em}</a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="co">% slanfont: 允许斜体</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="co">% boldfont: 允许粗体</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="co">% CJKnormalspaces: 仅忽略汉字之间的空白，但保留中英文之间的空白。</span></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="co">% CJKchecksingle: 避免单个汉字单独占一行。</span></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="co">% CJKaddspaces: [备选] 忽略汉字之间的空白，并且自动在中英文转换时插入空白。</span></a>
+<a class="sourceLine" id="cb1-21" title="21"></a>
+<a class="sourceLine" id="cb1-22" title="22"><span class="fu">\CJKlanguage</span>{zh-cn}                <span class="co">% 中文标点特殊处理</span></a>
+<a class="sourceLine" id="cb1-23" title="23"><span class="fu">\XeTeXlinebreaklocale</span> &quot;zh&quot;         <span class="co">% 针对中文进行断行</span></a>
+<a class="sourceLine" id="cb1-24" title="24"><span class="fu">\XeTeXlinebreakskip</span> = 0pt plus 1pt minus 0.1pt</a>
+<a class="sourceLine" id="cb1-25" title="25">                                   <span class="co">% 给予 TeX 断行一定自由度</span></a>
+<a class="sourceLine" id="cb1-26" title="26"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% xeCJK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-27" title="27"></a>
+<a class="sourceLine" id="cb1-28" title="28"><span class="co">%%%%%%%%%%%%% 日常所用宏包、通通放在一起 %%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-29" title="29"><span class="co">% 什么常用的宏包都可以放这里。下面是我常用的宏包，每个都给出了简要注释</span></a>
+<a class="sourceLine" id="cb1-30" title="30"><span class="bu">\usepackage</span>[top=2.5cm, bottom=3cm, left=2cm, right=2cm]{<span class="ex">geometry</span>}</a>
+<a class="sourceLine" id="cb1-31" title="31"></a>
+<a class="sourceLine" id="cb1-32" title="32">                                   <span class="co">% 控制页边距</span></a>
+<a class="sourceLine" id="cb1-33" title="33"><span class="bu">\usepackage</span>{<span class="ex">enumerate</span>}             <span class="co">% 控制项目列表</span></a>
+<a class="sourceLine" id="cb1-34" title="34"><span class="bu">\usepackage</span>{<span class="ex">multicol</span>}              <span class="co">% 多栏显示</span></a>
+<a class="sourceLine" id="cb1-35" title="35"></a>
+<a class="sourceLine" id="cb1-36" title="36"><span class="bu">\usepackage</span>[<span class="co">%</span></a>
+<a class="sourceLine" id="cb1-37" title="37">    pdfstartview=FitH,<span class="co">%</span></a>
+<a class="sourceLine" id="cb1-38" title="38">    CJKbookmarks=true,<span class="co">%</span></a>
+<a class="sourceLine" id="cb1-39" title="39">    bookmarks=true,<span class="co">%</span></a>
+<a class="sourceLine" id="cb1-40" title="40">    bookmarksnumbered=true,<span class="co">%</span></a>
+<a class="sourceLine" id="cb1-41" title="41">    bookmarksopen=true,<span class="co">%</span></a>
+<a class="sourceLine" id="cb1-42" title="42">    colorlinks=true,<span class="co">%</span></a>
+<a class="sourceLine" id="cb1-43" title="43">    citecolor=blue,<span class="co">%</span></a>
+<a class="sourceLine" id="cb1-44" title="44">    linkcolor=blue,<span class="co">%</span></a>
+<a class="sourceLine" id="cb1-45" title="45">    anchorcolor=green,<span class="co">%</span></a>
+<a class="sourceLine" id="cb1-46" title="46">    urlcolor=blue<span class="co">%</span></a>
+<a class="sourceLine" id="cb1-47" title="47">]{<span class="ex">hyperref</span>}</a>
+<a class="sourceLine" id="cb1-48" title="48"></a>
+<a class="sourceLine" id="cb1-49" title="49"><span class="bu">\usepackage</span>{<span class="ex">titlesec</span>}              <span class="co">% 控制标题</span></a>
+<a class="sourceLine" id="cb1-50" title="50"><span class="bu">\usepackage</span>{<span class="ex">titletoc</span>}              <span class="co">% 控制目录</span></a>
+<a class="sourceLine" id="cb1-51" title="51"><span class="bu">\usepackage</span>{<span class="ex">type1cm</span>}               <span class="co">% 控制字体大小</span></a>
+<a class="sourceLine" id="cb1-52" title="52"><span class="bu">\usepackage</span>{<span class="ex">indentfirst</span>}           <span class="co">%</span></a>
+<a class="sourceLine" id="cb1-53" title="53"> 首行缩进，用  <span class="fu">\noindent</span> 取消某段缩进</a>
+<a class="sourceLine" id="cb1-54" title="54"><span class="bu">\usepackage</span>{<span class="ex">bbding</span>}                <span class="co">% 一些特殊符号</span></a>
+<a class="sourceLine" id="cb1-55" title="55"><span class="bu">\usepackage</span>{<span class="ex">cite</span>}                  <span class="co">% 支持引用</span></a>
+<a class="sourceLine" id="cb1-56" title="56"><span class="bu">\usepackage</span>{<span class="ex">color,xcolor</span>}          <span class="co">% 支持彩色文本、底色、文本框等</span></a>
+<a class="sourceLine" id="cb1-57" title="57"><span class="bu">\usepackage</span>{<span class="ex">latexsym</span>}              <span class="co">% LaTeX 一些特殊符号宏包</span></a>
+<a class="sourceLine" id="cb1-58" title="58"><span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}               <span class="co">% AMS LaTeX 宏包</span></a>
+<a class="sourceLine" id="cb1-59" title="59"><span class="bu">\usepackage</span>{<span class="ex">bm</span>}                    <span class="co">% 数学公式中的黑斜体</span></a>
+<a class="sourceLine" id="cb1-60" title="60"><span class="bu">\usepackage</span>{<span class="ex">relsize</span>}               <span class="co">% 调整公式字体大小：\mathsmaller,</span></a>
+<a class="sourceLine" id="cb1-61" title="61"><span class="fu">\mathlarger</span></a>
+<a class="sourceLine" id="cb1-62" title="62"><span class="co">%\makeindex                        % 生成索引</span></a>
+<a class="sourceLine" id="cb1-63" title="63"></a>
+<a class="sourceLine" id="cb1-64" title="64"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 基本插图方法 %%%%%%%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-65" title="65"><span class="bu">\usepackage</span>{<span class="ex">graphicx</span>}              <span class="co">% 图形宏包</span></a>
+<a class="sourceLine" id="cb1-66" title="66"><span class="co">% \begin{figure}[htbp]             % 控制插图位置</span></a>
+<a class="sourceLine" id="cb1-67" title="67"><span class="co">%   \setlength{\abovecaptionskip}{0pt}</span></a>
+<a class="sourceLine" id="cb1-68" title="68"><span class="co">%   \setlength{\belowcaptionskip}{10pt}</span></a>
+<a class="sourceLine" id="cb1-69" title="69">                                   <span class="co">% 控制图形和上下文的距离</span></a>
+<a class="sourceLine" id="cb1-70" title="70"><span class="co">%   \centering                     % 使图形居中显示</span></a>
+<a class="sourceLine" id="cb1-71" title="71"><span class="co">%   \includegraphics[width=0.8\textwidth]{CTeXLive2008.jpg}</span></a>
+<a class="sourceLine" id="cb1-72" title="72">                                   <span class="co">% 控制图形显示宽度为  0.8\textwidth</span></a>
+<a class="sourceLine" id="cb1-73" title="73"><span class="co">%   \caption{CTeXLive2008 安装过程} \label{fig:CTeXLive2008}</span></a>
+<a class="sourceLine" id="cb1-74" title="74">                                   <span class="co">% 图形题目和交叉引用标签</span></a>
+<a class="sourceLine" id="cb1-75" title="75"><span class="co">% \end{figure}</span></a>
+<a class="sourceLine" id="cb1-76" title="76"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 插图方法结束 %%%%%%%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-77" title="77"></a>
+<a class="sourceLine" id="cb1-78" title="78"></a>
+<a class="sourceLine" id="cb1-79" title="79"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%fancyhdr 设置页眉页脚 %%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-80" title="80"><span class="bu">\usepackage</span>{<span class="ex">fancyhdr</span>}              <span class="co">% 页眉页脚</span></a>
+<a class="sourceLine" id="cb1-81" title="81"><span class="fu">\pagestyle</span>{fancy}                  <span class="co">% 页眉页脚风格</span></a>
+<a class="sourceLine" id="cb1-82" title="82"><span class="fu">\setlength</span>{<span class="fu">\headheight</span>}{15pt}      <span class="co">% 有时会出现  \headheight too small 的 warning</span></a>
+<a class="sourceLine" id="cb1-83" title="83"><span class="co">%\fancyhf{}                        % 清空当前页眉页脚的默认设置</span></a>
+<a class="sourceLine" id="cb1-84" title="84"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%fancyhdr 设置结束 %%%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-85" title="85"></a>
+<a class="sourceLine" id="cb1-86" title="86"></a>
+<a class="sourceLine" id="cb1-87" title="87"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%listings 宏包粘贴源码 %%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-88" title="88"><span class="bu">\usepackage</span>{<span class="ex">listings</span>}              <span class="co">% 方便粘贴源代码，部分代码高亮功能</span></a>
+<a class="sourceLine" id="cb1-89" title="89"><span class="fu">\lstloadlanguages</span>{}                <span class="co">% 所要粘贴代码的编程语言</span></a>
+<a class="sourceLine" id="cb1-90" title="90"></a>
+<a class="sourceLine" id="cb1-91" title="91"><span class="co">%%%% 设置 listings 宏包的一些全局样式 %%%%</span></a>
+<a class="sourceLine" id="cb1-92" title="92"><span class="co">%%%% 参见  http://hi.baidu.com/shawpinlee/blog/item/9ec431cbae28e41cbe09e6e4.html%%%%</span></a>
+<a class="sourceLine" id="cb1-93" title="93"><span class="fu">\lstset</span>{</a>
+<a class="sourceLine" id="cb1-94" title="94">numbers=left,                      <span class="co">% 在左边显示行号</span></a>
+<a class="sourceLine" id="cb1-95" title="95">numberstyle=<span class="fu">\tiny</span>,</a>
+<a class="sourceLine" id="cb1-96" title="96">keywordstyle=<span class="fu">\color</span>{blue!70},</a>
+<a class="sourceLine" id="cb1-97" title="97">commentstyle=<span class="fu">\color</span>{red!50!green!50!blue!50},</a>
+<a class="sourceLine" id="cb1-98" title="98">                                   <span class="co">% 关键字高亮</span></a>
+<a class="sourceLine" id="cb1-99" title="99">frame=shadowbox,                   <span class="co">% 给代码加框</span></a>
+<a class="sourceLine" id="cb1-100" title="100">rulesepcolor=<span class="fu">\color</span>{red!20!green!20!blue!20},</a>
+<a class="sourceLine" id="cb1-101" title="101">escapechar=`,                      <span class="co">% 中文逃逸字符</span></a>
+<a class="sourceLine" id="cb1-102" title="102">xleftmargin=2em,xrightmargin=2em, aboveskip=1em,</a>
+<a class="sourceLine" id="cb1-103" title="103">breaklines,                        <span class="co">% 这条命令可以让 LaTeX 自动将长的代码行换行排版</span></a>
+<a class="sourceLine" id="cb1-104" title="104">extendedchars=false                <span class="co">% 这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题</span></a>
+<a class="sourceLine" id="cb1-105" title="105">}</a>
+<a class="sourceLine" id="cb1-106" title="106"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%listings 宏包设置结束 %%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-107" title="107"></a>
+<a class="sourceLine" id="cb1-108" title="108"></a>
+<a class="sourceLine" id="cb1-109" title="109"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%xeCJK 字体设置 %%%%%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-110" title="110"><span class="fu">\punctstyle</span>{kaiming}                                      <span class="co">% 设置中文标点样式</span></a>
+<a class="sourceLine" id="cb1-111" title="111">                                                          <span class="co">% 支持 quanjiao、banjiao、kaiming等多种方式</span></a>
+<a class="sourceLine" id="cb1-112" title="112"><span class="fu">\setCJKmainfont</span>[BoldFont=Adobe Heiti Std]{Adobe Song Std} <span class="co">% 设置缺省中文字体</span></a>
+<a class="sourceLine" id="cb1-113" title="113"><span class="fu">\setCJKsansfont</span>[BoldFont=Adobe Heiti Std]{Adobe Kaiti Std} <span class="co">% 设置中文无衬线字体</span></a>
+<a class="sourceLine" id="cb1-114" title="114"><span class="fu">\setCJKmonofont</span>{Adobe Heiti Std}                          <span class="co">% 设置等宽字体</span></a>
+<a class="sourceLine" id="cb1-115" title="115"><span class="fu">\setmainfont</span>{DejaVu Serif}                                <span class="co">% 英文衬线字体</span></a>
+<a class="sourceLine" id="cb1-116" title="116"><span class="fu">\setmonofont</span>{DejaVu Sans Mono}                            <span class="co">% 英文等宽字体</span></a>
+<a class="sourceLine" id="cb1-117" title="117"><span class="fu">\setsansfont</span>{DejaVu Sans}                                 <span class="co">% 英文无衬线字体</span></a>
+<a class="sourceLine" id="cb1-118" title="118"></a>
+<a class="sourceLine" id="cb1-119" title="119"><span class="co">%%%% 定义新字体 %%%%</span></a>
+<a class="sourceLine" id="cb1-120" title="120"><span class="fu">\setCJKfamilyfont</span>{song}{Adobe Song Std}</a>
+<a class="sourceLine" id="cb1-121" title="121"><span class="fu">\setCJKfamilyfont</span>{kai}{Adobe Kaiti Std}</a>
+<a class="sourceLine" id="cb1-122" title="122"><span class="fu">\setCJKfamilyfont</span>{hei}{Adobe Heiti Std}</a>
+<a class="sourceLine" id="cb1-123" title="123"><span class="fu">\setCJKfamilyfont</span>{fangsong}{Adobe Fangsong Std}</a>
+<a class="sourceLine" id="cb1-124" title="124"><span class="fu">\setCJKfamilyfont</span>{lisu}{LiSu}</a>
+<a class="sourceLine" id="cb1-125" title="125"><span class="fu">\setCJKfamilyfont</span>{youyuan}{YouYuan}</a>
+<a class="sourceLine" id="cb1-126" title="126"></a>
+<a class="sourceLine" id="cb1-127" title="127"><span class="fu">\newcommand</span>{<span class="ex">\song</span>}{<span class="fu">\CJKfamily</span>{song}}                     <span class="co">% 自定义宋体</span></a>
+<a class="sourceLine" id="cb1-128" title="128"><span class="fu">\newcommand</span>{<span class="ex">\kai</span>}{<span class="fu">\CJKfamily</span>{kai}}                       <span class="co">% 自定义楷体</span></a>
+<a class="sourceLine" id="cb1-129" title="129"><span class="fu">\newcommand</span>{<span class="ex">\hei</span>}{<span class="fu">\CJKfamily</span>{hei}}                       <span class="co">% 自定义黑体</span></a>
+<a class="sourceLine" id="cb1-130" title="130"><span class="fu">\newcommand</span>{<span class="ex">\fangsong</span>}{<span class="fu">\CJKfamily</span>{fangsong}}             <span class="co">% 自定义仿宋体</span></a>
+<a class="sourceLine" id="cb1-131" title="131"><span class="fu">\newcommand</span>{<span class="ex">\lisu</span>}{<span class="fu">\CJKfamily</span>{lisu}}                     <span class="co">% 自定义隶书</span></a>
+<a class="sourceLine" id="cb1-132" title="132"><span class="fu">\newcommand</span>{<span class="ex">\youyuan</span>}{<span class="fu">\CJKfamily</span>{youyuan}}               <span class="co">% 自定义幼圆</span></a>
+<a class="sourceLine" id="cb1-133" title="133"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%%xeCJK 字体设置结束 %%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-134" title="134"></a>
+<a class="sourceLine" id="cb1-135" title="135"></a>
+<a class="sourceLine" id="cb1-136" title="136"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 一些关于中文文档的重定义 %%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-137" title="137"></a>
+<a class="sourceLine" id="cb1-138" title="138"><span class="co">%%%% 数学公式定理的重定义 %%%%</span></a>
+<a class="sourceLine" id="cb1-139" title="139"><span class="fu">\newtheorem</span>{example}{例}                                 <span class="co">% 整体编号</span></a>
+<a class="sourceLine" id="cb1-140" title="140"><span class="fu">\newtheorem</span>{algorithm}{算法}</a>
+<a class="sourceLine" id="cb1-141" title="141"><span class="fu">\newtheorem</span>{theorem}{定理}[section]                      <span class="co">% 按 section 编号</span></a>
+<a class="sourceLine" id="cb1-142" title="142"><span class="fu">\newtheorem</span>{definition}{定义}</a>
+<a class="sourceLine" id="cb1-143" title="143"><span class="fu">\newtheorem</span>{axiom}{公理}</a>
+<a class="sourceLine" id="cb1-144" title="144"><span class="fu">\newtheorem</span>{property}{性质}</a>
+<a class="sourceLine" id="cb1-145" title="145"><span class="fu">\newtheorem</span>{proposition}{命题}</a>
+<a class="sourceLine" id="cb1-146" title="146"><span class="fu">\newtheorem</span>{lemma}{引理}</a>
+<a class="sourceLine" id="cb1-147" title="147"><span class="fu">\newtheorem</span>{corollary}{推论}</a>
+<a class="sourceLine" id="cb1-148" title="148"><span class="fu">\newtheorem</span>{remark}{注解}</a>
+<a class="sourceLine" id="cb1-149" title="149"><span class="fu">\newtheorem</span>{condition}{条件}</a>
+<a class="sourceLine" id="cb1-150" title="150"><span class="fu">\newtheorem</span>{conclusion}{结论}</a>
+<a class="sourceLine" id="cb1-151" title="151"><span class="fu">\newtheorem</span>{assumption}{假设}</a>
+<a class="sourceLine" id="cb1-152" title="152"></a>
+<a class="sourceLine" id="cb1-153" title="153"><span class="co">%%%% 章节等名称重定义 %%%%</span></a>
+<a class="sourceLine" id="cb1-154" title="154"><span class="fu">\renewcommand</span>{<span class="ex">\contentsname</span>}{目录}</a>
+<a class="sourceLine" id="cb1-155" title="155"><span class="fu">\renewcommand</span>{<span class="ex">\indexname</span>}{索引}</a>
+<a class="sourceLine" id="cb1-156" title="156"><span class="fu">\renewcommand</span>{<span class="ex">\listfigurename</span>}{插图目录}</a>
+<a class="sourceLine" id="cb1-157" title="157"><span class="fu">\renewcommand</span>{<span class="ex">\listtablename</span>}{表格目录}</a>
+<a class="sourceLine" id="cb1-158" title="158"><span class="fu">\renewcommand</span>{<span class="ex">\figurename</span>}{图}</a>
+<a class="sourceLine" id="cb1-159" title="159"><span class="fu">\renewcommand</span>{<span class="ex">\tablename</span>}{表}</a>
+<a class="sourceLine" id="cb1-160" title="160"><span class="fu">\renewcommand</span>{<span class="ex">\appendixname</span>}{附录}</a>
+<a class="sourceLine" id="cb1-161" title="161"></a>
+<a class="sourceLine" id="cb1-162" title="162"><span class="co">%%%% 设置 chapter、section与 subsection 的格式 %%%%</span></a>
+<a class="sourceLine" id="cb1-163" title="163"><span class="fu">\titleformat</span>{<span class="fu">\chapter</span>}{<span class="fu">\centering\huge</span>}{第 <span class="fu">\thechapter</span>{}章}{1em}{<span class="fu">\textbf</span>}</a>
+<a class="sourceLine" id="cb1-164" title="164"><span class="fu">\titleformat</span>{<span class="fu">\section</span>}{<span class="fu">\centering\LARGE</span>}{<span class="fu">\thesection</span>}{1em}{<span class="fu">\textbf</span>}</a>
+<a class="sourceLine" id="cb1-165" title="165"><span class="fu">\titleformat</span>{<span class="fu">\subsection</span>}{<span class="fu">\Large</span>}{<span class="fu">\thesubsection</span>}{1em}{<span class="fu">\textbf</span>}</a>
+<a class="sourceLine" id="cb1-166" title="166"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 中文重定义结束 %%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-167" title="167"></a>
+<a class="sourceLine" id="cb1-168" title="168"></a>
+<a class="sourceLine" id="cb1-169" title="169"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 一些个性设置 %%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-170" title="170"><span class="co">% \renewcommand{\baselinestretch}{1.3}   % 效果同  \linespread{1.3}</span></a>
+<a class="sourceLine" id="cb1-171" title="171"><span class="co">% \pagenumbering{arabic}                 % 设定页码方式，包括 arabic、roman等方式</span></a>
+<a class="sourceLine" id="cb1-172" title="172"><span class="co">% \sloppy                                % 有时 LaTeX 无从断行，产生 overfull 的错误，</span></a>
+<a class="sourceLine" id="cb1-173" title="173">                                         <span class="co">% 这条命令降低 LaTeX 断行标准</span></a>
+<a class="sourceLine" id="cb1-174" title="174"><span class="fu">\setlength</span>{<span class="fu">\parskip</span>}{0.5<span class="fu">\baselineskip</span>}   <span class="co">% 设定段间距</span></a>
+<a class="sourceLine" id="cb1-175" title="175"><span class="fu">\linespread</span>{1.2}                         <span class="co">% 设定行距</span></a>
+<a class="sourceLine" id="cb1-176" title="176"><span class="fu">\newcommand</span>{<span class="ex">\pozhehao</span>}{<span class="fu">\kern</span>0.3ex<span class="fu">\rule</span>[0.8ex]{2em}{0.1ex}<span class="fu">\kern</span>0.3ex}</a>
+<a class="sourceLine" id="cb1-177" title="177">                                         <span class="co">% 中文破折号，据说来自清华模板</span></a>
+<a class="sourceLine" id="cb1-178" title="178"></a>
+<a class="sourceLine" id="cb1-179" title="179"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 个性设置结束 %%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-180" title="180"></a>
+<a class="sourceLine" id="cb1-181" title="181"></a>
+<a class="sourceLine" id="cb1-182" title="182"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 正文部分 %%%%%%%%%%%%%%%%%%%%%%%%%</span></a>
+<a class="sourceLine" id="cb1-183" title="183"><span class="kw">\begin</span>{<span class="ex">document</span>}</a>
+<a class="sourceLine" id="cb1-184" title="184"><span class="fu">\setlength</span>{<span class="fu">\parindent</span>}{2em}</a>
+<a class="sourceLine" id="cb1-185" title="185"><span class="co">% 设定首行缩进为 2em。注意此设置一定要在 document 环境之中。</span></a>
+<a class="sourceLine" id="cb1-186" title="186"><span class="co">% 这可能与 \setlength 作用范围相关</span></a>
+<a class="sourceLine" id="cb1-187" title="187"></a>
+<a class="sourceLine" id="cb1-188" title="188"><span class="fu">\title</span>{Ubuntu 9.04 环境下 <span class="fu">\TeX</span> 中文化配置}</a>
+<a class="sourceLine" id="cb1-189" title="189"><span class="fu">\author</span>{Lox Freeman}</a>
+<a class="sourceLine" id="cb1-190" title="190"><span class="fu">\date</span>{<span class="fu">\today</span>}</a>
+<a class="sourceLine" id="cb1-191" title="191"></a>
+<a class="sourceLine" id="cb1-192" title="192"><span class="fu">\maketitle</span></a>
+<a class="sourceLine" id="cb1-193" title="193"></a>
+<a class="sourceLine" id="cb1-194" title="194"><span class="fu">\tableofcontents</span></a>
+<a class="sourceLine" id="cb1-195" title="195"></a>
+<a class="sourceLine" id="cb1-196" title="196"><span class="fu">\newpage</span></a>
+<a class="sourceLine" id="cb1-197" title="197"></a>
+<a class="sourceLine" id="cb1-198" title="198"><span class="kw">\end</span>{<span class="ex">document</span>}</a>
+<a class="sourceLine" id="cb1-199" title="199"><span class="co">%%%%%%%%%%%%%%%%%%%%%%%%% 正文部分结束 %%%%%%%%%%%%%%%%%%%%%%</span></a></code></pre></div>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
@@ -276,7 +276,7 @@ extendedchars=false                <span class="co">% 这一条命令可以解�
     <div class="ui small header">
       Committed
     </div>
-    <date>2009-09-12</date>
+    <date>2009-09-13</date>
     <div class="ui small header">
       Updated
     </div>

@@ -60,7 +60,7 @@
   <section class="twelve wide column"><p>在天朝做一个 Linuxer 是一件很辛苦的事情，众多所谓的 programmer 整天捧着万年不变的 Windows XP 和 IE6，嘴里念叨着 ASP.NET 圣经，以为自己脑门里想的眼睛里看到的就是整个天空。</p>
 <p>所以 VirtualBox 依旧 Linuxer 一件必备的武器，不时地拿出来应付一下所谓“老板的文档”、 “学校的教务系统”啊，等等诸如此类。前两天收拾公司新配的 ThinkPad x220i 的时候，本来打算装双系统，可是不知怎么的，XP 莫名其妙的启动蓝屏。一怒之下格了整个系统，重装了 Arch Linux。装的过程一波三折，主要是 x220i 的硬件驱动问题，非常头痛，日后开一篇文章再叙。</p>
 <p>VirtualBox 的虚拟 XP 最初设定硬盘大小为 10 G，最近已经占到了 9 G 的使用率，急需扩容。网搜共找到两种方法，一种是利用 <a href="http://gparted.sourceforge.net">GParted</a> 拷贝硬盘的<a href="http://www.my-guides.net/en/content/view/122/26/">方法</a>，比较麻烦，但是更为通用；另一种是 VirtualBox 4.x 新加的一条命令，非常简单：</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">VBoxManage</span> modifyhd winxp.vdi --resize 50000</code></pre></div>
+<div class="sourceCode" id="cb1" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">VBoxManage</span> modifyhd winxp.vdi --resize 50000</a></code></pre></div>
 <p>但是这样调整后，VirtualBox 已经可以识别出硬盘调整后的容量大小（50 G），而虚拟的 XP 系统 C 盘依然显示调整之前的容量。无碍，再去下载一个 Windows 分区软件 <a href="http://www.52z.com/soft/31060.html">EASEUS Partition Master Home Edition V8.0.1</a>，在里面会有调整 C 盘分区的操作，该操作会把剩余没有识别出来的 40 G 的 unallocated 的空间合并到 C 盘里面。</p>
 <p>剩下需要解决的是虚拟 XP 的 <a href="http://forum.ubuntu.org.cn/viewtopic.php?t=271675">网银</a> 问题，不过我对此不抱什么希望。试试看吧。顺便吐嘈一句，早晨等公交等了 40 分钟，晚上等到同一辆公交，可是公交开了一站就抛锚了，换车的过程中钱包丢了，点背到家了。</p>
 
@@ -91,7 +91,7 @@
       <div class="item">
         <a href="/categories#Life">
           <div class="ui label">
-            Life<sup>47</sup>
+            Life<sup>48</sup>
           </div>
         </a>
       </div>

@@ -60,37 +60,37 @@
   <section class="twelve wide column"><p>俗话说：磨刀不误砍柴工。得心应手的工具，对于长时间的软件开发，能够起到事半功倍的效果。VS 本身已经是一个非常强大的开发平台，只是在这个巨无霸的开发平台上，某些小功能还是不尽如人意。这个时候就需要插件来帮忙了。但是由于 VS 本身的原因，VS 的插件并不像 <a href="http://www.eclipse.org/">Eclipse</a> 那样丰富，我用到的有：</p>
 <p>1). <a href="www.wholetomato.com/">Visual Assist X</a>：简单的说就是编辑器增强。安装后会增加 VAssistX 的菜单，里面主要有一些代码的 snippet（比 <a href="http://code.google.com/p/yasnippet/">yasnippet</a> 差远了），一些查找引用等贴心的功能。VA Outline 的功能比 VS 自身的要好很多。其余的主要是代码补全方面的增强。比如你写一个类，重命名其中一个成员的时候，会出现以下的窗口：</p>
 <p><a href="/static/image/2010/va_rename.png"><img src="/static/image/2010/va_rename.png" /></a></p>
-<p>这是一个很方便的功能。免除了手工修改反复编译的错误和潜在的危险。另一方面，这也说明事先的设计是非常重要的。当你敲了几万行代码后却发现其中一个英语单词拼写错误的时候，再想去修改时一件非常尴尬的事情。不改吧，显得自己没水平；改吧，很麻烦。在我们的代码中，我就发现了类似的错误，关于汉字拼音输入法的命名， <code class="sourceCode cpp" rundoc-language="cpp"><span class="st">&quot;Chinese&quot;</span></code> 写成了 <code class="sourceCode cpp" rundoc-language="cpp"><span class="st">&quot;chiese&quot;</span></code> ，结果一直就这么用下来了……还有，我们新开发的控件，由于要仿照 iPhone 的效果，所以新的一套控件啊类啥的统一加上前缀 <code class="sourceCode cpp" rundoc-language="cpp"><span class="st">&#39;I&#39;</span></code> 。可是毕竟大家习惯不同，有的是大写的src<sub>cpp</sub>{‘I’} ，有的是小写的 <code class="sourceCode cpp" rundoc-language="cpp"><span class="st">&#39;i&#39;</span></code> ；还有最开始的控件都是只能支持 bmp 图片的载入，过了一段时间，底层引擎改进，支持 png 图片的载入了。可是类的成员函数很多却没有跟上。 <code>SetBitmap</code> 里面有很多载入的却是 png 图片，也一直这么用下来了。</p>
+<p>这是一个很方便的功能。免除了手工修改反复编译的错误和潜在的危险。另一方面，这也说明事先的设计是非常重要的。当你敲了几万行代码后却发现其中一个英语单词拼写错误的时候，再想去修改时一件非常尴尬的事情。不改吧，显得自己没水平；改吧，很麻烦。在我们的代码中，我就发现了类似的错误，关于汉字拼音输入法的命名， <code class="sourceCode cpp"><span class="st">&quot;Chinese&quot;</span></code> 写成了 <code class="sourceCode cpp"><span class="st">&quot;chiese&quot;</span></code> ，结果一直就这么用下来了……还有，我们新开发的控件，由于要仿照 iPhone 的效果，所以新的一套控件啊类啥的统一加上前缀 <code class="sourceCode cpp"><span class="ch">&#39;I&#39;</span></code> 。可是毕竟大家习惯不同，有的是大写的src<sub>cpp</sub>{'I'} ，有的是小写的 <code class="sourceCode cpp"><span class="ch">&#39;i&#39;</span></code> ；还有最开始的控件都是只能支持 bmp 图片的载入，过了一段时间，底层引擎改进，支持 png 图片的载入了。可是类的成员函数很多却没有跟上。 <code>SetBitmap</code> 里面有很多载入的却是 png 图片，也一直这么用下来了。</p>
 <p>2). <a href="http://www.viemu.com/">ViEmu</a>：简单的说就是给 VS 的编辑器加上 Vim 的 key bindings。官网的 ViEmu 还支持 Word 和 Outlook，不过我用的不多。令我非常惊喜的是这个小插件竟然还支持 <a href="http://vim.wikia.com/wiki/Macros">Vim 键盘宏</a> 的功能。</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">iLogoLabel      * <span class="va">m_pJnyTrnLabel</span>;   <span class="co">// logol label</span>
-
-ILabel          * <span class="va">m_pJnyTrnStaticTrain</span>;
-ILabel          * <span class="va">m_pJnyTrnStaticSeat</span>;
-ILabel          * <span class="va">m_pJnyTrnStaticStartStation</span>;
-ILabel          * <span class="va">m_pJnyTrnStaticStartTime</span>;
-ILabel          * <span class="va">m_pJnyTrnStaticDestStation</span>;
-ILabel          * <span class="va">m_pJnyTrnStaticDestTime</span>;
-ILabel          * <span class="va">m_pJnyTrnStaticBookInfo</span>;
-ILabel          * <span class="va">m_pJnyTrnStaticNote</span>;
-
-<span class="co">// 动态框架可变信息</span>
-ILabel          * <span class="va">m_pJnyTrnTitle</span>;   <span class="co">// title of this window</span>
-ILabel          * <span class="va">m_pJnyTrnTrain</span>;
-ILabel          * <span class="va">m_pJnyTrnSeat</span>;
-ILabel          * <span class="va">m_pJnyTrnStartStation</span>;
-ILabel          * <span class="va">m_pJnyTrnStartTime</span>;
-ILabel          * <span class="va">m_pJnyTrnDestStation</span>;
-ILabel          * <span class="va">m_pJnyTrnDestTime</span>;
-ITextArea       * <span class="va">m_pJnyTrnBookInfo</span>;
-ILabel          * <span class="va">m_pJnyTrnNote</span>;
-
-<span class="co">//buttons</span>
-iIdxButton      * <span class="va">m_pJnyTrnDelete</span>;          <span class="co">// 删除按钮</span>
-iIdxButton      * <span class="va">m_pJnyTrnServicePhone</span>;    <span class="co">// 客服电话按钮</span>
-iIdxButton      * <span class="va">m_pJnyTrnShare</span>;           <span class="co">// 共享按钮</span>
-iIdxButton      * <span class="va">m_pJnyTrnStartMap</span>;        <span class="co">// 出发站地图按钮</span>
-iIdxButton      * <span class="va">m_pJnyTrnDestMap</span>;     <span class="co">// 终点站地图按钮</span></code></pre></div>
-<p>以上代码是一个窗口的 <code>.h</code> 文件里面的一部分，是这个窗口类的成员函数。一般来说，在构造函数里面将这么多成员初始化为 NULL。没有键盘宏，我们只能动用自己的四肢，一会 end，一会又点点鼠标，折腾 3–5 分钟，终于把这些成员都“初始化为 NULL&quot; 了。有了键盘宏，这种工作只是十几秒钟的事情。进入命令模式：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1">iLogoLabel      * <span class="va">m_pJnyTrnLabel</span>;   <span class="co">// logol label</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3">ILabel          * <span class="va">m_pJnyTrnStaticTrain</span>;</a>
+<a class="sourceLine" id="cb1-4" title="4">ILabel          * <span class="va">m_pJnyTrnStaticSeat</span>;</a>
+<a class="sourceLine" id="cb1-5" title="5">ILabel          * <span class="va">m_pJnyTrnStaticStartStation</span>;</a>
+<a class="sourceLine" id="cb1-6" title="6">ILabel          * <span class="va">m_pJnyTrnStaticStartTime</span>;</a>
+<a class="sourceLine" id="cb1-7" title="7">ILabel          * <span class="va">m_pJnyTrnStaticDestStation</span>;</a>
+<a class="sourceLine" id="cb1-8" title="8">ILabel          * <span class="va">m_pJnyTrnStaticDestTime</span>;</a>
+<a class="sourceLine" id="cb1-9" title="9">ILabel          * <span class="va">m_pJnyTrnStaticBookInfo</span>;</a>
+<a class="sourceLine" id="cb1-10" title="10">ILabel          * <span class="va">m_pJnyTrnStaticNote</span>;</a>
+<a class="sourceLine" id="cb1-11" title="11"></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="co">// 动态框架可变信息</span></a>
+<a class="sourceLine" id="cb1-13" title="13">ILabel          * <span class="va">m_pJnyTrnTitle</span>;   <span class="co">// title of this window</span></a>
+<a class="sourceLine" id="cb1-14" title="14">ILabel          * <span class="va">m_pJnyTrnTrain</span>;</a>
+<a class="sourceLine" id="cb1-15" title="15">ILabel          * <span class="va">m_pJnyTrnSeat</span>;</a>
+<a class="sourceLine" id="cb1-16" title="16">ILabel          * <span class="va">m_pJnyTrnStartStation</span>;</a>
+<a class="sourceLine" id="cb1-17" title="17">ILabel          * <span class="va">m_pJnyTrnStartTime</span>;</a>
+<a class="sourceLine" id="cb1-18" title="18">ILabel          * <span class="va">m_pJnyTrnDestStation</span>;</a>
+<a class="sourceLine" id="cb1-19" title="19">ILabel          * <span class="va">m_pJnyTrnDestTime</span>;</a>
+<a class="sourceLine" id="cb1-20" title="20">ITextArea       * <span class="va">m_pJnyTrnBookInfo</span>;</a>
+<a class="sourceLine" id="cb1-21" title="21">ILabel          * <span class="va">m_pJnyTrnNote</span>;</a>
+<a class="sourceLine" id="cb1-22" title="22"></a>
+<a class="sourceLine" id="cb1-23" title="23"><span class="co">//buttons</span></a>
+<a class="sourceLine" id="cb1-24" title="24">iIdxButton      * <span class="va">m_pJnyTrnDelete</span>;          <span class="co">// 删除按钮</span></a>
+<a class="sourceLine" id="cb1-25" title="25">iIdxButton      * <span class="va">m_pJnyTrnServicePhone</span>;    <span class="co">// 客服电话按钮</span></a>
+<a class="sourceLine" id="cb1-26" title="26">iIdxButton      * <span class="va">m_pJnyTrnShare</span>;           <span class="co">// 共享按钮</span></a>
+<a class="sourceLine" id="cb1-27" title="27">iIdxButton      * <span class="va">m_pJnyTrnStartMap</span>;        <span class="co">// 出发站地图按钮</span></a>
+<a class="sourceLine" id="cb1-28" title="28">iIdxButton      * <span class="va">m_pJnyTrnDestMap</span>;     <span class="co">// 终点站地图按钮</span></a></code></pre></div>
+<p>以上代码是一个窗口的 <code>.h</code> 文件里面的一部分，是这个窗口类的成员函数。一般来说，在构造函数里面将这么多成员初始化为 NULL。没有键盘宏，我们只能动用自己的四肢，一会 end，一会又点点鼠标，折腾 3–5 分钟，终于把这些成员都“初始化为 NULL" 了。有了键盘宏，这种工作只是十几秒钟的事情。进入命令模式：</p>
 <ul>
 <li><code>qa</code> 开始记录宏</li>
 <li><code>q</code> 结束宏的录制</li>
@@ -126,7 +126,7 @@ iIdxButton      * <span class="va">m_pJnyTrnDestMap</span>;     <span class="co"
     <div class="ui small header">
       Committed
     </div>
-    <date>2010-04-27</date>
+    <date>2010-04-28</date>
     <div class="ui small header">
       Updated
     </div>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>2018，两点一线</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu desktop" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item" href="/categories">Categories</a><a class="item" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu/xiaohanyu"><i class="github icon"></i></a><a class="item" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav>
+      <nav class="ui borderless menu mobile" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <a class="item" href="https://github.com/xiaohanyu/xiaohanyu"><i class="github icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+        <div class="ui very padded segment article">
+          <article class="ui stackable divided grid">
+            <header class="row article-head">
+              <div class="column">
+                <h1 class="ui header">
+                  2018，两点一线
+                </h1>
+                <div class="ui divider desktop"></div>
+              </div>
+            </header>
+            <div class="row article-body">
+              <section class="twelve wide column">
+                <h2 id="序">序</h2>
+                <p>18 年史无前例地在一家公司连续不断地工作了一年，因此这一年年终总结的题目就叫“两点一线”吧。</p>
+                <p>1 月两点一线；2 月去了趟马来西亚，回国，过年，看病，住院；3 月两点一线；4 月底和妞一起去了印尼的小岛；5 月两点一线；6 月转到新组并接手了新的工作，约了妞去了泰国曼谷；7 月两点一线；8 月约了弟弟去了台湾北部；9 月去了越南胡志明市参加公司培训； 10月两点一线；11 月约了妞一起去了台湾南部；12 月两点一线。</p>
+                <p><strong>新加坡是一个四季如夏恒温如常没有季节变化的地方，在这里待久了，回忆里会缺少一些时间的刻度，脑海里时间线上的回忆场景全部都被压在了一张白纸之上，交叠渗透在一起。</strong> 总的来说呢，这一年过得波澜不惊，生活两点一线，工作一如往常，想妞聚少离多，与往年的唯一不同，大概就是多去了几个国家，多飞了几趟航班吧，如是而已。</p>
+                <h2 id="工作">工作</h2>
+                <p><a href="/static/image/2019/2018-summary/github-2017.png"><img src="/static/image/2019/2018-summary/github-2018.png" /></a></p>
+                <h3 id="shopee">Shopee</h3>
+                <p>前半年继续在 data engineering 组从事数据可视化产品的开发工作，加上 17 年半年，我做为 lead developer，带领三五人的小团队，累记花了一年的时间，将基于 <a href="https://github.com/apache/incubator-superset">Apache Superset</a> 的数据分析及可视化产品在 Shopee 落地生根——及至我离开 data engineering 组，这个产品服务了 Shopee 25% 的员工，日活 1000，每日生成报表 dashboard 数千，每周帮助公司节省数十人年的工作量。作为一款内部产品，可以说是很好得满足了公司内部的需求。</p>
+                <p>3 月下旬，Shopee 做东，主持了一个 Python User Group Singapore (PUGS) 的 <a href="http://pugs.org.sg/2018-mar-meetup.html">Meetup</a>，我作为主讲人分享了下 Superset 在 Shopee 的一些开发部署流程及应用场景。这也是我第一次在数百人面前做公共演讲，而且还是全英文的，讲之前紧张到爆炸，但是开口讲了几句就进入了状态，整体发挥还是蛮不错的。可惜 PUGS 的录像设备出了故障，因此没有录下我演讲的视频，略有遗憾。及至后来我去参加一个 tech meetup，还有人认出了我是 Shopee 的工程师。</p>
+                <p><a href="/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-1.jpg"><img src="/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-1.jpg" /></a></p>
+                <p><a href="/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-2.jpg"><img src="/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-2.jpg" /></a></p>
+                <p><a href="/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-3.jpg"><img src="/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-3.jpg" /></a></p>
+                <p>Superset 的项目做到后期，无尽的 feature request 和 bug fix，及其本身固有的缺陷，让我对日复一日的开发及每周发布渐感厌烦。因此在年中，借由 <a href="https://cmgs.me/">cmgs</a> 和 <a href="https://www.textarea.com/zhicheng/">zhicheng</a> 加入 Shopee 的契机，我申请转到 Shopee 的 platform engineering 组，开始着手写另一款内部产品——基于 <a href="https://redis.io/topics/cluster-tutorial">redis cluster</a> 的 cache cloud 平台。</p>
+                <p>cmgs 和 zhicheng 是我有限的职业生涯中合作过的最具专业水准的工程师，我在这个项目中学到了相当多的东西。三人之中，只有我具备专业的前端水准，所以写产品前端这个重任就落在了我的身上，而我亦不负所望，大概花了两个月的时间写了个寡淡但不失专业水准的前端，界面大致如下：</p>
+                <p><a href="/static/image/2019/2018-summary/shopee-cache-cloud.png"><img src="/static/image/2019/2018-summary/shopee-cache-cloud.png" /></a></p>
+                <p>整体的设计和交互灵感源自 <a href="https://www.qingcloud.com/">QingCloud</a> 。这里不得不再次感叹一下，抛开云计算本身的技术水准，QingCloud 的交互和设计水准相当之高，作者吕婷的演讲《<a href="http://2015.qconbeijing.com/speakers/201767/">与产品紧密前端工程师的成与责</a>》给了我相当多的启发。</p>
+                <p>经过半年实践，我有自信，假以时日，我有能力写出一个和 QingCloud 前端相匹敌的 Web App，可惜时不与待……这又是后话了。</p>
+                <h3 id="semantic-ui-forest">Semantic-UI-Forest</h3>
+                <p>下半年花了几个月的业余时间，把 17 年做的小项目 <a href="https://semantic-ui-forest.com/">Semantic-UI-Forest</a> 重构了一下，重新梳理了全部模板，并基于 <a href="https://zeit.co/now">zeit/now</a> 及 <a href="https://nextjs.org/">Next.js</a> 重写了整个网站，操练下来，对 React 服务端渲染技术及场景有了些一手经验。</p>
+                <h2 id="学习">学习</h2>
+                <h3 id="阅读">阅读</h3>
+                <p>阅读方面，今年读过的实体书很少，累记大概 15 本左右。</p>
+                <ul>
+                <li>《<a href="https://book.douban.com/subject/26689184/">Kubernetes 权威指南</a>》，了解下 kubernetes 的应用场景及基本概念。</li>
+                <li>《<a href="https://book.douban.com/subject/3816827/">沸腾十五年</a>》，中国互联网发展史概略，但是大局观上比吴军的《<a href="https://book.douban.com/subject/3816827/">浪潮之巅</a>》还是差很多。</li>
+                <li>《<a href="https://book.douban.com/subject/26971561/">Redis 开发与运维</a>》，<a href="https://github.com/sohutv/cachecloud">sohutv/cachecloud</a> 作者的书，相当实用的工具书。</li>
+                <li>《<a href="https://book.douban.com/subject/5348144/">SEO 实战密码</a>》，从 SEO 入手，可以了解到网站的流量生意到底是怎么回事，这本书写得很详尽。</li>
+                </ul>
+                <p>除了书籍，今年还阅读了较多的线上资料，包括 Kubernetes <a href="https://kubernetes.io/docs/">documentation</a>，<a href="https://developers.google.com/web/tools/chrome-devtools/">Chrome DevTools</a>，React <a href="https://reactjs.org/docs/getting-started.html">docs</a>，<a href="https://developer.mozilla.org/en-US/">MDN</a>——我还给 MDN 贡献了几个 <a href="https://developer.mozilla.org/en-US/dashboards/revisions?user=xiaohanyu">patch</a>。</p>
+                <h3 id="技术">技术</h3>
+                <p>技术方面，今年在前端领域的耕耘与进步甚多，基本上了解了现代前端体系生态，有能力 cover 住一个中小型网站的完整前端。</p>
+                <p>后端领域，对 docker 的生态体系及基于 redis 的 cache 架构有了更深入的理解，这要感谢 <a href="https://cmgs.me/">cmgs</a> 的帮助。</p>
+                <p>工具方面，仔细研究了新一代 PaaS 平台 <a href="https://zeit.co/now">zeit/now</a> 和身份认证鉴权服务 <a href="https://auth0.com/">Auth0</a>。两者的体验都相当棒，对个人产品而言助力很大。</p>
+                <h2 id="生活">生活</h2>
+                <h3 id="生病">生病</h3>
+                <p>年初时感觉到身体不太对，大脑不太舒服，偶尔有一些不受控的放电的感觉，因此趁着春节回国期间，请了年假 + 病假 + 住院假，在杭州的医院里住了两天，好在诊断结果并无大碍，医生给开了一些药，嘱托规律作息，禁酒禁茶禁可乐禁咖啡，慢慢调节。经过近一年的调节，症状已经减轻很多。</p>
+                <p><a href="/static/image/2019/2018-summary/hangzhou-20180304-hospital.jpg"><img src="/static/image/2019/2018-summary/hangzhou-20180304-hospital.jpg" /></a></p>
+                <p>至于诸如“身体是革命的本钱”这类的大道理我就不在这里嘴碎了，显而易见的是，人到了一定年龄，身体素质及精力的下降是一件无可避免的事，如何平衡学习、工作、生活三者之间的关系，是一个需要关注终身的大问题。</p>
+                <h3 id="健身">健身</h3>
+                <blockquote>
+                <p>健身有感：身体，精神，亲密关系是一个人体面生活于世的三大支柱，任何一点的坍塌退化都会导致其余两点受到影响，而每一项要维持良好的状态都是一个长期的系统工程。健康的身体需要持久的锻炼，积极的精神需要不断的调整，良好的亲密关系更是需要持续不断的经营。人过三十之后要对抗生理机能衰退的自然机制，更是需要持久且有意识的锻炼调节来把良好的身体精神和亲密关系尽可能的长久的维持下去。</p>
+                <p>— 2018-09-15</p>
+                </blockquote>
+                <p>我于 18 年 7 月份正式加入 <a href="https://www.fitnessfirst.com.sg/">Fitness First</a> 会员计划，在工作日的中午去健身房运动健身，风雨无阻——除开某些极特殊的情形，累记缺席锻炼不超过三天，效果也是显而易见的——困扰多年的肩颈背腰的问题大有缓解，几乎一扫而光，身体力量、有氧素质均有大幅提高。</p>
+                <p>形成习惯之后，每日中午健身就成了例行公事，没有任何滞碍，这种感觉相当好。</p>
+                <p><a href="/static/image/2019/2018-summary/singapore-20181129-body-building.jpg"><img src="/static/image/2019/2018-summary/singapore-20181129-body-building.jpg" /></a></p>
+                <h3 id="写作">写作</h3>
+                <p>写作方面，18 年少有成果，盖因工作繁忙，无暇笔耕。有两篇小文，都是一些简单的 head dump，不成体系，只能草就两篇，记于豆瓣日记上。</p>
+                <ul>
+                <li><a href="https://www.douban.com/note/669226158/">码农杂谈：Taste</a></li>
+                <li><a href="https://www.douban.com/note/697152979/">码农杂谈：造奔驰，还是拖拉机</a></li>
+                </ul>
+                <h3 id="经济">经济</h3>
+                <p>经济方面，年初在杭州投资了一套小公寓，耗光了我和妞两人的年终奖金并提前透支了大半年的收入。因此今年除开旅行支出外，全年度没有购置电子产品。</p>
+                <p>年度旅行支出估计应该在 4–5 万人民币左右，具体我没有算啦，经济方面我是一个粗手粗脚的人，搞不来出行预算记账这一套……</p>
+                <p>来年还是多赚些钱，多攒些家底吧。</p>
+                <h2 id="旅行">旅行</h2>
+                <p>旅行方面，除日常在新加坡岛上溜弯外，还去了马来西亚，印度尼西亚，泰国，台湾，越南，所获颇丰。无暇写游记，值此总结，随发些照片，是以为记。</p>
+                <h3 id="新加坡">新加坡</h3>
+                <p>新加坡的工作比之国内 996 还是要轻松一些，当然这种轻松并不是说，你可以在公司无所事事——该出的活一样要出，be professional，但是除开正常的工作外，周末双休以及该有的八小时外的休息时间还是有保证的。</p>
+                <p>除开周一周五工作，周六我一般会在家写写代码看看书，然后周日一天在岛上遛弯放空，这样一年下来几乎走遍了新加坡岛的各个角落。</p>
+                <p>总的来说呢，新加坡确实是个很宜居的地方，干净、安全，除开国家太小气候如常待久无聊之外，没有特别明显的缺点短板，是个安家置业的好地方。</p>
+                <p>西海岸公园</p>
+                <p><a href="/static/image/2019/2018-summary/singapore-20180318-west-cost-park.jpg"><img src="/static/image/2019/2018-summary/singapore-20180318-west-cost-park.jpg" /></a></p>
+                <p>Kent Kidge Park</p>
+                <p><a href="/static/image/2019/2018-summary/singapore-20180510-kent-ridge-park.jpg"><img src="/static/image/2019/2018-summary/singapore-20180510-kent-ridge-park.jpg" /></a></p>
+                <p>东海岸公园</p>
+                <p><a href="/static/image/2019/2018-summary/singapore-20180517-east-coast-park.jpg"><img src="/static/image/2019/2018-summary/singapore-20180517-east-coast-park.jpg" /></a></p>
+                <p>金沙酒店</p>
+                <p><a href="/static/image/2019/2018-summary/singapore-20180722-marina-bay-sands-hotel.jpg"><img src="/static/image/2019/2018-summary/singapore-20180722-marina-bay-sands-hotel.jpg" /></a></p>
+                <h3 id="马来西亚">马来西亚</h3>
+                <p>2 月，约了妞一起去马来西亚，妞打头阵，拖着感冒的病体先行到达吉隆坡。我们累记在马来西亚待了四天。总体感觉，吉隆坡的城市建设和规划比新加坡差很多，特别是对行人很不友好。倒是小城马六甲很有意思，值得一去。马六甲，对，就是马六甲海峡的那个马六甲，是个悠闲的小城，消费很低，人在新加坡，若有两三天闲暇时光，无妨一去。</p>
+                <p>吉隆坡</p>
+                <p><a href="/static/image/2019/2018-summary/malaysia-20180210-kuala-lumpur-girl.jpg"><img src="/static/image/2019/2018-summary/malaysia-20180210-kuala-lumpur-girl.jpg" /></a></p>
+                <p>马六甲</p>
+                <p><a href="/static/image/2019/2018-summary/malaysia-20180211-malacca.jpg"><img src="/static/image/2019/2018-summary/malaysia-20180211-malacca.jpg" /></a></p>
+                <h3 id="印度尼西亚">印度尼西亚</h3>
+                <p>4 月底，妞来新加坡省亲，于是我们坐船去了趟印尼的<a href="https://zh.wikipedia.org/wiki/%25E6%25B0%2591%25E4%25B8%25B9%25E5%25B3%25B6">民丹岛</a>。民丹岛距离新加坡船程约 1 小时，岛的北部据说印尼的特区，上世纪 90 年代租借给新加坡 80 年，属于新加坡与印尼全面合作开发的区域，因此这里可以说是新加坡的后花园，其食宿酒水基本上也是新加坡的消费水准，并不便宜。</p>
+                <p>于我而言，岛上的浮潜项目及红树木项目都是相当新鲜的体验，可以说是不虚此行。</p>
+                <p><a href="/static/image/2019/2018-summary/indonesia-20180428-cash.jpg"><img src="/static/image/2019/2018-summary/indonesia-20180428-cash.jpg" /></a></p>
+                <p><a href="/static/image/2019/2018-summary/indonesia-20180429-bintan.jpg"><img src="/static/image/2019/2018-summary/indonesia-20180429-bintan.jpg" /></a></p>
+                <video src="/static/image/2019/2018-summary/indonesia-20180429-bintan-boat-on-the-sea.mov"
+                       width="100%"
+                       controls>
+                </video>
+                
+                <p><a href="/static/image/2019/2018-summary/indonesia-20180430-bintan.jpg"><img src="/static/image/2019/2018-summary/indonesia-20180430-bintan.jpg" /></a></p>
+                <h3 id="泰国">泰国</h3>
+                <p>6 月中旬，飞曼谷，与妞会合。对曼谷印象最深的一点，应该就是曼谷的堵车了——北京所谓首堵的堵车相较于曼谷，简直是小巫见大巫。另，泰语中的“萨瓦迪卡”真是甜得发腻。</p>
+                <p>我们在曼谷逗留了三天，总体感觉曼谷的旅游服务确实比较到位，国际化程度也很高，确实是背包客的天堂。</p>
+                <p>曼谷，<a href="http://en.bacc.or.th/">BACC</a></p>
+                <p><a href="/static/image/2019/2018-summary/thailand-20180615-bangkok-1.jpg"><img src="/static/image/2019/2018-summary/thailand-20180615-bangkok-1.jpg" /></a></p>
+                <p>曼谷，妞</p>
+                <p><a href="/static/image/2019/2018-summary/thailand-20180615-bangkok-2.jpg"><img src="/static/image/2019/2018-summary/thailand-20180615-bangkok-2.jpg" /></a></p>
+                <p>曼谷，展览</p>
+                <p><a href="/static/image/2019/2018-summary/thailand-20180615-bangkok-3.jpg"><img src="/static/image/2019/2018-summary/thailand-20180615-bangkok-3.jpg" /></a></p>
+                <p>曼谷，书店</p>
+                <p><a href="/static/image/2019/2018-summary/thailand-20180615-bangkok-4.jpg"><img src="/static/image/2019/2018-summary/thailand-20180615-bangkok-4.jpg" /></a></p>
+                <p>曼谷，Cabbages &amp; Condoms</p>
+                <p><a href="/static/image/2019/2018-summary/thailand-20180617-bangkok-1.jpg"><img src="/static/image/2019/2018-summary/thailand-20180617-bangkok-1.jpg" /></a></p>
+                <h3 id="台湾">台湾</h3>
+                <p>8 月和 11 月，两度到访台湾，第一次约了弟弟，游览了台北故宫博物院、自由广场、 101 大厦、象山、宜兰、<a href="https://zh.wikipedia.org/zh-cn/%25E8%2598%2587%25E8%258A%25B1%25E5%2585%25AC%25E8%25B7%25AF">苏花公路</a>，第二次约了妞，游览台中东海大学、高美湿地，阿里山、 日月潭，台南奇美博物馆，高雄西子湾。</p>
+                <p>两次台湾之行累记八天，第一次近身体会了中华文明的另一种形态，引发诸多思考，所获颇丰。</p>
+                <p>南部鸟瞰</p>
+                <p><a href="/static/image/2019/2018-summary/taiwan-20180808-flight.jpg"><img src="/static/image/2019/2018-summary/taiwan-20180808-flight.jpg" /></a></p>
+                <p>台北街头广告</p>
+                <p><a href="/static/image/2019/2018-summary/taiwan-20180808-taipei.jpg"><img src="/static/image/2019/2018-summary/taiwan-20180808-taipei.jpg" /></a></p>
+                <p>台北 101 大厦</p>
+                <p><a href="/static/image/2019/2018-summary/taiwan-20180809-taipei-101-1.jpg"><img src="/static/image/2019/2018-summary/taiwan-20180809-taipei-101-1.jpg" /></a></p>
+                <p>台北 101 大厦</p>
+                <p><a href="/static/image/2019/2018-summary/taiwan-20180809-taipei-101-2.jpg"><img src="/static/image/2019/2018-summary/taiwan-20180809-taipei-101-2.jpg" /></a></p>
+                <p>台北故宫博物院，翠玉白菜</p>
+                <p><a href="/static/image/2019/2018-summary/taiwan-20180809-taipei-museum-1.jpg"><img src="/static/image/2019/2018-summary/taiwan-20180809-taipei-museum-1.jpg" /></a></p>
+                <p>台北故宫博物院，肉形石</p>
+                <p><a href="/static/image/2019/2018-summary/taiwan-20180809-taipei-museum-2.jpg"><img src="/static/image/2019/2018-summary/taiwan-20180809-taipei-museum-2.jpg" /></a></p>
+                <p>苏澳港</p>
+                <p><a href="/static/image/2019/2018-summary/taiwan-20180812-suao.jpg"><img src="/static/image/2019/2018-summary/taiwan-20180812-suao.jpg" /></a></p>
+                <p>宜兰</p>
+                <p><a href="/static/image/2019/2018-summary/taiwan-20180812-yilan.jpg"><img src="/static/image/2019/2018-summary/taiwan-20180812-yilan.jpg" /></a></p>
+                <p>台中，东海大学</p>
+                <p><a href="/static/image/2019/2018-summary/taiwan-20181102-taizhong.jpg"><img src="/static/image/2019/2018-summary/taiwan-20181102-taizhong.jpg" /></a></p>
+                <p>阿里山，火车上山</p>
+                <p><a href="/static/image/2019/2018-summary/taiwan-20181104-alishan.jpg"><img src="/static/image/2019/2018-summary/taiwan-20181104-alishan.jpg" /></a></p>
+                <video src="/static/image/2019/2018-summary/taiwan-20181104-alishan-train.mov"
+                       width="100%"
+                       controls>
+                </video>
+                
+                <p>台南，奇美博物馆，Pokeman Go</p>
+                <p><a href="/static/image/2019/2018-summary/taiwan-20181105-tainan.jpg"><img src="/static/image/2019/2018-summary/taiwan-20181105-tainan.jpg" /></a></p>
+                <p>高雄，旗津半岛</p>
+                <p><a href="/static/image/2019/2018-summary/taiwan-20181106.jpg"><img src="/static/image/2019/2018-summary/taiwan-20181106.jpg" /></a></p>
+                <h3 id="越南">越南</h3>
+                <p>9 月下旬，公司安排七八个国家一行二十人到越南胡志明市参考为期两天的 leadership 培训项目。周四周五培训之外，我利用周六周日两天时间在胡志明市转了转。</p>
+                <p>话说回来，胡志明市给我的第一印象极差——盖因我刚出机场就被套路，虽然略有防备叫了 Grab 但还是被偷了 150 新币，而同行的 20 人中，约有三分之一的人都或多或少被偷了几十甚至几百新币等值现金。</p>
+                <p>总的来说呢，越南给我的感觉是很像一个“小中国”，胡志明市街头的海报也是各种宣传党宣传社会主义之类的，就连海关入境检查官员，穿的制服也是一水的米黄色，很像中国的军大衣的颜色。</p>
+                <p>越南自 1986 年开始学习中国大陆由邓小平等人所创立的改革开放，并实行经济改革，向中国借鉴和学习。其一系列的政策在中文界被称为<a href="https://zh.wikipedia.org/zh-cn/%25E9%259D%25A9%25E6%2596%25B0%25E9%2596%258B%25E6%2594%25BE">革新开放</a>。不过越南至今的人均 GDP 还很低，大概只有 2000 美金左右，整个越南约 1 亿人口，其国家 GDP 还比不上只有 600 万人口的新加坡，国家发展程度可见一般。就连越南最发达的胡志明市，其城市建设及规划水平，比国内的二三线城市还尚有不如。所以其国家门户入境机场小偷猖獗，也在预料之中了。</p>
+                <p>胡志明市，Shopee office</p>
+                <p><a href="/static/image/2019/2018-summary/vietnam-20180920-ho-chi-minh-city-1.jpg"><img src="/static/image/2019/2018-summary/vietnam-20180920-ho-chi-minh-city-1.jpg" /></a></p>
+                <p>胡志明市，胡志明雕像</p>
+                <p><a href="/static/image/2019/2018-summary/vietnam-20180920-ho-chi-minh-city-2.jpg"><img src="/static/image/2019/2018-summary/vietnam-20180920-ho-chi-minh-city-2.jpg" /></a></p>
+                <p>胡志明市，海报</p>
+                <p><a href="/static/image/2019/2018-summary/vietnam-20180923-ho-chi-minh-city-1.jpg"><img src="/static/image/2019/2018-summary/vietnam-20180923-ho-chi-minh-city-1.jpg" /></a></p>
+                <h2 id="尾">尾</h2>
+                <p>18 年的总结差不多磨了一周的时间才“憋”出来，anyway, better late than never.</p>
+                <p>新加坡的气候有如恒温暖箱，日叠一日，日子过得格外的快，30 岁就这样到来了。回想起来，这一年还是做了一些事，赚了一些钱，码了一些字，也影响了一些人，未有大成，也无小憾。</p>
+                <p>只有与妞聚少离多，多有想念，算是美中不足吧。</p>
+                <p>2018 年过去了，我有点想念它。</p>
+                <blockquote>
+                <p>我在异乡的夜半醒来</p>
+                <p>看着完全陌生的窗外</p>
+                <p>没有一盏熟悉的灯可以打开</p>
+                <p>原来习惯是那么难改</p>
+                <p>我在异乡的街道徘徊</p>
+                <p>听着完全陌生的对白</p>
+                <p>当初那么多的勇气让我离开</p>
+                <p>我却连时差都调不回来</p>
+                <p>我的夜晚是你的白天</p>
+                <p>当我思念时你正入眠</p>
+                <p>戴的手表是你的时间</p>
+                <p>回想着你疼爱我的脸</p>
+                <p>我的夜晚是你的白天</p>
+                <p>当你醒时我梦里相见</p>
+                <p>只为了和你再见一面</p>
+                <p>我会不分昼夜的想念</p>
+                <p>— 侃侃 «想念»</p>
+                </blockquote>
+                
+                <div class="ui divider"></div>
+                <div class="ui small one item menu">
+                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+                </div>
+                <div id="disqus_thread"></div>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+              </section>
+              <aside class="four wide column">
+                <div class="ui small header">
+                  License
+                </div>
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+                <div class="ui small header">
+                  Committed
+                </div>
+                <date>2019-04-17</date>
+                <div class="ui small header">
+                  Updated
+                </div>
+                <date>2019-04-17</date>
+                <div class="ui small header">
+                  Category
+                </div>
+                <div class="ui list">
+                  <div class="item">
+                    <a href="/categories#Life">
+                      <div class="ui label">
+                        Life<sup>48</sup>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="ui small header">
+                  Tags
+                </div>
+                <div class="ui list">
+                  <div class="item">
+                    <a href="/tags#Summary">
+                      <div class="ui label">
+                        Summary<sup>9</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Shopee">
+                      <div class="ui label">
+                        Shopee<sup>2</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Singapore">
+                      <div class="ui label">
+                        Singapore<sup>2</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Malaysia">
+                      <div class="ui label">
+                        Malaysia<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Thailand">
+                      <div class="ui label">
+                        Thailand<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Taiwan">
+                      <div class="ui label">
+                        Taiwan<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Indonesia">
+                      <div class="ui label">
+                        Indonesia<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Superset">
+                      <div class="ui label">
+                        Superset<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Redis">
+                      <div class="ui label">
+                        Redis<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="ui small header">
+                  Links
+                </div>
+                <div class="ui small two item menu">
+                  <a class="item" title="网站开源" href="/posts/2018-03-01-open-this-website-to-public/">Prev</a><a class="item" title="Archive" href="/archive">Archive</a>
+                </div>
+              </aside>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment desktop">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2018 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <footer class="ui inverted vertical center aligned footer segment mobile">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2018 by Xiao Hanyu
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>

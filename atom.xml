@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://xiaohanyu.me/</id>
   <title>行者无疆 始于足下</title>
-  <updated>2018-02-28T18:26:17Z</updated>
+  <updated>2019-04-17T12:26:17Z</updated>
   <link rel="alternate" href="http://xiaohanyu.me/"/>
   <link rel="self" href="http://xiaohanyu.me/atom.xml"/>
   <author>
@@ -10,13 +10,188 @@
     <uri>http://xiaohanyu.me</uri>
   </author>
   <entry>
+    <id>tag:xiaohanyu.me,2019-04-17:/posts/2019-04-10-2018-summary/</id>
+    <title type="html">2018，两点一线</title>
+    <published>2019-04-17T12:26:17Z</published>
+    <updated>2019-04-17T12:26:17Z</updated>
+    <link rel="alternate" href="http://xiaohanyu.me/posts/2019-04-10-2018-summary/"/>
+    <content type="html">&lt;h2 id="序"&gt;序&lt;/h2&gt;
+&lt;p&gt;18 年史无前例地在一家公司连续不断地工作了一年，因此这一年年终总结的题目就叫“两点一线”吧。&lt;/p&gt;
+&lt;p&gt;1 月两点一线；2 月去了趟马来西亚，回国，过年，看病，住院；3 月两点一线；4 月底和妞一起去了印尼的小岛；5 月两点一线；6 月转到新组并接手了新的工作，约了妞去了泰国曼谷；7 月两点一线；8 月约了弟弟去了台湾北部；9 月去了越南胡志明市参加公司培训； 10月两点一线；11 月约了妞一起去了台湾南部；12 月两点一线。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;新加坡是一个四季如夏恒温如常没有季节变化的地方，在这里待久了，回忆里会缺少一些时间的刻度，脑海里时间线上的回忆场景全部都被压在了一张白纸之上，交叠渗透在一起。&lt;/strong&gt; 总的来说呢，这一年过得波澜不惊，生活两点一线，工作一如往常，想妞聚少离多，与往年的唯一不同，大概就是多去了几个国家，多飞了几趟航班吧，如是而已。&lt;/p&gt;
+&lt;h2 id="工作"&gt;工作&lt;/h2&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/github-2017.png"&gt;&lt;img src="/static/image/2019/2018-summary/github-2018.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="shopee"&gt;Shopee&lt;/h3&gt;
+&lt;p&gt;前半年继续在 data engineering 组从事数据可视化产品的开发工作，加上 17 年半年，我做为 lead developer，带领三五人的小团队，累记花了一年的时间，将基于 &lt;a href="https://github.com/apache/incubator-superset"&gt;Apache Superset&lt;/a&gt; 的数据分析及可视化产品在 Shopee 落地生根——及至我离开 data engineering 组，这个产品服务了 Shopee 25% 的员工，日活 1000，每日生成报表 dashboard 数千，每周帮助公司节省数十人年的工作量。作为一款内部产品，可以说是很好得满足了公司内部的需求。&lt;/p&gt;
+&lt;p&gt;3 月下旬，Shopee 做东，主持了一个 Python User Group Singapore (PUGS) 的 &lt;a href="http://pugs.org.sg/2018-mar-meetup.html"&gt;Meetup&lt;/a&gt;，我作为主讲人分享了下 Superset 在 Shopee 的一些开发部署流程及应用场景。这也是我第一次在数百人面前做公共演讲，而且还是全英文的，讲之前紧张到爆炸，但是开口讲了几句就进入了状态，整体发挥还是蛮不错的。可惜 PUGS 的录像设备出了故障，因此没有录下我演讲的视频，略有遗憾。及至后来我去参加一个 tech meetup，还有人认出了我是 Shopee 的工程师。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-1.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-2.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-3.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-3.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Superset 的项目做到后期，无尽的 feature request 和 bug fix，及其本身固有的缺陷，让我对日复一日的开发及每周发布渐感厌烦。因此在年中，借由 &lt;a href="https://cmgs.me/"&gt;cmgs&lt;/a&gt; 和 &lt;a href="https://www.textarea.com/zhicheng/"&gt;zhicheng&lt;/a&gt; 加入 Shopee 的契机，我申请转到 Shopee 的 platform engineering 组，开始着手写另一款内部产品——基于 &lt;a href="https://redis.io/topics/cluster-tutorial"&gt;redis cluster&lt;/a&gt; 的 cache cloud 平台。&lt;/p&gt;
+&lt;p&gt;cmgs 和 zhicheng 是我有限的职业生涯中合作过的最具专业水准的工程师，我在这个项目中学到了相当多的东西。三人之中，只有我具备专业的前端水准，所以写产品前端这个重任就落在了我的身上，而我亦不负所望，大概花了两个月的时间写了个寡淡但不失专业水准的前端，界面大致如下：&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/shopee-cache-cloud.png"&gt;&lt;img src="/static/image/2019/2018-summary/shopee-cache-cloud.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整体的设计和交互灵感源自 &lt;a href="https://www.qingcloud.com/"&gt;QingCloud&lt;/a&gt; 。这里不得不再次感叹一下，抛开云计算本身的技术水准，QingCloud 的交互和设计水准相当之高，作者吕婷的演讲《&lt;a href="http://2015.qconbeijing.com/speakers/201767/"&gt;与产品紧密前端工程师的成与责&lt;/a&gt;》给了我相当多的启发。&lt;/p&gt;
+&lt;p&gt;经过半年实践，我有自信，假以时日，我有能力写出一个和 QingCloud 前端相匹敌的 Web App，可惜时不与待……这又是后话了。&lt;/p&gt;
+&lt;h3 id="semantic-ui-forest"&gt;Semantic-UI-Forest&lt;/h3&gt;
+&lt;p&gt;下半年花了几个月的业余时间，把 17 年做的小项目 &lt;a href="https://semantic-ui-forest.com/"&gt;Semantic-UI-Forest&lt;/a&gt; 重构了一下，重新梳理了全部模板，并基于 &lt;a href="https://zeit.co/now"&gt;zeit/now&lt;/a&gt; 及 &lt;a href="https://nextjs.org/"&gt;Next.js&lt;/a&gt; 重写了整个网站，操练下来，对 React 服务端渲染技术及场景有了些一手经验。&lt;/p&gt;
+&lt;h2 id="学习"&gt;学习&lt;/h2&gt;
+&lt;h3 id="阅读"&gt;阅读&lt;/h3&gt;
+&lt;p&gt;阅读方面，今年读过的实体书很少，累记大概 15 本左右。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《&lt;a href="https://book.douban.com/subject/26689184/"&gt;Kubernetes 权威指南&lt;/a&gt;》，了解下 kubernetes 的应用场景及基本概念。&lt;/li&gt;
+&lt;li&gt;《&lt;a href="https://book.douban.com/subject/3816827/"&gt;沸腾十五年&lt;/a&gt;》，中国互联网发展史概略，但是大局观上比吴军的《&lt;a href="https://book.douban.com/subject/3816827/"&gt;浪潮之巅&lt;/a&gt;》还是差很多。&lt;/li&gt;
+&lt;li&gt;《&lt;a href="https://book.douban.com/subject/26971561/"&gt;Redis 开发与运维&lt;/a&gt;》，&lt;a href="https://github.com/sohutv/cachecloud"&gt;sohutv/cachecloud&lt;/a&gt; 作者的书，相当实用的工具书。&lt;/li&gt;
+&lt;li&gt;《&lt;a href="https://book.douban.com/subject/5348144/"&gt;SEO 实战密码&lt;/a&gt;》，从 SEO 入手，可以了解到网站的流量生意到底是怎么回事，这本书写得很详尽。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;除了书籍，今年还阅读了较多的线上资料，包括 Kubernetes &lt;a href="https://kubernetes.io/docs/"&gt;documentation&lt;/a&gt;，&lt;a href="https://developers.google.com/web/tools/chrome-devtools/"&gt;Chrome DevTools&lt;/a&gt;，React &lt;a href="https://reactjs.org/docs/getting-started.html"&gt;docs&lt;/a&gt;，&lt;a href="https://developer.mozilla.org/en-US/"&gt;MDN&lt;/a&gt;——我还给 MDN 贡献了几个 &lt;a href="https://developer.mozilla.org/en-US/dashboards/revisions?user=xiaohanyu"&gt;patch&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id="技术"&gt;技术&lt;/h3&gt;
+&lt;p&gt;技术方面，今年在前端领域的耕耘与进步甚多，基本上了解了现代前端体系生态，有能力 cover 住一个中小型网站的完整前端。&lt;/p&gt;
+&lt;p&gt;后端领域，对 docker 的生态体系及基于 redis 的 cache 架构有了更深入的理解，这要感谢 &lt;a href="https://cmgs.me/"&gt;cmgs&lt;/a&gt; 的帮助。&lt;/p&gt;
+&lt;p&gt;工具方面，仔细研究了新一代 PaaS 平台 &lt;a href="https://zeit.co/now"&gt;zeit/now&lt;/a&gt; 和身份认证鉴权服务 &lt;a href="https://auth0.com/"&gt;Auth0&lt;/a&gt;。两者的体验都相当棒，对个人产品而言助力很大。&lt;/p&gt;
+&lt;h2 id="生活"&gt;生活&lt;/h2&gt;
+&lt;h3 id="生病"&gt;生病&lt;/h3&gt;
+&lt;p&gt;年初时感觉到身体不太对，大脑不太舒服，偶尔有一些不受控的放电的感觉，因此趁着春节回国期间，请了年假 + 病假 + 住院假，在杭州的医院里住了两天，好在诊断结果并无大碍，医生给开了一些药，嘱托规律作息，禁酒禁茶禁可乐禁咖啡，慢慢调节。经过近一年的调节，症状已经减轻很多。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/hangzhou-20180304-hospital.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/hangzhou-20180304-hospital.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;至于诸如“身体是革命的本钱”这类的大道理我就不在这里嘴碎了，显而易见的是，人到了一定年龄，身体素质及精力的下降是一件无可避免的事，如何平衡学习、工作、生活三者之间的关系，是一个需要关注终身的大问题。&lt;/p&gt;
+&lt;h3 id="健身"&gt;健身&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;健身有感：身体，精神，亲密关系是一个人体面生活于世的三大支柱，任何一点的坍塌退化都会导致其余两点受到影响，而每一项要维持良好的状态都是一个长期的系统工程。健康的身体需要持久的锻炼，积极的精神需要不断的调整，良好的亲密关系更是需要持续不断的经营。人过三十之后要对抗生理机能衰退的自然机制，更是需要持久且有意识的锻炼调节来把良好的身体精神和亲密关系尽可能的长久的维持下去。&lt;/p&gt;
+&lt;p&gt;— 2018-09-15&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我于 18 年 7 月份正式加入 &lt;a href="https://www.fitnessfirst.com.sg/"&gt;Fitness First&lt;/a&gt; 会员计划，在工作日的中午去健身房运动健身，风雨无阻——除开某些极特殊的情形，累记缺席锻炼不超过三天，效果也是显而易见的——困扰多年的肩颈背腰的问题大有缓解，几乎一扫而光，身体力量、有氧素质均有大幅提高。&lt;/p&gt;
+&lt;p&gt;形成习惯之后，每日中午健身就成了例行公事，没有任何滞碍，这种感觉相当好。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/singapore-20181129-body-building.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/singapore-20181129-body-building.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="写作"&gt;写作&lt;/h3&gt;
+&lt;p&gt;写作方面，18 年少有成果，盖因工作繁忙，无暇笔耕。有两篇小文，都是一些简单的 head dump，不成体系，只能草就两篇，记于豆瓣日记上。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.douban.com/note/669226158/"&gt;码农杂谈：Taste&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.douban.com/note/697152979/"&gt;码农杂谈：造奔驰，还是拖拉机&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="经济"&gt;经济&lt;/h3&gt;
+&lt;p&gt;经济方面，年初在杭州投资了一套小公寓，耗光了我和妞两人的年终奖金并提前透支了大半年的收入。因此今年除开旅行支出外，全年度没有购置电子产品。&lt;/p&gt;
+&lt;p&gt;年度旅行支出估计应该在 4–5 万人民币左右，具体我没有算啦，经济方面我是一个粗手粗脚的人，搞不来出行预算记账这一套……&lt;/p&gt;
+&lt;p&gt;来年还是多赚些钱，多攒些家底吧。&lt;/p&gt;
+&lt;h2 id="旅行"&gt;旅行&lt;/h2&gt;
+&lt;p&gt;旅行方面，除日常在新加坡岛上溜弯外，还去了马来西亚，印度尼西亚，泰国，台湾，越南，所获颇丰。无暇写游记，值此总结，随发些照片，是以为记。&lt;/p&gt;
+&lt;h3 id="新加坡"&gt;新加坡&lt;/h3&gt;
+&lt;p&gt;新加坡的工作比之国内 996 还是要轻松一些，当然这种轻松并不是说，你可以在公司无所事事——该出的活一样要出，be professional，但是除开正常的工作外，周末双休以及该有的八小时外的休息时间还是有保证的。&lt;/p&gt;
+&lt;p&gt;除开周一周五工作，周六我一般会在家写写代码看看书，然后周日一天在岛上遛弯放空，这样一年下来几乎走遍了新加坡岛的各个角落。&lt;/p&gt;
+&lt;p&gt;总的来说呢，新加坡确实是个很宜居的地方，干净、安全，除开国家太小气候如常待久无聊之外，没有特别明显的缺点短板，是个安家置业的好地方。&lt;/p&gt;
+&lt;p&gt;西海岸公园&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/singapore-20180318-west-cost-park.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/singapore-20180318-west-cost-park.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Kent Kidge Park&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/singapore-20180510-kent-ridge-park.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/singapore-20180510-kent-ridge-park.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;东海岸公园&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/singapore-20180517-east-coast-park.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/singapore-20180517-east-coast-park.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;金沙酒店&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/singapore-20180722-marina-bay-sands-hotel.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/singapore-20180722-marina-bay-sands-hotel.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="马来西亚"&gt;马来西亚&lt;/h3&gt;
+&lt;p&gt;2 月，约了妞一起去马来西亚，妞打头阵，拖着感冒的病体先行到达吉隆坡。我们累记在马来西亚待了四天。总体感觉，吉隆坡的城市建设和规划比新加坡差很多，特别是对行人很不友好。倒是小城马六甲很有意思，值得一去。马六甲，对，就是马六甲海峡的那个马六甲，是个悠闲的小城，消费很低，人在新加坡，若有两三天闲暇时光，无妨一去。&lt;/p&gt;
+&lt;p&gt;吉隆坡&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/malaysia-20180210-kuala-lumpur-girl.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/malaysia-20180210-kuala-lumpur-girl.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;马六甲&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/malaysia-20180211-malacca.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/malaysia-20180211-malacca.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="印度尼西亚"&gt;印度尼西亚&lt;/h3&gt;
+&lt;p&gt;4 月底，妞来新加坡省亲，于是我们坐船去了趟印尼的&lt;a href="https://zh.wikipedia.org/wiki/%25E6%25B0%2591%25E4%25B8%25B9%25E5%25B3%25B6"&gt;民丹岛&lt;/a&gt;。民丹岛距离新加坡船程约 1 小时，岛的北部据说印尼的特区，上世纪 90 年代租借给新加坡 80 年，属于新加坡与印尼全面合作开发的区域，因此这里可以说是新加坡的后花园，其食宿酒水基本上也是新加坡的消费水准，并不便宜。&lt;/p&gt;
+&lt;p&gt;于我而言，岛上的浮潜项目及红树木项目都是相当新鲜的体验，可以说是不虚此行。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/indonesia-20180428-cash.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/indonesia-20180428-cash.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/indonesia-20180429-bintan.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/indonesia-20180429-bintan.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;video src="/static/image/2019/2018-summary/indonesia-20180429-bintan-boat-on-the-sea.mov"
+       width="100%"
+       controls&gt;
+&lt;/video&gt;
+
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/indonesia-20180430-bintan.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/indonesia-20180430-bintan.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="泰国"&gt;泰国&lt;/h3&gt;
+&lt;p&gt;6 月中旬，飞曼谷，与妞会合。对曼谷印象最深的一点，应该就是曼谷的堵车了——北京所谓首堵的堵车相较于曼谷，简直是小巫见大巫。另，泰语中的“萨瓦迪卡”真是甜得发腻。&lt;/p&gt;
+&lt;p&gt;我们在曼谷逗留了三天，总体感觉曼谷的旅游服务确实比较到位，国际化程度也很高，确实是背包客的天堂。&lt;/p&gt;
+&lt;p&gt;曼谷，&lt;a href="http://en.bacc.or.th/"&gt;BACC&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/thailand-20180615-bangkok-1.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/thailand-20180615-bangkok-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;曼谷，妞&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/thailand-20180615-bangkok-2.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/thailand-20180615-bangkok-2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;曼谷，展览&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/thailand-20180615-bangkok-3.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/thailand-20180615-bangkok-3.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;曼谷，书店&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/thailand-20180615-bangkok-4.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/thailand-20180615-bangkok-4.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;曼谷，Cabbages &amp;amp; Condoms&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/thailand-20180617-bangkok-1.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/thailand-20180617-bangkok-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="台湾"&gt;台湾&lt;/h3&gt;
+&lt;p&gt;8 月和 11 月，两度到访台湾，第一次约了弟弟，游览了台北故宫博物院、自由广场、 101 大厦、象山、宜兰、&lt;a href="https://zh.wikipedia.org/zh-cn/%25E8%2598%2587%25E8%258A%25B1%25E5%2585%25AC%25E8%25B7%25AF"&gt;苏花公路&lt;/a&gt;，第二次约了妞，游览台中东海大学、高美湿地，阿里山、 日月潭，台南奇美博物馆，高雄西子湾。&lt;/p&gt;
+&lt;p&gt;两次台湾之行累记八天，第一次近身体会了中华文明的另一种形态，引发诸多思考，所获颇丰。&lt;/p&gt;
+&lt;p&gt;南部鸟瞰&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/taiwan-20180808-flight.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/taiwan-20180808-flight.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;台北街头广告&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/taiwan-20180808-taipei.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/taiwan-20180808-taipei.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;台北 101 大厦&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/taiwan-20180809-taipei-101-1.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/taiwan-20180809-taipei-101-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;台北 101 大厦&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/taiwan-20180809-taipei-101-2.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/taiwan-20180809-taipei-101-2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;台北故宫博物院，翠玉白菜&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/taiwan-20180809-taipei-museum-1.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/taiwan-20180809-taipei-museum-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;台北故宫博物院，肉形石&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/taiwan-20180809-taipei-museum-2.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/taiwan-20180809-taipei-museum-2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;苏澳港&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/taiwan-20180812-suao.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/taiwan-20180812-suao.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;宜兰&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/taiwan-20180812-yilan.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/taiwan-20180812-yilan.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;台中，东海大学&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/taiwan-20181102-taizhong.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/taiwan-20181102-taizhong.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;阿里山，火车上山&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/taiwan-20181104-alishan.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/taiwan-20181104-alishan.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;video src="/static/image/2019/2018-summary/taiwan-20181104-alishan-train.mov"
+       width="100%"
+       controls&gt;
+&lt;/video&gt;
+
+&lt;p&gt;台南，奇美博物馆，Pokeman Go&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/taiwan-20181105-tainan.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/taiwan-20181105-tainan.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;高雄，旗津半岛&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/taiwan-20181106.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/taiwan-20181106.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="越南"&gt;越南&lt;/h3&gt;
+&lt;p&gt;9 月下旬，公司安排七八个国家一行二十人到越南胡志明市参考为期两天的 leadership 培训项目。周四周五培训之外，我利用周六周日两天时间在胡志明市转了转。&lt;/p&gt;
+&lt;p&gt;话说回来，胡志明市给我的第一印象极差——盖因我刚出机场就被套路，虽然略有防备叫了 Grab 但还是被偷了 150 新币，而同行的 20 人中，约有三分之一的人都或多或少被偷了几十甚至几百新币等值现金。&lt;/p&gt;
+&lt;p&gt;总的来说呢，越南给我的感觉是很像一个“小中国”，胡志明市街头的海报也是各种宣传党宣传社会主义之类的，就连海关入境检查官员，穿的制服也是一水的米黄色，很像中国的军大衣的颜色。&lt;/p&gt;
+&lt;p&gt;越南自 1986 年开始学习中国大陆由邓小平等人所创立的改革开放，并实行经济改革，向中国借鉴和学习。其一系列的政策在中文界被称为&lt;a href="https://zh.wikipedia.org/zh-cn/%25E9%259D%25A9%25E6%2596%25B0%25E9%2596%258B%25E6%2594%25BE"&gt;革新开放&lt;/a&gt;。不过越南至今的人均 GDP 还很低，大概只有 2000 美金左右，整个越南约 1 亿人口，其国家 GDP 还比不上只有 600 万人口的新加坡，国家发展程度可见一般。就连越南最发达的胡志明市，其城市建设及规划水平，比国内的二三线城市还尚有不如。所以其国家门户入境机场小偷猖獗，也在预料之中了。&lt;/p&gt;
+&lt;p&gt;胡志明市，Shopee office&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/vietnam-20180920-ho-chi-minh-city-1.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/vietnam-20180920-ho-chi-minh-city-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;胡志明市，胡志明雕像&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/vietnam-20180920-ho-chi-minh-city-2.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/vietnam-20180920-ho-chi-minh-city-2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;胡志明市，海报&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2019/2018-summary/vietnam-20180923-ho-chi-minh-city-1.jpg"&gt;&lt;img src="/static/image/2019/2018-summary/vietnam-20180923-ho-chi-minh-city-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="尾"&gt;尾&lt;/h2&gt;
+&lt;p&gt;18 年的总结差不多磨了一周的时间才“憋”出来，anyway, better late than never.&lt;/p&gt;
+&lt;p&gt;新加坡的气候有如恒温暖箱，日叠一日，日子过得格外的快，30 岁就这样到来了。回想起来，这一年还是做了一些事，赚了一些钱，码了一些字，也影响了一些人，未有大成，也无小憾。&lt;/p&gt;
+&lt;p&gt;只有与妞聚少离多，多有想念，算是美中不足吧。&lt;/p&gt;
+&lt;p&gt;2018 年过去了，我有点想念它。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我在异乡的夜半醒来&lt;/p&gt;
+&lt;p&gt;看着完全陌生的窗外&lt;/p&gt;
+&lt;p&gt;没有一盏熟悉的灯可以打开&lt;/p&gt;
+&lt;p&gt;原来习惯是那么难改&lt;/p&gt;
+&lt;p&gt;我在异乡的街道徘徊&lt;/p&gt;
+&lt;p&gt;听着完全陌生的对白&lt;/p&gt;
+&lt;p&gt;当初那么多的勇气让我离开&lt;/p&gt;
+&lt;p&gt;我却连时差都调不回来&lt;/p&gt;
+&lt;p&gt;我的夜晚是你的白天&lt;/p&gt;
+&lt;p&gt;当我思念时你正入眠&lt;/p&gt;
+&lt;p&gt;戴的手表是你的时间&lt;/p&gt;
+&lt;p&gt;回想着你疼爱我的脸&lt;/p&gt;
+&lt;p&gt;我的夜晚是你的白天&lt;/p&gt;
+&lt;p&gt;当你醒时我梦里相见&lt;/p&gt;
+&lt;p&gt;只为了和你再见一面&lt;/p&gt;
+&lt;p&gt;我会不分昼夜的想念&lt;/p&gt;
+&lt;p&gt;— 侃侃 «想念»&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+  </entry>
+  <entry>
     <id>tag:xiaohanyu.me,2018-02-28:/posts/2018-03-01-open-this-website-to-public/</id>
     <title type="html">网站开源</title>
     <published>2018-02-28T18:26:17Z</published>
     <updated>2018-02-28T18:26:17Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2018-03-01-open-this-website-to-public/"/>
     <content type="html">&lt;h2 id="序"&gt;序&lt;/h2&gt;
-&lt;p&gt;时局“动荡”之下&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;，找个能自由写字的地方，似乎是越来越难了。&lt;/p&gt;
+&lt;p&gt;时局“动荡”之下&lt;a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;，找个能自由写字的地方，似乎是越来越难了。&lt;/p&gt;
 &lt;h2 id="源"&gt;源&lt;/h2&gt;
 &lt;p&gt;这个网站的第一次 &lt;a href="https://github.com/xiaohanyu/xiaohanyu/commit/f084f1ab0e704990de94a479f7566060e1917e66"&gt;commit&lt;/a&gt; 起于 2014 年 3 月 24 日，当时我正在北大的某间教室里系统化地学习 &lt;a href="https://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt;，想给自己找个实战项目练练手，于是就琢磨着把自己原来在 &lt;a href="http://xiaohanyu.me/posts/2014-04-16-new-blog-new-start/"&gt;is-programmer&lt;/a&gt; 上的 blog 静态化并迁移到独立的域名之下，于是就奢侈地花了一个月的时间，完成了初版。&lt;/p&gt;
 &lt;p&gt;再后来我又学习了 &lt;a href="https://semantic-ui.com"&gt;Semantic-UI&lt;/a&gt; 并用之重新设计实现了网站的第二版，加上自己对字体排版的理解有所深入，因此自觉就设计和细节上而言，比初版要上一个档次。&lt;/p&gt;
@@ -34,10 +209,10 @@
 &lt;li&gt;生成静态网站：&lt;a href="https://github.com/xiaohanyu/xiaohanyu.github.io"&gt;xiaohanyu/xiaohanyu.github.io&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;希望对有缘人有用，我会再抽些时间整理下技术文档。&lt;/p&gt;
-&lt;section class="footnotes"&gt;
+&lt;section class="footnotes" role="doc-endnotes"&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id="fn1"&gt;&lt;p&gt;&lt;a href="https://www.nytimes.com/2018/02/25/world/asia/china-xi-jinping.html" class="uri"&gt;https://www.nytimes.com/2018/02/25/world/asia/china-xi-jinping.html&lt;/a&gt;&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn1" role="doc-endnote"&gt;&lt;p&gt;&lt;a href="https://www.nytimes.com/2018/02/25/world/asia/china-xi-jinping.html"&gt;https://www.nytimes.com/2018/02/25/world/asia/china-xi-jinping.html&lt;/a&gt;&lt;a href="#fnref1" class="footnote-back" role="doc-backlink"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </content>
@@ -114,7 +289,7 @@
 &lt;h3 id="经济"&gt;经济&lt;/h3&gt;
 &lt;p&gt;全职工作的最大好处也许就是收入比较稳定吧，因此今年有条件购置一些“重型”装备，继续迭代自己的工作平台。最大项的投入是购置了 Synology &lt;a href="https://www.synology.com/en-global/products/DS1517+"&gt;DS1517+&lt;/a&gt; 加上 5 块西数 4 TB 红盘，大约 10000 RMB 左右，配合新加坡通畅无墙的网络，工作效率大大提升，原来在国内工作日常与 GFW 斗智斗勇的便秘感一扫而光，十分畅快。&lt;/p&gt;
 &lt;p&gt;&lt;a href="/static/image/2018/2017-summary/singapore-workstation.jpg"&gt;&lt;img src="/static/image/2018/2017-summary/singapore-workstation.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;另外，购置 iPad Pro 10’5、Smart Keyboard 和 Apple Pencil，结合多看，在地铁通勤时看一些书籍，总计阅读大概有三五本的样子，应该算是收回成本了。&lt;/p&gt;
+&lt;p&gt;另外，购置 iPad Pro 10'5、Smart Keyboard 和 Apple Pencil，结合多看，在地铁通勤时看一些书籍，总计阅读大概有三五本的样子，应该算是收回成本了。&lt;/p&gt;
 &lt;p&gt;我还尝试用 Apple Pencil 临了两幅“画作”，虽知贻笑大方，但自得其乐，足矣足矣。&lt;/p&gt;
 &lt;p&gt;&lt;a href="/static/image/2018/2017-summary/ipad-pro-drawing-1.png"&gt;&lt;img src="/static/image/2018/2017-summary/ipad-pro-drawing-1.png" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="/static/image/2018/2017-summary/ipad-pro-drawing-2.png"&gt;&lt;img src="/static/image/2018/2017-summary/ipad-pro-drawing-2.png" /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -220,7 +395,7 @@
 &lt;p&gt;就我个人而言，我也没有把所有的精力投入到 PPResume 中。以 PPResume 为起点，我开始进一步深入学习数字排版相关的知识，也开始思考数字排版相关的其他可能的产品形态；我花了一个月的时间，去系统地学习了公司运营相关的财、税、法知识，同时注册了国内和美国的皮包公司，了解了下商业产品的支付渠道；技术方面，花了大量的精力学习 &lt;a href="https://semantic-ui.com"&gt;Semantic-UI&lt;/a&gt;，在前端方面有了充分的积累；最重要的是，我找到了一位小伙伴，我们通过远程工作的方式，进行了卓有成效的合作，直到现在。&lt;/p&gt;
 &lt;p&gt;PPResume 于我而言，最重要的意义在于让我第一次跳出纯技术的思维模式，在产品和商业这种更高一级的思维层次上去审视一个项目。我开始意识到， &lt;strong&gt;工程师对商业的认知往往存在着巨大的思维盲点&lt;/strong&gt; 。以我为例，在做 PPResume 之前，我从来没有仔细想过获客成本的事情。在我开始写 PPResume 的第一行代码时，我曾经认为，只要我把网站做好，然后挂上去一些漂亮的模板，那么自然而然就会有人来购买我的服务，这样我就会有一定的收入来支撑自己走上一个正向的循环。而事实是，PPResume 网站上线后，每天只有个位数的访问量——想去做广告买流量？类似北邮人这样热门的学生论坛，边栏广告一周的费用约 6000–8000元左右——显然我是付不起这个钱的。去论坛发帖？不好意思，封你号没商量几乎是必然的事情——人家的地盘凭什么让你贴小广告啊？去线下贴海报？也许是个好主意——去年 8 月份我一个人自驾跑遍了南京和上海的 20 多所高校，贴了约 300 张海报，但是转化为 0，是的，你没看错，转化为 0，白白浪费了 1000 元的车马费和 3 天的时间。几经周折，好不容易发现，相对而言，豆瓣小组发帖顶帖的规则还算是比较宽松的，于是就在豆瓣几十个工作留学相关的小组发了几十个广告帖。但是几十个小组每天顶一圈帖既累又无聊——于是我又发挥程序员的聪明才智，花了一天的时间写了个&lt;a href="https://github.com/xiaohanyu/douban-group-dingbot"&gt;豆瓣小组顶帖脚本&lt;/a&gt;，然后又新买了个Raspberry Pi，花了几天的时间熟悉并折腾了下 Raspberry Pi 的&lt;a href="https://www.douban.com/note/599289266/"&gt;远程控制&lt;/a&gt;，最终七七八八加起来花了一周的时间才差不多解决这个问题。&lt;/p&gt;
 &lt;p&gt;&lt;a href="/static/image/2017/2016-summary/ppresume-poster-for-campus-2016-08-08.jpg"&gt;&lt;img src="/static/image/2017/2016-summary/ppresume-poster-for-campus-2016-08-08.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;一个人做产品，需要“Be an expert in all aspects”。每天在代码、文案、设计、商业之间辗转徘徊，对一个人的脑力和体力是巨大的考验。我个人的工作和生活也是因此再也无法严格分隔，常常陷入连续两三周不间断工作最终体力脑力俱废而不得不强迫自己休息的境地：&lt;/p&gt;
+&lt;p&gt;一个人做产品，需要"Be an expert in all aspects"。每天在代码、文案、设计、商业之间辗转徘徊，对一个人的脑力和体力是巨大的考验。我个人的工作和生活也是因此再也无法严格分隔，常常陷入连续两三周不间断工作最终体力脑力俱废而不得不强迫自己休息的境地：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;接上条，过去几个月，我一个人，用 TikZ 画 logo，做 favicon，用 Ruby 写后台程序，学习各种字体知识，反复调试 TeX 模板，学习前端，设计网站，做矢量 SVG 图，用 ImageMagick 反复转换，装修淘宝店铺，做海报，搞 DNS 域名，搞邮箱，学 docker 部署网站，Ruby Rake 自动化工作，browser-sync 测试响应式设计，阅读 W3C 新近的中文排版草案……&lt;/p&gt;
 &lt;p&gt;— 2016 年 3 月 15 日&lt;/p&gt;
@@ -280,7 +455,7 @@
 &lt;p&gt;&lt;a href="/static/image/2017/2016-summary/workstation1.jpg"&gt;&lt;img src="/static/image/2017/2016-summary/workstation1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="/static/image/2017/2016-summary/workstation2.jpg"&gt;&lt;img src="/static/image/2017/2016-summary/workstation2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id="家庭"&gt;家庭&lt;/h3&gt;
-&lt;p&gt;“男女搭配，干活不累”，和妞依旧是分工合作，一片和谐。这一年由于专注于自己的项目，收入上少了很多，要感谢妞负担了大部分的家庭经济支出。&lt;/p&gt;
+&lt;p&gt;"男女搭配，干活不累"，和妞依旧是分工合作，一片和谐。这一年由于专注于自己的项目，收入上少了很多，要感谢妞负担了大部分的家庭经济支出。&lt;/p&gt;
 &lt;p&gt;弟弟在香港读书，进入第二年，他适应的很快，成绩也不错，我除了给他一些计算机方面的指导，别的也帮不上什么忙了。是的，他长大了。&lt;/p&gt;
 &lt;p&gt;父母还是老样子，时不时闹个矛盾假装个离婚什么的，不时还需要我居中调解，而我对这种只有投入没有产出的时间的浪费，实在是非常厌烦。长尊父母，为之奈何。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -392,14 +567,14 @@
 &lt;p&gt;第一道题大意是给定一个目录，目录里有很多 HTML 文件，每个 HTML 文件里可能会包含一些 email 地址，让你写个程序，把该目录下所有 HTML 文件中所有的 email 地址 obfuscate 一下，比如，把 &lt;code&gt;somebody@somewhere.com&lt;/code&gt; 变成 &lt;code&gt;nobody@somewhere.com&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;这个题目相当简单，考查的主要的点是文件处理和正则表达式，即如何在一个目录中找出特定的文件并应用正则表达式。Bash 和 Python 均可以解决。核心代码样例：&lt;/p&gt;
 &lt;p&gt;Bash：&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;&lt;span class="kw"&gt;for&lt;/span&gt; &lt;span class="ex"&gt;HTML_FILE&lt;/span&gt; in find &lt;span class="va"&gt;$HTML_DIR&lt;/span&gt; -name &lt;span class="st"&gt;&amp;#39;*.html&amp;#39;&lt;/span&gt;&lt;span class="kw"&gt;;&lt;/span&gt;
-&lt;span class="kw"&gt;do&lt;/span&gt;
-  &lt;span class="fu"&gt;sed&lt;/span&gt; ... &lt;span class="va"&gt;$HTML_FILE&lt;/span&gt;&lt;span class="kw"&gt;;&lt;/span&gt;
-&lt;span class="kw"&gt;done&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode" id="cb1" data-org-language="sh"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;&lt;a class="sourceLine" id="cb1-1" title="1"&gt;&lt;span class="kw"&gt;for&lt;/span&gt; &lt;span class="ex"&gt;HTML_FILE&lt;/span&gt; in find &lt;span class="va"&gt;$HTML_DIR&lt;/span&gt; -name &lt;span class="st"&gt;&amp;#39;*.html&amp;#39;&lt;/span&gt;&lt;span class="kw"&gt;;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb1-2" title="2"&gt;&lt;span class="kw"&gt;do&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb1-3" title="3"&gt;  &lt;span class="fu"&gt;sed&lt;/span&gt; ... &lt;span class="va"&gt;$HTML_FILE&lt;/span&gt;&lt;span class="kw"&gt;;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb1-4" title="4"&gt;&lt;span class="kw"&gt;done&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Python：&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode python"&gt;&lt;code class="sourceCode python"&gt;&lt;span class="im"&gt;import&lt;/span&gt; os
-&lt;span class="cf"&gt;for&lt;/span&gt; root, dirs, files &lt;span class="kw"&gt;in&lt;/span&gt; os.walk(top):
-    &lt;span class="co"&gt;# handle files with regexp&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode" id="cb2"&gt;&lt;pre class="sourceCode python"&gt;&lt;code class="sourceCode python"&gt;&lt;a class="sourceLine" id="cb2-1" title="1"&gt;&lt;span class="im"&gt;import&lt;/span&gt; os&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-2" title="2"&gt;&lt;span class="cf"&gt;for&lt;/span&gt; root, dirs, files &lt;span class="kw"&gt;in&lt;/span&gt; os.walk(top):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-3" title="3"&gt;    &lt;span class="co"&gt;# handle files with regexp&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;第二道题也很简单，大意是给定一个文件，找出文件中出现次数最多的 n 个单词。直观思路就是统计单词数量，然后排序；进一步的话，用最大堆即可。这个题目考查重点除了基础算法，还有现场写代码的能力。过程中，我提到 Python 标准库中有一个很好用的 &lt;a href="https://docs.python.org/3/library/collections.html#collections.Counter"&gt;Counter&lt;/a&gt; 类，用来计数很好用，面试官表示同意，然后让我不要用 Counter 类，自己手写，最好做到 bug free。&lt;/p&gt;
 &lt;p&gt;第三道题大意是让你用 Bash，监控 &lt;a href="https://en.wikipedia.org/wiki/Vmstat"&gt;vmstat&lt;/a&gt; 工具的流式输出，然后根据一些设定的条件，发报警邮件。这个题目也很简单，稍有些运维经验，写过一些 Bash 脚本的人，很容易就能做出来。&lt;/p&gt;
 &lt;h2 id="第三轮技术电话面试"&gt;第三轮技术电话面试&lt;/h2&gt;
@@ -416,17 +591,17 @@
 &lt;li&gt;抢占式内核&lt;/li&gt;
 &lt;li&gt;free/buff/cache memory 区别&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;&lt;span class="ex"&gt;procs&lt;/span&gt;  -----------memory------------  -swap-  -----io----  ----system----  -------cpu--------
-&lt;span class="ex"&gt;r&lt;/span&gt;  b   swpd free    buff    cache     si  so  bi    bo     in      cs      us  sy  id  wa  st
-&lt;span class="ex"&gt;22&lt;/span&gt; 2   0    1146652 1607684 71245896  0   0   887   924    1       0       14  5   80  1   0
-&lt;span class="ex"&gt;16&lt;/span&gt; 1   0    1146636 1607684 71250720  0   0   60972 43424  87328   101211  59  10  29  2   0
-&lt;span class="ex"&gt;25&lt;/span&gt; 1   0    1140640 1607684 71254816  0   0   67480 44743  90786   105712  59  11  28  2   0
-&lt;span class="ex"&gt;22&lt;/span&gt; 3   0    1150448 1607684 71259792  0   0   71562 50304  103124  118792  62  11  25  2   0
-&lt;span class="ex"&gt;19&lt;/span&gt; 2   0    1147256 1607684 71265472  0   0   66002 44296  97948   108877  61  11  25  2   0
-&lt;span class="ex"&gt;20&lt;/span&gt; 1   0    1168160 1607684 71240872  0   0   61886 38201  88580   104312  59  10  29  2   0
-&lt;span class="ex"&gt;16&lt;/span&gt; 3   0    1163068 1607684 71245152  0   0   62196 37134  86042   99712   60  10  28  2   0
-&lt;span class="ex"&gt;17&lt;/span&gt; 3   0    1164736 1607684 71245072  0   0   66038 40845  89598   101818  60  11  27  2   0
-&lt;span class="ex"&gt;25&lt;/span&gt; 1   0    1152988 1607684 71249792  0   0   60422 39748  89534   112812  57  11  29  3   0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode" id="cb3" data-org-language="sh"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;&lt;a class="sourceLine" id="cb3-1" title="1"&gt;&lt;span class="ex"&gt;procs&lt;/span&gt;  -----------memory------------  -swap-  -----io----  ----system----  -------cpu--------&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-2" title="2"&gt;&lt;span class="ex"&gt;r&lt;/span&gt;  b   swpd free    buff    cache     si  so  bi    bo     in      cs      us  sy  id  wa  st&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-3" title="3"&gt;&lt;span class="ex"&gt;22&lt;/span&gt; 2   0    1146652 1607684 71245896  0   0   887   924    1       0       14  5   80  1   0&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-4" title="4"&gt;&lt;span class="ex"&gt;16&lt;/span&gt; 1   0    1146636 1607684 71250720  0   0   60972 43424  87328   101211  59  10  29  2   0&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-5" title="5"&gt;&lt;span class="ex"&gt;25&lt;/span&gt; 1   0    1140640 1607684 71254816  0   0   67480 44743  90786   105712  59  11  28  2   0&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-6" title="6"&gt;&lt;span class="ex"&gt;22&lt;/span&gt; 3   0    1150448 1607684 71259792  0   0   71562 50304  103124  118792  62  11  25  2   0&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-7" title="7"&gt;&lt;span class="ex"&gt;19&lt;/span&gt; 2   0    1147256 1607684 71265472  0   0   66002 44296  97948   108877  61  11  25  2   0&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-8" title="8"&gt;&lt;span class="ex"&gt;20&lt;/span&gt; 1   0    1168160 1607684 71240872  0   0   61886 38201  88580   104312  59  10  29  2   0&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-9" title="9"&gt;&lt;span class="ex"&gt;16&lt;/span&gt; 3   0    1163068 1607684 71245152  0   0   62196 37134  86042   99712   60  10  28  2   0&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-10" title="10"&gt;&lt;span class="ex"&gt;17&lt;/span&gt; 3   0    1164736 1607684 71245072  0   0   66038 40845  89598   101818  60  11  27  2   0&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-11" title="11"&gt;&lt;span class="ex"&gt;25&lt;/span&gt; 1   0    1152988 1607684 71249792  0   0   60422 39748  89534   112812  57  11  29  3   0&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;第三道题是考查系统编程中的 &lt;a href="http://man7.org/linux/man-pages/man7/signal.7.html"&gt;signal&lt;/a&gt;。面试官先是问了我一些 signal 都是什么意思，有哪些作用，我大体上都答上来了。然后问我，对于一个进程而言，具体哪些 signal 是不能被屏蔽的；我回答说 &lt;a href="https://zh.wikipedia.org/wiki/SIGKILL"&gt;SIGKILL&lt;/a&gt; 肯定是不能被屏蔽的。面试官不满意，还要我继续做答，但是当时我实在是答不上来了。考这么细节，我感觉是需要把 &lt;a href="http://www.apuebook.com/"&gt;APUE&lt;/a&gt; 整体背下来才能让面试官满意。&lt;/p&gt;
 &lt;p&gt;话虽如此，我自评这轮面试还是不错的，想着也许没准可以去 Facebook London onsite 下，哈。&lt;/p&gt;
 &lt;h2 id="总结"&gt;总结&lt;/h2&gt;
@@ -451,9 +626,9 @@
     <updated>2017-04-30T08:11:07Z</updated>
     <link rel="alternate" href="http://xiaohanyu.me/posts/2017-04-30-google-foobar-interview/"/>
     <content type="html">&lt;h2 id="缘起"&gt;缘起&lt;/h2&gt;
-&lt;p&gt;16 年 10 月 27 日，我用 Google 搜索 “Haskell QuickCheck”，没想到 Google 放了一小段网页动画，然后就弹出一句 “You are speaking our language. Up for a challenge?”&lt;/p&gt;
+&lt;p&gt;16 年 10 月 27 日，我用 Google 搜索 "Haskell QuickCheck"，没想到 Google 放了一小段网页动画，然后就弹出一句 "You are speaking our language. Up for a challenge?"&lt;/p&gt;
 &lt;p&gt;&lt;a href="/static/image/2017/google-foobar/invitation.png"&gt;&lt;img src="/static/image/2017/google-foobar/invitation.png" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;我有些不明所以，原以为是浏览器出现了一些莫名其妙的 bug，不过并没有太在意，就点了 “I want to play”，紧接着就进入了一个算法闯关游戏。&lt;/p&gt;
+&lt;p&gt;我有些不明所以，原以为是浏览器出现了一些莫名其妙的 bug，不过并没有太在意，就点了 "I want to play"，紧接着就进入了一个算法闯关游戏。&lt;/p&gt;
 &lt;p&gt;游戏的模式有点类似于传统的 Online Judge，但是又不完全一样；交互界面模仿了 UNIX Shell：你可以通过命令来请求（ &lt;code&gt;request&lt;/code&gt; ）一个新的 Challenge、 提交（ &lt;code&gt;submit&lt;/code&gt; ）代码、验证（ &lt;code&gt;verify&lt;/code&gt; ）代码正确与否。&lt;/p&gt;
 &lt;p&gt;整个 foo.bar 游戏分为 5 个 level，题目的难度随着 level 的增长会逐渐增加。&lt;/p&gt;
 &lt;p&gt;我个人经历中，level 1 有 1 道题目，level 2 有 2 道，level 3 有 3 道。level 1 和 level 2 的题目十分简单，每个题目会给 24–48 个小时的做答时间，考的主要是一些基础的编程概念；level 3 会考一些简单的算法，每个题目会给 96 个小时的做答时间；level 4 的题目就比较难了，会考一些不常见的算法。&lt;/p&gt;
@@ -518,33 +693,33 @@ of the first worker to be checked (start) and the length of the line (length)
 before the automatic review occurs, so your program must generate the proper
 checksum with just those two values.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode python"&gt;&lt;code class="sourceCode python"&gt;&lt;span class="co"&gt;# solution for problem 1 in level 3&lt;/span&gt;
-&lt;span class="kw"&gt;def&lt;/span&gt; answer(start, length):
-    worker_list &lt;span class="op"&gt;=&lt;/span&gt; [(start &lt;span class="op"&gt;+&lt;/span&gt; (length &lt;span class="op"&gt;-&lt;/span&gt; l) &lt;span class="op"&gt;*&lt;/span&gt; length,
-                    start &lt;span class="op"&gt;+&lt;/span&gt; (length &lt;span class="op"&gt;-&lt;/span&gt; l) &lt;span class="op"&gt;*&lt;/span&gt; length &lt;span class="op"&gt;+&lt;/span&gt; l)
-                   &lt;span class="cf"&gt;for&lt;/span&gt; l &lt;span class="kw"&gt;in&lt;/span&gt; &lt;span class="bu"&gt;range&lt;/span&gt;(length, &lt;span class="dv"&gt;0&lt;/span&gt;, &lt;span class="op"&gt;-&lt;/span&gt;&lt;span class="dv"&gt;1&lt;/span&gt;)]
-
-    reduced_xor &lt;span class="op"&gt;=&lt;/span&gt; [xor_range(start, end) &lt;span class="cf"&gt;for&lt;/span&gt; start, end &lt;span class="kw"&gt;in&lt;/span&gt; worker_list]
-
-    &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="bu"&gt;reduce&lt;/span&gt;(&lt;span class="kw"&gt;lambda&lt;/span&gt; x, y: x &lt;span class="op"&gt;^&lt;/span&gt; y, reduced_xor)
-
-&lt;span class="kw"&gt;def&lt;/span&gt; xor_range(start, end):
-    &lt;span class="co"&gt;# inclusive start and exclusive end&lt;/span&gt;
-    &lt;span class="cf"&gt;if&lt;/span&gt; (end &lt;span class="op"&gt;-&lt;/span&gt; start) &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;:
-        &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;
-    &lt;span class="cf"&gt;if&lt;/span&gt; (end &lt;span class="op"&gt;-&lt;/span&gt; start) &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;:
-        &lt;span class="cf"&gt;return&lt;/span&gt; start
-    &lt;span class="cf"&gt;if&lt;/span&gt; (end &lt;span class="op"&gt;-&lt;/span&gt; start) &lt;span class="op"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="dv"&gt;4&lt;/span&gt;:
-        &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="bu"&gt;reduce&lt;/span&gt;(&lt;span class="kw"&gt;lambda&lt;/span&gt; x, y: x &lt;span class="op"&gt;^&lt;/span&gt; y, &lt;span class="bu"&gt;range&lt;/span&gt;(start, end))
-    &lt;span class="cf"&gt;else&lt;/span&gt;:
-        begin_range &lt;span class="op"&gt;=&lt;/span&gt; (start, start &lt;span class="op"&gt;/&lt;/span&gt; &lt;span class="dv"&gt;4&lt;/span&gt; &lt;span class="op"&gt;*&lt;/span&gt; &lt;span class="dv"&gt;4&lt;/span&gt; &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;4&lt;/span&gt;)
-        end_range &lt;span class="op"&gt;=&lt;/span&gt; (end &lt;span class="op"&gt;/&lt;/span&gt; &lt;span class="dv"&gt;4&lt;/span&gt; &lt;span class="op"&gt;*&lt;/span&gt; &lt;span class="dv"&gt;4&lt;/span&gt;, end)
-        &lt;span class="cf"&gt;return&lt;/span&gt; xor_range(&lt;span class="op"&gt;*&lt;/span&gt;begin_range) &lt;span class="op"&gt;^&lt;/span&gt; xor_range(&lt;span class="op"&gt;*&lt;/span&gt;end_range)
-
-&lt;span class="co"&gt;# print(answer(0, 3))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(17, 4))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(17, 250))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(17, 2500))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode" id="cb2"&gt;&lt;pre class="sourceCode python"&gt;&lt;code class="sourceCode python"&gt;&lt;a class="sourceLine" id="cb2-1" title="1"&gt;&lt;span class="co"&gt;# solution for problem 1 in level 3&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-2" title="2"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; answer(start, length):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-3" title="3"&gt;    worker_list &lt;span class="op"&gt;=&lt;/span&gt; [(start &lt;span class="op"&gt;+&lt;/span&gt; (length &lt;span class="op"&gt;-&lt;/span&gt; l) &lt;span class="op"&gt;*&lt;/span&gt; length,&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-4" title="4"&gt;                    start &lt;span class="op"&gt;+&lt;/span&gt; (length &lt;span class="op"&gt;-&lt;/span&gt; l) &lt;span class="op"&gt;*&lt;/span&gt; length &lt;span class="op"&gt;+&lt;/span&gt; l)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-5" title="5"&gt;                   &lt;span class="cf"&gt;for&lt;/span&gt; l &lt;span class="kw"&gt;in&lt;/span&gt; &lt;span class="bu"&gt;range&lt;/span&gt;(length, &lt;span class="dv"&gt;0&lt;/span&gt;, &lt;span class="dv"&gt;-1&lt;/span&gt;)]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-6" title="6"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-7" title="7"&gt;    reduced_xor &lt;span class="op"&gt;=&lt;/span&gt; [xor_range(start, end) &lt;span class="cf"&gt;for&lt;/span&gt; start, end &lt;span class="kw"&gt;in&lt;/span&gt; worker_list]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-8" title="8"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-9" title="9"&gt;    &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="bu"&gt;reduce&lt;/span&gt;(&lt;span class="kw"&gt;lambda&lt;/span&gt; x, y: x &lt;span class="op"&gt;^&lt;/span&gt; y, reduced_xor)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-10" title="10"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-11" title="11"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; xor_range(start, end):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-12" title="12"&gt;    &lt;span class="co"&gt;# inclusive start and exclusive end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-13" title="13"&gt;    &lt;span class="cf"&gt;if&lt;/span&gt; (end &lt;span class="op"&gt;-&lt;/span&gt; start) &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-14" title="14"&gt;        &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-15" title="15"&gt;    &lt;span class="cf"&gt;if&lt;/span&gt; (end &lt;span class="op"&gt;-&lt;/span&gt; start) &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-16" title="16"&gt;        &lt;span class="cf"&gt;return&lt;/span&gt; start&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-17" title="17"&gt;    &lt;span class="cf"&gt;if&lt;/span&gt; (end &lt;span class="op"&gt;-&lt;/span&gt; start) &lt;span class="op"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="dv"&gt;4&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-18" title="18"&gt;        &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="bu"&gt;reduce&lt;/span&gt;(&lt;span class="kw"&gt;lambda&lt;/span&gt; x, y: x &lt;span class="op"&gt;^&lt;/span&gt; y, &lt;span class="bu"&gt;range&lt;/span&gt;(start, end))&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-19" title="19"&gt;    &lt;span class="cf"&gt;else&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-20" title="20"&gt;        begin_range &lt;span class="op"&gt;=&lt;/span&gt; (start, start &lt;span class="op"&gt;/&lt;/span&gt; &lt;span class="dv"&gt;4&lt;/span&gt; &lt;span class="op"&gt;*&lt;/span&gt; &lt;span class="dv"&gt;4&lt;/span&gt; &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;4&lt;/span&gt;)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-21" title="21"&gt;        end_range &lt;span class="op"&gt;=&lt;/span&gt; (end &lt;span class="op"&gt;/&lt;/span&gt; &lt;span class="dv"&gt;4&lt;/span&gt; &lt;span class="op"&gt;*&lt;/span&gt; &lt;span class="dv"&gt;4&lt;/span&gt;, end)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-22" title="22"&gt;        &lt;span class="cf"&gt;return&lt;/span&gt; xor_range(&lt;span class="op"&gt;*&lt;/span&gt;begin_range) &lt;span class="op"&gt;^&lt;/span&gt; xor_range(&lt;span class="op"&gt;*&lt;/span&gt;end_range)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-23" title="23"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-24" title="24"&gt;&lt;span class="co"&gt;# print(answer(0, 3))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-25" title="25"&gt;&lt;span class="co"&gt;# print(answer(17, 4))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-26" title="26"&gt;&lt;span class="co"&gt;# print(answer(17, 250))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-27" title="27"&gt;&lt;span class="co"&gt;# print(answer(17, 2500))&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Problem 2 in level 3:&lt;/p&gt;
 &lt;pre class="example"&gt;&lt;code&gt;Bomb, Baby!
 ===========
@@ -610,49 +785,49 @@ Use verify [file] to test your solution and see how it does. When you are
 finished editing your code, use submit [file] to submit your answer. If your
 solution passes the test cases, it will be removed from your home folder.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode python"&gt;&lt;code class="sourceCode python"&gt;&lt;span class="co"&gt;# solution for problem 2 in level 3&lt;/span&gt;
-&lt;span class="kw"&gt;def&lt;/span&gt; answer(M, F):
-    m &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;int&lt;/span&gt;(M)
-    f &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;int&lt;/span&gt;(F)
-
-    &lt;span class="cf"&gt;if&lt;/span&gt; m &lt;span class="op"&gt;*&lt;/span&gt; f &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;:
-        &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="st"&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt;
-
-    g &lt;span class="op"&gt;=&lt;/span&gt; gcd(m, f)
-    &lt;span class="cf"&gt;if&lt;/span&gt; g &lt;span class="op"&gt;!=&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt; &lt;span class="kw"&gt;and&lt;/span&gt; (&lt;span class="bu"&gt;abs&lt;/span&gt;(m &lt;span class="op"&gt;-&lt;/span&gt; f) &lt;span class="op"&gt;%&lt;/span&gt; g &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;):
-        &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="st"&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt;
-
-    &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="bu"&gt;str&lt;/span&gt;(answer_helper(m, f))
-
-&lt;span class="kw"&gt;def&lt;/span&gt; answer_helper(m, f):
-    &lt;span class="cf"&gt;if&lt;/span&gt; m &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;:
-        &lt;span class="cf"&gt;return&lt;/span&gt; f &lt;span class="op"&gt;-&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;
-    &lt;span class="cf"&gt;elif&lt;/span&gt; f &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;:
-        &lt;span class="cf"&gt;return&lt;/span&gt; m &lt;span class="op"&gt;-&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;
-    &lt;span class="cf"&gt;else&lt;/span&gt;:
-        &lt;span class="cf"&gt;if&lt;/span&gt; m &lt;span class="op"&gt;&amp;lt;&lt;/span&gt; f:
-            &lt;span class="cf"&gt;return&lt;/span&gt; answer_helper(f, m)
-        &lt;span class="cf"&gt;else&lt;/span&gt;:
-            &lt;span class="cf"&gt;return&lt;/span&gt; (m &lt;span class="op"&gt;/&lt;/span&gt; f) &lt;span class="op"&gt;+&lt;/span&gt; answer_helper(m &lt;span class="op"&gt;-&lt;/span&gt; m &lt;span class="op"&gt;/&lt;/span&gt; f &lt;span class="op"&gt;*&lt;/span&gt; f, f)
-
-&lt;span class="kw"&gt;def&lt;/span&gt; gcd(x, y):
-    &lt;span class="cf"&gt;if&lt;/span&gt; y &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;:
-        &lt;span class="cf"&gt;return&lt;/span&gt; x
-    &lt;span class="cf"&gt;else&lt;/span&gt;:
-        &lt;span class="cf"&gt;return&lt;/span&gt; gcd(y, x &lt;span class="op"&gt;%&lt;/span&gt; y)
-
-&lt;span class="co"&gt;# print(answer(&amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(&amp;quot;2&amp;quot;, &amp;quot;1&amp;quot;))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(&amp;quot;4&amp;quot;, &amp;quot;7&amp;quot;))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(&amp;quot;9&amp;quot;, &amp;quot;37&amp;quot;))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(&amp;quot;2&amp;quot;, &amp;quot;38&amp;quot;))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(&amp;quot;2978183212347123467888&amp;quot;, &amp;quot;8832131497&amp;quot;))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(&amp;quot;0&amp;quot;, &amp;quot;100&amp;quot;))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(&amp;quot;9&amp;quot;, &amp;quot;9&amp;quot;))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(&amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(&amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(&amp;quot;2&amp;quot;, &amp;quot;2&amp;quot;))&lt;/span&gt;
-&lt;span class="co"&gt;# print(answer(&amp;quot;12&amp;quot;, &amp;quot;9&amp;quot;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode" id="cb4"&gt;&lt;pre class="sourceCode python"&gt;&lt;code class="sourceCode python"&gt;&lt;a class="sourceLine" id="cb4-1" title="1"&gt;&lt;span class="co"&gt;# solution for problem 2 in level 3&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-2" title="2"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; answer(M, F):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-3" title="3"&gt;    m &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;int&lt;/span&gt;(M)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-4" title="4"&gt;    f &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;int&lt;/span&gt;(F)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-5" title="5"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-6" title="6"&gt;    &lt;span class="cf"&gt;if&lt;/span&gt; m &lt;span class="op"&gt;*&lt;/span&gt; f &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-7" title="7"&gt;        &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="st"&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-8" title="8"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-9" title="9"&gt;    g &lt;span class="op"&gt;=&lt;/span&gt; gcd(m, f)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-10" title="10"&gt;    &lt;span class="cf"&gt;if&lt;/span&gt; g &lt;span class="op"&gt;!=&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt; &lt;span class="kw"&gt;and&lt;/span&gt; (&lt;span class="bu"&gt;abs&lt;/span&gt;(m &lt;span class="op"&gt;-&lt;/span&gt; f) &lt;span class="op"&gt;%&lt;/span&gt; g &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-11" title="11"&gt;        &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="st"&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-12" title="12"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-13" title="13"&gt;    &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="bu"&gt;str&lt;/span&gt;(answer_helper(m, f))&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-14" title="14"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-15" title="15"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; answer_helper(m, f):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-16" title="16"&gt;    &lt;span class="cf"&gt;if&lt;/span&gt; m &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-17" title="17"&gt;        &lt;span class="cf"&gt;return&lt;/span&gt; f &lt;span class="op"&gt;-&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-18" title="18"&gt;    &lt;span class="cf"&gt;elif&lt;/span&gt; f &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-19" title="19"&gt;        &lt;span class="cf"&gt;return&lt;/span&gt; m &lt;span class="op"&gt;-&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-20" title="20"&gt;    &lt;span class="cf"&gt;else&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-21" title="21"&gt;        &lt;span class="cf"&gt;if&lt;/span&gt; m &lt;span class="op"&gt;&amp;lt;&lt;/span&gt; f:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-22" title="22"&gt;            &lt;span class="cf"&gt;return&lt;/span&gt; answer_helper(f, m)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-23" title="23"&gt;        &lt;span class="cf"&gt;else&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-24" title="24"&gt;            &lt;span class="cf"&gt;return&lt;/span&gt; (m &lt;span class="op"&gt;/&lt;/span&gt; f) &lt;span class="op"&gt;+&lt;/span&gt; answer_helper(m &lt;span class="op"&gt;-&lt;/span&gt; m &lt;span class="op"&gt;/&lt;/span&gt; f &lt;span class="op"&gt;*&lt;/span&gt; f, f)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-25" title="25"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-26" title="26"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; gcd(x, y):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-27" title="27"&gt;    &lt;span class="cf"&gt;if&lt;/span&gt; y &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-28" title="28"&gt;        &lt;span class="cf"&gt;return&lt;/span&gt; x&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-29" title="29"&gt;    &lt;span class="cf"&gt;else&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-30" title="30"&gt;        &lt;span class="cf"&gt;return&lt;/span&gt; gcd(y, x &lt;span class="op"&gt;%&lt;/span&gt; y)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-31" title="31"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-32" title="32"&gt;&lt;span class="co"&gt;# print(answer(&amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-33" title="33"&gt;&lt;span class="co"&gt;# print(answer(&amp;quot;2&amp;quot;, &amp;quot;1&amp;quot;))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-34" title="34"&gt;&lt;span class="co"&gt;# print(answer(&amp;quot;4&amp;quot;, &amp;quot;7&amp;quot;))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-35" title="35"&gt;&lt;span class="co"&gt;# print(answer(&amp;quot;9&amp;quot;, &amp;quot;37&amp;quot;))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-36" title="36"&gt;&lt;span class="co"&gt;# print(answer(&amp;quot;2&amp;quot;, &amp;quot;38&amp;quot;))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-37" title="37"&gt;&lt;span class="co"&gt;# print(answer(&amp;quot;2978183212347123467888&amp;quot;, &amp;quot;8832131497&amp;quot;))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-38" title="38"&gt;&lt;span class="co"&gt;# print(answer(&amp;quot;0&amp;quot;, &amp;quot;100&amp;quot;))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-39" title="39"&gt;&lt;span class="co"&gt;# print(answer(&amp;quot;9&amp;quot;, &amp;quot;9&amp;quot;))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-40" title="40"&gt;&lt;span class="co"&gt;# print(answer(&amp;quot;0&amp;quot;, &amp;quot;0&amp;quot;))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-41" title="41"&gt;&lt;span class="co"&gt;# print(answer(&amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-42" title="42"&gt;&lt;span class="co"&gt;# print(answer(&amp;quot;2&amp;quot;, &amp;quot;2&amp;quot;))&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-43" title="43"&gt;&lt;span class="co"&gt;# print(answer(&amp;quot;12&amp;quot;, &amp;quot;9&amp;quot;))&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Problem 3 in level 3:&lt;/p&gt;
 &lt;pre class="example"&gt;&lt;code&gt;Fuel Injection Perfection
 =========================
@@ -709,33 +884,33 @@ Use verify [file] to test your solution and see how it does. When you are
 finished editing your code, use submit [file] to submit your answer. If your
 solution passes the test cases, it will be removed from your home folder.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode python"&gt;&lt;code class="sourceCode python"&gt;&lt;span class="co"&gt;# solution for problem 3 in level 3&lt;/span&gt;
-&lt;span class="kw"&gt;def&lt;/span&gt; answer(n):
-    &lt;span class="co"&gt;# your code here&lt;/span&gt;
-    n &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;int&lt;/span&gt;(n)
-
-    table &lt;span class="op"&gt;=&lt;/span&gt; {&lt;span class="dv"&gt;1&lt;/span&gt;: &lt;span class="dv"&gt;0&lt;/span&gt;, &lt;span class="dv"&gt;2&lt;/span&gt;: &lt;span class="dv"&gt;1&lt;/span&gt;}
-
-    &lt;span class="kw"&gt;def&lt;/span&gt; answer_helper(n):
-        &lt;span class="cf"&gt;if&lt;/span&gt; n &lt;span class="kw"&gt;in&lt;/span&gt; table:
-            &lt;span class="cf"&gt;return&lt;/span&gt; table[n]
-
-        &lt;span class="cf"&gt;if&lt;/span&gt; n &lt;span class="op"&gt;%&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt; &lt;span class="op"&gt;!=&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;:
-            table[n] &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;min&lt;/span&gt;(answer_helper((n &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;) &lt;span class="op"&gt;/&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;) &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;,
-                           answer_helper((n &lt;span class="op"&gt;-&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;) &lt;span class="op"&gt;/&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;) &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;)
-        &lt;span class="cf"&gt;else&lt;/span&gt;:
-            table[n] &lt;span class="op"&gt;=&lt;/span&gt; answer_helper(n &lt;span class="op"&gt;/&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;) &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;
-
-        &lt;span class="cf"&gt;return&lt;/span&gt; table[n]
-
-    &lt;span class="cf"&gt;return&lt;/span&gt; answer_helper(n)
-
-&lt;span class="co"&gt;# for n in range(1, 65):&lt;/span&gt;
-&lt;span class="co"&gt;#     print(&amp;quot;%s: %s&amp;quot; % (n, answer(n)))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode" id="cb6"&gt;&lt;pre class="sourceCode python"&gt;&lt;code class="sourceCode python"&gt;&lt;a class="sourceLine" id="cb6-1" title="1"&gt;&lt;span class="co"&gt;# solution for problem 3 in level 3&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-2" title="2"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; answer(n):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-3" title="3"&gt;    &lt;span class="co"&gt;# your code here&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-4" title="4"&gt;    n &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;int&lt;/span&gt;(n)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-5" title="5"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-6" title="6"&gt;    table &lt;span class="op"&gt;=&lt;/span&gt; {&lt;span class="dv"&gt;1&lt;/span&gt;: &lt;span class="dv"&gt;0&lt;/span&gt;, &lt;span class="dv"&gt;2&lt;/span&gt;: &lt;span class="dv"&gt;1&lt;/span&gt;}&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-7" title="7"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-8" title="8"&gt;    &lt;span class="kw"&gt;def&lt;/span&gt; answer_helper(n):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-9" title="9"&gt;        &lt;span class="cf"&gt;if&lt;/span&gt; n &lt;span class="kw"&gt;in&lt;/span&gt; table:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-10" title="10"&gt;            &lt;span class="cf"&gt;return&lt;/span&gt; table[n]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-11" title="11"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-12" title="12"&gt;        &lt;span class="cf"&gt;if&lt;/span&gt; n &lt;span class="op"&gt;%&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt; &lt;span class="op"&gt;!=&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-13" title="13"&gt;            table[n] &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;min&lt;/span&gt;(answer_helper((n &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;) &lt;span class="op"&gt;/&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;) &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;,&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-14" title="14"&gt;                           answer_helper((n &lt;span class="op"&gt;-&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;) &lt;span class="op"&gt;/&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;) &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-15" title="15"&gt;        &lt;span class="cf"&gt;else&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-16" title="16"&gt;            table[n] &lt;span class="op"&gt;=&lt;/span&gt; answer_helper(n &lt;span class="op"&gt;/&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;) &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-17" title="17"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-18" title="18"&gt;        &lt;span class="cf"&gt;return&lt;/span&gt; table[n]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-19" title="19"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-20" title="20"&gt;    &lt;span class="cf"&gt;return&lt;/span&gt; answer_helper(n)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-21" title="21"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-22" title="22"&gt;&lt;span class="co"&gt;# for n in range(1, 65):&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-23" title="23"&gt;&lt;span class="co"&gt;#     print(&amp;quot;%s: %s&amp;quot; % (n, answer(n)))&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr /&gt;
 &lt;p&gt;实际上做完了 level 3，就可以等 Google recruiter 回复了。而 Level 3 中难度最大的一题目，也就是考了一个简单的 &lt;a href="https://en.wikipedia.org/wiki/Dynamic_programming"&gt;DP&lt;/a&gt; 而已——事实上也不需要太复杂的 DP，稍微对 Functional Programming 中常见的 &lt;a href="https://en.wikipedia.org/wiki/Memoization"&gt;Memoization&lt;/a&gt; 手法有个印象，就能搞定了。&lt;/p&gt;
 &lt;p&gt;&lt;a href="/static/image/2017/google-foobar/recruiter.png"&gt;&lt;img src="/static/image/2017/google-foobar/recruiter.png" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;我做完了 level 3 后，抱着玩一玩的心思，做 level 4 的第一题，直接就栽到了&lt;a href="https://en.wikipedia.org/wiki/Network_flow"&gt;网络流&lt;/a&gt;的大坑里，Google 也知道这类题比较难&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;，因此给了 168 个小时的做答时间。于是我又翻开了那本尘封已久的《算法导论》，简单扫了下网络流那一章，最后花了几天的时间写了个 &lt;a href="https://en.wikipedia.org/wiki/Ford%25E2%2580%2593Fulkerson_algorithm"&gt;Ford-Fulkerson Algorithm&lt;/a&gt; 的 Python 实现。&lt;/p&gt;
+&lt;p&gt;我做完了 level 3 后，抱着玩一玩的心思，做 level 4 的第一题，直接就栽到了&lt;a href="https://en.wikipedia.org/wiki/Network_flow"&gt;网络流&lt;/a&gt;的大坑里，Google 也知道这类题比较难&lt;a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;，因此给了 168 个小时的做答时间。于是我又翻开了那本尘封已久的《算法导论》，简单扫了下网络流那一章，最后花了几天的时间写了个 &lt;a href="https://en.wikipedia.org/wiki/Ford%25E2%2580%2593Fulkerson_algorithm"&gt;Ford-Fulkerson Algorithm&lt;/a&gt; 的 Python 实现。&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;Problem 1 in level 4:&lt;/p&gt;
 &lt;pre class="example"&gt;&lt;code&gt;Escape Pods
@@ -815,77 +990,77 @@ Use verify [file] to test your solution and see how it does. When you are
 finished editing your code, use submit [file] to submit your answer. If your
 solution passes the test cases, it will be removed from your home folder.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode python"&gt;&lt;code class="sourceCode python"&gt;&lt;span class="im"&gt;import&lt;/span&gt; decimal
-inf &lt;span class="op"&gt;=&lt;/span&gt; decimal.Decimal(&lt;span class="st"&gt;&amp;quot;Infinity&amp;quot;&lt;/span&gt;)
-
-&lt;span class="kw"&gt;def&lt;/span&gt; answer(entrances, exits, path):
-    transform(entrances, exits, path)
-    flow &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;
-    length &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;len&lt;/span&gt;(path)
-    flows &lt;span class="op"&gt;=&lt;/span&gt; [[&lt;span class="dv"&gt;0&lt;/span&gt; &lt;span class="cf"&gt;for&lt;/span&gt; i &lt;span class="kw"&gt;in&lt;/span&gt; &lt;span class="bu"&gt;range&lt;/span&gt;(length)] &lt;span class="cf"&gt;for&lt;/span&gt; j &lt;span class="kw"&gt;in&lt;/span&gt; &lt;span class="bu"&gt;range&lt;/span&gt;(length)]
-    start &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;
-    end &lt;span class="op"&gt;=&lt;/span&gt; length &lt;span class="op"&gt;-&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;
-    &lt;span class="cf"&gt;while&lt;/span&gt; &lt;span class="va"&gt;True&lt;/span&gt;:
-        ap_flow, parents &lt;span class="op"&gt;=&lt;/span&gt; bfs(start, end, path, flows)
-        &lt;span class="cf"&gt;if&lt;/span&gt; ap_flow &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;:
-            &lt;span class="cf"&gt;break&lt;/span&gt;
-        flow &lt;span class="op"&gt;+=&lt;/span&gt; ap_flow
-        v &lt;span class="op"&gt;=&lt;/span&gt; end
-        &lt;span class="cf"&gt;while&lt;/span&gt; v &lt;span class="op"&gt;!=&lt;/span&gt; start:
-            u &lt;span class="op"&gt;=&lt;/span&gt; parents[v]
-            flows[u][v] &lt;span class="op"&gt;+=&lt;/span&gt; ap_flow
-            flows[v][u] &lt;span class="op"&gt;-=&lt;/span&gt; ap_flow
-            v &lt;span class="op"&gt;=&lt;/span&gt; u
-    &lt;span class="cf"&gt;return&lt;/span&gt; flow
-
-&lt;span class="kw"&gt;def&lt;/span&gt; bfs(start, end, path, flows):
-    &lt;span class="kw"&gt;global&lt;/span&gt; inf
-    length &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;len&lt;/span&gt;(path)
-    parents &lt;span class="op"&gt;=&lt;/span&gt; [&lt;span class="op"&gt;-&lt;/span&gt;&lt;span class="dv"&gt;1&lt;/span&gt;] &lt;span class="op"&gt;*&lt;/span&gt; length     &lt;span class="co"&gt;# parent table for reverse tracing path&lt;/span&gt;
-    parents[start] &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="op"&gt;-&lt;/span&gt;&lt;span class="dv"&gt;2&lt;/span&gt;         &lt;span class="co"&gt;# differentiate start point from others&lt;/span&gt;
-
-    queue &lt;span class="op"&gt;=&lt;/span&gt; []
-    queue.append(start)
-    &lt;span class="cf"&gt;while&lt;/span&gt; queue &lt;span class="kw"&gt;and&lt;/span&gt; parents[end] &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="op"&gt;-&lt;/span&gt;&lt;span class="dv"&gt;1&lt;/span&gt;:
-        u &lt;span class="op"&gt;=&lt;/span&gt; queue.pop(&lt;span class="dv"&gt;0&lt;/span&gt;)
-        &lt;span class="cf"&gt;for&lt;/span&gt; v &lt;span class="kw"&gt;in&lt;/span&gt; &lt;span class="bu"&gt;range&lt;/span&gt;(length):
-            cf &lt;span class="op"&gt;=&lt;/span&gt; path[u][v] &lt;span class="op"&gt;-&lt;/span&gt; flows[u][v]
-            &lt;span class="cf"&gt;if&lt;/span&gt; cf &lt;span class="op"&gt;&amp;gt;&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt; &lt;span class="kw"&gt;and&lt;/span&gt; parents[v] &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="op"&gt;-&lt;/span&gt;&lt;span class="dv"&gt;1&lt;/span&gt;:
-                queue.append(v)
-                parents[v] &lt;span class="op"&gt;=&lt;/span&gt; u
-
-    &lt;span class="cf"&gt;if&lt;/span&gt; parents[end] &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="op"&gt;-&lt;/span&gt;&lt;span class="dv"&gt;1&lt;/span&gt;:      &lt;span class="co"&gt;# if t can not been reached&lt;/span&gt;
-        &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;, parents
-
-    v &lt;span class="op"&gt;=&lt;/span&gt; end
-    delta &lt;span class="op"&gt;=&lt;/span&gt; inf
-    &lt;span class="cf"&gt;while&lt;/span&gt; v &lt;span class="op"&gt;!=&lt;/span&gt; start:
-        u &lt;span class="op"&gt;=&lt;/span&gt; parents[v]
-        cf &lt;span class="op"&gt;=&lt;/span&gt; path[u][v] &lt;span class="op"&gt;-&lt;/span&gt; flows[u][v]
-        delta &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;min&lt;/span&gt;(delta, cf)
-        v &lt;span class="op"&gt;=&lt;/span&gt; u
-
-    &lt;span class="cf"&gt;return&lt;/span&gt; delta, parents
-
-&lt;span class="kw"&gt;def&lt;/span&gt; transform(entrances, exits, path):
-    &lt;span class="co"&gt;# transform multi-source, multi-sink flow network to single-source,&lt;/span&gt;
-    &lt;span class="co"&gt;# single-sink flow network&lt;/span&gt;
-    &lt;span class="kw"&gt;global&lt;/span&gt; inf
-    length &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;len&lt;/span&gt;(path)
-    entrances &lt;span class="op"&gt;=&lt;/span&gt; [i &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt; &lt;span class="cf"&gt;for&lt;/span&gt; i &lt;span class="kw"&gt;in&lt;/span&gt; entrances]
-    exits &lt;span class="op"&gt;=&lt;/span&gt; [i &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt; &lt;span class="cf"&gt;for&lt;/span&gt; i &lt;span class="kw"&gt;in&lt;/span&gt; exits]
-    &lt;span class="cf"&gt;for&lt;/span&gt; row &lt;span class="kw"&gt;in&lt;/span&gt; path:
-        row.insert(&lt;span class="dv"&gt;0&lt;/span&gt;, &lt;span class="dv"&gt;0&lt;/span&gt;)
-        row.append(&lt;span class="dv"&gt;0&lt;/span&gt;)
-    start_row &lt;span class="op"&gt;=&lt;/span&gt; [&lt;span class="dv"&gt;0&lt;/span&gt;] &lt;span class="op"&gt;*&lt;/span&gt; (length &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;)
-    &lt;span class="cf"&gt;for&lt;/span&gt; i &lt;span class="kw"&gt;in&lt;/span&gt; entrances:
-        start_row[i] &lt;span class="op"&gt;=&lt;/span&gt; inf
-    path.insert(&lt;span class="dv"&gt;0&lt;/span&gt;, start_row)
-    end_row &lt;span class="op"&gt;=&lt;/span&gt; [&lt;span class="dv"&gt;0&lt;/span&gt;] &lt;span class="op"&gt;*&lt;/span&gt; (length &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;)
-    &lt;span class="cf"&gt;for&lt;/span&gt; i &lt;span class="kw"&gt;in&lt;/span&gt; exits:
-        path[i][&lt;span class="op"&gt;-&lt;/span&gt;&lt;span class="dv"&gt;1&lt;/span&gt;] &lt;span class="op"&gt;=&lt;/span&gt; inf
-    path.append(end_row)
-    &lt;span class="cf"&gt;return&lt;/span&gt; entrances, exits, path&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode" id="cb8"&gt;&lt;pre class="sourceCode python"&gt;&lt;code class="sourceCode python"&gt;&lt;a class="sourceLine" id="cb8-1" title="1"&gt;&lt;span class="im"&gt;import&lt;/span&gt; decimal&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-2" title="2"&gt;inf &lt;span class="op"&gt;=&lt;/span&gt; decimal.Decimal(&lt;span class="st"&gt;&amp;quot;Infinity&amp;quot;&lt;/span&gt;)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-3" title="3"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-4" title="4"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; answer(entrances, exits, path):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-5" title="5"&gt;    transform(entrances, exits, path)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-6" title="6"&gt;    flow &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-7" title="7"&gt;    length &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;len&lt;/span&gt;(path)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-8" title="8"&gt;    flows &lt;span class="op"&gt;=&lt;/span&gt; [[&lt;span class="dv"&gt;0&lt;/span&gt; &lt;span class="cf"&gt;for&lt;/span&gt; i &lt;span class="kw"&gt;in&lt;/span&gt; &lt;span class="bu"&gt;range&lt;/span&gt;(length)] &lt;span class="cf"&gt;for&lt;/span&gt; j &lt;span class="kw"&gt;in&lt;/span&gt; &lt;span class="bu"&gt;range&lt;/span&gt;(length)]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-9" title="9"&gt;    start &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-10" title="10"&gt;    end &lt;span class="op"&gt;=&lt;/span&gt; length &lt;span class="op"&gt;-&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-11" title="11"&gt;    &lt;span class="cf"&gt;while&lt;/span&gt; &lt;span class="va"&gt;True&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-12" title="12"&gt;        ap_flow, parents &lt;span class="op"&gt;=&lt;/span&gt; bfs(start, end, path, flows)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-13" title="13"&gt;        &lt;span class="cf"&gt;if&lt;/span&gt; ap_flow &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-14" title="14"&gt;            &lt;span class="cf"&gt;break&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-15" title="15"&gt;        flow &lt;span class="op"&gt;+=&lt;/span&gt; ap_flow&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-16" title="16"&gt;        v &lt;span class="op"&gt;=&lt;/span&gt; end&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-17" title="17"&gt;        &lt;span class="cf"&gt;while&lt;/span&gt; v &lt;span class="op"&gt;!=&lt;/span&gt; start:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-18" title="18"&gt;            u &lt;span class="op"&gt;=&lt;/span&gt; parents[v]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-19" title="19"&gt;            flows[u][v] &lt;span class="op"&gt;+=&lt;/span&gt; ap_flow&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-20" title="20"&gt;            flows[v][u] &lt;span class="op"&gt;-=&lt;/span&gt; ap_flow&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-21" title="21"&gt;            v &lt;span class="op"&gt;=&lt;/span&gt; u&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-22" title="22"&gt;    &lt;span class="cf"&gt;return&lt;/span&gt; flow&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-23" title="23"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-24" title="24"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; bfs(start, end, path, flows):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-25" title="25"&gt;    &lt;span class="kw"&gt;global&lt;/span&gt; inf&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-26" title="26"&gt;    length &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;len&lt;/span&gt;(path)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-27" title="27"&gt;    parents &lt;span class="op"&gt;=&lt;/span&gt; [&lt;span class="op"&gt;-&lt;/span&gt;&lt;span class="dv"&gt;1&lt;/span&gt;] &lt;span class="op"&gt;*&lt;/span&gt; length     &lt;span class="co"&gt;# parent table for reverse tracing path&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-28" title="28"&gt;    parents[start] &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="dv"&gt;-2&lt;/span&gt;         &lt;span class="co"&gt;# differentiate start point from others&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-29" title="29"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-30" title="30"&gt;    queue &lt;span class="op"&gt;=&lt;/span&gt; []&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-31" title="31"&gt;    queue.append(start)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-32" title="32"&gt;    &lt;span class="cf"&gt;while&lt;/span&gt; queue &lt;span class="kw"&gt;and&lt;/span&gt; parents[end] &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;-1&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-33" title="33"&gt;        u &lt;span class="op"&gt;=&lt;/span&gt; queue.pop(&lt;span class="dv"&gt;0&lt;/span&gt;)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-34" title="34"&gt;        &lt;span class="cf"&gt;for&lt;/span&gt; v &lt;span class="kw"&gt;in&lt;/span&gt; &lt;span class="bu"&gt;range&lt;/span&gt;(length):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-35" title="35"&gt;            cf &lt;span class="op"&gt;=&lt;/span&gt; path[u][v] &lt;span class="op"&gt;-&lt;/span&gt; flows[u][v]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-36" title="36"&gt;            &lt;span class="cf"&gt;if&lt;/span&gt; cf &lt;span class="op"&gt;&amp;gt;&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt; &lt;span class="kw"&gt;and&lt;/span&gt; parents[v] &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;-1&lt;/span&gt;:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-37" title="37"&gt;                queue.append(v)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-38" title="38"&gt;                parents[v] &lt;span class="op"&gt;=&lt;/span&gt; u&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-39" title="39"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-40" title="40"&gt;    &lt;span class="cf"&gt;if&lt;/span&gt; parents[end] &lt;span class="op"&gt;==&lt;/span&gt; &lt;span class="dv"&gt;-1&lt;/span&gt;:      &lt;span class="co"&gt;# if t can not been reached&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-41" title="41"&gt;        &lt;span class="cf"&gt;return&lt;/span&gt; &lt;span class="dv"&gt;0&lt;/span&gt;, parents&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-42" title="42"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-43" title="43"&gt;    v &lt;span class="op"&gt;=&lt;/span&gt; end&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-44" title="44"&gt;    delta &lt;span class="op"&gt;=&lt;/span&gt; inf&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-45" title="45"&gt;    &lt;span class="cf"&gt;while&lt;/span&gt; v &lt;span class="op"&gt;!=&lt;/span&gt; start:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-46" title="46"&gt;        u &lt;span class="op"&gt;=&lt;/span&gt; parents[v]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-47" title="47"&gt;        cf &lt;span class="op"&gt;=&lt;/span&gt; path[u][v] &lt;span class="op"&gt;-&lt;/span&gt; flows[u][v]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-48" title="48"&gt;        delta &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;min&lt;/span&gt;(delta, cf)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-49" title="49"&gt;        v &lt;span class="op"&gt;=&lt;/span&gt; u&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-50" title="50"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-51" title="51"&gt;    &lt;span class="cf"&gt;return&lt;/span&gt; delta, parents&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-52" title="52"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-53" title="53"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; transform(entrances, exits, path):&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-54" title="54"&gt;    &lt;span class="co"&gt;# transform multi-source, multi-sink flow network to single-source,&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-55" title="55"&gt;    &lt;span class="co"&gt;# single-sink flow network&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-56" title="56"&gt;    &lt;span class="kw"&gt;global&lt;/span&gt; inf&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-57" title="57"&gt;    length &lt;span class="op"&gt;=&lt;/span&gt; &lt;span class="bu"&gt;len&lt;/span&gt;(path)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-58" title="58"&gt;    entrances &lt;span class="op"&gt;=&lt;/span&gt; [i &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt; &lt;span class="cf"&gt;for&lt;/span&gt; i &lt;span class="kw"&gt;in&lt;/span&gt; entrances]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-59" title="59"&gt;    exits &lt;span class="op"&gt;=&lt;/span&gt; [i &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt; &lt;span class="cf"&gt;for&lt;/span&gt; i &lt;span class="kw"&gt;in&lt;/span&gt; exits]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-60" title="60"&gt;    &lt;span class="cf"&gt;for&lt;/span&gt; row &lt;span class="kw"&gt;in&lt;/span&gt; path:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-61" title="61"&gt;        row.insert(&lt;span class="dv"&gt;0&lt;/span&gt;, &lt;span class="dv"&gt;0&lt;/span&gt;)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-62" title="62"&gt;        row.append(&lt;span class="dv"&gt;0&lt;/span&gt;)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-63" title="63"&gt;    start_row &lt;span class="op"&gt;=&lt;/span&gt; [&lt;span class="dv"&gt;0&lt;/span&gt;] &lt;span class="op"&gt;*&lt;/span&gt; (length &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-64" title="64"&gt;    &lt;span class="cf"&gt;for&lt;/span&gt; i &lt;span class="kw"&gt;in&lt;/span&gt; entrances:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-65" title="65"&gt;        start_row[i] &lt;span class="op"&gt;=&lt;/span&gt; inf&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-66" title="66"&gt;    path.insert(&lt;span class="dv"&gt;0&lt;/span&gt;, start_row)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-67" title="67"&gt;    end_row &lt;span class="op"&gt;=&lt;/span&gt; [&lt;span class="dv"&gt;0&lt;/span&gt;] &lt;span class="op"&gt;*&lt;/span&gt; (length &lt;span class="op"&gt;+&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-68" title="68"&gt;    &lt;span class="cf"&gt;for&lt;/span&gt; i &lt;span class="kw"&gt;in&lt;/span&gt; exits:&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-69" title="69"&gt;        path[i][&lt;span class="op"&gt;-&lt;/span&gt;&lt;span class="dv"&gt;1&lt;/span&gt;] &lt;span class="op"&gt;=&lt;/span&gt; inf&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-70" title="70"&gt;    path.append(end_row)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb8-71" title="71"&gt;    &lt;span class="cf"&gt;return&lt;/span&gt; entrances, exits, path&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr /&gt;
 &lt;p&gt;测试通过后做第 8 道题目，到这里我一眼扫完题目，已经连题目要考什么算法都看不出来了，加上也没有再多的时间来继续“玩”这个游戏，索性就放弃了。&lt;/p&gt;
 &lt;hr /&gt;
@@ -994,7 +1169,7 @@ solution passes the test cases, it will be removed from your home folder.
 &lt;p&gt;而我在网上查到的资料是，有人通过了 foobar 之后，Google 直接就给了 onsite：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Google’s recruiting process is well documented online, and from this point my experience was pretty typical. The only difference is that I didn’t need to go through a technical phone screen since I had already demonstrated some proficiency with coding through the foo.bar exercises.&lt;/p&gt;
-&lt;p&gt;— &lt;a href="https://thehustle.co/the-secret-google-interview-that-landed-me-a-job" class="uri"&gt;https://thehustle.co/the-secret-google-interview-that-landed-me-a-job&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;— &lt;a href="https://thehustle.co/the-secret-google-interview-that-landed-me-a-job"&gt;https://thehustle.co/the-secret-google-interview-that-landed-me-a-job&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;我个人推想是，相较于“本土”求职者，海外求职者一次 onsite 的成本比较高，因为 onsite 要谨慎一些。&lt;/p&gt;
 &lt;p&gt;电话聊完之后，recruiter 发送了一个 self-rating form 给我，让你自助式地评估下自己的技术水准，形式如下：&lt;/p&gt;
@@ -1006,9 +1181,9 @@ solution passes the test cases, it will be removed from your home folder.
 &lt;p&gt;我看到这封邮件时真的是有些感动——相较于我以前经历过的国内公司的各种面试，这种对比实在是太过强烈——这也让我开始理解，Google 能在竞争如此激烈的互联网领域长期保持领先，不是没有原因的——一个公司对面试者展现出足够的尊重，换来的必然也是面试者对面试的重视。相对而言，这种相互之间的尊重其实也很大程度上降低了双方的成本，一举两得。&lt;/p&gt;
 &lt;h2 id="第一轮技术电话面试"&gt;第一轮技术电话面试&lt;/h2&gt;
 &lt;p&gt;12 月 9 日，来自 Google Sydney 的第一轮电面。限于 NDA，这里我不能透露具体题目的内容。面试约一个小时，全程英文，问了三个题目，包括一个大数估算题、一个操作系统概念题、一个算法题。Google 邮件中有一个 Google Docs 的链接用来共享屏幕写代码的，但是实际上面试中并没有用到，可能是面试官不喜欢吧。&lt;/p&gt;
-&lt;p&gt;Anyway，这轮面试表现还不错，特别是第二道题目的表现远超面试官的预期，面试官说这道题我的表现是他面过的所有求职者中最棒的，因此面试快结束的时候面试官告诉我说他这一轮会刷掉相当多的人，过了他这一轮后一定要多去“study, study, study, practice, practice, practice”——事后想想，应该就是去多刷刷 LeetCode 吧……&lt;/p&gt;
+&lt;p&gt;Anyway，这轮面试表现还不错，特别是第二道题目的表现远超面试官的预期，面试官说这道题我的表现是他面过的所有求职者中最棒的，因此面试快结束的时候面试官告诉我说他这一轮会刷掉相当多的人，过了他这一轮后一定要多去"study, study, study, practice, practice, practice"——事后想想，应该就是去多刷刷 LeetCode 吧……&lt;/p&gt;
 &lt;h2 id="第二轮技术电话面试"&gt;第二轮技术电话面试&lt;/h2&gt;
-&lt;p&gt;1 月 13 日，来自 Google Sydney 的第二轮电面，仍然是全程英文。面试约一个小时，考了 Bash/Python/C 的知识。这次又没有用上 Google Docs 链接，所有题目都是面试官“口述”的……最后的 C 语言题目还涉及到了位运算的一些考点，我听了第一遍完全没听明白，反复了 5 分钟之后，其中充斥着诸如 “Pardon”、“Left bracket”、“Oh, I’m sorry”、 “Ampersand”、“Question mark”、“Exclamation mark” 之类的单词，最后总算搞明白了题意，不难，很快给出了答复。&lt;/p&gt;
+&lt;p&gt;1 月 13 日，来自 Google Sydney 的第二轮电面，仍然是全程英文。面试约一个小时，考了 Bash/Python/C 的知识。这次又没有用上 Google Docs 链接，所有题目都是面试官“口述”的……最后的 C 语言题目还涉及到了位运算的一些考点，我听了第一遍完全没听明白，反复了 5 分钟之后，其中充斥着诸如 "Pardon"、"Left bracket"、"Oh, I'm sorry"、 "Ampersand"、"Question mark"、"Exclamation mark" 之类的单词，最后总算搞明白了题意，不难，很快给出了答复。&lt;/p&gt;
 &lt;p&gt;这轮面试我自我感觉题目都不难，都是很基础的知识，但是英文听说能力要求非常高。好在我自己英文能力还可以，虽然开始时会有些紧张，但只要说顺了，后面的听说就都很顺畅，毫无滞碍。我没有去特别考过 TOFEL 和 GRE，也没有特别训练过，想来应该还是自己多年坚持英文读写实践的积攒下的功底。&lt;/p&gt;
 &lt;h2 id="sydney-onsite"&gt;Sydney onsite&lt;/h2&gt;
 &lt;p&gt;1 月 16 日收到了 Google recruiter 的邮件，告知电话面试通过，可以去 Sydney office onsite 了。考虑到 2 月要过个春节长假，加上办签证需要一些时间，以及自己也需要一些时间从日常工作状态切换到面试找工作状态，所以和 Google recruiter 联系，暂时把 onsite 的时间约到了 3 月初。&lt;/p&gt;
@@ -1043,9 +1218,9 @@ solution passes the test cases, it will be removed from your home folder.
 &lt;li&gt;Google 会保证面试者在 onsite 期间，在任何一个时间点都有人陪伴——这可能是为了保密要求——Google 的 office 是禁止拍照的。我在 onsite 午饭后，我的面试官因为一些临时事件要迟到几分钟，因此 recruiter 在把我送到会议室就马上就找来了另一位工程师陪我闲聊了一段时间。&lt;/li&gt;
 &lt;li&gt;每一轮面试结束，面试官都会把你在 Google Docs 上写下的东西备份下来，用来做后续的评估。&lt;/li&gt;
 &lt;li&gt;除了 Google Docs，会议室里还有两个白板，可以用来写代码，也可以用来画图讨论。&lt;/li&gt;
-&lt;li&gt;我经历的 5 轮面试 6 个面试官中，有一半看上去像 35 岁以上的&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;有一个面试官看了我的简历，说：“Ah, you’re a Chinese, then you can speak more languages than me. I’m a native English speaker and I can only speak English.”&lt;/li&gt;
-&lt;li&gt;有一轮面试是两个面试官，其中一个面试官主导面试，另一个面试官在旁边记录一些东西——我猜有可能是见习面试官在学习该如何面试吧。同样是这轮面试，我在 Google Docs 上写代码，由于是写 Python，会有“缩进”的问题，面试官一边提醒我说“Don’t care about indentation”，同时又在 Google Docs 里帮我设置了写代码用的等宽字体。&lt;/li&gt;
+&lt;li&gt;我经历的 5 轮面试 6 个面试官中，有一半看上去像 35 岁以上的&lt;a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;有一个面试官看了我的简历，说："Ah, you're a Chinese, then you can speak more languages than me. I'm a native English speaker and I can only speak English."&lt;/li&gt;
+&lt;li&gt;有一轮面试是两个面试官，其中一个面试官主导面试，另一个面试官在旁边记录一些东西——我猜有可能是见习面试官在学习该如何面试吧。同样是这轮面试，我在 Google Docs 上写代码，由于是写 Python，会有“缩进”的问题，面试官一边提醒我说"Don't care about indentation"，同时又在 Google Docs 里帮我设置了写代码用的等宽字体。&lt;/li&gt;
 &lt;li&gt;所有的饮料都是免费的，:-)&lt;/li&gt;
 &lt;li&gt;午饭自助餐也是免费的，果汁是大厨现榨的，:-)&lt;/li&gt;
 &lt;/ul&gt;
@@ -1054,12 +1229,12 @@ solution passes the test cases, it will be removed from your home folder.
 &lt;p&gt;我的 onsite 面试从上午 10 点开始，一直持续到下午 15:00，除了中间和 recruiter 一起吃了顿午饭休整了半小时外，中途没有任何休息。面试结束走出 Google office 的时候，感觉人有些晃晃忽忽的，于是就在路边长椅休息了 30 分钟，晒晒太阳。我当时自评感觉还是蛮不错的——有一道算法题，给出了 brute force 的代码后也给出了最优解决方案的思路，但是限于时间并没有给出最终的优化版的代码，这个应该是比较大的瑕疵；还有个小瑕疵是， Troubleshooting 题，由于以前没有碰到过类似的题目的解答思路，在前面绕了很长时间，给出了很多“正确但无用”的大段阐述。相比较而言，别的题目都是面试官主动问面试者问题，而面试者需要给出答案；但是 Troubleshooting 更多的是需要面试者去问面试官问题，面试官给出每个问题的答案，面试者通过这些信息，逐渐缩小 Troubleshooting 的目标，最终定位到问题所在。我一开始完全没有理解到 Troubleshooting 正确的解题思路和交流方式，一直傻傻地等着面试官问我问题，而面试官也在一直等着我问他问题，这样他好给出答案，推进 Troubleshooting 的过程，就这样耽误了很长时间。等到我后来明白了应对 Troubleshooting 题目正确的交流方式怎么一回事时，时间已然所剩不多了，所以到最后这个题也没有答得特别好。我后来和一个同样面试过 Google 的朋友前辈探讨了下这个问题，他说“我所经历的面试，都是要竭力揣测和理解面试官的心思，他想考什么知识点。而我面试别人的的时候总是在竭力理解对方想说什么，生怕错过对方的闪光点”。&lt;/p&gt;
 &lt;p&gt;剩下其余别的题目，我自评都没有太大的问题，所以我想如果 Google 不是标准太严苛并且不刻意卡人的话，我应该是通过 onsite 了。不过很可惜，几周之后还是收到了 Google 的拒信：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/static/image/2017/google-foobar/rejection.png"&gt;&lt;img src="/static/image/2017/google-foobar/rejection.png" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;拒信里所说的 Troubleshooting 和 Algorithm 方面的问题，我是有所预料的，但是“you didn’t make much progress in the system design” 实在是让我有些莫名其妙，我最终也没想起来 system design 哪里出了差错。不过木已成舟，我倒并没有特别在意这个结果，相较于很多公司面试后杳无音信的“默拒”，Google 的这个 “constructive feedback”已经算是不错的了。还有，再怎么说，蹭了机票酒店在澳洲玩了一圈，怎么着也不是个亏本的买卖，对吧？&lt;/p&gt;
+&lt;p&gt;拒信里所说的 Troubleshooting 和 Algorithm 方面的问题，我是有所预料的，但是"you didn't make much progress in the system design" 实在是让我有些莫名其妙，我最终也没想起来 system design 哪里出了差错。不过木已成舟，我倒并没有特别在意这个结果，相较于很多公司面试后杳无音信的“默拒”，Google 的这个 "constructive feedback"已经算是不错的了。还有，再怎么说，蹭了机票酒店在澳洲玩了一圈，怎么着也不是个亏本的买卖，对吧？&lt;/p&gt;
 &lt;h2 id="总结"&gt;总结&lt;/h2&gt;
 &lt;p&gt;1 轮 foo.bar，2.5 轮电话面试，5 轮 onsite 面试，持续 4 个月，总体耗时 3–4 周，尽管没有拿到 offer，但这依然是一段很有意思的经历，引发了我很多思考。&lt;/p&gt;
 &lt;p&gt;整个应聘的流程，至少接触了 4 位 recruiter，8 个面试官，2 个第三方服务者，算上人力的时间成本，加上 onsite 的机票酒店餐饮签证成本，最后再考虑下 onsite 的通过率，我估计 Google 要招聘到一个合格的员工，成本至少是在十万人民币级别的。可见顶尖的人才是相当昂贵的，这还仅仅只是招聘成本。&lt;/p&gt;
 &lt;p&gt;话说回来，于我而言，自信一点地说，虽然 Google 这加起来 8.5 轮的技术面试考查足够广泛，但是这依然只覆盖到了我所有计算机知识储备的 1/10 左右。在前端 CSS/JavaScript、Functional Programming (Lisp/Scheme)、Web Development (Django/Flask/HTTP/RESTful)，Automation Tools (Ansible/Jenkins/CI)、 Emacs/Vim/Git、LaTeX/TikZ 等等我日常工作中广泛使用的技术或工具，Google 的面试都没有考查。&lt;/p&gt;
-&lt;p&gt;所以如何准确地评估一个人的技术能力，是招聘中的最大难题。就现在的 IT 技术招聘体制而言，大多数公司采用的无非就是在一定的时间和资源限制下，解决一些面试官心中有明确标准答案的 puzzles——但是这种选拔真得能很好的反应一个面试者在实际工作中的能力么&lt;a href="#fn3" class="footnoteRef" id="fnref3"&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;？无妨举几个例子。&lt;/p&gt;
+&lt;p&gt;所以如何准确地评估一个人的技术能力，是招聘中的最大难题。就现在的 IT 技术招聘体制而言，大多数公司采用的无非就是在一定的时间和资源限制下，解决一些面试官心中有明确标准答案的 puzzles——但是这种选拔真得能很好的反应一个面试者在实际工作中的能力么&lt;a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;？无妨举几个例子。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://brew.sh/"&gt;Homebrew&lt;/a&gt; 是 macOS 上应用最广泛的包管理器，用 Ruby 实现，截止到 2017 年 4 月，在 Github 上有 7000+ 个 star、13000+ 个 commit、540+ 个 contributor。其作者 &lt;a href="https://github.com/mxcl"&gt;Max Howell&lt;/a&gt; 去 Google 面试时，因为一道基础的 Invert Binary Tree 的算法 puzzle 没有答好而被拒，事后 Max Howell 在 Twitter 上说：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so fuck off.&lt;/p&gt;
@@ -1067,26 +1242,26 @@ solution passes the test cases, it will be removed from your home folder.
 &lt;p&gt;这个事情在&lt;a href="https://www.zhihu.com/question/31202353"&gt;知乎&lt;/a&gt;、&lt;a href="https://www.quora.com/Whats-the-logic-behind-Google-rejecting-Max-Howell-the-author-of-Homebrew-for-not-being-able-to-invert-a-binary-tree"&gt;Quora&lt;/a&gt;、&lt;a href="https://news.ycombinator.com/item?id=9695102"&gt;HackerNews&lt;/a&gt; 以及很多社区引起了相当广泛的讨论。&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://david.heinemeierhansson.com/"&gt;DHH&lt;/a&gt;，&lt;a href="http://rubyonrails.org/"&gt;Rails&lt;/a&gt; 的作者，发 Twitter 说：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Hello, my name is David. I would fail to write bubble sort on a whiteboard. I look code up on the internet all the time. I don’t do riddles.&lt;/p&gt;
+&lt;p&gt;Hello, my name is David. I would fail to write bubble sort on a whiteboard. I look code up on the internet all the time. I don't do riddles.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;相关讨论：&lt;a href="https://news.ycombinator.com/item?id=13739329"&gt;HackerNews&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;Quora 上还有一个非常有意思的讨论：&lt;a href="https://www.quora.com/Can-every-CS-professor-pass-Googles-interview"&gt;Can every CS professor pass Google’s interview?&lt;/a&gt;，推荐看看，很有意思。有一个 UIUC 的 PhD 是这样说的：&lt;/p&gt;
+&lt;p&gt;Quora 上还有一个非常有意思的讨论：&lt;a href="https://www.quora.com/Can-every-CS-professor-pass-Googles-interview"&gt;Can every CS professor pass Google's interview?&lt;/a&gt;，推荐看看，很有意思。有一个 UIUC 的 PhD 是这样说的：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;No, as far as software engineering positions are concerned.&lt;/p&gt;
 &lt;p&gt;Interviewing Google-style, coding on whiteboards, and other skills and knowledge needed for software engineering positions are learned skills. Professors generally do not gain these skills during the course of their jobs.&lt;/p&gt;
 &lt;p&gt;I would be willing to bet several thousand dollars that at least half of my CS professors at UIUC would fail the normal Google software engineer interview process, especially the older ones. Most of them would never pursue such a position in any case.&lt;/p&gt;
-&lt;p&gt;— &lt;a href="https://www.quora.com/Can-every-CS-professor-pass-Googles-interview/answer/Shane-Ryoo" class="uri"&gt;https://www.quora.com/Can-every-CS-professor-pass-Googles-interview/answer/Shane-Ryoo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;— &lt;a href="https://www.quora.com/Can-every-CS-professor-pass-Googles-interview/answer/Shane-Ryoo"&gt;https://www.quora.com/Can-every-CS-professor-pass-Googles-interview/answer/Shane-Ryoo&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;而事实上，这几年关于 &lt;a href="https://medium.com/@evnowandforever/f-you-i-quit-hiring-is-broken-bb8f3a48d324"&gt;Hiring Is Broken&lt;/a&gt; 的&lt;a href="https://news.ycombinator.com/item?id=11579757"&gt;讨论&lt;/a&gt;不绝于耳，以至于 Github 有人专门建立了一个项目，就叫 &lt;a href="https://github.com/poteto/hiring-without-whiteboards"&gt;hiring-without-whiteboards&lt;/a&gt;。这个项目列出了几百家不采用白板写代码面试方式的公司——我粗略看了下，这些公司更多的时采用更接近于真实工作方式的通过 Take-home project + onsite discuss 的方式来进行招聘。&lt;/p&gt;
 &lt;p&gt;所以 Hiring 到底是不是 Broken，这个问题归根结底是怎样在一定的资源限制下（包括时间、金钱等等）快速评估一个人的技术能力。事实上最好的评估一个人的技术能力的办法，就是和他一起工作一段时间，但是这个成本，无论是时间成本还是金钱成本，无论是对个人还是公司，都太高了。而我也越来越有种感觉，就是流水线化标准的 Phone Screening + Onsite Interview，恐怕也会越来越不再适应新时代的发展了。&lt;/p&gt;
 &lt;p&gt;Hiring 会走向何方？我认为未鹏几年前的的文章《&lt;a href="http://mindhacks.cn/2011/11/04/how-to-interview-a-person-for-two-years/"&gt;怎样花两年时间去面试一个人&lt;/a&gt;》提供了一个很好的思路。&lt;/p&gt;
 &lt;p&gt;此记。&lt;/p&gt;
-&lt;section class="footnotes"&gt;
+&lt;section class="footnotes" role="doc-endnotes"&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id="fn1"&gt;&lt;p&gt;事实上，对于非专业的算法选手，网络流算法的在实际应用中是相当少见的，&lt;a href="https://www.zhihu.com/question/54539746/answer/141266553"&gt;这里&lt;/a&gt;有现任搜狗公司 CEO 王小川先生参加 96 年 IOI 比赛时的一个小故事。&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id="fn2"&gt;&lt;p&gt;所以有些诸如“编程是个青春饭，只能干到 35 岁”的说法，应该是个伪命题吧，:-)&lt;a href="#fnref2"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id="fn3"&gt;&lt;p&gt;知乎上有一些很有价值的讨论，参考&lt;a href="https://www.zhihu.com/question/48743482"&gt;这里&lt;/a&gt;和&lt;a href="https://www.zhihu.com/question/56065457"&gt;这里&lt;/a&gt;。&lt;a href="#fnref3"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn1" role="doc-endnote"&gt;&lt;p&gt;事实上，对于非专业的算法选手，网络流算法的在实际应用中是相当少见的，&lt;a href="https://www.zhihu.com/question/54539746/answer/141266553"&gt;这里&lt;/a&gt;有现任搜狗公司 CEO 王小川先生参加 96 年 IOI 比赛时的一个小故事。&lt;a href="#fnref1" class="footnote-back" role="doc-backlink"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn2" role="doc-endnote"&gt;&lt;p&gt;所以有些诸如“编程是个青春饭，只能干到 35 岁”的说法，应该是个伪命题吧，:-)&lt;a href="#fnref2" class="footnote-back" role="doc-backlink"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn3" role="doc-endnote"&gt;&lt;p&gt;知乎上有一些很有价值的讨论，参考&lt;a href="https://www.zhihu.com/question/48743482"&gt;这里&lt;/a&gt;和&lt;a href="https://www.zhihu.com/question/56065457"&gt;这里&lt;/a&gt;。&lt;a href="#fnref3" class="footnote-back" role="doc-backlink"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </content>
@@ -1105,89 +1280,89 @@ solution passes the test cases, it will be removed from your home folder.
 &lt;li&gt;标题&lt;/li&gt;
 &lt;li&gt;URL&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;方式是通过 Wget 和 Bash 的 &lt;code class="sourceCode bash" rundoc-language="sh"&gt;&lt;span class="kw"&gt;for&lt;/span&gt;&lt;/code&gt; 循环：&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;$ &lt;span class="kw"&gt;for&lt;/span&gt; &lt;span class="ex"&gt;i&lt;/span&gt; in &lt;span class="kw"&gt;`&lt;/span&gt;&lt;span class="fu"&gt;seq&lt;/span&gt; 1 26&lt;span class="kw"&gt;`;&lt;/span&gt; &lt;span class="kw"&gt;do&lt;/span&gt; &lt;span class="fu"&gt;wget&lt;/span&gt; -c http://cnlox.is-programmer.com/\?page\=&lt;span class="va"&gt;$i&lt;/span&gt; -O &lt;span class="va"&gt;$i&lt;/span&gt;.html&lt;span class="kw"&gt;;&lt;/span&gt; &lt;span class="kw"&gt;done&lt;/span&gt;
-
-$ &lt;span class="fu"&gt;ls&lt;/span&gt;
-&lt;span class="ex"&gt;1.html&lt;/span&gt;    11.html   13.html   15.html   17.html   19.html   20.html   22.html   24.html   26.html   4.html    6.html    8.html
-&lt;span class="ex"&gt;10.html&lt;/span&gt;   12.html   14.html   16.html   18.html   2.html    21.html   23.html   25.html   3.html    5.html    7.html    9.html
-
-$ &lt;span class="kw"&gt;for&lt;/span&gt; &lt;span class="ex"&gt;i&lt;/span&gt; in &lt;span class="kw"&gt;`&lt;/span&gt;&lt;span class="fu"&gt;seq&lt;/span&gt; 1 26&lt;span class="kw"&gt;`;&lt;/span&gt; &lt;span class="kw"&gt;do&lt;/span&gt; &lt;span class="fu"&gt;grep&lt;/span&gt; link_to_post &lt;span class="va"&gt;$i&lt;/span&gt;.html&lt;span class="kw"&gt;;&lt;/span&gt; &lt;span class="kw"&gt;done&lt;/span&gt; &lt;span class="op"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ex"&gt;urls.html&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;方式是通过 Wget 和 Bash 的 &lt;code class="sourceCode bash" data-org-language="sh"&gt;&lt;span class="kw"&gt;for&lt;/span&gt;&lt;/code&gt; 循环：&lt;/p&gt;
+&lt;div class="sourceCode" id="cb1" data-org-language="sh"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;&lt;a class="sourceLine" id="cb1-1" title="1"&gt;$ &lt;span class="kw"&gt;for&lt;/span&gt; &lt;span class="ex"&gt;i&lt;/span&gt; in &lt;span class="kw"&gt;`&lt;/span&gt;&lt;span class="fu"&gt;seq&lt;/span&gt; 1 26&lt;span class="kw"&gt;`;&lt;/span&gt; &lt;span class="kw"&gt;do&lt;/span&gt; &lt;span class="fu"&gt;wget&lt;/span&gt; -c http://cnlox.is-programmer.com/\?page\=&lt;span class="va"&gt;$i&lt;/span&gt; -O &lt;span class="va"&gt;$i&lt;/span&gt;.html&lt;span class="kw"&gt;;&lt;/span&gt; &lt;span class="kw"&gt;done&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb1-2" title="2"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb1-3" title="3"&gt;$ &lt;span class="fu"&gt;ls&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb1-4" title="4"&gt;&lt;span class="ex"&gt;1.html&lt;/span&gt;    11.html   13.html   15.html   17.html   19.html   20.html   22.html   24.html   26.html   4.html    6.html    8.html&lt;/a&gt;
+&lt;a class="sourceLine" id="cb1-5" title="5"&gt;&lt;span class="ex"&gt;10.html&lt;/span&gt;   12.html   14.html   16.html   18.html   2.html    21.html   23.html   25.html   3.html    5.html    7.html    9.html&lt;/a&gt;
+&lt;a class="sourceLine" id="cb1-6" title="6"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb1-7" title="7"&gt;$ &lt;span class="kw"&gt;for&lt;/span&gt; &lt;span class="ex"&gt;i&lt;/span&gt; in &lt;span class="kw"&gt;`&lt;/span&gt;&lt;span class="fu"&gt;seq&lt;/span&gt; 1 26&lt;span class="kw"&gt;`;&lt;/span&gt; &lt;span class="kw"&gt;do&lt;/span&gt; &lt;span class="fu"&gt;grep&lt;/span&gt; link_to_post &lt;span class="va"&gt;$i&lt;/span&gt;.html&lt;span class="kw"&gt;;&lt;/span&gt; &lt;span class="kw"&gt;done&lt;/span&gt; &lt;span class="op"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ex"&gt;urls.html&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;这样我们拿到了一个 &lt;code&gt;urls.html&lt;/code&gt;&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode html"&gt;&lt;code class="sourceCode html"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/44972.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;Goodbye and Thanks to is-programmer&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/43206.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;2013, 青春绝版&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/42237.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;Announcing oh-my-emacs v0.3&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/40912.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt; Announcing ac-geiser v0.1&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/40749.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;Announcing oh-my-emacs v0.1&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/39883.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;OpenStack开发杂谈&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37506.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;轻松一刻：电影条形码转换脚本&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37288.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;慎言多思&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37276.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;李彦宏的“罪己诏”&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37030.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;2012，静水深流&amp;lt;/a&amp;gt;&lt;span class="kw"&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37022.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;陪床记&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/35867.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;Emacs as a Python IDE&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/35680.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;读行记：孤单是一个人的狂欢&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/34489.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;偷得浮生半年闲&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class="co"&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode" id="cb2"&gt;&lt;pre class="sourceCode html"&gt;&lt;code class="sourceCode html"&gt;&lt;a class="sourceLine" id="cb2-1" title="1"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/44972.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;Goodbye and Thanks to is-programmer&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-2" title="2"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/43206.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;2013, 青春绝版&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-3" title="3"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/42237.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;Announcing oh-my-emacs v0.3&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-4" title="4"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/40912.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt; Announcing ac-geiser v0.1&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-5" title="5"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/40749.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;Announcing oh-my-emacs v0.1&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-6" title="6"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/39883.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;OpenStack开发杂谈&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-7" title="7"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37506.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;轻松一刻：电影条形码转换脚本&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-8" title="8"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37288.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;慎言多思&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-9" title="9"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37276.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;李彦宏的“罪己诏”&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-10" title="10"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37030.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;2012，静水深流&amp;lt;/a&amp;gt;&lt;span class="kw"&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-11" title="11"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/37022.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;陪床记&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-12" title="12"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/35867.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;Emacs as a Python IDE&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-13" title="13"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/35680.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;读行记：孤单是一个人的狂欢&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-14" title="14"&gt;&lt;span class="kw"&gt;&amp;lt;h2&lt;/span&gt;&lt;span class="ot"&gt; class=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;link_to_post&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class="ot"&gt; href=&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;http://cnlox.is-programmer.com/posts/34489.html&amp;quot;&lt;/span&gt;&lt;span class="kw"&gt;&amp;gt;&lt;/span&gt;偷得浮生半年闲&lt;span class="kw"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb2-15" title="15"&gt;&lt;span class="co"&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;我通过 &lt;a href="http://vim.wikia.com/wiki/Macros"&gt;Vim Macro&lt;/a&gt;，把这个文件的内容变成 &lt;a href="http://yaml.org/"&gt;YAML&lt;/a&gt; 格式，并加入一个额外的 &lt;code&gt;english_title&lt;/code&gt; 字段，这个字段会变成新的文章的 &lt;a href="https://en.wikipedia.org/wiki/URL"&gt;URL Path&lt;/a&gt; 的一部分：&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode yaml"&gt;&lt;code class="sourceCode yaml"&gt;&lt;span class="co"&gt;# url_list.yaml&lt;/span&gt;
-&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/44972.html&lt;/span&gt;
-  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; Goodbye and Thanks to is-programmer.com&lt;/span&gt;
-  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; goodbye-and-thanks-to-is-programmer&lt;/span&gt;
-&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/43206.html&lt;/span&gt;
-  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 2013, 青春绝版&lt;/span&gt;
-  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; 2013-summary&lt;/span&gt;
-&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/42237.html&lt;/span&gt;
-  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; Announcing oh-my-emacs v0.3&lt;/span&gt;
-  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; announcing-oh-my-emacs-v0.3&lt;/span&gt;
-&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/40912.html&lt;/span&gt;
-  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; Announcing ac-geiser v0.1&lt;/span&gt;
-  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; announcing-ac-geiser-v0.2&lt;/span&gt;
-&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/40749.html&lt;/span&gt;
-  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; Announcing oh-my-emacs v0.1&lt;/span&gt;
-  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; announcing-oh-my-emacs-v0.2&lt;/span&gt;
-&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/39883.html&lt;/span&gt;
-  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; OpenStack开发杂谈&lt;/span&gt;
-  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; misc-thoughts-on-openstack-development&lt;/span&gt;
-&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37506.html&lt;/span&gt;
-  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 轻松一刻：电影条形码转换脚本&lt;/span&gt;
-  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; just-for-fun-moviebarcode-shell-script&lt;/span&gt;
-&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37288.html&lt;/span&gt;
-  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 慎言多思&lt;/span&gt;
-  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; fewer-words-more-thoughts&lt;/span&gt;
-&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37276.html&lt;/span&gt;
-  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 李彦宏的“罪己诏”&lt;/span&gt;
-  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; thoughts-on-baidu&lt;/span&gt;
-&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37030.html&lt;/span&gt;
-  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 2012，静水深流&lt;/span&gt;
-  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; 2012-summary&lt;/span&gt;
-&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37022.html&lt;/span&gt;
-  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 陪床记&lt;/span&gt;
-  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; for-my-father&lt;/span&gt;
-&lt;span class="co"&gt;# ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode" id="cb3"&gt;&lt;pre class="sourceCode yaml"&gt;&lt;code class="sourceCode yaml"&gt;&lt;a class="sourceLine" id="cb3-1" title="1"&gt;&lt;span class="co"&gt;# url_list.yaml&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-2" title="2"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/44972.html&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-3" title="3"&gt;  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; Goodbye and Thanks to is-programmer.com&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-4" title="4"&gt;  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; goodbye-and-thanks-to-is-programmer&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-5" title="5"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/43206.html&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-6" title="6"&gt;  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 2013, 青春绝版&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-7" title="7"&gt;  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; 2013-summary&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-8" title="8"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/42237.html&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-9" title="9"&gt;  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; Announcing oh-my-emacs v0.3&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-10" title="10"&gt;  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; announcing-oh-my-emacs-v0.3&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-11" title="11"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/40912.html&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-12" title="12"&gt;  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; Announcing ac-geiser v0.1&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-13" title="13"&gt;  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; announcing-ac-geiser-v0.2&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-14" title="14"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/40749.html&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-15" title="15"&gt;  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; Announcing oh-my-emacs v0.1&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-16" title="16"&gt;  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; announcing-oh-my-emacs-v0.2&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-17" title="17"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/39883.html&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-18" title="18"&gt;  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; OpenStack开发杂谈&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-19" title="19"&gt;  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; misc-thoughts-on-openstack-development&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-20" title="20"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37506.html&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-21" title="21"&gt;  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 轻松一刻：电影条形码转换脚本&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-22" title="22"&gt;  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; just-for-fun-moviebarcode-shell-script&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-23" title="23"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37288.html&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-24" title="24"&gt;  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 慎言多思&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-25" title="25"&gt;  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; fewer-words-more-thoughts&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-26" title="26"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37276.html&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-27" title="27"&gt;  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 李彦宏的“罪己诏”&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-28" title="28"&gt;  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; thoughts-on-baidu&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-29" title="29"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37030.html&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-30" title="30"&gt;  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 2012，静水深流&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-31" title="31"&gt;  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; 2012-summary&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-32" title="32"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; &lt;span class="fu"&gt;url:&lt;/span&gt;&lt;span class="at"&gt; http://cnlox.is-programmer.com/posts/37022.html&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-33" title="33"&gt;  &lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; 陪床记&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-34" title="34"&gt;  &lt;span class="fu"&gt;english-title:&lt;/span&gt;&lt;span class="at"&gt; for-my-father&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb3-35" title="35"&gt;&lt;span class="co"&gt;# ...&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;我原有的 Blog 文章，每一篇都会有一些 tag，但是这些 tag 的拼写有很多是错误的，因此我又将所有的 tag 爬取下来并 fix，也是保存成 YAML 格式以方便程序读取：&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode yaml"&gt;&lt;code class="sourceCode yaml"&gt;&lt;span class="co"&gt;# tags_fix.yaml&lt;/span&gt;
-&lt;span class="fu"&gt;amarok:&lt;/span&gt;&lt;span class="at"&gt; Amarok&lt;/span&gt;
-&lt;span class="fu"&gt;animal:&lt;/span&gt;&lt;span class="at"&gt; Animal&lt;/span&gt;
-&lt;span class="fu"&gt;apache:&lt;/span&gt;&lt;span class="at"&gt; Apache&lt;/span&gt;
-&lt;span class="fu"&gt;api:&lt;/span&gt;&lt;span class="at"&gt; API&lt;/span&gt;
-&lt;span class="fu"&gt;archlinux:&lt;/span&gt;&lt;span class="at"&gt; Arch Linux&lt;/span&gt;
-&lt;span class="fu"&gt;assembly:&lt;/span&gt;&lt;span class="at"&gt; Assembly&lt;/span&gt;
-&lt;span class="fu"&gt;auctex:&lt;/span&gt;&lt;span class="at"&gt; AUCTeX&lt;/span&gt;
-&lt;span class="fu"&gt;avl:&lt;/span&gt;&lt;span class="at"&gt; AVL&lt;/span&gt;
-&lt;span class="fu"&gt;baidu:&lt;/span&gt;&lt;span class="at"&gt; Baidu&lt;/span&gt;
-&lt;span class="fu"&gt;budai:&lt;/span&gt;&lt;span class="at"&gt; Budai&lt;/span&gt;
-c&lt;span class="co"&gt;#: C#&lt;/span&gt;
-&lt;span class="fu"&gt;c++:&lt;/span&gt;&lt;span class="at"&gt; C++&lt;/span&gt;
-&lt;span class="fu"&gt;cc98:&lt;/span&gt;&lt;span class="at"&gt; CC98&lt;/span&gt;
-&lt;span class="fu"&gt;ccl:&lt;/span&gt;&lt;span class="at"&gt; CCL&lt;/span&gt;
-&lt;span class="fu"&gt;cdlatex:&lt;/span&gt;&lt;span class="at"&gt; CDLaTeX&lt;/span&gt;
-&lt;span class="fu"&gt;cmake:&lt;/span&gt;&lt;span class="at"&gt; CMAKE&lt;/span&gt;
-&lt;span class="fu"&gt;cocoa:&lt;/span&gt;&lt;span class="at"&gt; Cocoa&lt;/span&gt;
-&lt;span class="fu"&gt;colinux:&lt;/span&gt;&lt;span class="at"&gt; coLinux&lt;/span&gt;
-&lt;span class="fu"&gt;compiler:&lt;/span&gt;&lt;span class="at"&gt; Compiler&lt;/span&gt;
-&lt;span class="fu"&gt;conky:&lt;/span&gt;&lt;span class="at"&gt; conky&lt;/span&gt;
-&lt;span class="co"&gt;# ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode" id="cb4"&gt;&lt;pre class="sourceCode yaml"&gt;&lt;code class="sourceCode yaml"&gt;&lt;a class="sourceLine" id="cb4-1" title="1"&gt;&lt;span class="co"&gt;# tags_fix.yaml&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-2" title="2"&gt;&lt;span class="fu"&gt;amarok:&lt;/span&gt;&lt;span class="at"&gt; Amarok&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-3" title="3"&gt;&lt;span class="fu"&gt;animal:&lt;/span&gt;&lt;span class="at"&gt; Animal&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-4" title="4"&gt;&lt;span class="fu"&gt;apache:&lt;/span&gt;&lt;span class="at"&gt; Apache&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-5" title="5"&gt;&lt;span class="fu"&gt;api:&lt;/span&gt;&lt;span class="at"&gt; API&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-6" title="6"&gt;&lt;span class="fu"&gt;archlinux:&lt;/span&gt;&lt;span class="at"&gt; Arch Linux&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-7" title="7"&gt;&lt;span class="fu"&gt;assembly:&lt;/span&gt;&lt;span class="at"&gt; Assembly&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-8" title="8"&gt;&lt;span class="fu"&gt;auctex:&lt;/span&gt;&lt;span class="at"&gt; AUCTeX&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-9" title="9"&gt;&lt;span class="fu"&gt;avl:&lt;/span&gt;&lt;span class="at"&gt; AVL&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-10" title="10"&gt;&lt;span class="fu"&gt;baidu:&lt;/span&gt;&lt;span class="at"&gt; Baidu&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-11" title="11"&gt;&lt;span class="fu"&gt;budai:&lt;/span&gt;&lt;span class="at"&gt; Budai&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-12" title="12"&gt;c&lt;span class="co"&gt;#: C#&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-13" title="13"&gt;&lt;span class="fu"&gt;c++:&lt;/span&gt;&lt;span class="at"&gt; C++&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-14" title="14"&gt;&lt;span class="fu"&gt;cc98:&lt;/span&gt;&lt;span class="at"&gt; CC98&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-15" title="15"&gt;&lt;span class="fu"&gt;ccl:&lt;/span&gt;&lt;span class="at"&gt; CCL&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-16" title="16"&gt;&lt;span class="fu"&gt;cdlatex:&lt;/span&gt;&lt;span class="at"&gt; CDLaTeX&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-17" title="17"&gt;&lt;span class="fu"&gt;cmake:&lt;/span&gt;&lt;span class="at"&gt; CMAKE&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-18" title="18"&gt;&lt;span class="fu"&gt;cocoa:&lt;/span&gt;&lt;span class="at"&gt; Cocoa&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-19" title="19"&gt;&lt;span class="fu"&gt;colinux:&lt;/span&gt;&lt;span class="at"&gt; coLinux&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-20" title="20"&gt;&lt;span class="fu"&gt;compiler:&lt;/span&gt;&lt;span class="at"&gt; Compiler&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-21" title="21"&gt;&lt;span class="fu"&gt;conky:&lt;/span&gt;&lt;span class="at"&gt; conky&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb4-22" title="22"&gt;&lt;span class="co"&gt;# ...&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;基础工作做好之后，接下来就是写程序，根据 &lt;code&gt;url_list.yaml&lt;/code&gt; 来对每一篇文章进行批量化的处理：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;抓取文章内容&lt;/li&gt;
@@ -1199,182 +1374,182 @@ c&lt;span class="co"&gt;#: C#&lt;/span&gt;
 &lt;li&gt;&lt;code&gt;category&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;原文章的 URL&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;用 &lt;a href="http://pandoc.org/"&gt;Pandoc&lt;/a&gt; 将抓取下的 HTML 转换成 Org-mode 格式&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;用 &lt;a href="http://pandoc.org/"&gt;Pandoc&lt;/a&gt; 将抓取下的 HTML 转换成 Org-mode 格式&lt;a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;确定迁移后的文章的 URL&lt;/li&gt;
 &lt;li&gt;修正 Tag&lt;/li&gt;
 &lt;li&gt;保存文件&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;所以 is-programmer 抓取下来的文章，最后会被保存成一个 &lt;code&gt;YYYY-MM-DD-some-title.org&lt;/code&gt; 文件和 &lt;code&gt;YYYY-MM-DD-some-title.yaml&lt;/code&gt; 文件，以符合 &lt;a href="https://nanoc.ws"&gt;Nanoc&lt;/a&gt; 的要求&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;所以 is-programmer 抓取下来的文章，最后会被保存成一个 &lt;code&gt;YYYY-MM-DD-some-title.org&lt;/code&gt; 文件和 &lt;code&gt;YYYY-MM-DD-some-title.yaml&lt;/code&gt; 文件，以符合 &lt;a href="https://nanoc.ws"&gt;Nanoc&lt;/a&gt; 的要求&lt;a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;保存后的 YAML 文件大约如下：&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode yaml"&gt;&lt;code class="sourceCode yaml"&gt;&lt;span class="ot"&gt;---&lt;/span&gt;
-&lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; &lt;/span&gt;&lt;span class="st"&gt;&amp;quot;计算机是懒人的科学&amp;quot;&lt;/span&gt;
-&lt;span class="fu"&gt;created_at:&lt;/span&gt;&lt;span class="at"&gt; 2009-06-04T05:41:13+08:00&lt;/span&gt;
-&lt;span class="fu"&gt;updated_at:&lt;/span&gt;&lt;span class="at"&gt; 2017-04-26T17:31:07+08:00&lt;/span&gt;
-&lt;span class="fu"&gt;kind:&lt;/span&gt;&lt;span class="at"&gt; article&lt;/span&gt;
-&lt;span class="fu"&gt;category:&lt;/span&gt;&lt;span class="at"&gt; Linux&lt;/span&gt;
-&lt;span class="fu"&gt;tags:&lt;/span&gt;
-&lt;span class="kw"&gt;-&lt;/span&gt; Ubuntu
-&lt;span class="kw"&gt;-&lt;/span&gt; LaTeX
-&lt;span class="kw"&gt;-&lt;/span&gt; Emacs
-&lt;span class="kw"&gt;-&lt;/span&gt; Firefox
-&lt;span class="kw"&gt;-&lt;/span&gt; Outdated
-&lt;span class="fu"&gt;meta:&lt;/span&gt;
-  &lt;span class="fu"&gt;html:&lt;/span&gt;&lt;span class="at"&gt; Imported from &amp;lt;a href=&amp;quot;http://cnlox.is-programmer.com/posts/8790.html&amp;quot;&amp;gt;is-programmer&amp;lt;/a&amp;gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode" id="cb5"&gt;&lt;pre class="sourceCode yaml"&gt;&lt;code class="sourceCode yaml"&gt;&lt;a class="sourceLine" id="cb5-1" title="1"&gt;&lt;span class="ot"&gt;---&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-2" title="2"&gt;&lt;span class="fu"&gt;title:&lt;/span&gt;&lt;span class="at"&gt; &lt;/span&gt;&lt;span class="st"&gt;&amp;quot;计算机是懒人的科学&amp;quot;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-3" title="3"&gt;&lt;span class="fu"&gt;created_at:&lt;/span&gt;&lt;span class="at"&gt; 2009-06-04T05:41:13+08:00&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-4" title="4"&gt;&lt;span class="fu"&gt;updated_at:&lt;/span&gt;&lt;span class="at"&gt; 2017-04-26T17:31:07+08:00&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-5" title="5"&gt;&lt;span class="fu"&gt;kind:&lt;/span&gt;&lt;span class="at"&gt; article&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-6" title="6"&gt;&lt;span class="fu"&gt;category:&lt;/span&gt;&lt;span class="at"&gt; Linux&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-7" title="7"&gt;&lt;span class="fu"&gt;tags:&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-8" title="8"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; Ubuntu&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-9" title="9"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; LaTeX&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-10" title="10"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; Emacs&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-11" title="11"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; Firefox&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-12" title="12"&gt;&lt;span class="kw"&gt;-&lt;/span&gt; Outdated&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-13" title="13"&gt;&lt;span class="fu"&gt;meta:&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb5-14" title="14"&gt;  &lt;span class="fu"&gt;html:&lt;/span&gt;&lt;span class="at"&gt; Imported from &amp;lt;a href=&amp;quot;http://cnlox.is-programmer.com/posts/8790.html&amp;quot;&amp;gt;is-programmer&amp;lt;/a&amp;gt;.&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;程序是用 Ruby 写的，主要还是用了 Ruby 中内建的 &lt;a href="https://ruby-doc.org/core-2.3.0/Regexp.html"&gt;Regexp&lt;/a&gt;。正则表达式是非常强大和方便的工具，但是每种语言、工具的实现都在一些细节处有一些细小的差别，所以实际应用时，耐心的调试和文档查询工作是少不了的。&lt;/p&gt;
-&lt;p&gt;程序清单如下&lt;a href="#fn3" class="footnoteRef" id="fnref3"&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;：&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;span class="co"&gt;# spider.rb&lt;/span&gt;
-require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
-require &lt;span class="st"&gt;&amp;#39;net/http&amp;#39;&lt;/span&gt;
-
-list = &lt;span class="dt"&gt;YAML&lt;/span&gt;::load(&lt;span class="dt"&gt;File&lt;/span&gt;.open(&lt;span class="st"&gt;&amp;#39;url_list.yaml&amp;#39;&lt;/span&gt;).read)
-tags_fix = &lt;span class="dt"&gt;YAML&lt;/span&gt;::load(&lt;span class="dt"&gt;File&lt;/span&gt;.open(&lt;span class="st"&gt;&amp;#39;tags_fix.yaml&amp;#39;&lt;/span&gt;).read)
-
-list.each &lt;span class="kw"&gt;do&lt;/span&gt; |item|
-  uri = &lt;span class="dt"&gt;URI&lt;/span&gt;(item[&lt;span class="st"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;])
-  html = &lt;span class="dt"&gt;Net&lt;/span&gt;::&lt;span class="dt"&gt;HTTP&lt;/span&gt;.get(uri)
-  tags_re = &lt;span class="ot"&gt;/&amp;lt;a href=&amp;quot;\/tag\/[\S]*&amp;quot;&amp;gt;([\S]*)&amp;lt;\/a&amp;gt;/&lt;/span&gt;
-  tags = html.scan(tags_re).flatten
-
-  category_re = &lt;span class="ot"&gt;/&amp;lt;div id=&amp;quot;article_header&amp;quot;&amp;gt;.*&amp;lt;a href=&amp;quot;\/categories\/[\d]*\/posts&amp;quot;&amp;gt;([\S]*)&amp;lt;\/a&amp;gt;.*&amp;lt;\/div&amp;gt;/m&lt;/span&gt;
-  category = html.scan(category_re).flatten[&lt;span class="dv"&gt;0&lt;/span&gt;]
-
-  date_re = &lt;span class="ot"&gt;/posted.*@ (.* \+0800)/&lt;/span&gt;
-  created_at = &lt;span class="dt"&gt;DateTime&lt;/span&gt;.parse(html.scan(date_re).flatten[&lt;span class="dv"&gt;0&lt;/span&gt;])
-  updated_at = &lt;span class="dt"&gt;DateTime&lt;/span&gt;.now
-
-  title = item[&lt;span class="st"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;]
-
-  yaml = &amp;lt;&amp;lt;&lt;span class="kw"&gt;YAML&lt;/span&gt;
-&lt;span class="ot"&gt;---&lt;/span&gt;
-&lt;span class="ot"&gt;title: &amp;quot;#{&lt;/span&gt;item[&lt;span class="st"&gt;&amp;quot;title&amp;quot;&lt;/span&gt;]&lt;span class="ot"&gt;}&amp;quot;&lt;/span&gt;
-&lt;span class="ot"&gt;created_at: #{&lt;/span&gt;created_at.to_s&lt;span class="ot"&gt;}&lt;/span&gt;
-&lt;span class="ot"&gt;updated_at: #{&lt;/span&gt;updated_at.to_s&lt;span class="ot"&gt;}&lt;/span&gt;
-&lt;span class="ot"&gt;kind: article&lt;/span&gt;
-&lt;span class="ot"&gt;category: #{&lt;/span&gt;category&lt;span class="ot"&gt;}&lt;/span&gt;
-&lt;span class="ot"&gt;tags:&lt;/span&gt;
-&lt;span class="ot"&gt;YAML&lt;/span&gt;
-
-&lt;span class="ot"&gt;  tags.each do |tag|&lt;/span&gt;
-&lt;span class="ot"&gt;    yaml += &amp;quot;- #{&lt;/span&gt;tags_fix[tag].force_encoding(&lt;span class="dt"&gt;Encoding&lt;/span&gt;::&lt;span class="dt"&gt;UTF_8&lt;/span&gt;)&lt;span class="ot"&gt;}\n&amp;quot;&lt;/span&gt;
-&lt;span class="ot"&gt;  end&lt;/span&gt;
-
-&lt;span class="ot"&gt;  yaml += &amp;lt;&amp;lt;YAML&lt;/span&gt;
-&lt;span class="ot"&gt;meta:&lt;/span&gt;
-&lt;span class="ot"&gt;  html: Imported from &amp;lt;a href=&amp;quot;#{&lt;/span&gt;item[&lt;span class="st"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;]&lt;span class="ot"&gt;}&amp;quot;&amp;gt;is-programmer&amp;lt;/a&amp;gt;.&lt;/span&gt;
-&lt;span class="ot"&gt;YAML&lt;/span&gt;
-
-&lt;span class="ot"&gt;  yaml_file = &amp;quot;posts/&amp;quot; + created_at.strftime(&amp;#39;%Y-%m-%d&amp;#39;) + &amp;quot;-&amp;quot; + item[&amp;quot;english-title&amp;quot;] + &amp;quot;.yaml&amp;quot;&lt;/span&gt;
-
-&lt;span class="ot"&gt;  File.open(yaml_file, &amp;#39;w&amp;#39;) do |f|&lt;/span&gt;
-&lt;span class="ot"&gt;    f.write(yaml)&lt;/span&gt;
-&lt;span class="ot"&gt;  end&lt;/span&gt;
-
-&lt;span class="ot"&gt;  org_file = &amp;quot;posts/&amp;quot; + created_at.strftime(&amp;#39;%Y-%m-%d&amp;#39;) + &amp;quot;-&amp;quot; + item[&amp;quot;english-title&amp;quot;] + &amp;quot;.org&amp;quot;&lt;/span&gt;
-&lt;span class="ot"&gt;  article_content_re = /&amp;lt;div id=.article_content.&amp;gt;(.*)&amp;lt;\/div&amp;gt;.*&amp;lt;div id=.article_bar.&amp;gt;/m&lt;/span&gt;
-&lt;span class="ot"&gt;  article_content = html.scan(article_content_re).flatten[0]&lt;/span&gt;
-
-&lt;span class="ot"&gt;  File.open(&amp;#39;/tmp/test.html&amp;#39;, &amp;#39;w&amp;#39;) do |f|&lt;/span&gt;
-&lt;span class="ot"&gt;    f.write(article_content)&lt;/span&gt;
-&lt;span class="ot"&gt;  end&lt;/span&gt;
-
-&lt;span class="ot"&gt;  `pandoc /tmp/test.html -o #{&lt;/span&gt;org_file&lt;span class="ot"&gt;}`&lt;/span&gt;
-&lt;span class="ot"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;程序清单如下&lt;a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;：&lt;/p&gt;
+&lt;div class="sourceCode" id="cb6"&gt;&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;a class="sourceLine" id="cb6-1" title="1"&gt;&lt;span class="co"&gt;# spider.rb&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-2" title="2"&gt;require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-3" title="3"&gt;require &lt;span class="st"&gt;&amp;#39;net/http&amp;#39;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-4" title="4"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-5" title="5"&gt;list = &lt;span class="dt"&gt;YAML&lt;/span&gt;::load(&lt;span class="dt"&gt;File&lt;/span&gt;.open(&lt;span class="st"&gt;&amp;#39;url_list.yaml&amp;#39;&lt;/span&gt;).read)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-6" title="6"&gt;tags_fix = &lt;span class="dt"&gt;YAML&lt;/span&gt;::load(&lt;span class="dt"&gt;File&lt;/span&gt;.open(&lt;span class="st"&gt;&amp;#39;tags_fix.yaml&amp;#39;&lt;/span&gt;).read)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-7" title="7"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-8" title="8"&gt;list.each &lt;span class="kw"&gt;do&lt;/span&gt; |item|&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-9" title="9"&gt;  uri = &lt;span class="dt"&gt;URI&lt;/span&gt;(item[&lt;span class="st"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;])&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-10" title="10"&gt;  html = &lt;span class="dt"&gt;Net&lt;/span&gt;::&lt;span class="dt"&gt;HTTP&lt;/span&gt;.get(uri)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-11" title="11"&gt;  tags_re = &lt;span class="ot"&gt;/&amp;lt;a href=&amp;quot;\/tag\/[\S]*&amp;quot;&amp;gt;([\S]*)&amp;lt;\/a&amp;gt;/&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-12" title="12"&gt;  tags = html.scan(tags_re).flatten&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-13" title="13"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-14" title="14"&gt;  category_re = &lt;span class="ot"&gt;/&amp;lt;div id=&amp;quot;article_header&amp;quot;&amp;gt;.*&amp;lt;a href=&amp;quot;\/categories\/[\d]*\/posts&amp;quot;&amp;gt;([\S]*)&amp;lt;\/a&amp;gt;.*&amp;lt;\/div&amp;gt;/m&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-15" title="15"&gt;  category = html.scan(category_re).flatten[&lt;span class="dv"&gt;0&lt;/span&gt;]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-16" title="16"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-17" title="17"&gt;  date_re = &lt;span class="ot"&gt;/posted.*@ (.* \+0800)/&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-18" title="18"&gt;  created_at = &lt;span class="dt"&gt;DateTime&lt;/span&gt;.parse(html.scan(date_re).flatten[&lt;span class="dv"&gt;0&lt;/span&gt;])&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-19" title="19"&gt;  updated_at = &lt;span class="dt"&gt;DateTime&lt;/span&gt;.now&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-20" title="20"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-21" title="21"&gt;  title = item[&lt;span class="st"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-22" title="22"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-23" title="23"&gt;  yaml = &amp;lt;&amp;lt;&lt;span class="kw"&gt;YAML&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-24" title="24"&gt;&lt;span class="ot"&gt;---&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-25" title="25"&gt;&lt;span class="ot"&gt;title: &amp;quot;#{&lt;/span&gt;item[&lt;span class="st"&gt;&amp;quot;title&amp;quot;&lt;/span&gt;]&lt;span class="ot"&gt;}&amp;quot;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-26" title="26"&gt;&lt;span class="ot"&gt;created_at: #{&lt;/span&gt;created_at.to_s&lt;span class="ot"&gt;}&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-27" title="27"&gt;&lt;span class="ot"&gt;updated_at: #{&lt;/span&gt;updated_at.to_s&lt;span class="ot"&gt;}&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-28" title="28"&gt;&lt;span class="ot"&gt;kind: article&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-29" title="29"&gt;&lt;span class="ot"&gt;category: #{&lt;/span&gt;category&lt;span class="ot"&gt;}&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-30" title="30"&gt;&lt;span class="ot"&gt;tags:&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-31" title="31"&gt;&lt;span class="ot"&gt;YAML&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-32" title="32"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-33" title="33"&gt;&lt;span class="ot"&gt;  tags.each do |tag|&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-34" title="34"&gt;&lt;span class="ot"&gt;    yaml += &amp;quot;- #{&lt;/span&gt;tags_fix[tag].force_encoding(&lt;span class="dt"&gt;Encoding&lt;/span&gt;::&lt;span class="dt"&gt;UTF_8&lt;/span&gt;)&lt;span class="ot"&gt;}\n&amp;quot;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-35" title="35"&gt;&lt;span class="ot"&gt;  end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-36" title="36"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-37" title="37"&gt;&lt;span class="ot"&gt;  yaml += &amp;lt;&amp;lt;YAML&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-38" title="38"&gt;&lt;span class="ot"&gt;meta:&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-39" title="39"&gt;&lt;span class="ot"&gt;  html: Imported from &amp;lt;a href=&amp;quot;#{&lt;/span&gt;item[&lt;span class="st"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;]&lt;span class="ot"&gt;}&amp;quot;&amp;gt;is-programmer&amp;lt;/a&amp;gt;.&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-40" title="40"&gt;&lt;span class="ot"&gt;YAML&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-41" title="41"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-42" title="42"&gt;&lt;span class="ot"&gt;  yaml_file = &amp;quot;posts/&amp;quot; + created_at.strftime(&amp;#39;%Y-%m-%d&amp;#39;) + &amp;quot;-&amp;quot; + item[&amp;quot;english-title&amp;quot;] + &amp;quot;.yaml&amp;quot;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-43" title="43"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-44" title="44"&gt;&lt;span class="ot"&gt;  File.open(yaml_file, &amp;#39;w&amp;#39;) do |f|&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-45" title="45"&gt;&lt;span class="ot"&gt;    f.write(yaml)&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-46" title="46"&gt;&lt;span class="ot"&gt;  end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-47" title="47"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-48" title="48"&gt;&lt;span class="ot"&gt;  org_file = &amp;quot;posts/&amp;quot; + created_at.strftime(&amp;#39;%Y-%m-%d&amp;#39;) + &amp;quot;-&amp;quot; + item[&amp;quot;english-title&amp;quot;] + &amp;quot;.org&amp;quot;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-49" title="49"&gt;&lt;span class="ot"&gt;  article_content_re = /&amp;lt;div id=.article_content.&amp;gt;(.*)&amp;lt;\/div&amp;gt;.*&amp;lt;div id=.article_bar.&amp;gt;/m&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-50" title="50"&gt;&lt;span class="ot"&gt;  article_content = html.scan(article_content_re).flatten[0]&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-51" title="51"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-52" title="52"&gt;&lt;span class="ot"&gt;  File.open(&amp;#39;/tmp/test.html&amp;#39;, &amp;#39;w&amp;#39;) do |f|&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-53" title="53"&gt;&lt;span class="ot"&gt;    f.write(article_content)&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-54" title="54"&gt;&lt;span class="ot"&gt;  end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-55" title="55"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-56" title="56"&gt;&lt;span class="ot"&gt;  `pandoc /tmp/test.html -o #{&lt;/span&gt;org_file&lt;span class="ot"&gt;}`&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb6-57" title="57"&gt;&lt;span class="ot"&gt;end&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;再之后，可以通过一些初级的正则替换，来完成一些最基本的文本修正工作。我这里最主要是通过 Ruby 的 Regexp，给文章中的中英文混排的英文单词两边加入了一个合适的半角空格。Ruby 的 Regexp 可以通过 &lt;code&gt;/(\p{Han})/&lt;/code&gt; 来直接匹配汉字，实在是非常方便。程序清单如下：&lt;/p&gt;
-&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;span class="co"&gt;# article_fix.rb&lt;/span&gt;
-require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
-
-&lt;span class="kw"&gt;def&lt;/span&gt; fix_english_word(content)
-  alpha_re = &lt;span class="ot"&gt;/(\p{Han})([[:ascii:]]+?)(\p{Han})/&lt;/span&gt;
-  word_fix = &lt;span class="dt"&gt;YAML&lt;/span&gt;::load(&lt;span class="dt"&gt;File&lt;/span&gt;.open(&lt;span class="st"&gt;&amp;#39;tags_fix.yaml&amp;#39;&lt;/span&gt;).read)
-  new_word_fix = {}
-  word_fix.each_pair &lt;span class="kw"&gt;do&lt;/span&gt; |key, value|
-    new_word_fix[key.downcase] = value
-  &lt;span class="kw"&gt;end&lt;/span&gt;
-
-  content.gsub(alpha_re) &lt;span class="kw"&gt;do&lt;/span&gt;
-    &lt;span class="kw"&gt;if&lt;/span&gt; new_word_fix.has_key?(&lt;span class="dt"&gt;$2&lt;/span&gt;.downcase)
-      fix_word = new_word_fix[&lt;span class="dt"&gt;$2&lt;/span&gt;.downcase]
-    &lt;span class="kw"&gt;else&lt;/span&gt;
-      fix_word = &lt;span class="dt"&gt;$2&lt;/span&gt;
-    &lt;span class="kw"&gt;end&lt;/span&gt;
-    &lt;span class="dt"&gt;$1&lt;/span&gt; + &lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt; + fix_word +  &lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt; + &lt;span class="dt"&gt;$3&lt;/span&gt;
-  &lt;span class="kw"&gt;end&lt;/span&gt;
-&lt;span class="kw"&gt;end&lt;/span&gt;
-
-&lt;span class="kw"&gt;def&lt;/span&gt; fix_english_word_with_punct(content)
-  alpha_re = &lt;span class="ot"&gt;/(\p{Han})([[:ascii:]]+?)(\p{Punct})/&lt;/span&gt;
-  word_fix = &lt;span class="dt"&gt;YAML&lt;/span&gt;::load(&lt;span class="dt"&gt;File&lt;/span&gt;.open(&lt;span class="st"&gt;&amp;#39;tags_fix.yaml&amp;#39;&lt;/span&gt;).read)
-  new_word_fix = {}
-  word_fix.each_pair &lt;span class="kw"&gt;do&lt;/span&gt; |key, value|
-    new_word_fix[key.downcase] = value
-  &lt;span class="kw"&gt;end&lt;/span&gt;
-
-  content.gsub(alpha_re) &lt;span class="kw"&gt;do&lt;/span&gt;
-    &lt;span class="kw"&gt;if&lt;/span&gt; new_word_fix.has_key?(&lt;span class="dt"&gt;$2&lt;/span&gt;.downcase)
-      fix_word = new_word_fix[&lt;span class="dt"&gt;$2&lt;/span&gt;.downcase]
-    &lt;span class="kw"&gt;else&lt;/span&gt;
-      fix_word = &lt;span class="dt"&gt;$2&lt;/span&gt;
-    &lt;span class="kw"&gt;end&lt;/span&gt;
-    &lt;span class="dt"&gt;$1&lt;/span&gt; + &lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt; + fix_word +  &lt;span class="dt"&gt;$3&lt;/span&gt;
-  &lt;span class="kw"&gt;end&lt;/span&gt;
-&lt;span class="kw"&gt;end&lt;/span&gt;
-
-&lt;span class="kw"&gt;def&lt;/span&gt; fix_bullet_point(content)
-  content.gsub(&lt;span class="ot"&gt;/^-\s+/&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;- &amp;#39;&lt;/span&gt;)
-&lt;span class="kw"&gt;end&lt;/span&gt;
-
-&lt;span class="kw"&gt;def&lt;/span&gt; fix_org_properties(content)
-  content.gsub(&lt;span class="ot"&gt;/.*PROPERTIES.*\n\s+:CUSTOM_ID:.*\n.*END.*\n\n/&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;)
-&lt;span class="kw"&gt;end&lt;/span&gt;
-
-&lt;span class="kw"&gt;def&lt;/span&gt; fix_org_section_title(content)
-  content.gsub(&lt;span class="ot"&gt;/(^\*{1,4})\s*.*\[.*\]\[(.*)\]\]/&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;\1 \2&amp;#39;&lt;/span&gt;)
-&lt;span class="kw"&gt;end&lt;/span&gt;
-
-&lt;span class="kw"&gt;def&lt;/span&gt; fix_source_code(content)
-  content.gsub(&lt;span class="st"&gt;&amp;#39;BEGIN_EXAMPLE&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;BEGIN_SRC&amp;#39;&lt;/span&gt;).
-    gsub(&lt;span class="st"&gt;&amp;#39;END_EXAMPLE&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;END_SRC&amp;#39;&lt;/span&gt;).
-    gsub(&lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt;, &lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt;)
-&lt;span class="kw"&gt;end&lt;/span&gt;
-
-&lt;span class="kw"&gt;def&lt;/span&gt; main(file)
-  content = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
-  &lt;span class="dt"&gt;File&lt;/span&gt;.open(file) &lt;span class="kw"&gt;do&lt;/span&gt; |f|
-    content = f.read
-  &lt;span class="kw"&gt;end&lt;/span&gt;
-
-  content =
-    fix_english_word_with_punct(
-      fix_english_word(
-        fix_bullet_point(
-          fix_org_properties(
-            fix_org_section_title(
-              fix_source_code(content)
-            )
-          )
-        )
-      )
-    )
-
-  &lt;span class="dt"&gt;File&lt;/span&gt;.open(file, &lt;span class="ch"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;) &lt;span class="kw"&gt;do&lt;/span&gt; |f|
-    f.write(content)
-  &lt;span class="kw"&gt;end&lt;/span&gt;
-&lt;span class="kw"&gt;end&lt;/span&gt;
-
-&lt;span class="kw"&gt;if&lt;/span&gt; &lt;span class="dv"&gt;__FILE__&lt;/span&gt; == &lt;span class="dt"&gt;$0&lt;/span&gt;
-  main(&lt;span class="dt"&gt;ARGV&lt;/span&gt;[&lt;span class="dv"&gt;0&lt;/span&gt;])
-&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode" id="cb7"&gt;&lt;pre class="sourceCode ruby"&gt;&lt;code class="sourceCode ruby"&gt;&lt;a class="sourceLine" id="cb7-1" title="1"&gt;&lt;span class="co"&gt;# article_fix.rb&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-2" title="2"&gt;require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-3" title="3"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-4" title="4"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; fix_english_word(content)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-5" title="5"&gt;  alpha_re = &lt;span class="ot"&gt;/(\p{Han})([[:ascii:]]+?)(\p{Han})/&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-6" title="6"&gt;  word_fix = &lt;span class="dt"&gt;YAML&lt;/span&gt;::load(&lt;span class="dt"&gt;File&lt;/span&gt;.open(&lt;span class="st"&gt;&amp;#39;tags_fix.yaml&amp;#39;&lt;/span&gt;).read)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-7" title="7"&gt;  new_word_fix = {}&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-8" title="8"&gt;  word_fix.each_pair &lt;span class="kw"&gt;do&lt;/span&gt; |key, value|&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-9" title="9"&gt;    new_word_fix[key.downcase] = value&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-10" title="10"&gt;  &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-11" title="11"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-12" title="12"&gt;  content.gsub(alpha_re) &lt;span class="kw"&gt;do&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-13" title="13"&gt;    &lt;span class="kw"&gt;if&lt;/span&gt; new_word_fix.has_key?(&lt;span class="dt"&gt;$2&lt;/span&gt;.downcase)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-14" title="14"&gt;      fix_word = new_word_fix[&lt;span class="dt"&gt;$2&lt;/span&gt;.downcase]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-15" title="15"&gt;    &lt;span class="kw"&gt;else&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-16" title="16"&gt;      fix_word = &lt;span class="dt"&gt;$2&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-17" title="17"&gt;    &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-18" title="18"&gt;    &lt;span class="dt"&gt;$1&lt;/span&gt; + &lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt; + fix_word +  &lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt; + &lt;span class="dt"&gt;$3&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-19" title="19"&gt;  &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-20" title="20"&gt;&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-21" title="21"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-22" title="22"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; fix_english_word_with_punct(content)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-23" title="23"&gt;  alpha_re = &lt;span class="ot"&gt;/(\p{Han})([[:ascii:]]+?)(\p{Punct})/&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-24" title="24"&gt;  word_fix = &lt;span class="dt"&gt;YAML&lt;/span&gt;::load(&lt;span class="dt"&gt;File&lt;/span&gt;.open(&lt;span class="st"&gt;&amp;#39;tags_fix.yaml&amp;#39;&lt;/span&gt;).read)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-25" title="25"&gt;  new_word_fix = {}&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-26" title="26"&gt;  word_fix.each_pair &lt;span class="kw"&gt;do&lt;/span&gt; |key, value|&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-27" title="27"&gt;    new_word_fix[key.downcase] = value&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-28" title="28"&gt;  &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-29" title="29"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-30" title="30"&gt;  content.gsub(alpha_re) &lt;span class="kw"&gt;do&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-31" title="31"&gt;    &lt;span class="kw"&gt;if&lt;/span&gt; new_word_fix.has_key?(&lt;span class="dt"&gt;$2&lt;/span&gt;.downcase)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-32" title="32"&gt;      fix_word = new_word_fix[&lt;span class="dt"&gt;$2&lt;/span&gt;.downcase]&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-33" title="33"&gt;    &lt;span class="kw"&gt;else&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-34" title="34"&gt;      fix_word = &lt;span class="dt"&gt;$2&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-35" title="35"&gt;    &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-36" title="36"&gt;    &lt;span class="dt"&gt;$1&lt;/span&gt; + &lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt; + fix_word +  &lt;span class="dt"&gt;$3&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-37" title="37"&gt;  &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-38" title="38"&gt;&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-39" title="39"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-40" title="40"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; fix_bullet_point(content)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-41" title="41"&gt;  content.gsub(&lt;span class="ot"&gt;/^-\s+/&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;- &amp;#39;&lt;/span&gt;)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-42" title="42"&gt;&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-43" title="43"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-44" title="44"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; fix_org_properties(content)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-45" title="45"&gt;  content.gsub(&lt;span class="ot"&gt;/.*PROPERTIES.*\n\s+:CUSTOM_ID:.*\n.*END.*\n\n/&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-46" title="46"&gt;&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-47" title="47"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-48" title="48"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; fix_org_section_title(content)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-49" title="49"&gt;  content.gsub(&lt;span class="ot"&gt;/(^\*{1,4})\s*.*\[.*\]\[(.*)\]\]/&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;\1 \2&amp;#39;&lt;/span&gt;)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-50" title="50"&gt;&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-51" title="51"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-52" title="52"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; fix_source_code(content)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-53" title="53"&gt;  content.gsub(&lt;span class="st"&gt;&amp;#39;BEGIN_EXAMPLE&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;BEGIN_SRC&amp;#39;&lt;/span&gt;).&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-54" title="54"&gt;    gsub(&lt;span class="st"&gt;&amp;#39;END_EXAMPLE&amp;#39;&lt;/span&gt;, &lt;span class="st"&gt;&amp;#39;END_SRC&amp;#39;&lt;/span&gt;).&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-55" title="55"&gt;    gsub(&lt;span class="st"&gt;&amp;#39; &amp;#39;&lt;/span&gt;, &lt;span class="ch"&gt;&amp;#39; &amp;#39;&lt;/span&gt;)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-56" title="56"&gt;&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-57" title="57"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-58" title="58"&gt;&lt;span class="kw"&gt;def&lt;/span&gt; main(file)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-59" title="59"&gt;  content = &lt;span class="st"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-60" title="60"&gt;  &lt;span class="dt"&gt;File&lt;/span&gt;.open(file) &lt;span class="kw"&gt;do&lt;/span&gt; |f|&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-61" title="61"&gt;    content = f.read&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-62" title="62"&gt;  &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-63" title="63"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-64" title="64"&gt;  content =&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-65" title="65"&gt;    fix_english_word_with_punct(&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-66" title="66"&gt;      fix_english_word(&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-67" title="67"&gt;        fix_bullet_point(&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-68" title="68"&gt;          fix_org_properties(&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-69" title="69"&gt;            fix_org_section_title(&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-70" title="70"&gt;              fix_source_code(content)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-71" title="71"&gt;            )&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-72" title="72"&gt;          )&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-73" title="73"&gt;        )&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-74" title="74"&gt;      )&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-75" title="75"&gt;    )&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-76" title="76"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-77" title="77"&gt;  &lt;span class="dt"&gt;File&lt;/span&gt;.open(file, &lt;span class="ch"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;) &lt;span class="kw"&gt;do&lt;/span&gt; |f|&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-78" title="78"&gt;    f.write(content)&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-79" title="79"&gt;  &lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-80" title="80"&gt;&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-81" title="81"&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-82" title="82"&gt;&lt;span class="kw"&gt;if&lt;/span&gt; &lt;span class="dv"&gt;__FILE__&lt;/span&gt; == &lt;span class="dt"&gt;$0&lt;/span&gt;&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-83" title="83"&gt;  main(&lt;span class="dt"&gt;ARGV&lt;/span&gt;[&lt;span class="dv"&gt;0&lt;/span&gt;])&lt;/a&gt;
+&lt;a class="sourceLine" id="cb7-84" title="84"&gt;&lt;span class="kw"&gt;end&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;再之后就是十分枯燥的工作了，我主要是按照这份文案排版&lt;a href="http://ppresume.com/notes/guide-zh.html"&gt;方案&lt;/a&gt;来修正很多的文字错误，前后大概花了有 10 天的时间：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/static/image/2017/type_fix.png"&gt;&lt;img src="/static/image/2017/type_fix.png" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;加上调试程序，总共大约是花了两周的时间，于现在的我而言，是相当大的时间成本，这也是我迟迟没有动手做这个事的原因。不过好在下了决心后，快刀斩乱麻，坚持下也就完成了。&lt;/p&gt;
 &lt;p&gt;修订文章的过程中，又从头到尾回顾了下自己过去七八年的工作生活经历，文章中很多唠叨的琐事，若不是当时动笔叨扰一下，已然完全记不得了；还有些观点年少轻狂，现在再读也会哑然无言，略感羞愧，不过这毕竟是曾经的自己，因此除了一些必要的文法修正，内容依然保持原样。&lt;/p&gt;
 &lt;p&gt;当我写下第一篇&lt;a href="http://xiaohanyu.me/posts/2009-06-04-computer-science-for-lazy-guys/"&gt;文章&lt;/a&gt;时，我还只是个 20 岁出头的少年，刚刚挂了很多课，刚刚一只脚踏入计算机学习的大门；现如今当我有了足够的能力可以自己从前端到后端建立一个中小型网站写出还可以的文章之时，已近而立。这些年做了很多的选择，相对的，人生也少了很多选择——或者说是迷茫吧。而随着这种迷茫的消逝相伴而来的，是人生的选择面在逐渐减小。小十年的青春韶华，只落下几篇文章几万文字，想来不免要感慨——人生于世，大概就如那大河之水，或早或晚都要归于大海吧。&lt;/p&gt;
-&lt;section class="footnotes"&gt;
+&lt;section class="footnotes" role="doc-endnotes"&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id="fn1"&gt;&lt;p&gt;实际上也可以转换成 Markdown 或者其它任何方便编辑的文本标记格式，我个人是更喜欢使用 Org-mode。&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id="fn2"&gt;&lt;p&gt;这个站点从创建之初就采用了 Nanoc，体验非常棒，具体可以参考我以前写的两篇&lt;a href="http://xiaohanyu.me/posts/2014-05-04-build-static-site-with-nanoc-1/"&gt;文&lt;/a&gt;&lt;a href="http://xiaohanyu.me/posts/2014-07-25-build-static-site-with-nanoc-2/"&gt;章&lt;/a&gt;。&lt;a href="#fnref2"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id="fn3"&gt;&lt;p&gt;Pandoc 的代码语法高亮，对 Ruby 的 &lt;a href="https://ruby-doc.org/core-2.3.0/doc/syntax/literals_rdoc.html#label-Here+Documents"&gt;heredoc&lt;/a&gt; 解析好像是有 bug。&lt;a href="#fnref3"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn1" role="doc-endnote"&gt;&lt;p&gt;实际上也可以转换成 Markdown 或者其它任何方便编辑的文本标记格式，我个人是更喜欢使用 Org-mode。&lt;a href="#fnref1" class="footnote-back" role="doc-backlink"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn2" role="doc-endnote"&gt;&lt;p&gt;这个站点从创建之初就采用了 Nanoc，体验非常棒，具体可以参考我以前写的两篇&lt;a href="http://xiaohanyu.me/posts/2014-05-04-build-static-site-with-nanoc-1/"&gt;文&lt;/a&gt;&lt;a href="http://xiaohanyu.me/posts/2014-07-25-build-static-site-with-nanoc-2/"&gt;章&lt;/a&gt;。&lt;a href="#fnref2" class="footnote-back" role="doc-backlink"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn3" role="doc-endnote"&gt;&lt;p&gt;Pandoc 的代码语法高亮，对 Ruby 的 &lt;a href="https://ruby-doc.org/core-2.3.0/doc/syntax/literals_rdoc.html#label-Here+Documents"&gt;heredoc&lt;/a&gt; 解析好像是有 bug。&lt;a href="#fnref3" class="footnote-back" role="doc-backlink"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </content>
@@ -1421,7 +1596,7 @@ require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
 &lt;p&gt;一个人的命运啊，当然要靠自我奋斗，但是也要考虑到历史的行程。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;In my younger and more vulnerable years my father gave me some advice that I’ve been turning over in my mind ever since. ‘Whenever you feel like criticizing any one,’ he told me, ‘just remember that all the people in this world haven’t had the advantages that you’ve had.’&lt;/p&gt;
+&lt;p&gt;In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since. ‘Whenever you feel like criticizing any one,’ he told me, ‘just remember that all the people in this world haven’t had the advantages that you’ve had.’&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id="first-update"&gt;First Update&lt;/h2&gt;
 &lt;p&gt;评论中有人问我“弟弟转变的契机是什么”。这个说实话我也没有确切的答案，我父母就更想不明白了。&lt;/p&gt;
@@ -1461,7 +1636,7 @@ require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
 &lt;p&gt;三年间睡了 80% 的自然醒，做了 15% 的饭，熬了 5% 的夜；平均每年任性两次说走就走的旅行；做了各种各样但实际上都不怎么样的项目，服务了北京、长沙、香港、加拿大等各地的客户；读了几百本书看了几百部电影；唯一不变的，应该就是那永远空空如也的钱包了。&lt;/p&gt;
 &lt;p&gt;看上去还不错？也许吧。但自由职业的最大弊端在于，你的认真你的态度客户看不到，甚至根本就不想去看。单元测试？代码风格检查？更好的文档？规范的 Git Commit？别逗了…… 事实是，这些东西很好，但是，nobody cares。客户想要的，更多的是物美价廉。&lt;/p&gt;
 &lt;p&gt;职业生涯终归不能在散碎的项目中消磨殆尽。&lt;/p&gt;
-&lt;p&gt;我能做什么？我擅长做什么？我喜欢做什么？什么样的事情是我能做且有可能做好但是别人不能做或者想做也有可能做不好的事呢？What’s the difference between the world with and without you?&lt;/p&gt;
+&lt;p&gt;我能做什么？我擅长做什么？我喜欢做什么？什么样的事情是我能做且有可能做好但是别人不能做或者想做也有可能做不好的事呢？What's the difference between the world with and without you?&lt;/p&gt;
 &lt;p&gt;我不是一个优秀的后端工程师，因为我从未有机会直面过大规模的生产系统；我也不是一个合格的前端工程师，你现在看到的还算干净整洁的页面是我花了无数时间一点一点 Google 打磨出来的；我也不是一个设计师，虽然上个月才买了套正版的 Adobe CC，来补习一些设计基础。&lt;/p&gt;
 &lt;p&gt;“你可以去搞大数据人工智能呀！”&lt;/p&gt;
 &lt;p&gt;“别逗了，我已经十年没有碰过数学了好不好！”&lt;/p&gt;
@@ -1508,9 +1683,9 @@ require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
 &lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2015-04-10-2014-summary/"&gt;2014，漫步&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;这一年技术上进步有限，收入上更是微薄，唯一值得一提的，也许是自己未来的路在渐渐明晰——接私活赚小钱逍遥一时并非长久之计，去企业找工作按部就班亦非心之所向，远程自由独立开发看上去自由潇洒，实则是一条小众且孤独的路，特别是在接近三十而立的年龄，看着自己的同龄人要么已经 PHD 毕业 Paper 在手，要么已经在大小企业里晋升技术专家，心里难免会有一丝恐慌。&lt;/p&gt;
-&lt;p&gt;我能做什么？我擅长做什么？我喜欢做什么？什么样的事情是我能做且有可能做好但是别人不能做或者想做也有可能做不好的事呢？What’s the difference between the world with and without you?&lt;/p&gt;
+&lt;p&gt;我能做什么？我擅长做什么？我喜欢做什么？什么样的事情是我能做且有可能做好但是别人不能做或者想做也有可能做不好的事呢？What's the difference between the world with and without you?&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;When you don’t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp;amp; exclude people. So create.&lt;/p&gt;
+&lt;p&gt;When you don't create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp;amp; exclude people. So create.&lt;/p&gt;
 &lt;p&gt;— why the luck stiff «http://whymirror.github.io/»&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id="工作"&gt;工作&lt;/h2&gt;
@@ -1654,161 +1829,6 @@ require &lt;span class="st"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
 &lt;p&gt;这首歌是唱给你的&lt;/p&gt;
 &lt;p&gt;— 莫文蔚 «当你老了»&lt;/p&gt;
 &lt;/blockquote&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:xiaohanyu.me,2015-04-10:/posts/2015-04-10-2014-summary/</id>
-    <title type="html">2014，漫步</title>
-    <published>2015-04-10T15:29:37Z</published>
-    <updated>2017-04-29T08:08:52Z</updated>
-    <link rel="alternate" href="http://xiaohanyu.me/posts/2015-04-10-2014-summary/"/>
-    <content type="html">&lt;p&gt;“亡羊补牢，未为迟也”，15 年已然过了三分之一，而我才开始憋 14 年的年终总结，想来必是颓废日久，点墨已尽的缘故。Anyway, better late than never。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2012-01-01-2011-summary/"&gt;再见，2011&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2013-01-11-2012-summary/"&gt;2012，静水深流&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2014-03-03-2013-summary/"&gt;2013，青春绝版&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;自 11 年毕业后开始养成写年终总结的习惯。时过四载，本人依旧无功无业，闲散江湖。所赖家妻不弃，下嫁与我，如此，14 年才总算没有白过。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;很多事来不及思考&lt;/p&gt;
-&lt;p&gt;就这样自然发生了&lt;/p&gt;
-&lt;p&gt;在丰富多彩的路上&lt;/p&gt;
-&lt;p&gt;注定经历风雨&lt;/p&gt;
-&lt;p&gt;让它自然地来吧&lt;/p&gt;
-&lt;p&gt;让它悄然地去吧&lt;/p&gt;
-&lt;p&gt;就这样微笑地看着自己&lt;/p&gt;
-&lt;p&gt;漫步在这人生里&lt;/p&gt;
-&lt;p&gt;yeah 当往事悄然走远&lt;/p&gt;
-&lt;p&gt;只留下清澈的心&lt;/p&gt;
-&lt;p&gt;yeah 让我们相互温暖&lt;/p&gt;
-&lt;p&gt;漫步在这阳光里&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这一年我 26 周岁，自 16 岁离家求学至今，已逾十载。&lt;/p&gt;
-&lt;h2 id="结婚"&gt;结婚&lt;/h2&gt;
-&lt;p&gt;这一年我结婚了。是的，如果说这一年我还算有些功业，那就是“把婚给结了吧”。结婚于我于妞，其实是件俗气难当，耗时耗财的苦差事。前几年每次我父母提到婚礼的事情，都会被我一口否决。我知道父亲的心思，一是墨守成规，二是臭显摆，三么，则是想通过我们的婚礼将以前随出去的份子钱“赚”回来。怎么说咱也是受过几年高等教育，读过几本圣贤书，有理想有追求有品味的三好有为青年，21 世纪新好男人，对于这种千篇一律的所谓“婚礼”实在是不胜其烦。&lt;/p&gt;
-&lt;p&gt;但是自从 13 年父亲车祸以后，他变得越发娇气，情绪反复波动，因此为了让他开心一些，在婚礼这件事上，我做了让步，而这就是我全年苦难的开始。究其原因，一是文化代沟，二是地域差异。文化代沟让我们在礼节协调上费了无数口舌，而地域差异则让我们在行程安排上耗了大把心力。&lt;/p&gt;
-&lt;p&gt;我记得 14 年 2 月 14 日，情人节，一个雾霾阴布的下午，妞拉着我去北京国家会议中心挤婚博会，疲累不堪。&lt;/p&gt;
-&lt;p&gt;我记得北京有个婚纱摄影基地叫温榆河，然后我们路过那里时发现其就是一条蚊子漫天的臭水沟，连杭州城内随便一条小河都比不过。&lt;/p&gt;
-&lt;p&gt;我记得我们为了拍一套不错的婚纱，讲价、下单、包车，拍摄、选片，修图，前后折腾了有十个来回。&lt;/p&gt;
-&lt;p&gt;我记得我们为了买几套合身的礼服，探店、量身，裁剪，定做，返工，寄送，前后又折腾了十个来回。&lt;/p&gt;
-&lt;p&gt;我记得我们耗费重金买的戒指项链，到头来也不过是个摆设，长期锁在柜子里，只有回家见亲时方才穿戴。&lt;/p&gt;
-&lt;p&gt;我记得 4 月份，我们带着几乎从没出过远门没坐过飞机高铁的父母，不远千里来浙拜亲。母亲好心，竟带了 30kg 的土特产一路随行，北京-&amp;gt;上海-&amp;gt;杭州-&amp;gt;台州，作为队伍里唯一的壮年劳力，我在车站弓着屁股推着箱子，亦乐亦苦？我记得在杭州地铁站，父亲踌躇良久，但就是搞不清楚出站时该把地铁票插回到哪里，弄得我哭笑不得，亦乐亦苦？我记得临行之前，他们在家里吵天闹地，要我取消行程，退订机票，我在北大未名湖畔，泪水夺框，心绪难平，亦乐亦苦？我记得行程将尽，晚餐小聚，发小作陪，父亲酒至，再起口角，惹得我心痛难当，脸面无光，破口大骂，歇斯底里，亦乐亦苦？&lt;/p&gt;
-&lt;p&gt;我记得 10 月份，我们又带着妞的父母外公阿姨表弟一干人等，不远千里来冀回亲。外公年老，辛苦一生，从未去过北京拜过伟大领袖毛主席。我和妞起早贪黑，披星戴月，带着外公父母，天安门、故宫、天坛、长城、北大，不厌其烦，不胜其累，亦乐亦苦？&lt;/p&gt;
-&lt;p&gt;长尊父母，谓之奈何也。&lt;/p&gt;
-&lt;p&gt;我记得在婚礼当日，我们站在门口迎客，却迎来断续不绝的乞丐打着竹板过来跟我们讨喜钱——原来他们也算定吉日黄道，喜事多金。&lt;/p&gt;
-&lt;p&gt;亦乐亦苦？&lt;/p&gt;
-&lt;p&gt;婚礼之于我们，更多是为了满足父母虚荣演一场戏罢了。现实不允许我们造一个日光倾城的大梦，我们所能做的，只是在两代亲朋、两块地域、两种风俗之间辛苦周旋，不求华丽出彩，但求顺利过关。没有新马泰蜜月旅行，没有大房子装修一新，送走所有亲朋后，我们回到杭州，回到自己租住的十几平米的小房子里，休整一天，然后她去上班，我也去上班。&lt;/p&gt;
-&lt;p&gt;&lt;a href="/static/image/2014/xibeixing-dajiaoya.jpg"&gt;&lt;img src="/static/image/2014/xibeixing-dajiaoya.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://oh-my-love.xiaohanyu.me/"&gt;所谓相行，即是人生&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id="工作"&gt;工作&lt;/h2&gt;
-&lt;p&gt;这一年，工作上依然是散漫无边，除了仰仗朋友介绍一些私活赚了点养家糊口的钱，几乎毫无建树。年底曾短暂加入一个创业团队负责人员招聘技术选型等初期工作，但是最终一败涂地，悻悻退出。工作几年来，我一直努力在 DevOps, Web Framework, Programming Languages 方面广泛涉猎，力求融汇兼通——尚不敢妄想“贯通”一词。一方面，我并不想过早地把自己的职业规划限定于一个狭窄的领域内，另一方面，我常常能在广泛的阅读和跨领域的思考中迸发出很多灵感，这带给我很多的快乐。&lt;/p&gt;
-&lt;p&gt;就我个人而言，我发现自己很难在某一方面成为顶尖，比如编程，我根本就不是一个顶尖的算法工程师或系统工程师；比如设计，我恐怕也只是刚刚入了前端开发的门；再如写作，我写的东西无非是自我记录日常反省，尚无他长。我的专长可能在于，我可以将这几方面融合，并以工程师的耐心配以变通，调教出一些还不错的成果。&lt;/p&gt;
-&lt;p&gt;说到底， &lt;strong&gt;手艺人，耐心和变通乃生身立命之本。&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“You literally ought to be asking yourself all the time what is the most important thing in the world I could be working on right now, and if you are not working on that why aren’t you?”&lt;/p&gt;
-&lt;p&gt;— &lt;a href="https://en.wikipedia.org/wiki/Taren_Stinebrickner-Kauffman"&gt;Taren Stinebrickner-Kauffman&lt;/a&gt; describing her partner, &lt;a href="https://en.wikipedia.org/wiki/Aaron_Swartz"&gt;Aaron Swartz&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;专业方面，这一年在 Clojure/Haskell/Ruby/JavaScript 方面均有所涉猎，但是所研甚浅，并且尚无机会加以实践，因此所得有限；前半年花了很多时间在系统性地学习前端开发和字体设计的一些基础知识，最终总算能用 Bootstrap 做出还算过得去的网站（比如本博客）；后半年曾花了很长时间思考实践 HTTP RESTful API 的设计以及前后端的对接实现，这方面倒是颇有心得。Open Source 方面，我依旧在很好地维护着 &lt;a href="https://github.com/xiaohanyu/oh-my-emacs"&gt;oh-my-emacs&lt;/a&gt; ，目前 oh-my-emacs 已经是世界上最好的 dotemacs 项目之一，并在全球范围内逐渐形成了自己的用户群。有几次我去 Github 上处理 issues，却发现 oh-my-emacs 用户之间已经讨论完毕并给出了很好的解决方案，我所能做的就是将用户的讨论提炼精简，写在 oh-my-emacs 里面。可见即便是一个原理很简单的项目，将其做到极致，或许也会有莫大的价值。&lt;/p&gt;
-&lt;h2 id="阅读"&gt;阅读&lt;/h2&gt;
-&lt;p&gt;这一年读书很少，很多技术书只读到一半就读不下去了，究其原因，是自己的基础不足，想深入却碰到了自己的瓶颈。在前面几年的学习中，我更多关注的是工具框架方面的知识，而对基础原理方面的知识关注有限。我想，一项工具一门框架的学习可能只需要几周，但是一门理论基础往往需要几年的坚持。因此在新的一年，我会将更多的时间投入到基础理论的学习中去。顺便，还是推荐下 14 年读过并觉得不错的书籍吧：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;《&lt;a href="http://book.douban.com/subject/6518605/"&gt;地球往事&lt;/a&gt;》：有人说，读完三体，再抬头看星空，感觉就不一样了，嗯，是这样的&lt;/li&gt;
-&lt;li&gt;《&lt;a href="http://book.douban.com/subject/20507206/"&gt;众病之王&lt;/a&gt;》： “永生带来的是死亡”，非常精彩的关于癌症的科普书&lt;/li&gt;
-&lt;li&gt;《&lt;a href="http://book.douban.com/subject/1076685/"&gt;李鸿章传&lt;/a&gt;》： “天下唯庸人无咎无誉”，任公笔力磅薄，目光如炬，世间奇才&lt;/li&gt;
-&lt;li&gt;《&lt;a href="http://book.douban.com/subject/7067916/"&gt;施瓦辛格健身全书&lt;/a&gt;》： “行走的解剖模型”，极好的健身教程&lt;/li&gt;
-&lt;li&gt;《&lt;a href="http://book.douban.com/subject/25717097/"&gt;囚徒健身&lt;/a&gt;》：也是极好的健身书，适合不方便去健身房的朋友&lt;/li&gt;
-&lt;li&gt;《&lt;a href="http://book.douban.com/subject/3554091/"&gt;钱途&lt;/a&gt;》：极好的关于风险投资行业的科普扫盲书&lt;/li&gt;
-&lt;li&gt;《&lt;a href="http://book.douban.com/subject/20507578/"&gt;The Healthy Programmer&lt;/a&gt;》：程序员健康指南书&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="一路向西"&gt;一路向西&lt;/h2&gt;
-&lt;p&gt;这一年年中，我和妞两个人，手里攥着 16 张火车票，千山万水，从太原、平遥，到延安、西安，到张掖、敦煌，一路向西，转了好大一圈。&lt;/p&gt;
-&lt;p&gt;&lt;a href="/static/image/2014/xibeixing-binggou.jpg"&gt;&lt;img src="/static/image/2014/xibeixing-binggou.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="/static/image/2014/xibeixing-jiayuguan.jpg"&gt;&lt;img src="/static/image/2014/xibeixing-jiayuguan.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;毕业季&lt;/p&gt;
-&lt;p&gt;他们终将离开呆了三年的北京&lt;/p&gt;
-&lt;p&gt;“去趟大西北吧”&lt;/p&gt;
-&lt;p&gt;“好哇”&lt;/p&gt;
-&lt;p&gt;一周后&lt;/p&gt;
-&lt;p&gt;手握十六张火车票&lt;/p&gt;
-&lt;p&gt;他们再次踏上征途&lt;/p&gt;
-&lt;p&gt;太原街头&lt;/p&gt;
-&lt;p&gt;胡同里飘出来的芬芳醋香&lt;/p&gt;
-&lt;p&gt;平遥夜色&lt;/p&gt;
-&lt;p&gt;王家大院&lt;/p&gt;
-&lt;p&gt;壶口奇遇&lt;/p&gt;
-&lt;p&gt;红色延安&lt;/p&gt;
-&lt;p&gt;不变的革命老区&lt;/p&gt;
-&lt;p&gt;古色西安&lt;/p&gt;
-&lt;p&gt;壮观的秦皇兵俑&lt;/p&gt;
-&lt;p&gt;钟鼓相望&lt;/p&gt;
-&lt;p&gt;老友相伴&lt;/p&gt;
-&lt;p&gt;“劝君更进一杯酒，西出阳关无故人”&lt;/p&gt;
-&lt;p&gt;丹霞&lt;/p&gt;
-&lt;p&gt;五彩斑斓&lt;/p&gt;
-&lt;p&gt;天下奇观&lt;/p&gt;
-&lt;p&gt;冰沟&lt;/p&gt;
-&lt;p&gt;踏上观景台的那一刻&lt;/p&gt;
-&lt;p&gt;蓝天&lt;/p&gt;
-&lt;p&gt;白云&lt;/p&gt;
-&lt;p&gt;雪山&lt;/p&gt;
-&lt;p&gt;两个傻孩子&lt;/p&gt;
-&lt;p&gt;在大西北的空旷浩远面前&lt;/p&gt;
-&lt;p&gt;忘乎所以&lt;/p&gt;
-&lt;p&gt;敦煌&lt;/p&gt;
-&lt;p&gt;莫高窟&lt;/p&gt;
-&lt;p&gt;鸣沙月泉&lt;/p&gt;
-&lt;p&gt;大漠孤烟&lt;/p&gt;
-&lt;p&gt;铁马秋风&lt;/p&gt;
-&lt;p&gt;楼般夜雪&lt;/p&gt;
-&lt;p&gt;此行将尽&lt;/p&gt;
-&lt;p&gt;尽在嘉峪关头&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="离京回杭"&gt;离京回杭&lt;/h2&gt;
-&lt;p&gt;西北归来，两个人马上着手离京回杭事宜。在京北漂三年，事情完成的不多，行李却积攒不少。两个人花了整整三天的时间才将所有行李打包完毕，最终花了 1000 大洋，寄了 600kg 的行李到杭州。而彼时我们还没有到杭州找房子，因此想了个折衷的办法，先把行李寄到同事家，再转运到租住的地方。当然，这次我们希望物流可以慢一些，最好等我们找好房子后直接转送到新的住处。所幸，我们最终也是这么做的。&lt;/p&gt;
-&lt;p&gt;北漂三年，一事无成。韶华已逝，岁月蹉跎，彷徨岁月，且行且思。&lt;/p&gt;
-&lt;p&gt;在京三年，全职工作不到两年，闲散飘荡一年有余，刚好赚够了养家糊口的钱，离京时已所剩不多；经历了运维测试研发各种工作，也接触到了大小不一风格迥异的团队；学会了 functional programming 的基本思想；学会了基本的 web 开发；精通 git 和 github，有了自己的 open source 项目并维护至今；读书，各种书籍大约 200 余本；帮助家里处理了各种各样的杂事。&lt;/p&gt;
-&lt;p&gt;在京三年，由于妞的缘故，基本上生活还是没有脱离学校的圈子。想起来，吃北大的食堂，看讲堂的电影，走未名的小路，泡北大的研究妞，还是蛮幸福的，哈。&lt;/p&gt;
-&lt;p&gt;无可否认，就互联网行业的资源和机会而言，北京确实是首屈一指；但是我和妞就是不喜欢北京那股围绕户口所建立起来的各种壁垒和优越感；就是不喜欢北京那种以牺牲周边地区利益换取自身发展的模式；就是不喜欢北京冬天那看不清扫不尽的雾霾；就是不喜欢北京那脏兮兮的马路牙子；就是不喜欢北京那不相配套的基础设施服务。&lt;/p&gt;
-&lt;p&gt;我想我们应该不会再回到北京。世界这么大，没有必要为了所谓户口将自己的大好青春耗在一个城市。&lt;/p&gt;
-&lt;p&gt;14 年 7 月 1 日，我和妞告别了北大的师长同学，高铁 5 个小时到达阴雨绵绵的杭州。次日，在某家星级酒店的顶层餐厅，俯瞰钱塘吃好早餐后，妞就去上班了。&lt;/p&gt;
-&lt;p&gt;她直接被分配到杭州郊区的工地，发了安全帽和安全鞋。&lt;/p&gt;
-&lt;p&gt;这让我们产生了极强的虚空感。&lt;/p&gt;
-&lt;p&gt;“再见，北京”。&lt;/p&gt;
-&lt;p&gt;&lt;a href="/static/image/2012/beijing-zhiwuyuan.jpg"&gt;&lt;img src="/static/image/2012/beijing-zhiwuyuan.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="健身"&gt;健身&lt;/h2&gt;
-&lt;p&gt;大概是从 13 年底，我开始被持续不断的肩颈背痛所困扰。酸痛倒是其次，主要是影响自己的工作学习效率，让我颇为恼火。因此离京回杭后下定决心开始锻炼，理论和实践双管齐下，坚持半年有余，总算有所控制。&lt;/p&gt;
-&lt;p&gt;想来还是北京三年过于闷宅，锻炼有限，得此报应。好在事情尚未进展到不可逆转的地步。不过慢性病的特点在于发病慢，恢复也慢。因此要想完全恢复，怕是要打场持久战。&lt;/p&gt;
-&lt;p&gt;工科男做事的方法就是工程化——调研、规划、对比，方方面面考虑周全。为了控制病痛恢复健康，14 年下半年主要在如下方面做了很多努力：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;系统性地学习基础健身知识，阅读完成了 3 本入门的健身书籍&lt;/li&gt;
-&lt;li&gt;7 - 9 月份系统性地进行家中无器械健身训练，循序渐进，对比效果&lt;/li&gt;
-&lt;li&gt;10 - 12 月份工作期间，购置 &lt;a href="http://www.amazon.com/Logitech-910-001799-M570-Wireless-Trackball/dp/B0043T7FXE"&gt;Dahon SP8&lt;/a&gt; 折叠车，每天骑行，双程 25km，通勤锻炼。&lt;/li&gt;
-&lt;li&gt;购置 &lt;a href="http://ergohuman.com/ergohuman-chair-me7erg-high-back-with-headrest-and-mesh/"&gt;Ergohuman&lt;/a&gt; 人体工学座椅， &lt;a href="http://item.jd.com/1242699109.html"&gt;ThinkWise s100&lt;/a&gt; 显示器支架&lt;/li&gt;
-&lt;li&gt;购置 &lt;a href="http://www.logitech.com/en-us/product/wireless-trackball-m570"&gt;Logitech M570&lt;/a&gt; 轨迹球鼠标，缓解鼠标手&lt;/li&gt;
-&lt;li&gt;购置简易升降桌，尝试站立式办公&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;在这种全方位立体化多角度的打击下，我的肩颈背痛总算有所收敛。在此奉劝各位程序员朋友，工作失去随时找，健康失去不再来。有时间我会再写一篇《程序员健康指南》，记录下我在这方面的心得。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Imagine life as a game in which you are juggling some five balls in the air. You name them—work, family, health, friends and spirit—and you’re keeping all of these in the air. You will soon understand that work is a rubber ball. If you drop it, it will bounce back. But the other four balls—family, health, friends and spirit—are made of glass. If you drop one of these, they will be irrevocably scuffed, marked, nicked, damaged or even shattered. They will never be the same. You must understand that and strive for balance in your life.&lt;/p&gt;
-&lt;p&gt;— &lt;a href="https://en.wikipedia.org/wiki/Brian_Dyson"&gt;Brian Dyson&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="养猫"&gt;养猫&lt;/h2&gt;
-&lt;p&gt;14 年 9 月份，趁妞出差之际，我领养了两只两个月大的三花小母猫，成了一名光荣的铲屎大将军。不出所料，它们带给了我很多乐趣，陪我度过了一个个灯下漫笔的“寂寞”时光，谓之为程序员的好伴侣，一点也不为过。我和妞给它们取了名字，分别叫“小木”和“小鱼”，此乃大名，而生活中我们则直接呼之为“大臭臭”和“小臭臭”。&lt;/p&gt;
-&lt;p&gt;说实话，两只土猫长得并不好看，远逊于纯种猫；其中那只小臭猫，长得尤其丑，又丑、又臭、又馋、又笨、又胆小，并且还总是莫名其妙地受伤。最开始我们一点也不喜欢它。可是看它那臭笨滑稽楚楚可怜的样子看得多了以后，也就默默认可了它。&lt;/p&gt;
-&lt;p&gt;妞本来是反对我养猫的，嫌麻烦。但是精诚所致金石为开，当我负担了所有的铲屎工作和卫生清洁后，妞也就默许了。再后来生活日久，感情日深，一家人总算其乐融融。每个寂静的夜，读书写码，一妞二喵相伴，常让我有“生活惬意如此，夫复何求”的感慨。每天晨光初现，两只喵就会在你耳边，徘徊盘旋，逮住机会就亲你一口，呼呼呼呼地把你弄醒——当然，我睡得沉，经常毫无知觉，而妞则经常被亲醒，无可奈何。&lt;/p&gt;
-&lt;p&gt;我自称为猫“爸爸”，称妞为猫“妈妈”，有时“爸爸妈妈”地叫得频繁，妞就问我是不是真想“封山育林，播种造人”了，我但莞尔。半年多来，我负责它们饮食起居，给它们洗澡上药，逗它们开心，也喝止它们惹祸，细想起来，还真和养个孩子差不多呢。&lt;/p&gt;
-&lt;p&gt;&lt;a href="/static/image/2014/cat.jpg"&gt;&lt;img src="/static/image/2014/cat.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="散财"&gt;散财&lt;/h2&gt;
-&lt;p&gt;这一年依然保持着不间断的 donation 习惯。&lt;/p&gt;
-&lt;p&gt;13 年的时候我曾经每个月向我喜欢的 Free/Open Source 软件捐钱（每次 100rmb 左右），这样大概捐助了 Emacs/Vim/KDE 等，捐了七、八次后发现可捐的软件不多，因此今年年中开始向 Wikipedia 捐钱，每个月 5 美金，折合每天 1rmb。除此之外，每月定向捐助 100rmb。&lt;/p&gt;
-&lt;p&gt;Money comes and goes.&lt;/p&gt;
-&lt;h2 id="买车"&gt;买车&lt;/h2&gt;
-&lt;p&gt;14 年 8 月，由于妞的工作需要，我们购置了一辆 Ford Focus。这是意料之外的事情。很惭愧，我们手头的钱远远不够，因此最终还是在借了家里的赞助。老实说，我和妞都不愿意向家里开口。即便是婚礼，我们也是自己负担了大部分的礼服、摄影等费用。&lt;/p&gt;
-&lt;p&gt;说到底，我们只是不想因为金钱的缘故在自由方面向长辈妥协。我们的父母眼界过于狭窄，总是想着要把子女留在自己身边，努力赚钱为子女准备房车、铺好一条在他们看来金光闪闪的人生大道，同时也把自己后半生的幸福全部压在子女身上。&lt;/p&gt;
-&lt;p&gt;而这无形之中带给了我们相当大的心理压力。因此不到万不得已，我们不会向父母开口。&lt;/p&gt;
-&lt;p&gt;这次买车是刚需。一方面，妞的工作性质决定每天上下班要 30km，并且经常要到处出差，另一方面，买车之后公司提供的补助也足够我们负担养车的所有费用并能有点结余。&lt;/p&gt;
-&lt;p&gt;Anyway, 有车之后望着天窗听雨打在车顶上的声音，感觉还是很不错的。跨年夜，当我们开着车在夜黑风高空无一车的高速公路上急驰时，我们未曾意识到， &lt;strong&gt;彼时此刻，不经意间，我们都已长大成人，要开始新的征程了&lt;/strong&gt; 。&lt;/p&gt;
 </content>
   </entry>
 </feed>

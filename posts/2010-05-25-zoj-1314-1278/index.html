@@ -61,70 +61,70 @@
 <p>ZOJ 1314 的本质是给定数 <span class="math inline">\(x, y\)</span> ，问 <span class="math inline">\(ax (\bmod y), a = 1, 2, \cdots\)</span> 的周期是多少。依稀记得同余理论和不定方程的某些结论，我猜测周期应该是 <span class="math inline">\(\frac{y}{gcd(x, y)}\)</span> ，自己验证了下也是对的。具体证明涉及到同余和不定方程，高中的基础全忘了，叹。</p>
 <p>程序 AC 一波三折，先是 TLE，后来发现 <code>scanf()</code> 后面没有写 <code>!= EOF</code> ，可是这题也没说啥时算输入结束啊……看来是经验不足了；后来又是 Presentation Error，仔细检查发现是四个空格输出成了五个空格……叹……</p>
 <p>代码：</p>
-<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
-
-<span class="dt">int</span> gcd(<span class="dt">int</span> a, <span class="dt">int</span> b) {
-  <span class="cf">return</span> b ? gcd(b, a % b) : a;
-}
-
-<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
-  <span class="dt">int</span> step, mod;
-
-  <span class="cf">while</span> (scanf(<span class="st">&quot;%d%d&quot;</span>, &amp;step, &amp;mod) != EOF) {
-    printf(<span class="st">&quot;%10d%10d&quot;</span>, step, mod);
-
-    <span class="cf">if</span> (gcd(step, mod) == <span class="dv">1</span>) {
-      printf (<span class="st">&quot;    Good Choice</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    }
-    <span class="cf">else</span> {
-      printf (<span class="st">&quot;    Bad Choice</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    }
-    printf (<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>);
-  }
-
-  <span class="cf">return</span> <span class="dv">0</span>;
-}</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="dt">int</span> gcd(<span class="dt">int</span> a, <span class="dt">int</span> b) {</a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="cf">return</span> b ? gcd(b, a % b) : a;</a>
+<a class="sourceLine" id="cb1-5" title="5">}</a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {</a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="dt">int</span> step, mod;</a>
+<a class="sourceLine" id="cb1-9" title="9"></a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="cf">while</span> (scanf(<span class="st">&quot;%d%d&quot;</span>, &amp;step, &amp;mod) != EOF) {</a>
+<a class="sourceLine" id="cb1-11" title="11">    printf(<span class="st">&quot;%10d%10d&quot;</span>, step, mod);</a>
+<a class="sourceLine" id="cb1-12" title="12"></a>
+<a class="sourceLine" id="cb1-13" title="13">    <span class="cf">if</span> (gcd(step, mod) == <span class="dv">1</span>) {</a>
+<a class="sourceLine" id="cb1-14" title="14">      printf (<span class="st">&quot;    Good Choice</span><span class="sc">\n</span><span class="st">&quot;</span>);</a>
+<a class="sourceLine" id="cb1-15" title="15">    }</a>
+<a class="sourceLine" id="cb1-16" title="16">    <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb1-17" title="17">      printf (<span class="st">&quot;    Bad Choice</span><span class="sc">\n</span><span class="st">&quot;</span>);</a>
+<a class="sourceLine" id="cb1-18" title="18">    }</a>
+<a class="sourceLine" id="cb1-19" title="19">    printf (<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>);</a>
+<a class="sourceLine" id="cb1-20" title="20">  }</a>
+<a class="sourceLine" id="cb1-21" title="21"></a>
+<a class="sourceLine" id="cb1-22" title="22">  <span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb1-23" title="23">}</a></code></pre></div>
 <p>ZOJ 1278 和 ZOJ 1314 很像，于是我尝试着用 ZOJ 1314 的方法去解决，我甚至求出了通项公式：</p>
 <p><span class="math inline">\(y\_n = (Z\^{n-1}L + \frac{Z\^{n-1} - 1}{Z - 1}I )\bmod M\)</span></p>
 <p>后来发现不行，因为这个式子的增量不是线性常数，需要另觅他法。很无耻的参考了 <a href="http://www.cppblog.com/superman/archive/2008/05/14/49856.html">这篇博客</a>，难得体会到了代码之美，用数组做标记（我不知道是不是该这样说，或者 Hash Table？）的手法，某些时候确实很管用，需要进一步熟悉。</p>
 <p>代码贴一下吧……虽然是抄袭的 ^~^</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
-<span class="pp">#include </span><span class="im">&lt;cstring&gt;</span>
-<span class="kw">using</span> <span class="kw">namespace</span> std;
-
-<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
-  <span class="dt">int</span> z, i, m, last, next;
-  <span class="dt">bool</span> judge[<span class="dv">10000</span>];
-
-  <span class="dt">int</span> count;
-  <span class="dt">int</span> n = <span class="dv">1</span>;
-
-  <span class="cf">while</span> (cin &gt;&gt; z &gt;&gt; i &gt;&gt; m &gt;&gt; last) {
-    <span class="cf">if</span> (z == <span class="dv">0</span> &amp;&amp; i == <span class="dv">0</span> &amp;&amp; m == <span class="dv">0</span> &amp;&amp; last == <span class="dv">0</span>) {
-      <span class="cf">break</span>;
-    }
-
-    memset(judge, <span class="kw">false</span>, <span class="kw">sizeof</span>(judge));
-
-    count = <span class="dv">0</span>;
-    <span class="cf">while</span> (<span class="kw">true</span>) {
-      next = (z * last + i) % m;
-
-      <span class="cf">if</span> (judge[next]) {
-        <span class="cf">break</span>;
-      }
-
-      last = next;
-      judge[next] = <span class="kw">true</span>;
-
-      count++;
-    }
-
-    cout &lt;&lt; <span class="st">&quot;Case &quot;</span> &lt;&lt; n++ &lt;&lt; <span class="st">&quot;: &quot;</span>  &lt;&lt; count &lt;&lt; endl;
-  }
-
-  <span class="cf">return</span> <span class="dv">0</span>;
-}</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="pp">#include </span><span class="im">&lt;cstring&gt;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {</a>
+<a class="sourceLine" id="cb2-6" title="6">  <span class="dt">int</span> z, i, m, last, next;</a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="dt">bool</span> judge[<span class="dv">10000</span>];</a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9">  <span class="dt">int</span> count;</a>
+<a class="sourceLine" id="cb2-10" title="10">  <span class="dt">int</span> n = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb2-11" title="11"></a>
+<a class="sourceLine" id="cb2-12" title="12">  <span class="cf">while</span> (cin &gt;&gt; z &gt;&gt; i &gt;&gt; m &gt;&gt; last) {</a>
+<a class="sourceLine" id="cb2-13" title="13">    <span class="cf">if</span> (z == <span class="dv">0</span> &amp;&amp; i == <span class="dv">0</span> &amp;&amp; m == <span class="dv">0</span> &amp;&amp; last == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb2-14" title="14">      <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb2-15" title="15">    }</a>
+<a class="sourceLine" id="cb2-16" title="16"></a>
+<a class="sourceLine" id="cb2-17" title="17">    memset(judge, <span class="kw">false</span>, <span class="kw">sizeof</span>(judge));</a>
+<a class="sourceLine" id="cb2-18" title="18"></a>
+<a class="sourceLine" id="cb2-19" title="19">    count = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb2-20" title="20">    <span class="cf">while</span> (<span class="kw">true</span>) {</a>
+<a class="sourceLine" id="cb2-21" title="21">      next = (z * last + i) % m;</a>
+<a class="sourceLine" id="cb2-22" title="22"></a>
+<a class="sourceLine" id="cb2-23" title="23">      <span class="cf">if</span> (judge[next]) {</a>
+<a class="sourceLine" id="cb2-24" title="24">        <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb2-25" title="25">      }</a>
+<a class="sourceLine" id="cb2-26" title="26"></a>
+<a class="sourceLine" id="cb2-27" title="27">      last = next;</a>
+<a class="sourceLine" id="cb2-28" title="28">      judge[next] = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb2-29" title="29"></a>
+<a class="sourceLine" id="cb2-30" title="30">      count++;</a>
+<a class="sourceLine" id="cb2-31" title="31">    }</a>
+<a class="sourceLine" id="cb2-32" title="32"></a>
+<a class="sourceLine" id="cb2-33" title="33">    cout &lt;&lt; <span class="st">&quot;Case &quot;</span> &lt;&lt; n++ &lt;&lt; <span class="st">&quot;: &quot;</span>  &lt;&lt; count &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb2-34" title="34">  }</a>
+<a class="sourceLine" id="cb2-35" title="35"></a>
+<a class="sourceLine" id="cb2-36" title="36">  <span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb2-37" title="37">}</a></code></pre></div>
 <p>加油加油啊。</p>
 
     <div class="ui divider"></div>
@@ -142,7 +142,7 @@
     <div class="ui small header">
       Committed
     </div>
-    <date>2010-05-24</date>
+    <date>2010-05-25</date>
     <div class="ui small header">
       Updated
     </div>

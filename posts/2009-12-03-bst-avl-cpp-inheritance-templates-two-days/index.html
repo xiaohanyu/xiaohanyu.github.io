@@ -64,647 +64,647 @@
 <p>不过总算出来了。但是有个瑕疵，AVL 的删除功能有些小问题，可能跟 Balance 函数和指针的引用问题有关。GDB 我用的不熟，转到强大的 Windows 下的 Visual Studio 2008 下，调试了 3 个小时，找到错误所在，但是却不知道怎么改正。泪奔。</p>
 <p>计算几何最终还是低空坠毁，唉，不提也罢，看来以后不能乱选课，选了课不能随便混混。混不好就低空坠毁。你说你没事选这么一门前沿课程干嘛，你是这块料嘛……</p>
 <p>计算几何过后开始准备计算理论的期中考试。什么有穷自动机，正则语言，上下文无关文法，等等，计算理论基础的中文版，每个小时3页，龟速前进，发现还是太抽象，看不大懂，又找来一本计算理论导引，两本结合着看，顿觉顺畅很多，看来计算机的书还是要原汁原味的英文啊。</p>
-<p>感觉计算理论期中还不错。周一被导师叫去公司，让我参加项目，大意是让我写一个 TextArea。项目代码有四万左右，光理清这个体系，补 Windows 编程的基础知识就花了我三四天的时间。终于搞明白了什么叫 Windows CE，什么叫 GDI，学会了 Windows 下 SVN 的基本用法。可是看 Windows CE 的书还是一头雾水，什么 <code class="sourceCode c" rundoc-language="c">HINSTANCE</code> ，WINAPI <code class="sourceCode c" rundoc-language="c">WinMain()</code> ，叉叉的。基本流程我还不懂。于是去找 Windows 经典书目的书单，看到多人推荐Charles Petzold 的 Windows 程序设计，吐血买了下来，花了 150 元。 Microsoft 的书真 tn 的贵。</p>
+<p>感觉计算理论期中还不错。周一被导师叫去公司，让我参加项目，大意是让我写一个 TextArea。项目代码有四万左右，光理清这个体系，补 Windows 编程的基础知识就花了我三四天的时间。终于搞明白了什么叫 Windows CE，什么叫 GDI，学会了 Windows 下 SVN 的基本用法。可是看 Windows CE 的书还是一头雾水，什么 <code class="sourceCode c">HINSTANCE</code> ，WINAPI <code class="sourceCode c">WinMain()</code> ，叉叉的。基本流程我还不懂。于是去找 Windows 经典书目的书单，看到多人推荐Charles Petzold 的 Windows 程序设计，吐血买了下来，花了 150 元。 Microsoft 的书真 tn 的贵。</p>
 <p>不过书是好书。周六周日周一断续看了三天，看了四章，120页，顿时明白了很多。个人 Windows 的技术更新太快，不像 UNIX，二十年前的 Vim、Emacs、grep，等，万古不变。掌握 Win32 API才是一切的根本。永远不要指望跟上 Microsoft 的脚步。</p>
 <p>只不过到现在导师的项目还没有开工，我还夸下海口自不量力要一周写出来。这可如何是好。还有图形学作业，操作系统作业，实验的作业，呃……少壮不努力，老大做it，大二不学习，大三干苦力。要努力。恩。</p>
 <p><code>BinarySearchTree.h</code></p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#ifndef _BINARYSEARCHTREE_H_</span>
-<span class="pp">#define _BINARYSEARCHTREE_H_</span>
-
-<span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
-<span class="pp">#include </span><span class="im">&lt;stack&gt;</span>
-<span class="kw">using</span> <span class="kw">namespace</span> std;
-
-<span class="co">// 三种遍历方式</span>
-<span class="pp">#define PREORDERTRAVERSE 0</span>
-<span class="pp">#define INORDERTRAVERSE 1</span>
-<span class="pp">#define POSTORDERTRAVERSE 2</span>
-
-<span class="co">// 求两个元素的最大值</span>
-<span class="pp">#define max(x, y) ((x &gt; y) ? (x) : y)</span>
-
-<span class="co">/**</span>
-<span class="co"> * </span><span class="an">@class</span><span class="co"> </span><span class="cv">BinaryNode</span>
-<span class="co"> * </span><span class="an">@brief</span><span class="co"> 树的结点，为了方便BST和AVL用了同一种结构。BST中所有结点的height域为默认值</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="kw">struct</span> BinaryNode {
-  Comparable element;
-  BinaryNode* left;
-  BinaryNode* right;
-
-  <span class="dt">int</span> height;
-
-  BinaryNode(<span class="at">const</span> Comparable &amp;theElement,
-             BinaryNode *lt,
-             BinaryNode *rt,
-             <span class="at">const</span> <span class="dt">int</span> theHeight = <span class="dv">0</span>)
-    : element(theElement), left(lt), right(rt), height(theHeight) {}
-};
-
-<span class="co">/**</span>
-<span class="co"> * </span><span class="an">@class</span><span class="co"> </span><span class="cv">BinarySearchTree</span>
-<span class="co"> * </span><span class="an">@brief</span><span class="co"> 实现了常见的删除，插入功能。并作为AVL树的基类</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="kw">class</span> BinarySearchTree {
-<span class="kw">public</span>:
-  BinarySearchTree();
-
-  ~BinarySearchTree();
-
-  BinaryNode&lt;Comparable&gt;*&amp; GetRoot();
-
-  <span class="dt">void</span> BuildBinaryTree(Comparable *x, <span class="dt">int</span> length);
-
-  <span class="at">const</span> Comparable&amp; FindMin() <span class="at">const</span>;
-  <span class="at">const</span> Comparable&amp; FindMax() <span class="at">const</span>;
-  <span class="dt">bool</span> Contains(<span class="at">const</span> Comparable &amp;x) <span class="at">const</span>;
-  <span class="dt">bool</span> IsEmpty() <span class="at">const</span>;
-  <span class="dt">void</span> TraverseTree(<span class="dt">int</span> type);
-
-  <span class="dt">void</span> MakeEmpty();
-
-  <span class="kw">virtual</span> <span class="dt">void</span> Insert(<span class="at">const</span> Comparable &amp;x);
-  <span class="kw">virtual</span> <span class="dt">void</span> Remove(<span class="at">const</span> Comparable &amp;x);
-
-
-<span class="kw">private</span>:
-  BinaryNode&lt;Comparable&gt; *root;
-  <span class="kw">virtual</span> <span class="dt">void</span> Insert(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;
-  <span class="kw">virtual</span> <span class="dt">void</span> Remove(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;
-  BinaryNode&lt;Comparable&gt;* FindMin(BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;
-  BinaryNode&lt;Comparable&gt;* FindMax(BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;
-  <span class="dt">bool</span> Contains(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;
-  <span class="dt">void</span> MakeEmpty(BinaryNode&lt;Comparable&gt; *&amp;t);
-
-  <span class="dt">void</span> PreOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t);
-  <span class="dt">void</span> InOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t);
-  <span class="dt">void</span> PostOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t);
-};
-
-<span class="co">/**</span>
-<span class="co"> * 构造函数，默认 root=NULL</span>
-<span class="co"> *</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@return</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-BinarySearchTree&lt;Comparable&gt;::BinarySearchTree() : root(NULL) { }
-
-<span class="co">/**</span>
-<span class="co"> * 析构函数</span>
-<span class="co"> *</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@return</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-BinarySearchTree&lt;Comparable&gt;::~BinarySearchTree() {
-  MakeEmpty();
-}
-
-<span class="co">/**</span>
-<span class="co"> * 得到根节点的引用</span>
-<span class="co"> *</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@return</span><span class="co"> 返回根节点的引用</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-BinaryNode&lt;Comparable&gt;*&amp; BinarySearchTree&lt;Comparable&gt;::GetRoot() {
-  <span class="cf">return</span> root;
-}
-
-<span class="co">/**</span>
-<span class="co"> * 建立BST树，通过数组的方式传入元素，调用 Insert(x) 函数</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">length</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::BuildBinaryTree(Comparable *x, <span class="dt">int</span> length) {
-  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; length; ++i) {
-    Insert(x[i]);
-  }
-}
-
-<span class="co">/**</span>
-<span class="co"> * </span><span class="an">@return</span><span class="co"> BST 中的最小值</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="at">const</span> Comparable&amp; BinarySearchTree&lt;Comparable&gt;::FindMin() <span class="at">const</span> {
-  <span class="cf">return</span> FindMin(root)-&gt;element;
-}
-
-<span class="co">/**</span>
-<span class="co"> * </span><span class="an">@return</span><span class="co"> BST 中的最大值</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="at">const</span> Comparable&amp; BinarySearchTree&lt;Comparable&gt;::FindMax() <span class="at">const</span> {
-  <span class="cf">return</span> FindMax(root)-&gt;element;
-}
-
-<span class="co">/**</span>
-<span class="co"> * 测试 x 是否在 BST 中，调用私有函数 Contains(x, root)</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@return</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">bool</span> BinarySearchTree&lt;Comparable&gt;::Contains(<span class="at">const</span> Comparable &amp;x) <span class="at">const</span> {
-  <span class="cf">return</span> Contains(x, root);
-}
-
-<span class="co">/**</span>
-<span class="co"> * 测试树是否为空</span>
-<span class="co"> *</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@return</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">bool</span> BinarySearchTree&lt;Comparable&gt;::IsEmpty() <span class="at">const</span> {
-  <span class="cf">if</span> (root == NULL) {
-    <span class="cf">return</span> <span class="kw">true</span>;
-  }
-
-  <span class="cf">return</span> <span class="kw">false</span>;
-}
-
-<span class="co">/**</span>
-<span class="co"> * 以三种方式遍历树</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">type</span><span class="co"> 遍历树的方式</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::TraverseTree(<span class="dt">int</span> type) {
-  <span class="cf">if</span> (type == PREORDERTRAVERSE) {
-    cout &lt;&lt; <span class="st">&quot;PreOrderTraverse the tree:&quot;</span> &lt;&lt; endl;
-    PreOrderTraverse(root);
-    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;PreOrderTraverse ends.&quot;</span> &lt;&lt; endl;
-  }
-
-  <span class="cf">if</span> (type == INORDERTRAVERSE) {
-    cout &lt;&lt; <span class="st">&quot;InOrderTraverse the tree:&quot;</span> &lt;&lt; endl;
-    InOrderTraverse(root);
-    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;InOrderTraverse ends.&quot;</span> &lt;&lt; endl;
-  }
-
-  <span class="cf">if</span> (type == POSTORDERTRAVERSE) {
-    cout &lt;&lt; <span class="st">&quot;PostOrderTraverse the tree:&quot;</span> &lt;&lt; endl;
-    PostOrderTraverse(root);
-    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;InOrderTraverse ends.&quot;</span> &lt;&lt; endl;
-  }
-}
-
-<span class="co">/**</span>
-<span class="co"> * 清空 BST 树</span>
-<span class="co"> *</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::MakeEmpty() {
-  MakeEmpty(root);
-}
-
-<span class="co">/**</span>
-<span class="co"> * 向 BST 中插入一个元素</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 待插入的元素</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::Insert(<span class="at">const</span> Comparable &amp;x) {
-  Insert(x, root);
-}
-
-<span class="co">/**</span>
-<span class="co"> * 从 BST 中删除一个元素</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 被删除的元素</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::Remove(<span class="at">const</span> Comparable &amp;x) {
-  Remove(x, root);
-}
-
-<span class="co">/**</span>
-<span class="co"> * 向树根为 t 的树中插入一个元素</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 待插入的元素</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span><span class="co"> 树根</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::Insert(<span class="at">const</span> Comparable &amp;x,
-                                          BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {
-  <span class="cf">if</span> (t == NULL) {
-    t = <span class="kw">new</span> BinaryNode&lt;Comparable&gt;(x, NULL, NULL, <span class="dv">-3</span>);
-  }
-  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {
-    Insert(x, t-&gt;left);
-  }
-  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {
-    Insert(x, t-&gt;right);
-  }
-  <span class="cf">else</span>
-    ; <span class="co">// dupicate; you can do something, of course</span>
-}
-
-<span class="co">/**</span>
-<span class="co"> * 从树根为 t 的树中删除元素</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 被删除的元素</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span><span class="co"> 树根</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::Remove(<span class="at">const</span> Comparable &amp;x,
-                                          BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {
-  <span class="cf">if</span> (t == NULL) {
-    <span class="cf">return</span>;
-  }
-  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {
-    Remove(x, t-&gt;left);
-  }
-  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {
-    Remove(x, t-&gt;right);
-  }
-  <span class="cf">else</span> <span class="cf">if</span> (t-&gt;left != NULL &amp;&amp; t-&gt;right != NULL) {
-    t-&gt;element = FindMin(t-&gt;right)-&gt;element;
-    Remove(t-&gt;element, t-&gt;right);
-  }
-  <span class="cf">else</span> {
-    BinaryNode&lt;Comparable&gt; *oldNode = t;
-    t = (t-&gt;left != NULL) ? t-&gt;left : t-&gt;right;
-    <span class="kw">delete</span> oldNode;
-  }
-}
-
-
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-BinaryNode&lt;Comparable&gt;* BinarySearchTree&lt;Comparable&gt;::FindMin(BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {
-  <span class="cf">if</span> (t != NULL) {
-    <span class="cf">while</span>(t-&gt;left != NULL)
-      t = t-&gt;left;
-  }
-
-  <span class="cf">return</span> t;
-}
-
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-BinaryNode&lt;Comparable&gt;* BinarySearchTree&lt;Comparable&gt;::FindMax(BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {
-  <span class="cf">if</span> (t != NULL) {
-    <span class="cf">while</span>(t-&gt;right != NULL)
-      t = t-&gt;right;
-  }
-
-  <span class="cf">return</span> t;
-}
-
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">bool</span> BinarySearchTree&lt;Comparable&gt;::Contains(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {
-  <span class="cf">if</span> (t == NULL) {
-    <span class="cf">return</span> <span class="kw">false</span>;
-  }
-  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {
-    <span class="cf">return</span> Contains(x, t-&gt;left);
-  }
-  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {
-    <span class="cf">return</span> Contains(x, t-&gt;right);
-  }
-  <span class="cf">else</span>
-    <span class="cf">return</span> <span class="kw">true</span>;
-}
-
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::MakeEmpty(BinaryNode&lt;Comparable&gt; *&amp;t) {
-  <span class="cf">if</span> (t != NULL) {
-    MakeEmpty(t-&gt;left);
-    MakeEmpty(t-&gt;right);
-    <span class="kw">delete</span> t;
-  }
-
-  t = NULL;
-}
-
-<span class="co">/**</span>
-<span class="co"> * 前序遍历</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::PreOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t) {
-  <span class="cf">if</span> (t != NULL) {
-    cout &lt;&lt; t-&gt;element &lt;&lt; <span class="st">&quot; &quot;</span>;
-    PreOrderTraverse(t-&gt;left);
-    PreOrderTraverse(t-&gt;right);
-  }
-}
-
-<span class="co">/**</span>
-<span class="co"> * 中序遍历</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::InOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t) {
-  <span class="cf">if</span> (t != NULL) {
-    InOrderTraverse(t-&gt;left);
-    cout &lt;&lt; t-&gt;element &lt;&lt; <span class="st">&quot; &quot;</span>;
-    InOrderTraverse(t-&gt;right);
-  }
-}
-
-<span class="co">/**</span>
-<span class="co"> * 后序遍历</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span>
-<span class="co"> */</span>
-
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::PostOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t) {
-  <span class="cf">if</span> (t != NULL) {
-    PostOrderTraverse(t-&gt;left);
-    PostOrderTraverse(t-&gt;right);
-    cout &lt;&lt; t-&gt;element &lt;&lt; <span class="st">&quot; &quot;</span>;
-  }
-}
-
-<span class="co">/**</span>
-<span class="co"> * </span><span class="an">@class</span><span class="co"> </span><span class="cv">AVLTree</span>
-<span class="co"> * </span><span class="an">@brief</span><span class="co"> 由于 AVLTree 本身是一种改进的 BST 树，所以绝大多数特性继承自 BST 树。</span>
-<span class="co"> * 其中的 Insert() 和 Remove() 方法和 BST 树中不同，</span>
-<span class="co"> * 因此在 BST 类中将此方法声明为 virtual function</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="kw">class</span> AVLTree : <span class="kw">public</span> BinarySearchTree&lt;Comparable&gt; {
-<span class="kw">public</span>:
-  AVLTree();
-  ~AVLTree();
-  <span class="dt">int</span> GetHeight();
-  <span class="dt">void</span> Insert(<span class="at">const</span> Comparable &amp;x);
-  <span class="dt">void</span> Remove(<span class="at">const</span> Comparable &amp;x);
-<span class="kw">protected</span>:
-  <span class="dt">int</span> GetHeight(BinaryNode&lt;Comparable&gt; *&amp;t);
-  <span class="dt">void</span> Insert(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t);
-  <span class="dt">void</span> Remove(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t);
-  <span class="dt">void</span> SingleRotateLeftChild(BinaryNode&lt;Comparable&gt; *&amp;k2);
-  <span class="dt">void</span> SingleRotateRightChild(BinaryNode&lt;Comparable&gt; *&amp;k2);
-  <span class="dt">void</span> DoubleRotateLeftChild(BinaryNode&lt;Comparable&gt; *&amp;k3);
-  <span class="dt">void</span> DoubleRotateRightChild(BinaryNode&lt;Comparable&gt; *&amp;k3);
-  <span class="dt">void</span> Balance(BinaryNode&lt;Comparable&gt; *&amp;t);
-};
-
-<span class="co">/**</span>
-<span class="co"> * 构造函数，调用 BST 基类的构造函数</span>
-<span class="co"> *</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@return</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-AVLTree&lt;Comparable&gt;::AVLTree() : BinarySearchTree&lt;Comparable&gt;::BinarySearchTree() {
-  <span class="co">// BinaryNode&lt;Comparable&gt;* root = BinarySearchTree&lt;Comparable&gt;::GetRoot();</span>
-  <span class="co">// root = NULL;</span>
-}
-
-<span class="co">/**</span>
-<span class="co"> * 析构函数，调用基类的 BST::MakeEmpty()</span>
-<span class="co"> *</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@return</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-AVLTree&lt;Comparable&gt;::~AVLTree() {
-  BinarySearchTree&lt;Comparable&gt;::MakeEmpty();
-}
-
-<span class="co">/**</span>
-<span class="co"> * 得到整棵 AVL 树的高度</span>
-<span class="co"> *</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@return</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">int</span> AVLTree&lt;Comparable&gt;::GetHeight() {
-  BinaryNode&lt;Comparable&gt;*&amp; root = BinarySearchTree&lt;Comparable&gt;::GetRoot();
-  <span class="cf">return</span> GetHeight(root);
-}
-
-<span class="co">/**</span>
-<span class="co"> * 向AVL中插入元素x</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 待插入的元素</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> AVLTree&lt;Comparable&gt;::Insert(<span class="at">const</span> Comparable &amp;x)
-{
-  BinaryNode&lt;Comparable&gt;*&amp; root = BinarySearchTree&lt;Comparable&gt;::GetRoot();
-  Insert(x, root);
-}
-
-<span class="co">/**</span>
-<span class="co"> * 从AVL中删除元素x</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 被删除的元素</span>
-<span class="co"> */</span>
-
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> AVLTree&lt;Comparable&gt;::Remove(<span class="at">const</span> Comparable &amp;x) {
-  BinaryNode&lt;Comparable&gt;*&amp; root = BinarySearchTree&lt;Comparable&gt;::GetRoot();
-  Remove(x, root);
-}
-
-<span class="co">/**</span>
-<span class="co"> * 得到结点t的高度</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@return</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">int</span> AVLTree&lt;Comparable&gt;::GetHeight(BinaryNode&lt;Comparable&gt; *&amp;t) {
-  <span class="cf">return</span> t == NULL ? <span class="dv">-1</span> : t-&gt;height;
-}
-
-
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> AVLTree&lt;Comparable&gt;::Insert(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) {
-  <span class="cf">if</span> (t == NULL) {
-    t = <span class="kw">new</span> BinaryNode&lt;Comparable&gt;(x, NULL, NULL);
-  }
-
-  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {
-    Insert(x, t-&gt;left);
-    Balance(t);
-    <span class="co">// if (GetHeight(t-&gt;left) - GetHeight(t-&gt;right) == 2)</span>
-    <span class="co">// {</span>
-    <span class="co">//     if (x &lt; t-&gt;left-&gt;element)</span>
-    <span class="co">//     {</span>
-    <span class="co">//         SingleRotateLeftChild(t);</span>
-    <span class="co">//     }</span>
-    <span class="co">//     else</span>
-    <span class="co">//         DoubleRotateLeftChild(t);</span>
-    <span class="co">// }</span>
-  }
-  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {
-    Insert(x, t-&gt;right);
-    Balance(t);
-    <span class="co">// if (GetHeight(t-&gt;right) - GetHeight(t-&gt;left) == 2)</span>
-    <span class="co">// {</span>
-    <span class="co">//     if (t-&gt;right-&gt;element &lt; x)</span>
-    <span class="co">//     {</span>
-    <span class="co">//         SingleRotateRightChild(t);</span>
-    <span class="co">//     }</span>
-    <span class="co">//     else</span>
-    <span class="co">//         DoubleRotateRightChild(t);</span>
-    <span class="co">// }</span>
-  }
-  <span class="cf">else</span>
-    ;
-
-  t-&gt;height = max(GetHeight(t-&gt;left), GetHeight(t-&gt;right)) + <span class="dv">1</span>;
-}
-
-<span class="co">/**</span>
-<span class="co"> * 有个小 bug，弄了一天也没弄出来，可能问题在 Balance() 和指针的引用上</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> AVLTree&lt;Comparable&gt;::Remove(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) {
-  <span class="at">static</span> stack&lt;BinaryNode&lt;Comparable&gt;*&gt; tStack; <span class="co">// 定义一个静态堆栈，存储访问结点的路径</span>
-  <span class="dt">int</span> tSize = tStack.size();                    <span class="co">// 得到栈的大小</span>
-
-  <span class="cf">if</span> (t == NULL) {
-    <span class="cf">return</span>;
-  }
-  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {
-    tStack.push(t);
-    cout &lt;&lt; <span class="st">&quot;traverse through &quot;</span> &lt;&lt; t-&gt;element &lt;&lt; endl;
-    Remove(x, t-&gt;left);
-  }
-  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {
-    tStack.push(t);
-    cout &lt;&lt; <span class="st">&quot;traverse through &quot;</span> &lt;&lt; t-&gt;element &lt;&lt; endl;
-    Remove(x, t-&gt;right);
-  }
-  <span class="cf">else</span> <span class="cf">if</span> (t-&gt;left != NULL &amp;&amp; t-&gt;right != NULL) {
-    tStack.push(t);
-    cout &lt;&lt; <span class="st">&quot;traverse through &quot;</span> &lt;&lt; t-&gt;element &lt;&lt; endl;
-
-    BinaryNode&lt;Comparable&gt;*&amp; oldT = t-&gt;right;
-
-    <span class="cf">while</span> (oldT-&gt;left != NULL) {
-      tStack.push(oldT);
-      cout &lt;&lt; <span class="st">&quot;traverse through &quot;</span> &lt;&lt; oldT-&gt;element &lt;&lt; endl;
-      oldT = oldT-&gt;left;
-    }
-
-    t-&gt;element = oldT-&gt;element;
-    Remove(t-&gt;element, t-&gt;right);
-  }
-  <span class="cf">else</span> {
-    BinaryNode&lt;Comparable&gt;*&amp; oldNode = t;
-    t = (t-&gt;left != NULL) ? t-&gt;left : t-&gt;right;
-    <span class="kw">delete</span> oldNode;
-  }
-
-  BinaryNode&lt;Comparable&gt;* tempStack;
-
-  tSize = tStack.size();      <span class="co">// 更新堆栈大小</span>
-
-
-  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; tSize; i++) {
-    tempStack = tStack.top(); <span class="co">// 回溯访问结点</span>
-    Balance(tempStack);       <span class="co">// 对每个结点做Balance处理</span>
-    tStack.pop();             <span class="co">// 已经做过Balance处理的结点出栈</span>
-  }                             <span class="co">// 此处可以进一步优化</span>
-  <span class="cf">return</span> ;
-}
-
-
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> AVLTree&lt;Comparable&gt;::SingleRotateLeftChild(BinaryNode&lt;Comparable&gt; *&amp;k2) {
-  BinaryNode&lt;Comparable&gt; *k1 = k2-&gt;left;
-  k2-&gt;left = k1-&gt;right;
-  k1-&gt;right = k2;
-  k2-&gt;height = max(GetHeight(k2-&gt;left), GetHeight(k2-&gt;right)) + <span class="dv">1</span>;
-  k1-&gt;height = max(GetHeight(k1-&gt;left), k2-&gt;height) + <span class="dv">1</span>;
-  k2 = k1;
-}
-
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> AVLTree&lt;Comparable&gt;::SingleRotateRightChild(BinaryNode&lt;Comparable&gt; *&amp;k1) {
-  BinaryNode&lt;Comparable&gt; *k2 = k1-&gt;right;
-  k1-&gt;right = k2-&gt;left;
-  k2-&gt;left = k1;
-  k1-&gt;height = max(GetHeight(k1-&gt;left), GetHeight(k1-&gt;right)) + <span class="dv">1</span>;
-  k2-&gt;height = max(k1-&gt;height, GetHeight(k2-&gt;right)) + <span class="dv">1</span>;
-  k1 = k2;
-}
-
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> AVLTree&lt;Comparable&gt;::DoubleRotateLeftChild(BinaryNode&lt;Comparable&gt; *&amp;k3) {
-  SingleRotateRightChild(k3-&gt;left);
-  SingleRotateLeftChild(k3);
-}
-
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> AVLTree&lt;Comparable&gt;::DoubleRotateRightChild(BinaryNode&lt;Comparable&gt; *&amp;k1) {
-  SingleRotateLeftChild(k1-&gt;right);
-  SingleRotateRightChild(k1);
-}
-
-<span class="co">/**</span>
-<span class="co"> * 计算 t 的平衡因子，分为四种不同情况分别调用不同函数处理</span>
-<span class="co"> *</span>
-<span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span><span class="co"> 树根</span>
-<span class="co"> */</span>
-<span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;
-<span class="dt">void</span> AVLTree&lt;Comparable&gt;::Balance(BinaryNode&lt;Comparable&gt; *&amp;t) {
-  <span class="cf">if</span> (GetHeight(t-&gt;left) - GetHeight(t-&gt;right) == <span class="dv">2</span>) {
-    <span class="cf">if</span> (GetHeight(t-&gt;left-&gt;left) &gt; GetHeight(t-&gt;left-&gt;right)) {
-      SingleRotateLeftChild(t);
-    }
-    <span class="cf">else</span> <span class="cf">if</span> (GetHeight(t-&gt;left-&gt;left) &lt; GetHeight(t-&gt;left-&gt;right)) {
-      DoubleRotateLeftChild(t);
-    }
-    <span class="cf">else</span>
-      ;
-  }
-
-  <span class="cf">if</span> (GetHeight(t-&gt;left) - GetHeight(t-&gt;right) == <span class="dv">-2</span>) {
-    <span class="cf">if</span> (GetHeight(t-&gt;right-&gt;right) &gt; GetHeight(t-&gt;right-&gt;left)) {
-      SingleRotateRightChild(t);
-    }
-    <span class="cf">else</span> <span class="cf">if</span> (GetHeight(t-&gt;right-&gt;right) &lt; GetHeight(t-&gt;right-&gt;left)) {
-      DoubleRotateRightChild(t);
-    }
-    <span class="cf">else</span>
-      ;
-  }
-}
-
-<span class="pp">#endif </span><span class="co">/* _BINARYSEARCHTREE_H_ */</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1"><span class="pp">#ifndef _BINARYSEARCHTREE_H_</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="pp">#define _</span>BINARYSEARCHTREE_H_</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="pp">#include </span><span class="im">&lt;stack&gt;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">// 三种遍历方式</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="pp">#define PREORDERTRAVERSE </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="pp">#define INORDERTRAVERSE </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="pp">#define POSTORDERTRAVERSE </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb1-12" title="12"></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="co">// 求两个元素的最大值</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="pp">#define max</span>(x,<span class="pp"> </span>y)<span class="pp"> </span>((x<span class="pp"> </span>&gt;<span class="pp"> </span>y)<span class="pp"> </span>?<span class="pp"> </span>(x)<span class="pp"> </span>:<span class="pp"> </span>y)</a>
+<a class="sourceLine" id="cb1-15" title="15"></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="co"> * </span><span class="an">@class</span><span class="co"> </span><span class="cv">BinaryNode</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="co"> * </span><span class="an">@brief</span><span class="co"> 树的结点，为了方便BST和AVL用了同一种结构。BST中所有结点的height域为默认值</span></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-21" title="21"><span class="kw">struct</span> BinaryNode {</a>
+<a class="sourceLine" id="cb1-22" title="22">  Comparable element;</a>
+<a class="sourceLine" id="cb1-23" title="23">  BinaryNode* left;</a>
+<a class="sourceLine" id="cb1-24" title="24">  BinaryNode* right;</a>
+<a class="sourceLine" id="cb1-25" title="25"></a>
+<a class="sourceLine" id="cb1-26" title="26">  <span class="dt">int</span> height;</a>
+<a class="sourceLine" id="cb1-27" title="27"></a>
+<a class="sourceLine" id="cb1-28" title="28">  BinaryNode(<span class="at">const</span> Comparable &amp;theElement,</a>
+<a class="sourceLine" id="cb1-29" title="29">             BinaryNode *lt,</a>
+<a class="sourceLine" id="cb1-30" title="30">             BinaryNode *rt,</a>
+<a class="sourceLine" id="cb1-31" title="31">             <span class="at">const</span> <span class="dt">int</span> theHeight = <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb1-32" title="32">    : element(theElement), left(lt), right(rt), height(theHeight) {}</a>
+<a class="sourceLine" id="cb1-33" title="33">};</a>
+<a class="sourceLine" id="cb1-34" title="34"></a>
+<a class="sourceLine" id="cb1-35" title="35"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-36" title="36"><span class="co"> * </span><span class="an">@class</span><span class="co"> </span><span class="cv">BinarySearchTree</span></a>
+<a class="sourceLine" id="cb1-37" title="37"><span class="co"> * </span><span class="an">@brief</span><span class="co"> 实现了常见的删除，插入功能。并作为AVL树的基类</span></a>
+<a class="sourceLine" id="cb1-38" title="38"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-39" title="39"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-40" title="40"><span class="kw">class</span> BinarySearchTree {</a>
+<a class="sourceLine" id="cb1-41" title="41"><span class="kw">public</span>:</a>
+<a class="sourceLine" id="cb1-42" title="42">  BinarySearchTree();</a>
+<a class="sourceLine" id="cb1-43" title="43"></a>
+<a class="sourceLine" id="cb1-44" title="44">  ~BinarySearchTree();</a>
+<a class="sourceLine" id="cb1-45" title="45"></a>
+<a class="sourceLine" id="cb1-46" title="46">  BinaryNode&lt;Comparable&gt;*&amp; GetRoot();</a>
+<a class="sourceLine" id="cb1-47" title="47"></a>
+<a class="sourceLine" id="cb1-48" title="48">  <span class="dt">void</span> BuildBinaryTree(Comparable *x, <span class="dt">int</span> length);</a>
+<a class="sourceLine" id="cb1-49" title="49"></a>
+<a class="sourceLine" id="cb1-50" title="50">  <span class="at">const</span> Comparable&amp; FindMin() <span class="at">const</span>;</a>
+<a class="sourceLine" id="cb1-51" title="51">  <span class="at">const</span> Comparable&amp; FindMax() <span class="at">const</span>;</a>
+<a class="sourceLine" id="cb1-52" title="52">  <span class="dt">bool</span> Contains(<span class="at">const</span> Comparable &amp;x) <span class="at">const</span>;</a>
+<a class="sourceLine" id="cb1-53" title="53">  <span class="dt">bool</span> IsEmpty() <span class="at">const</span>;</a>
+<a class="sourceLine" id="cb1-54" title="54">  <span class="dt">void</span> TraverseTree(<span class="dt">int</span> type);</a>
+<a class="sourceLine" id="cb1-55" title="55"></a>
+<a class="sourceLine" id="cb1-56" title="56">  <span class="dt">void</span> MakeEmpty();</a>
+<a class="sourceLine" id="cb1-57" title="57"></a>
+<a class="sourceLine" id="cb1-58" title="58">  <span class="kw">virtual</span> <span class="dt">void</span> Insert(<span class="at">const</span> Comparable &amp;x);</a>
+<a class="sourceLine" id="cb1-59" title="59">  <span class="kw">virtual</span> <span class="dt">void</span> Remove(<span class="at">const</span> Comparable &amp;x);</a>
+<a class="sourceLine" id="cb1-60" title="60"></a>
+<a class="sourceLine" id="cb1-61" title="61"></a>
+<a class="sourceLine" id="cb1-62" title="62"><span class="kw">private</span>:</a>
+<a class="sourceLine" id="cb1-63" title="63">  BinaryNode&lt;Comparable&gt; *root;</a>
+<a class="sourceLine" id="cb1-64" title="64">  <span class="kw">virtual</span> <span class="dt">void</span> Insert(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;</a>
+<a class="sourceLine" id="cb1-65" title="65">  <span class="kw">virtual</span> <span class="dt">void</span> Remove(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;</a>
+<a class="sourceLine" id="cb1-66" title="66">  BinaryNode&lt;Comparable&gt;* FindMin(BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;</a>
+<a class="sourceLine" id="cb1-67" title="67">  BinaryNode&lt;Comparable&gt;* FindMax(BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;</a>
+<a class="sourceLine" id="cb1-68" title="68">  <span class="dt">bool</span> Contains(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span>;</a>
+<a class="sourceLine" id="cb1-69" title="69">  <span class="dt">void</span> MakeEmpty(BinaryNode&lt;Comparable&gt; *&amp;t);</a>
+<a class="sourceLine" id="cb1-70" title="70"></a>
+<a class="sourceLine" id="cb1-71" title="71">  <span class="dt">void</span> PreOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t);</a>
+<a class="sourceLine" id="cb1-72" title="72">  <span class="dt">void</span> InOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t);</a>
+<a class="sourceLine" id="cb1-73" title="73">  <span class="dt">void</span> PostOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t);</a>
+<a class="sourceLine" id="cb1-74" title="74">};</a>
+<a class="sourceLine" id="cb1-75" title="75"></a>
+<a class="sourceLine" id="cb1-76" title="76"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-77" title="77"><span class="co"> * 构造函数，默认 root=NULL</span></a>
+<a class="sourceLine" id="cb1-78" title="78"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-79" title="79"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-80" title="80"><span class="co"> * </span><span class="an">@return</span></a>
+<a class="sourceLine" id="cb1-81" title="81"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-82" title="82"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-83" title="83">BinarySearchTree&lt;Comparable&gt;::BinarySearchTree() : root(NULL) { }</a>
+<a class="sourceLine" id="cb1-84" title="84"></a>
+<a class="sourceLine" id="cb1-85" title="85"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-86" title="86"><span class="co"> * 析构函数</span></a>
+<a class="sourceLine" id="cb1-87" title="87"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-88" title="88"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-89" title="89"><span class="co"> * </span><span class="an">@return</span></a>
+<a class="sourceLine" id="cb1-90" title="90"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-91" title="91"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-92" title="92">BinarySearchTree&lt;Comparable&gt;::~BinarySearchTree() {</a>
+<a class="sourceLine" id="cb1-93" title="93">  MakeEmpty();</a>
+<a class="sourceLine" id="cb1-94" title="94">}</a>
+<a class="sourceLine" id="cb1-95" title="95"></a>
+<a class="sourceLine" id="cb1-96" title="96"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-97" title="97"><span class="co"> * 得到根节点的引用</span></a>
+<a class="sourceLine" id="cb1-98" title="98"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-99" title="99"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-100" title="100"><span class="co"> * </span><span class="an">@return</span><span class="co"> 返回根节点的引用</span></a>
+<a class="sourceLine" id="cb1-101" title="101"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-102" title="102"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-103" title="103">BinaryNode&lt;Comparable&gt;*&amp; BinarySearchTree&lt;Comparable&gt;::GetRoot() {</a>
+<a class="sourceLine" id="cb1-104" title="104">  <span class="cf">return</span> root;</a>
+<a class="sourceLine" id="cb1-105" title="105">}</a>
+<a class="sourceLine" id="cb1-106" title="106"></a>
+<a class="sourceLine" id="cb1-107" title="107"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-108" title="108"><span class="co"> * 建立BST树，通过数组的方式传入元素，调用 Insert(x) 函数</span></a>
+<a class="sourceLine" id="cb1-109" title="109"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-110" title="110"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span></a>
+<a class="sourceLine" id="cb1-111" title="111"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">length</span></a>
+<a class="sourceLine" id="cb1-112" title="112"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-113" title="113"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-114" title="114"><span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::BuildBinaryTree(Comparable *x, <span class="dt">int</span> length) {</a>
+<a class="sourceLine" id="cb1-115" title="115">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; length; ++i) {</a>
+<a class="sourceLine" id="cb1-116" title="116">    Insert(x[i]);</a>
+<a class="sourceLine" id="cb1-117" title="117">  }</a>
+<a class="sourceLine" id="cb1-118" title="118">}</a>
+<a class="sourceLine" id="cb1-119" title="119"></a>
+<a class="sourceLine" id="cb1-120" title="120"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-121" title="121"><span class="co"> * </span><span class="an">@return</span><span class="co"> BST 中的最小值</span></a>
+<a class="sourceLine" id="cb1-122" title="122"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-123" title="123"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-124" title="124"><span class="at">const</span> Comparable&amp; BinarySearchTree&lt;Comparable&gt;::FindMin() <span class="at">const</span> {</a>
+<a class="sourceLine" id="cb1-125" title="125">  <span class="cf">return</span> FindMin(root)-&gt;element;</a>
+<a class="sourceLine" id="cb1-126" title="126">}</a>
+<a class="sourceLine" id="cb1-127" title="127"></a>
+<a class="sourceLine" id="cb1-128" title="128"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-129" title="129"><span class="co"> * </span><span class="an">@return</span><span class="co"> BST 中的最大值</span></a>
+<a class="sourceLine" id="cb1-130" title="130"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-131" title="131"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-132" title="132"><span class="at">const</span> Comparable&amp; BinarySearchTree&lt;Comparable&gt;::FindMax() <span class="at">const</span> {</a>
+<a class="sourceLine" id="cb1-133" title="133">  <span class="cf">return</span> FindMax(root)-&gt;element;</a>
+<a class="sourceLine" id="cb1-134" title="134">}</a>
+<a class="sourceLine" id="cb1-135" title="135"></a>
+<a class="sourceLine" id="cb1-136" title="136"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-137" title="137"><span class="co"> * 测试 x 是否在 BST 中，调用私有函数 Contains(x, root)</span></a>
+<a class="sourceLine" id="cb1-138" title="138"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-139" title="139"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span></a>
+<a class="sourceLine" id="cb1-140" title="140"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-141" title="141"><span class="co"> * </span><span class="an">@return</span></a>
+<a class="sourceLine" id="cb1-142" title="142"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-143" title="143"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-144" title="144"><span class="dt">bool</span> BinarySearchTree&lt;Comparable&gt;::Contains(<span class="at">const</span> Comparable &amp;x) <span class="at">const</span> {</a>
+<a class="sourceLine" id="cb1-145" title="145">  <span class="cf">return</span> Contains(x, root);</a>
+<a class="sourceLine" id="cb1-146" title="146">}</a>
+<a class="sourceLine" id="cb1-147" title="147"></a>
+<a class="sourceLine" id="cb1-148" title="148"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-149" title="149"><span class="co"> * 测试树是否为空</span></a>
+<a class="sourceLine" id="cb1-150" title="150"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-151" title="151"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-152" title="152"><span class="co"> * </span><span class="an">@return</span></a>
+<a class="sourceLine" id="cb1-153" title="153"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-154" title="154"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-155" title="155"><span class="dt">bool</span> BinarySearchTree&lt;Comparable&gt;::IsEmpty() <span class="at">const</span> {</a>
+<a class="sourceLine" id="cb1-156" title="156">  <span class="cf">if</span> (root == NULL) {</a>
+<a class="sourceLine" id="cb1-157" title="157">    <span class="cf">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb1-158" title="158">  }</a>
+<a class="sourceLine" id="cb1-159" title="159"></a>
+<a class="sourceLine" id="cb1-160" title="160">  <span class="cf">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb1-161" title="161">}</a>
+<a class="sourceLine" id="cb1-162" title="162"></a>
+<a class="sourceLine" id="cb1-163" title="163"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-164" title="164"><span class="co"> * 以三种方式遍历树</span></a>
+<a class="sourceLine" id="cb1-165" title="165"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-166" title="166"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">type</span><span class="co"> 遍历树的方式</span></a>
+<a class="sourceLine" id="cb1-167" title="167"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-168" title="168"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-169" title="169"><span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::TraverseTree(<span class="dt">int</span> type) {</a>
+<a class="sourceLine" id="cb1-170" title="170">  <span class="cf">if</span> (type == PREORDERTRAVERSE) {</a>
+<a class="sourceLine" id="cb1-171" title="171">    cout &lt;&lt; <span class="st">&quot;PreOrderTraverse the tree:&quot;</span> &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb1-172" title="172">    PreOrderTraverse(root);</a>
+<a class="sourceLine" id="cb1-173" title="173">    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;PreOrderTraverse ends.&quot;</span> &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb1-174" title="174">  }</a>
+<a class="sourceLine" id="cb1-175" title="175"></a>
+<a class="sourceLine" id="cb1-176" title="176">  <span class="cf">if</span> (type == INORDERTRAVERSE) {</a>
+<a class="sourceLine" id="cb1-177" title="177">    cout &lt;&lt; <span class="st">&quot;InOrderTraverse the tree:&quot;</span> &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb1-178" title="178">    InOrderTraverse(root);</a>
+<a class="sourceLine" id="cb1-179" title="179">    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;InOrderTraverse ends.&quot;</span> &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb1-180" title="180">  }</a>
+<a class="sourceLine" id="cb1-181" title="181"></a>
+<a class="sourceLine" id="cb1-182" title="182">  <span class="cf">if</span> (type == POSTORDERTRAVERSE) {</a>
+<a class="sourceLine" id="cb1-183" title="183">    cout &lt;&lt; <span class="st">&quot;PostOrderTraverse the tree:&quot;</span> &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb1-184" title="184">    PostOrderTraverse(root);</a>
+<a class="sourceLine" id="cb1-185" title="185">    cout &lt;&lt; endl &lt;&lt; <span class="st">&quot;InOrderTraverse ends.&quot;</span> &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb1-186" title="186">  }</a>
+<a class="sourceLine" id="cb1-187" title="187">}</a>
+<a class="sourceLine" id="cb1-188" title="188"></a>
+<a class="sourceLine" id="cb1-189" title="189"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-190" title="190"><span class="co"> * 清空 BST 树</span></a>
+<a class="sourceLine" id="cb1-191" title="191"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-192" title="192"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-193" title="193"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-194" title="194"><span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::MakeEmpty() {</a>
+<a class="sourceLine" id="cb1-195" title="195">  MakeEmpty(root);</a>
+<a class="sourceLine" id="cb1-196" title="196">}</a>
+<a class="sourceLine" id="cb1-197" title="197"></a>
+<a class="sourceLine" id="cb1-198" title="198"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-199" title="199"><span class="co"> * 向 BST 中插入一个元素</span></a>
+<a class="sourceLine" id="cb1-200" title="200"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-201" title="201"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 待插入的元素</span></a>
+<a class="sourceLine" id="cb1-202" title="202"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-203" title="203"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-204" title="204"><span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::Insert(<span class="at">const</span> Comparable &amp;x) {</a>
+<a class="sourceLine" id="cb1-205" title="205">  Insert(x, root);</a>
+<a class="sourceLine" id="cb1-206" title="206">}</a>
+<a class="sourceLine" id="cb1-207" title="207"></a>
+<a class="sourceLine" id="cb1-208" title="208"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-209" title="209"><span class="co"> * 从 BST 中删除一个元素</span></a>
+<a class="sourceLine" id="cb1-210" title="210"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-211" title="211"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 被删除的元素</span></a>
+<a class="sourceLine" id="cb1-212" title="212"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-213" title="213"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-214" title="214"><span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::Remove(<span class="at">const</span> Comparable &amp;x) {</a>
+<a class="sourceLine" id="cb1-215" title="215">  Remove(x, root);</a>
+<a class="sourceLine" id="cb1-216" title="216">}</a>
+<a class="sourceLine" id="cb1-217" title="217"></a>
+<a class="sourceLine" id="cb1-218" title="218"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-219" title="219"><span class="co"> * 向树根为 t 的树中插入一个元素</span></a>
+<a class="sourceLine" id="cb1-220" title="220"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-221" title="221"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 待插入的元素</span></a>
+<a class="sourceLine" id="cb1-222" title="222"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span><span class="co"> 树根</span></a>
+<a class="sourceLine" id="cb1-223" title="223"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-224" title="224"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-225" title="225"><span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::Insert(<span class="at">const</span> Comparable &amp;x,</a>
+<a class="sourceLine" id="cb1-226" title="226">                                          BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {</a>
+<a class="sourceLine" id="cb1-227" title="227">  <span class="cf">if</span> (t == NULL) {</a>
+<a class="sourceLine" id="cb1-228" title="228">    t = <span class="kw">new</span> BinaryNode&lt;Comparable&gt;(x, NULL, NULL, -<span class="dv">3</span>);</a>
+<a class="sourceLine" id="cb1-229" title="229">  }</a>
+<a class="sourceLine" id="cb1-230" title="230">  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {</a>
+<a class="sourceLine" id="cb1-231" title="231">    Insert(x, t-&gt;left);</a>
+<a class="sourceLine" id="cb1-232" title="232">  }</a>
+<a class="sourceLine" id="cb1-233" title="233">  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {</a>
+<a class="sourceLine" id="cb1-234" title="234">    Insert(x, t-&gt;right);</a>
+<a class="sourceLine" id="cb1-235" title="235">  }</a>
+<a class="sourceLine" id="cb1-236" title="236">  <span class="cf">else</span></a>
+<a class="sourceLine" id="cb1-237" title="237">    ; <span class="co">// dupicate; you can do something, of course</span></a>
+<a class="sourceLine" id="cb1-238" title="238">}</a>
+<a class="sourceLine" id="cb1-239" title="239"></a>
+<a class="sourceLine" id="cb1-240" title="240"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-241" title="241"><span class="co"> * 从树根为 t 的树中删除元素</span></a>
+<a class="sourceLine" id="cb1-242" title="242"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-243" title="243"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 被删除的元素</span></a>
+<a class="sourceLine" id="cb1-244" title="244"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span><span class="co"> 树根</span></a>
+<a class="sourceLine" id="cb1-245" title="245"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-246" title="246"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-247" title="247"><span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::Remove(<span class="at">const</span> Comparable &amp;x,</a>
+<a class="sourceLine" id="cb1-248" title="248">                                          BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {</a>
+<a class="sourceLine" id="cb1-249" title="249">  <span class="cf">if</span> (t == NULL) {</a>
+<a class="sourceLine" id="cb1-250" title="250">    <span class="cf">return</span>;</a>
+<a class="sourceLine" id="cb1-251" title="251">  }</a>
+<a class="sourceLine" id="cb1-252" title="252">  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {</a>
+<a class="sourceLine" id="cb1-253" title="253">    Remove(x, t-&gt;left);</a>
+<a class="sourceLine" id="cb1-254" title="254">  }</a>
+<a class="sourceLine" id="cb1-255" title="255">  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {</a>
+<a class="sourceLine" id="cb1-256" title="256">    Remove(x, t-&gt;right);</a>
+<a class="sourceLine" id="cb1-257" title="257">  }</a>
+<a class="sourceLine" id="cb1-258" title="258">  <span class="cf">else</span> <span class="cf">if</span> (t-&gt;left != NULL &amp;&amp; t-&gt;right != NULL) {</a>
+<a class="sourceLine" id="cb1-259" title="259">    t-&gt;element = FindMin(t-&gt;right)-&gt;element;</a>
+<a class="sourceLine" id="cb1-260" title="260">    Remove(t-&gt;element, t-&gt;right);</a>
+<a class="sourceLine" id="cb1-261" title="261">  }</a>
+<a class="sourceLine" id="cb1-262" title="262">  <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb1-263" title="263">    BinaryNode&lt;Comparable&gt; *oldNode = t;</a>
+<a class="sourceLine" id="cb1-264" title="264">    t = (t-&gt;left != NULL) ? t-&gt;left : t-&gt;right;</a>
+<a class="sourceLine" id="cb1-265" title="265">    <span class="kw">delete</span> oldNode;</a>
+<a class="sourceLine" id="cb1-266" title="266">  }</a>
+<a class="sourceLine" id="cb1-267" title="267">}</a>
+<a class="sourceLine" id="cb1-268" title="268"></a>
+<a class="sourceLine" id="cb1-269" title="269"></a>
+<a class="sourceLine" id="cb1-270" title="270"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-271" title="271">BinaryNode&lt;Comparable&gt;* BinarySearchTree&lt;Comparable&gt;::FindMin(BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {</a>
+<a class="sourceLine" id="cb1-272" title="272">  <span class="cf">if</span> (t != NULL) {</a>
+<a class="sourceLine" id="cb1-273" title="273">    <span class="cf">while</span>(t-&gt;left != NULL)</a>
+<a class="sourceLine" id="cb1-274" title="274">      t = t-&gt;left;</a>
+<a class="sourceLine" id="cb1-275" title="275">  }</a>
+<a class="sourceLine" id="cb1-276" title="276"></a>
+<a class="sourceLine" id="cb1-277" title="277">  <span class="cf">return</span> t;</a>
+<a class="sourceLine" id="cb1-278" title="278">}</a>
+<a class="sourceLine" id="cb1-279" title="279"></a>
+<a class="sourceLine" id="cb1-280" title="280"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-281" title="281">BinaryNode&lt;Comparable&gt;* BinarySearchTree&lt;Comparable&gt;::FindMax(BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {</a>
+<a class="sourceLine" id="cb1-282" title="282">  <span class="cf">if</span> (t != NULL) {</a>
+<a class="sourceLine" id="cb1-283" title="283">    <span class="cf">while</span>(t-&gt;right != NULL)</a>
+<a class="sourceLine" id="cb1-284" title="284">      t = t-&gt;right;</a>
+<a class="sourceLine" id="cb1-285" title="285">  }</a>
+<a class="sourceLine" id="cb1-286" title="286"></a>
+<a class="sourceLine" id="cb1-287" title="287">  <span class="cf">return</span> t;</a>
+<a class="sourceLine" id="cb1-288" title="288">}</a>
+<a class="sourceLine" id="cb1-289" title="289"></a>
+<a class="sourceLine" id="cb1-290" title="290"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-291" title="291"><span class="dt">bool</span> BinarySearchTree&lt;Comparable&gt;::Contains(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) <span class="at">const</span> {</a>
+<a class="sourceLine" id="cb1-292" title="292">  <span class="cf">if</span> (t == NULL) {</a>
+<a class="sourceLine" id="cb1-293" title="293">    <span class="cf">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb1-294" title="294">  }</a>
+<a class="sourceLine" id="cb1-295" title="295">  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {</a>
+<a class="sourceLine" id="cb1-296" title="296">    <span class="cf">return</span> Contains(x, t-&gt;left);</a>
+<a class="sourceLine" id="cb1-297" title="297">  }</a>
+<a class="sourceLine" id="cb1-298" title="298">  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {</a>
+<a class="sourceLine" id="cb1-299" title="299">    <span class="cf">return</span> Contains(x, t-&gt;right);</a>
+<a class="sourceLine" id="cb1-300" title="300">  }</a>
+<a class="sourceLine" id="cb1-301" title="301">  <span class="cf">else</span></a>
+<a class="sourceLine" id="cb1-302" title="302">    <span class="cf">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb1-303" title="303">}</a>
+<a class="sourceLine" id="cb1-304" title="304"></a>
+<a class="sourceLine" id="cb1-305" title="305"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-306" title="306"><span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::MakeEmpty(BinaryNode&lt;Comparable&gt; *&amp;t) {</a>
+<a class="sourceLine" id="cb1-307" title="307">  <span class="cf">if</span> (t != NULL) {</a>
+<a class="sourceLine" id="cb1-308" title="308">    MakeEmpty(t-&gt;left);</a>
+<a class="sourceLine" id="cb1-309" title="309">    MakeEmpty(t-&gt;right);</a>
+<a class="sourceLine" id="cb1-310" title="310">    <span class="kw">delete</span> t;</a>
+<a class="sourceLine" id="cb1-311" title="311">  }</a>
+<a class="sourceLine" id="cb1-312" title="312"></a>
+<a class="sourceLine" id="cb1-313" title="313">  t = NULL;</a>
+<a class="sourceLine" id="cb1-314" title="314">}</a>
+<a class="sourceLine" id="cb1-315" title="315"></a>
+<a class="sourceLine" id="cb1-316" title="316"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-317" title="317"><span class="co"> * 前序遍历</span></a>
+<a class="sourceLine" id="cb1-318" title="318"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-319" title="319"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></a>
+<a class="sourceLine" id="cb1-320" title="320"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-321" title="321"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-322" title="322"><span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::PreOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t) {</a>
+<a class="sourceLine" id="cb1-323" title="323">  <span class="cf">if</span> (t != NULL) {</a>
+<a class="sourceLine" id="cb1-324" title="324">    cout &lt;&lt; t-&gt;element &lt;&lt; <span class="st">&quot; &quot;</span>;</a>
+<a class="sourceLine" id="cb1-325" title="325">    PreOrderTraverse(t-&gt;left);</a>
+<a class="sourceLine" id="cb1-326" title="326">    PreOrderTraverse(t-&gt;right);</a>
+<a class="sourceLine" id="cb1-327" title="327">  }</a>
+<a class="sourceLine" id="cb1-328" title="328">}</a>
+<a class="sourceLine" id="cb1-329" title="329"></a>
+<a class="sourceLine" id="cb1-330" title="330"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-331" title="331"><span class="co"> * 中序遍历</span></a>
+<a class="sourceLine" id="cb1-332" title="332"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-333" title="333"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></a>
+<a class="sourceLine" id="cb1-334" title="334"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-335" title="335"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-336" title="336"><span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::InOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t) {</a>
+<a class="sourceLine" id="cb1-337" title="337">  <span class="cf">if</span> (t != NULL) {</a>
+<a class="sourceLine" id="cb1-338" title="338">    InOrderTraverse(t-&gt;left);</a>
+<a class="sourceLine" id="cb1-339" title="339">    cout &lt;&lt; t-&gt;element &lt;&lt; <span class="st">&quot; &quot;</span>;</a>
+<a class="sourceLine" id="cb1-340" title="340">    InOrderTraverse(t-&gt;right);</a>
+<a class="sourceLine" id="cb1-341" title="341">  }</a>
+<a class="sourceLine" id="cb1-342" title="342">}</a>
+<a class="sourceLine" id="cb1-343" title="343"></a>
+<a class="sourceLine" id="cb1-344" title="344"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-345" title="345"><span class="co"> * 后序遍历</span></a>
+<a class="sourceLine" id="cb1-346" title="346"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-347" title="347"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></a>
+<a class="sourceLine" id="cb1-348" title="348"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-349" title="349"></a>
+<a class="sourceLine" id="cb1-350" title="350"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-351" title="351"><span class="dt">void</span> BinarySearchTree&lt;Comparable&gt;::PostOrderTraverse(BinaryNode&lt;Comparable&gt; *&amp;t) {</a>
+<a class="sourceLine" id="cb1-352" title="352">  <span class="cf">if</span> (t != NULL) {</a>
+<a class="sourceLine" id="cb1-353" title="353">    PostOrderTraverse(t-&gt;left);</a>
+<a class="sourceLine" id="cb1-354" title="354">    PostOrderTraverse(t-&gt;right);</a>
+<a class="sourceLine" id="cb1-355" title="355">    cout &lt;&lt; t-&gt;element &lt;&lt; <span class="st">&quot; &quot;</span>;</a>
+<a class="sourceLine" id="cb1-356" title="356">  }</a>
+<a class="sourceLine" id="cb1-357" title="357">}</a>
+<a class="sourceLine" id="cb1-358" title="358"></a>
+<a class="sourceLine" id="cb1-359" title="359"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-360" title="360"><span class="co"> * </span><span class="an">@class</span><span class="co"> </span><span class="cv">AVLTree</span></a>
+<a class="sourceLine" id="cb1-361" title="361"><span class="co"> * </span><span class="an">@brief</span><span class="co"> 由于 AVLTree 本身是一种改进的 BST 树，所以绝大多数特性继承自 BST 树。</span></a>
+<a class="sourceLine" id="cb1-362" title="362"><span class="co"> * 其中的 Insert() 和 Remove() 方法和 BST 树中不同，</span></a>
+<a class="sourceLine" id="cb1-363" title="363"><span class="co"> * 因此在 BST 类中将此方法声明为 virtual function</span></a>
+<a class="sourceLine" id="cb1-364" title="364"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-365" title="365"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-366" title="366"><span class="kw">class</span> AVLTree : <span class="kw">public</span> BinarySearchTree&lt;Comparable&gt; {</a>
+<a class="sourceLine" id="cb1-367" title="367"><span class="kw">public</span>:</a>
+<a class="sourceLine" id="cb1-368" title="368">  AVLTree();</a>
+<a class="sourceLine" id="cb1-369" title="369">  ~AVLTree();</a>
+<a class="sourceLine" id="cb1-370" title="370">  <span class="dt">int</span> GetHeight();</a>
+<a class="sourceLine" id="cb1-371" title="371">  <span class="dt">void</span> Insert(<span class="at">const</span> Comparable &amp;x);</a>
+<a class="sourceLine" id="cb1-372" title="372">  <span class="dt">void</span> Remove(<span class="at">const</span> Comparable &amp;x);</a>
+<a class="sourceLine" id="cb1-373" title="373"><span class="kw">protected</span>:</a>
+<a class="sourceLine" id="cb1-374" title="374">  <span class="dt">int</span> GetHeight(BinaryNode&lt;Comparable&gt; *&amp;t);</a>
+<a class="sourceLine" id="cb1-375" title="375">  <span class="dt">void</span> Insert(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t);</a>
+<a class="sourceLine" id="cb1-376" title="376">  <span class="dt">void</span> Remove(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t);</a>
+<a class="sourceLine" id="cb1-377" title="377">  <span class="dt">void</span> SingleRotateLeftChild(BinaryNode&lt;Comparable&gt; *&amp;k2);</a>
+<a class="sourceLine" id="cb1-378" title="378">  <span class="dt">void</span> SingleRotateRightChild(BinaryNode&lt;Comparable&gt; *&amp;k2);</a>
+<a class="sourceLine" id="cb1-379" title="379">  <span class="dt">void</span> DoubleRotateLeftChild(BinaryNode&lt;Comparable&gt; *&amp;k3);</a>
+<a class="sourceLine" id="cb1-380" title="380">  <span class="dt">void</span> DoubleRotateRightChild(BinaryNode&lt;Comparable&gt; *&amp;k3);</a>
+<a class="sourceLine" id="cb1-381" title="381">  <span class="dt">void</span> Balance(BinaryNode&lt;Comparable&gt; *&amp;t);</a>
+<a class="sourceLine" id="cb1-382" title="382">};</a>
+<a class="sourceLine" id="cb1-383" title="383"></a>
+<a class="sourceLine" id="cb1-384" title="384"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-385" title="385"><span class="co"> * 构造函数，调用 BST 基类的构造函数</span></a>
+<a class="sourceLine" id="cb1-386" title="386"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-387" title="387"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-388" title="388"><span class="co"> * </span><span class="an">@return</span></a>
+<a class="sourceLine" id="cb1-389" title="389"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-390" title="390"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-391" title="391">AVLTree&lt;Comparable&gt;::AVLTree() : BinarySearchTree&lt;Comparable&gt;::BinarySearchTree() {</a>
+<a class="sourceLine" id="cb1-392" title="392">  <span class="co">// BinaryNode&lt;Comparable&gt;* root = BinarySearchTree&lt;Comparable&gt;::GetRoot();</span></a>
+<a class="sourceLine" id="cb1-393" title="393">  <span class="co">// root = NULL;</span></a>
+<a class="sourceLine" id="cb1-394" title="394">}</a>
+<a class="sourceLine" id="cb1-395" title="395"></a>
+<a class="sourceLine" id="cb1-396" title="396"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-397" title="397"><span class="co"> * 析构函数，调用基类的 BST::MakeEmpty()</span></a>
+<a class="sourceLine" id="cb1-398" title="398"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-399" title="399"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-400" title="400"><span class="co"> * </span><span class="an">@return</span></a>
+<a class="sourceLine" id="cb1-401" title="401"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-402" title="402"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-403" title="403">AVLTree&lt;Comparable&gt;::~AVLTree() {</a>
+<a class="sourceLine" id="cb1-404" title="404">  BinarySearchTree&lt;Comparable&gt;::MakeEmpty();</a>
+<a class="sourceLine" id="cb1-405" title="405">}</a>
+<a class="sourceLine" id="cb1-406" title="406"></a>
+<a class="sourceLine" id="cb1-407" title="407"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-408" title="408"><span class="co"> * 得到整棵 AVL 树的高度</span></a>
+<a class="sourceLine" id="cb1-409" title="409"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-410" title="410"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-411" title="411"><span class="co"> * </span><span class="an">@return</span></a>
+<a class="sourceLine" id="cb1-412" title="412"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-413" title="413"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-414" title="414"><span class="dt">int</span> AVLTree&lt;Comparable&gt;::GetHeight() {</a>
+<a class="sourceLine" id="cb1-415" title="415">  BinaryNode&lt;Comparable&gt;*&amp; root = BinarySearchTree&lt;Comparable&gt;::GetRoot();</a>
+<a class="sourceLine" id="cb1-416" title="416">  <span class="cf">return</span> GetHeight(root);</a>
+<a class="sourceLine" id="cb1-417" title="417">}</a>
+<a class="sourceLine" id="cb1-418" title="418"></a>
+<a class="sourceLine" id="cb1-419" title="419"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-420" title="420"><span class="co"> * 向AVL中插入元素x</span></a>
+<a class="sourceLine" id="cb1-421" title="421"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-422" title="422"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 待插入的元素</span></a>
+<a class="sourceLine" id="cb1-423" title="423"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-424" title="424"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-425" title="425"><span class="dt">void</span> AVLTree&lt;Comparable&gt;::Insert(<span class="at">const</span> Comparable &amp;x)</a>
+<a class="sourceLine" id="cb1-426" title="426">{</a>
+<a class="sourceLine" id="cb1-427" title="427">  BinaryNode&lt;Comparable&gt;*&amp; root = BinarySearchTree&lt;Comparable&gt;::GetRoot();</a>
+<a class="sourceLine" id="cb1-428" title="428">  Insert(x, root);</a>
+<a class="sourceLine" id="cb1-429" title="429">}</a>
+<a class="sourceLine" id="cb1-430" title="430"></a>
+<a class="sourceLine" id="cb1-431" title="431"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-432" title="432"><span class="co"> * 从AVL中删除元素x</span></a>
+<a class="sourceLine" id="cb1-433" title="433"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-434" title="434"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> 被删除的元素</span></a>
+<a class="sourceLine" id="cb1-435" title="435"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-436" title="436"></a>
+<a class="sourceLine" id="cb1-437" title="437"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-438" title="438"><span class="dt">void</span> AVLTree&lt;Comparable&gt;::Remove(<span class="at">const</span> Comparable &amp;x) {</a>
+<a class="sourceLine" id="cb1-439" title="439">  BinaryNode&lt;Comparable&gt;*&amp; root = BinarySearchTree&lt;Comparable&gt;::GetRoot();</a>
+<a class="sourceLine" id="cb1-440" title="440">  Remove(x, root);</a>
+<a class="sourceLine" id="cb1-441" title="441">}</a>
+<a class="sourceLine" id="cb1-442" title="442"></a>
+<a class="sourceLine" id="cb1-443" title="443"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-444" title="444"><span class="co"> * 得到结点t的高度</span></a>
+<a class="sourceLine" id="cb1-445" title="445"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-446" title="446"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></a>
+<a class="sourceLine" id="cb1-447" title="447"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-448" title="448"><span class="co"> * </span><span class="an">@return</span></a>
+<a class="sourceLine" id="cb1-449" title="449"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-450" title="450"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-451" title="451"><span class="dt">int</span> AVLTree&lt;Comparable&gt;::GetHeight(BinaryNode&lt;Comparable&gt; *&amp;t) {</a>
+<a class="sourceLine" id="cb1-452" title="452">  <span class="cf">return</span> t == NULL ? -<span class="dv">1</span> : t-&gt;height;</a>
+<a class="sourceLine" id="cb1-453" title="453">}</a>
+<a class="sourceLine" id="cb1-454" title="454"></a>
+<a class="sourceLine" id="cb1-455" title="455"></a>
+<a class="sourceLine" id="cb1-456" title="456"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-457" title="457"><span class="dt">void</span> AVLTree&lt;Comparable&gt;::Insert(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) {</a>
+<a class="sourceLine" id="cb1-458" title="458">  <span class="cf">if</span> (t == NULL) {</a>
+<a class="sourceLine" id="cb1-459" title="459">    t = <span class="kw">new</span> BinaryNode&lt;Comparable&gt;(x, NULL, NULL);</a>
+<a class="sourceLine" id="cb1-460" title="460">  }</a>
+<a class="sourceLine" id="cb1-461" title="461"></a>
+<a class="sourceLine" id="cb1-462" title="462">  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {</a>
+<a class="sourceLine" id="cb1-463" title="463">    Insert(x, t-&gt;left);</a>
+<a class="sourceLine" id="cb1-464" title="464">    Balance(t);</a>
+<a class="sourceLine" id="cb1-465" title="465">    <span class="co">// if (GetHeight(t-&gt;left) - GetHeight(t-&gt;right) == 2)</span></a>
+<a class="sourceLine" id="cb1-466" title="466">    <span class="co">// {</span></a>
+<a class="sourceLine" id="cb1-467" title="467">    <span class="co">//     if (x &lt; t-&gt;left-&gt;element)</span></a>
+<a class="sourceLine" id="cb1-468" title="468">    <span class="co">//     {</span></a>
+<a class="sourceLine" id="cb1-469" title="469">    <span class="co">//         SingleRotateLeftChild(t);</span></a>
+<a class="sourceLine" id="cb1-470" title="470">    <span class="co">//     }</span></a>
+<a class="sourceLine" id="cb1-471" title="471">    <span class="co">//     else</span></a>
+<a class="sourceLine" id="cb1-472" title="472">    <span class="co">//         DoubleRotateLeftChild(t);</span></a>
+<a class="sourceLine" id="cb1-473" title="473">    <span class="co">// }</span></a>
+<a class="sourceLine" id="cb1-474" title="474">  }</a>
+<a class="sourceLine" id="cb1-475" title="475">  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {</a>
+<a class="sourceLine" id="cb1-476" title="476">    Insert(x, t-&gt;right);</a>
+<a class="sourceLine" id="cb1-477" title="477">    Balance(t);</a>
+<a class="sourceLine" id="cb1-478" title="478">    <span class="co">// if (GetHeight(t-&gt;right) - GetHeight(t-&gt;left) == 2)</span></a>
+<a class="sourceLine" id="cb1-479" title="479">    <span class="co">// {</span></a>
+<a class="sourceLine" id="cb1-480" title="480">    <span class="co">//     if (t-&gt;right-&gt;element &lt; x)</span></a>
+<a class="sourceLine" id="cb1-481" title="481">    <span class="co">//     {</span></a>
+<a class="sourceLine" id="cb1-482" title="482">    <span class="co">//         SingleRotateRightChild(t);</span></a>
+<a class="sourceLine" id="cb1-483" title="483">    <span class="co">//     }</span></a>
+<a class="sourceLine" id="cb1-484" title="484">    <span class="co">//     else</span></a>
+<a class="sourceLine" id="cb1-485" title="485">    <span class="co">//         DoubleRotateRightChild(t);</span></a>
+<a class="sourceLine" id="cb1-486" title="486">    <span class="co">// }</span></a>
+<a class="sourceLine" id="cb1-487" title="487">  }</a>
+<a class="sourceLine" id="cb1-488" title="488">  <span class="cf">else</span></a>
+<a class="sourceLine" id="cb1-489" title="489">    ;</a>
+<a class="sourceLine" id="cb1-490" title="490"></a>
+<a class="sourceLine" id="cb1-491" title="491">  t-&gt;height = max(GetHeight(t-&gt;left), GetHeight(t-&gt;right)) + <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb1-492" title="492">}</a>
+<a class="sourceLine" id="cb1-493" title="493"></a>
+<a class="sourceLine" id="cb1-494" title="494"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-495" title="495"><span class="co"> * 有个小 bug，弄了一天也没弄出来，可能问题在 Balance() 和指针的引用上</span></a>
+<a class="sourceLine" id="cb1-496" title="496"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-497" title="497"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span></a>
+<a class="sourceLine" id="cb1-498" title="498"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></a>
+<a class="sourceLine" id="cb1-499" title="499"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-500" title="500"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-501" title="501"><span class="dt">void</span> AVLTree&lt;Comparable&gt;::Remove(<span class="at">const</span> Comparable &amp;x, BinaryNode&lt;Comparable&gt; *&amp;t) {</a>
+<a class="sourceLine" id="cb1-502" title="502">  <span class="at">static</span> stack&lt;BinaryNode&lt;Comparable&gt;*&gt; tStack; <span class="co">// 定义一个静态堆栈，存储访问结点的路径</span></a>
+<a class="sourceLine" id="cb1-503" title="503">  <span class="dt">int</span> tSize = tStack.size();                    <span class="co">// 得到栈的大小</span></a>
+<a class="sourceLine" id="cb1-504" title="504"></a>
+<a class="sourceLine" id="cb1-505" title="505">  <span class="cf">if</span> (t == NULL) {</a>
+<a class="sourceLine" id="cb1-506" title="506">    <span class="cf">return</span>;</a>
+<a class="sourceLine" id="cb1-507" title="507">  }</a>
+<a class="sourceLine" id="cb1-508" title="508">  <span class="cf">else</span> <span class="cf">if</span> (x &lt; t-&gt;element) {</a>
+<a class="sourceLine" id="cb1-509" title="509">    tStack.push(t);</a>
+<a class="sourceLine" id="cb1-510" title="510">    cout &lt;&lt; <span class="st">&quot;traverse through &quot;</span> &lt;&lt; t-&gt;element &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb1-511" title="511">    Remove(x, t-&gt;left);</a>
+<a class="sourceLine" id="cb1-512" title="512">  }</a>
+<a class="sourceLine" id="cb1-513" title="513">  <span class="cf">else</span> <span class="cf">if</span> (x &gt; t-&gt;element) {</a>
+<a class="sourceLine" id="cb1-514" title="514">    tStack.push(t);</a>
+<a class="sourceLine" id="cb1-515" title="515">    cout &lt;&lt; <span class="st">&quot;traverse through &quot;</span> &lt;&lt; t-&gt;element &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb1-516" title="516">    Remove(x, t-&gt;right);</a>
+<a class="sourceLine" id="cb1-517" title="517">  }</a>
+<a class="sourceLine" id="cb1-518" title="518">  <span class="cf">else</span> <span class="cf">if</span> (t-&gt;left != NULL &amp;&amp; t-&gt;right != NULL) {</a>
+<a class="sourceLine" id="cb1-519" title="519">    tStack.push(t);</a>
+<a class="sourceLine" id="cb1-520" title="520">    cout &lt;&lt; <span class="st">&quot;traverse through &quot;</span> &lt;&lt; t-&gt;element &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb1-521" title="521"></a>
+<a class="sourceLine" id="cb1-522" title="522">    BinaryNode&lt;Comparable&gt;*&amp; oldT = t-&gt;right;</a>
+<a class="sourceLine" id="cb1-523" title="523"></a>
+<a class="sourceLine" id="cb1-524" title="524">    <span class="cf">while</span> (oldT-&gt;left != NULL) {</a>
+<a class="sourceLine" id="cb1-525" title="525">      tStack.push(oldT);</a>
+<a class="sourceLine" id="cb1-526" title="526">      cout &lt;&lt; <span class="st">&quot;traverse through &quot;</span> &lt;&lt; oldT-&gt;element &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb1-527" title="527">      oldT = oldT-&gt;left;</a>
+<a class="sourceLine" id="cb1-528" title="528">    }</a>
+<a class="sourceLine" id="cb1-529" title="529"></a>
+<a class="sourceLine" id="cb1-530" title="530">    t-&gt;element = oldT-&gt;element;</a>
+<a class="sourceLine" id="cb1-531" title="531">    Remove(t-&gt;element, t-&gt;right);</a>
+<a class="sourceLine" id="cb1-532" title="532">  }</a>
+<a class="sourceLine" id="cb1-533" title="533">  <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb1-534" title="534">    BinaryNode&lt;Comparable&gt;*&amp; oldNode = t;</a>
+<a class="sourceLine" id="cb1-535" title="535">    t = (t-&gt;left != NULL) ? t-&gt;left : t-&gt;right;</a>
+<a class="sourceLine" id="cb1-536" title="536">    <span class="kw">delete</span> oldNode;</a>
+<a class="sourceLine" id="cb1-537" title="537">  }</a>
+<a class="sourceLine" id="cb1-538" title="538"></a>
+<a class="sourceLine" id="cb1-539" title="539">  BinaryNode&lt;Comparable&gt;* tempStack;</a>
+<a class="sourceLine" id="cb1-540" title="540"></a>
+<a class="sourceLine" id="cb1-541" title="541">  tSize = tStack.size();      <span class="co">// 更新堆栈大小</span></a>
+<a class="sourceLine" id="cb1-542" title="542"></a>
+<a class="sourceLine" id="cb1-543" title="543"></a>
+<a class="sourceLine" id="cb1-544" title="544">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; tSize; i++) {</a>
+<a class="sourceLine" id="cb1-545" title="545">    tempStack = tStack.top(); <span class="co">// 回溯访问结点</span></a>
+<a class="sourceLine" id="cb1-546" title="546">    Balance(tempStack);       <span class="co">// 对每个结点做Balance处理</span></a>
+<a class="sourceLine" id="cb1-547" title="547">    tStack.pop();             <span class="co">// 已经做过Balance处理的结点出栈</span></a>
+<a class="sourceLine" id="cb1-548" title="548">  }                             <span class="co">// 此处可以进一步优化</span></a>
+<a class="sourceLine" id="cb1-549" title="549">  <span class="cf">return</span> ;</a>
+<a class="sourceLine" id="cb1-550" title="550">}</a>
+<a class="sourceLine" id="cb1-551" title="551"></a>
+<a class="sourceLine" id="cb1-552" title="552"></a>
+<a class="sourceLine" id="cb1-553" title="553"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-554" title="554"><span class="dt">void</span> AVLTree&lt;Comparable&gt;::SingleRotateLeftChild(BinaryNode&lt;Comparable&gt; *&amp;k2) {</a>
+<a class="sourceLine" id="cb1-555" title="555">  BinaryNode&lt;Comparable&gt; *k1 = k2-&gt;left;</a>
+<a class="sourceLine" id="cb1-556" title="556">  k2-&gt;left = k1-&gt;right;</a>
+<a class="sourceLine" id="cb1-557" title="557">  k1-&gt;right = k2;</a>
+<a class="sourceLine" id="cb1-558" title="558">  k2-&gt;height = max(GetHeight(k2-&gt;left), GetHeight(k2-&gt;right)) + <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb1-559" title="559">  k1-&gt;height = max(GetHeight(k1-&gt;left), k2-&gt;height) + <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb1-560" title="560">  k2 = k1;</a>
+<a class="sourceLine" id="cb1-561" title="561">}</a>
+<a class="sourceLine" id="cb1-562" title="562"></a>
+<a class="sourceLine" id="cb1-563" title="563"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-564" title="564"><span class="dt">void</span> AVLTree&lt;Comparable&gt;::SingleRotateRightChild(BinaryNode&lt;Comparable&gt; *&amp;k1) {</a>
+<a class="sourceLine" id="cb1-565" title="565">  BinaryNode&lt;Comparable&gt; *k2 = k1-&gt;right;</a>
+<a class="sourceLine" id="cb1-566" title="566">  k1-&gt;right = k2-&gt;left;</a>
+<a class="sourceLine" id="cb1-567" title="567">  k2-&gt;left = k1;</a>
+<a class="sourceLine" id="cb1-568" title="568">  k1-&gt;height = max(GetHeight(k1-&gt;left), GetHeight(k1-&gt;right)) + <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb1-569" title="569">  k2-&gt;height = max(k1-&gt;height, GetHeight(k2-&gt;right)) + <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb1-570" title="570">  k1 = k2;</a>
+<a class="sourceLine" id="cb1-571" title="571">}</a>
+<a class="sourceLine" id="cb1-572" title="572"></a>
+<a class="sourceLine" id="cb1-573" title="573"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-574" title="574"><span class="dt">void</span> AVLTree&lt;Comparable&gt;::DoubleRotateLeftChild(BinaryNode&lt;Comparable&gt; *&amp;k3) {</a>
+<a class="sourceLine" id="cb1-575" title="575">  SingleRotateRightChild(k3-&gt;left);</a>
+<a class="sourceLine" id="cb1-576" title="576">  SingleRotateLeftChild(k3);</a>
+<a class="sourceLine" id="cb1-577" title="577">}</a>
+<a class="sourceLine" id="cb1-578" title="578"></a>
+<a class="sourceLine" id="cb1-579" title="579"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-580" title="580"><span class="dt">void</span> AVLTree&lt;Comparable&gt;::DoubleRotateRightChild(BinaryNode&lt;Comparable&gt; *&amp;k1) {</a>
+<a class="sourceLine" id="cb1-581" title="581">  SingleRotateLeftChild(k1-&gt;right);</a>
+<a class="sourceLine" id="cb1-582" title="582">  SingleRotateRightChild(k1);</a>
+<a class="sourceLine" id="cb1-583" title="583">}</a>
+<a class="sourceLine" id="cb1-584" title="584"></a>
+<a class="sourceLine" id="cb1-585" title="585"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-586" title="586"><span class="co"> * 计算 t 的平衡因子，分为四种不同情况分别调用不同函数处理</span></a>
+<a class="sourceLine" id="cb1-587" title="587"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-588" title="588"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span><span class="co"> 树根</span></a>
+<a class="sourceLine" id="cb1-589" title="589"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-590" title="590"><span class="kw">template</span>&lt;<span class="kw">typename</span> Comparable&gt;</a>
+<a class="sourceLine" id="cb1-591" title="591"><span class="dt">void</span> AVLTree&lt;Comparable&gt;::Balance(BinaryNode&lt;Comparable&gt; *&amp;t) {</a>
+<a class="sourceLine" id="cb1-592" title="592">  <span class="cf">if</span> (GetHeight(t-&gt;left) - GetHeight(t-&gt;right) == <span class="dv">2</span>) {</a>
+<a class="sourceLine" id="cb1-593" title="593">    <span class="cf">if</span> (GetHeight(t-&gt;left-&gt;left) &gt; GetHeight(t-&gt;left-&gt;right)) {</a>
+<a class="sourceLine" id="cb1-594" title="594">      SingleRotateLeftChild(t);</a>
+<a class="sourceLine" id="cb1-595" title="595">    }</a>
+<a class="sourceLine" id="cb1-596" title="596">    <span class="cf">else</span> <span class="cf">if</span> (GetHeight(t-&gt;left-&gt;left) &lt; GetHeight(t-&gt;left-&gt;right)) {</a>
+<a class="sourceLine" id="cb1-597" title="597">      DoubleRotateLeftChild(t);</a>
+<a class="sourceLine" id="cb1-598" title="598">    }</a>
+<a class="sourceLine" id="cb1-599" title="599">    <span class="cf">else</span></a>
+<a class="sourceLine" id="cb1-600" title="600">      ;</a>
+<a class="sourceLine" id="cb1-601" title="601">  }</a>
+<a class="sourceLine" id="cb1-602" title="602"></a>
+<a class="sourceLine" id="cb1-603" title="603">  <span class="cf">if</span> (GetHeight(t-&gt;left) - GetHeight(t-&gt;right) == -<span class="dv">2</span>) {</a>
+<a class="sourceLine" id="cb1-604" title="604">    <span class="cf">if</span> (GetHeight(t-&gt;right-&gt;right) &gt; GetHeight(t-&gt;right-&gt;left)) {</a>
+<a class="sourceLine" id="cb1-605" title="605">      SingleRotateRightChild(t);</a>
+<a class="sourceLine" id="cb1-606" title="606">    }</a>
+<a class="sourceLine" id="cb1-607" title="607">    <span class="cf">else</span> <span class="cf">if</span> (GetHeight(t-&gt;right-&gt;right) &lt; GetHeight(t-&gt;right-&gt;left)) {</a>
+<a class="sourceLine" id="cb1-608" title="608">      DoubleRotateRightChild(t);</a>
+<a class="sourceLine" id="cb1-609" title="609">    }</a>
+<a class="sourceLine" id="cb1-610" title="610">    <span class="cf">else</span></a>
+<a class="sourceLine" id="cb1-611" title="611">      ;</a>
+<a class="sourceLine" id="cb1-612" title="612">  }</a>
+<a class="sourceLine" id="cb1-613" title="613">}</a>
+<a class="sourceLine" id="cb1-614" title="614"></a>
+<a class="sourceLine" id="cb1-615" title="615"><span class="pp">#endif </span><span class="co">/* _BINARYSEARCHTREE_H_ */</span></a></code></pre></div>
 <p><code>main.h</code></p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
-<span class="pp">#include </span><span class="im">&quot;BinarySearchTree.h&quot;</span>
-
-<span class="kw">using</span> <span class="kw">namespace</span> std;
-
-<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {
-  <span class="dt">int</span> a[<span class="dv">10</span>] = {<span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">2</span>};
-
-  AVLTree&lt;<span class="dt">int</span>&gt; avl;
-  avl.BuildBinaryTree(a, <span class="dv">10</span>);
-  avl.Insert(<span class="dv">11</span>);
-  avl.TraverseTree(<span class="dv">0</span>);
-
-  avl.Remove(<span class="dv">9</span>);
-  avl.TraverseTree(<span class="dv">0</span>);
-
-  avl.Remove(<span class="dv">10</span>);
-  avl.TraverseTree(<span class="dv">0</span>);
-
-  <span class="cf">return</span> <span class="dv">0</span>;
-}</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="pp">#include </span><span class="im">&quot;BinarySearchTree.h&quot;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {</a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="dt">int</span> a[<span class="dv">10</span>] = {<span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">2</span>};</a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9">  AVLTree&lt;<span class="dt">int</span>&gt; avl;</a>
+<a class="sourceLine" id="cb2-10" title="10">  avl.BuildBinaryTree(a, <span class="dv">10</span>);</a>
+<a class="sourceLine" id="cb2-11" title="11">  avl.Insert(<span class="dv">11</span>);</a>
+<a class="sourceLine" id="cb2-12" title="12">  avl.TraverseTree(<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb2-13" title="13"></a>
+<a class="sourceLine" id="cb2-14" title="14">  avl.Remove(<span class="dv">9</span>);</a>
+<a class="sourceLine" id="cb2-15" title="15">  avl.TraverseTree(<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb2-16" title="16"></a>
+<a class="sourceLine" id="cb2-17" title="17">  avl.Remove(<span class="dv">10</span>);</a>
+<a class="sourceLine" id="cb2-18" title="18">  avl.TraverseTree(<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb2-19" title="19"></a>
+<a class="sourceLine" id="cb2-20" title="20">  <span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb2-21" title="21">}</a></code></pre></div>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">
@@ -721,7 +721,7 @@ AVLTree&lt;Comparable&gt;::~AVLTree() {
     <div class="ui small header">
       Committed
     </div>
-    <date>2009-12-02</date>
+    <date>2009-12-03</date>
     <div class="ui small header">
       Updated
     </div>
