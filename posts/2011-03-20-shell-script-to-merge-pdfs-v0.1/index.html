@@ -166,91 +166,91 @@ IPTV 机顶盒 GUI 子系统的研究与实现
 <p>可以用 <code>pdftk 1.pdf 2.pdf 3.pdf &amp;&amp; cat output 123.pdf</code> 的方式来<a href="http://www.pdflabs.com/docs/pdftk-cli-examples/">合并 PDF</a>，但是由于万方 PDF 的特殊加密，用 PDFtk 合并时，会出现 "OWNER PASSWORD REQUIRED" 的失败提示。所以成功合并 PDF 的最关键问题就是去掉万方 PDF 加密。</p>
 <p>幸运的是，我在 <a href="http://townx.org/blog/elliot/removing-password-pdf-linux">townx</a> 找到了解决方法，感谢万能的 Google。剩下的任务，就是 shell script 的天地了。</p>
 <p>至于 shell Script，已经好久没有摆弄，很多写法已经生疏，好在半年前在华数淘宝写的脚本还在，打开浏览了下，照葫芦画瓢，倒也没有遇到太大困难。完整的脚本如下：</p>
-<div class="sourceCode" id="cb2" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="co">#!/usr/bin/env bash</span></a>
-<a class="sourceLine" id="cb2-2" title="2"></a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="co">################################################################################</span></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="co"># Purpose:  Merge pdf file downloaded from Wanfang dissertation database</span></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="co">#               (http://g.wanfangdata.com.cn/)</span></a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="co"># Author:   Xiao Hanyu(xiaohanyu1988@gmail.com)</span></a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="co"># Depends:</span></a>
-<a class="sourceLine" id="cb2-8" title="8"><span class="co">#       pdftk:              merge multiple pdf files, pdftk is also a useful pdf</span></a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="co">#                               manipulation tools</span></a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="co">#       ps2pdf/pdftops:     pdf --&gt; ps then ps --&gt; pdf to remove encryption</span></a>
-<a class="sourceLine" id="cb2-11" title="11"><span class="co">################################################################################</span></a>
-<a class="sourceLine" id="cb2-12" title="12"></a>
-<a class="sourceLine" id="cb2-13" title="13"><span class="kw">function</span><span class="fu"> usage</span></a>
-<a class="sourceLine" id="cb2-14" title="14"><span class="kw">{</span></a>
-<a class="sourceLine" id="cb2-15" title="15">    <span class="fu">cat</span> <span class="op">&lt;&lt; EOF</span></a>
-<a class="sourceLine" id="cb2-16" title="16"><span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span>: A utility to merge encryted pdf files into one single pdf</a>
-<a class="sourceLine" id="cb2-17" title="17"></a>
-<a class="sourceLine" id="cb2-18" title="18">Usage:      <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> [Options]</a>
-<a class="sourceLine" id="cb2-19" title="19">Example:</a>
-<a class="sourceLine" id="cb2-20" title="20">            <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> -f &quot;file1.pdf file2.pdf&quot; -o merged.pdf</a>
-<a class="sourceLine" id="cb2-21" title="21">            <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> -d input_pdf_dir -o merged.pdf</a>
-<a class="sourceLine" id="cb2-22" title="22">            <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> -d input_pdf_dir</a>
-<a class="sourceLine" id="cb2-23" title="23">Options:</a>
-<a class="sourceLine" id="cb2-24" title="24">    -f:     set the input pdf file list</a>
-<a class="sourceLine" id="cb2-25" title="25">    -d:     set the input pdf directory</a>
-<a class="sourceLine" id="cb2-26" title="26">    -o:     set the output pdf filename</a>
-<a class="sourceLine" id="cb2-27" title="27">    -h:     show this help</a>
-<a class="sourceLine" id="cb2-28" title="28"><span class="op">EOF</span></a>
-<a class="sourceLine" id="cb2-29" title="29"><span class="kw">}</span></a>
-<a class="sourceLine" id="cb2-30" title="30"></a>
-<a class="sourceLine" id="cb2-31" title="31"><span class="kw">function</span><span class="fu"> merge_pdfs</span></a>
-<a class="sourceLine" id="cb2-32" title="32"><span class="kw">{</span></a>
-<a class="sourceLine" id="cb2-33" title="33">    <span class="bu">echo</span> <span class="st">&quot;######## Convert begin!! ########&quot;</span></a>
-<a class="sourceLine" id="cb2-34" title="34">    <span class="kw">for</span> <span class="ex">pdf</span> in <span class="va">$pdf_list</span></a>
-<a class="sourceLine" id="cb2-35" title="35">    <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-36" title="36">        <span class="co">## do not use pdf_name = `basename $pdf .pdf`</span></a>
-<a class="sourceLine" id="cb2-37" title="37">        <span class="co">## since basename will remove the directory prefix of $pdf</span></a>
-<a class="sourceLine" id="cb2-38" title="38">        <span class="va">pdf_name=</span><span class="kw">`</span><span class="bu">echo</span> <span class="va">$pdf</span> <span class="kw">|</span> <span class="fu">sed</span> -e <span class="st">&quot;s/\.pdf//&quot;</span><span class="kw">`</span></a>
-<a class="sourceLine" id="cb2-39" title="39"></a>
-<a class="sourceLine" id="cb2-40" title="40">        <span class="co">## add some animation ^_^</span></a>
-<a class="sourceLine" id="cb2-41" title="41">        <span class="bu">echo</span> -n <span class="st">&quot;</span><span class="va">$pdf_name</span><span class="st">.pdf ----&gt;&gt; </span><span class="va">$pdf_name</span><span class="st">.ps &quot;</span></a>
-<a class="sourceLine" id="cb2-42" title="42">        <span class="ex">pdftops</span> <span class="va">$pdf_name</span>.pdf <span class="va">$pdf_name</span>.ps</a>
-<a class="sourceLine" id="cb2-43" title="43"></a>
-<a class="sourceLine" id="cb2-44" title="44">        <span class="bu">echo</span> <span class="st">&quot;----&gt;&gt; </span><span class="va">$pdf_name</span><span class="st">.pdf&quot;</span></a>
-<a class="sourceLine" id="cb2-45" title="45">        <span class="fu">ps2pdf</span> <span class="va">$pdf_name</span>.ps <span class="va">$pdf_name</span>.pdf</a>
-<a class="sourceLine" id="cb2-46" title="46">        <span class="fu">rm</span> -rf <span class="va">$pdf_name</span>.ps</a>
-<a class="sourceLine" id="cb2-47" title="47">    <span class="kw">done</span></a>
-<a class="sourceLine" id="cb2-48" title="48">    <span class="bu">echo</span> <span class="st">&quot;######## Convert end!! ########&quot;</span></a>
-<a class="sourceLine" id="cb2-49" title="49"></a>
-<a class="sourceLine" id="cb2-50" title="50">    <span class="bu">echo</span> <span class="st">&quot;######## Merge begin!! ########&quot;</span></a>
-<a class="sourceLine" id="cb2-51" title="51">    <span class="ex">pdftk</span> <span class="va">$pdf_list</span> cat output <span class="va">$pdf_merge</span></a>
-<a class="sourceLine" id="cb2-52" title="52">    <span class="bu">echo</span> <span class="st">&quot;######## Merge success, open </span><span class="va">$pdf_merge</span><span class="st"> to see the result. Bye!! ########&quot;</span></a>
-<a class="sourceLine" id="cb2-53" title="53"><span class="kw">}</span></a>
-<a class="sourceLine" id="cb2-54" title="54"></a>
-<a class="sourceLine" id="cb2-55" title="55"><span class="kw">while</span> <span class="bu">getopts</span> <span class="st">&quot;d:f:o:h&quot;</span> arg</a>
-<a class="sourceLine" id="cb2-56" title="56"><span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-57" title="57">    <span class="kw">case</span> <span class="va">$arg</span><span class="kw"> in</span></a>
-<a class="sourceLine" id="cb2-58" title="58">        d<span class="kw">)</span></a>
-<a class="sourceLine" id="cb2-59" title="59">            <span class="va">pdf_dir=$OPTARG</span></a>
-<a class="sourceLine" id="cb2-60" title="60">            <span class="va">pdf_list=</span><span class="kw">`</span><span class="fu">ls</span> <span class="va">$pdf_dir</span>/*pdf<span class="kw">`</span></a>
-<a class="sourceLine" id="cb2-61" title="61">            <span class="kw">;;</span></a>
-<a class="sourceLine" id="cb2-62" title="62">        f<span class="kw">)</span></a>
-<a class="sourceLine" id="cb2-63" title="63">            <span class="va">pdf_list=$OPTARG</span></a>
-<a class="sourceLine" id="cb2-64" title="64">            <span class="kw">;;</span></a>
-<a class="sourceLine" id="cb2-65" title="65">        o<span class="kw">)</span></a>
-<a class="sourceLine" id="cb2-66" title="66">            <span class="va">pdf_merge=$OPTARG</span></a>
-<a class="sourceLine" id="cb2-67" title="67">            <span class="kw">;;</span></a>
-<a class="sourceLine" id="cb2-68" title="68">        h<span class="kw">)</span></a>
-<a class="sourceLine" id="cb2-69" title="69">            <span class="ex">usage</span></a>
-<a class="sourceLine" id="cb2-70" title="70">            <span class="bu">exit</span> 0</a>
-<a class="sourceLine" id="cb2-71" title="71">            <span class="kw">;;</span></a>
-<a class="sourceLine" id="cb2-72" title="72">        ?<span class="kw">)</span></a>
-<a class="sourceLine" id="cb2-73" title="73">            <span class="bu">echo</span> <span class="st">&quot;!!Wrong command options&quot;</span></a>
-<a class="sourceLine" id="cb2-74" title="74">            <span class="ex">usage</span></a>
-<a class="sourceLine" id="cb2-75" title="75">            <span class="bu">exit</span> 1</a>
-<a class="sourceLine" id="cb2-76" title="76">            <span class="kw">;;</span></a>
-<a class="sourceLine" id="cb2-77" title="77">    <span class="kw">esac</span></a>
-<a class="sourceLine" id="cb2-78" title="78"><span class="kw">done</span></a>
-<a class="sourceLine" id="cb2-79" title="79"></a>
-<a class="sourceLine" id="cb2-80" title="80"><span class="co"># if pdf_dir is not set yet, then it&#39;s set to default(that is, current directory)</span></a>
-<a class="sourceLine" id="cb2-81" title="81"><span class="va">pdf_dir=${pdf_dir:-</span><span class="st">&quot;.&quot;</span><span class="va">}</span></a>
-<a class="sourceLine" id="cb2-82" title="82"></a>
-<a class="sourceLine" id="cb2-83" title="83"><span class="co"># set default output pdf filename, plus $pdf_dir prefix</span></a>
-<a class="sourceLine" id="cb2-84" title="84"><span class="va">pdf_merge=</span><span class="st">&quot;</span><span class="va">${pdf_dir}</span><span class="st">/</span><span class="va">${pdf_merge:-</span><span class="st">&quot;single_merged_pdf.pdf&quot;</span><span class="va">}</span><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb2-85" title="85"><span class="ex">merge_pdfs</span></a></code></pre></div>
+<div class="sourceCode" id="cb2" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">################################################################################</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># Purpose:  Merge pdf file downloaded from Wanfang dissertation database</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#               (http://g.wanfangdata.com.cn/)</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co"># Author:   Xiao Hanyu(xiaohanyu1988@gmail.com)</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># Depends:</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#       pdftk:              merge multiple pdf files, pdftk is also a useful pdf</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#                               manipulation tools</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#       ps2pdf/pdftops:     pdf --&gt; ps then ps --&gt; pdf to remove encryption</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">################################################################################</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="kw">function</span><span class="fu"> usage</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="kw">{</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a>    <span class="fu">cat</span> <span class="op">&lt;&lt; EOF</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span>: A utility to merge encryted pdf files into one single pdf</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a>Usage:      <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> [Options]</span>
+<span id="cb2-19"><a href="#cb2-19"></a>Example:</span>
+<span id="cb2-20"><a href="#cb2-20"></a>            <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> -f &quot;file1.pdf file2.pdf&quot; -o merged.pdf</span>
+<span id="cb2-21"><a href="#cb2-21"></a>            <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> -d input_pdf_dir -o merged.pdf</span>
+<span id="cb2-22"><a href="#cb2-22"></a>            <span class="kw">`</span><span class="fu">basename</span> <span class="va">$0</span><span class="kw">`</span> -d input_pdf_dir</span>
+<span id="cb2-23"><a href="#cb2-23"></a>Options:</span>
+<span id="cb2-24"><a href="#cb2-24"></a>    -f:     set the input pdf file list</span>
+<span id="cb2-25"><a href="#cb2-25"></a>    -d:     set the input pdf directory</span>
+<span id="cb2-26"><a href="#cb2-26"></a>    -o:     set the output pdf filename</span>
+<span id="cb2-27"><a href="#cb2-27"></a>    -h:     show this help</span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="op">EOF</span></span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="kw">}</span></span>
+<span id="cb2-30"><a href="#cb2-30"></a></span>
+<span id="cb2-31"><a href="#cb2-31"></a><span class="kw">function</span><span class="fu"> merge_pdfs</span></span>
+<span id="cb2-32"><a href="#cb2-32"></a><span class="kw">{</span></span>
+<span id="cb2-33"><a href="#cb2-33"></a>    <span class="bu">echo</span> <span class="st">&quot;######## Convert begin!! ########&quot;</span></span>
+<span id="cb2-34"><a href="#cb2-34"></a>    <span class="kw">for</span> <span class="ex">pdf</span> in <span class="va">$pdf_list</span></span>
+<span id="cb2-35"><a href="#cb2-35"></a>    <span class="kw">do</span></span>
+<span id="cb2-36"><a href="#cb2-36"></a>        <span class="co">## do not use pdf_name = `basename $pdf .pdf`</span></span>
+<span id="cb2-37"><a href="#cb2-37"></a>        <span class="co">## since basename will remove the directory prefix of $pdf</span></span>
+<span id="cb2-38"><a href="#cb2-38"></a>        <span class="va">pdf_name=</span><span class="kw">`</span><span class="bu">echo</span> <span class="va">$pdf</span> <span class="kw">|</span> <span class="fu">sed</span> -e <span class="st">&quot;s/\.pdf//&quot;</span><span class="kw">`</span></span>
+<span id="cb2-39"><a href="#cb2-39"></a></span>
+<span id="cb2-40"><a href="#cb2-40"></a>        <span class="co">## add some animation ^_^</span></span>
+<span id="cb2-41"><a href="#cb2-41"></a>        <span class="bu">echo</span> -n <span class="st">&quot;</span><span class="va">$pdf_name</span><span class="st">.pdf ----&gt;&gt; </span><span class="va">$pdf_name</span><span class="st">.ps &quot;</span></span>
+<span id="cb2-42"><a href="#cb2-42"></a>        <span class="ex">pdftops</span> <span class="va">$pdf_name</span>.pdf <span class="va">$pdf_name</span>.ps</span>
+<span id="cb2-43"><a href="#cb2-43"></a></span>
+<span id="cb2-44"><a href="#cb2-44"></a>        <span class="bu">echo</span> <span class="st">&quot;----&gt;&gt; </span><span class="va">$pdf_name</span><span class="st">.pdf&quot;</span></span>
+<span id="cb2-45"><a href="#cb2-45"></a>        <span class="fu">ps2pdf</span> <span class="va">$pdf_name</span>.ps <span class="va">$pdf_name</span>.pdf</span>
+<span id="cb2-46"><a href="#cb2-46"></a>        <span class="fu">rm</span> -rf <span class="va">$pdf_name</span>.ps</span>
+<span id="cb2-47"><a href="#cb2-47"></a>    <span class="kw">done</span></span>
+<span id="cb2-48"><a href="#cb2-48"></a>    <span class="bu">echo</span> <span class="st">&quot;######## Convert end!! ########&quot;</span></span>
+<span id="cb2-49"><a href="#cb2-49"></a></span>
+<span id="cb2-50"><a href="#cb2-50"></a>    <span class="bu">echo</span> <span class="st">&quot;######## Merge begin!! ########&quot;</span></span>
+<span id="cb2-51"><a href="#cb2-51"></a>    <span class="ex">pdftk</span> <span class="va">$pdf_list</span> cat output <span class="va">$pdf_merge</span></span>
+<span id="cb2-52"><a href="#cb2-52"></a>    <span class="bu">echo</span> <span class="st">&quot;######## Merge success, open </span><span class="va">$pdf_merge</span><span class="st"> to see the result. Bye!! ########&quot;</span></span>
+<span id="cb2-53"><a href="#cb2-53"></a><span class="kw">}</span></span>
+<span id="cb2-54"><a href="#cb2-54"></a></span>
+<span id="cb2-55"><a href="#cb2-55"></a><span class="kw">while</span> <span class="bu">getopts</span> <span class="st">&quot;d:f:o:h&quot;</span> arg</span>
+<span id="cb2-56"><a href="#cb2-56"></a><span class="kw">do</span></span>
+<span id="cb2-57"><a href="#cb2-57"></a>    <span class="kw">case</span> <span class="va">$arg</span><span class="kw"> in</span></span>
+<span id="cb2-58"><a href="#cb2-58"></a>        d<span class="kw">)</span></span>
+<span id="cb2-59"><a href="#cb2-59"></a>            <span class="va">pdf_dir=$OPTARG</span></span>
+<span id="cb2-60"><a href="#cb2-60"></a>            <span class="va">pdf_list=</span><span class="kw">`</span><span class="fu">ls</span> <span class="va">$pdf_dir</span>/*pdf<span class="kw">`</span></span>
+<span id="cb2-61"><a href="#cb2-61"></a>            <span class="kw">;;</span></span>
+<span id="cb2-62"><a href="#cb2-62"></a>        f<span class="kw">)</span></span>
+<span id="cb2-63"><a href="#cb2-63"></a>            <span class="va">pdf_list=$OPTARG</span></span>
+<span id="cb2-64"><a href="#cb2-64"></a>            <span class="kw">;;</span></span>
+<span id="cb2-65"><a href="#cb2-65"></a>        o<span class="kw">)</span></span>
+<span id="cb2-66"><a href="#cb2-66"></a>            <span class="va">pdf_merge=$OPTARG</span></span>
+<span id="cb2-67"><a href="#cb2-67"></a>            <span class="kw">;;</span></span>
+<span id="cb2-68"><a href="#cb2-68"></a>        h<span class="kw">)</span></span>
+<span id="cb2-69"><a href="#cb2-69"></a>            <span class="ex">usage</span></span>
+<span id="cb2-70"><a href="#cb2-70"></a>            <span class="bu">exit</span> 0</span>
+<span id="cb2-71"><a href="#cb2-71"></a>            <span class="kw">;;</span></span>
+<span id="cb2-72"><a href="#cb2-72"></a>        ?<span class="kw">)</span></span>
+<span id="cb2-73"><a href="#cb2-73"></a>            <span class="bu">echo</span> <span class="st">&quot;!!Wrong command options&quot;</span></span>
+<span id="cb2-74"><a href="#cb2-74"></a>            <span class="ex">usage</span></span>
+<span id="cb2-75"><a href="#cb2-75"></a>            <span class="bu">exit</span> 1</span>
+<span id="cb2-76"><a href="#cb2-76"></a>            <span class="kw">;;</span></span>
+<span id="cb2-77"><a href="#cb2-77"></a>    <span class="kw">esac</span></span>
+<span id="cb2-78"><a href="#cb2-78"></a><span class="kw">done</span></span>
+<span id="cb2-79"><a href="#cb2-79"></a></span>
+<span id="cb2-80"><a href="#cb2-80"></a><span class="co"># if pdf_dir is not set yet, then it&#39;s set to default(that is, current directory)</span></span>
+<span id="cb2-81"><a href="#cb2-81"></a><span class="va">pdf_dir=${pdf_dir:-</span><span class="st">&quot;.&quot;</span><span class="va">}</span></span>
+<span id="cb2-82"><a href="#cb2-82"></a></span>
+<span id="cb2-83"><a href="#cb2-83"></a><span class="co"># set default output pdf filename, plus $pdf_dir prefix</span></span>
+<span id="cb2-84"><a href="#cb2-84"></a><span class="va">pdf_merge=</span><span class="st">&quot;</span><span class="va">${pdf_dir}</span><span class="st">/</span><span class="va">${pdf_merge:-</span><span class="st">&quot;single_merged_pdf.pdf&quot;</span><span class="va">}</span><span class="st">&quot;</span></span>
+<span id="cb2-85"><a href="#cb2-85"></a><span class="ex">merge_pdfs</span></span></code></pre></div>
 <p>脚本结构还是很简单的：</p>
 <ul>
 <li>参数解析采用 bash 内置的 <code>getopts</code> ，暂时只支持短选项</li>
@@ -297,10 +297,10 @@ IPTV 机顶盒 GUI 子系统的研究与实现
         ├── [drwxrwxr-x]  Paper
 </code></pre>
 <p>我们的封装脚本命令如下：</p>
-<div class="sourceCode" id="cb4" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">for</span> <span class="ex">pdf_dir</span> in <span class="kw">`</span><span class="ex">tree</span> wanfang -ipNf <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&#39;\[d&#39;</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&#39;pdf&#39;</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{print $2}&#39;</span><span class="kw">`</span></a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="kw">do</span></a>
-<a class="sourceLine" id="cb4-3" title="3">    <span class="ex">~/tools/wanfang_pdf_merge.sh</span> -d <span class="va">$pdf_dir</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="kw">done</span></a></code></pre></div>
+<div class="sourceCode" id="cb4" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">for</span> <span class="ex">pdf_dir</span> in <span class="kw">`</span><span class="ex">tree</span> wanfang -ipNf <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&#39;\[d&#39;</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&#39;pdf&#39;</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{print $2}&#39;</span><span class="kw">`</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">do</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="ex">~/tools/wanfang_pdf_merge.sh</span> -d <span class="va">$pdf_dir</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">done</span></span></code></pre></div>
 <p>接下来喝咖啡！！！</p>
 <p><a href="/static/image/2011/wanfang_merge_pdf_test2.png"><img src="/static/image/2011/wanfang_merge_pdf_test2.png" /></a></p>
 <p>咖啡喝完后，我们来看一下结果：</p>

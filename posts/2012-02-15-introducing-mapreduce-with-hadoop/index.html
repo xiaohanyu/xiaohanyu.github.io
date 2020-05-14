@@ -166,75 +166,75 @@ export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
 ...
 ...
 </code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb4-1" title="1"><span class="co">&lt;!-- core-site.xml --&gt;</span></a>
-<a class="sourceLine" id="cb4-2" title="2"></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="kw">&lt;?xml-stylesheet</span> type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;<span class="kw">?&gt;</span></a>
-<a class="sourceLine" id="cb4-5" title="5"></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="co">&lt;!-- Put site-specific property overrides in this file. --&gt;</span></a>
-<a class="sourceLine" id="cb4-7" title="7"></a>
-<a class="sourceLine" id="cb4-8" title="8"><span class="kw">&lt;configuration&gt;</span></a>
-<a class="sourceLine" id="cb4-9" title="9">  <span class="kw">&lt;property&gt;</span></a>
-<a class="sourceLine" id="cb4-10" title="10">    <span class="kw">&lt;name&gt;</span>fs.default.name<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb4-11" title="11">    <span class="kw">&lt;value&gt;</span>hdfs://localhost:9000<span class="kw">&lt;/value&gt;</span></a>
-<a class="sourceLine" id="cb4-12" title="12">  <span class="kw">&lt;/property&gt;</span></a>
-<a class="sourceLine" id="cb4-13" title="13">  <span class="kw">&lt;property&gt;</span></a>
-<a class="sourceLine" id="cb4-14" title="14">    <span class="kw">&lt;name&gt;</span>fs.trash.interval<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb4-15" title="15">    <span class="kw">&lt;value&gt;</span>1440<span class="kw">&lt;/value&gt;</span></a>
-<a class="sourceLine" id="cb4-16" title="16">  <span class="kw">&lt;/property&gt;</span></a>
-<a class="sourceLine" id="cb4-17" title="17">  <span class="kw">&lt;property&gt;</span></a>
-<a class="sourceLine" id="cb4-18" title="18">    <span class="kw">&lt;name&gt;</span>hadoop.tmp.dir<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb4-19" title="19">    <span class="kw">&lt;value&gt;</span>/home/lox/tmp/hadoop-data/tmp<span class="kw">&lt;/value&gt;</span></a>
-<a class="sourceLine" id="cb4-20" title="20">  <span class="kw">&lt;/property&gt;</span></a>
-<a class="sourceLine" id="cb4-21" title="21"><span class="kw">&lt;/configuratione&gt;</span></a></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb5-1" title="1"><span class="co">&lt;!-- hdfs-site.xml --&gt;</span></a>
-<a class="sourceLine" id="cb5-2" title="2"></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="kw">&lt;?xml-stylesheet</span> type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;<span class="kw">?&gt;</span></a>
-<a class="sourceLine" id="cb5-5" title="5"></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="co">&lt;!-- Put site-specific property overrides in this file. --&gt;</span></a>
-<a class="sourceLine" id="cb5-7" title="7"></a>
-<a class="sourceLine" id="cb5-8" title="8"><span class="kw">&lt;configuration&gt;</span></a>
-<a class="sourceLine" id="cb5-9" title="9">  <span class="kw">&lt;property&gt;</span></a>
-<a class="sourceLine" id="cb5-10" title="10">    <span class="kw">&lt;name&gt;</span>dfs.replication<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb5-11" title="11">    <span class="kw">&lt;value&gt;</span>1<span class="kw">&lt;/value&gt;</span></a>
-<a class="sourceLine" id="cb5-12" title="12">  <span class="kw">&lt;/property&gt;</span></a>
-<a class="sourceLine" id="cb5-13" title="13">  <span class="kw">&lt;property&gt;</span></a>
-<a class="sourceLine" id="cb5-14" title="14">    <span class="kw">&lt;name&gt;</span>dfs.name.dir<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb5-15" title="15">    <span class="kw">&lt;value&gt;</span>/home/lox/tmp/hadoop-data/name<span class="kw">&lt;/value&gt;</span></a>
-<a class="sourceLine" id="cb5-16" title="16">    <span class="kw">&lt;final&gt;</span>true<span class="kw">&lt;/final&gt;</span></a>
-<a class="sourceLine" id="cb5-17" title="17">  <span class="kw">&lt;/property&gt;</span></a>
-<a class="sourceLine" id="cb5-18" title="18">  <span class="kw">&lt;property&gt;</span></a>
-<a class="sourceLine" id="cb5-19" title="19">    <span class="kw">&lt;name&gt;</span>dfs.data.dir<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb5-20" title="20">    <span class="kw">&lt;value&gt;</span>/home/lox/tmp/hadoop-data/data<span class="kw">&lt;/value&gt;</span></a>
-<a class="sourceLine" id="cb5-21" title="21">    <span class="kw">&lt;final&gt;</span>true<span class="kw">&lt;/final&gt;</span></a>
-<a class="sourceLine" id="cb5-22" title="22">  <span class="kw">&lt;/property&gt;</span></a>
-<a class="sourceLine" id="cb5-23" title="23"><span class="kw">&lt;/configuration&gt;</span></a></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb6-1" title="1"><span class="co">&lt;!-- mapred-site.xml --&gt;</span></a>
-<a class="sourceLine" id="cb6-2" title="2"></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span></a>
-<a class="sourceLine" id="cb6-4" title="4"><span class="kw">&lt;?xml-stylesheet</span> type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;<span class="kw">?&gt;</span></a>
-<a class="sourceLine" id="cb6-5" title="5"></a>
-<a class="sourceLine" id="cb6-6" title="6"><span class="co">&lt;!-- Put site-specific property overrides in this file. --&gt;</span></a>
-<a class="sourceLine" id="cb6-7" title="7"></a>
-<a class="sourceLine" id="cb6-8" title="8"><span class="kw">&lt;configuration&gt;</span></a>
-<a class="sourceLine" id="cb6-9" title="9">  <span class="kw">&lt;property&gt;</span></a>
-<a class="sourceLine" id="cb6-10" title="10">    <span class="kw">&lt;name&gt;</span>mapred.job.tracker<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb6-11" title="11">    <span class="kw">&lt;value&gt;</span>localhost:9001<span class="kw">&lt;/value&gt;</span></a>
-<a class="sourceLine" id="cb6-12" title="12">  <span class="kw">&lt;/property&gt;</span></a>
-<a class="sourceLine" id="cb6-13" title="13">  <span class="kw">&lt;property&gt;</span></a>
-<a class="sourceLine" id="cb6-14" title="14">    <span class="kw">&lt;name&gt;</span>mapred.tasktracker.map.tasks.maximum<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb6-15" title="15">    <span class="kw">&lt;value&gt;</span>5<span class="kw">&lt;/value&gt;</span></a>
-<a class="sourceLine" id="cb6-16" title="16">  <span class="kw">&lt;/property&gt;</span></a>
-<a class="sourceLine" id="cb6-17" title="17">  <span class="kw">&lt;property&gt;</span></a>
-<a class="sourceLine" id="cb6-18" title="18">    <span class="kw">&lt;name&gt;</span>mapred.tasktracker.reduce.tasks.maximum<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb6-19" title="19">    <span class="kw">&lt;value&gt;</span>5<span class="kw">&lt;/value&gt;</span></a>
-<a class="sourceLine" id="cb6-20" title="20">  <span class="kw">&lt;/property&gt;</span></a>
-<a class="sourceLine" id="cb6-21" title="21">  <span class="kw">&lt;property&gt;</span></a>
-<a class="sourceLine" id="cb6-22" title="22">    <span class="kw">&lt;name&gt;</span>mapred.child.java.opts<span class="kw">&lt;/name&gt;</span></a>
-<a class="sourceLine" id="cb6-23" title="23">    <span class="kw">&lt;value&gt;</span>-Xmx512m<span class="kw">&lt;/value&gt;</span></a>
-<a class="sourceLine" id="cb6-24" title="24">  <span class="kw">&lt;/property&gt;</span></a>
-<a class="sourceLine" id="cb6-25" title="25"><span class="kw">&lt;/configuration&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">&lt;!-- core-site.xml --&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">&lt;?xml-stylesheet</span> type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;<span class="kw">?&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">&lt;!-- Put site-specific property overrides in this file. --&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="kw">&lt;configuration&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>  <span class="kw">&lt;property&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>    <span class="kw">&lt;name&gt;</span>fs.default.name<span class="kw">&lt;/name&gt;</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="kw">&lt;value&gt;</span>hdfs://localhost:9000<span class="kw">&lt;/value&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>  <span class="kw">&lt;/property&gt;</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>  <span class="kw">&lt;property&gt;</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>    <span class="kw">&lt;name&gt;</span>fs.trash.interval<span class="kw">&lt;/name&gt;</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>    <span class="kw">&lt;value&gt;</span>1440<span class="kw">&lt;/value&gt;</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>  <span class="kw">&lt;/property&gt;</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>  <span class="kw">&lt;property&gt;</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a>    <span class="kw">&lt;name&gt;</span>hadoop.tmp.dir<span class="kw">&lt;/name&gt;</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a>    <span class="kw">&lt;value&gt;</span>/home/lox/tmp/hadoop-data/tmp<span class="kw">&lt;/value&gt;</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a>  <span class="kw">&lt;/property&gt;</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="kw">&lt;/configuratione&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">&lt;!-- hdfs-site.xml --&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">&lt;?xml-stylesheet</span> type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;<span class="kw">?&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">&lt;!-- Put site-specific property overrides in this file. --&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="kw">&lt;configuration&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>  <span class="kw">&lt;property&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>    <span class="kw">&lt;name&gt;</span>dfs.replication<span class="kw">&lt;/name&gt;</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>    <span class="kw">&lt;value&gt;</span>1<span class="kw">&lt;/value&gt;</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>  <span class="kw">&lt;/property&gt;</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>  <span class="kw">&lt;property&gt;</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>    <span class="kw">&lt;name&gt;</span>dfs.name.dir<span class="kw">&lt;/name&gt;</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>    <span class="kw">&lt;value&gt;</span>/home/lox/tmp/hadoop-data/name<span class="kw">&lt;/value&gt;</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a>    <span class="kw">&lt;final&gt;</span>true<span class="kw">&lt;/final&gt;</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>  <span class="kw">&lt;/property&gt;</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a>  <span class="kw">&lt;property&gt;</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a>    <span class="kw">&lt;name&gt;</span>dfs.data.dir<span class="kw">&lt;/name&gt;</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a>    <span class="kw">&lt;value&gt;</span>/home/lox/tmp/hadoop-data/data<span class="kw">&lt;/value&gt;</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a>    <span class="kw">&lt;final&gt;</span>true<span class="kw">&lt;/final&gt;</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a>  <span class="kw">&lt;/property&gt;</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="kw">&lt;/configuration&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">&lt;!-- mapred-site.xml --&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="kw">&lt;?xml-stylesheet</span> type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;<span class="kw">?&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">&lt;!-- Put site-specific property overrides in this file. --&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="kw">&lt;configuration&gt;</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>  <span class="kw">&lt;property&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a>    <span class="kw">&lt;name&gt;</span>mapred.job.tracker<span class="kw">&lt;/name&gt;</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>    <span class="kw">&lt;value&gt;</span>localhost:9001<span class="kw">&lt;/value&gt;</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a>  <span class="kw">&lt;/property&gt;</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a>  <span class="kw">&lt;property&gt;</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a>    <span class="kw">&lt;name&gt;</span>mapred.tasktracker.map.tasks.maximum<span class="kw">&lt;/name&gt;</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a>    <span class="kw">&lt;value&gt;</span>5<span class="kw">&lt;/value&gt;</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>  <span class="kw">&lt;/property&gt;</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a>  <span class="kw">&lt;property&gt;</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a>    <span class="kw">&lt;name&gt;</span>mapred.tasktracker.reduce.tasks.maximum<span class="kw">&lt;/name&gt;</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a>    <span class="kw">&lt;value&gt;</span>5<span class="kw">&lt;/value&gt;</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a>  <span class="kw">&lt;/property&gt;</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a>  <span class="kw">&lt;property&gt;</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a>    <span class="kw">&lt;name&gt;</span>mapred.child.java.opts<span class="kw">&lt;/name&gt;</span></span>
+<span id="cb6-23"><a href="#cb6-23"></a>    <span class="kw">&lt;value&gt;</span>-Xmx512m<span class="kw">&lt;/value&gt;</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a>  <span class="kw">&lt;/property&gt;</span></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="kw">&lt;/configuration&gt;</span></span></code></pre></div>
 <ul>
 <li>启动 Hadoop，如果能用 Hadoop FS Shell 做一些常规的 <code>mkdir</code> 和 <code>ls</code> 操作， Hadoop 搭建就算大功告成了：</li>
 </ul>
@@ -276,15 +276,15 @@ $
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p><a href="http://tech.163.com/special/cnnic29/">第 29 次中国互联网络发展状况统计报告</a>显示，2012年初，中国网民共计 5.13 亿。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn2" role="doc-endnote"><p>关于这个定义的出处可以参考<a href="http://www.tektalk.org">弯曲评论</a>上一篇非常好的关于云计算的科普文章“<a href="http://www.tektalk.org/2010/03/23/云里雾里云计算 -【1】云计算解决什么问题？/">云里雾里云计算 </a>”，本文不打算探讨云计算的社会意义、产业变革、安全等过于宏大的主题（其实我对这些一点都不了解）。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn3" role="doc-endnote"><p>MapReduce的第一篇论文<a href="http://research.google.com/archive/mapreduce.html">"MapReduce: Simplified Data Processing on Large Clusters"</a>曾写到："Our abstraction is inspired by the map and reduce primitives present in Lisp and many other functional languages."可见，MapReduce 的思想来自于古老的 Lisp 语言。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn4" role="doc-endnote"><p>广告一下，在我有限的阅读经历中，《<a href="http://book.douban.com/subject/1148282/">SICP</a>》是我读过的计算机书籍中最棒的一本，没有之一。如果能认真做完这本书里面的 356 道题目，绝对会让你对编程本质的理解有一个脱胎换骨般的提高。<a href="https://bitbucket.org/xiaohanyu/learning_sicp/">这里</a>有我个人的部分习题解答代码和学习笔记。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn5" role="doc-endnote"><p>关于这一点，刘未鹏的《<a href="http://mindhacks.cn/2008/07/07/the-importance-of-knowing-why/">知其所以然</a>》系列文章里有更好的解读，我就不再重复了。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn6" role="doc-endnote"><p>参考《<a href="http://book.douban.com/subject/3652388/">程序员的自我修养</a>》。<a href="#fnref6" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn7" role="doc-endnote"><p>参考《<a href="http://book.douban.com/subject/1322358/">费马大定理 :一个困惑了世间智者 358 年的谜</a>》。<a href="#fnref7" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn8" role="doc-endnote"><p>据《<a href="http://book.douban.com/subject/1909192/">UNIX编程艺术》</a>的序言里的脚注：“从 1969 年到 2003 年，35 年世间并不短。以这期间众多 UNIX 站点数量的历史曲线来估算，人们在 UNIX 系统的开发方面投入了约 5000 万人年”。<a href="#fnref8" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn9" role="doc-endnote"><p>这原本是 <a href="http://en.wikipedia.org/wiki/Brooks&#39;s_law">Brooks's Law</a> 的一种观点。<a href="#fnref9" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="http://tech.163.com/special/cnnic29/">第 29 次中国互联网络发展状况统计报告</a>显示，2012年初，中国网民共计 5.13 亿。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>关于这个定义的出处可以参考<a href="http://www.tektalk.org">弯曲评论</a>上一篇非常好的关于云计算的科普文章“<a href="http://www.tektalk.org/2010/03/23/云里雾里云计算 -【1】云计算解决什么问题？/">云里雾里云计算 </a>”，本文不打算探讨云计算的社会意义、产业变革、安全等过于宏大的主题（其实我对这些一点都不了解）。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>MapReduce的第一篇论文<a href="http://research.google.com/archive/mapreduce.html">"MapReduce: Simplified Data Processing on Large Clusters"</a>曾写到："Our abstraction is inspired by the map and reduce primitives present in Lisp and many other functional languages."可见，MapReduce 的思想来自于古老的 Lisp 语言。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>广告一下，在我有限的阅读经历中，《<a href="http://book.douban.com/subject/1148282/">SICP</a>》是我读过的计算机书籍中最棒的一本，没有之一。如果能认真做完这本书里面的 356 道题目，绝对会让你对编程本质的理解有一个脱胎换骨般的提高。<a href="https://bitbucket.org/xiaohanyu/learning_sicp/">这里</a>有我个人的部分习题解答代码和学习笔记。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>关于这一点，刘未鹏的《<a href="http://mindhacks.cn/2008/07/07/the-importance-of-knowing-why/">知其所以然</a>》系列文章里有更好的解读，我就不再重复了。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p>参考《<a href="http://book.douban.com/subject/3652388/">程序员的自我修养</a>》。<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7" role="doc-endnote"><p>参考《<a href="http://book.douban.com/subject/1322358/">费马大定理 :一个困惑了世间智者 358 年的谜</a>》。<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8" role="doc-endnote"><p>据《<a href="http://book.douban.com/subject/1909192/">UNIX编程艺术》</a>的序言里的脚注：“从 1969 年到 2003 年，35 年世间并不短。以这期间众多 UNIX 站点数量的历史曲线来估算，人们在 UNIX 系统的开发方面投入了约 5000 万人年”。<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9" role="doc-endnote"><p>这原本是 <a href="http://en.wikipedia.org/wiki/Brooks&#39;s_law">Brooks's Law</a> 的一种观点。<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

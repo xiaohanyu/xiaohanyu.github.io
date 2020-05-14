@@ -80,11 +80,11 @@
 <h2 id="收集处理">收集、处理</h2>
 <p>根据只管去做 (GTD) 的理念，你需要一个可靠的外部系统来接管所有可能扰乱你心绪的事情，而你的心中应该是无所牵挂，可以 "只管去做" 的。</p>
 <p>在这里，Org-mode 自然就是那个可靠的外部系统了，这在 Emacs 23 下是自带的，稍稍在 <code>.emacs</code> 下加点配置</p>
-<div class="sourceCode" id="cb1" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb1-1" title="1">(add-to-list &#39;auto-mode-alist &#39;(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">.org$&quot;</span> . org-mode))</a>
-<a class="sourceLine" id="cb1-2" title="2">(define-key global-map <span class="st">&quot;\C-cl&quot;</span> &#39;org-store-link)</a>
-<a class="sourceLine" id="cb1-3" title="3">(define-key global-map <span class="st">&quot;\C-ca&quot;</span> &#39;org-agenda)</a>
-<a class="sourceLine" id="cb1-4" title="4">(<span class="kw">setq</span> org-hide-leading-stars <span class="kw">t</span>)</a>
-<a class="sourceLine" id="cb1-5" title="5">(<span class="kw">setq</span> org-log-done <span class="kw">t</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1"></a>(add-to-list &#39;auto-mode-alist &#39;(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">.org$&quot;</span> . org-mode))</span>
+<span id="cb1-2"><a href="#cb1-2"></a>(define-key global-map <span class="st">&quot;\C-cl&quot;</span> &#39;org-store-link)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>(define-key global-map <span class="st">&quot;\C-ca&quot;</span> &#39;org-agenda)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>(<span class="kw">setq</span> org-hide-leading-stars <span class="kw">t</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>(<span class="kw">setq</span> org-log-done <span class="kw">t</span>)</span></code></pre></div>
 <p>下面就正式开始吧，先建个文件夹，如 <code>org</code> ，在里面新建 org 文件，比如与工作无关的个人事务都放在 <code>self.org</code> 里，它的大概样子如下（第一行以后再解释）：</p>
 <pre class="example"><code>+TAGS: EASY(e) COMM(c) OFFICE(o) READ(r) URGENT(u) FUTURE(f) WAIT(w) MEMO(m)
 * 阅读、充电
@@ -243,95 +243,95 @@
 <p>关于 GTD，原书和更多的资料可以从褪墨中找到，如果你对这个感兴趣，还是建议你去通读原著。至于 Org-mode，我觉得还是很强大的，自己用 <code>M-x org-info</code> 可看帮助，各位尽可以发挥自己的创造力和想象力来灵活运用。</p>
 <p>当然你还可以将 GTD 结合其它理论来完善自己的系统，比如结合富兰克林自我修炼表格，将其第一列改成你每日反省或每周反省的项目。至于要反省的内容，就看你自己了，比如你要改变你自私残忍的性格（开玩笑了），或者你要改变作息，那都可以写上。另外也可像富兰克林一样，每段时间应特别重点关注其中一项，等等。</p>
 <p>最后说一下 Org-mode 是可以导出为 HTML 或 text 的（还有 xoxo 格式其实也是 HTML，自己试试看吧）。但默认的 HTML 样式实在不怎样，好在可自定义，先在 <code>.emacs</code> 上加：</p>
-<div class="sourceCode" id="cb6" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb6-1" title="1">(defcustom org-export-html-style</a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="st">&quot;&lt;link rel=</span><span class="sc">\&quot;</span><span class="st">stylesheet</span><span class="sc">\&quot;</span><span class="st"> type=</span><span class="sc">\&quot;</span><span class="st">text/css</span><span class="sc">\&quot;</span><span class="st"> href=</span><span class="sc">\&quot;</span><span class="st">wheer.css</span><span class="sc">\&quot;</span><span class="st">&gt;&quot;</span> <span class="st">&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-3" title="3">  :group &#39;org-export-html</a>
-<a class="sourceLine" id="cb6-4" title="4">  <span class="bu">:type</span> &#39;string)</a></code></pre></div>
+<div class="sourceCode" id="cb6" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb6-1"><a href="#cb6-1"></a>(defcustom org-export-html-style</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="st">&quot;&lt;link rel=</span><span class="sc">\&quot;</span><span class="st">stylesheet</span><span class="sc">\&quot;</span><span class="st"> type=</span><span class="sc">\&quot;</span><span class="st">text/css</span><span class="sc">\&quot;</span><span class="st"> href=</span><span class="sc">\&quot;</span><span class="st">wheer.css</span><span class="sc">\&quot;</span><span class="st">&gt;&quot;</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  :group &#39;org-export-html</span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="bu">:type</span> &#39;string)</span></code></pre></div>
 <p>然后输出的 HTML 就可以用自定义的 CSS 了，以下只是个示例：</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb7-1" title="1">html {</a>
-<a class="sourceLine" id="cb7-2" title="2">  <span class="kw">font-family</span>: Times<span class="op">,</span> <span class="dv">serif</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-3" title="3">  <span class="kw">font-size</span>: <span class="dv">12</span><span class="dt">pt</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-4" title="4">}</a>
-<a class="sourceLine" id="cb7-5" title="5"></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="fu">.title</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="fu">.author</span> {</a>
-<a class="sourceLine" id="cb7-8" title="8">  <span class="kw">display</span>: <span class="dv">none</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-9" title="9">}</a>
-<a class="sourceLine" id="cb7-10" title="10"></a>
-<a class="sourceLine" id="cb7-11" title="11"><span class="fu">.todo</span> {</a>
-<a class="sourceLine" id="cb7-12" title="12">  <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-13" title="13">}</a>
-<a class="sourceLine" id="cb7-14" title="14"></a>
-<a class="sourceLine" id="cb7-15" title="15"><span class="fu">.done</span> {</a>
-<a class="sourceLine" id="cb7-16" title="16">  <span class="kw">color</span>: <span class="cn">green</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-17" title="17">}</a>
-<a class="sourceLine" id="cb7-18" title="18"></a>
-<a class="sourceLine" id="cb7-19" title="19"><span class="fu">.timestamp</span> {</a>
-<a class="sourceLine" id="cb7-20" title="20">  <span class="kw">color</span>: <span class="cn">grey</span></a>
-<a class="sourceLine" id="cb7-21" title="21">}</a>
-<a class="sourceLine" id="cb7-22" title="22"></a>
-<a class="sourceLine" id="cb7-23" title="23"><span class="fu">.timestamp-kwd</span> {</a>
-<a class="sourceLine" id="cb7-24" title="24">  <span class="kw">color</span>: <span class="cn">CadetBlue</span></a>
-<a class="sourceLine" id="cb7-25" title="25">}</a>
-<a class="sourceLine" id="cb7-26" title="26"></a>
-<a class="sourceLine" id="cb7-27" title="27"><span class="fu">.tag</span> {</a>
-<a class="sourceLine" id="cb7-28" title="28">  <span class="kw">background-color</span>: <span class="cn">lightblue</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-29" title="29">  <span class="kw">font-weight</span>: <span class="dv">normal</span></a>
-<a class="sourceLine" id="cb7-30" title="30">}</a>
-<a class="sourceLine" id="cb7-31" title="31"></a>
-<a class="sourceLine" id="cb7-32" title="32"><span class="fu">.target</span> {</a>
-<a class="sourceLine" id="cb7-33" title="33">  <span class="kw">background-color</span>: <span class="cn">lavender</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-34" title="34">}</a>
-<a class="sourceLine" id="cb7-35" title="35"></a>
-<a class="sourceLine" id="cb7-36" title="36">pre {</a>
-<a class="sourceLine" id="cb7-37" title="37">  <span class="kw">border</span>: <span class="dv">1</span><span class="dt">pt</span> <span class="dv">solid</span> <span class="cn">#AEBDCC</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-38" title="38">  <span class="kw">background-color</span>: <span class="cn">#F3F5F7</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-39" title="39">  <span class="kw">padding</span>: <span class="dv">5</span><span class="dt">pt</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-40" title="40">  <span class="kw">font-family</span>: courier<span class="op">,</span> <span class="dv">monospace</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-41" title="41">}</a>
-<a class="sourceLine" id="cb7-42" title="42"></a>
-<a class="sourceLine" id="cb7-43" title="43">table {</a>
-<a class="sourceLine" id="cb7-44" title="44">  <span class="kw">border-collapse</span>: <span class="dv">collapse</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-45" title="45">}</a>
-<a class="sourceLine" id="cb7-46" title="46"></a>
-<a class="sourceLine" id="cb7-47" title="47">td<span class="op">,</span></a>
-<a class="sourceLine" id="cb7-48" title="48">th {</a>
-<a class="sourceLine" id="cb7-49" title="49">  <span class="kw">vertical-align</span>: <span class="dv">top</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-50" title="50">  <span class="kw">border</span>: <span class="dv">1</span><span class="dt">pt</span> <span class="dv">solid</span> <span class="cn">#ADB9CC</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-51" title="51">}</a>
-<a class="sourceLine" id="cb7-52" title="52"></a>
-<a class="sourceLine" id="cb7-53" title="53">h2 {</a>
-<a class="sourceLine" id="cb7-54" title="54">  <span class="kw">margin</span>: <span class="dv">5</span><span class="dt">px</span> <span class="dv">0</span> <span class="dv">10</span><span class="dt">px</span> <span class="dv">0</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-55" title="55">  <span class="kw">background-color</span>: <span class="cn">#AEC5CE</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-56" title="56">  <span class="kw">font-size</span>: <span class="dv">1.5</span><span class="dt">em</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-57" title="57">}</a>
-<a class="sourceLine" id="cb7-58" title="58"></a>
-<a class="sourceLine" id="cb7-59" title="59">h3 {</a>
-<a class="sourceLine" id="cb7-60" title="60">  <span class="kw">margin</span>: <span class="dv">0</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">0</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-61" title="61">  <span class="kw">padding</span>: <span class="dv">5</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">10</span><span class="dt">px</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-62" title="62">  <span class="kw">font-size</span>: <span class="dv">1.2</span><span class="dt">em</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-63" title="63">  <span class="kw">border-top</span>: <span class="dv">solid</span> <span class="dv">1</span><span class="dt">px</span> <span class="cn">#9AB7C2</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-64" title="64">  <span class="kw">border-bottom</span>: <span class="dv">solid</span> <span class="dv">1</span><span class="dt">px</span> <span class="cn">#9AB7C2</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-65" title="65">  <span class="kw">font-variant</span>: <span class="dv">small-caps</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-66" title="66">}</a>
-<a class="sourceLine" id="cb7-67" title="67"></a>
-<a class="sourceLine" id="cb7-68" title="68">h4 {</a>
-<a class="sourceLine" id="cb7-69" title="69">  <span class="kw">color</span>: <span class="cn">black</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-70" title="70">  <span class="kw">margin</span>: <span class="dv">3</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-71" title="71">  <span class="kw">padding</span>: <span class="dv">3</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">3</span><span class="dt">px</span> <span class="dv">15</span><span class="dt">px</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-72" title="72">  <span class="kw">font-size</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-73" title="73">}</a>
-<a class="sourceLine" id="cb7-74" title="74"></a>
-<a class="sourceLine" id="cb7-75" title="75">h5 {</a>
-<a class="sourceLine" id="cb7-76" title="76">  <span class="kw">color</span>: <span class="cn">black</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-77" title="77">  <span class="kw">margin</span>: <span class="dv">3</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span> <span class="dv">3</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-78" title="78">  <span class="kw">padding</span>: <span class="dv">3</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">3</span><span class="dt">px</span> <span class="dv">25</span><span class="dt">px</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-79" title="79">  <span class="kw">font-size</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-80" title="80">}</a>
-<a class="sourceLine" id="cb7-81" title="81"></a>
-<a class="sourceLine" id="cb7-82" title="82">p {</a>
-<a class="sourceLine" id="cb7-83" title="83">  <span class="kw">margin</span>: <span class="dv">0</span><span class="dt">px</span> <span class="dv">10</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span> <span class="dv">18</span><span class="dt">px</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-84" title="84">}</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb7-1"><a href="#cb7-1"></a>html {</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="kw">font-family</span>: Times<span class="op">,</span> <span class="dv">serif</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="kw">font-size</span>: <span class="dv">12</span><span class="dt">pt</span><span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>}</span>
+<span id="cb7-5"><a href="#cb7-5"></a></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="fu">.title</span><span class="op">,</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="fu">.author</span> {</span>
+<span id="cb7-8"><a href="#cb7-8"></a>  <span class="kw">display</span>: <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>}</span>
+<span id="cb7-10"><a href="#cb7-10"></a></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="fu">.todo</span> {</span>
+<span id="cb7-12"><a href="#cb7-12"></a>  <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a>}</span>
+<span id="cb7-14"><a href="#cb7-14"></a></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="fu">.done</span> {</span>
+<span id="cb7-16"><a href="#cb7-16"></a>  <span class="kw">color</span>: <span class="cn">green</span><span class="op">;</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>}</span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="fu">.timestamp</span> {</span>
+<span id="cb7-20"><a href="#cb7-20"></a>  <span class="kw">color</span>: <span class="cn">grey</span></span>
+<span id="cb7-21"><a href="#cb7-21"></a>}</span>
+<span id="cb7-22"><a href="#cb7-22"></a></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="fu">.timestamp-kwd</span> {</span>
+<span id="cb7-24"><a href="#cb7-24"></a>  <span class="kw">color</span>: <span class="cn">CadetBlue</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a>}</span>
+<span id="cb7-26"><a href="#cb7-26"></a></span>
+<span id="cb7-27"><a href="#cb7-27"></a><span class="fu">.tag</span> {</span>
+<span id="cb7-28"><a href="#cb7-28"></a>  <span class="kw">background-color</span>: <span class="cn">lightblue</span><span class="op">;</span></span>
+<span id="cb7-29"><a href="#cb7-29"></a>  <span class="kw">font-weight</span>: <span class="dv">normal</span></span>
+<span id="cb7-30"><a href="#cb7-30"></a>}</span>
+<span id="cb7-31"><a href="#cb7-31"></a></span>
+<span id="cb7-32"><a href="#cb7-32"></a><span class="fu">.target</span> {</span>
+<span id="cb7-33"><a href="#cb7-33"></a>  <span class="kw">background-color</span>: <span class="cn">lavender</span><span class="op">;</span></span>
+<span id="cb7-34"><a href="#cb7-34"></a>}</span>
+<span id="cb7-35"><a href="#cb7-35"></a></span>
+<span id="cb7-36"><a href="#cb7-36"></a>pre {</span>
+<span id="cb7-37"><a href="#cb7-37"></a>  <span class="kw">border</span>: <span class="dv">1</span><span class="dt">pt</span> <span class="dv">solid</span> <span class="cn">#AEBDCC</span><span class="op">;</span></span>
+<span id="cb7-38"><a href="#cb7-38"></a>  <span class="kw">background-color</span>: <span class="cn">#F3F5F7</span><span class="op">;</span></span>
+<span id="cb7-39"><a href="#cb7-39"></a>  <span class="kw">padding</span>: <span class="dv">5</span><span class="dt">pt</span><span class="op">;</span></span>
+<span id="cb7-40"><a href="#cb7-40"></a>  <span class="kw">font-family</span>: courier<span class="op">,</span> <span class="dv">monospace</span><span class="op">;</span></span>
+<span id="cb7-41"><a href="#cb7-41"></a>}</span>
+<span id="cb7-42"><a href="#cb7-42"></a></span>
+<span id="cb7-43"><a href="#cb7-43"></a>table {</span>
+<span id="cb7-44"><a href="#cb7-44"></a>  <span class="kw">border-collapse</span>: <span class="dv">collapse</span><span class="op">;</span></span>
+<span id="cb7-45"><a href="#cb7-45"></a>}</span>
+<span id="cb7-46"><a href="#cb7-46"></a></span>
+<span id="cb7-47"><a href="#cb7-47"></a>td<span class="op">,</span></span>
+<span id="cb7-48"><a href="#cb7-48"></a>th {</span>
+<span id="cb7-49"><a href="#cb7-49"></a>  <span class="kw">vertical-align</span>: <span class="dv">top</span><span class="op">;</span></span>
+<span id="cb7-50"><a href="#cb7-50"></a>  <span class="kw">border</span>: <span class="dv">1</span><span class="dt">pt</span> <span class="dv">solid</span> <span class="cn">#ADB9CC</span><span class="op">;</span></span>
+<span id="cb7-51"><a href="#cb7-51"></a>}</span>
+<span id="cb7-52"><a href="#cb7-52"></a></span>
+<span id="cb7-53"><a href="#cb7-53"></a>h2 {</span>
+<span id="cb7-54"><a href="#cb7-54"></a>  <span class="kw">margin</span>: <span class="dv">5</span><span class="dt">px</span> <span class="dv">0</span> <span class="dv">10</span><span class="dt">px</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-55"><a href="#cb7-55"></a>  <span class="kw">background-color</span>: <span class="cn">#AEC5CE</span><span class="op">;</span></span>
+<span id="cb7-56"><a href="#cb7-56"></a>  <span class="kw">font-size</span>: <span class="dv">1.5</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb7-57"><a href="#cb7-57"></a>}</span>
+<span id="cb7-58"><a href="#cb7-58"></a></span>
+<span id="cb7-59"><a href="#cb7-59"></a>h3 {</span>
+<span id="cb7-60"><a href="#cb7-60"></a>  <span class="kw">margin</span>: <span class="dv">0</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-61"><a href="#cb7-61"></a>  <span class="kw">padding</span>: <span class="dv">5</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">10</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb7-62"><a href="#cb7-62"></a>  <span class="kw">font-size</span>: <span class="dv">1.2</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb7-63"><a href="#cb7-63"></a>  <span class="kw">border-top</span>: <span class="dv">solid</span> <span class="dv">1</span><span class="dt">px</span> <span class="cn">#9AB7C2</span><span class="op">;</span></span>
+<span id="cb7-64"><a href="#cb7-64"></a>  <span class="kw">border-bottom</span>: <span class="dv">solid</span> <span class="dv">1</span><span class="dt">px</span> <span class="cn">#9AB7C2</span><span class="op">;</span></span>
+<span id="cb7-65"><a href="#cb7-65"></a>  <span class="kw">font-variant</span>: <span class="dv">small-caps</span><span class="op">;</span></span>
+<span id="cb7-66"><a href="#cb7-66"></a>}</span>
+<span id="cb7-67"><a href="#cb7-67"></a></span>
+<span id="cb7-68"><a href="#cb7-68"></a>h4 {</span>
+<span id="cb7-69"><a href="#cb7-69"></a>  <span class="kw">color</span>: <span class="cn">black</span><span class="op">;</span></span>
+<span id="cb7-70"><a href="#cb7-70"></a>  <span class="kw">margin</span>: <span class="dv">3</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb7-71"><a href="#cb7-71"></a>  <span class="kw">padding</span>: <span class="dv">3</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">3</span><span class="dt">px</span> <span class="dv">15</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb7-72"><a href="#cb7-72"></a>  <span class="kw">font-size</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb7-73"><a href="#cb7-73"></a>}</span>
+<span id="cb7-74"><a href="#cb7-74"></a></span>
+<span id="cb7-75"><a href="#cb7-75"></a>h5 {</span>
+<span id="cb7-76"><a href="#cb7-76"></a>  <span class="kw">color</span>: <span class="cn">black</span><span class="op">;</span></span>
+<span id="cb7-77"><a href="#cb7-77"></a>  <span class="kw">margin</span>: <span class="dv">3</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span> <span class="dv">3</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb7-78"><a href="#cb7-78"></a>  <span class="kw">padding</span>: <span class="dv">3</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">3</span><span class="dt">px</span> <span class="dv">25</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb7-79"><a href="#cb7-79"></a>  <span class="kw">font-size</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb7-80"><a href="#cb7-80"></a>}</span>
+<span id="cb7-81"><a href="#cb7-81"></a></span>
+<span id="cb7-82"><a href="#cb7-82"></a>p {</span>
+<span id="cb7-83"><a href="#cb7-83"></a>  <span class="kw">margin</span>: <span class="dv">0</span><span class="dt">px</span> <span class="dv">10</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span> <span class="dv">18</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb7-84"><a href="#cb7-84"></a>}</span></code></pre></div>
 <hr />
 <p>File translated from TeX by <a href="http://hutchinson.belmont.ma.us/tth/">TTH</a>, version 3.80. On 9 Aug 2009, 11:35.</p>
 

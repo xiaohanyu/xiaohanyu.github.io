@@ -59,12 +59,12 @@
 <div class="row article-body">
   <section class="twelve wide column"><p><strong>数学是神造科学，计算机是人造科学</strong> 。</p>
 <p>所以在计算机的底层软件中，有着数不清的 tricks，让人很无奈，但又无法避免。譬如 Big-endian 和 Little-endian 的问题，据说 UNIX 曾经移植到另外一台不同 "endian" 的机器上，结果系统启动显示的是 NUXI 而不是 UNIX；再比如 ASCII 和 Unicode，以及各种各样地方编码纠结的关系；连最简单的 hello world，放到不同的平台上，生成的字符串也是不同的，考虑下面的程序：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
-<a class="sourceLine" id="cb1-3" title="3"></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="dt">int</span> main( <span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {</a>
-<a class="sourceLine" id="cb1-5" title="5">  cout &lt;&lt; <span class="st">&quot;Hello</span><span class="sc">\n</span><span class="st">World&quot;</span>;</a>
-<a class="sourceLine" id="cb1-6" title="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">using</span> <span class="kw">namespace</span> std;</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="dt">int</span> main( <span class="dt">int</span> argc, <span class="dt">char</span> *argv[]) {</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  cout &lt;&lt; <span class="st">&quot;Hello</span><span class="sc">\n</span><span class="st">World&quot;</span>;</span>
+<span id="cb1-6"><a href="#cb1-6"></a>}</span></code></pre></div>
 <p>这个程序如果在 *nix 平台下执行，生成的字符串的长度是 11：</p>
 <pre class="example"><code>lox@lox-pad ~/tmp&gt; clang++ main.cxx -o main
 lox@lox-pad ~/tmp&gt; ./main | wc -c

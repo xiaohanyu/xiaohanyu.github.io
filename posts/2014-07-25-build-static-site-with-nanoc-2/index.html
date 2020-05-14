@@ -78,17 +78,17 @@
 <h2 id="font-selection">Font Selection</h2>
 <p>就观感上来讲，除了基本的版面设计，字体选择是第二重要的因素。你至少要知道<a href="http://zh.wikipedia.org/wiki/%25E8%25A1%25AC%25E7%25BA%25BF%25E4%25BD%2593">衬线字体</a>和<a href="http://zh.wikipedia.org/wiki/%25E6%2597%25A0%25E8%25A1%25AC%25E7%25BA%25BF%25E4%25BD%2593">无衬线字体</a>的基本概念。而在 Web 上应用这些概念，你还需要了解一些有关以 <a href="http://en.wikipedia.org/wiki/Web_typography">web font</a> 的一些知识。关于这点我就不展开写了，任何一本不错的 CSS 书籍都会用一章的内容来详细讲解字体以及 web font 的概念。我个人的选择是 <a href="https://www.google.com/fonts/specimen/Lora">Lora</a> ，灵感来自于 <a href="http://bootswatch.com/readable/">bootswatch readable theme</a> 。</p>
 <p>这里还有两个小技巧，和大家分享。一是在 CSS 中，字体的样式是依照 <code>font-family</code> 的值以及相应的字体本身的特性决定的。比如：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" title="1">body {</a>
-<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">background-color</span>: <span class="cn">#ffffff</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb1-3" title="3">  <span class="kw">font-family</span>: <span class="st">&#39;Lora&#39;</span><span class="op">,</span> Georgia<span class="op">,</span> <span class="st">&#39;Times New Roman&#39;</span><span class="op">,</span> <span class="st">&#39;SimSun&#39;</span><span class="op">,</span> <span class="st">&#39;Microsoft YaHei&#39;</span><span class="op">,</span> <span class="dv">serif</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb1-4" title="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1"></a>body {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="kw">background-color</span>: <span class="cn">#ffffff</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="kw">font-family</span>: <span class="st">&#39;Lora&#39;</span><span class="op">,</span> Georgia<span class="op">,</span> <span class="st">&#39;Times New Roman&#39;</span><span class="op">,</span> <span class="st">&#39;SimSun&#39;</span><span class="op">,</span> <span class="st">&#39;Microsoft YaHei&#39;</span><span class="op">,</span> <span class="dv">serif</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>}</span></code></pre></div>
 <p>这里指定 <code>&lt;body&gt;</code> 的字体为 Lora，但是 Lora 本身是一款英文字体，对于汉字是“无能为力”的，因此如果 <code>&lt;body&gt;</code> 中有汉字的话，浏览器会按照 <code>font-family</code> 所指定的值依次找下去，直到找到一款从 web 上加载的或者系统中已经存在的汉字字体。另外，在 Chrome 和 Firefox 的 Developer Tools 中可以看到浏览器渲染页面时所使用的字体的细节，具体参考 <a href="http://stackoverflow.com/questions/884177/how-can-i-determine-what-font-a-browser-is-actually-using-to-render-some-text">StackOverflow</a>。</p>
 <h2 id="third-party-plugins">Third-party Plugins</h2>
 <p>由于静态站点本身并没有数据库之类的标配的本地存储，因此像评论、站内搜索，以及统计这类功能需要借助第三方的服务。站内搜索比较简单，直接调用 Google 的 <code>site:xiaohanyu.me</code> 搜索即可：</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;form</span><span class="ot"> class=</span><span class="st">&quot;form-inline&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="ot"> method=</span><span class="st">&quot;get&quot;</span><span class="ot"> action=</span><span class="st">&quot;http://google.com/search&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb2-2" title="2">  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;hidden&quot;</span><span class="ot"> value=</span><span class="st">&quot;site:xiaohanyu.me&quot;</span><span class="ot"> name=</span><span class="st">&quot;q&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb2-3" title="3">  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> class=</span><span class="st">&quot;form-control pull-left&quot;</span><span class="ot"> placeholder=</span><span class="st">&quot;Search&quot;</span><span class="ot"> name=</span><span class="st">&quot;q&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="kw">&lt;/form&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">&lt;form</span><span class="ot"> class=</span><span class="st">&quot;form-inline&quot;</span><span class="ot"> target=</span><span class="st">&quot;_blank&quot;</span><span class="ot"> method=</span><span class="st">&quot;get&quot;</span><span class="ot"> action=</span><span class="st">&quot;http://google.com/search&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;hidden&quot;</span><span class="ot"> value=</span><span class="st">&quot;site:xiaohanyu.me&quot;</span><span class="ot"> name=</span><span class="st">&quot;q&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> class=</span><span class="st">&quot;form-control pull-left&quot;</span><span class="ot"> placeholder=</span><span class="st">&quot;Search&quot;</span><span class="ot"> name=</span><span class="st">&quot;q&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">&lt;/form&gt;</span></span></code></pre></div>
 <p>至于评论系统，我用的也就是现今最流行的第三方评论系统 <a href="https://disqus.com/">Disqus</a> 了。其安装设置非常简单，不再赘述。使用体验也不错。但是由于国内网络的原因，Disqus 加载的时候还是需要 2-4 秒的时间，因此我写了个 JS 函数，来按需加载 Disqus 评论。与此同时，我还在每篇 post 的 metadata 里面设置了新的属性： <code>disable_disqus</code> ，这样如果 <code>disable_disqus</code> 为真，那么相应的 post 就是禁用评论的。</p>
 <p>最后就是站点统计，最简单的就是传统 Blog 上的网站访问计数。这个我用的是 <a href="http://www.google.com/analytics/">Google Analytics</a> ，很强大，安装配置也很简单，同样不再赘述。</p>
 <h2 id="atomsitemaprobots.txt">Atom/Sitemap/Robots.txt</h2>
@@ -96,38 +96,38 @@
 <ul>
 <li><code>Rules</code></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb3-1" title="1">preprocess <span class="kw">do</span></a>
-<a class="sourceLine" id="cb3-2" title="2">  create_github_cname</a>
-<a class="sourceLine" id="cb3-3" title="3">  create_robots_txt</a>
-<a class="sourceLine" id="cb3-4" title="4">  create_sitemap</a>
-<a class="sourceLine" id="cb3-5" title="5">  create_atom</a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb3-7" title="7"></a>
-<a class="sourceLine" id="cb3-8" title="8">compile <span class="ot">%r{/sitemap/|/atom/|/robots/}</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb3-9" title="9">  filter <span class="st">:erb</span></a>
-<a class="sourceLine" id="cb3-10" title="10"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb3-11" title="11"></a>
-<a class="sourceLine" id="cb3-12" title="12">route <span class="ot">%r{/sitemap/|/atom/}</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb3-13" title="13">  item.identifier.chop + <span class="st">&#39;.xml&#39;</span></a>
-<a class="sourceLine" id="cb3-14" title="14"><span class="kw">end</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>preprocess <span class="kw">do</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  create_github_cname</span>
+<span id="cb3-3"><a href="#cb3-3"></a>  create_robots_txt</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  create_sitemap</span>
+<span id="cb3-5"><a href="#cb3-5"></a>  create_atom</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="kw">end</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a>compile <span class="ot">%r{/sitemap/|/atom/|/robots/}</span> <span class="kw">do</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>  filter <span class="st">:erb</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="kw">end</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a></span>
+<span id="cb3-12"><a href="#cb3-12"></a>route <span class="ot">%r{/sitemap/|/atom/}</span> <span class="kw">do</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>  item.identifier.chop + <span class="st">&#39;.xml&#39;</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="kw">end</span></span></code></pre></div>
 <p>在 <code>create_atom</code> 函数中，我们动态创建一个 <a href="http://nanoc.ws/docs/api/Nanoc/Item.html">nanoc item</a> （所谓动态创建的 item 就是这个 item 在实际的文件系统中没有相对应的文件）。这样的 preprocess 之后，nanoc compile 会按照指定的规则来处理生成 atom 的 item，最终生成所需的 <code>atom.xml</code> 。</p>
 <ul>
 <li><code>lib/preprocessors.rb</code></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">def</span> create_atom</a>
-<a class="sourceLine" id="cb4-2" title="2">  content = &lt;&lt;<span class="kw">EOS</span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="ot">&lt;%= atom_feed \</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="ot">:title =&gt; &#39;#{@site</span>.config[<span class="st">:meta_data</span>][<span class="st">:title</span>]<span class="ot">}&#39;,</span></a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="ot">:author_name =&gt; &#39;#{@site</span>.config[<span class="st">:meta_data</span>][<span class="st">:author</span>]<span class="ot">}&#39;,</span></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="ot">:author_uri =&gt; &#39;#{@site</span>.config[<span class="st">:base_url</span>]<span class="ot">}&#39;,</span></a>
-<a class="sourceLine" id="cb4-7" title="7"><span class="ot">:limit =&gt; 10 %&gt;</span></a>
-<a class="sourceLine" id="cb4-8" title="8"><span class="ot">EOS</span></a>
-<a class="sourceLine" id="cb4-9" title="9"></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="ot">  @items &lt;&lt; Nanoc3::Item.new(content,</span></a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="ot">                             {:extension =&gt; &#39;xml&#39;, :is_hidden =&gt; true},</span></a>
-<a class="sourceLine" id="cb4-12" title="12"><span class="ot">                             &#39;/atom/&#39;)</span></a>
-<a class="sourceLine" id="cb4-13" title="13"><span class="ot">end</span></a>
-<a class="sourceLine" id="cb4-14" title="14"></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> create_atom</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  content = &lt;&lt;<span class="kw">EOS</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="ot">&lt;%= atom_feed \</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="ot">:title =&gt; &#39;#{@site</span>.config[<span class="st">:meta_data</span>][<span class="st">:title</span>]<span class="ot">}&#39;,</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="ot">:author_name =&gt; &#39;#{@site</span>.config[<span class="st">:meta_data</span>][<span class="st">:author</span>]<span class="ot">}&#39;,</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="ot">:author_uri =&gt; &#39;#{@site</span>.config[<span class="st">:base_url</span>]<span class="ot">}&#39;,</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="ot">:limit =&gt; 10 %&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="ot">EOS</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="ot">  @items &lt;&lt; Nanoc3::Item.new(content,</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="ot">                             {:extension =&gt; &#39;xml&#39;, :is_hidden =&gt; true},</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="ot">                             &#39;/atom/&#39;)</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="ot">end</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a></span></code></pre></div>
 <h2 id="cute-things">Cute Things</h2>
 <p>除此之外，我还设计了一些有趣的小东西，当然，如果您是资深的前端工程师，那么可以直接忽略这一节，我怕班门弄斧，贻笑大方。</p>
 <p>一是我给每篇 post 加上了 next 和 previous 的 link button， <del>当然如果有一天我的文章写的足够好能让人流连忘返的话</del> ，这两个 button 或许是有用的。具体的技术细节可以参考<a href="https://ecarmi.org/writing/next-previous-links-nanoc/">这里</a>。</p>

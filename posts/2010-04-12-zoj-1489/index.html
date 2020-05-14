@@ -68,57 +68,57 @@ p.cc:19: error: call of overloaded &#39;pow(int, int&amp;)&#39; is ambiguous
 /usr/include/c++/4.2/cmath:357: note:                 float std::pow(float, float)
 </code></pre>
 <p>估计大概是 libc 版本不同造成的。修改了以下程序，又出现了 TLE 的错误了。后来想了想，利用同余特性，改进了程序，还是 TLE。程序如下：</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
-<a class="sourceLine" id="cb2-3" title="3"></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span>* argv[])</a>
-<a class="sourceLine" id="cb2-5" title="5">{</a>
-<a class="sourceLine" id="cb2-6" title="6">  <span class="dt">int</span> n, temp, result;</a>
-<a class="sourceLine" id="cb2-7" title="7"></a>
-<a class="sourceLine" id="cb2-8" title="8">  <span class="cf">while</span>(cin &gt;&gt; n) {</a>
-<a class="sourceLine" id="cb2-9" title="9">    <span class="cf">if</span>((n &amp; <span class="bn">0x1</span>) == <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb2-10" title="10">      cout &lt;&lt; <span class="st">&quot;2^? mod &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; = 1&quot;</span> &lt;&lt; endl;</a>
-<a class="sourceLine" id="cb2-11" title="11">    <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb2-12" title="12">      temp = <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb2-13" title="13">      result = <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb2-14" title="14">      <span class="cf">while</span>(<span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb2-15" title="15">        temp *= <span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb2-16" title="16">        temp %= n;</a>
-<a class="sourceLine" id="cb2-17" title="17">        <span class="cf">if</span>(temp == <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb2-18" title="18">          <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb2-19" title="19">        ++result;</a>
-<a class="sourceLine" id="cb2-20" title="20">      }</a>
-<a class="sourceLine" id="cb2-21" title="21">      cout &lt;&lt; <span class="st">&quot;2^&quot;</span> &lt;&lt; result &lt;&lt; <span class="st">&quot; mod &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; = 1&quot;</span> &lt;&lt; endl;</a>
-<a class="sourceLine" id="cb2-22" title="22">    }</a>
-<a class="sourceLine" id="cb2-23" title="23">  }</a>
-<a class="sourceLine" id="cb2-24" title="24">  <span class="cf">return</span> <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb2-25" title="25">}</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">using</span> <span class="kw">namespace</span> std;</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span>* argv[])</span>
+<span id="cb2-5"><a href="#cb2-5"></a>{</span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="dt">int</span> n, temp, result;</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="cf">while</span>(cin &gt;&gt; n) {</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="cf">if</span>((n &amp; <span class="bn">0x1</span>) == <span class="dv">0</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>      cout &lt;&lt; <span class="st">&quot;2^? mod &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; = 1&quot;</span> &lt;&lt; endl;</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="cf">else</span> {</span>
+<span id="cb2-12"><a href="#cb2-12"></a>      temp = <span class="dv">1</span>;</span>
+<span id="cb2-13"><a href="#cb2-13"></a>      result = <span class="dv">1</span>;</span>
+<span id="cb2-14"><a href="#cb2-14"></a>      <span class="cf">while</span>(<span class="dv">1</span>) {</span>
+<span id="cb2-15"><a href="#cb2-15"></a>        temp *= <span class="dv">2</span>;</span>
+<span id="cb2-16"><a href="#cb2-16"></a>        temp %= n;</span>
+<span id="cb2-17"><a href="#cb2-17"></a>        <span class="cf">if</span>(temp == <span class="dv">1</span>)</span>
+<span id="cb2-18"><a href="#cb2-18"></a>          <span class="cf">break</span>;</span>
+<span id="cb2-19"><a href="#cb2-19"></a>        ++result;</span>
+<span id="cb2-20"><a href="#cb2-20"></a>      }</span>
+<span id="cb2-21"><a href="#cb2-21"></a>      cout &lt;&lt; <span class="st">&quot;2^&quot;</span> &lt;&lt; result &lt;&lt; <span class="st">&quot; mod &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; = 1&quot;</span> &lt;&lt; endl;</span>
+<span id="cb2-22"><a href="#cb2-22"></a>    }</span>
+<span id="cb2-23"><a href="#cb2-23"></a>  }</span>
+<span id="cb2-24"><a href="#cb2-24"></a>  <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb2-25"><a href="#cb2-25"></a>}</span></code></pre></div>
 <p>这是怎么回事呢？百思不得其解。俗话说外事不决问 Google，内事不决问 Baidu。于是 Baidu 之，发现只要将判断条件改进下就行，AC 的程序如下：</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" title="1"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
-<a class="sourceLine" id="cb3-3" title="3"></a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span>* argv[])</a>
-<a class="sourceLine" id="cb3-5" title="5">{</a>
-<a class="sourceLine" id="cb3-6" title="6">  <span class="dt">int</span> n, temp, result;</a>
-<a class="sourceLine" id="cb3-7" title="7"></a>
-<a class="sourceLine" id="cb3-8" title="8">  <span class="cf">while</span>(cin &gt;&gt; n) {</a>
-<a class="sourceLine" id="cb3-9" title="9">    <span class="cf">if</span>((n &amp; <span class="bn">0x1</span>) == <span class="dv">0</span> || n &lt; <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb3-10" title="10">      cout &lt;&lt; <span class="st">&quot;2^? mod &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; = 1&quot;</span> &lt;&lt; endl;</a>
-<a class="sourceLine" id="cb3-11" title="11">    <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb3-12" title="12">      temp = <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb3-13" title="13">      result = <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb3-14" title="14">      <span class="cf">while</span>(<span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb3-15" title="15">        temp *= <span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb3-16" title="16">        temp %= n;</a>
-<a class="sourceLine" id="cb3-17" title="17">        <span class="cf">if</span>(temp == <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb3-18" title="18">          <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb3-19" title="19">        ++result;</a>
-<a class="sourceLine" id="cb3-20" title="20">      }</a>
-<a class="sourceLine" id="cb3-21" title="21">      cout &lt;&lt; <span class="st">&quot;2^&quot;</span> &lt;&lt; result &lt;&lt; <span class="st">&quot; mod &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; = 1&quot;</span> &lt;&lt; endl;</a>
-<a class="sourceLine" id="cb3-22" title="22">    }</a>
-<a class="sourceLine" id="cb3-23" title="23">  }</a>
-<a class="sourceLine" id="cb3-24" title="24">  <span class="cf">return</span> <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb3-25" title="25">}</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">using</span> <span class="kw">namespace</span> std;</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span>* argv[])</span>
+<span id="cb3-5"><a href="#cb3-5"></a>{</span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="dt">int</span> n, temp, result;</span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a>  <span class="cf">while</span>(cin &gt;&gt; n) {</span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="cf">if</span>((n &amp; <span class="bn">0x1</span>) == <span class="dv">0</span> || n &lt; <span class="dv">2</span>)</span>
+<span id="cb3-10"><a href="#cb3-10"></a>      cout &lt;&lt; <span class="st">&quot;2^? mod &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; = 1&quot;</span> &lt;&lt; endl;</span>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="cf">else</span> {</span>
+<span id="cb3-12"><a href="#cb3-12"></a>      temp = <span class="dv">1</span>;</span>
+<span id="cb3-13"><a href="#cb3-13"></a>      result = <span class="dv">1</span>;</span>
+<span id="cb3-14"><a href="#cb3-14"></a>      <span class="cf">while</span>(<span class="dv">1</span>) {</span>
+<span id="cb3-15"><a href="#cb3-15"></a>        temp *= <span class="dv">2</span>;</span>
+<span id="cb3-16"><a href="#cb3-16"></a>        temp %= n;</span>
+<span id="cb3-17"><a href="#cb3-17"></a>        <span class="cf">if</span>(temp == <span class="dv">1</span>)</span>
+<span id="cb3-18"><a href="#cb3-18"></a>          <span class="cf">break</span>;</span>
+<span id="cb3-19"><a href="#cb3-19"></a>        ++result;</span>
+<span id="cb3-20"><a href="#cb3-20"></a>      }</span>
+<span id="cb3-21"><a href="#cb3-21"></a>      cout &lt;&lt; <span class="st">&quot;2^&quot;</span> &lt;&lt; result &lt;&lt; <span class="st">&quot; mod &quot;</span> &lt;&lt; n &lt;&lt; <span class="st">&quot; = 1&quot;</span> &lt;&lt; endl;</span>
+<span id="cb3-22"><a href="#cb3-22"></a>    }</span>
+<span id="cb3-23"><a href="#cb3-23"></a>  }</span>
+<span id="cb3-24"><a href="#cb3-24"></a>  <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb3-25"><a href="#cb3-25"></a>}</span></code></pre></div>
 <p>一个 ~n &lt; 2~，应该无关紧要……先记着这笔帐。</p>
 <p>AC 了 26 道题目了。都是水题。不管怎样，先凑个数练练手也好。时间紧迫。一定的数量还是必须的。要不以后出去也忒没面子了。</p>
 

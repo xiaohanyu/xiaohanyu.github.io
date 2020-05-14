@@ -59,15 +59,15 @@
 <div class="row article-body">
   <section class="twelve wide column"><p>C 语言的开发总会遇到各种各样的障碍，诸如字节顺序、换行符、文件编码，以及复杂的工程构建问题，等等；而时不时冒出来的似曾熟悉的新概念，也会让你由衷的感叹："C语言，简约而不简单 "。</p>
 <p>给定两个文件 <code>main.h</code> 以及 <code>main.c</code> ：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1"><span class="co">/* main.h */</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></a></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" title="1"><span class="co">/* main.c */</span></a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="pp">#include </span><span class="im">&quot;main.h&quot;</span></a>
-<a class="sourceLine" id="cb2-3" title="3"></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">const</span> <span class="dt">char</span> *argv[]) {</a>
-<a class="sourceLine" id="cb2-5" title="5">    printf(<span class="st">&quot;Hello, World</span><span class="sc">\n</span><span class="st">&quot;</span>);</a>
-<a class="sourceLine" id="cb2-6" title="6">    <span class="cf">return</span> <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb2-7" title="7">}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">/* main.h */</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">/* main.c */</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="pp">#include </span><span class="im">&quot;main.h&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">const</span> <span class="dt">char</span> *argv[]) {</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    printf(<span class="st">&quot;Hello, World</span><span class="sc">\n</span><span class="st">&quot;</span>);</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb2-7"><a href="#cb2-7"></a>}</span></code></pre></div>
 <p>地球人都知道，可以用 <code>gcc main.c</code> 来得到可执行文件： <code>a.out</code> 。但是，如果是 <code>gcc
 main.h</code> 呢？</p>
 <pre class="example"><code>$ ~/tmp/precompiled_header % gcc main.c

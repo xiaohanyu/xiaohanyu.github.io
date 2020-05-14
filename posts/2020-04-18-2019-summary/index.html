@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+    <meta content="行者无疆，始于足下——行走，思考，在路上" name="description" />
+    <meta content="web development, programming, typeface, typography" name="keywords" />
+    <meta content="Xiao Hanyu" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>2019，飘来荡去</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheet/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="cn">
+    <div data-quotes-cn="[{&quot;content&quot;:[&quot;天上星，亮晶晶，永灿烂，长安宁。&quot;,&quot;湖边竹，盈盈绿，报平安，多喜乐。&quot;],&quot;author&quot;:&quot;金庸&quot;,&quot;from&quot;:&quot;天龙八部&quot;},{&quot;content&quot;:[&quot;死亡是唯一一座永远亮着的灯塔，不管你向哪里航行，最终都得转向它指引的方向。一切都会逝去，只有死神永生。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;我终于明白了为什么 Einstein 喜爱看守灯塔的职业，因为那样他可以在自己的心灵中建立一片宁静而自由的天空。&quot;],&quot;author&quot;:&quot;卢昌海&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://www.changhai.org\&quot;&gt;http://www.changhai.org&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;我宁愿游荡在你身边&quot;,&quot;做七天的野鬼&quot;,&quot;跟随你&quot;,&quot;就算落进最黑暗的地方&quot;,&quot;我的爱&quot;,&quot;也不会让我成为永远的孤魂&quot;],&quot;author&quot;:&quot;李安&quot;,&quot;from&quot;:&quot;卧虎藏龙&quot;},{&quot;content&quot;:[&quot;在中国，任何超脱飞扬的思想都会砰然坠地——现实的引力实在是太沉重了。&quot;],&quot;author&quot;:&quot;刘慈欣&quot;,&quot;from&quot;:&quot;地球往事&quot;},{&quot;content&quot;:[&quot;天下唯庸人无咎无誉。&quot;],&quot;author&quot;:&quot;梁启超&quot;,&quot;from&quot;:&quot;李鸿章传&quot;}]" data-quotes-en="[{&quot;content&quot;:[&quot;Pascal is for building pyramids—imposing, breathtaking, static structures built by armies pushing heavy blocks into place. Lisp is for building organisms—imposing, breathtaking, dynamic structures built by squads fitting fluctuating myriads of simpler organisms into place.&quot;],&quot;author&quot;:&quot;Alan J. Perlis&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://mitpress.mit.edu/sicp/\&quot;&gt;SICP&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;When you don&#39;t create things, you become defined by your tastes rather than ability. Your tastes only narrow &amp; exclude people. So create.&quot;],&quot;author&quot;:&quot;why the luck stiff&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://whymirror.github.io/\&quot;&gt;http://whymirror.github.io/&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;In theory, there is no difference between theory and practice. But, in practice, there is.&quot;],&quot;author&quot;:&quot;Jan L. A. van de Snepscheut&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;http://en.wikiquote.org/wiki/Jan_L._A._van_de_Snepscheut\&quot;&gt;Wikipedia&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;The future has already arrived. It is just not evenly distributed yet.&quot;],&quot;author&quot;:&quot;William Gibson&quot;,&quot;from&quot;:&quot;&lt;a href=\&quot;https://en.wikiquote.org/wiki/William_Gibson\&quot;&gt;Wikiquote&lt;/a&gt;&quot;},{&quot;content&quot;:[&quot;There are many ways of trying to understand programs. People often rely too much on one way, which is called \&quot;debugging\&quot; and consists of running a partly-understood program to see if it does what you expected. Another way, which ML advocates, is to install some means of understanding in the very programs themselves.&quot;],&quot;author&quot;:&quot;Robin Milner&quot;,&quot;from&quot;:&quot;foreword for &lt;a href=\&quot;http://www.ccs.neu.edu/home/matthias/BTML/\&quot;&gt;The Little MLer&lt;/a&gt;&quot;}]" id="quotes" style="display: none"></div>
+    <div id="content">
+      <nav class="ui borderless menu desktop" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item" href="/categories">Categories</a><a class="item" href="/tags">Tags</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <div class="item">
+              <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                <input name="q" type="hidden" value="site:xiaohanyu.me" />
+                <div class="ui transparent left icon input">
+                  <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </form>
+            </div>
+            <a class="item" href="https://github.com/xiaohanyu/xiaohanyu"><i class="github icon"></i></a><a class="item" href="/atom.xml"><i class="feed icon"></i></a>
+          </div>
+        </div>
+      </nav>
+      <nav class="ui borderless menu mobile" lang="en">
+        <div class="ui container">
+          <a class="item" href="/"><img src="/static/image/gravatar-black.svg" /></a><a class="item" href="/archive">Archive</a><a class="item" href="/about">About</a>
+          <div class="right menu">
+            <a class="item" href="https://github.com/xiaohanyu/xiaohanyu"><i class="github icon"></i></a>
+          </div>
+        </div>
+      </nav><div class="ui stackable container">
+        <div class="ui very padded segment article">
+          <article class="ui stackable divided grid">
+            <header class="row article-head">
+              <div class="column">
+                <h1 class="ui header">
+                  2019，飘来荡去
+                </h1>
+                <div class="ui divider desktop"></div>
+              </div>
+            </header>
+            <div class="row article-body">
+              <section class="twelve wide column">
+                <h2 id="序">序</h2>
+                <p>19 年全年飞了 32 个航班，累计里程约 135300 公里，光屁股钉在飞机上的时间就有 200 个小时左右。有鉴于此，19 年总结的关键字就选为“飘来荡去”吧。</p>
+                <table>
+                <thead>
+                <tr class="header">
+                <th>时间</th>
+                <th>出发地</th>
+                <th>目的地</th>
+                <th>里程（公里）</th>
+                <th>备注</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td>1 月</td>
+                <td>杭州</td>
+                <td>新加坡</td>
+                <td>3600</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>2 月</td>
+                <td>新加坡</td>
+                <td>北京</td>
+                <td>4900</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>2 月</td>
+                <td>北京</td>
+                <td>新加坡</td>
+                <td>4900</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>3 月</td>
+                <td>新加坡</td>
+                <td>洛杉机</td>
+                <td>13600</td>
+                <td>经停马尼拉</td>
+                </tr>
+                <tr class="odd">
+                <td>3 月</td>
+                <td>西雅图</td>
+                <td>纽约</td>
+                <td>3800</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>3 月</td>
+                <td>纽约</td>
+                <td>新加坡</td>
+                <td>16700</td>
+                <td>经停法兰克福</td>
+                </tr>
+                <tr class="odd">
+                <td>3 月</td>
+                <td>新加坡</td>
+                <td>杭州</td>
+                <td>3600</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>4 月</td>
+                <td>杭州</td>
+                <td>深圳</td>
+                <td>1300</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>4 月</td>
+                <td>深圳</td>
+                <td>杭州</td>
+                <td>1300</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>5 月</td>
+                <td>杭州</td>
+                <td>新加坡</td>
+                <td>3600</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>5 月</td>
+                <td>新加坡</td>
+                <td>班加罗尔</td>
+                <td>3200</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>6 月</td>
+                <td>班加罗尔</td>
+                <td>新加坡</td>
+                <td>3200</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>6 月</td>
+                <td>新加坡</td>
+                <td>班加罗尔</td>
+                <td>3200</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>6 月</td>
+                <td>班加罗尔</td>
+                <td>新加坡</td>
+                <td>3200</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>8 月</td>
+                <td>新加坡</td>
+                <td>雅加达</td>
+                <td>1700</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>8 月</td>
+                <td>雅加达</td>
+                <td>新加坡</td>
+                <td>1700</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>8 月</td>
+                <td>新加坡</td>
+                <td>宁波</td>
+                <td>3700</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>8 月</td>
+                <td>宁波</td>
+                <td>雅加达</td>
+                <td>3700</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>8 月</td>
+                <td>新加坡</td>
+                <td>雅加达</td>
+                <td>1700</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>9 月</td>
+                <td>雅加达</td>
+                <td>新加坡</td>
+                <td>1700</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>9 月</td>
+                <td>新加坡</td>
+                <td>雅加达</td>
+                <td>1700</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>9 月</td>
+                <td>雅加达</td>
+                <td>新加坡</td>
+                <td>1700</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>10 月</td>
+                <td>新加坡</td>
+                <td>班加罗尔</td>
+                <td>3200</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>10 月</td>
+                <td>班加罗尔</td>
+                <td>新加坡</td>
+                <td>3200</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>11 月</td>
+                <td>新加坡</td>
+                <td>旧金山</td>
+                <td>13600</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>11 月</td>
+                <td>旧金山</td>
+                <td>新加坡</td>
+                <td>13600</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>11 月</td>
+                <td>新加坡</td>
+                <td>雅加达</td>
+                <td>1700</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>11 月</td>
+                <td>雅加达</td>
+                <td>新加坡</td>
+                <td>1700</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>12 月</td>
+                <td>新加坡</td>
+                <td>宁波</td>
+                <td>3700</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>12 月</td>
+                <td>宁波</td>
+                <td>南宁</td>
+                <td>1600</td>
+                <td></td>
+                </tr>
+                <tr class="odd">
+                <td>12 月</td>
+                <td>南宁</td>
+                <td>宁波</td>
+                <td>1600</td>
+                <td></td>
+                </tr>
+                <tr class="even">
+                <td>12 月</td>
+                <td>宁波</td>
+                <td>新加坡</td>
+                <td>3700</td>
+                <td></td>
+                </tr>
+                </tbody>
+                </table>
+                <p>32 个航班中，从新加坡往返班加罗尔的 6 个航班、从新加坡往返雅加达的 8 个航班、以及 11 月份从新加坡往返旧金山的 2 个航班，均为工作出差；其余 16 个航班为探亲旅游。</p>
+                <p>除开频繁的工作差旅，生活上搬了个新家，购置了一些新的装备；工作上离开了 Shopee 加入了 Gojek；学习方面最大的成就是啃完了 1400 页的巨著《<a href="http://man7.org/tlpi/">The Linux Programming Interface</a>》，复习了下 Clojure 并写了几千行生产代码，开始学习 Go 语言；健身方面依旧保持着良好的习惯，体重控制得不错。不足的地方是 Github 上的生产力骤降，主因么，年龄渐长，精力收缩，导致很多项目处于长草烂尾的状态中……就连这篇 blog 也是拖到了 2020 年 4 月份才开始着墨，磨蹭了三周，还没有搞定，惭愧惭愧。</p>
+                <p>回顾下来，19 年过得还是相当紧凑的，且容我娓娓道来。</p>
+                <h2 id="工作">工作</h2>
+                <p><a href="/static/image/2020/2019-summary/github-2019.png"><img src="/static/image/2020/2019-summary/github-2019.png" /></a></p>
+                <h3 id="shopee">Shopee</h3>
+                <p>如《<a href="http://xiaohanyu.me/posts/2019-04-10-2018-summary/">2018 年总结</a>》中所述，18 年下半年转到 Shopee 的平台组之后，我跟 <a href="https://cmgs.me/">CMGS</a> 和 <a href="https://www.textarea.com/zhicheng/">zhicheng</a> 一起做 Shopee Cloud，也上线了基于 redis cluster 的 cache cloud 平台。不过因为种种原因，我的角色始终被限定为一个前端，做了半年之后，觉得有些无聊，就萌生了跳槽的想法。</p>
+                <p>1 月份面试，2 月春节敲定了 offer，然后提辞呈，交接工作一个月，3 月 15 日 last day。</p>
+                <p><a href="/static/image/2020/2019-summary/singapore-20190315-shopee-last-day.jpg"><img src="/static/image/2020/2019-summary/singapore-20190315-shopee-last-day.jpg" /></a></p>
+                <h3 id="gojek">Gojek</h3>
+                <p><a href="https://blog.gojekengineering.com/go-jek-recruitment-process-58dbed5d8992">Gojek</a> 的面试还是蛮有意思的，与多数互联网公司不同，Gojek 的面试并不会特别侧重算法，相反，Gojek 会给 candidate 一个 take-home project，而这恰好是我所擅长的。花了十几个小时时间做完 project，通过之后又经过 3.5 小时的 onsite interview，顺利拿到了 offer，2 月敲定，3 月离职 Shopee 之后，和朋友一起去美国东西海岸旅游了两周。原本计划美国旅游结束之后就回来继续搬砖上班，但中途新的工作签证申请出了一些问题，导致入职日期顺延到了 5 月 6 日。于是乎整个 4 个在杭州休假，难得清闲，乐不思“坡”，还去深圳逛了三天。</p>
+                <p>我在 Gojek 的 line manager 是 <a href="https://www.linkedin.com/in/alielgamal/?originalSubdomain=sg">Ali Elgamal</a>，入职第一天 1v1 告诉我的第一件事是让我准备去印度的签证……我所在的团队是 Growth，负责公司产品的获客、增长、留存及用户体验优化等等。Head of Growth 是 <a href="https://www.linkedin.com/in/crystalwidjaja/">Crystal Widjaja</a>，看履历比我还要年轻个三四岁，<a href="https://www.youtube.com/watch?v=WRUSryfaxhk&amp;app=desktop">气场非常强</a>，整个 Growth 团队的组织规划也是整整有条，very impressive。</p>
+                <p>Gojek 的后端技术栈是 Clojure、Go 以及 JRuby，我没有 Go 语言的经验，但是前几年学 Lisp 的时候顺手了解了下 Clojure，新看了本《<a href="https://book.douban.com/subject/26363669/">Clojure for the Brave and True</a>》就上手 Clojure 了，开始参与一些项目，同时我也开始系统地学习 Go 语言，看完了 《<a href="https://book.douban.com/subject/26337545/">The Go Programming Language</a>》。</p>
+                <p>5 月到 10 月，我在印度班加罗尔 onboarding，新加坡与印尼雅加达之间往返出差，和团队结队编程，致力于增强公司内部的一个 AB 测试平台 <a href="https://blog.gojekengineering.com/introducing-litmus-gojeks-own-experimentation-platform-3803467b6a53">Litmus</a>，主要的产出是主导完成了基于 <a href="https://github.com/ben-manes/caffeine">caffeine</a> 的 Clojure binding，同时重度参与了基于 <a href="https://blog.gojekengineering.com/reducing-latency-with-sidecar-cdb09705cc27">sidecar</a> 模式的 latency 优化。</p>
+                <p>10 月下旬组织架构调整，转到新团队，出差少了很多，也开始写一些 Go 和 TypeScript 的项目。</p>
+                <p>整个工作期间重度参与了公司的面试，candidate 哪来的都有，印度的新加坡的欧洲的缅甸的巴西的。</p>
+                <p>Gojek 的文化总体还是比较开放的，作为工程师，大部分的代码都是内部开源的，外部的<a href="https://github.com/gojek">开源</a>也有模有样；同时，各种商业数据、设计及文案也是开放的。我在这种开放的团队环境中学到了很多。</p>
+                <p>Gojek 的基础设施平台也不错，有一点点 Google 的影子。比较新奇的这边的结对编程文化。所谓结对编程，简单来说，就是两个程序员共用一台电脑共同编程。工作这么多年经历了多家公司团队，第一次尝试结对编程，于我而言还是蛮新奇的。结对编程看上去降低了团队的效率，但是实际操作下来，就我的体验而言，实际上效率并没有降低太多，而质量则有了很大的提高。Last but not least，两个程序员一起结对编程的话，摸鱼的时间就大大减少了，因此可以说是相当的累，非常消耗脑力。</p>
+                <p>我在 Gojek 工作半年多，觉得印尼本土能出一家这样的独角兽，真的是另人刮目相看。 Gojek 里也有大量的印度工程师，其工作产出和代码质量都可圈可点，可见诸如“印度工程师不靠谱”这类的种种传闻偏见，还是要因人而定，不要先入为主。</p>
+                <h2 id="学习">学习</h2>
+                <p>阅读方面，因为出差出行较多，全面转向电子阅读，累计约 15 本左右。</p>
+                <ul>
+                <li>《<a href="https://book.douban.com/subject/4292217/">The Linux Programming Interface</a>》: 1400 页的大部头，巨细靡遗，我花了两个月全部的业余时间从头到尾啃了一遍。</li>
+                <li>《<a href="https://book.douban.com/subject/27609265/">Kafka: The Definitive Guide</a>》: Kafka 手册。</li>
+                <li>《<a href="https://book.douban.com/subject/30335935/">从零开始学架构</a>》: 不错的关于互联网后端架构设计的科普书。</li>
+                <li>《<a href="https://book.douban.com/subject/26337545/">The Go Programming Language</a>》: 书中的示例程序比较有意思。</li>
+                <li>《<a href="https://book.douban.com/subject/26363669/">Clojure for the Brave and True</a>》：不错的入门 Clojure 的教程。</li>
+                </ul>
+                <p>技术方面，除开上面书籍上学到的 Go/Clojure/Kafka，深入了解了下 Java 的 <a href="https://github.com/ben-manes/caffeine">caffeine</a> 缓存库并实现了一个 Clojure binding；了解了下 AB 测试平台的原理及实现。</p>
+                <h2 id="生活">生活</h2>
+                <h3 id="搬家">搬家</h3>
+                <p>社会在发展，时代在进步，7 月份搬新家，我终于住上了有独立卫生间的主卧。新家在 30 层，视野通风具佳，住起来相当舒服。</p>
+                <p><a href="/static/image/2020/2019-summary/singapore-20190702-commonwealth.jpg"><img src="/static/image/2020/2019-summary/singapore-20190702-commonwealth.jpg" /></a></p>
+                <h3 id="健身">健身</h3>
+                <p>19 年健身坚持的还算不错，除开回国过节、探亲及休假的日子，工作日基本上做到了每天健身 40–60 分钟。在新加坡的时候去公司附近的 Fitness First，出差的时候就基本在酒店内部的小健身房。在雅加达的时候还用 Fitness First 的会员卡去 Fitness First 雅加达的健身房去了一两周。</p>
+                <p>体重控制得不错，全年体重基本保持稳定。</p>
+                <p><a href="/static/image/2020/2019-summary/indonesia-20190202-jakarta.jpg"><img src="/static/image/2020/2019-summary/indonesia-20190202-jakarta.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/singapore-20190903-fitness-first.jpg"><img src="/static/image/2020/2019-summary/singapore-20190903-fitness-first.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/singapore-20191106-fitness-first.jpg"><img src="/static/image/2020/2019-summary/singapore-20191106-fitness-first.jpg" /></a></p>
+                <h3 id="新装备">新装备</h3>
+                <p>购置 iMac 5k 2019 顶配，外加 LG 27UK850 显示器一台，生产力神器。</p>
+                <p>购置 Fujifilm X-T3，一机三镜，两万人民币左右，十年没有买过相机了。</p>
+                <p>购置 Herman Miller New Aeron 座椅一把，2200 新币。</p>
+                <p><a href="/static/image/2020/2019-summary/singapore-20190706-herman-miller-new-aeron.jpg"><img src="/static/image/2020/2019-summary/singapore-20190706-herman-miller-new-aeron.jpg" /></a></p>
+                <h2 id="差旅">差旅</h2>
+                <h3 id="宁波">宁波</h3>
+                <p>19 年妞一整年都在宁波工作。我回国几次都经停宁波，1 月份参观了著名的<a href="https://zh.wikipedia.org/wiki/%E5%AE%81%E6%B3%A2%E5%8D%9A%E7%89%A9%E9%A6%86">宁波博物馆</a>，4 月份在<a href="https://zh.wikipedia.org/wiki/%E5%AE%81%E6%B3%A2%E5%A4%A7%E5%AD%A6%E5%9B%AD%E5%8C%BA%E5%9B%BE%E4%B9%A6%E9%A6%86">宁波大学园区图书馆</a>待了两三天；8 月份去了奉化溪口参观蒋式故居；12 月份荡舟宁波东钱湖，天气不错，甚是惬意。</p>
+                <p>相较于杭州，宁波的城市规模要小一些，城市面貌也差一些。宁波博物馆确实是别有篇章和设计，但是东钱湖比之西湖，就完全差一个档次了。溪口的小镇氛围还算不错，但是门票还是贵了些。</p>
+                <p><a href="/static/image/2020/2019-summary/china-20190103-ningbo-museum.jpg"><img src="/static/image/2020/2019-summary/china-20190103-ningbo-museum.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20190428-ningbo-library.jpg"><img src="/static/image/2020/2019-summary/china-20190428-ningbo-library.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20190816-ningbo-fenghua-xikou-1.jpg"><img src="/static/image/2020/2019-summary/china-20190816-ningbo-fenghua-xikou-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20190816-ningbo-fenghua-xikou-2.jpg"><img src="/static/image/2020/2019-summary/china-20190816-ningbo-fenghua-xikou-2.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20190816-ningbo-fenghua-xikou-3.jpg"><img src="/static/image/2020/2019-summary/china-20190816-ningbo-fenghua-xikou-3.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20191215-ningbo-dongqian-lake-1.jpg"><img src="/static/image/2020/2019-summary/china-20191215-ningbo-dongqian-lake-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20191215-ningbo-dongqian-lake-2.jpg"><img src="/static/image/2020/2019-summary/china-20191215-ningbo-dongqian-lake-2.jpg" /></a></p>
+                <h3 id="深圳">深圳</h3>
+                <p>整个 4 月都在国内休假，等 Gojek 的工作签证。下旬蹭着妞出差的机会，去深圳逛了三天。这是第二次来深圳逛。三天时间去参观了下腾讯的滨海大厦、深圳大学、深圳湾公园、深圳中心公园，还特地去逛了逛华强北电子市场。</p>
+                <p>腾讯的滨海大厦还是蛮宏伟壮观的，和阿里巴巴杭州的西溪园区完全是两种不同的风格流派。豆瓣上一位友邻引导我参观，还请我吃了顿午饭，感谢感谢。</p>
+                <p>在深圳令我印象比较深刻的一件小事是，我跟妞在路口打车，刚一上车司机就提醒说后排也要系安全带，不系的话原来罚三百现在要罚五百了，还要扣分。深圳确实不愧为开全国风气之先的城市。</p>
+                <p>深圳湾公园的视野和天际线也不错。</p>
+                <p>我个人觉得深圳和新加坡还是有点像的，都比较小，靠海，城市干净整洁，同样都是短短几十年发展起来的现代化城市，缺少一些文化底蕴，同样，房价也都很贵……</p>
+                <p>三天行程匆匆忙忙，期待下次。</p>
+                <p><a href="/static/image/2020/2019-summary/china-20190422-shenzhen-tencent-office-1.jpg"><img src="/static/image/2020/2019-summary/china-20190422-shenzhen-tencent-office-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20190422-shenzhen-tencent-office-2.jpg"><img src="/static/image/2020/2019-summary/china-20190422-shenzhen-tencent-office-2.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20190422-shenzhen-tencent-office-3.jpg"><img src="/static/image/2020/2019-summary/china-20190422-shenzhen-tencent-office-3.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20190423-shenzhen-park.jpg"><img src="/static/image/2020/2019-summary/china-20190423-shenzhen-park.jpg" /></a></p>
+                <h3 id="广西北海">广西北海</h3>
+                <p>12 月下旬，和妞一起去了趟广西北海，三天行程，经停南宁，匆匆忙忙。</p>
+                <p>南宁的城市面貌很差，给人的感觉是整个城市还停留在 90 年代。在南宁短暂经停后我们到了北海。北海是一个海滨城市，老城步行街很有一种 80 年代中国小县城的感觉。广西和越南接壤，所以北海老街上有很多越南产的小物件。</p>
+                <p>次日我们搭乘轮渡去了<a href="https://zh.wikipedia.org/wiki/%E6%B6%A0%E6%B4%B2%E5%B2%9B">涠洲岛</a>。涠洲岛是中国最大、地质年龄最年轻的火山岛。涠洲岛整体的旅游基础设施还是比较差。我们去涠洲岛国家地质公园的时候，坐公交车到站下车之时，还要花上几十元额外搭乘专用的电动车走两三公里才能到公园入口。而电动车旁边就是一条步行道。感觉这条路完全就是为游人特别设置的障碍。两三公里，说长不长说短不短，但是如果你想坐车，OK，先花二三十元买张电动车的票再说。</p>
+                <p>国家地质公园还算不错，有一些火山地质地貌。但是岛内其余的景点就显得非常的简陋了，交通可达性也比较差，旅游基础设施非常一般。</p>
+                <p><a href="/static/image/2020/2019-summary/china-20191219-guangxi-beihai-1.jpg"><img src="/static/image/2020/2019-summary/china-20191219-guangxi-beihai-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20191219-guangxi-beihai-2.jpg"><img src="/static/image/2020/2019-summary/china-20191219-guangxi-beihai-2.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20191220-guangxi-beihai-weizhou-1.jpg"><img src="/static/image/2020/2019-summary/china-20191220-guangxi-beihai-weizhou-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20191220-guangxi-beihai-weizhou-2.jpg"><img src="/static/image/2020/2019-summary/china-20191220-guangxi-beihai-weizhou-2.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/china-20191220-guangxi-beihai-weizhou-3.jpg"><img src="/static/image/2020/2019-summary/china-20191220-guangxi-beihai-weizhou-3.jpg" /></a></p>
+                <h3 id="新加坡">新加坡</h3>
+                <p>搬新家后，实际上一半的时候在外面差旅，在新加坡待的时间不到一半。新的办公室视野很不错。平时周末也会去周边转转。一成不变的热带气候会抹去时间刻度，将记忆压缩成一张白纸。</p>
+                <p><a href="/static/image/2020/2019-summary/singapore-20190506-axa-tower.jpg"><img src="/static/image/2020/2019-summary/singapore-20190506-axa-tower.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/singapore-20191123-flight.jpg"><img src="/static/image/2020/2019-summary/singapore-20191123-flight.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/singapore-20191201-sentosa.jpg"><img src="/static/image/2020/2019-summary/singapore-20191201-sentosa.jpg" /></a></p>
+                <video src="/static/image/2020/2019-summary/singapore-20191213-axa-tower.mp4"
+                       width="100%"
+                       controls>
+                </video>
+                
+                <p><a href="/static/image/2020/2019-summary/singapore-20191222-flight.jpg"><img src="/static/image/2020/2019-summary/singapore-20191222-flight.jpg" /></a></p>
+                <h3 id="美国">美国</h3>
+                <p>19 年去了两次美国。</p>
+                <p>3 月 15 日 Shopee last day。次日与 <a href="https://www.textarea.com/zhicheng">zhicheng</a> 一起，从新加坡经停马尼拉落地洛杉矶，与我的弟弟汇合。之后在洛杉矶两日，参观了<a href="https://zh.wikipedia.org/zh-hans/%E6%A0%BC%E9%87%8C%E6%96%90%E6%96%AF%E5%A4%A9%E6%96%87%E5%8F%B0">格里斐斯天文台</a>，然后自驾加州一号公路到旧金山，感谢 <a href="http://samos-it.com/">Sam</a> 招待。参观了斯坦福、伯克利，金门大桥。感谢<a href="https://zeyi.fan/">饭团</a>招待，去参观了下 Facebook Menlo Park 总部。</p>
+                <p><a href="/static/image/2020/2019-summary/us-20190319-los-angeles.jpg"><img src="/static/image/2020/2019-summary/us-20190317-los-angeles.jpg" /></a></p>
+                <video src="/static/image/2020/2019-summary/us-20190318-california-route-1.mov"
+                       width="100%"
+                       controls>
+                </video>
+                
+                <p><a href="/static/image/2020/2019-summary/us-20190318-california-route-1.jpg"><img src="/static/image/2020/2019-summary/us-20190318-california-route-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20190319-san-francisco-sam-home.jpg"><img src="/static/image/2020/2019-summary/us-20190319-san-francisco-sam-home.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20190322-berkeley.jpg"><img src="/static/image/2020/2019-summary/us-20190322-berkeley.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20190322-stanford.jpg"><img src="/static/image/2020/2019-summary/us-20190322-stanford.jpg" /></a></p>
+                <video src="/static/image/2020/2019-summary/us-20190321-san-francisco-golden-gate.mov"
+                       width="100%"
+                       controls>
+                </video>
+                
+                <p>在旧金山逗留三日，驱车去 Sacramento，会见老友 Chen Jingjing，之后匆忙赶路去<a href="https://www.youtube.com/watch?v=_pKWxqEpomQ">过火</a> 后的 <a href="https://en.wikipedia.org/wiki/Paradise,_California">Paradise</a> 看了一眼，然后直接北上经 Portland 去西雅图。在 Oregon 的时候经停 <a href="https://www.nps.gov/crla/index.htm">Crater Lake</a>，见到了比车还高的两米多的雪，还参加了一次“林海雪原”的徙步活动，很有意思。</p>
+                <p><a href="/static/image/2020/2019-summary/us-20190322-sacramento.jpg"><img src="/static/image/2020/2019-summary/us-20190322-sacramento.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20190324-oregon-snow-1.jpg"><img src="/static/image/2020/2019-summary/us-20190324-oregon-snow-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20190324-oregon-snow-2.jpg"><img src="/static/image/2020/2019-summary/us-20190324-oregon-snow-2.jpg" /></a></p>
+                <p>在 Oregon 路上走了两天多，到西雅图，感谢 Yuqi 招待。在西雅图两日，参观了华盛顿大学、太空针塔、<a href="https://www.mopop.org/">MoPOP Museum</a>、Amazon 的大玻璃球办公室。还跟<a href="http://mindhacks.cn/">刘未鹏</a>一起吃了顿饭，参观了下 Microsoft 的办公室，很受益。</p>
+                <p><a href="/static/image/2020/2019-summary/us-20190324-seattle-university-of-washington.jpg"><img src="/static/image/2020/2019-summary/us-20190324-seattle-university-of-washington.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20190325-seattle-amazon-office.jpg"><img src="/static/image/2020/2019-summary/us-20190325-seattle-amazon-office.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20190325-seattle-weipeng.jpg"><img src="/static/image/2020/2019-summary/us-20190325-seattle-weipeng.jpg" /></a></p>
+                <p>离开西雅图，直飞纽约，宿 Brooklyn 一家 Airbnb 的小单间。之后在纽约逛了三四天，参观了<a href="https://zh.wikipedia.org/wiki/%E5%A4%A7%E9%83%BD%E6%9C%83%E8%97%9D%E8%A1%93%E5%8D%9A%E7%89%A9%E9%A4%A8">纽约大都会艺术博物馆</a>，自由女神、911 纪念广场、时代广场、第五大道。与在纽约的同学会吃了顿饭，很开心；Jiaqi 引导，去参观了下高盛的 office。中途抽时间去了趟波士顿，探望下老友 Tanran 夫妇，参观了下 Harvard 和 MIT，吃了波士顿大龙虾。</p>
+                <p><a href="/static/image/2020/2019-summary/us-20190328-new-york-1.jpg"><img src="/static/image/2020/2019-summary/us-20190328-new-york-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20190328-new-york-2.jpg"><img src="/static/image/2020/2019-summary/us-20190328-new-york-2.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20190329-boston-harward.jpg"><img src="/static/image/2020/2019-summary/us-20190329-boston-harward.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20190329-boston-tanran.jpg"><img src="/static/image/2020/2019-summary/us-20190329-boston-tanran.jpg" /></a></p>
+                <p>纽约最后一日去逛了逛华尔街，下午去参观了下纽约大学电影学院，与“著名”电影导演<a href="https://zhongchou.modian.com/item/35667.html">元圆</a> 同学进行了亲切而友好的会谈。之后打 uber 花了八十多美金到机场，坐全球最长航线，经停法兰克福，飞了约 20 个小时，落地新加坡，结束了两周的美国之旅。</p>
+                <p><a href="/static/image/2020/2019-summary/us-20190330-nyu-yuanyuan.jpg"><img src="/static/image/2020/2019-summary/us-20190330-nyu-yuanyuan.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20190330-new-york.jpg"><img src="/static/image/2020/2019-summary/us-20190330-new-york.jpg" /></a></p>
+                <p>两周美国之行，走了东西海岸五个州，看了五六家公司和七八所大学，看了山河湖海，过了春冬雨雪，吃了四家不同品牌的 burger，见了约二十位同学朋友，所获颇丰，可以说是这几年出行之最。尤其感谢各位同学朋友热情款待，海内存知己，天涯若比邻。</p>
+                <p>11 月中旬，公司出差去加州参加 <a href="https://developer.chrome.com/devsummit/">Chrome Dev Summit</a> 及 Google 内部一个关于 Google Assistant 的一个小型分享会。借此机会再度游览加州。这次提前去了两天，利用周末的时间去了趟<a href="https://zh.wikipedia.org/zh-hans/%E5%A4%AA%E6%B5%A9%E6%B9%96">太浩湖</a>，看到了此生最好看的日出。</p>
+                <p><a href="/static/image/2020/2019-summary/us-20191111-lake-tahoe-1.jpg"><img src="/static/image/2020/2019-summary/us-20191111-lake-tahoe-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20191111-lake-tahoe-2.jpg"><img src="/static/image/2020/2019-summary/us-20191111-lake-tahoe-2.jpg" /></a></p>
+                <video src="/static/image/2020/2019-summary/us-20191111-lake-tahoe-sunrise.mov"
+                       width="100%"
+                       controls>
+                </video>
+                
+                <p><a href="/static/image/2020/2019-summary/us-20191111-california.jpg"><img src="/static/image/2020/2019-summary/us-20191111-california.jpg" /></a></p>
+                <p>周一周二两天参加 Chrome Dev Summit，公司给订了家富丽堂皇的酒店。两天 Summit 听下来还是挺累的，见到了 <a href="https://developer.chrome.com/devsummit/sessions/keynote/">Guillermo Rauch</a> 真人。</p>
+                <p>周三无事，在旧金山市区乱逛了逛，再见 Chen Jingjing，聊了聊工作的日常。</p>
+                <p>周四周五两天在 Google Mountain View 总部参加 Google Assistant Partner 分享会。老实说我听起来有点昏昏欲睡，不完既然是公司指派，全当上班了。周五下午会议结束，我们 “早退”，又驱车乱转去 Apple 总部周边逛了逛。晚上去了 Sam 家吃饭。</p>
+                <p>再来旧金山，街头醉人的大麻味和尿骚味也让我印象深刻，而 IT 天堂硅谷给我的感觉则是一大农村，晚上尤其荒凉。这时又有点怀念新加坡的干净整洁，生气勃勃。没有天堂，只有选择。</p>
+                <p>周六回坡，这次是直飞，16 个小时。</p>
+                <p><a href="/static/image/2020/2019-summary/us-20191112-san-francisco-1.jpg"><img src="/static/image/2020/2019-summary/us-20191112-san-francisco-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20191112-san-francisco-2.jpg"><img src="/static/image/2020/2019-summary/us-20191112-san-francisco-2.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20191112-san-francisco-chrome-dev-summit.jpg"><img src="/static/image/2020/2019-summary/us-20191112-san-francisco-chrome-dev-summit.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20191114-california-google-mtv.jpg"><img src="/static/image/2020/2019-summary/us-20191114-california-google-mtv.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/us-20191115-california-apple-store.jpg"><img src="/static/image/2020/2019-summary/us-20191115-california-apple-store.jpg" /></a></p>
+                <h3 id="班加罗尔">班加罗尔</h3>
+                <p>工作原因出差去了三次印度的<a href="https://zh.wikipedia.org/wiki/%E7%8F%AD%E5%8A%A0%E7%BD%97%E5%B0%94">班加罗尔</a>。班加罗尔信息业的产值占印度三分之一以上。但是基础设施实在是差强人意。酒店和写字楼里时不时的就会停电，高峰时期每天断电两三次，每次断电三五分钟。</p>
+                <p>班加罗尔的气候真心是蛮舒服的，德干高原，海拔一千，不冷不热，不干不潮。可惜市容基建一塌糊涂，街头巷尾垃圾遍地，河塘水池臭气冲天，牛屎人尿肆意挥洒。</p>
+                <p>一如印度大部门的城市，贫民窟和星级酒店亦往往比邻而居。比如我第一次下榻的酒店，旁边有一个高尔夫球场，有一小片贫民窟，有正常的居民楼，还有一条臭水沟。酒店常年配备安检设备，我每次出入酒店都要过安检机。</p>
+                <p>一如传闻，牛在城市街道十分常见，相伴而来的，街道马路上也常常洒满新鲜热乎刚出炉的牛粪，配上刚下的雨水，味道可以说是十分醉人。我有一次中奖，下班路上还一脚踩到了牛粪上。</p>
+                <p>值得一提的是，中国的手机品牌，小米、Oppo/Vivo 在班加罗尔街头很常见。</p>
+                <p>再，印度城市内水网的污染真是触目惊心。我目之所视看到的大部分的市内河流，水都是黑色发臭的。</p>
+                <p>三次印度之行，累计两个月，我总体感觉是，印度的基础设施建设任重道远，不解决这个问题，所谓的<a href="https://zh.wikipedia.org/wiki/%E9%BE%99%E8%B1%A1%E4%B9%8B%E4%BA%89">龙象之争</a>，有生之年，这个命题恐怕很难成真。</p>
+                <p><a href="/static/image/2020/2019-summary/india-20190516-bangalore.jpg"><img src="/static/image/2020/2019-summary/india-20190516-bangalore.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/india-20190518-bangalore-memorial-hall.jpg"><img src="/static/image/2020/2019-summary/india-20190518-bangalore-memorial-hall.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/india-20190518-bangalore-shopping-mall.jpg"><img src="/static/image/2020/2019-summary/india-20190518-bangalore-shopping-mall.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/india-20190518-bangalore-hotel.jpg"><img src="/static/image/2020/2019-summary/india-20190518-bangalore-hotel.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/india-20190527-bangalore.jpg"><img src="/static/image/2020/2019-summary/india-20190527-bangalore.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/india-20190605-bangalore-rain.jpg"><img src="/static/image/2020/2019-summary/india-20190605-bangalore-rain.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/india-20190606-bangalore.jpg"><img src="/static/image/2020/2019-summary/india-20190606-bangalore.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/india-20191013-bangalore-1.jpg"><img src="/static/image/2020/2019-summary/india-20191013-bangalore-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/india-20191013-bangalore-2.jpg"><img src="/static/image/2020/2019-summary/india-20191013-bangalore-2.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/india-20191023-bangalore.jpg"><img src="/static/image/2020/2019-summary/india-20191023-bangalore.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/india-20191026-bangalore-1.jpg"><img src="/static/image/2020/2019-summary/india-20191026-bangalore-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/india-20191026-bangalore-2.jpg"><img src="/static/image/2020/2019-summary/india-20191026-bangalore-2.jpg" /></a></p>
+                <h3 id="雅加达">雅加达</h3>
+                <p>工作原因出差去了四次印度尼西亚的<a href="https://zh.wikipedia.org/wiki/%E9%9B%85%E5%8A%A0%E8%BE%BE">雅加达</a>。</p>
+                <p>对比班加罗尔，雅加达的情况要好得多，至少在门面上来讲，雅加达的 CBD 其实建得相当不错的，干净整洁，有板有眼，天际线在东南亚城市中也排得进第一梯队。</p>
+                <p><a href="/static/image/2020/2019-summary/indonesia-20190901-jakarta-1.jpg"><img src="/static/image/2020/2019-summary/indonesia-20190901-jakarta-1.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/indonesia-20191121-jakarta-google.jpg"><img src="/static/image/2020/2019-summary/indonesia-20191121-jakarta-google.jpg" /></a></p>
+                <p>但是金玉其外、 败絮其中，雅加达城市规划最大的败笔就是对行人的极度不友好和不尊重。最令我震惊的一点是，就在我公司外，步行道花坛竟然用尖口金属栅栏，如果是小孩玩耍或者成人不小心失足，碰到这些尖口栅栏，非死即伤。</p>
+                <p><a href="/static/image/2020/2019-summary/indonesia-20190823-jakarta.jpg"><img src="/static/image/2020/2019-summary/indonesia-20190823-jakarta.jpg" /></a></p>
+                <p>Grab 和 Gojek 在印尼街头斗得如火如荼，每次出门走在路上，满眼望去，一片绿油油的，那是 Grab 和 Gojek 摩托骑手工作制服的颜色。说来也是巧，两家公司工作制服都是绿色。</p>
+                <p><a href="/static/image/2020/2019-summary/indonesia-20190819-jakarta-grab-vs-gojek.jpg"><img src="/static/image/2020/2019-summary/indonesia-20190819-jakarta-grab-vs-gojek.jpg" /></a></p>
+                <p>8 月某日出门，发现 office 门口聚集了一群人，同事提醒我注意把工牌藏起来，后来才得知这是一群 Gojek driver 在公司门口集会<a href="https://www.thejakartapost.com/news/2019/08/05/drivers-stage-protest-burn-tire-in-front-of-gojek-office.html">抗议</a>。抗议持续了有两三天的样子，还在楼下焚烧了一些东西，那几日办公楼的安检都非常严格，门口都是警察保卫。</p>
+                <p><a href="/static/image/2020/2019-summary/indonesia-20190805-jakarta.jpg"><img src="/static/image/2020/2019-summary/indonesia-20190805-jakarta.jpg" /></a></p>
+                <p>雅加达的移动互联网普及率还不错，特别是电子支付，目前处于春秋战国时代，各家移动支付提供商在街头商贩打满了广告。想必 Grab 和 Gojek 两大 SuperApp 都从中国的 SuperApp 模式中学到了不少吧。</p>
+                <p><a href="/static/image/2020/2019-summary/indonesia-20190805-jakarta-gojek-app-homescreen.jpg"><img src="/static/image/2020/2019-summary/indonesia-20190805-jakarta-gojek-app-homescreen.jpg" /></a></p>
+                <p><a href="/static/image/2020/2019-summary/indonesia-20190805-jakarta-gojek-app-payment-screen.jpg"><img src="/static/image/2020/2019-summary/indonesia-20190805-jakarta-gojek-app-payment-screen.jpg" /></a></p>
+                <h2 id="尾">尾</h2>
+                <p>19 年总结拖拖拉拉了小半年，20 年伊始，新冠席卷全球，世界恐怕再也回不到 19 年的样子了吧。</p>
+                <p>于个人而言，19 年全年花了近一个月的时间周转于中国、美国、新加坡、印度、印度尼西亚，所获颇丰。特别是美国之行，增长见闻，游学访友，甚为开心。</p>
+                <p>加入 Gojek，所学甚多，开始了解移动互联网商业的生态规则，对这个印尼本土的独角兽公司刮目相看。</p>
+                <p>20 世纪的第二个十年，过去了。</p>
+                <blockquote>
+                <p>青春的岁月</p>
+                <p>我们身不由己</p>
+                <p>只因这胸中</p>
+                <p>燃烧的梦想</p>
+                <p>青春的岁月</p>
+                <p>放浪的生涯</p>
+                <p>就任这时光</p>
+                <p>奔腾如流水</p>
+                <p>体会这狂野</p>
+                <p>体会孤独</p>
+                <p>体会这欢乐</p>
+                <p>爱恨离别</p>
+                <p>体会这狂野</p>
+                <p>体会孤独</p>
+                <p>这是我的完美生活</p>
+                <p>也是你的完美生活</p>
+                <p>我多想看到你</p>
+                <p>那依旧灿烂的笑容</p>
+                <p>再一次释放自己</p>
+                <p>胸中那灿烂的情感</p>
+                <p>— 许巍 «完美生活»</p>
+                </blockquote>
+                <h2 id="ref">Ref</h2>
+                <ul>
+                <li><a href="http://xiaohanyu.me/posts/2012-01-01-2011-summary/">再见，2011</a></li>
+                <li><a href="http://xiaohanyu.me/posts/2013-01-11-2012-summary/">2012，静水深流</a></li>
+                <li><a href="http://xiaohanyu.me/posts/2014-03-03-2013-summary/">2013，青春绝版</a></li>
+                <li><a href="http://xiaohanyu.me/posts/2015-04-10-2014-summary/">2014，漫步</a></li>
+                <li><a href="http://xiaohanyu.me/posts/2016-04-20-2015-summary/">2015，徘徊</a></li>
+                <li><a href="http://xiaohanyu.me/posts/2017-05-23-2016-summary/">2016，清风徐来</a></li>
+                <li><a href="https://xiaohanyu.me/posts/2018-01-14-2017-summary/">2017，迈向未知</a></li>
+                <li><a href="http://xiaohanyu.me/posts/2019-04-10-2018-summary/">2018，两点一线</a></li>
+                </ul>
+                
+                <div class="ui divider"></div>
+                <div class="ui small one item menu">
+                  <a class="item" id="show-disqus-comments" onclick="show_disqus_comments()" title="Fuck GFW, disqus.com has been blocked in China.">Show Disqus Comments</a>
+                </div>
+                <div id="disqus_thread"></div>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+              </section>
+              <aside class="four wide column">
+                <div class="ui small header">
+                  License
+                </div>
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="cc-license" src="/static/image/cc_byncsa.flat.guokr.svg" /></a>
+                <div class="ui small header">
+                  Committed
+                </div>
+                <date>2020-04-17</date>
+                <div class="ui small header">
+                  Updated
+                </div>
+                <date>2020-05-14</date>
+                <div class="ui small header">
+                  Category
+                </div>
+                <div class="ui list">
+                  <div class="item">
+                    <a href="/categories#Life">
+                      <div class="ui label">
+                        Life<sup>49</sup>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="ui small header">
+                  Tags
+                </div>
+                <div class="ui list">
+                  <div class="item">
+                    <a href="/tags#Summary">
+                      <div class="ui label">
+                        Summary<sup>10</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Shopee">
+                      <div class="ui label">
+                        Shopee<sup>3</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Gojek">
+                      <div class="ui label">
+                        Gojek<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Singapore">
+                      <div class="ui label">
+                        Singapore<sup>3</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Bangalore">
+                      <div class="ui label">
+                        Bangalore<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#Jarkata">
+                      <div class="ui label">
+                        Jarkata<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="/tags#US">
+                      <div class="ui label">
+                        US<sup>1</sup>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="ui small header">
+                  Links
+                </div>
+                <div class="ui small two item menu">
+                  <a class="item" title="2018，两点一线" href="/posts/2019-04-10-2018-summary/">Prev</a><a class="item" title="Archive" href="/archive">Archive</a>
+                </div>
+              </aside>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment desktop">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2018 by Xiao Hanyu — Powered by Emacs, Git, Pandoc, Ruby and Nanoc.
+          </p>
+        </div>
+      </footer>
+      <footer class="ui inverted vertical center aligned footer segment mobile">
+        <div class="ui container">
+          <p>
+            Copyright © 2009–2018 by Xiao Hanyu
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/javascript/ga.js"></script>
+      <script src="/static/javascript/default.js"></script>
+    </div>
+  </body>
+</html>

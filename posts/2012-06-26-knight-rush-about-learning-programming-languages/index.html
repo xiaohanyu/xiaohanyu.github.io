@@ -77,17 +77,17 @@
 <li>可惜你不知道的是，迭代器并不是一个高层次的抽象机制，迭代器的本质是一种迭代遍历操作，至于通过什么手段来迭代遍历，这些本不应该是使用者所应该关心的细节问题。所以对于下面的这段 C++ 伪代码：</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">for</span> (vector&lt;<span class="dt">int</span>&gt;::iterator itr = v.begin(); itr != v.end(); ++itr) {</a>
-<a class="sourceLine" id="cb1-2" title="2">  do_something(*itr)</a>
-<a class="sourceLine" id="cb1-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">for</span> (vector&lt;<span class="dt">int</span>&gt;::iterator itr = v.begin(); itr != v.end(); ++itr) {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  do_something(*itr)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>}</span></code></pre></div>
 <ul>
 <li>其高阶抽象代码应该是：</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1">for_each(v, do_something)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1"></a>for_each(v, do_something)</span></code></pre></div>
 <ul>
 <li>稍微了解一点 Lisp 的读者都能想到如下的等价伪代码<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>：</li>
 </ul>
-<div class="sourceCode" id="cb3" data-org-language="lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb3-1" title="1">(<span class="kw">mapcar</span> #&#39;do_something v)</a></code></pre></div>
+<div class="sourceCode" id="cb3" data-org-language="lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb3-1"><a href="#cb3-1"></a>(<span class="kw">mapcar</span> #&#39;do_something v)</span></code></pre></div>
 <ul>
 <li>每次你写 <code>v.begin(), v.end()</code> 这样的代码时，你就不知不觉地降低了自己的抽象层次，使自己脱离问题域而转向去纠结于实现域，不要小看这种力量， <strong>软件工程的一切欢乐和痛苦，只是聚沙成塔的两个极端而已。</strong>
 <ul>
@@ -124,354 +124,354 @@
 <li>以上谈了这么多，读者可能会问，既然 C++ 如此繁杂，还要不要学习 C++？学，当然要学，否则你怎么批判呢？怎么学？批判地学。要去学习语言机制的根源和本质而不要迷失在语言特性的森林里<a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a>。</li>
 <li>最后，还是回到面试题上，还是放上鄙人的 C++ 代码，也好和 Lisp/Python 版的程序做一个小对比：</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" title="1"><span class="pp">#include </span><span class="im">&lt;queue&gt;</span></a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="pp">#include </span><span class="im">&lt;limits&gt;</span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="pp">#include </span><span class="im">&lt;map&gt;</span></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="pp">#include </span><span class="im">&lt;functional&gt;</span></a>
-<a class="sourceLine" id="cb4-7" title="7"><span class="pp">#include </span><span class="im">&lt;queue&gt;</span></a>
-<a class="sourceLine" id="cb4-8" title="8"><span class="pp">#include </span><span class="im">&lt;list&gt;</span></a>
-<a class="sourceLine" id="cb4-9" title="9"><span class="pp">#include </span><span class="im">&lt;cstdlib&gt;</span></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
-<a class="sourceLine" id="cb4-11" title="11"></a>
-<a class="sourceLine" id="cb4-12" title="12"><span class="kw">struct</span> vertex {</a>
-<a class="sourceLine" id="cb4-13" title="13">  <span class="dt">int</span> index;                  <span class="co">/// the vertex index, also the vertex name</span></a>
-<a class="sourceLine" id="cb4-14" title="14">  vertex* prev;               <span class="co">/// the prev vertex node computed by bfs and bfs_shortest</span></a>
-<a class="sourceLine" id="cb4-15" title="15">  <span class="dt">int</span> dist;                   <span class="co">/// the distance to the start computed by bfs</span></a>
-<a class="sourceLine" id="cb4-16" title="16">  <span class="co">/// and bfs_shortest</span></a>
-<a class="sourceLine" id="cb4-17" title="17">  vector&lt;vertex*&gt; adj;        <span class="co">/// the adjacency list for this vertex</span></a>
-<a class="sourceLine" id="cb4-18" title="18"></a>
-<a class="sourceLine" id="cb4-19" title="19">  vertex(<span class="dt">int</span> idx) : index(idx) {</a>
-<a class="sourceLine" id="cb4-20" title="20">    reset();</a>
-<a class="sourceLine" id="cb4-21" title="21">  }</a>
-<a class="sourceLine" id="cb4-22" title="22"></a>
-<a class="sourceLine" id="cb4-23" title="23">  <span class="dt">void</span> reset() {</a>
-<a class="sourceLine" id="cb4-24" title="24">    prev = NULL;</a>
-<a class="sourceLine" id="cb4-25" title="25">    dist = numeric_limits&lt;<span class="dt">int</span>&gt;::max();</a>
-<a class="sourceLine" id="cb4-26" title="26">  }</a>
-<a class="sourceLine" id="cb4-27" title="27">};</a>
-<a class="sourceLine" id="cb4-28" title="28"></a>
-<a class="sourceLine" id="cb4-29" title="29"><span class="kw">class</span> graph {</a>
-<a class="sourceLine" id="cb4-30" title="30"><span class="kw">public</span>:</a>
-<a class="sourceLine" id="cb4-31" title="31">  graph() { }</a>
-<a class="sourceLine" id="cb4-32" title="32">  ~graph();</a>
-<a class="sourceLine" id="cb4-33" title="33">  <span class="dt">void</span> add_edge(<span class="dt">int</span> start, <span class="dt">int</span> end);</a>
-<a class="sourceLine" id="cb4-34" title="34">  <span class="dt">void</span> bfs(<span class="dt">int</span> start);</a>
-<a class="sourceLine" id="cb4-35" title="35">  <span class="dt">void</span> bfs_shortest(<span class="dt">int</span> start);</a>
-<a class="sourceLine" id="cb4-36" title="36">  list&lt;<span class="dt">int</span>&gt; get_path(<span class="dt">int</span> end) <span class="at">const</span>;</a>
-<a class="sourceLine" id="cb4-37" title="37">  <span class="dt">void</span> print_graph() <span class="at">const</span>;</a>
-<a class="sourceLine" id="cb4-38" title="38"></a>
-<a class="sourceLine" id="cb4-39" title="39"><span class="kw">protected</span>:</a>
-<a class="sourceLine" id="cb4-40" title="40">  vertex* get_vertex(<span class="dt">int</span> idx);</a>
-<a class="sourceLine" id="cb4-41" title="41">  <span class="dt">void</span> reset_all();</a>
-<a class="sourceLine" id="cb4-42" title="42">  list&lt;<span class="dt">int</span>&gt; get_path(<span class="at">const</span> vertex &amp;end) <span class="at">const</span>;</a>
-<a class="sourceLine" id="cb4-43" title="43"></a>
-<a class="sourceLine" id="cb4-44" title="44"><span class="kw">private</span>:</a>
-<a class="sourceLine" id="cb4-45" title="45">  <span class="co">/// disable copy</span></a>
-<a class="sourceLine" id="cb4-46" title="46">  graph(<span class="at">const</span> graph &amp;rhs);</a>
-<a class="sourceLine" id="cb4-47" title="47">  graph&amp; <span class="kw">operator</span>=(<span class="at">const</span> graph &amp;rhs);</a>
-<a class="sourceLine" id="cb4-48" title="48"></a>
-<a class="sourceLine" id="cb4-49" title="49">  <span class="kw">typedef</span> map&lt;<span class="dt">int</span>, vertex*, less&lt;<span class="dt">int</span>&gt; &gt; vmap;</a>
-<a class="sourceLine" id="cb4-50" title="50">  vmap vm;</a>
-<a class="sourceLine" id="cb4-51" title="51">};</a>
-<a class="sourceLine" id="cb4-52" title="52"></a>
-<a class="sourceLine" id="cb4-53" title="53">graph::~graph() {</a>
-<a class="sourceLine" id="cb4-54" title="54">  <span class="cf">for</span> (vmap::iterator itr = vm.begin(); itr != vm.end(); ++itr) {</a>
-<a class="sourceLine" id="cb4-55" title="55">    <span class="kw">delete</span> (*itr).second;</a>
-<a class="sourceLine" id="cb4-56" title="56">  }</a>
-<a class="sourceLine" id="cb4-57" title="57">}</a>
-<a class="sourceLine" id="cb4-58" title="58"></a>
-<a class="sourceLine" id="cb4-59" title="59"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb4-60" title="60"><span class="co"> * return a new vertex if not exists, else return the old vertex, using std::map</span></a>
-<a class="sourceLine" id="cb4-61" title="61"><span class="co"> * for vertex management</span></a>
-<a class="sourceLine" id="cb4-62" title="62"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-63" title="63"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">idx</span><span class="co"> vertex index</span></a>
-<a class="sourceLine" id="cb4-64" title="64"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-65" title="65"><span class="co"> * </span><span class="an">@return</span><span class="co"> a (new) vertex of index idx</span></a>
-<a class="sourceLine" id="cb4-66" title="66"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-67" title="67">vertex* graph::get_vertex(<span class="dt">int</span> idx) {</a>
-<a class="sourceLine" id="cb4-68" title="68">  <span class="co">/// cout &lt;&lt; &quot;idx: &quot; &lt;&lt; idx &lt;&lt; &quot;</span><span class="an">\tvm.size():</span><span class="co"> &quot; &lt;&lt; vm.size() &lt;&lt; endl;</span></a>
-<a class="sourceLine" id="cb4-69" title="69">  vmap::iterator itr = vm.find(idx);</a>
-<a class="sourceLine" id="cb4-70" title="70"></a>
-<a class="sourceLine" id="cb4-71" title="71">  <span class="cf">if</span> (itr == vm.end()) {</a>
-<a class="sourceLine" id="cb4-72" title="72">    vm[idx] = <span class="kw">new</span> vertex(idx);</a>
-<a class="sourceLine" id="cb4-73" title="73">    <span class="cf">return</span> vm[idx];</a>
-<a class="sourceLine" id="cb4-74" title="74">  }</a>
-<a class="sourceLine" id="cb4-75" title="75"></a>
-<a class="sourceLine" id="cb4-76" title="76">  <span class="cf">return</span> itr-&gt;second;</a>
-<a class="sourceLine" id="cb4-77" title="77">}</a>
-<a class="sourceLine" id="cb4-78" title="78"></a>
-<a class="sourceLine" id="cb4-79" title="79"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb4-80" title="80"><span class="co"> * clear all vertex state flags</span></a>
-<a class="sourceLine" id="cb4-81" title="81"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-82" title="82"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-83" title="83"><span class="dt">void</span> graph::reset_all() {</a>
-<a class="sourceLine" id="cb4-84" title="84">  <span class="cf">for</span> (vmap::iterator itr = vm.begin(); itr != vm.end(); ++itr) {</a>
-<a class="sourceLine" id="cb4-85" title="85">    (*itr).second-&gt;reset();</a>
-<a class="sourceLine" id="cb4-86" title="86">  }</a>
-<a class="sourceLine" id="cb4-87" title="87">}</a>
-<a class="sourceLine" id="cb4-88" title="88"></a>
-<a class="sourceLine" id="cb4-89" title="89"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb4-90" title="90"><span class="co"> * add an edge(start --&gt; end) to the graph</span></a>
-<a class="sourceLine" id="cb4-91" title="91"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-92" title="92"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">start</span></a>
-<a class="sourceLine" id="cb4-93" title="93"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">end</span></a>
-<a class="sourceLine" id="cb4-94" title="94"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-95" title="95"><span class="dt">void</span> graph::add_edge(<span class="dt">int</span> start, <span class="dt">int</span> end) {</a>
-<a class="sourceLine" id="cb4-96" title="96">  vertex *s = get_vertex(start);</a>
-<a class="sourceLine" id="cb4-97" title="97">  vertex *e = get_vertex(end);</a>
-<a class="sourceLine" id="cb4-98" title="98">  s-&gt;adj.push_back(e);</a>
-<a class="sourceLine" id="cb4-99" title="99">}</a>
-<a class="sourceLine" id="cb4-100" title="100"></a>
-<a class="sourceLine" id="cb4-101" title="101"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb4-102" title="102"><span class="co"> * print the graph vertex by vertex(with adj list)</span></a>
-<a class="sourceLine" id="cb4-103" title="103"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-104" title="104"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-105" title="105"><span class="dt">void</span> graph::print_graph() <span class="at">const</span> {</a>
-<a class="sourceLine" id="cb4-106" title="106">  <span class="cf">for</span> (vmap::const_iterator itr = vm.begin(); itr != vm.end(); ++itr) {</a>
-<a class="sourceLine" id="cb4-107" title="107">    cout &lt;&lt; itr-&gt;first &lt;&lt; <span class="st">&quot;: &quot;</span>;</a>
-<a class="sourceLine" id="cb4-108" title="108">    <span class="cf">for</span> (vector&lt;vertex*&gt;::const_iterator vitr = itr-&gt;second-&gt;adj.begin();</a>
-<a class="sourceLine" id="cb4-109" title="109">         vitr != itr-&gt;second-&gt;adj.end();</a>
-<a class="sourceLine" id="cb4-110" title="110">         ++vitr) {</a>
-<a class="sourceLine" id="cb4-111" title="111">      cout &lt;&lt; (*vitr)-&gt;index &lt;&lt; <span class="st">&quot; &quot;</span>;</a>
-<a class="sourceLine" id="cb4-112" title="112">    }</a>
-<a class="sourceLine" id="cb4-113" title="113">    cout &lt;&lt; endl;</a>
-<a class="sourceLine" id="cb4-114" title="114">  }</a>
-<a class="sourceLine" id="cb4-115" title="115">}</a>
-<a class="sourceLine" id="cb4-116" title="116"></a>
-<a class="sourceLine" id="cb4-117" title="117"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb4-118" title="118"><span class="co"> * traversal the graph breadth-first</span></a>
-<a class="sourceLine" id="cb4-119" title="119"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-120" title="120"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">start</span><span class="co"> the starting point of the bfs traversal</span></a>
-<a class="sourceLine" id="cb4-121" title="121"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-122" title="122"><span class="dt">void</span> graph::bfs(<span class="dt">int</span> start) {</a>
-<a class="sourceLine" id="cb4-123" title="123">  <span class="cf">if</span> (vm.find(start) == vm.end()) {</a>
-<a class="sourceLine" id="cb4-124" title="124">    cerr &lt;&lt; <span class="st">&quot;graph::bfs(): invalid point index &quot;</span> &lt;&lt; start &lt;&lt; endl;</a>
-<a class="sourceLine" id="cb4-125" title="125">    <span class="cf">return</span>;</a>
-<a class="sourceLine" id="cb4-126" title="126">  }</a>
-<a class="sourceLine" id="cb4-127" title="127"></a>
-<a class="sourceLine" id="cb4-128" title="128">  vertex *s = vm[start];</a>
-<a class="sourceLine" id="cb4-129" title="129">  queue&lt;vertex*&gt; q;</a>
-<a class="sourceLine" id="cb4-130" title="130">  q.push(s);</a>
-<a class="sourceLine" id="cb4-131" title="131">  s-&gt;dist = -<span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb4-132" title="132"></a>
-<a class="sourceLine" id="cb4-133" title="133">  <span class="cf">while</span> (!q.empty()) {</a>
-<a class="sourceLine" id="cb4-134" title="134">    vertex *v = q.front();</a>
-<a class="sourceLine" id="cb4-135" title="135">    cout &lt;&lt; v-&gt;index &lt;&lt; <span class="st">&quot; &quot;</span>;</a>
-<a class="sourceLine" id="cb4-136" title="136">    q.pop();</a>
-<a class="sourceLine" id="cb4-137" title="137"></a>
-<a class="sourceLine" id="cb4-138" title="138">    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; v-&gt;adj.size(); ++i) {</a>
-<a class="sourceLine" id="cb4-139" title="139">      <span class="cf">if</span> (v-&gt;adj[i]-&gt;dist != -<span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb4-140" title="140">        q.push(v-&gt;adj[i]);</a>
-<a class="sourceLine" id="cb4-141" title="141">        v-&gt;adj[i]-&gt;dist = -<span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb4-142" title="142">      }</a>
-<a class="sourceLine" id="cb4-143" title="143">    }</a>
-<a class="sourceLine" id="cb4-144" title="144">  }</a>
-<a class="sourceLine" id="cb4-145" title="145">}</a>
-<a class="sourceLine" id="cb4-146" title="146"></a>
-<a class="sourceLine" id="cb4-147" title="147"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb4-148" title="148"><span class="co"> * the unweighted shortest path algorithm, using a std::queue instead of</span></a>
-<a class="sourceLine" id="cb4-149" title="149"><span class="co"> * priority_queue(which is used in dijkstra&#39;s algorithm)</span></a>
-<a class="sourceLine" id="cb4-150" title="150"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-151" title="151"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">start</span></a>
-<a class="sourceLine" id="cb4-152" title="152"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-153" title="153"><span class="dt">void</span> graph::bfs_shortest(<span class="dt">int</span> start) {</a>
-<a class="sourceLine" id="cb4-154" title="154">  <span class="cf">if</span> (vm.find(start) == vm.end()) {</a>
-<a class="sourceLine" id="cb4-155" title="155">    cerr &lt;&lt; <span class="st">&quot;graph::bfs_shortest(): invalid point index &quot;</span> &lt;&lt; start &lt;&lt; endl;</a>
-<a class="sourceLine" id="cb4-156" title="156">    <span class="cf">return</span>;</a>
-<a class="sourceLine" id="cb4-157" title="157">  }</a>
-<a class="sourceLine" id="cb4-158" title="158"></a>
-<a class="sourceLine" id="cb4-159" title="159">  vertex *s = vm[start];</a>
-<a class="sourceLine" id="cb4-160" title="160"></a>
-<a class="sourceLine" id="cb4-161" title="161">  queue&lt;vertex*&gt; q;</a>
-<a class="sourceLine" id="cb4-162" title="162">  q.push(s);</a>
-<a class="sourceLine" id="cb4-163" title="163">  s-&gt;dist = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb4-164" title="164"></a>
-<a class="sourceLine" id="cb4-165" title="165">  <span class="cf">while</span> (!q.empty()) {</a>
-<a class="sourceLine" id="cb4-166" title="166">    vertex *v = q.front();</a>
-<a class="sourceLine" id="cb4-167" title="167">    q.pop();</a>
-<a class="sourceLine" id="cb4-168" title="168"></a>
-<a class="sourceLine" id="cb4-169" title="169">    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; v-&gt;adj.size(); ++i) {</a>
-<a class="sourceLine" id="cb4-170" title="170">      vertex *w = v-&gt;adj[i];</a>
-<a class="sourceLine" id="cb4-171" title="171">      <span class="cf">if</span> (w-&gt;dist == numeric_limits&lt;<span class="dt">int</span>&gt;::max()) {</a>
-<a class="sourceLine" id="cb4-172" title="172">        w-&gt;dist = v-&gt;dist + <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb4-173" title="173">        w-&gt;prev = v;</a>
-<a class="sourceLine" id="cb4-174" title="174">        q.push(w);</a>
-<a class="sourceLine" id="cb4-175" title="175">      }</a>
-<a class="sourceLine" id="cb4-176" title="176">    }</a>
-<a class="sourceLine" id="cb4-177" title="177">  }</a>
-<a class="sourceLine" id="cb4-178" title="178">}</a>
-<a class="sourceLine" id="cb4-179" title="179"></a>
-<a class="sourceLine" id="cb4-180" title="180"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb4-181" title="181"><span class="co"> * get the path from start to end</span></a>
-<a class="sourceLine" id="cb4-182" title="182"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-183" title="183"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">end</span></a>
-<a class="sourceLine" id="cb4-184" title="184"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-185" title="185"><span class="co"> * </span><span class="an">@return</span><span class="co"> a list of vertex which denotes the shortest path</span></a>
-<a class="sourceLine" id="cb4-186" title="186"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-187" title="187">list&lt;<span class="dt">int</span>&gt; graph::get_path(<span class="dt">int</span> end) <span class="at">const</span> {</a>
-<a class="sourceLine" id="cb4-188" title="188">  vmap::const_iterator itr = vm.find(end);</a>
-<a class="sourceLine" id="cb4-189" title="189"></a>
-<a class="sourceLine" id="cb4-190" title="190">  <span class="cf">if</span> (itr == vm.end()) {</a>
-<a class="sourceLine" id="cb4-191" title="191">    cerr &lt;&lt; <span class="st">&quot;graph::get_path(): invalid point index &quot;</span> &lt;&lt; end &lt;&lt; endl;</a>
-<a class="sourceLine" id="cb4-192" title="192">    <span class="cf">return</span> list&lt;<span class="dt">int</span>&gt;();</a>
-<a class="sourceLine" id="cb4-193" title="193">  }</a>
-<a class="sourceLine" id="cb4-194" title="194"></a>
-<a class="sourceLine" id="cb4-195" title="195">  <span class="at">const</span> vertex &amp;w = *(*itr).second;</a>
-<a class="sourceLine" id="cb4-196" title="196"></a>
-<a class="sourceLine" id="cb4-197" title="197">  <span class="cf">if</span> (w.dist == numeric_limits&lt;<span class="dt">int</span>&gt;::max()) {</a>
-<a class="sourceLine" id="cb4-198" title="198">    cout &lt;&lt; <span class="st">&quot;vertex &quot;</span> &lt;&lt; w.index &lt;&lt; <span class="st">&quot; is not reachable&quot;</span>;</a>
-<a class="sourceLine" id="cb4-199" title="199">    <span class="cf">return</span> list&lt;<span class="dt">int</span>&gt;();</a>
-<a class="sourceLine" id="cb4-200" title="200">  }</a>
-<a class="sourceLine" id="cb4-201" title="201">  <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb4-202" title="202">    <span class="cf">return</span> get_path(w);</a>
-<a class="sourceLine" id="cb4-203" title="203">  }</a>
-<a class="sourceLine" id="cb4-204" title="204">}</a>
-<a class="sourceLine" id="cb4-205" title="205"></a>
-<a class="sourceLine" id="cb4-206" title="206"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb4-207" title="207"><span class="co"> * the internal helper function for the public get_path function</span></a>
-<a class="sourceLine" id="cb4-208" title="208"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-209" title="209"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">end</span></a>
-<a class="sourceLine" id="cb4-210" title="210"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-211" title="211"><span class="co"> * </span><span class="an">@return</span><span class="co"> a list of vertex index</span></a>
-<a class="sourceLine" id="cb4-212" title="212"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-213" title="213">list&lt;<span class="dt">int</span>&gt; graph::get_path(<span class="at">const</span> vertex &amp;end) <span class="at">const</span> {</a>
-<a class="sourceLine" id="cb4-214" title="214">  list&lt;<span class="dt">int</span>&gt; l;</a>
-<a class="sourceLine" id="cb4-215" title="215">  <span class="at">const</span> vertex *v = &amp;end;</a>
-<a class="sourceLine" id="cb4-216" title="216"></a>
-<a class="sourceLine" id="cb4-217" title="217">  <span class="cf">while</span> (v != NULL) {</a>
-<a class="sourceLine" id="cb4-218" title="218">    l.push_front(v-&gt;index);</a>
-<a class="sourceLine" id="cb4-219" title="219">    v = v-&gt;prev;</a>
-<a class="sourceLine" id="cb4-220" title="220">  }</a>
-<a class="sourceLine" id="cb4-221" title="221"></a>
-<a class="sourceLine" id="cb4-222" title="222">  <span class="cf">return</span> l;</a>
-<a class="sourceLine" id="cb4-223" title="223">}</a>
-<a class="sourceLine" id="cb4-224" title="224"></a>
-<a class="sourceLine" id="cb4-225" title="225"><span class="kw">class</span> chessboard {</a>
-<a class="sourceLine" id="cb4-226" title="226"><span class="kw">private</span>:</a>
-<a class="sourceLine" id="cb4-227" title="227">  <span class="kw">struct</span> point {</a>
-<a class="sourceLine" id="cb4-228" title="228">    <span class="dt">int</span> x;</a>
-<a class="sourceLine" id="cb4-229" title="229">    <span class="dt">int</span> y;</a>
-<a class="sourceLine" id="cb4-230" title="230"></a>
-<a class="sourceLine" id="cb4-231" title="231">    point(<span class="dt">int</span> px, <span class="dt">int</span> pb) : x(px), y(pb) { }</a>
-<a class="sourceLine" id="cb4-232" title="232">  };</a>
-<a class="sourceLine" id="cb4-233" title="233"></a>
-<a class="sourceLine" id="cb4-234" title="234"><span class="kw">public</span>:</a>
-<a class="sourceLine" id="cb4-235" title="235">  chessboard(<span class="dt">int</span> s);</a>
-<a class="sourceLine" id="cb4-236" title="236">  <span class="dt">void</span> solve_knight(<span class="dt">int</span> x, <span class="dt">int</span> y);</a>
-<a class="sourceLine" id="cb4-237" title="237"></a>
-<a class="sourceLine" id="cb4-238" title="238"><span class="kw">protected</span>:</a>
-<a class="sourceLine" id="cb4-239" title="239">  <span class="dt">bool</span> is_valid(<span class="at">const</span> point &amp;p);</a>
-<a class="sourceLine" id="cb4-240" title="240">  point next_point(<span class="at">const</span> point &amp;p, <span class="dt">int</span> i);</a>
-<a class="sourceLine" id="cb4-241" title="241"></a>
-<a class="sourceLine" id="cb4-242" title="242"><span class="kw">private</span>:</a>
-<a class="sourceLine" id="cb4-243" title="243">  graph board;</a>
-<a class="sourceLine" id="cb4-244" title="244">  <span class="dt">int</span> size;</a>
-<a class="sourceLine" id="cb4-245" title="245">};</a>
-<a class="sourceLine" id="cb4-246" title="246"></a>
-<a class="sourceLine" id="cb4-247" title="247"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb4-248" title="248"><span class="co"> * constructor, build a underlying graph from a chessboard of size s</span></a>
-<a class="sourceLine" id="cb4-249" title="249"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-250" title="250"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">s</span></a>
-<a class="sourceLine" id="cb4-251" title="251"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-252" title="252">chessboard::chessboard(<span class="dt">int</span> s)</a>
-<a class="sourceLine" id="cb4-253" title="253">  : size(s) {</a>
-<a class="sourceLine" id="cb4-254" title="254">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {</a>
-<a class="sourceLine" id="cb4-255" title="255">    <span class="cf">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; size; ++j) {</a>
-<a class="sourceLine" id="cb4-256" title="256">      <span class="dt">int</span> start = i * size + j;</a>
-<a class="sourceLine" id="cb4-257" title="257">      point p(i, j);</a>
-<a class="sourceLine" id="cb4-258" title="258"></a>
-<a class="sourceLine" id="cb4-259" title="259">      <span class="cf">for</span> (<span class="dt">int</span> k = <span class="dv">0</span>; k &lt; <span class="dv">8</span>; ++k) {</a>
-<a class="sourceLine" id="cb4-260" title="260">        <span class="co">/// the next possible knight position</span></a>
-<a class="sourceLine" id="cb4-261" title="261">        point np = next_point(p, k);</a>
-<a class="sourceLine" id="cb4-262" title="262"></a>
-<a class="sourceLine" id="cb4-263" title="263">        <span class="cf">if</span> (is_valid(np)) {</a>
-<a class="sourceLine" id="cb4-264" title="264">          <span class="dt">int</span> end = np.x * size + np.y;</a>
-<a class="sourceLine" id="cb4-265" title="265"></a>
-<a class="sourceLine" id="cb4-266" title="266">          <span class="co">/// add edges in both directions</span></a>
-<a class="sourceLine" id="cb4-267" title="267">          board.add_edge(start, end);</a>
-<a class="sourceLine" id="cb4-268" title="268">          board.add_edge(end, start);</a>
-<a class="sourceLine" id="cb4-269" title="269">        }</a>
-<a class="sourceLine" id="cb4-270" title="270">      }</a>
-<a class="sourceLine" id="cb4-271" title="271">    }</a>
-<a class="sourceLine" id="cb4-272" title="272">  }</a>
-<a class="sourceLine" id="cb4-273" title="273">}</a>
-<a class="sourceLine" id="cb4-274" title="274"></a>
-<a class="sourceLine" id="cb4-275" title="275"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb4-276" title="276"><span class="co"> * find and print a path from (x, y) to (size, size)</span></a>
-<a class="sourceLine" id="cb4-277" title="277"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-278" title="278"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span></a>
-<a class="sourceLine" id="cb4-279" title="279"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">y</span></a>
-<a class="sourceLine" id="cb4-280" title="280"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-281" title="281"><span class="dt">void</span> chessboard::solve_knight(<span class="dt">int</span> x, <span class="dt">int</span> y) {</a>
-<a class="sourceLine" id="cb4-282" title="282">  <span class="dt">int</span> start = (x-<span class="dv">1</span>) * size + (y-<span class="dv">1</span>);</a>
-<a class="sourceLine" id="cb4-283" title="283">  <span class="dt">int</span> end = size * size - <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb4-284" title="284"></a>
-<a class="sourceLine" id="cb4-285" title="285">  board.bfs_shortest(start);</a>
-<a class="sourceLine" id="cb4-286" title="286">  list&lt;<span class="dt">int</span>&gt; l = board.get_path(end);</a>
-<a class="sourceLine" id="cb4-287" title="287"></a>
-<a class="sourceLine" id="cb4-288" title="288">  <span class="dt">int</span> count = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb4-289" title="289">  <span class="cf">for</span> (list&lt;<span class="dt">int</span>&gt;::const_iterator itr = l.begin(); itr != l.end(); ++itr) {</a>
-<a class="sourceLine" id="cb4-290" title="290">    cout &lt;&lt; <span class="st">&quot;(&quot;</span> &lt;&lt; *itr/size + <span class="dv">1</span> &lt;&lt; <span class="st">&quot;, &quot;</span> &lt;&lt; *itr%size + <span class="dv">1</span>&lt;&lt; <span class="st">&quot;)&quot;</span>;</a>
-<a class="sourceLine" id="cb4-291" title="291">    <span class="cf">if</span> (count++ != l.size() - <span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb4-292" title="292">      cout &lt;&lt; <span class="st">&quot; -&gt; &quot;</span>;</a>
-<a class="sourceLine" id="cb4-293" title="293">    }</a>
-<a class="sourceLine" id="cb4-294" title="294">  }</a>
-<a class="sourceLine" id="cb4-295" title="295">  cout &lt;&lt; endl;</a>
-<a class="sourceLine" id="cb4-296" title="296">}</a>
-<a class="sourceLine" id="cb4-297" title="297"></a>
-<a class="sourceLine" id="cb4-298" title="298"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb4-299" title="299"><span class="co"> * whether or not the point is valid in the chessboard</span></a>
-<a class="sourceLine" id="cb4-300" title="300"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-301" title="301"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">p</span></a>
-<a class="sourceLine" id="cb4-302" title="302"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-303" title="303"><span class="co"> * </span><span class="an">@return</span><span class="co"> true for valid</span></a>
-<a class="sourceLine" id="cb4-304" title="304"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-305" title="305"><span class="dt">bool</span> chessboard::is_valid(<span class="at">const</span> point &amp;p) {</a>
-<a class="sourceLine" id="cb4-306" title="306">  <span class="cf">if</span> (p.x &lt; <span class="dv">0</span> || p.x &gt;= size - <span class="dv">1</span> || p.y &lt; <span class="dv">0</span> || p.y &gt;= size - <span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb4-307" title="307">    <span class="cf">return</span> <span class="kw">false</span>;</a>
-<a class="sourceLine" id="cb4-308" title="308">  }</a>
-<a class="sourceLine" id="cb4-309" title="309">  <span class="cf">return</span> <span class="kw">true</span>;</a>
-<a class="sourceLine" id="cb4-310" title="310">}</a>
-<a class="sourceLine" id="cb4-311" title="311"></a>
-<a class="sourceLine" id="cb4-312" title="312"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb4-313" title="313"><span class="co"> * the next possible position, every has 8 next possible position, though not</span></a>
-<a class="sourceLine" id="cb4-314" title="314"><span class="co"> * all 8 position is valid</span></a>
-<a class="sourceLine" id="cb4-315" title="315"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-316" title="316"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">p</span><span class="co"> the original knight position</span></a>
-<a class="sourceLine" id="cb4-317" title="317"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">i</span></a>
-<a class="sourceLine" id="cb4-318" title="318"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb4-319" title="319"><span class="co"> * </span><span class="an">@return</span></a>
-<a class="sourceLine" id="cb4-320" title="320"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-321" title="321">chessboard::point chessboard::next_point(<span class="at">const</span> point &amp;p, <span class="dt">int</span> i) {</a>
-<a class="sourceLine" id="cb4-322" title="322">  <span class="dt">int</span> knight[<span class="dv">8</span>][<span class="dv">2</span>] = {</a>
-<a class="sourceLine" id="cb4-323" title="323">    {<span class="dv">2</span>, <span class="dv">1</span>}, {<span class="dv">2</span>, -<span class="dv">1</span>},</a>
-<a class="sourceLine" id="cb4-324" title="324">    {-<span class="dv">2</span>, <span class="dv">1</span>}, {-<span class="dv">2</span>, -<span class="dv">1</span>},</a>
-<a class="sourceLine" id="cb4-325" title="325">    {<span class="dv">1</span>, <span class="dv">2</span>}, {<span class="dv">1</span>, -<span class="dv">2</span>},</a>
-<a class="sourceLine" id="cb4-326" title="326">    {-<span class="dv">1</span>, <span class="dv">2</span>}, {-<span class="dv">1</span>, -<span class="dv">2</span>}</a>
-<a class="sourceLine" id="cb4-327" title="327">  };</a>
-<a class="sourceLine" id="cb4-328" title="328"></a>
-<a class="sourceLine" id="cb4-329" title="329">  <span class="cf">return</span> point(p.x + knight[i][<span class="dv">0</span>], p.y + knight[i][<span class="dv">1</span>]);</a>
-<a class="sourceLine" id="cb4-330" title="330">}</a>
-<a class="sourceLine" id="cb4-331" title="331"></a>
-<a class="sourceLine" id="cb4-332" title="332"><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[])</a>
-<a class="sourceLine" id="cb4-333" title="333">{</a>
-<a class="sourceLine" id="cb4-334" title="334">  <span class="cf">if</span> (argc != <span class="dv">4</span>) {</a>
-<a class="sourceLine" id="cb4-335" title="335">    cerr &lt;&lt; <span class="st">&quot;Wrong arguments! Usage: knight.bin N x y&quot;</span> &lt;&lt; endl;</a>
-<a class="sourceLine" id="cb4-336" title="336">    <span class="cf">return</span> -<span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb4-337" title="337">  }</a>
-<a class="sourceLine" id="cb4-338" title="338"></a>
-<a class="sourceLine" id="cb4-339" title="339">  <span class="dt">int</span> N = atoi(argv[<span class="dv">1</span>]);</a>
-<a class="sourceLine" id="cb4-340" title="340">  <span class="dt">int</span> x = atoi(argv[<span class="dv">2</span>]);</a>
-<a class="sourceLine" id="cb4-341" title="341">  <span class="dt">int</span> y = atoi(argv[<span class="dv">3</span>]);</a>
-<a class="sourceLine" id="cb4-342" title="342"></a>
-<a class="sourceLine" id="cb4-343" title="343">  chessboard chess(N);</a>
-<a class="sourceLine" id="cb4-344" title="344"></a>
-<a class="sourceLine" id="cb4-345" title="345">  chess.solve_knight(x, y);</a>
-<a class="sourceLine" id="cb4-346" title="346"></a>
-<a class="sourceLine" id="cb4-347" title="347">  <span class="cf">return</span> <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb4-348" title="348">}</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">#include </span><span class="im">&lt;queue&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="pp">#include </span><span class="im">&lt;limits&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="pp">#include </span><span class="im">&lt;map&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="pp">#include </span><span class="im">&lt;functional&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="pp">#include </span><span class="im">&lt;queue&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="pp">#include </span><span class="im">&lt;list&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="pp">#include </span><span class="im">&lt;cstdlib&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="kw">using</span> <span class="kw">namespace</span> std;</span>
+<span id="cb4-11"><a href="#cb4-11"></a></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="kw">struct</span> vertex {</span>
+<span id="cb4-13"><a href="#cb4-13"></a>  <span class="dt">int</span> index;                  <span class="co">/// the vertex index, also the vertex name</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>  vertex* prev;               <span class="co">/// the prev vertex node computed by bfs and bfs_shortest</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>  <span class="dt">int</span> dist;                   <span class="co">/// the distance to the start computed by bfs</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>  <span class="co">/// and bfs_shortest</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>  vector&lt;vertex*&gt; adj;        <span class="co">/// the adjacency list for this vertex</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a></span>
+<span id="cb4-19"><a href="#cb4-19"></a>  vertex(<span class="dt">int</span> idx) : index(idx) {</span>
+<span id="cb4-20"><a href="#cb4-20"></a>    reset();</span>
+<span id="cb4-21"><a href="#cb4-21"></a>  }</span>
+<span id="cb4-22"><a href="#cb4-22"></a></span>
+<span id="cb4-23"><a href="#cb4-23"></a>  <span class="dt">void</span> reset() {</span>
+<span id="cb4-24"><a href="#cb4-24"></a>    prev = NULL;</span>
+<span id="cb4-25"><a href="#cb4-25"></a>    dist = numeric_limits&lt;<span class="dt">int</span>&gt;::max();</span>
+<span id="cb4-26"><a href="#cb4-26"></a>  }</span>
+<span id="cb4-27"><a href="#cb4-27"></a>};</span>
+<span id="cb4-28"><a href="#cb4-28"></a></span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="kw">class</span> graph {</span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="kw">public</span>:</span>
+<span id="cb4-31"><a href="#cb4-31"></a>  graph() { }</span>
+<span id="cb4-32"><a href="#cb4-32"></a>  ~graph();</span>
+<span id="cb4-33"><a href="#cb4-33"></a>  <span class="dt">void</span> add_edge(<span class="dt">int</span> start, <span class="dt">int</span> end);</span>
+<span id="cb4-34"><a href="#cb4-34"></a>  <span class="dt">void</span> bfs(<span class="dt">int</span> start);</span>
+<span id="cb4-35"><a href="#cb4-35"></a>  <span class="dt">void</span> bfs_shortest(<span class="dt">int</span> start);</span>
+<span id="cb4-36"><a href="#cb4-36"></a>  list&lt;<span class="dt">int</span>&gt; get_path(<span class="dt">int</span> end) <span class="at">const</span>;</span>
+<span id="cb4-37"><a href="#cb4-37"></a>  <span class="dt">void</span> print_graph() <span class="at">const</span>;</span>
+<span id="cb4-38"><a href="#cb4-38"></a></span>
+<span id="cb4-39"><a href="#cb4-39"></a><span class="kw">protected</span>:</span>
+<span id="cb4-40"><a href="#cb4-40"></a>  vertex* get_vertex(<span class="dt">int</span> idx);</span>
+<span id="cb4-41"><a href="#cb4-41"></a>  <span class="dt">void</span> reset_all();</span>
+<span id="cb4-42"><a href="#cb4-42"></a>  list&lt;<span class="dt">int</span>&gt; get_path(<span class="at">const</span> vertex &amp;end) <span class="at">const</span>;</span>
+<span id="cb4-43"><a href="#cb4-43"></a></span>
+<span id="cb4-44"><a href="#cb4-44"></a><span class="kw">private</span>:</span>
+<span id="cb4-45"><a href="#cb4-45"></a>  <span class="co">/// disable copy</span></span>
+<span id="cb4-46"><a href="#cb4-46"></a>  graph(<span class="at">const</span> graph &amp;rhs);</span>
+<span id="cb4-47"><a href="#cb4-47"></a>  graph&amp; <span class="kw">operator</span>=(<span class="at">const</span> graph &amp;rhs);</span>
+<span id="cb4-48"><a href="#cb4-48"></a></span>
+<span id="cb4-49"><a href="#cb4-49"></a>  <span class="kw">typedef</span> map&lt;<span class="dt">int</span>, vertex*, less&lt;<span class="dt">int</span>&gt; &gt; vmap;</span>
+<span id="cb4-50"><a href="#cb4-50"></a>  vmap vm;</span>
+<span id="cb4-51"><a href="#cb4-51"></a>};</span>
+<span id="cb4-52"><a href="#cb4-52"></a></span>
+<span id="cb4-53"><a href="#cb4-53"></a>graph::~graph() {</span>
+<span id="cb4-54"><a href="#cb4-54"></a>  <span class="cf">for</span> (vmap::iterator itr = vm.begin(); itr != vm.end(); ++itr) {</span>
+<span id="cb4-55"><a href="#cb4-55"></a>    <span class="kw">delete</span> (*itr).second;</span>
+<span id="cb4-56"><a href="#cb4-56"></a>  }</span>
+<span id="cb4-57"><a href="#cb4-57"></a>}</span>
+<span id="cb4-58"><a href="#cb4-58"></a></span>
+<span id="cb4-59"><a href="#cb4-59"></a><span class="co">/**</span></span>
+<span id="cb4-60"><a href="#cb4-60"></a><span class="co"> * return a new vertex if not exists, else return the old vertex, using std::map</span></span>
+<span id="cb4-61"><a href="#cb4-61"></a><span class="co"> * for vertex management</span></span>
+<span id="cb4-62"><a href="#cb4-62"></a><span class="co"> *</span></span>
+<span id="cb4-63"><a href="#cb4-63"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">idx</span><span class="co"> vertex index</span></span>
+<span id="cb4-64"><a href="#cb4-64"></a><span class="co"> *</span></span>
+<span id="cb4-65"><a href="#cb4-65"></a><span class="co"> * </span><span class="an">@return</span><span class="co"> a (new) vertex of index idx</span></span>
+<span id="cb4-66"><a href="#cb4-66"></a><span class="co"> */</span></span>
+<span id="cb4-67"><a href="#cb4-67"></a>vertex* graph::get_vertex(<span class="dt">int</span> idx) {</span>
+<span id="cb4-68"><a href="#cb4-68"></a>  <span class="co">/// cout &lt;&lt; &quot;idx: &quot; &lt;&lt; idx &lt;&lt; &quot;</span><span class="an">\tvm.size():</span><span class="co"> &quot; &lt;&lt; vm.size() &lt;&lt; endl;</span></span>
+<span id="cb4-69"><a href="#cb4-69"></a>  vmap::iterator itr = vm.find(idx);</span>
+<span id="cb4-70"><a href="#cb4-70"></a></span>
+<span id="cb4-71"><a href="#cb4-71"></a>  <span class="cf">if</span> (itr == vm.end()) {</span>
+<span id="cb4-72"><a href="#cb4-72"></a>    vm[idx] = <span class="kw">new</span> vertex(idx);</span>
+<span id="cb4-73"><a href="#cb4-73"></a>    <span class="cf">return</span> vm[idx];</span>
+<span id="cb4-74"><a href="#cb4-74"></a>  }</span>
+<span id="cb4-75"><a href="#cb4-75"></a></span>
+<span id="cb4-76"><a href="#cb4-76"></a>  <span class="cf">return</span> itr-&gt;second;</span>
+<span id="cb4-77"><a href="#cb4-77"></a>}</span>
+<span id="cb4-78"><a href="#cb4-78"></a></span>
+<span id="cb4-79"><a href="#cb4-79"></a><span class="co">/**</span></span>
+<span id="cb4-80"><a href="#cb4-80"></a><span class="co"> * clear all vertex state flags</span></span>
+<span id="cb4-81"><a href="#cb4-81"></a><span class="co"> *</span></span>
+<span id="cb4-82"><a href="#cb4-82"></a><span class="co"> */</span></span>
+<span id="cb4-83"><a href="#cb4-83"></a><span class="dt">void</span> graph::reset_all() {</span>
+<span id="cb4-84"><a href="#cb4-84"></a>  <span class="cf">for</span> (vmap::iterator itr = vm.begin(); itr != vm.end(); ++itr) {</span>
+<span id="cb4-85"><a href="#cb4-85"></a>    (*itr).second-&gt;reset();</span>
+<span id="cb4-86"><a href="#cb4-86"></a>  }</span>
+<span id="cb4-87"><a href="#cb4-87"></a>}</span>
+<span id="cb4-88"><a href="#cb4-88"></a></span>
+<span id="cb4-89"><a href="#cb4-89"></a><span class="co">/**</span></span>
+<span id="cb4-90"><a href="#cb4-90"></a><span class="co"> * add an edge(start --&gt; end) to the graph</span></span>
+<span id="cb4-91"><a href="#cb4-91"></a><span class="co"> *</span></span>
+<span id="cb4-92"><a href="#cb4-92"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">start</span></span>
+<span id="cb4-93"><a href="#cb4-93"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">end</span></span>
+<span id="cb4-94"><a href="#cb4-94"></a><span class="co"> */</span></span>
+<span id="cb4-95"><a href="#cb4-95"></a><span class="dt">void</span> graph::add_edge(<span class="dt">int</span> start, <span class="dt">int</span> end) {</span>
+<span id="cb4-96"><a href="#cb4-96"></a>  vertex *s = get_vertex(start);</span>
+<span id="cb4-97"><a href="#cb4-97"></a>  vertex *e = get_vertex(end);</span>
+<span id="cb4-98"><a href="#cb4-98"></a>  s-&gt;adj.push_back(e);</span>
+<span id="cb4-99"><a href="#cb4-99"></a>}</span>
+<span id="cb4-100"><a href="#cb4-100"></a></span>
+<span id="cb4-101"><a href="#cb4-101"></a><span class="co">/**</span></span>
+<span id="cb4-102"><a href="#cb4-102"></a><span class="co"> * print the graph vertex by vertex(with adj list)</span></span>
+<span id="cb4-103"><a href="#cb4-103"></a><span class="co"> *</span></span>
+<span id="cb4-104"><a href="#cb4-104"></a><span class="co"> */</span></span>
+<span id="cb4-105"><a href="#cb4-105"></a><span class="dt">void</span> graph::print_graph() <span class="at">const</span> {</span>
+<span id="cb4-106"><a href="#cb4-106"></a>  <span class="cf">for</span> (vmap::const_iterator itr = vm.begin(); itr != vm.end(); ++itr) {</span>
+<span id="cb4-107"><a href="#cb4-107"></a>    cout &lt;&lt; itr-&gt;first &lt;&lt; <span class="st">&quot;: &quot;</span>;</span>
+<span id="cb4-108"><a href="#cb4-108"></a>    <span class="cf">for</span> (vector&lt;vertex*&gt;::const_iterator vitr = itr-&gt;second-&gt;adj.begin();</span>
+<span id="cb4-109"><a href="#cb4-109"></a>         vitr != itr-&gt;second-&gt;adj.end();</span>
+<span id="cb4-110"><a href="#cb4-110"></a>         ++vitr) {</span>
+<span id="cb4-111"><a href="#cb4-111"></a>      cout &lt;&lt; (*vitr)-&gt;index &lt;&lt; <span class="st">&quot; &quot;</span>;</span>
+<span id="cb4-112"><a href="#cb4-112"></a>    }</span>
+<span id="cb4-113"><a href="#cb4-113"></a>    cout &lt;&lt; endl;</span>
+<span id="cb4-114"><a href="#cb4-114"></a>  }</span>
+<span id="cb4-115"><a href="#cb4-115"></a>}</span>
+<span id="cb4-116"><a href="#cb4-116"></a></span>
+<span id="cb4-117"><a href="#cb4-117"></a><span class="co">/**</span></span>
+<span id="cb4-118"><a href="#cb4-118"></a><span class="co"> * traversal the graph breadth-first</span></span>
+<span id="cb4-119"><a href="#cb4-119"></a><span class="co"> *</span></span>
+<span id="cb4-120"><a href="#cb4-120"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">start</span><span class="co"> the starting point of the bfs traversal</span></span>
+<span id="cb4-121"><a href="#cb4-121"></a><span class="co"> */</span></span>
+<span id="cb4-122"><a href="#cb4-122"></a><span class="dt">void</span> graph::bfs(<span class="dt">int</span> start) {</span>
+<span id="cb4-123"><a href="#cb4-123"></a>  <span class="cf">if</span> (vm.find(start) == vm.end()) {</span>
+<span id="cb4-124"><a href="#cb4-124"></a>    cerr &lt;&lt; <span class="st">&quot;graph::bfs(): invalid point index &quot;</span> &lt;&lt; start &lt;&lt; endl;</span>
+<span id="cb4-125"><a href="#cb4-125"></a>    <span class="cf">return</span>;</span>
+<span id="cb4-126"><a href="#cb4-126"></a>  }</span>
+<span id="cb4-127"><a href="#cb4-127"></a></span>
+<span id="cb4-128"><a href="#cb4-128"></a>  vertex *s = vm[start];</span>
+<span id="cb4-129"><a href="#cb4-129"></a>  queue&lt;vertex*&gt; q;</span>
+<span id="cb4-130"><a href="#cb4-130"></a>  q.push(s);</span>
+<span id="cb4-131"><a href="#cb4-131"></a>  s-&gt;dist = -<span class="dv">1</span>;</span>
+<span id="cb4-132"><a href="#cb4-132"></a></span>
+<span id="cb4-133"><a href="#cb4-133"></a>  <span class="cf">while</span> (!q.empty()) {</span>
+<span id="cb4-134"><a href="#cb4-134"></a>    vertex *v = q.front();</span>
+<span id="cb4-135"><a href="#cb4-135"></a>    cout &lt;&lt; v-&gt;index &lt;&lt; <span class="st">&quot; &quot;</span>;</span>
+<span id="cb4-136"><a href="#cb4-136"></a>    q.pop();</span>
+<span id="cb4-137"><a href="#cb4-137"></a></span>
+<span id="cb4-138"><a href="#cb4-138"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; v-&gt;adj.size(); ++i) {</span>
+<span id="cb4-139"><a href="#cb4-139"></a>      <span class="cf">if</span> (v-&gt;adj[i]-&gt;dist != -<span class="dv">1</span>) {</span>
+<span id="cb4-140"><a href="#cb4-140"></a>        q.push(v-&gt;adj[i]);</span>
+<span id="cb4-141"><a href="#cb4-141"></a>        v-&gt;adj[i]-&gt;dist = -<span class="dv">1</span>;</span>
+<span id="cb4-142"><a href="#cb4-142"></a>      }</span>
+<span id="cb4-143"><a href="#cb4-143"></a>    }</span>
+<span id="cb4-144"><a href="#cb4-144"></a>  }</span>
+<span id="cb4-145"><a href="#cb4-145"></a>}</span>
+<span id="cb4-146"><a href="#cb4-146"></a></span>
+<span id="cb4-147"><a href="#cb4-147"></a><span class="co">/**</span></span>
+<span id="cb4-148"><a href="#cb4-148"></a><span class="co"> * the unweighted shortest path algorithm, using a std::queue instead of</span></span>
+<span id="cb4-149"><a href="#cb4-149"></a><span class="co"> * priority_queue(which is used in dijkstra&#39;s algorithm)</span></span>
+<span id="cb4-150"><a href="#cb4-150"></a><span class="co"> *</span></span>
+<span id="cb4-151"><a href="#cb4-151"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">start</span></span>
+<span id="cb4-152"><a href="#cb4-152"></a><span class="co"> */</span></span>
+<span id="cb4-153"><a href="#cb4-153"></a><span class="dt">void</span> graph::bfs_shortest(<span class="dt">int</span> start) {</span>
+<span id="cb4-154"><a href="#cb4-154"></a>  <span class="cf">if</span> (vm.find(start) == vm.end()) {</span>
+<span id="cb4-155"><a href="#cb4-155"></a>    cerr &lt;&lt; <span class="st">&quot;graph::bfs_shortest(): invalid point index &quot;</span> &lt;&lt; start &lt;&lt; endl;</span>
+<span id="cb4-156"><a href="#cb4-156"></a>    <span class="cf">return</span>;</span>
+<span id="cb4-157"><a href="#cb4-157"></a>  }</span>
+<span id="cb4-158"><a href="#cb4-158"></a></span>
+<span id="cb4-159"><a href="#cb4-159"></a>  vertex *s = vm[start];</span>
+<span id="cb4-160"><a href="#cb4-160"></a></span>
+<span id="cb4-161"><a href="#cb4-161"></a>  queue&lt;vertex*&gt; q;</span>
+<span id="cb4-162"><a href="#cb4-162"></a>  q.push(s);</span>
+<span id="cb4-163"><a href="#cb4-163"></a>  s-&gt;dist = <span class="dv">0</span>;</span>
+<span id="cb4-164"><a href="#cb4-164"></a></span>
+<span id="cb4-165"><a href="#cb4-165"></a>  <span class="cf">while</span> (!q.empty()) {</span>
+<span id="cb4-166"><a href="#cb4-166"></a>    vertex *v = q.front();</span>
+<span id="cb4-167"><a href="#cb4-167"></a>    q.pop();</span>
+<span id="cb4-168"><a href="#cb4-168"></a></span>
+<span id="cb4-169"><a href="#cb4-169"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; v-&gt;adj.size(); ++i) {</span>
+<span id="cb4-170"><a href="#cb4-170"></a>      vertex *w = v-&gt;adj[i];</span>
+<span id="cb4-171"><a href="#cb4-171"></a>      <span class="cf">if</span> (w-&gt;dist == numeric_limits&lt;<span class="dt">int</span>&gt;::max()) {</span>
+<span id="cb4-172"><a href="#cb4-172"></a>        w-&gt;dist = v-&gt;dist + <span class="dv">1</span>;</span>
+<span id="cb4-173"><a href="#cb4-173"></a>        w-&gt;prev = v;</span>
+<span id="cb4-174"><a href="#cb4-174"></a>        q.push(w);</span>
+<span id="cb4-175"><a href="#cb4-175"></a>      }</span>
+<span id="cb4-176"><a href="#cb4-176"></a>    }</span>
+<span id="cb4-177"><a href="#cb4-177"></a>  }</span>
+<span id="cb4-178"><a href="#cb4-178"></a>}</span>
+<span id="cb4-179"><a href="#cb4-179"></a></span>
+<span id="cb4-180"><a href="#cb4-180"></a><span class="co">/**</span></span>
+<span id="cb4-181"><a href="#cb4-181"></a><span class="co"> * get the path from start to end</span></span>
+<span id="cb4-182"><a href="#cb4-182"></a><span class="co"> *</span></span>
+<span id="cb4-183"><a href="#cb4-183"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">end</span></span>
+<span id="cb4-184"><a href="#cb4-184"></a><span class="co"> *</span></span>
+<span id="cb4-185"><a href="#cb4-185"></a><span class="co"> * </span><span class="an">@return</span><span class="co"> a list of vertex which denotes the shortest path</span></span>
+<span id="cb4-186"><a href="#cb4-186"></a><span class="co"> */</span></span>
+<span id="cb4-187"><a href="#cb4-187"></a>list&lt;<span class="dt">int</span>&gt; graph::get_path(<span class="dt">int</span> end) <span class="at">const</span> {</span>
+<span id="cb4-188"><a href="#cb4-188"></a>  vmap::const_iterator itr = vm.find(end);</span>
+<span id="cb4-189"><a href="#cb4-189"></a></span>
+<span id="cb4-190"><a href="#cb4-190"></a>  <span class="cf">if</span> (itr == vm.end()) {</span>
+<span id="cb4-191"><a href="#cb4-191"></a>    cerr &lt;&lt; <span class="st">&quot;graph::get_path(): invalid point index &quot;</span> &lt;&lt; end &lt;&lt; endl;</span>
+<span id="cb4-192"><a href="#cb4-192"></a>    <span class="cf">return</span> list&lt;<span class="dt">int</span>&gt;();</span>
+<span id="cb4-193"><a href="#cb4-193"></a>  }</span>
+<span id="cb4-194"><a href="#cb4-194"></a></span>
+<span id="cb4-195"><a href="#cb4-195"></a>  <span class="at">const</span> vertex &amp;w = *(*itr).second;</span>
+<span id="cb4-196"><a href="#cb4-196"></a></span>
+<span id="cb4-197"><a href="#cb4-197"></a>  <span class="cf">if</span> (w.dist == numeric_limits&lt;<span class="dt">int</span>&gt;::max()) {</span>
+<span id="cb4-198"><a href="#cb4-198"></a>    cout &lt;&lt; <span class="st">&quot;vertex &quot;</span> &lt;&lt; w.index &lt;&lt; <span class="st">&quot; is not reachable&quot;</span>;</span>
+<span id="cb4-199"><a href="#cb4-199"></a>    <span class="cf">return</span> list&lt;<span class="dt">int</span>&gt;();</span>
+<span id="cb4-200"><a href="#cb4-200"></a>  }</span>
+<span id="cb4-201"><a href="#cb4-201"></a>  <span class="cf">else</span> {</span>
+<span id="cb4-202"><a href="#cb4-202"></a>    <span class="cf">return</span> get_path(w);</span>
+<span id="cb4-203"><a href="#cb4-203"></a>  }</span>
+<span id="cb4-204"><a href="#cb4-204"></a>}</span>
+<span id="cb4-205"><a href="#cb4-205"></a></span>
+<span id="cb4-206"><a href="#cb4-206"></a><span class="co">/**</span></span>
+<span id="cb4-207"><a href="#cb4-207"></a><span class="co"> * the internal helper function for the public get_path function</span></span>
+<span id="cb4-208"><a href="#cb4-208"></a><span class="co"> *</span></span>
+<span id="cb4-209"><a href="#cb4-209"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">end</span></span>
+<span id="cb4-210"><a href="#cb4-210"></a><span class="co"> *</span></span>
+<span id="cb4-211"><a href="#cb4-211"></a><span class="co"> * </span><span class="an">@return</span><span class="co"> a list of vertex index</span></span>
+<span id="cb4-212"><a href="#cb4-212"></a><span class="co"> */</span></span>
+<span id="cb4-213"><a href="#cb4-213"></a>list&lt;<span class="dt">int</span>&gt; graph::get_path(<span class="at">const</span> vertex &amp;end) <span class="at">const</span> {</span>
+<span id="cb4-214"><a href="#cb4-214"></a>  list&lt;<span class="dt">int</span>&gt; l;</span>
+<span id="cb4-215"><a href="#cb4-215"></a>  <span class="at">const</span> vertex *v = &amp;end;</span>
+<span id="cb4-216"><a href="#cb4-216"></a></span>
+<span id="cb4-217"><a href="#cb4-217"></a>  <span class="cf">while</span> (v != NULL) {</span>
+<span id="cb4-218"><a href="#cb4-218"></a>    l.push_front(v-&gt;index);</span>
+<span id="cb4-219"><a href="#cb4-219"></a>    v = v-&gt;prev;</span>
+<span id="cb4-220"><a href="#cb4-220"></a>  }</span>
+<span id="cb4-221"><a href="#cb4-221"></a></span>
+<span id="cb4-222"><a href="#cb4-222"></a>  <span class="cf">return</span> l;</span>
+<span id="cb4-223"><a href="#cb4-223"></a>}</span>
+<span id="cb4-224"><a href="#cb4-224"></a></span>
+<span id="cb4-225"><a href="#cb4-225"></a><span class="kw">class</span> chessboard {</span>
+<span id="cb4-226"><a href="#cb4-226"></a><span class="kw">private</span>:</span>
+<span id="cb4-227"><a href="#cb4-227"></a>  <span class="kw">struct</span> point {</span>
+<span id="cb4-228"><a href="#cb4-228"></a>    <span class="dt">int</span> x;</span>
+<span id="cb4-229"><a href="#cb4-229"></a>    <span class="dt">int</span> y;</span>
+<span id="cb4-230"><a href="#cb4-230"></a></span>
+<span id="cb4-231"><a href="#cb4-231"></a>    point(<span class="dt">int</span> px, <span class="dt">int</span> pb) : x(px), y(pb) { }</span>
+<span id="cb4-232"><a href="#cb4-232"></a>  };</span>
+<span id="cb4-233"><a href="#cb4-233"></a></span>
+<span id="cb4-234"><a href="#cb4-234"></a><span class="kw">public</span>:</span>
+<span id="cb4-235"><a href="#cb4-235"></a>  chessboard(<span class="dt">int</span> s);</span>
+<span id="cb4-236"><a href="#cb4-236"></a>  <span class="dt">void</span> solve_knight(<span class="dt">int</span> x, <span class="dt">int</span> y);</span>
+<span id="cb4-237"><a href="#cb4-237"></a></span>
+<span id="cb4-238"><a href="#cb4-238"></a><span class="kw">protected</span>:</span>
+<span id="cb4-239"><a href="#cb4-239"></a>  <span class="dt">bool</span> is_valid(<span class="at">const</span> point &amp;p);</span>
+<span id="cb4-240"><a href="#cb4-240"></a>  point next_point(<span class="at">const</span> point &amp;p, <span class="dt">int</span> i);</span>
+<span id="cb4-241"><a href="#cb4-241"></a></span>
+<span id="cb4-242"><a href="#cb4-242"></a><span class="kw">private</span>:</span>
+<span id="cb4-243"><a href="#cb4-243"></a>  graph board;</span>
+<span id="cb4-244"><a href="#cb4-244"></a>  <span class="dt">int</span> size;</span>
+<span id="cb4-245"><a href="#cb4-245"></a>};</span>
+<span id="cb4-246"><a href="#cb4-246"></a></span>
+<span id="cb4-247"><a href="#cb4-247"></a><span class="co">/**</span></span>
+<span id="cb4-248"><a href="#cb4-248"></a><span class="co"> * constructor, build a underlying graph from a chessboard of size s</span></span>
+<span id="cb4-249"><a href="#cb4-249"></a><span class="co"> *</span></span>
+<span id="cb4-250"><a href="#cb4-250"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">s</span></span>
+<span id="cb4-251"><a href="#cb4-251"></a><span class="co"> */</span></span>
+<span id="cb4-252"><a href="#cb4-252"></a>chessboard::chessboard(<span class="dt">int</span> s)</span>
+<span id="cb4-253"><a href="#cb4-253"></a>  : size(s) {</span>
+<span id="cb4-254"><a href="#cb4-254"></a>  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; ++i) {</span>
+<span id="cb4-255"><a href="#cb4-255"></a>    <span class="cf">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; size; ++j) {</span>
+<span id="cb4-256"><a href="#cb4-256"></a>      <span class="dt">int</span> start = i * size + j;</span>
+<span id="cb4-257"><a href="#cb4-257"></a>      point p(i, j);</span>
+<span id="cb4-258"><a href="#cb4-258"></a></span>
+<span id="cb4-259"><a href="#cb4-259"></a>      <span class="cf">for</span> (<span class="dt">int</span> k = <span class="dv">0</span>; k &lt; <span class="dv">8</span>; ++k) {</span>
+<span id="cb4-260"><a href="#cb4-260"></a>        <span class="co">/// the next possible knight position</span></span>
+<span id="cb4-261"><a href="#cb4-261"></a>        point np = next_point(p, k);</span>
+<span id="cb4-262"><a href="#cb4-262"></a></span>
+<span id="cb4-263"><a href="#cb4-263"></a>        <span class="cf">if</span> (is_valid(np)) {</span>
+<span id="cb4-264"><a href="#cb4-264"></a>          <span class="dt">int</span> end = np.x * size + np.y;</span>
+<span id="cb4-265"><a href="#cb4-265"></a></span>
+<span id="cb4-266"><a href="#cb4-266"></a>          <span class="co">/// add edges in both directions</span></span>
+<span id="cb4-267"><a href="#cb4-267"></a>          board.add_edge(start, end);</span>
+<span id="cb4-268"><a href="#cb4-268"></a>          board.add_edge(end, start);</span>
+<span id="cb4-269"><a href="#cb4-269"></a>        }</span>
+<span id="cb4-270"><a href="#cb4-270"></a>      }</span>
+<span id="cb4-271"><a href="#cb4-271"></a>    }</span>
+<span id="cb4-272"><a href="#cb4-272"></a>  }</span>
+<span id="cb4-273"><a href="#cb4-273"></a>}</span>
+<span id="cb4-274"><a href="#cb4-274"></a></span>
+<span id="cb4-275"><a href="#cb4-275"></a><span class="co">/**</span></span>
+<span id="cb4-276"><a href="#cb4-276"></a><span class="co"> * find and print a path from (x, y) to (size, size)</span></span>
+<span id="cb4-277"><a href="#cb4-277"></a><span class="co"> *</span></span>
+<span id="cb4-278"><a href="#cb4-278"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span></span>
+<span id="cb4-279"><a href="#cb4-279"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">y</span></span>
+<span id="cb4-280"><a href="#cb4-280"></a><span class="co"> */</span></span>
+<span id="cb4-281"><a href="#cb4-281"></a><span class="dt">void</span> chessboard::solve_knight(<span class="dt">int</span> x, <span class="dt">int</span> y) {</span>
+<span id="cb4-282"><a href="#cb4-282"></a>  <span class="dt">int</span> start = (x-<span class="dv">1</span>) * size + (y-<span class="dv">1</span>);</span>
+<span id="cb4-283"><a href="#cb4-283"></a>  <span class="dt">int</span> end = size * size - <span class="dv">1</span>;</span>
+<span id="cb4-284"><a href="#cb4-284"></a></span>
+<span id="cb4-285"><a href="#cb4-285"></a>  board.bfs_shortest(start);</span>
+<span id="cb4-286"><a href="#cb4-286"></a>  list&lt;<span class="dt">int</span>&gt; l = board.get_path(end);</span>
+<span id="cb4-287"><a href="#cb4-287"></a></span>
+<span id="cb4-288"><a href="#cb4-288"></a>  <span class="dt">int</span> count = <span class="dv">0</span>;</span>
+<span id="cb4-289"><a href="#cb4-289"></a>  <span class="cf">for</span> (list&lt;<span class="dt">int</span>&gt;::const_iterator itr = l.begin(); itr != l.end(); ++itr) {</span>
+<span id="cb4-290"><a href="#cb4-290"></a>    cout &lt;&lt; <span class="st">&quot;(&quot;</span> &lt;&lt; *itr/size + <span class="dv">1</span> &lt;&lt; <span class="st">&quot;, &quot;</span> &lt;&lt; *itr%size + <span class="dv">1</span>&lt;&lt; <span class="st">&quot;)&quot;</span>;</span>
+<span id="cb4-291"><a href="#cb4-291"></a>    <span class="cf">if</span> (count++ != l.size() - <span class="dv">1</span>) {</span>
+<span id="cb4-292"><a href="#cb4-292"></a>      cout &lt;&lt; <span class="st">&quot; -&gt; &quot;</span>;</span>
+<span id="cb4-293"><a href="#cb4-293"></a>    }</span>
+<span id="cb4-294"><a href="#cb4-294"></a>  }</span>
+<span id="cb4-295"><a href="#cb4-295"></a>  cout &lt;&lt; endl;</span>
+<span id="cb4-296"><a href="#cb4-296"></a>}</span>
+<span id="cb4-297"><a href="#cb4-297"></a></span>
+<span id="cb4-298"><a href="#cb4-298"></a><span class="co">/**</span></span>
+<span id="cb4-299"><a href="#cb4-299"></a><span class="co"> * whether or not the point is valid in the chessboard</span></span>
+<span id="cb4-300"><a href="#cb4-300"></a><span class="co"> *</span></span>
+<span id="cb4-301"><a href="#cb4-301"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">p</span></span>
+<span id="cb4-302"><a href="#cb4-302"></a><span class="co"> *</span></span>
+<span id="cb4-303"><a href="#cb4-303"></a><span class="co"> * </span><span class="an">@return</span><span class="co"> true for valid</span></span>
+<span id="cb4-304"><a href="#cb4-304"></a><span class="co"> */</span></span>
+<span id="cb4-305"><a href="#cb4-305"></a><span class="dt">bool</span> chessboard::is_valid(<span class="at">const</span> point &amp;p) {</span>
+<span id="cb4-306"><a href="#cb4-306"></a>  <span class="cf">if</span> (p.x &lt; <span class="dv">0</span> || p.x &gt;= size - <span class="dv">1</span> || p.y &lt; <span class="dv">0</span> || p.y &gt;= size - <span class="dv">1</span>) {</span>
+<span id="cb4-307"><a href="#cb4-307"></a>    <span class="cf">return</span> <span class="kw">false</span>;</span>
+<span id="cb4-308"><a href="#cb4-308"></a>  }</span>
+<span id="cb4-309"><a href="#cb4-309"></a>  <span class="cf">return</span> <span class="kw">true</span>;</span>
+<span id="cb4-310"><a href="#cb4-310"></a>}</span>
+<span id="cb4-311"><a href="#cb4-311"></a></span>
+<span id="cb4-312"><a href="#cb4-312"></a><span class="co">/**</span></span>
+<span id="cb4-313"><a href="#cb4-313"></a><span class="co"> * the next possible position, every has 8 next possible position, though not</span></span>
+<span id="cb4-314"><a href="#cb4-314"></a><span class="co"> * all 8 position is valid</span></span>
+<span id="cb4-315"><a href="#cb4-315"></a><span class="co"> *</span></span>
+<span id="cb4-316"><a href="#cb4-316"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">p</span><span class="co"> the original knight position</span></span>
+<span id="cb4-317"><a href="#cb4-317"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">i</span></span>
+<span id="cb4-318"><a href="#cb4-318"></a><span class="co"> *</span></span>
+<span id="cb4-319"><a href="#cb4-319"></a><span class="co"> * </span><span class="an">@return</span></span>
+<span id="cb4-320"><a href="#cb4-320"></a><span class="co"> */</span></span>
+<span id="cb4-321"><a href="#cb4-321"></a>chessboard::point chessboard::next_point(<span class="at">const</span> point &amp;p, <span class="dt">int</span> i) {</span>
+<span id="cb4-322"><a href="#cb4-322"></a>  <span class="dt">int</span> knight[<span class="dv">8</span>][<span class="dv">2</span>] = {</span>
+<span id="cb4-323"><a href="#cb4-323"></a>    {<span class="dv">2</span>, <span class="dv">1</span>}, {<span class="dv">2</span>, -<span class="dv">1</span>},</span>
+<span id="cb4-324"><a href="#cb4-324"></a>    {-<span class="dv">2</span>, <span class="dv">1</span>}, {-<span class="dv">2</span>, -<span class="dv">1</span>},</span>
+<span id="cb4-325"><a href="#cb4-325"></a>    {<span class="dv">1</span>, <span class="dv">2</span>}, {<span class="dv">1</span>, -<span class="dv">2</span>},</span>
+<span id="cb4-326"><a href="#cb4-326"></a>    {-<span class="dv">1</span>, <span class="dv">2</span>}, {-<span class="dv">1</span>, -<span class="dv">2</span>}</span>
+<span id="cb4-327"><a href="#cb4-327"></a>  };</span>
+<span id="cb4-328"><a href="#cb4-328"></a></span>
+<span id="cb4-329"><a href="#cb4-329"></a>  <span class="cf">return</span> point(p.x + knight[i][<span class="dv">0</span>], p.y + knight[i][<span class="dv">1</span>]);</span>
+<span id="cb4-330"><a href="#cb4-330"></a>}</span>
+<span id="cb4-331"><a href="#cb4-331"></a></span>
+<span id="cb4-332"><a href="#cb4-332"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[])</span>
+<span id="cb4-333"><a href="#cb4-333"></a>{</span>
+<span id="cb4-334"><a href="#cb4-334"></a>  <span class="cf">if</span> (argc != <span class="dv">4</span>) {</span>
+<span id="cb4-335"><a href="#cb4-335"></a>    cerr &lt;&lt; <span class="st">&quot;Wrong arguments! Usage: knight.bin N x y&quot;</span> &lt;&lt; endl;</span>
+<span id="cb4-336"><a href="#cb4-336"></a>    <span class="cf">return</span> -<span class="dv">1</span>;</span>
+<span id="cb4-337"><a href="#cb4-337"></a>  }</span>
+<span id="cb4-338"><a href="#cb4-338"></a></span>
+<span id="cb4-339"><a href="#cb4-339"></a>  <span class="dt">int</span> N = atoi(argv[<span class="dv">1</span>]);</span>
+<span id="cb4-340"><a href="#cb4-340"></a>  <span class="dt">int</span> x = atoi(argv[<span class="dv">2</span>]);</span>
+<span id="cb4-341"><a href="#cb4-341"></a>  <span class="dt">int</span> y = atoi(argv[<span class="dv">3</span>]);</span>
+<span id="cb4-342"><a href="#cb4-342"></a></span>
+<span id="cb4-343"><a href="#cb4-343"></a>  chessboard chess(N);</span>
+<span id="cb4-344"><a href="#cb4-344"></a></span>
+<span id="cb4-345"><a href="#cb4-345"></a>  chess.solve_knight(x, y);</span>
+<span id="cb4-346"><a href="#cb4-346"></a></span>
+<span id="cb4-347"><a href="#cb4-347"></a>  <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb4-348"><a href="#cb4-348"></a>}</span></code></pre></div>
 <h2 id="lisp">Lisp</h2>
 <p>Lisp 是一门阳春白雪的语言，前两天我去面试一个 Linux 后端开发的职位，面试官看到我的简历还当面问我“Lisp 是一个什么东西”……Lisp 最广为人知的特点，大概就是——括号了吧。因此 Lisp 除了代表 "List Processing"，还有一个别名 "Lots of Irritating Superfluous Parentheses"。括号的背后其实是 S-expression。诈看上去，S-expression <code>(+ 1 2)</code> 比之于我们熟悉的 <code>1 + 2</code> 确实要晦涩一点，但是你要明白的是，我们之所以比较喜欢 <code>1 + 2</code> 这种形式的写法，那完全是我们小学教育的错<a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a>。想想高等数学吧，函数 <span class="math inline">\(f(x, y, z)\)</span> ，翻译成 Lisp 的 S-expression l就是 <code>(f x y z)</code> ，但是如何翻译成 <code>1 + 2</code> 形式的语句呢？事实上在 Lisp 发明之初，确实有人指出说 S-expression 写起来特别的别扭，John McCarthy 也曾经试图将 S-expression 转换成 <a href="http://en.wikipedia.org/wiki/M-expression">M-expression</a>的形式，可是后来人们发现 S-expression 所带来的好处远远超出其微末的学习成本， M-expression 的计划也就无疾而终了。S-expression是 Lisp 程序员一切欢乐与痛苦的来源<a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a>。</p>
 <ul>
@@ -507,295 +507,295 @@
 </ul></li>
 </ul>
 <p>本节的最后，还是给出完整的 Lisp 程序，核心代码只有 70 行左右，大概是 C++ 的三分之一左右。主题算法和代码来自于《<a href="http://book.douban.com/subject/1456906/">ANSI Common Lisp</a>》3.15 节。顺带广告，《ANSI Common Lisp》是非常不错的 Common Lisp 书籍（用来入门的话还是比较难啃的），300 页不到的篇幅里基本上覆盖了 Common Lisp 大部分的语言特性，并且有很多极具实用价值的小程序（最短路、行程压缩编码、二叉树、二分搜索、光线跟踪算法等等）。我认为此书之于 Lisp，相当于 K&amp;R C 之于 C。</p>
-<div class="sourceCode" id="cb5" data-org-language="lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb5-1" title="1">(<span class="kw">defun</span><span class="fu"> point2index </span>(x y n)</a>
-<a class="sourceLine" id="cb5-2" title="2">  <span class="st">&quot;convert a coordinate point to an index&quot;</span></a>
-<a class="sourceLine" id="cb5-3" title="3">  (<span class="op">+</span> (<span class="op">*</span> x n) y))</a>
-<a class="sourceLine" id="cb5-4" title="4"></a>
-<a class="sourceLine" id="cb5-5" title="5">(<span class="kw">defun</span><span class="fu"> index2chess </span>(index n)</a>
-<a class="sourceLine" id="cb5-6" title="6">  <span class="st">&quot;convert an index back to a coordinate point&quot;</span></a>
-<a class="sourceLine" id="cb5-7" title="7">  (<span class="kw">floor</span> index n))</a>
-<a class="sourceLine" id="cb5-8" title="8"></a>
-<a class="sourceLine" id="cb5-9" title="9">(<span class="kw">defun</span><span class="fu"> build-graph </span>(n)</a>
-<a class="sourceLine" id="cb5-10" title="10">  <span class="st">&quot;build a undirected unweighted graph according to the chess rules about</span></a>
-<a class="sourceLine" id="cb5-11" title="11"><span class="st">knight&quot;</span></a>
-<a class="sourceLine" id="cb5-12" title="12">  <span class="co">;; use lisp array to keep the vertex map</span></a>
-<a class="sourceLine" id="cb5-13" title="13">  (<span class="kw">let</span> ((vm (<span class="kw">make-array</span> (<span class="op">*</span> n n) <span class="bu">:initial-element</span> <span class="kw">nil</span>)))</a>
-<a class="sourceLine" id="cb5-14" title="14">    <span class="co">;;; define some auxiliary function</span></a>
-<a class="sourceLine" id="cb5-15" title="15">    (<span class="kw">defun</span><span class="fu"> is-valid </span>(x y)</a>
-<a class="sourceLine" id="cb5-16" title="16">      <span class="st">&quot;whether or not the point is valid in the chess board&quot;</span></a>
-<a class="sourceLine" id="cb5-17" title="17">      (<span class="kw">and</span> (<span class="op">&gt;=</span> x <span class="dv">0</span>) (<span class="op">&lt;</span> x n)</a>
-<a class="sourceLine" id="cb5-18" title="18">           (<span class="op">&gt;=</span> y <span class="dv">0</span>) (<span class="op">&lt;</span> y n)))</a>
-<a class="sourceLine" id="cb5-19" title="19">    (<span class="kw">defun</span><span class="fu"> all-adj-points </span>(x y)</a>
-<a class="sourceLine" id="cb5-20" title="20">      <span class="st">&quot;build the adjacency list for point (x, y)&quot;</span></a>
-<a class="sourceLine" id="cb5-21" title="21">      (<span class="kw">let</span> ((adj-list))</a>
-<a class="sourceLine" id="cb5-22" title="22">        <span class="co">;; return every possible next knight position as a list</span></a>
-<a class="sourceLine" id="cb5-23" title="23">        (<span class="kw">dolist</span> (next-step</a>
-<a class="sourceLine" id="cb5-24" title="24">                  &#39;((<span class="dv">2</span> . <span class="dv">-1</span>) (<span class="dv">2</span> . <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-25" title="25">                    (-<span class="dv">2</span> . <span class="dv">-1</span>) (-<span class="dv">2</span> . <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-26" title="26">                    (<span class="dv">1</span> . <span class="dv">-2</span>) (<span class="dv">1</span> . <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb5-27" title="27">                    (-<span class="dv">1</span> . <span class="dv">-2</span>) (-<span class="dv">1</span> . <span class="dv">2</span>)))</a>
-<a class="sourceLine" id="cb5-28" title="28">          (<span class="kw">let</span> ((nx (<span class="op">+</span> x (<span class="kw">car</span> next-step)))</a>
-<a class="sourceLine" id="cb5-29" title="29">                (ny (<span class="op">+</span> y (<span class="kw">cdr</span> next-step))))</a>
-<a class="sourceLine" id="cb5-30" title="30">            (<span class="kw">if</span> (is-valid nx ny)</a>
-<a class="sourceLine" id="cb5-31" title="31">                <span class="co">;; build the adjacency list</span></a>
-<a class="sourceLine" id="cb5-32" title="32">                (<span class="kw">push</span> (point2index nx ny n) adj-list))))</a>
-<a class="sourceLine" id="cb5-33" title="33">        adj-list))</a>
-<a class="sourceLine" id="cb5-34" title="34">    (<span class="kw">dotimes</span> (i n)</a>
-<a class="sourceLine" id="cb5-35" title="35">      (<span class="kw">dotimes</span> (j n)</a>
-<a class="sourceLine" id="cb5-36" title="36">        (<span class="kw">setf</span> (<span class="kw">aref</span> vm (point2index i j n)) (all-adj-points i j))))</a>
-<a class="sourceLine" id="cb5-37" title="37">   vm))</a>
-<a class="sourceLine" id="cb5-38" title="38"></a>
-<a class="sourceLine" id="cb5-39" title="39">(<span class="kw">defun</span><span class="fu"> shortest-path </span>(start end graph)</a>
-<a class="sourceLine" id="cb5-40" title="40">  <span class="st">&quot;one-source unweighted shortest-path algorithm using bfs method&quot;</span></a>
-<a class="sourceLine" id="cb5-41" title="41">  (bfs end (<span class="kw">list</span> (<span class="kw">list</span> start)) graph))</a>
-<a class="sourceLine" id="cb5-42" title="42"></a>
-<a class="sourceLine" id="cb5-43" title="43">(<span class="kw">defun</span><span class="fu"> bfs </span>(end queue graph)</a>
-<a class="sourceLine" id="cb5-44" title="44">  <span class="st">&quot;the internal bfs routine to find shortest path&quot;</span></a>
-<a class="sourceLine" id="cb5-45" title="45">  (<span class="kw">if</span> (<span class="kw">null</span> queue)</a>
-<a class="sourceLine" id="cb5-46" title="46">      <span class="kw">nil</span></a>
-<a class="sourceLine" id="cb5-47" title="47">      (<span class="kw">let*</span> ((path (<span class="kw">car</span> queue))</a>
-<a class="sourceLine" id="cb5-48" title="48">             (node (<span class="kw">car</span> path)))</a>
-<a class="sourceLine" id="cb5-49" title="49">        (<span class="kw">if</span> (<span class="kw">eql</span> node end)</a>
-<a class="sourceLine" id="cb5-50" title="50">            (<span class="kw">reverse</span> path)</a>
-<a class="sourceLine" id="cb5-51" title="51">            (bfs end</a>
-<a class="sourceLine" id="cb5-52" title="52">                 <span class="co">;; pop the queue and push some new path into the queue</span></a>
-<a class="sourceLine" id="cb5-53" title="53">                 (<span class="kw">append</span> (<span class="kw">cdr</span> queue)</a>
-<a class="sourceLine" id="cb5-54" title="54">                         (new-paths path node graph))</a>
-<a class="sourceLine" id="cb5-55" title="55">                 graph)))))</a>
-<a class="sourceLine" id="cb5-56" title="56"></a>
-<a class="sourceLine" id="cb5-57" title="57">(<span class="kw">defun</span><span class="fu"> new-paths </span>(path node graph)</a>
-<a class="sourceLine" id="cb5-58" title="58">  <span class="st">&quot;return the new-paths according to the node&#39;s adj list&quot;</span></a>
-<a class="sourceLine" id="cb5-59" title="59">  (<span class="kw">mapcar</span> #&#39;(<span class="kw">lambda</span> (n)</a>
-<a class="sourceLine" id="cb5-60" title="60">              (<span class="kw">cons</span> n path))</a>
-<a class="sourceLine" id="cb5-61" title="61">          (<span class="kw">cdr</span> (<span class="kw">aref</span> graph node))))</a>
-<a class="sourceLine" id="cb5-62" title="62"></a>
-<a class="sourceLine" id="cb5-63" title="63">(<span class="kw">defun</span><span class="fu"> solve-knight </span>(n x y)</a>
-<a class="sourceLine" id="cb5-64" title="64">  <span class="st">&quot;the main function to solve knight problem&quot;</span></a>
-<a class="sourceLine" id="cb5-65" title="65">  (<span class="kw">let</span> ((path (shortest-path (point2index (<span class="op">-</span> x <span class="dv">1</span>) (<span class="op">-</span> y <span class="dv">1</span>) n)</a>
-<a class="sourceLine" id="cb5-66" title="66">                             (point2index (<span class="op">-</span> n <span class="dv">1</span>) (<span class="op">-</span> n <span class="dv">1</span>) n)</a>
-<a class="sourceLine" id="cb5-67" title="67">                             (build-graph n))))</a>
-<a class="sourceLine" id="cb5-68" title="68">    <span class="co">;; print the start point first</span></a>
-<a class="sourceLine" id="cb5-69" title="69">    (<span class="kw">multiple-value-bind</span> (x1 y1)</a>
-<a class="sourceLine" id="cb5-70" title="70">        (index2point (<span class="kw">car</span> path) n)</a>
-<a class="sourceLine" id="cb5-71" title="71">      (<span class="kw">format</span> <span class="kw">t</span> <span class="st">&quot;(~A, ~A)&quot;</span> (<span class="op">+</span> x1 <span class="dv">1</span>) (<span class="op">+</span> y1 <span class="dv">1</span>)))</a>
-<a class="sourceLine" id="cb5-72" title="72">    <span class="co">;; print the path</span></a>
-<a class="sourceLine" id="cb5-73" title="73">    (<span class="kw">mapcar</span> #&#39;(<span class="kw">lambda</span> (obj)</a>
-<a class="sourceLine" id="cb5-74" title="74">                (<span class="kw">multiple-value-bind</span> (px py)</a>
-<a class="sourceLine" id="cb5-75" title="75">                    (index2point obj n)</a>
-<a class="sourceLine" id="cb5-76" title="76">                  (<span class="kw">format</span> <span class="kw">t</span> <span class="st">&quot; -&gt; (~A, ~A)&quot;</span></a>
-<a class="sourceLine" id="cb5-77" title="77">                          (<span class="op">+</span> px <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-78" title="78">                          (<span class="op">+</span> py <span class="dv">1</span>))))</a>
-<a class="sourceLine" id="cb5-79" title="79">     (<span class="kw">cdr</span> path))</a>
-<a class="sourceLine" id="cb5-80" title="80">    <span class="co">;; return the path</span></a>
-<a class="sourceLine" id="cb5-81" title="81">    path))</a>
-<a class="sourceLine" id="cb5-82" title="82"></a>
-<a class="sourceLine" id="cb5-83" title="83"><span class="co">;;; some test</span></a>
-<a class="sourceLine" id="cb5-84" title="84"><span class="co">;; CL-USER&gt; (SOLVE-KNIGHT 6 1 1)</span></a>
-<a class="sourceLine" id="cb5-85" title="85"><span class="co">;; (1, 1) -&gt; (3, 2) -&gt; (4, 4) -&gt; (5, 6) -&gt; (6, 4) -&gt; (4, 5) -&gt; (6, 6)</span></a>
-<a class="sourceLine" id="cb5-86" title="86"><span class="co">;; (0 13 21 29 33 22 35)</span></a>
-<a class="sourceLine" id="cb5-87" title="87"><span class="co">;; CL-USER&gt; (SOLVE-KNIGHT 8 1 1)</span></a>
-<a class="sourceLine" id="cb5-88" title="88"><span class="co">;; (1, 1) -&gt; (3, 2) -&gt; (4, 4) -&gt; (5, 6) -&gt; (6, 8) -&gt; (7, 6) -&gt; (8, 8)</span></a>
-<a class="sourceLine" id="cb5-89" title="89"><span class="co">;; (0 17 27 37 47 53 63)</span></a>
-<a class="sourceLine" id="cb5-90" title="90"><span class="co">;; CL-USER&gt; (SOLVE-KNIGHT 8 2 1)</span></a>
-<a class="sourceLine" id="cb5-91" title="91"><span class="co">;; (2, 1) -&gt; (3, 3) -&gt; (4, 5) -&gt; (5, 7) -&gt; (7, 6) -&gt; (8, 8)</span></a>
-<a class="sourceLine" id="cb5-92" title="92"><span class="co">;; (8 18 28 38 53 63)</span></a></code></pre></div>
+<div class="sourceCode" id="cb5" data-org-language="lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb5-1"><a href="#cb5-1"></a>(<span class="kw">defun</span><span class="fu"> point2index </span>(x y n)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="st">&quot;convert a coordinate point to an index&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  (<span class="op">+</span> (<span class="op">*</span> x n) y))</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>(<span class="kw">defun</span><span class="fu"> index2chess </span>(index n)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="st">&quot;convert an index back to a coordinate point&quot;</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>  (<span class="kw">floor</span> index n))</span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a>(<span class="kw">defun</span><span class="fu"> build-graph </span>(n)</span>
+<span id="cb5-10"><a href="#cb5-10"></a>  <span class="st">&quot;build a undirected unweighted graph according to the chess rules about</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="st">knight&quot;</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>  <span class="co">;; use lisp array to keep the vertex map</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>  (<span class="kw">let</span> ((vm (<span class="kw">make-array</span> (<span class="op">*</span> n n) <span class="bu">:initial-element</span> <span class="kw">nil</span>)))</span>
+<span id="cb5-14"><a href="#cb5-14"></a>    <span class="co">;;; define some auxiliary function</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>    (<span class="kw">defun</span><span class="fu"> is-valid </span>(x y)</span>
+<span id="cb5-16"><a href="#cb5-16"></a>      <span class="st">&quot;whether or not the point is valid in the chess board&quot;</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>      (<span class="kw">and</span> (<span class="op">&gt;=</span> x <span class="dv">0</span>) (<span class="op">&lt;</span> x n)</span>
+<span id="cb5-18"><a href="#cb5-18"></a>           (<span class="op">&gt;=</span> y <span class="dv">0</span>) (<span class="op">&lt;</span> y n)))</span>
+<span id="cb5-19"><a href="#cb5-19"></a>    (<span class="kw">defun</span><span class="fu"> all-adj-points </span>(x y)</span>
+<span id="cb5-20"><a href="#cb5-20"></a>      <span class="st">&quot;build the adjacency list for point (x, y)&quot;</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a>      (<span class="kw">let</span> ((adj-list))</span>
+<span id="cb5-22"><a href="#cb5-22"></a>        <span class="co">;; return every possible next knight position as a list</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a>        (<span class="kw">dolist</span> (next-step</span>
+<span id="cb5-24"><a href="#cb5-24"></a>                  &#39;((<span class="dv">2</span> . <span class="dv">-1</span>) (<span class="dv">2</span> . <span class="dv">1</span>)</span>
+<span id="cb5-25"><a href="#cb5-25"></a>                    (-<span class="dv">2</span> . <span class="dv">-1</span>) (-<span class="dv">2</span> . <span class="dv">1</span>)</span>
+<span id="cb5-26"><a href="#cb5-26"></a>                    (<span class="dv">1</span> . <span class="dv">-2</span>) (<span class="dv">1</span> . <span class="dv">2</span>)</span>
+<span id="cb5-27"><a href="#cb5-27"></a>                    (-<span class="dv">1</span> . <span class="dv">-2</span>) (-<span class="dv">1</span> . <span class="dv">2</span>)))</span>
+<span id="cb5-28"><a href="#cb5-28"></a>          (<span class="kw">let</span> ((nx (<span class="op">+</span> x (<span class="kw">car</span> next-step)))</span>
+<span id="cb5-29"><a href="#cb5-29"></a>                (ny (<span class="op">+</span> y (<span class="kw">cdr</span> next-step))))</span>
+<span id="cb5-30"><a href="#cb5-30"></a>            (<span class="kw">if</span> (is-valid nx ny)</span>
+<span id="cb5-31"><a href="#cb5-31"></a>                <span class="co">;; build the adjacency list</span></span>
+<span id="cb5-32"><a href="#cb5-32"></a>                (<span class="kw">push</span> (point2index nx ny n) adj-list))))</span>
+<span id="cb5-33"><a href="#cb5-33"></a>        adj-list))</span>
+<span id="cb5-34"><a href="#cb5-34"></a>    (<span class="kw">dotimes</span> (i n)</span>
+<span id="cb5-35"><a href="#cb5-35"></a>      (<span class="kw">dotimes</span> (j n)</span>
+<span id="cb5-36"><a href="#cb5-36"></a>        (<span class="kw">setf</span> (<span class="kw">aref</span> vm (point2index i j n)) (all-adj-points i j))))</span>
+<span id="cb5-37"><a href="#cb5-37"></a>   vm))</span>
+<span id="cb5-38"><a href="#cb5-38"></a></span>
+<span id="cb5-39"><a href="#cb5-39"></a>(<span class="kw">defun</span><span class="fu"> shortest-path </span>(start end graph)</span>
+<span id="cb5-40"><a href="#cb5-40"></a>  <span class="st">&quot;one-source unweighted shortest-path algorithm using bfs method&quot;</span></span>
+<span id="cb5-41"><a href="#cb5-41"></a>  (bfs end (<span class="kw">list</span> (<span class="kw">list</span> start)) graph))</span>
+<span id="cb5-42"><a href="#cb5-42"></a></span>
+<span id="cb5-43"><a href="#cb5-43"></a>(<span class="kw">defun</span><span class="fu"> bfs </span>(end queue graph)</span>
+<span id="cb5-44"><a href="#cb5-44"></a>  <span class="st">&quot;the internal bfs routine to find shortest path&quot;</span></span>
+<span id="cb5-45"><a href="#cb5-45"></a>  (<span class="kw">if</span> (<span class="kw">null</span> queue)</span>
+<span id="cb5-46"><a href="#cb5-46"></a>      <span class="kw">nil</span></span>
+<span id="cb5-47"><a href="#cb5-47"></a>      (<span class="kw">let*</span> ((path (<span class="kw">car</span> queue))</span>
+<span id="cb5-48"><a href="#cb5-48"></a>             (node (<span class="kw">car</span> path)))</span>
+<span id="cb5-49"><a href="#cb5-49"></a>        (<span class="kw">if</span> (<span class="kw">eql</span> node end)</span>
+<span id="cb5-50"><a href="#cb5-50"></a>            (<span class="kw">reverse</span> path)</span>
+<span id="cb5-51"><a href="#cb5-51"></a>            (bfs end</span>
+<span id="cb5-52"><a href="#cb5-52"></a>                 <span class="co">;; pop the queue and push some new path into the queue</span></span>
+<span id="cb5-53"><a href="#cb5-53"></a>                 (<span class="kw">append</span> (<span class="kw">cdr</span> queue)</span>
+<span id="cb5-54"><a href="#cb5-54"></a>                         (new-paths path node graph))</span>
+<span id="cb5-55"><a href="#cb5-55"></a>                 graph)))))</span>
+<span id="cb5-56"><a href="#cb5-56"></a></span>
+<span id="cb5-57"><a href="#cb5-57"></a>(<span class="kw">defun</span><span class="fu"> new-paths </span>(path node graph)</span>
+<span id="cb5-58"><a href="#cb5-58"></a>  <span class="st">&quot;return the new-paths according to the node&#39;s adj list&quot;</span></span>
+<span id="cb5-59"><a href="#cb5-59"></a>  (<span class="kw">mapcar</span> #&#39;(<span class="kw">lambda</span> (n)</span>
+<span id="cb5-60"><a href="#cb5-60"></a>              (<span class="kw">cons</span> n path))</span>
+<span id="cb5-61"><a href="#cb5-61"></a>          (<span class="kw">cdr</span> (<span class="kw">aref</span> graph node))))</span>
+<span id="cb5-62"><a href="#cb5-62"></a></span>
+<span id="cb5-63"><a href="#cb5-63"></a>(<span class="kw">defun</span><span class="fu"> solve-knight </span>(n x y)</span>
+<span id="cb5-64"><a href="#cb5-64"></a>  <span class="st">&quot;the main function to solve knight problem&quot;</span></span>
+<span id="cb5-65"><a href="#cb5-65"></a>  (<span class="kw">let</span> ((path (shortest-path (point2index (<span class="op">-</span> x <span class="dv">1</span>) (<span class="op">-</span> y <span class="dv">1</span>) n)</span>
+<span id="cb5-66"><a href="#cb5-66"></a>                             (point2index (<span class="op">-</span> n <span class="dv">1</span>) (<span class="op">-</span> n <span class="dv">1</span>) n)</span>
+<span id="cb5-67"><a href="#cb5-67"></a>                             (build-graph n))))</span>
+<span id="cb5-68"><a href="#cb5-68"></a>    <span class="co">;; print the start point first</span></span>
+<span id="cb5-69"><a href="#cb5-69"></a>    (<span class="kw">multiple-value-bind</span> (x1 y1)</span>
+<span id="cb5-70"><a href="#cb5-70"></a>        (index2point (<span class="kw">car</span> path) n)</span>
+<span id="cb5-71"><a href="#cb5-71"></a>      (<span class="kw">format</span> <span class="kw">t</span> <span class="st">&quot;(~A, ~A)&quot;</span> (<span class="op">+</span> x1 <span class="dv">1</span>) (<span class="op">+</span> y1 <span class="dv">1</span>)))</span>
+<span id="cb5-72"><a href="#cb5-72"></a>    <span class="co">;; print the path</span></span>
+<span id="cb5-73"><a href="#cb5-73"></a>    (<span class="kw">mapcar</span> #&#39;(<span class="kw">lambda</span> (obj)</span>
+<span id="cb5-74"><a href="#cb5-74"></a>                (<span class="kw">multiple-value-bind</span> (px py)</span>
+<span id="cb5-75"><a href="#cb5-75"></a>                    (index2point obj n)</span>
+<span id="cb5-76"><a href="#cb5-76"></a>                  (<span class="kw">format</span> <span class="kw">t</span> <span class="st">&quot; -&gt; (~A, ~A)&quot;</span></span>
+<span id="cb5-77"><a href="#cb5-77"></a>                          (<span class="op">+</span> px <span class="dv">1</span>)</span>
+<span id="cb5-78"><a href="#cb5-78"></a>                          (<span class="op">+</span> py <span class="dv">1</span>))))</span>
+<span id="cb5-79"><a href="#cb5-79"></a>     (<span class="kw">cdr</span> path))</span>
+<span id="cb5-80"><a href="#cb5-80"></a>    <span class="co">;; return the path</span></span>
+<span id="cb5-81"><a href="#cb5-81"></a>    path))</span>
+<span id="cb5-82"><a href="#cb5-82"></a></span>
+<span id="cb5-83"><a href="#cb5-83"></a><span class="co">;;; some test</span></span>
+<span id="cb5-84"><a href="#cb5-84"></a><span class="co">;; CL-USER&gt; (SOLVE-KNIGHT 6 1 1)</span></span>
+<span id="cb5-85"><a href="#cb5-85"></a><span class="co">;; (1, 1) -&gt; (3, 2) -&gt; (4, 4) -&gt; (5, 6) -&gt; (6, 4) -&gt; (4, 5) -&gt; (6, 6)</span></span>
+<span id="cb5-86"><a href="#cb5-86"></a><span class="co">;; (0 13 21 29 33 22 35)</span></span>
+<span id="cb5-87"><a href="#cb5-87"></a><span class="co">;; CL-USER&gt; (SOLVE-KNIGHT 8 1 1)</span></span>
+<span id="cb5-88"><a href="#cb5-88"></a><span class="co">;; (1, 1) -&gt; (3, 2) -&gt; (4, 4) -&gt; (5, 6) -&gt; (6, 8) -&gt; (7, 6) -&gt; (8, 8)</span></span>
+<span id="cb5-89"><a href="#cb5-89"></a><span class="co">;; (0 17 27 37 47 53 63)</span></span>
+<span id="cb5-90"><a href="#cb5-90"></a><span class="co">;; CL-USER&gt; (SOLVE-KNIGHT 8 2 1)</span></span>
+<span id="cb5-91"><a href="#cb5-91"></a><span class="co">;; (2, 1) -&gt; (3, 3) -&gt; (4, 5) -&gt; (5, 7) -&gt; (7, 6) -&gt; (8, 8)</span></span>
+<span id="cb5-92"><a href="#cb5-92"></a><span class="co">;; (8 18 28 38 53 63)</span></span></code></pre></div>
 <h2 id="python">Python</h2>
 <p>坦白地说，我对 Python 的了解远不如 C/C++，甚至不如 Lisp，尽管我也用 Python 写过一些不大不小的原型程序，但是这些程序都没有触及到 Python 的语言核心。前两天写这个 knight rush 的程序，还要去翻书，熟悉下 Python OOP 编程的一些知识。我以为，Python 是一门实用主义至上的语言，在保证实用主义的前提下，Python 从诸多语言中吸收了很多特性，并一一做了精简（Python的 OOP 甚至没有 private，而 Python lambda 对比 Lisp 算很一般），再加上简单至上的文化和缩进式的代码风格，构成了当今 Python 语言的主要面貌。</p>
 <p>即便如此，我认为 Python 还是值得学习的。它既不像 C/C++ 那样令人紧张、也不像 Lisp 那样阳春白雪，对比 Shell Script，Python 有自己的内建数据结构，能够在很大程度上替换 Shell Script。其实和 Python 同级的语言还是有很多的，比如 Perl，Ruby。Ruby 我不了解，但是我对 Perl/PHP/Shell 这类遍布 '$' 符号的语言一向没什么好感，因为这类语言的可读性一般都很差。</p>
 <p>其实关于 Python 本身，我已经没有太多想法可写，可能一方面我对 Python 的了解实在算不上深入，另一方面，Python 本身也是不希望它的使用者过多关注于语言本身吧。对于 Python，简单了解后拿过来直接用就好了，什么代码风格、缩进啊，那都是过去时的事情了。</p>
 <p>作为对比，还是贴出 Python 版的 knight rush 程序：</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="co">#!/usr/bin/env python2</span></a>
-<a class="sourceLine" id="cb6-2" title="2"></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="im">import</span> sys</a>
-<a class="sourceLine" id="cb6-4" title="4"></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="kw">class</span> graph(<span class="bu">object</span>):</a>
-<a class="sourceLine" id="cb6-6" title="6">    <span class="co">&quot;&quot;&quot;unweighted directed graph</span></a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="co">    &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-8" title="8"></a>
-<a class="sourceLine" id="cb6-9" title="9">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
-<a class="sourceLine" id="cb6-10" title="10">        <span class="co">&quot;&quot;&quot;set _vmap to and _vprev an empty python dict</span></a>
-<a class="sourceLine" id="cb6-11" title="11"><span class="co">        all vertex are represented by a simple index</span></a>
-<a class="sourceLine" id="cb6-12" title="12"></a>
-<a class="sourceLine" id="cb6-13" title="13"><span class="co">        _vmap: {vertex x: x&#39;s adjacency list}</span></a>
-<a class="sourceLine" id="cb6-14" title="14"><span class="co">        _vprev: {vertex x: x&#39;s prev vertex computed by bfs routine}</span></a>
-<a class="sourceLine" id="cb6-15" title="15"><span class="co">        &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-16" title="16">        <span class="va">self</span>._vmap <span class="op">=</span> {}<span class="op">;</span></a>
-<a class="sourceLine" id="cb6-17" title="17">        <span class="va">self</span>._vprev <span class="op">=</span> {}<span class="op">;</span></a>
-<a class="sourceLine" id="cb6-18" title="18"></a>
-<a class="sourceLine" id="cb6-19" title="19">    <span class="kw">def</span> add_edge(<span class="va">self</span>, start, end):</a>
-<a class="sourceLine" id="cb6-20" title="20">        <span class="co">&quot;&quot;&quot;add an edge to the graph</span></a>
-<a class="sourceLine" id="cb6-21" title="21"><span class="co">        &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-22" title="22">        <span class="cf">if</span> <span class="va">self</span>._vmap.has_key(start):</a>
-<a class="sourceLine" id="cb6-23" title="23">            <span class="va">self</span>._vmap[start].append(end)</a>
-<a class="sourceLine" id="cb6-24" title="24">        <span class="cf">else</span>:</a>
-<a class="sourceLine" id="cb6-25" title="25">            <span class="va">self</span>._vmap[start] <span class="op">=</span> [end]</a>
-<a class="sourceLine" id="cb6-26" title="26"></a>
-<a class="sourceLine" id="cb6-27" title="27">    <span class="kw">def</span> bfs_shortest(<span class="va">self</span>, start):</a>
-<a class="sourceLine" id="cb6-28" title="28">        <span class="co">&quot;&quot;&quot;one-source shortest-path algorithm</span></a>
-<a class="sourceLine" id="cb6-29" title="29"><span class="co">        &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-30" title="30">        queue <span class="op">=</span> [start]</a>
-<a class="sourceLine" id="cb6-31" title="31"></a>
-<a class="sourceLine" id="cb6-32" title="32">        <span class="va">self</span>._vprev[start] <span class="op">=</span> <span class="va">None</span></a>
-<a class="sourceLine" id="cb6-33" title="33"></a>
-<a class="sourceLine" id="cb6-34" title="34">        <span class="cf">while</span> <span class="bu">len</span>(queue) <span class="op">!=</span> <span class="dv">0</span>:</a>
-<a class="sourceLine" id="cb6-35" title="35">            v <span class="op">=</span> queue[<span class="dv">0</span>]</a>
-<a class="sourceLine" id="cb6-36" title="36">            queue.pop(<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb6-37" title="37"></a>
-<a class="sourceLine" id="cb6-38" title="38">            <span class="cf">if</span> <span class="va">self</span>._vmap.has_key(v):</a>
-<a class="sourceLine" id="cb6-39" title="39">                v_adj <span class="op">=</span> <span class="va">self</span>._vmap[v]</a>
-<a class="sourceLine" id="cb6-40" title="40">            <span class="cf">else</span>:</a>
-<a class="sourceLine" id="cb6-41" title="41">                <span class="cf">continue</span></a>
-<a class="sourceLine" id="cb6-42" title="42"></a>
-<a class="sourceLine" id="cb6-43" title="43">            <span class="cf">for</span> nextv <span class="kw">in</span> v_adj:</a>
-<a class="sourceLine" id="cb6-44" title="44">                <span class="cf">if</span> <span class="va">self</span>._vprev.has_key(nextv):<span class="co"># and self._vprev[nextv] is not None:</span></a>
-<a class="sourceLine" id="cb6-45" title="45">                    <span class="co"># nextv has already found its parent&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-46" title="46">                    <span class="cf">continue</span></a>
-<a class="sourceLine" id="cb6-47" title="47">                <span class="cf">else</span>:</a>
-<a class="sourceLine" id="cb6-48" title="48">                    queue.append(nextv)</a>
-<a class="sourceLine" id="cb6-49" title="49">                    <span class="va">self</span>._vprev[nextv] <span class="op">=</span> v</a>
-<a class="sourceLine" id="cb6-50" title="50"></a>
-<a class="sourceLine" id="cb6-51" title="51">    <span class="kw">def</span> get_path(<span class="va">self</span>, end):</a>
-<a class="sourceLine" id="cb6-52" title="52">        <span class="co">&quot;&quot;&quot;return the shortest path as a python list</span></a>
-<a class="sourceLine" id="cb6-53" title="53"><span class="co">        &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-54" title="54">        v <span class="op">=</span> end<span class="op">;</span></a>
-<a class="sourceLine" id="cb6-55" title="55">        path <span class="op">=</span> []</a>
-<a class="sourceLine" id="cb6-56" title="56">        <span class="cf">while</span> <span class="va">self</span>._vprev.has_key(v) <span class="kw">and</span> <span class="va">self</span>._vprev[v] <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</a>
-<a class="sourceLine" id="cb6-57" title="57">            path.insert(<span class="dv">0</span>, v)</a>
-<a class="sourceLine" id="cb6-58" title="58">            v <span class="op">=</span> <span class="va">self</span>._vprev[v]</a>
-<a class="sourceLine" id="cb6-59" title="59"></a>
-<a class="sourceLine" id="cb6-60" title="60">        <span class="cf">if</span> <span class="va">self</span>._vprev.has_key(v):</a>
-<a class="sourceLine" id="cb6-61" title="61">            path.insert(<span class="dv">0</span>, v)   <span class="co"># insert the start point to the path</span></a>
-<a class="sourceLine" id="cb6-62" title="62">        <span class="cf">else</span>:</a>
-<a class="sourceLine" id="cb6-63" title="63">            <span class="bu">print</span> <span class="st">&quot;destination </span><span class="sc">%d</span><span class="st"> is not exist or unreachable&quot;</span> <span class="op">%</span> v</a>
-<a class="sourceLine" id="cb6-64" title="64"></a>
-<a class="sourceLine" id="cb6-65" title="65">        <span class="cf">return</span> path</a>
-<a class="sourceLine" id="cb6-66" title="66"></a>
-<a class="sourceLine" id="cb6-67" title="67"><span class="kw">class</span> chessboard(<span class="bu">object</span>):</a>
-<a class="sourceLine" id="cb6-68" title="68">    <span class="co">&quot;&quot;&quot;a chessboard of size n*n class</span></a>
-<a class="sourceLine" id="cb6-69" title="69"><span class="co">    &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-70" title="70"></a>
-<a class="sourceLine" id="cb6-71" title="71">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, n):</a>
-<a class="sourceLine" id="cb6-72" title="72">        <span class="co">&quot;&quot;&quot;build the internal graph representation of the chessboard</span></a>
-<a class="sourceLine" id="cb6-73" title="73"></a>
-<a class="sourceLine" id="cb6-74" title="74"><span class="co">        Arguments:</span></a>
-<a class="sourceLine" id="cb6-75" title="75"><span class="co">        - `n`: size of the chessboard</span></a>
-<a class="sourceLine" id="cb6-76" title="76"><span class="co">        &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-77" title="77">        <span class="va">self</span>._size <span class="op">=</span> n</a>
-<a class="sourceLine" id="cb6-78" title="78">        <span class="va">self</span>._board <span class="op">=</span> graph()</a>
-<a class="sourceLine" id="cb6-79" title="79"></a>
-<a class="sourceLine" id="cb6-80" title="80">        next_point <span class="op">=</span> ((<span class="dv">2</span>, <span class="dv">1</span>), (<span class="dv">2</span>, <span class="dv">-1</span>), <span class="op">\</span></a>
-<a class="sourceLine" id="cb6-81" title="81">                      (<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">1</span>, <span class="dv">-2</span>), <span class="op">\</span></a>
-<a class="sourceLine" id="cb6-82" title="82">                      (<span class="op">-</span><span class="dv">2</span>, <span class="dv">1</span>), (<span class="op">-</span><span class="dv">2</span>, <span class="dv">-1</span>), <span class="op">\</span></a>
-<a class="sourceLine" id="cb6-83" title="83">                      (<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>), (<span class="op">-</span><span class="dv">1</span>, <span class="dv">-2</span>))</a>
-<a class="sourceLine" id="cb6-84" title="84"></a>
-<a class="sourceLine" id="cb6-85" title="85">        <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(n):</a>
-<a class="sourceLine" id="cb6-86" title="86">            <span class="cf">for</span> y <span class="kw">in</span> <span class="bu">range</span>(n):</a>
-<a class="sourceLine" id="cb6-87" title="87">                start <span class="op">=</span> <span class="va">self</span>.point2index(x, y)</a>
-<a class="sourceLine" id="cb6-88" title="88">                <span class="cf">for</span> dx, dy <span class="kw">in</span> next_point:</a>
-<a class="sourceLine" id="cb6-89" title="89">                    nx <span class="op">=</span> x <span class="op">+</span> dx</a>
-<a class="sourceLine" id="cb6-90" title="90">                    ny <span class="op">=</span> y <span class="op">+</span> dy</a>
-<a class="sourceLine" id="cb6-91" title="91"></a>
-<a class="sourceLine" id="cb6-92" title="92">                    <span class="cf">if</span> <span class="va">self</span>.is_valid(nx, ny):</a>
-<a class="sourceLine" id="cb6-93" title="93">                        end <span class="op">=</span> <span class="va">self</span>.point2index(nx, ny)</a>
-<a class="sourceLine" id="cb6-94" title="94">                        <span class="va">self</span>._board.add_edge(start, end)</a>
-<a class="sourceLine" id="cb6-95" title="95"></a>
-<a class="sourceLine" id="cb6-96" title="96">    <span class="kw">def</span> is_valid(<span class="va">self</span>, x, y):</a>
-<a class="sourceLine" id="cb6-97" title="97">        <span class="co">&quot;&quot;&quot;whether or not point (x, y) is valid in the chessboard</span></a>
-<a class="sourceLine" id="cb6-98" title="98"><span class="co">        &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-99" title="99">        <span class="cf">return</span> <span class="dv">0</span> <span class="op">&lt;=</span> x <span class="op">&lt;</span> <span class="va">self</span>._size <span class="kw">and</span> <span class="dv">0</span> <span class="op">&lt;=</span> y <span class="op">&lt;</span> <span class="va">self</span>._size</a>
-<a class="sourceLine" id="cb6-100" title="100"></a>
-<a class="sourceLine" id="cb6-101" title="101">    <span class="kw">def</span> point2index(<span class="va">self</span>, x, y):</a>
-<a class="sourceLine" id="cb6-102" title="102">        <span class="co">&quot;&quot;&quot;convert a chessboard point to the internal graph vertex index</span></a>
-<a class="sourceLine" id="cb6-103" title="103"><span class="co">        &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-104" title="104">        <span class="cf">return</span> x <span class="op">*</span> <span class="va">self</span>._size <span class="op">+</span> y</a>
-<a class="sourceLine" id="cb6-105" title="105"></a>
-<a class="sourceLine" id="cb6-106" title="106">    <span class="kw">def</span> index2point(<span class="va">self</span>, p):</a>
-<a class="sourceLine" id="cb6-107" title="107">        <span class="co">&quot;&quot;&quot;convert the internal graph vertex index back to a chessboard point</span></a>
-<a class="sourceLine" id="cb6-108" title="108"><span class="co">        &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-109" title="109">        <span class="cf">return</span> (p <span class="op">/</span> <span class="va">self</span>._size, p <span class="op">%</span> <span class="va">self</span>._size)</a>
-<a class="sourceLine" id="cb6-110" title="110"></a>
-<a class="sourceLine" id="cb6-111" title="111">    <span class="kw">def</span> solve_knight(<span class="va">self</span>, x, y):</a>
-<a class="sourceLine" id="cb6-112" title="112">        <span class="co">&quot;&quot;&quot;just solve it</span></a>
-<a class="sourceLine" id="cb6-113" title="113"><span class="co">        &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-114" title="114">        start <span class="op">=</span> <span class="va">self</span>.point2index(x, y)</a>
-<a class="sourceLine" id="cb6-115" title="115">        end <span class="op">=</span> <span class="va">self</span>.point2index(<span class="va">self</span>._size <span class="op">-</span> <span class="dv">1</span>, <span class="va">self</span>._size <span class="op">-</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb6-116" title="116">        <span class="va">self</span>._board.bfs_shortest(start)</a>
-<a class="sourceLine" id="cb6-117" title="117">        path <span class="op">=</span> [<span class="va">self</span>.index2point(x) <span class="cf">for</span> x <span class="kw">in</span> <span class="va">self</span>._board.get_path(end)]</a>
-<a class="sourceLine" id="cb6-118" title="118">        <span class="cf">return</span> [(x <span class="op">+</span> <span class="dv">1</span>, y <span class="op">+</span> <span class="dv">1</span>) <span class="cf">for</span> x, y <span class="kw">in</span> path]</a>
-<a class="sourceLine" id="cb6-119" title="119"></a>
-<a class="sourceLine" id="cb6-120" title="120"><span class="kw">def</span> main():</a>
-<a class="sourceLine" id="cb6-121" title="121">    <span class="co">&quot;&quot;&quot;main routine</span></a>
-<a class="sourceLine" id="cb6-122" title="122"><span class="co">    &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-123" title="123">    <span class="co"># g = graph()</span></a>
-<a class="sourceLine" id="cb6-124" title="124">    <span class="co"># g.add_edge(1, 2)</span></a>
-<a class="sourceLine" id="cb6-125" title="125">    <span class="co"># g.add_edge(1, 3)</span></a>
-<a class="sourceLine" id="cb6-126" title="126">    <span class="co"># g.add_edge(2, 3)</span></a>
-<a class="sourceLine" id="cb6-127" title="127">    <span class="co"># g.add_edge(3, 4)</span></a>
-<a class="sourceLine" id="cb6-128" title="128">    <span class="co"># g.bfs_shortest(1)</span></a>
-<a class="sourceLine" id="cb6-129" title="129">    <span class="co"># print g.get_path(4)</span></a>
-<a class="sourceLine" id="cb6-130" title="130"></a>
-<a class="sourceLine" id="cb6-131" title="131">    <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">!=</span> <span class="dv">4</span>:</a>
-<a class="sourceLine" id="cb6-132" title="132">        <span class="bu">print</span> <span class="st">&quot;&quot;&quot;Wrong arguments! Usage: ./knight.py N x y</span></a>
-<a class="sourceLine" id="cb6-133" title="133"><span class="st">        &quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb6-134" title="134">        <span class="cf">return</span> <span class="dv">-1</span></a>
-<a class="sourceLine" id="cb6-135" title="135"></a>
-<a class="sourceLine" id="cb6-136" title="136">    N <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb6-137" title="137">    x <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="dv">2</span>])</a>
-<a class="sourceLine" id="cb6-138" title="138">    y <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="dv">3</span>])</a>
-<a class="sourceLine" id="cb6-139" title="139"></a>
-<a class="sourceLine" id="cb6-140" title="140">    chess <span class="op">=</span> chessboard(N)</a>
-<a class="sourceLine" id="cb6-141" title="141"></a>
-<a class="sourceLine" id="cb6-142" title="142">    <span class="bu">print</span> chess.solve_knight(x <span class="op">-</span> <span class="dv">1</span>, y <span class="op">-</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb6-143" title="143"></a>
-<a class="sourceLine" id="cb6-144" title="144">    <span class="cf">return</span> <span class="dv">0</span></a>
-<a class="sourceLine" id="cb6-145" title="145"></a>
-<a class="sourceLine" id="cb6-146" title="146"><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</a>
-<a class="sourceLine" id="cb6-147" title="147">    main()</a>
-<a class="sourceLine" id="cb6-148" title="148"></a>
-<a class="sourceLine" id="cb6-149" title="149"></a>
-<a class="sourceLine" id="cb6-150" title="150"><span class="co"># some test data</span></a>
-<a class="sourceLine" id="cb6-151" title="151"><span class="co"># $ ./knight.py 6 2 2</span></a>
-<a class="sourceLine" id="cb6-152" title="152"><span class="co"># [(2, 2), (4, 3), (6, 4), (4, 5), (6, 6)]</span></a>
-<a class="sourceLine" id="cb6-153" title="153"><span class="co"># $ ./knight.py 6 2 2</span></a>
-<a class="sourceLine" id="cb6-154" title="154"><span class="co"># [(2, 2), (4, 3), (6, 4), (4, 5), (6, 6)]</span></a>
-<a class="sourceLine" id="cb6-155" title="155"><span class="co"># $ ./knight.py 4 2 2</span></a>
-<a class="sourceLine" id="cb6-156" title="156"><span class="co"># [(2, 2), (4, 3), (2, 4), (3, 2), (4, 4)]</span></a>
-<a class="sourceLine" id="cb6-157" title="157"><span class="co"># $ ./knight.py 4 1 1</span></a>
-<a class="sourceLine" id="cb6-158" title="158"><span class="co"># [(1, 1), (3, 2), (4, 4)]</span></a>
-<a class="sourceLine" id="cb6-159" title="159"><span class="co"># $ ./knight.py 4 2 3</span></a>
-<a class="sourceLine" id="cb6-160" title="160"><span class="co"># [(2, 3), (4, 4)]</span></a>
-<a class="sourceLine" id="cb6-161" title="161"><span class="co"># $ ./knight.py 20 2 3</span></a>
-<a class="sourceLine" id="cb6-162" title="162"><span class="co"># [(2, 3), (4, 4), (6, 5), (8, 6), (10, 7), (12, 8), (14, 9), (16, 10), (18, 11), (20, 12), (19, 14), (20, 16), (19, 18), (20, 20)]</span></a>
-<a class="sourceLine" id="cb6-163" title="163"><span class="co"># $</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#!/usr/bin/env python2</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="im">import</span> sys</span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="kw">class</span> graph(<span class="bu">object</span>):</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    <span class="co">&quot;&quot;&quot;unweighted directed graph</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a></span>
+<span id="cb6-9"><a href="#cb6-9"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb6-10"><a href="#cb6-10"></a>        <span class="co">&quot;&quot;&quot;set _vmap to and _vprev an empty python dict</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">        all vertex are represented by a simple index</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">        _vmap: {vertex x: x&#39;s adjacency list}</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">        _vprev: {vertex x: x&#39;s prev vertex computed by bfs routine}</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>        <span class="va">self</span>._vmap <span class="op">=</span> {}<span class="op">;</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a>        <span class="va">self</span>._vprev <span class="op">=</span> {}<span class="op">;</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a></span>
+<span id="cb6-19"><a href="#cb6-19"></a>    <span class="kw">def</span> add_edge(<span class="va">self</span>, start, end):</span>
+<span id="cb6-20"><a href="#cb6-20"></a>        <span class="co">&quot;&quot;&quot;add an edge to the graph</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a>        <span class="cf">if</span> <span class="va">self</span>._vmap.has_key(start):</span>
+<span id="cb6-23"><a href="#cb6-23"></a>            <span class="va">self</span>._vmap[start].append(end)</span>
+<span id="cb6-24"><a href="#cb6-24"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-25"><a href="#cb6-25"></a>            <span class="va">self</span>._vmap[start] <span class="op">=</span> [end]</span>
+<span id="cb6-26"><a href="#cb6-26"></a></span>
+<span id="cb6-27"><a href="#cb6-27"></a>    <span class="kw">def</span> bfs_shortest(<span class="va">self</span>, start):</span>
+<span id="cb6-28"><a href="#cb6-28"></a>        <span class="co">&quot;&quot;&quot;one-source shortest-path algorithm</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb6-30"><a href="#cb6-30"></a>        queue <span class="op">=</span> [start]</span>
+<span id="cb6-31"><a href="#cb6-31"></a></span>
+<span id="cb6-32"><a href="#cb6-32"></a>        <span class="va">self</span>._vprev[start] <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a></span>
+<span id="cb6-34"><a href="#cb6-34"></a>        <span class="cf">while</span> <span class="bu">len</span>(queue) <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb6-35"><a href="#cb6-35"></a>            v <span class="op">=</span> queue[<span class="dv">0</span>]</span>
+<span id="cb6-36"><a href="#cb6-36"></a>            queue.pop(<span class="dv">0</span>)</span>
+<span id="cb6-37"><a href="#cb6-37"></a></span>
+<span id="cb6-38"><a href="#cb6-38"></a>            <span class="cf">if</span> <span class="va">self</span>._vmap.has_key(v):</span>
+<span id="cb6-39"><a href="#cb6-39"></a>                v_adj <span class="op">=</span> <span class="va">self</span>._vmap[v]</span>
+<span id="cb6-40"><a href="#cb6-40"></a>            <span class="cf">else</span>:</span>
+<span id="cb6-41"><a href="#cb6-41"></a>                <span class="cf">continue</span></span>
+<span id="cb6-42"><a href="#cb6-42"></a></span>
+<span id="cb6-43"><a href="#cb6-43"></a>            <span class="cf">for</span> nextv <span class="kw">in</span> v_adj:</span>
+<span id="cb6-44"><a href="#cb6-44"></a>                <span class="cf">if</span> <span class="va">self</span>._vprev.has_key(nextv):<span class="co"># and self._vprev[nextv] is not None:</span></span>
+<span id="cb6-45"><a href="#cb6-45"></a>                    <span class="co"># nextv has already found its parent&quot;&quot;</span></span>
+<span id="cb6-46"><a href="#cb6-46"></a>                    <span class="cf">continue</span></span>
+<span id="cb6-47"><a href="#cb6-47"></a>                <span class="cf">else</span>:</span>
+<span id="cb6-48"><a href="#cb6-48"></a>                    queue.append(nextv)</span>
+<span id="cb6-49"><a href="#cb6-49"></a>                    <span class="va">self</span>._vprev[nextv] <span class="op">=</span> v</span>
+<span id="cb6-50"><a href="#cb6-50"></a></span>
+<span id="cb6-51"><a href="#cb6-51"></a>    <span class="kw">def</span> get_path(<span class="va">self</span>, end):</span>
+<span id="cb6-52"><a href="#cb6-52"></a>        <span class="co">&quot;&quot;&quot;return the shortest path as a python list</span></span>
+<span id="cb6-53"><a href="#cb6-53"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb6-54"><a href="#cb6-54"></a>        v <span class="op">=</span> end<span class="op">;</span></span>
+<span id="cb6-55"><a href="#cb6-55"></a>        path <span class="op">=</span> []</span>
+<span id="cb6-56"><a href="#cb6-56"></a>        <span class="cf">while</span> <span class="va">self</span>._vprev.has_key(v) <span class="kw">and</span> <span class="va">self</span>._vprev[v] <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb6-57"><a href="#cb6-57"></a>            path.insert(<span class="dv">0</span>, v)</span>
+<span id="cb6-58"><a href="#cb6-58"></a>            v <span class="op">=</span> <span class="va">self</span>._vprev[v]</span>
+<span id="cb6-59"><a href="#cb6-59"></a></span>
+<span id="cb6-60"><a href="#cb6-60"></a>        <span class="cf">if</span> <span class="va">self</span>._vprev.has_key(v):</span>
+<span id="cb6-61"><a href="#cb6-61"></a>            path.insert(<span class="dv">0</span>, v)   <span class="co"># insert the start point to the path</span></span>
+<span id="cb6-62"><a href="#cb6-62"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-63"><a href="#cb6-63"></a>            <span class="bu">print</span> <span class="st">&quot;destination </span><span class="sc">%d</span><span class="st"> is not exist or unreachable&quot;</span> <span class="op">%</span> v</span>
+<span id="cb6-64"><a href="#cb6-64"></a></span>
+<span id="cb6-65"><a href="#cb6-65"></a>        <span class="cf">return</span> path</span>
+<span id="cb6-66"><a href="#cb6-66"></a></span>
+<span id="cb6-67"><a href="#cb6-67"></a><span class="kw">class</span> chessboard(<span class="bu">object</span>):</span>
+<span id="cb6-68"><a href="#cb6-68"></a>    <span class="co">&quot;&quot;&quot;a chessboard of size n*n class</span></span>
+<span id="cb6-69"><a href="#cb6-69"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb6-70"><a href="#cb6-70"></a></span>
+<span id="cb6-71"><a href="#cb6-71"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, n):</span>
+<span id="cb6-72"><a href="#cb6-72"></a>        <span class="co">&quot;&quot;&quot;build the internal graph representation of the chessboard</span></span>
+<span id="cb6-73"><a href="#cb6-73"></a></span>
+<span id="cb6-74"><a href="#cb6-74"></a><span class="co">        Arguments:</span></span>
+<span id="cb6-75"><a href="#cb6-75"></a><span class="co">        - `n`: size of the chessboard</span></span>
+<span id="cb6-76"><a href="#cb6-76"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb6-77"><a href="#cb6-77"></a>        <span class="va">self</span>._size <span class="op">=</span> n</span>
+<span id="cb6-78"><a href="#cb6-78"></a>        <span class="va">self</span>._board <span class="op">=</span> graph()</span>
+<span id="cb6-79"><a href="#cb6-79"></a></span>
+<span id="cb6-80"><a href="#cb6-80"></a>        next_point <span class="op">=</span> ((<span class="dv">2</span>, <span class="dv">1</span>), (<span class="dv">2</span>, <span class="dv">-1</span>), <span class="op">\</span></span>
+<span id="cb6-81"><a href="#cb6-81"></a>                      (<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">1</span>, <span class="dv">-2</span>), <span class="op">\</span></span>
+<span id="cb6-82"><a href="#cb6-82"></a>                      (<span class="op">-</span><span class="dv">2</span>, <span class="dv">1</span>), (<span class="op">-</span><span class="dv">2</span>, <span class="dv">-1</span>), <span class="op">\</span></span>
+<span id="cb6-83"><a href="#cb6-83"></a>                      (<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>), (<span class="op">-</span><span class="dv">1</span>, <span class="dv">-2</span>))</span>
+<span id="cb6-84"><a href="#cb6-84"></a></span>
+<span id="cb6-85"><a href="#cb6-85"></a>        <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb6-86"><a href="#cb6-86"></a>            <span class="cf">for</span> y <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb6-87"><a href="#cb6-87"></a>                start <span class="op">=</span> <span class="va">self</span>.point2index(x, y)</span>
+<span id="cb6-88"><a href="#cb6-88"></a>                <span class="cf">for</span> dx, dy <span class="kw">in</span> next_point:</span>
+<span id="cb6-89"><a href="#cb6-89"></a>                    nx <span class="op">=</span> x <span class="op">+</span> dx</span>
+<span id="cb6-90"><a href="#cb6-90"></a>                    ny <span class="op">=</span> y <span class="op">+</span> dy</span>
+<span id="cb6-91"><a href="#cb6-91"></a></span>
+<span id="cb6-92"><a href="#cb6-92"></a>                    <span class="cf">if</span> <span class="va">self</span>.is_valid(nx, ny):</span>
+<span id="cb6-93"><a href="#cb6-93"></a>                        end <span class="op">=</span> <span class="va">self</span>.point2index(nx, ny)</span>
+<span id="cb6-94"><a href="#cb6-94"></a>                        <span class="va">self</span>._board.add_edge(start, end)</span>
+<span id="cb6-95"><a href="#cb6-95"></a></span>
+<span id="cb6-96"><a href="#cb6-96"></a>    <span class="kw">def</span> is_valid(<span class="va">self</span>, x, y):</span>
+<span id="cb6-97"><a href="#cb6-97"></a>        <span class="co">&quot;&quot;&quot;whether or not point (x, y) is valid in the chessboard</span></span>
+<span id="cb6-98"><a href="#cb6-98"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb6-99"><a href="#cb6-99"></a>        <span class="cf">return</span> <span class="dv">0</span> <span class="op">&lt;=</span> x <span class="op">&lt;</span> <span class="va">self</span>._size <span class="kw">and</span> <span class="dv">0</span> <span class="op">&lt;=</span> y <span class="op">&lt;</span> <span class="va">self</span>._size</span>
+<span id="cb6-100"><a href="#cb6-100"></a></span>
+<span id="cb6-101"><a href="#cb6-101"></a>    <span class="kw">def</span> point2index(<span class="va">self</span>, x, y):</span>
+<span id="cb6-102"><a href="#cb6-102"></a>        <span class="co">&quot;&quot;&quot;convert a chessboard point to the internal graph vertex index</span></span>
+<span id="cb6-103"><a href="#cb6-103"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb6-104"><a href="#cb6-104"></a>        <span class="cf">return</span> x <span class="op">*</span> <span class="va">self</span>._size <span class="op">+</span> y</span>
+<span id="cb6-105"><a href="#cb6-105"></a></span>
+<span id="cb6-106"><a href="#cb6-106"></a>    <span class="kw">def</span> index2point(<span class="va">self</span>, p):</span>
+<span id="cb6-107"><a href="#cb6-107"></a>        <span class="co">&quot;&quot;&quot;convert the internal graph vertex index back to a chessboard point</span></span>
+<span id="cb6-108"><a href="#cb6-108"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb6-109"><a href="#cb6-109"></a>        <span class="cf">return</span> (p <span class="op">/</span> <span class="va">self</span>._size, p <span class="op">%</span> <span class="va">self</span>._size)</span>
+<span id="cb6-110"><a href="#cb6-110"></a></span>
+<span id="cb6-111"><a href="#cb6-111"></a>    <span class="kw">def</span> solve_knight(<span class="va">self</span>, x, y):</span>
+<span id="cb6-112"><a href="#cb6-112"></a>        <span class="co">&quot;&quot;&quot;just solve it</span></span>
+<span id="cb6-113"><a href="#cb6-113"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb6-114"><a href="#cb6-114"></a>        start <span class="op">=</span> <span class="va">self</span>.point2index(x, y)</span>
+<span id="cb6-115"><a href="#cb6-115"></a>        end <span class="op">=</span> <span class="va">self</span>.point2index(<span class="va">self</span>._size <span class="op">-</span> <span class="dv">1</span>, <span class="va">self</span>._size <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb6-116"><a href="#cb6-116"></a>        <span class="va">self</span>._board.bfs_shortest(start)</span>
+<span id="cb6-117"><a href="#cb6-117"></a>        path <span class="op">=</span> [<span class="va">self</span>.index2point(x) <span class="cf">for</span> x <span class="kw">in</span> <span class="va">self</span>._board.get_path(end)]</span>
+<span id="cb6-118"><a href="#cb6-118"></a>        <span class="cf">return</span> [(x <span class="op">+</span> <span class="dv">1</span>, y <span class="op">+</span> <span class="dv">1</span>) <span class="cf">for</span> x, y <span class="kw">in</span> path]</span>
+<span id="cb6-119"><a href="#cb6-119"></a></span>
+<span id="cb6-120"><a href="#cb6-120"></a><span class="kw">def</span> main():</span>
+<span id="cb6-121"><a href="#cb6-121"></a>    <span class="co">&quot;&quot;&quot;main routine</span></span>
+<span id="cb6-122"><a href="#cb6-122"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb6-123"><a href="#cb6-123"></a>    <span class="co"># g = graph()</span></span>
+<span id="cb6-124"><a href="#cb6-124"></a>    <span class="co"># g.add_edge(1, 2)</span></span>
+<span id="cb6-125"><a href="#cb6-125"></a>    <span class="co"># g.add_edge(1, 3)</span></span>
+<span id="cb6-126"><a href="#cb6-126"></a>    <span class="co"># g.add_edge(2, 3)</span></span>
+<span id="cb6-127"><a href="#cb6-127"></a>    <span class="co"># g.add_edge(3, 4)</span></span>
+<span id="cb6-128"><a href="#cb6-128"></a>    <span class="co"># g.bfs_shortest(1)</span></span>
+<span id="cb6-129"><a href="#cb6-129"></a>    <span class="co"># print g.get_path(4)</span></span>
+<span id="cb6-130"><a href="#cb6-130"></a></span>
+<span id="cb6-131"><a href="#cb6-131"></a>    <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">!=</span> <span class="dv">4</span>:</span>
+<span id="cb6-132"><a href="#cb6-132"></a>        <span class="bu">print</span> <span class="st">&quot;&quot;&quot;Wrong arguments! Usage: ./knight.py N x y</span></span>
+<span id="cb6-133"><a href="#cb6-133"></a><span class="st">        &quot;&quot;&quot;</span></span>
+<span id="cb6-134"><a href="#cb6-134"></a>        <span class="cf">return</span> <span class="dv">-1</span></span>
+<span id="cb6-135"><a href="#cb6-135"></a></span>
+<span id="cb6-136"><a href="#cb6-136"></a>    N <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="dv">1</span>])</span>
+<span id="cb6-137"><a href="#cb6-137"></a>    x <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="dv">2</span>])</span>
+<span id="cb6-138"><a href="#cb6-138"></a>    y <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="dv">3</span>])</span>
+<span id="cb6-139"><a href="#cb6-139"></a></span>
+<span id="cb6-140"><a href="#cb6-140"></a>    chess <span class="op">=</span> chessboard(N)</span>
+<span id="cb6-141"><a href="#cb6-141"></a></span>
+<span id="cb6-142"><a href="#cb6-142"></a>    <span class="bu">print</span> chess.solve_knight(x <span class="op">-</span> <span class="dv">1</span>, y <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb6-143"><a href="#cb6-143"></a></span>
+<span id="cb6-144"><a href="#cb6-144"></a>    <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb6-145"><a href="#cb6-145"></a></span>
+<span id="cb6-146"><a href="#cb6-146"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb6-147"><a href="#cb6-147"></a>    main()</span>
+<span id="cb6-148"><a href="#cb6-148"></a></span>
+<span id="cb6-149"><a href="#cb6-149"></a></span>
+<span id="cb6-150"><a href="#cb6-150"></a><span class="co"># some test data</span></span>
+<span id="cb6-151"><a href="#cb6-151"></a><span class="co"># $ ./knight.py 6 2 2</span></span>
+<span id="cb6-152"><a href="#cb6-152"></a><span class="co"># [(2, 2), (4, 3), (6, 4), (4, 5), (6, 6)]</span></span>
+<span id="cb6-153"><a href="#cb6-153"></a><span class="co"># $ ./knight.py 6 2 2</span></span>
+<span id="cb6-154"><a href="#cb6-154"></a><span class="co"># [(2, 2), (4, 3), (6, 4), (4, 5), (6, 6)]</span></span>
+<span id="cb6-155"><a href="#cb6-155"></a><span class="co"># $ ./knight.py 4 2 2</span></span>
+<span id="cb6-156"><a href="#cb6-156"></a><span class="co"># [(2, 2), (4, 3), (2, 4), (3, 2), (4, 4)]</span></span>
+<span id="cb6-157"><a href="#cb6-157"></a><span class="co"># $ ./knight.py 4 1 1</span></span>
+<span id="cb6-158"><a href="#cb6-158"></a><span class="co"># [(1, 1), (3, 2), (4, 4)]</span></span>
+<span id="cb6-159"><a href="#cb6-159"></a><span class="co"># $ ./knight.py 4 2 3</span></span>
+<span id="cb6-160"><a href="#cb6-160"></a><span class="co"># [(2, 3), (4, 4)]</span></span>
+<span id="cb6-161"><a href="#cb6-161"></a><span class="co"># $ ./knight.py 20 2 3</span></span>
+<span id="cb6-162"><a href="#cb6-162"></a><span class="co"># [(2, 3), (4, 4), (6, 5), (8, 6), (10, 7), (12, 8), (14, 9), (16, 10), (18, 11), (20, 12), (19, 14), (20, 16), (19, 18), (20, 20)]</span></span>
+<span id="cb6-163"><a href="#cb6-163"></a><span class="co"># $</span></span></code></pre></div>
 <h2 id="总结">总结</h2>
 <p>本文的初衷只是想针对此次面试做一个小的总结，但是写到一半发现面试题本身可写的内容不多，于是我就顺便写写我个人对 C++/Lisp/Python 的一些思考，而题目本身就“很悲剧地”成了本文的一个引子。写作终究不是一件容易的事情，将自己心中的想法转化成纸上清晰易懂的文字是一件耗时耗力的体力脑力并重的工作。整篇文章的写作大概耗时 12 个小时，但是写作的过程中也让我梳理了下自己的知识体系，如未鹏所言，“<a href="http://mindhacks.cn/2009/02/09/writing-is-better-thinking/">书写是为了更好的思考 </a>”。</p>
 <p>罗嗦了这么多，其核心观点只有一个，那就是“ <strong>要学会跳出语言的框架去学习语言</strong> ”。站得高才能看得远， <strong>只有跳出语言的框架，才能挣断语言给你的思维所上的枷锁，超越语言本身</strong> ，看到更广阔的图景<a href="#fn23" class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a>。</p>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>由于面试前后并没有保密协议，加上本文内容主要是以我个人的一些技术思考为主，因此题目内容本引述邮件。如果违反相关招聘规定，请不吝告知，谢谢。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn2" role="doc-endnote"><p>按照 ACM 的标准，我这样的编码速度估计是死定了。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn3" role="doc-endnote"><p>其实我也不会，相信我，我只是在吹牛而已^_^ 。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn4" role="doc-endnote"><p><a href="http://justjavac.iteye.com/blog/170076">四个程序员的一天 </a>，一篇非常生动的高阶函数科普小品文。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn5" role="doc-endnote"><p>关于 lambda 函数的递归问题涉及到非常深刻的计算理论问题，其入门文章可以参考未鹏写的 <a href="http://mindhacks.cn/2006/10/15/cantor-godel-turing-an-eternal-golden-diagonal/"> 康托尔、哥德尔、图灵——永恒的金色对角线 </a>，围绕此话题有一本奇书 《<a href="http://book.douban.com/subject/1291204/">哥德尔·艾舍尔·巴赫——集异璧之大成 </a>》，曾长期绝版，最近当当有售，大家抓紧机会。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn6" role="doc-endnote"><p>没错，STL 和 OO 的数据封装思想几乎是背道而驰的。<a href="#fnref6" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn7" role="doc-endnote"><p>Python 中有 Lisp Comprehension 和类似于 Lisp 的 <code>map</code> / <code>reduce</code> / <code>filter</code> 套装。<a href="#fnref7" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn8" role="doc-endnote"><p><a href="http://www.boost.org/doc/libs/1_49_0/doc/html/function/tutorial.html">boost function</a> 提供了更好的 function object 支持。<a href="#fnref8" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn9" role="doc-endnote"><p>刘未鹏：<a href="http://blog.csdn.net/pongba/article/details/2544894">泛型编程：源起、实现与意义</a><a href="#fnref9" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn10" role="doc-endnote"><p>关于 C++ 语言特性的书籍简直可以用浩如烟海来形容，参看<a href="http://book.douban.com/doulist/85050/">这里</a>、<a href="http://www.chinaunix.net/old_jh/23/321401.html">这里</a>。<a href="#fnref10" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn11" role="doc-endnote"><p>关于这个 <code>IfThenElse</code> 模板，可以参考《<a href="http://book.douban.com/subject/1147909/">C++ Templates</a>》第 15 章的讲解与实现。<a href="#fnref11" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn12" role="doc-endnote"><p>前文提到，C++ 模板代码是由 C++ 编译器在编译期“解释执行”的，其冗长的编译时间、 巨大的编译资源以及内存资源需求，使得最新的 GCC/Clang 系列编译器对模板的递归层次支持也仅有几千层而已。事实上编译时间的冗长也一直是 C++ 模板被人诟病的地方之一。<a href="#fnref12" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn13" role="doc-endnote"><p>看看《<a href="http://book.douban.com/subject/1147909/">C++ Templates</a>》Part 2 吧，绝对是顶级脑细胞杀手。<a href="#fnref13" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn14" role="doc-endnote"><p>即便是 <code>int x = 3</code> 这样简单的一条赋值语句也不是你想象中的那么简单，看看 《<a href="http://book.douban.com/subject/1148282/">SICP</a>》第三章吧。能够对变量直接赋值是不同编程范式的一个主要区别，而这又从一个很重要的角度上决定了并行计算的本质困难性。<a href="#fnref14" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn15" role="doc-endnote"><p>怎么学？<a href="http://blog.csdn.net/pongba/article/details/1930150">学习 C++：实践者的方法（Beta1）</a>。<a href="#fnref15" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn16" role="doc-endnote"><p>就好比我们喜欢十进制而非二进制，完全是因为上帝赐予了我们十根手指。<a href="#fnref16" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn17" role="doc-endnote"><p>你也可以说，指针是 C 程序员一切欢乐与痛苦的来源。其实我想说的是，每种编程语言的核心关注点不同，在此至上，语言本身会围绕着这个核心点发展出自己的一套设计哲学，然后根据这套哲学来指导语言本身的设计和发展。<a href="#fnref17" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn18" role="doc-endnote"><p>"Data is just dumb code, and code is just smart data"，关于 "code is data" 的话题涉及到计算机科学里面很多深刻的论题。比如说 C 程序中的 <code>.text</code> 段和 <code>.data</code> 段，<a href="http://en.wikipedia.org/wiki/Von_Neumann_architecture">冯诺依曼体系结构</a>和<a href="http://en.wikipedia.org/wiki/Harvard_architecture">哈佛体系结构</a>，编译器代码生成等等。<a href="http://www.bofh.org.uk/2008/04/07/code-is-data-and-it-always-has-been">Code is data，and it always has been</a>。<a href="#fnref18" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn19" role="doc-endnote"><p>学习 Lisp 带给你的一个思想革新就是，一个对象和这个对象的值是完全不同的东西 <code>(eval (quote x))</code> 。这是个很重要的概念，但这个概念在其余语言中往往是混为一体的，至少在语法上是这样的。最简单的例子，比如 C 中的语句： <code>x = x</code> ，等式的右边是 <code>x</code> 的值而不是 <code>x</code> 本身，等式的左边是 <code>x</code> 本身而不是 <code>x</code> 的值，理解了这点，你就能理解 C++ 中左值和右值的概念区别。如果有机会，我会专门写篇文章，探讨下这个主题。<a href="#fnref19" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn20" role="doc-endnote"><p>Lisp 编程中的递归主要是数学归纳法的一种程式化转换，《<a href="http://book.douban.com/subject/2267922/">Common Lisp: A Gentle Introduction to Symbolic Computation</a>》8.11 节里面详细介绍了 Lisp 中递归的几种模式，清晰易懂，强烈推荐。<a href="#fnref20" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn21" role="doc-endnote"><p>这么简单的例子也许并不足以体现出 Lisp 和 C 这两种语言不同思维模式的区别，事实上如果读者不去稍微深入地学习下 Lisp 的话，是很难体会到这种思维转变的。<a href="#fnref21" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn22" role="doc-endnote"><p>具体可以参考孟岩先生的两篇文章，<a href="http://blog.csdn.net/myan/article/details/1778843">用 C 设计，用 C++ 编码</a>和<a href="http://blog.csdn.net/myan/article/details/1777230">Linux之父话糙理不糙</a>。<a href="#fnref22" class="footnote-back" role="doc-backlink">↩</a></p></li>
-<li id="fn23" role="doc-endnote"><p>最后一个脚注（貌似我最近写文章脚注用得越来越多了，不知道这算是旁征博引还是逻辑不清）：<a href="http://blog.csdn.net/albert_lee/article/details/5578781">侃侃那些美丽的编程语言</a>，^_^ 。<a href="#fnref23" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p>由于面试前后并没有保密协议，加上本文内容主要是以我个人的一些技术思考为主，因此题目内容本引述邮件。如果违反相关招聘规定，请不吝告知，谢谢。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>按照 ACM 的标准，我这样的编码速度估计是死定了。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>其实我也不会，相信我，我只是在吹牛而已^_^ 。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p><a href="http://justjavac.iteye.com/blog/170076">四个程序员的一天 </a>，一篇非常生动的高阶函数科普小品文。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>关于 lambda 函数的递归问题涉及到非常深刻的计算理论问题，其入门文章可以参考未鹏写的 <a href="http://mindhacks.cn/2006/10/15/cantor-godel-turing-an-eternal-golden-diagonal/"> 康托尔、哥德尔、图灵——永恒的金色对角线 </a>，围绕此话题有一本奇书 《<a href="http://book.douban.com/subject/1291204/">哥德尔·艾舍尔·巴赫——集异璧之大成 </a>》，曾长期绝版，最近当当有售，大家抓紧机会。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p>没错，STL 和 OO 的数据封装思想几乎是背道而驰的。<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7" role="doc-endnote"><p>Python 中有 Lisp Comprehension 和类似于 Lisp 的 <code>map</code> / <code>reduce</code> / <code>filter</code> 套装。<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8" role="doc-endnote"><p><a href="http://www.boost.org/doc/libs/1_49_0/doc/html/function/tutorial.html">boost function</a> 提供了更好的 function object 支持。<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9" role="doc-endnote"><p>刘未鹏：<a href="http://blog.csdn.net/pongba/article/details/2544894">泛型编程：源起、实现与意义</a><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10" role="doc-endnote"><p>关于 C++ 语言特性的书籍简直可以用浩如烟海来形容，参看<a href="http://book.douban.com/doulist/85050/">这里</a>、<a href="http://www.chinaunix.net/old_jh/23/321401.html">这里</a>。<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11" role="doc-endnote"><p>关于这个 <code>IfThenElse</code> 模板，可以参考《<a href="http://book.douban.com/subject/1147909/">C++ Templates</a>》第 15 章的讲解与实现。<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12" role="doc-endnote"><p>前文提到，C++ 模板代码是由 C++ 编译器在编译期“解释执行”的，其冗长的编译时间、 巨大的编译资源以及内存资源需求，使得最新的 GCC/Clang 系列编译器对模板的递归层次支持也仅有几千层而已。事实上编译时间的冗长也一直是 C++ 模板被人诟病的地方之一。<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13" role="doc-endnote"><p>看看《<a href="http://book.douban.com/subject/1147909/">C++ Templates</a>》Part 2 吧，绝对是顶级脑细胞杀手。<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14" role="doc-endnote"><p>即便是 <code>int x = 3</code> 这样简单的一条赋值语句也不是你想象中的那么简单，看看 《<a href="http://book.douban.com/subject/1148282/">SICP</a>》第三章吧。能够对变量直接赋值是不同编程范式的一个主要区别，而这又从一个很重要的角度上决定了并行计算的本质困难性。<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15" role="doc-endnote"><p>怎么学？<a href="http://blog.csdn.net/pongba/article/details/1930150">学习 C++：实践者的方法（Beta1）</a>。<a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16" role="doc-endnote"><p>就好比我们喜欢十进制而非二进制，完全是因为上帝赐予了我们十根手指。<a href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn17" role="doc-endnote"><p>你也可以说，指针是 C 程序员一切欢乐与痛苦的来源。其实我想说的是，每种编程语言的核心关注点不同，在此至上，语言本身会围绕着这个核心点发展出自己的一套设计哲学，然后根据这套哲学来指导语言本身的设计和发展。<a href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18" role="doc-endnote"><p>"Data is just dumb code, and code is just smart data"，关于 "code is data" 的话题涉及到计算机科学里面很多深刻的论题。比如说 C 程序中的 <code>.text</code> 段和 <code>.data</code> 段，<a href="http://en.wikipedia.org/wiki/Von_Neumann_architecture">冯诺依曼体系结构</a>和<a href="http://en.wikipedia.org/wiki/Harvard_architecture">哈佛体系结构</a>，编译器代码生成等等。<a href="http://www.bofh.org.uk/2008/04/07/code-is-data-and-it-always-has-been">Code is data，and it always has been</a>。<a href="#fnref18" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19" role="doc-endnote"><p>学习 Lisp 带给你的一个思想革新就是，一个对象和这个对象的值是完全不同的东西 <code>(eval (quote x))</code> 。这是个很重要的概念，但这个概念在其余语言中往往是混为一体的，至少在语法上是这样的。最简单的例子，比如 C 中的语句： <code>x = x</code> ，等式的右边是 <code>x</code> 的值而不是 <code>x</code> 本身，等式的左边是 <code>x</code> 本身而不是 <code>x</code> 的值，理解了这点，你就能理解 C++ 中左值和右值的概念区别。如果有机会，我会专门写篇文章，探讨下这个主题。<a href="#fnref19" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn20" role="doc-endnote"><p>Lisp 编程中的递归主要是数学归纳法的一种程式化转换，《<a href="http://book.douban.com/subject/2267922/">Common Lisp: A Gentle Introduction to Symbolic Computation</a>》8.11 节里面详细介绍了 Lisp 中递归的几种模式，清晰易懂，强烈推荐。<a href="#fnref20" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn21" role="doc-endnote"><p>这么简单的例子也许并不足以体现出 Lisp 和 C 这两种语言不同思维模式的区别，事实上如果读者不去稍微深入地学习下 Lisp 的话，是很难体会到这种思维转变的。<a href="#fnref21" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22" role="doc-endnote"><p>具体可以参考孟岩先生的两篇文章，<a href="http://blog.csdn.net/myan/article/details/1778843">用 C 设计，用 C++ 编码</a>和<a href="http://blog.csdn.net/myan/article/details/1777230">Linux之父话糙理不糙</a>。<a href="#fnref22" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn23" role="doc-endnote"><p>最后一个脚注（貌似我最近写文章脚注用得越来越多了，不知道这算是旁征博引还是逻辑不清）：<a href="http://blog.csdn.net/albert_lee/article/details/5578781">侃侃那些美丽的编程语言</a>，^_^ 。<a href="#fnref23" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

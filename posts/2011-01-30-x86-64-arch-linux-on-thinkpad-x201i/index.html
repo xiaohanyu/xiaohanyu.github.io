@@ -72,69 +72,69 @@
 <li>风扇控制</li>
 </ul>
 <p>电池的电源控制主要是用来延长电池寿命的。电池的充电次数是有限的，因此减少电池的冲放电次数是演唱电池寿命的关键。tp<sub>smapi</sub> 是针对 ThinkPad 的一组内核模块，可以通过 AUR（ <code>yaourt -S tp_smapi</code> ）安装。对电源的保护主要是设置电源的冲放电阀值。比如我们设置 <code>[start_charge=40, end_charge=90]</code> ，意思就是当电池的电量低于 40% 的时候才开始充电，而一旦电量到达 90% 的时候就停止充电。举例说明，当我们野外需要频繁的野外工作时，如果不设置电池的充放电阀值 <code>[start_charge, end_charge]</code> ，那么我们的电量可能是这样的： 95(battery, discharge)–&gt;80(AC power, charge)–&gt;100(battery, discharge)–&gt;70(AC power, charge)–&gt;93(battery, discharge)–&gt;70，而设置 <code>[start_charge = 40, end_charge = 90]</code> 后我们的电量变化就是这样的： 95(battery, discharge)–&gt;80(AC power, but not charge)–&gt;80(battery, discharge)–&gt;50(AC power, but still not charge since 50 &gt; 40)–&gt;50(battery, discharge)–&gt;27(If AC power now, charge, since 27 &gt;= 40, charge until battery = 90) 。看明白了吗？估计没有。反正我也有点晕。ArchWiki 上提供了一个封装的脚本 <code>set_bat_thresh</code> ：</p>
-<div class="sourceCode" id="cb1" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="co">#!/bin/bash</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="co">#</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co"># Bash script for setting the battery thresholds on ThinkPads using the tp_smapi interface.</span></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="co"># Written by Ignas Anikevicius (20/03/2010)</span></a>
-<a class="sourceLine" id="cb1-5" title="5"></a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="co">#HELP TEXT</span></a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="kw">if</span><span class="bu"> [</span> <span class="st">&quot;x</span><span class="va">$1</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;x--help&quot;</span> <span class="ot">-o</span> <span class="st">&quot;x</span><span class="va">$1</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;x-h&quot;</span><span class="bu"> ]</span></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="kw">then</span></a>
-<a class="sourceLine" id="cb1-9" title="9">  <span class="bu">echo</span> -e <span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="st">  WARNING!!! This script needs to be run as root in order to have effect!!!</span></a>
-<a class="sourceLine" id="cb1-11" title="11"></a>
-<a class="sourceLine" id="cb1-12" title="12"><span class="st">  Possible options are:</span></a>
-<a class="sourceLine" id="cb1-13" title="13"><span class="st">    set_bat_thresh [BAT_N] [[LOWER] [UPPER]][--reset][-r]</span></a>
-<a class="sourceLine" id="cb1-14" title="14"></a>
-<a class="sourceLine" id="cb1-15" title="15"><span class="st">    [BAT_N] number of the battery (can be either 0 or 1).</span></a>
-<a class="sourceLine" id="cb1-16" title="16"></a>
-<a class="sourceLine" id="cb1-17" title="17"><span class="st">    LOWER - lower threshold.</span></a>
-<a class="sourceLine" id="cb1-18" title="18"><span class="st">    UPPER - upper threshold .</span></a>
-<a class="sourceLine" id="cb1-19" title="19"><span class="st">    [--reset] or [-r] sets the default thresholds.</span></a>
-<a class="sourceLine" id="cb1-20" title="20"></a>
-<a class="sourceLine" id="cb1-21" title="21"><span class="st">  execute to see this text:</span></a>
-<a class="sourceLine" id="cb1-22" title="22"><span class="st">    set_bat_thresh [--help][-h]</span></a>
-<a class="sourceLine" id="cb1-23" title="23"><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb1-24" title="24">  <span class="bu">exit</span> 0</a>
-<a class="sourceLine" id="cb1-25" title="25"><span class="kw">fi</span></a>
-<a class="sourceLine" id="cb1-26" title="26"></a>
-<a class="sourceLine" id="cb1-27" title="27"><span class="kw">if</span><span class="bu"> [</span> <span class="ot">!</span> <span class="ot">-d</span> /sys/devices/platform/smapi<span class="bu"> ]</span>; <span class="kw">then</span></a>
-<a class="sourceLine" id="cb1-28" title="28">  <span class="bu">echo</span> -e <span class="st">&quot;\nSMAPI interface is NOT installed.\nPlease load the module.\n&quot;</span></a>
-<a class="sourceLine" id="cb1-29" title="29">  <span class="bu">exit</span> 0<span class="kw">;</span> <span class="kw">fi</span></a>
-<a class="sourceLine" id="cb1-30" title="30"></a>
-<a class="sourceLine" id="cb1-31" title="31"><span class="co">#SETTING THRESHOLD VALUES</span></a>
-<a class="sourceLine" id="cb1-32" title="32"><span class="kw">if</span><span class="bu"> [</span> <span class="st">&quot;x</span><span class="va">$2</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;x--reset&quot;</span> <span class="ot">-o</span> <span class="st">&quot;x</span><span class="va">$2</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;x-r&quot;</span><span class="bu"> ]</span></a>
-<a class="sourceLine" id="cb1-33" title="33"><span class="kw">then</span></a>
-<a class="sourceLine" id="cb1-34" title="34">  <span class="va">LOWER=</span>96</a>
-<a class="sourceLine" id="cb1-35" title="35">  <span class="va">UPPER=</span>100</a>
-<a class="sourceLine" id="cb1-36" title="36"><span class="kw">else</span></a>
-<a class="sourceLine" id="cb1-37" title="37">  <span class="va">LOWER=$2</span></a>
-<a class="sourceLine" id="cb1-38" title="38">  <span class="va">UPPER=$3</span></a>
-<a class="sourceLine" id="cb1-39" title="39"><span class="kw">fi</span></a>
-<a class="sourceLine" id="cb1-40" title="40"></a>
-<a class="sourceLine" id="cb1-41" title="41"><span class="co">#VALUE </span><span class="al">TESTING</span></a>
-<a class="sourceLine" id="cb1-42" title="42"><span class="kw">if</span><span class="bu"> [</span> <span class="va">${LOWER}</span> <span class="ot">-ge</span> <span class="va">${UPPER}</span><span class="bu"> ]</span>; <span class="kw">then</span></a>
-<a class="sourceLine" id="cb1-43" title="43">  <span class="bu">echo</span> -e <span class="st">&quot;\n  Please provide proper thresholds!!!  \n&quot;</span></a>
-<a class="sourceLine" id="cb1-44" title="44">  <span class="bu">exit</span> 0</a>
-<a class="sourceLine" id="cb1-45" title="45"><span class="kw">fi</span></a>
-<a class="sourceLine" id="cb1-46" title="46"></a>
-<a class="sourceLine" id="cb1-47" title="47"><span class="co">#BATTERY NUMBER</span></a>
-<a class="sourceLine" id="cb1-48" title="48"><span class="va">BAT_N=$1</span></a>
-<a class="sourceLine" id="cb1-49" title="49"><span class="va">LOWER_F=</span><span class="st">&quot;/sys/devices/platform/smapi/BAT</span><span class="va">${BAT_N}</span><span class="st">/start_charge_thresh&quot;</span></a>
-<a class="sourceLine" id="cb1-50" title="50"><span class="va">UPPER_F=</span><span class="st">&quot;/sys/devices/platform/smapi/BAT</span><span class="va">${BAT_N}</span><span class="st">/stop_charge_thresh&quot;</span></a>
-<a class="sourceLine" id="cb1-51" title="51"></a>
-<a class="sourceLine" id="cb1-52" title="52"><span class="co">#SETTING THE THRESHOLDS</span></a>
-<a class="sourceLine" id="cb1-53" title="53"><span class="bu">echo</span> <span class="va">${LOWER}</span> <span class="op">&gt;</span> <span class="va">${LOWER_F}</span></a>
-<a class="sourceLine" id="cb1-54" title="54"><span class="bu">echo</span> <span class="va">${UPPER}</span> <span class="op">&gt;</span> <span class="va">${UPPER_F}</span></a>
-<a class="sourceLine" id="cb1-55" title="55"></a>
-<a class="sourceLine" id="cb1-56" title="56"><span class="co">#ECHOING THE STUFF</span></a>
-<a class="sourceLine" id="cb1-57" title="57"><span class="bu">echo</span> -e <span class="st">&quot;\nSetting battery thresholds for Battery </span><span class="va">${BAT_N}</span><span class="st">:</span></a>
-<a class="sourceLine" id="cb1-58" title="58"><span class="st">  Threshold for charging to start: </span><span class="va">${LOWER}</span></a>
-<a class="sourceLine" id="cb1-59" title="59"><span class="st">  Threshold for charging to stop: </span><span class="va">${UPPER}</span></a>
-<a class="sourceLine" id="cb1-60" title="60"><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb1-61" title="61"><span class="bu">exit</span> 0<span class="kw">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Bash script for setting the battery thresholds on ThinkPads using the tp_smapi interface.</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Written by Ignas Anikevicius (20/03/2010)</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#HELP TEXT</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="kw">if</span><span class="bu"> [</span> <span class="st">&quot;x</span><span class="va">$1</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;x--help&quot;</span> <span class="ot">-o</span> <span class="st">&quot;x</span><span class="va">$1</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;x-h&quot;</span><span class="bu"> ]</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="kw">then</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="bu">echo</span> -e <span class="st">&quot;</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="st">  WARNING!!! This script needs to be run as root in order to have effect!!!</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="st">  Possible options are:</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="st">    set_bat_thresh [BAT_N] [[LOWER] [UPPER]][--reset][-r]</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="st">    [BAT_N] number of the battery (can be either 0 or 1).</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="st">    LOWER - lower threshold.</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="st">    UPPER - upper threshold .</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="st">    [--reset] or [-r] sets the default thresholds.</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="st">  execute to see this text:</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="st">    set_bat_thresh [--help][-h]</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="st">&quot;</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>  <span class="bu">exit</span> 0</span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="kw">fi</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="kw">if</span><span class="bu"> [</span> <span class="ot">!</span> <span class="ot">-d</span> /sys/devices/platform/smapi<span class="bu"> ]</span>; <span class="kw">then</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a>  <span class="bu">echo</span> -e <span class="st">&quot;\nSMAPI interface is NOT installed.\nPlease load the module.\n&quot;</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>  <span class="bu">exit</span> 0<span class="kw">;</span> <span class="kw">fi</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="co">#SETTING THRESHOLD VALUES</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="kw">if</span><span class="bu"> [</span> <span class="st">&quot;x</span><span class="va">$2</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;x--reset&quot;</span> <span class="ot">-o</span> <span class="st">&quot;x</span><span class="va">$2</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;x-r&quot;</span><span class="bu"> ]</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a><span class="kw">then</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a>  <span class="va">LOWER=</span>96</span>
+<span id="cb1-35"><a href="#cb1-35"></a>  <span class="va">UPPER=</span>100</span>
+<span id="cb1-36"><a href="#cb1-36"></a><span class="kw">else</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a>  <span class="va">LOWER=$2</span></span>
+<span id="cb1-38"><a href="#cb1-38"></a>  <span class="va">UPPER=$3</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="kw">fi</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a></span>
+<span id="cb1-41"><a href="#cb1-41"></a><span class="co">#VALUE </span><span class="al">TESTING</span></span>
+<span id="cb1-42"><a href="#cb1-42"></a><span class="kw">if</span><span class="bu"> [</span> <span class="va">${LOWER}</span> <span class="ot">-ge</span> <span class="va">${UPPER}</span><span class="bu"> ]</span>; <span class="kw">then</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a>  <span class="bu">echo</span> -e <span class="st">&quot;\n  Please provide proper thresholds!!!  \n&quot;</span></span>
+<span id="cb1-44"><a href="#cb1-44"></a>  <span class="bu">exit</span> 0</span>
+<span id="cb1-45"><a href="#cb1-45"></a><span class="kw">fi</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a></span>
+<span id="cb1-47"><a href="#cb1-47"></a><span class="co">#BATTERY NUMBER</span></span>
+<span id="cb1-48"><a href="#cb1-48"></a><span class="va">BAT_N=$1</span></span>
+<span id="cb1-49"><a href="#cb1-49"></a><span class="va">LOWER_F=</span><span class="st">&quot;/sys/devices/platform/smapi/BAT</span><span class="va">${BAT_N}</span><span class="st">/start_charge_thresh&quot;</span></span>
+<span id="cb1-50"><a href="#cb1-50"></a><span class="va">UPPER_F=</span><span class="st">&quot;/sys/devices/platform/smapi/BAT</span><span class="va">${BAT_N}</span><span class="st">/stop_charge_thresh&quot;</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a></span>
+<span id="cb1-52"><a href="#cb1-52"></a><span class="co">#SETTING THE THRESHOLDS</span></span>
+<span id="cb1-53"><a href="#cb1-53"></a><span class="bu">echo</span> <span class="va">${LOWER}</span> <span class="op">&gt;</span> <span class="va">${LOWER_F}</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a><span class="bu">echo</span> <span class="va">${UPPER}</span> <span class="op">&gt;</span> <span class="va">${UPPER_F}</span></span>
+<span id="cb1-55"><a href="#cb1-55"></a></span>
+<span id="cb1-56"><a href="#cb1-56"></a><span class="co">#ECHOING THE STUFF</span></span>
+<span id="cb1-57"><a href="#cb1-57"></a><span class="bu">echo</span> -e <span class="st">&quot;\nSetting battery thresholds for Battery </span><span class="va">${BAT_N}</span><span class="st">:</span></span>
+<span id="cb1-58"><a href="#cb1-58"></a><span class="st">  Threshold for charging to start: </span><span class="va">${LOWER}</span></span>
+<span id="cb1-59"><a href="#cb1-59"></a><span class="st">  Threshold for charging to stop: </span><span class="va">${UPPER}</span></span>
+<span id="cb1-60"><a href="#cb1-60"></a><span class="st">&quot;</span></span>
+<span id="cb1-61"><a href="#cb1-61"></a><span class="bu">exit</span> 0<span class="kw">;</span></span></code></pre></div>
 <p>执行用：</p>
-<div class="sourceCode" id="cb2" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">set_bat_thresh</span> 0 start_charge end_charge</a></code></pre></div>
+<div class="sourceCode" id="cb2" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">set_bat_thresh</span> 0 start_charge end_charge</span></code></pre></div>
 <p>至于 trackpoint 小红点，AUR里面有一个 trackpoint 脚本，用 <code>yaourt -S trackpoint</code> 安装，安装完毕将 trackpoint 加到 <code>/etc/rc.conf</code> 的 DAEMONS 里面。 <code>/etc/conf.d/trackpoint</code> 里面可以更改一些设置如：</p>
 <ul>
 <li><code>SPEED</code> – 小红点光标移动速度。</li>
@@ -142,8 +142,8 @@
 <li><code>PRESS_TO_SELECT</code> – 小红点单击功能。</li>
 </ul>
 <p>中键模拟用如下的脚本设置下（我也忘了是从哪里找到的了）：</p>
-<div class="sourceCode" id="cb3" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">xinput</span> set-int-prop <span class="st">&quot;TPPS/2 IBM TrackPoint&quot;</span> <span class="st">&quot;Evdev Wheel Emulation&quot;</span> 8 1 xinput</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="ex">set-int-prop</span> <span class="st">&quot;TPPS/2 IBM TrackPoint&quot;</span> <span class="st">&quot;Evdev Wheel Emulation Button&quot;</span> 8 2</a></code></pre></div>
+<div class="sourceCode" id="cb3" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">xinput</span> set-int-prop <span class="st">&quot;TPPS/2 IBM TrackPoint&quot;</span> <span class="st">&quot;Evdev Wheel Emulation&quot;</span> 8 1 xinput</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">set-int-prop</span> <span class="st">&quot;TPPS/2 IBM TrackPoint&quot;</span> <span class="st">&quot;Evdev Wheel Emulation Button&quot;</span> 8 2</span></code></pre></div>
 <p>硬盘保护 (Active Protection System) 用的是 AUR 里面的 HDAPS，参看 <a href="https://wiki.archlinux.org/index.php/HDAPS">ArchWiki</a>， Applet 用的是 thinkhdaps，根据需要改下 <code>/etc/conf.d/hdapsd</code> 里面的设置，效果还不错，抱着笔记本在床上看电影的时候视频会一卡一卡的。</p>
 <p>风扇控制貌似不太不要，而且设置不好会影响散热效果，降低笔记本的寿命。这个功能主要目的貌似是使笔记本更安静些。用的软件包是 AUR 里面的 tpfand 和 tpfan-admin， tpfand.conf 是 copy 来的，参考<a href="http://forum.ubuntu.org.cn/viewtopic.php?t=286666">这里</a>。用了之后好像也没啥特别的效果。</p>
 <p>最后 show 下 <code>/etc/rc.conf</code> 里面的设置，日后重装的时候也好有个参考：</p>

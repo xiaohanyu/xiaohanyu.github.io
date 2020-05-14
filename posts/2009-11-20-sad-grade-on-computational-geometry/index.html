@@ -76,334 +76,334 @@
 <p>球体和正方体都可以旋转并且同时放大或者缩小。键盘控制旋转方向。</p>
 <p><a href="/static/image/2009/opengl_teapot.png"><img src="/static/image/2009/opengl_teapot.png" /></a></p>
 <p>图形学第三次作业，我自己加了个功能，就是可以让茶壶跳起来，呵呵。也是由键盘控制的。蛮有趣的。顺便把源码发上来，做个备份好了：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="co"> * </span><span class="an">@file</span><span class="co">   </span><span class="cv">opengl_exp3.c</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co"> * </span><span class="an">@author</span><span class="co">  </span><span class="kw">&lt;lox@freelox&gt;</span></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="co"> * </span><span class="an">@date</span><span class="co">   Wed Nov 18 18:01:43 2009</span></a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="co"> * </span><span class="an">@brief</span><span class="co">  This program illustrate the opengl 3d transformation, such as modelview transformation, projection</span></a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="co"> * transformation, and some opengl animation skills</span></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-9" title="9"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-11" title="11"></a>
-<a class="sourceLine" id="cb1-12" title="12"><span class="pp">#include </span><span class="im">&lt;GL/glut.h&gt;</span></a>
-<a class="sourceLine" id="cb1-13" title="13"><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></a>
-<a class="sourceLine" id="cb1-14" title="14"><span class="pp">#include </span><span class="im">&lt;math.h&gt;</span></a>
-<a class="sourceLine" id="cb1-15" title="15"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></a>
-<a class="sourceLine" id="cb1-16" title="16"></a>
-<a class="sourceLine" id="cb1-17" title="17"><span class="pp">#define PERS 0                  </span><span class="co">/**&lt; define the perspecive projection method */</span></a>
-<a class="sourceLine" id="cb1-18" title="18"><span class="pp">#define ORTHO 1                 </span><span class="co">/**&lt; define the orthogonal projection method */</span></a>
-<a class="sourceLine" id="cb1-19" title="19"></a>
-<a class="sourceLine" id="cb1-20" title="20"><span class="pp">#define WIRE 0                  </span><span class="co">/**&lt; draw the object with wire */</span></a>
-<a class="sourceLine" id="cb1-21" title="21"><span class="pp">#define SOLID 1                 </span><span class="co">/**&lt; draw the object with solid fill color */</span></a>
-<a class="sourceLine" id="cb1-22" title="22"></a>
-<a class="sourceLine" id="cb1-23" title="23"><span class="dt">static</span> <span class="dt">int</span> winWidth = <span class="dv">0</span>;        <span class="co">/**&lt; the new view width */</span></a>
-<a class="sourceLine" id="cb1-24" title="24"><span class="dt">static</span> <span class="dt">int</span> winHeight = <span class="dv">0</span>;       <span class="co">/**&lt; the new view height */</span></a>
-<a class="sourceLine" id="cb1-25" title="25"></a>
-<a class="sourceLine" id="cb1-26" title="26"><span class="dt">static</span> <span class="dt">int</span> projection = PERS;   <span class="co">/**&lt; determine whether perspective or orthogonal */</span></a>
-<a class="sourceLine" id="cb1-27" title="27"><span class="dt">static</span> <span class="dt">int</span> drawMethod = <span class="dv">1</span>;      <span class="co">/**&lt; determine the draw method */</span></a>
-<a class="sourceLine" id="cb1-28" title="28"></a>
-<a class="sourceLine" id="cb1-29" title="29"><span class="dt">static</span> <span class="dt">float</span> cameraX = <span class="dv">0</span>;       <span class="co">/**&lt; the x position of the camera */</span></a>
-<a class="sourceLine" id="cb1-30" title="30"><span class="dt">static</span> <span class="dt">float</span> cameraY = <span class="fl">1.0</span>;     <span class="co">/**&lt; the y position of the camera */</span></a>
-<a class="sourceLine" id="cb1-31" title="31"><span class="dt">static</span> <span class="dt">float</span> cameraZ = <span class="dv">10</span>;      <span class="co">/**&lt; the z position of the camera */</span></a>
-<a class="sourceLine" id="cb1-32" title="32"></a>
-<a class="sourceLine" id="cb1-33" title="33"><span class="dt">static</span> <span class="dt">float</span> teapotX = <span class="fl">0.0</span>;     <span class="co">/**&lt; the x position of the teapot */</span></a>
-<a class="sourceLine" id="cb1-34" title="34"><span class="dt">static</span> <span class="dt">float</span> teapotY = <span class="fl">1.2</span>;     <span class="co">/**&lt; the y position of the teapot */</span></a>
-<a class="sourceLine" id="cb1-35" title="35"><span class="dt">static</span> <span class="dt">float</span> teapotZ = <span class="fl">0.0</span>;     <span class="co">/**&lt; the z position of the teapot */</span></a>
-<a class="sourceLine" id="cb1-36" title="36"><span class="dt">static</span> <span class="dt">float</span> teapotRotateY = <span class="fl">0.0</span>; <span class="co">/**&lt; the rotation degree of the teapot along y axis  */</span></a>
-<a class="sourceLine" id="cb1-37" title="37"></a>
-<a class="sourceLine" id="cb1-38" title="38"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-39" title="39"><span class="co"> * I myself add a jump function to the teapot use i and ty[15]</span></a>
-<a class="sourceLine" id="cb1-40" title="40"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-41" title="41"></a>
-<a class="sourceLine" id="cb1-42" title="42"><span class="dt">int</span> i = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb1-43" title="43"><span class="dt">float</span> ty[<span class="dv">15</span>] = {<span class="fl">1.3</span>, <span class="fl">1.4</span>, <span class="fl">1.6</span>, <span class="fl">1.9</span>, <span class="fl">2.3</span>, <span class="fl">3.0</span>, <span class="fl">3.3</span>, <span class="fl">3.4</span>, <span class="fl">3.42</span>, <span class="fl">3.4</span>, <span class="fl">3.3</span>, <span class="fl">3.0</span>, <span class="fl">2.3</span>, <span class="fl">1.5</span>, <span class="fl">1.2</span>};</a>
-<a class="sourceLine" id="cb1-44" title="44"></a>
-<a class="sourceLine" id="cb1-45" title="45"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-46" title="46"><span class="co"> * </span><span class="an">@brief</span><span class="co"> just init the background color</span></a>
-<a class="sourceLine" id="cb1-47" title="47"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-48" title="48"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-49" title="49"><span class="dt">void</span> init() {</a>
-<a class="sourceLine" id="cb1-50" title="50">  glClearColor(<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>);</a>
-<a class="sourceLine" id="cb1-51" title="51">}</a>
-<a class="sourceLine" id="cb1-52" title="52"></a>
-<a class="sourceLine" id="cb1-53" title="53"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-54" title="54"><span class="co"> * </span><span class="an">@brief</span><span class="co"> draw one leg of the Desk</span></a>
-<a class="sourceLine" id="cb1-55" title="55"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-56" title="56"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-57" title="57"><span class="dt">void</span> drawLeg() {</a>
-<a class="sourceLine" id="cb1-58" title="58">  glPushMatrix();</a>
-<a class="sourceLine" id="cb1-59" title="59">  glScalef(<span class="fl">1.0</span>, <span class="fl">3.0</span>, <span class="fl">1.0</span>);</a>
-<a class="sourceLine" id="cb1-60" title="60">  glutSolidCube(<span class="fl">1.0</span>);</a>
-<a class="sourceLine" id="cb1-61" title="61">  glPopMatrix();</a>
-<a class="sourceLine" id="cb1-62" title="62">}</a>
-<a class="sourceLine" id="cb1-63" title="63"></a>
-<a class="sourceLine" id="cb1-64" title="64"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-65" title="65"><span class="co"> * </span><span class="an">@brief</span><span class="co"> draw the desktop</span></a>
-<a class="sourceLine" id="cb1-66" title="66"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-67" title="67"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-68" title="68"><span class="dt">void</span> drawDesktop() {</a>
-<a class="sourceLine" id="cb1-69" title="69">  glPushMatrix();</a>
-<a class="sourceLine" id="cb1-70" title="70">  glScalef(<span class="fl">5.0</span>, <span class="fl">1.0</span>, <span class="fl">4.0</span>);</a>
-<a class="sourceLine" id="cb1-71" title="71">  glutSolidCube(<span class="fl">1.0</span>);</a>
-<a class="sourceLine" id="cb1-72" title="72">  glPopMatrix();</a>
-<a class="sourceLine" id="cb1-73" title="73">}</a>
-<a class="sourceLine" id="cb1-74" title="74"></a>
-<a class="sourceLine" id="cb1-75" title="75"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-76" title="76"><span class="co"> * </span><span class="an">@brief</span><span class="co"> draw the whole desk through drawing four legs and one desktop</span></a>
-<a class="sourceLine" id="cb1-77" title="77"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-78" title="78"><span class="co"> * </span><span class="an">@see</span><span class="co"> drawDesktop</span></a>
-<a class="sourceLine" id="cb1-79" title="79"><span class="co"> * </span><span class="an">@see</span><span class="co"> drawLeg</span></a>
-<a class="sourceLine" id="cb1-80" title="80"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-81" title="81"><span class="dt">void</span> drawDesk() {</a>
-<a class="sourceLine" id="cb1-82" title="82">  glPushMatrix();</a>
-<a class="sourceLine" id="cb1-83" title="83">  drawDesktop();</a>
-<a class="sourceLine" id="cb1-84" title="84">  glPopMatrix();</a>
-<a class="sourceLine" id="cb1-85" title="85"></a>
-<a class="sourceLine" id="cb1-86" title="86">  glPushMatrix();</a>
-<a class="sourceLine" id="cb1-87" title="87">  glTranslatef(-<span class="fl">1.5</span>, -<span class="dv">2</span>, -<span class="dv">1</span>);</a>
-<a class="sourceLine" id="cb1-88" title="88">  drawLeg();</a>
-<a class="sourceLine" id="cb1-89" title="89">  glPopMatrix();</a>
-<a class="sourceLine" id="cb1-90" title="90"></a>
-<a class="sourceLine" id="cb1-91" title="91">  glPushMatrix();</a>
-<a class="sourceLine" id="cb1-92" title="92">  glTranslatef(<span class="fl">1.5</span>, -<span class="dv">2</span>, -<span class="dv">1</span>);</a>
-<a class="sourceLine" id="cb1-93" title="93">  drawLeg();</a>
-<a class="sourceLine" id="cb1-94" title="94">  glPopMatrix();</a>
-<a class="sourceLine" id="cb1-95" title="95"></a>
-<a class="sourceLine" id="cb1-96" title="96">  glPushMatrix();</a>
-<a class="sourceLine" id="cb1-97" title="97">  glTranslatef(<span class="fl">1.5</span>, -<span class="dv">2</span>, <span class="dv">1</span>);</a>
-<a class="sourceLine" id="cb1-98" title="98">  drawLeg();</a>
-<a class="sourceLine" id="cb1-99" title="99">  glPopMatrix();</a>
-<a class="sourceLine" id="cb1-100" title="100"></a>
-<a class="sourceLine" id="cb1-101" title="101">  glPushMatrix();</a>
-<a class="sourceLine" id="cb1-102" title="102">  glTranslatef(-<span class="fl">1.5</span>, -<span class="dv">2</span>, <span class="dv">1</span>);</a>
-<a class="sourceLine" id="cb1-103" title="103">  drawLeg();</a>
-<a class="sourceLine" id="cb1-104" title="104">  glPopMatrix();</a>
-<a class="sourceLine" id="cb1-105" title="105">}</a>
-<a class="sourceLine" id="cb1-106" title="106"></a>
-<a class="sourceLine" id="cb1-107" title="107"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-108" title="108"><span class="co"> * </span><span class="an">@brief</span><span class="co"> draw the whole scene</span></a>
-<a class="sourceLine" id="cb1-109" title="109"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-110" title="110"><span class="co"> * </span><span class="an">@see</span><span class="co"> drawDesk()</span></a>
-<a class="sourceLine" id="cb1-111" title="111"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-112" title="112"><span class="dt">void</span> drawScene() {</a>
-<a class="sourceLine" id="cb1-113" title="113">  drawDesk();</a>
-<a class="sourceLine" id="cb1-114" title="114">  glPushMatrix();</a>
-<a class="sourceLine" id="cb1-115" title="115">  glTranslatef(teapotX, teapotY, teapotZ);</a>
-<a class="sourceLine" id="cb1-116" title="116">  glRotatef(teapotRotateY, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>);</a>
-<a class="sourceLine" id="cb1-117" title="117">  glutSolidTeapot(<span class="fl">1.0</span>);</a>
-<a class="sourceLine" id="cb1-118" title="118">  glPopMatrix();</a>
-<a class="sourceLine" id="cb1-119" title="119">}</a>
-<a class="sourceLine" id="cb1-120" title="120"></a>
-<a class="sourceLine" id="cb1-121" title="121"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-122" title="122"><span class="co"> * </span><span class="an">@brief</span><span class="co"> display the three sides of the desktop</span></a>
-<a class="sourceLine" id="cb1-123" title="123"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-124" title="124"><span class="co"> * </span><span class="an">@see</span><span class="co"> drawScene();</span></a>
-<a class="sourceLine" id="cb1-125" title="125"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-126" title="126"><span class="dt">void</span> display() {</a>
-<a class="sourceLine" id="cb1-127" title="127">  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);</a>
-<a class="sourceLine" id="cb1-128" title="128"></a>
-<a class="sourceLine" id="cb1-129" title="129">  glColor3f(<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>);</a>
-<a class="sourceLine" id="cb1-130" title="130">  glLoadIdentity();</a>
-<a class="sourceLine" id="cb1-131" title="131"></a>
-<a class="sourceLine" id="cb1-132" title="132">  gluLookAt(cameraX, cameraY, cameraZ, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>);</a>
-<a class="sourceLine" id="cb1-133" title="133"></a>
-<a class="sourceLine" id="cb1-134" title="134">  <span class="cf">if</span>(drawMethod == SOLID) {</a>
-<a class="sourceLine" id="cb1-135" title="135">    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);</a>
-<a class="sourceLine" id="cb1-136" title="136">  }</a>
-<a class="sourceLine" id="cb1-137" title="137">  <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb1-138" title="138">    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);</a>
-<a class="sourceLine" id="cb1-139" title="139">  }</a>
-<a class="sourceLine" id="cb1-140" title="140"></a>
-<a class="sourceLine" id="cb1-141" title="141">  glEnable(GL_DEPTH_TEST);</a>
-<a class="sourceLine" id="cb1-142" title="142"></a>
-<a class="sourceLine" id="cb1-143" title="143">  glEnable(GL_LIGHTING);</a>
-<a class="sourceLine" id="cb1-144" title="144">  GLfloat white[] = {<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>};</a>
-<a class="sourceLine" id="cb1-145" title="145">  GLfloat light_pos[] = {<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">1</span>};</a>
-<a class="sourceLine" id="cb1-146" title="146"></a>
-<a class="sourceLine" id="cb1-147" title="147">  glLightfv(GL_LIGHT0, GL_POSITION, light_pos);</a>
-<a class="sourceLine" id="cb1-148" title="148">  glLightfv(GL_LIGHT0, GL_AMBIENT, white);</a>
-<a class="sourceLine" id="cb1-149" title="149">  glEnable(GL_LIGHT0);</a>
-<a class="sourceLine" id="cb1-150" title="150"></a>
-<a class="sourceLine" id="cb1-151" title="151">  drawScene();</a>
-<a class="sourceLine" id="cb1-152" title="152"></a>
-<a class="sourceLine" id="cb1-153" title="153">  glFlush();</a>
-<a class="sourceLine" id="cb1-154" title="154"></a>
-<a class="sourceLine" id="cb1-155" title="155">  glutSwapBuffers();</a>
-<a class="sourceLine" id="cb1-156" title="156">}</a>
-<a class="sourceLine" id="cb1-157" title="157"></a>
-<a class="sourceLine" id="cb1-158" title="158"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-159" title="159"><span class="co"> * </span><span class="an">@brief</span><span class="co"> update the viewport of the whole scene when press a special key</span></a>
-<a class="sourceLine" id="cb1-160" title="160"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-161" title="161"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">width</span><span class="co"> the width of the new viewport</span></a>
-<a class="sourceLine" id="cb1-162" title="162"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">height</span><span class="co"> the height of the new viewport</span></a>
-<a class="sourceLine" id="cb1-163" title="163"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-164" title="164"><span class="dt">void</span> updateView(<span class="dt">int</span> width, <span class="dt">int</span> height) {</a>
-<a class="sourceLine" id="cb1-165" title="165">  glViewport(<span class="dv">0</span>, <span class="dv">0</span>, (GLint)width, (GLint)height);</a>
-<a class="sourceLine" id="cb1-166" title="166">  glMatrixMode(GL_PROJECTION);</a>
-<a class="sourceLine" id="cb1-167" title="167">  glLoadIdentity();</a>
-<a class="sourceLine" id="cb1-168" title="168"></a>
-<a class="sourceLine" id="cb1-169" title="169">  <span class="cf">if</span> (projection == PERS) {</a>
-<a class="sourceLine" id="cb1-170" title="170">    glFrustum(-<span class="fl">1.0</span>, <span class="fl">1.0</span>, -<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">0.5</span>, <span class="fl">40.0</span>);</a>
-<a class="sourceLine" id="cb1-171" title="171">  }</a>
-<a class="sourceLine" id="cb1-172" title="172">  <span class="cf">else</span> <span class="cf">if</span> (projection == ORTHO) {</a>
-<a class="sourceLine" id="cb1-173" title="173">    glOrtho(-<span class="fl">10.0</span>, <span class="fl">10.0</span>, -<span class="fl">10.0</span>, <span class="fl">10.0</span>, <span class="fl">0.5</span>, <span class="fl">40.0</span>);</a>
-<a class="sourceLine" id="cb1-174" title="174">  }</a>
-<a class="sourceLine" id="cb1-175" title="175">  <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb1-176" title="176">    projection = PERS;</a>
-<a class="sourceLine" id="cb1-177" title="177">  }</a>
-<a class="sourceLine" id="cb1-178" title="178"></a>
-<a class="sourceLine" id="cb1-179" title="179">  glMatrixMode(GL_MODELVIEW);</a>
-<a class="sourceLine" id="cb1-180" title="180">}</a>
-<a class="sourceLine" id="cb1-181" title="181"></a>
-<a class="sourceLine" id="cb1-182" title="182"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-183" title="183"><span class="co"> * </span><span class="an">@brief</span><span class="co"> glut reshape function</span></a>
-<a class="sourceLine" id="cb1-184" title="184"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-185" title="185"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">width</span></a>
-<a class="sourceLine" id="cb1-186" title="186"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">height</span></a>
-<a class="sourceLine" id="cb1-187" title="187"><span class="co"> * </span><span class="an">@see</span><span class="co"> updateView()</span></a>
-<a class="sourceLine" id="cb1-188" title="188"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-189" title="189"><span class="dt">void</span> reshape(<span class="dt">int</span> width, <span class="dt">int</span> height) {</a>
-<a class="sourceLine" id="cb1-190" title="190">  <span class="cf">if</span> (height == <span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb1-191" title="191">    height = <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb1-192" title="192">  }</a>
-<a class="sourceLine" id="cb1-193" title="193"></a>
-<a class="sourceLine" id="cb1-194" title="194">  winWidth = width;</a>
-<a class="sourceLine" id="cb1-195" title="195">  winHeight = height;</a>
-<a class="sourceLine" id="cb1-196" title="196"></a>
-<a class="sourceLine" id="cb1-197" title="197">  updateView(winWidth, winHeight);</a>
-<a class="sourceLine" id="cb1-198" title="198">}</a>
-<a class="sourceLine" id="cb1-199" title="199"></a>
-<a class="sourceLine" id="cb1-200" title="200"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-201" title="201"><span class="co"> * </span><span class="an">@brief</span><span class="co"> glut idle function</span></a>
-<a class="sourceLine" id="cb1-202" title="202"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-203" title="203"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-204" title="204"><span class="dt">void</span> idle() {</a>
-<a class="sourceLine" id="cb1-205" title="205">  glutPostRedisplay();</a>
-<a class="sourceLine" id="cb1-206" title="206">}</a>
-<a class="sourceLine" id="cb1-207" title="207"></a>
-<a class="sourceLine" id="cb1-208" title="208"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-209" title="209"><span class="co"> * </span><span class="an">@brief</span><span class="co"> control the keyboard interactive actions</span></a>
-<a class="sourceLine" id="cb1-210" title="210"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-211" title="211"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">key</span><span class="co"> the key which pressed</span></a>
-<a class="sourceLine" id="cb1-212" title="212"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> the x mouse position</span></a>
-<a class="sourceLine" id="cb1-213" title="213"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">y</span><span class="co"> the y mouse position</span></a>
-<a class="sourceLine" id="cb1-214" title="214"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-215" title="215"></a>
-<a class="sourceLine" id="cb1-216" title="216"><span class="dt">void</span> keyboard(<span class="dt">unsigned</span> <span class="dt">char</span> key, <span class="dt">int</span> x, <span class="dt">int</span> y) {</a>
-<a class="sourceLine" id="cb1-217" title="217">  <span class="cf">switch</span>(key) {</a>
-<a class="sourceLine" id="cb1-218" title="218">  <span class="cf">case</span> <span class="dv">27</span>:</a>
-<a class="sourceLine" id="cb1-219" title="219">  <span class="cf">case</span> <span class="ch">&#39;q&#39;</span>:                   <span class="co">/**&lt; press q or ESC to quit this program */</span></a>
-<a class="sourceLine" id="cb1-220" title="220">    exit(<span class="dv">0</span>);</a>
-<a class="sourceLine" id="cb1-221" title="221">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-222" title="222"></a>
-<a class="sourceLine" id="cb1-223" title="223">  <span class="cf">case</span> <span class="ch">&#39;p&#39;</span>:                   <span class="co">/**&lt; press x to switch between perspective and oothogonal view */</span></a>
-<a class="sourceLine" id="cb1-224" title="224">    projection = (projection + <span class="dv">1</span>) % <span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb1-225" title="225">    updateView(winWidth, winHeight);</a>
-<a class="sourceLine" id="cb1-226" title="226">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-227" title="227"></a>
-<a class="sourceLine" id="cb1-228" title="228">  <span class="cf">case</span> <span class="ch">&#39;t&#39;</span>:</a>
-<a class="sourceLine" id="cb1-229" title="229">    drawMethod = (drawMethod + <span class="dv">1</span>) % <span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb1-230" title="230">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-231" title="231"></a>
-<a class="sourceLine" id="cb1-232" title="232">  <span class="cf">case</span> <span class="ch">&#39;a&#39;</span>:                   <span class="co">/**&lt; press a to adjust camera position along negative x axis */</span></a>
-<a class="sourceLine" id="cb1-233" title="233">    cameraX--;</a>
-<a class="sourceLine" id="cb1-234" title="234">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-235" title="235"></a>
-<a class="sourceLine" id="cb1-236" title="236">  <span class="cf">case</span> <span class="ch">&#39;d&#39;</span>:</a>
-<a class="sourceLine" id="cb1-237" title="237">    cameraX++;</a>
-<a class="sourceLine" id="cb1-238" title="238">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-239" title="239"></a>
-<a class="sourceLine" id="cb1-240" title="240">  <span class="cf">case</span> <span class="ch">&#39;w&#39;</span>:</a>
-<a class="sourceLine" id="cb1-241" title="241">    cameraY++;</a>
-<a class="sourceLine" id="cb1-242" title="242">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-243" title="243"></a>
-<a class="sourceLine" id="cb1-244" title="244">  <span class="cf">case</span> <span class="ch">&#39;s&#39;</span>:</a>
-<a class="sourceLine" id="cb1-245" title="245">    cameraY--;</a>
-<a class="sourceLine" id="cb1-246" title="246">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-247" title="247"></a>
-<a class="sourceLine" id="cb1-248" title="248">  <span class="cf">case</span> <span class="ch">&#39;z&#39;</span>:</a>
-<a class="sourceLine" id="cb1-249" title="249">    cameraZ++;</a>
-<a class="sourceLine" id="cb1-250" title="250">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-251" title="251"></a>
-<a class="sourceLine" id="cb1-252" title="252">  <span class="cf">case</span> <span class="ch">&#39;c&#39;</span>:</a>
-<a class="sourceLine" id="cb1-253" title="253">    cameraZ--;</a>
-<a class="sourceLine" id="cb1-254" title="254">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-255" title="255">    <span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-256" title="256"><span class="co">     * operations about teapot</span></a>
-<a class="sourceLine" id="cb1-257" title="257"><span class="co">     *</span></a>
-<a class="sourceLine" id="cb1-258" title="258"><span class="co">     */</span></a>
-<a class="sourceLine" id="cb1-259" title="259">  <span class="cf">case</span> <span class="ch">&#39;l&#39;</span>:                   <span class="co">/**&lt; move the teapot along positive x axis */</span></a>
-<a class="sourceLine" id="cb1-260" title="260">    <span class="cf">if</span> (teapotX &gt;= <span class="fl">2.5</span>) {    <span class="co">/**&lt; the teapot cannot be moved out of the desktop */</span></a>
-<a class="sourceLine" id="cb1-261" title="261">      teapotX -= <span class="fl">2.5</span>;</a>
-<a class="sourceLine" id="cb1-262" title="262">    }</a>
-<a class="sourceLine" id="cb1-263" title="263">    teapotX += <span class="fl">0.1</span>;</a>
-<a class="sourceLine" id="cb1-264" title="264">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-265" title="265"></a>
-<a class="sourceLine" id="cb1-266" title="266">  <span class="cf">case</span> <span class="ch">&#39;j&#39;</span>:</a>
-<a class="sourceLine" id="cb1-267" title="267">    <span class="cf">if</span> (teapotX &lt;= -<span class="fl">2.5</span>) {</a>
-<a class="sourceLine" id="cb1-268" title="268">      teapotX += <span class="fl">2.5</span>;</a>
-<a class="sourceLine" id="cb1-269" title="269">    }</a>
-<a class="sourceLine" id="cb1-270" title="270">    teapotX -= <span class="fl">0.1</span>;</a>
-<a class="sourceLine" id="cb1-271" title="271">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-272" title="272"></a>
-<a class="sourceLine" id="cb1-273" title="273">  <span class="cf">case</span> <span class="ch">&#39;i&#39;</span>:</a>
-<a class="sourceLine" id="cb1-274" title="274">    <span class="cf">if</span> (teapotZ &gt;= <span class="fl">2.0</span>) {</a>
-<a class="sourceLine" id="cb1-275" title="275">      teapotZ -= <span class="fl">2.0</span>;</a>
-<a class="sourceLine" id="cb1-276" title="276">    }</a>
-<a class="sourceLine" id="cb1-277" title="277">    teapotZ += <span class="fl">0.1</span>;</a>
-<a class="sourceLine" id="cb1-278" title="278">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-279" title="279"></a>
-<a class="sourceLine" id="cb1-280" title="280">  <span class="cf">case</span> <span class="ch">&#39;k&#39;</span>:</a>
-<a class="sourceLine" id="cb1-281" title="281">    <span class="cf">if</span> (teapotZ &lt;= -<span class="fl">2.0</span>) {</a>
-<a class="sourceLine" id="cb1-282" title="282">      teapotZ += <span class="fl">2.0</span>;</a>
-<a class="sourceLine" id="cb1-283" title="283">    }</a>
-<a class="sourceLine" id="cb1-284" title="284">    teapotZ -= <span class="fl">0.1</span>;</a>
-<a class="sourceLine" id="cb1-285" title="285">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-286" title="286"></a>
-<a class="sourceLine" id="cb1-287" title="287">  <span class="cf">case</span> <span class="ch">&#39;e&#39;</span>:</a>
-<a class="sourceLine" id="cb1-288" title="288">    teapotRotateY ++;</a>
-<a class="sourceLine" id="cb1-289" title="289">    <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-290" title="290"></a>
-<a class="sourceLine" id="cb1-291" title="291">  <span class="cf">case</span> <span class="ch">&#39;o&#39;</span>:                   <span class="co">/**&lt; make the teapot jump on the desktop */</span></a>
-<a class="sourceLine" id="cb1-292" title="292">    teapotY = ty[i++];</a>
-<a class="sourceLine" id="cb1-293" title="293">    <span class="cf">if</span> (i &gt;= <span class="dv">15</span>) {</a>
-<a class="sourceLine" id="cb1-294" title="294">      i -= <span class="dv">15</span>;</a>
-<a class="sourceLine" id="cb1-295" title="295">    }</a>
-<a class="sourceLine" id="cb1-296" title="296">  }</a>
-<a class="sourceLine" id="cb1-297" title="297"></a>
-<a class="sourceLine" id="cb1-298" title="298">  glutPostRedisplay();</a>
-<a class="sourceLine" id="cb1-299" title="299">}</a>
-<a class="sourceLine" id="cb1-300" title="300"></a>
-<a class="sourceLine" id="cb1-301" title="301"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb1-302" title="302"><span class="co"> * </span><span class="an">@brief</span><span class="co"> main function</span></a>
-<a class="sourceLine" id="cb1-303" title="303"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-304" title="304"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">argc</span></a>
-<a class="sourceLine" id="cb1-305" title="305"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">argv</span></a>
-<a class="sourceLine" id="cb1-306" title="306"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb1-307" title="307"><span class="co"> * </span><span class="an">@return</span><span class="co"> 0</span></a>
-<a class="sourceLine" id="cb1-308" title="308"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb1-309" title="309"><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span>** argv) {</a>
-<a class="sourceLine" id="cb1-310" title="310">  glutInit(&amp;argc, argv);</a>
-<a class="sourceLine" id="cb1-311" title="311">  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);</a>
-<a class="sourceLine" id="cb1-312" title="312"></a>
-<a class="sourceLine" id="cb1-313" title="313">  glutInitWindowSize(<span class="dv">500</span>, <span class="dv">500</span>);</a>
-<a class="sourceLine" id="cb1-314" title="314">  glutInitWindowPosition(<span class="dv">100</span>, <span class="dv">100</span>);</a>
-<a class="sourceLine" id="cb1-315" title="315"></a>
-<a class="sourceLine" id="cb1-316" title="316">  glutCreateWindow(<span class="st">&quot;Simple opengl 3d modelview program&quot;</span>);</a>
-<a class="sourceLine" id="cb1-317" title="317"></a>
-<a class="sourceLine" id="cb1-318" title="318">  init();</a>
-<a class="sourceLine" id="cb1-319" title="319"></a>
-<a class="sourceLine" id="cb1-320" title="320">  glutDisplayFunc(display);</a>
-<a class="sourceLine" id="cb1-321" title="321">  glutReshapeFunc(reshape);</a>
-<a class="sourceLine" id="cb1-322" title="322">  glutKeyboardFunc(keyboard);</a>
-<a class="sourceLine" id="cb1-323" title="323">  glutIdleFunc(idle);</a>
-<a class="sourceLine" id="cb1-324" title="324"></a>
-<a class="sourceLine" id="cb1-325" title="325">  glutMainLoop();</a>
-<a class="sourceLine" id="cb1-326" title="326"></a>
-<a class="sourceLine" id="cb1-327" title="327">  <span class="cf">return</span> <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb1-328" title="328">}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">/**</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co"> * </span><span class="an">@file</span><span class="co">   </span><span class="cv">opengl_exp3.c</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"> * </span><span class="an">@author</span><span class="co">  </span><span class="kw">&lt;lox@freelox&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"> * </span><span class="an">@date</span><span class="co">   Wed Nov 18 18:01:43 2009</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"> *</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co"> * </span><span class="an">@brief</span><span class="co">  This program illustrate the opengl 3d transformation, such as modelview transformation, projection</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"> * transformation, and some opengl animation skills</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"> *</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co"> *</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co"> */</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="pp">#include </span><span class="im">&lt;GL/glut.h&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="pp">#include </span><span class="im">&lt;math.h&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="pp">#define PERS 0                  </span><span class="co">/**&lt; define the perspecive projection method */</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="pp">#define ORTHO 1                 </span><span class="co">/**&lt; define the orthogonal projection method */</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="pp">#define WIRE 0                  </span><span class="co">/**&lt; draw the object with wire */</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="pp">#define SOLID 1                 </span><span class="co">/**&lt; draw the object with solid fill color */</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="dt">static</span> <span class="dt">int</span> winWidth = <span class="dv">0</span>;        <span class="co">/**&lt; the new view width */</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="dt">static</span> <span class="dt">int</span> winHeight = <span class="dv">0</span>;       <span class="co">/**&lt; the new view height */</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a></span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="dt">static</span> <span class="dt">int</span> projection = PERS;   <span class="co">/**&lt; determine whether perspective or orthogonal */</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="dt">static</span> <span class="dt">int</span> drawMethod = <span class="dv">1</span>;      <span class="co">/**&lt; determine the draw method */</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a></span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="dt">static</span> <span class="dt">float</span> cameraX = <span class="dv">0</span>;       <span class="co">/**&lt; the x position of the camera */</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="dt">static</span> <span class="dt">float</span> cameraY = <span class="fl">1.0</span>;     <span class="co">/**&lt; the y position of the camera */</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="dt">static</span> <span class="dt">float</span> cameraZ = <span class="dv">10</span>;      <span class="co">/**&lt; the z position of the camera */</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a></span>
+<span id="cb1-33"><a href="#cb1-33"></a><span class="dt">static</span> <span class="dt">float</span> teapotX = <span class="fl">0.0</span>;     <span class="co">/**&lt; the x position of the teapot */</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a><span class="dt">static</span> <span class="dt">float</span> teapotY = <span class="fl">1.2</span>;     <span class="co">/**&lt; the y position of the teapot */</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a><span class="dt">static</span> <span class="dt">float</span> teapotZ = <span class="fl">0.0</span>;     <span class="co">/**&lt; the z position of the teapot */</span></span>
+<span id="cb1-36"><a href="#cb1-36"></a><span class="dt">static</span> <span class="dt">float</span> teapotRotateY = <span class="fl">0.0</span>; <span class="co">/**&lt; the rotation degree of the teapot along y axis  */</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a></span>
+<span id="cb1-38"><a href="#cb1-38"></a><span class="co">/**</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="co"> * I myself add a jump function to the teapot use i and ty[15]</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a><span class="co"> */</span></span>
+<span id="cb1-41"><a href="#cb1-41"></a></span>
+<span id="cb1-42"><a href="#cb1-42"></a><span class="dt">int</span> i = <span class="dv">0</span>;</span>
+<span id="cb1-43"><a href="#cb1-43"></a><span class="dt">float</span> ty[<span class="dv">15</span>] = {<span class="fl">1.3</span>, <span class="fl">1.4</span>, <span class="fl">1.6</span>, <span class="fl">1.9</span>, <span class="fl">2.3</span>, <span class="fl">3.0</span>, <span class="fl">3.3</span>, <span class="fl">3.4</span>, <span class="fl">3.42</span>, <span class="fl">3.4</span>, <span class="fl">3.3</span>, <span class="fl">3.0</span>, <span class="fl">2.3</span>, <span class="fl">1.5</span>, <span class="fl">1.2</span>};</span>
+<span id="cb1-44"><a href="#cb1-44"></a></span>
+<span id="cb1-45"><a href="#cb1-45"></a><span class="co">/**</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a><span class="co"> * </span><span class="an">@brief</span><span class="co"> just init the background color</span></span>
+<span id="cb1-47"><a href="#cb1-47"></a><span class="co"> *</span></span>
+<span id="cb1-48"><a href="#cb1-48"></a><span class="co"> */</span></span>
+<span id="cb1-49"><a href="#cb1-49"></a><span class="dt">void</span> init() {</span>
+<span id="cb1-50"><a href="#cb1-50"></a>  glClearColor(<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>);</span>
+<span id="cb1-51"><a href="#cb1-51"></a>}</span>
+<span id="cb1-52"><a href="#cb1-52"></a></span>
+<span id="cb1-53"><a href="#cb1-53"></a><span class="co">/**</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a><span class="co"> * </span><span class="an">@brief</span><span class="co"> draw one leg of the Desk</span></span>
+<span id="cb1-55"><a href="#cb1-55"></a><span class="co"> *</span></span>
+<span id="cb1-56"><a href="#cb1-56"></a><span class="co"> */</span></span>
+<span id="cb1-57"><a href="#cb1-57"></a><span class="dt">void</span> drawLeg() {</span>
+<span id="cb1-58"><a href="#cb1-58"></a>  glPushMatrix();</span>
+<span id="cb1-59"><a href="#cb1-59"></a>  glScalef(<span class="fl">1.0</span>, <span class="fl">3.0</span>, <span class="fl">1.0</span>);</span>
+<span id="cb1-60"><a href="#cb1-60"></a>  glutSolidCube(<span class="fl">1.0</span>);</span>
+<span id="cb1-61"><a href="#cb1-61"></a>  glPopMatrix();</span>
+<span id="cb1-62"><a href="#cb1-62"></a>}</span>
+<span id="cb1-63"><a href="#cb1-63"></a></span>
+<span id="cb1-64"><a href="#cb1-64"></a><span class="co">/**</span></span>
+<span id="cb1-65"><a href="#cb1-65"></a><span class="co"> * </span><span class="an">@brief</span><span class="co"> draw the desktop</span></span>
+<span id="cb1-66"><a href="#cb1-66"></a><span class="co"> *</span></span>
+<span id="cb1-67"><a href="#cb1-67"></a><span class="co"> */</span></span>
+<span id="cb1-68"><a href="#cb1-68"></a><span class="dt">void</span> drawDesktop() {</span>
+<span id="cb1-69"><a href="#cb1-69"></a>  glPushMatrix();</span>
+<span id="cb1-70"><a href="#cb1-70"></a>  glScalef(<span class="fl">5.0</span>, <span class="fl">1.0</span>, <span class="fl">4.0</span>);</span>
+<span id="cb1-71"><a href="#cb1-71"></a>  glutSolidCube(<span class="fl">1.0</span>);</span>
+<span id="cb1-72"><a href="#cb1-72"></a>  glPopMatrix();</span>
+<span id="cb1-73"><a href="#cb1-73"></a>}</span>
+<span id="cb1-74"><a href="#cb1-74"></a></span>
+<span id="cb1-75"><a href="#cb1-75"></a><span class="co">/**</span></span>
+<span id="cb1-76"><a href="#cb1-76"></a><span class="co"> * </span><span class="an">@brief</span><span class="co"> draw the whole desk through drawing four legs and one desktop</span></span>
+<span id="cb1-77"><a href="#cb1-77"></a><span class="co"> *</span></span>
+<span id="cb1-78"><a href="#cb1-78"></a><span class="co"> * </span><span class="an">@see</span><span class="co"> drawDesktop</span></span>
+<span id="cb1-79"><a href="#cb1-79"></a><span class="co"> * </span><span class="an">@see</span><span class="co"> drawLeg</span></span>
+<span id="cb1-80"><a href="#cb1-80"></a><span class="co"> */</span></span>
+<span id="cb1-81"><a href="#cb1-81"></a><span class="dt">void</span> drawDesk() {</span>
+<span id="cb1-82"><a href="#cb1-82"></a>  glPushMatrix();</span>
+<span id="cb1-83"><a href="#cb1-83"></a>  drawDesktop();</span>
+<span id="cb1-84"><a href="#cb1-84"></a>  glPopMatrix();</span>
+<span id="cb1-85"><a href="#cb1-85"></a></span>
+<span id="cb1-86"><a href="#cb1-86"></a>  glPushMatrix();</span>
+<span id="cb1-87"><a href="#cb1-87"></a>  glTranslatef(-<span class="fl">1.5</span>, -<span class="dv">2</span>, -<span class="dv">1</span>);</span>
+<span id="cb1-88"><a href="#cb1-88"></a>  drawLeg();</span>
+<span id="cb1-89"><a href="#cb1-89"></a>  glPopMatrix();</span>
+<span id="cb1-90"><a href="#cb1-90"></a></span>
+<span id="cb1-91"><a href="#cb1-91"></a>  glPushMatrix();</span>
+<span id="cb1-92"><a href="#cb1-92"></a>  glTranslatef(<span class="fl">1.5</span>, -<span class="dv">2</span>, -<span class="dv">1</span>);</span>
+<span id="cb1-93"><a href="#cb1-93"></a>  drawLeg();</span>
+<span id="cb1-94"><a href="#cb1-94"></a>  glPopMatrix();</span>
+<span id="cb1-95"><a href="#cb1-95"></a></span>
+<span id="cb1-96"><a href="#cb1-96"></a>  glPushMatrix();</span>
+<span id="cb1-97"><a href="#cb1-97"></a>  glTranslatef(<span class="fl">1.5</span>, -<span class="dv">2</span>, <span class="dv">1</span>);</span>
+<span id="cb1-98"><a href="#cb1-98"></a>  drawLeg();</span>
+<span id="cb1-99"><a href="#cb1-99"></a>  glPopMatrix();</span>
+<span id="cb1-100"><a href="#cb1-100"></a></span>
+<span id="cb1-101"><a href="#cb1-101"></a>  glPushMatrix();</span>
+<span id="cb1-102"><a href="#cb1-102"></a>  glTranslatef(-<span class="fl">1.5</span>, -<span class="dv">2</span>, <span class="dv">1</span>);</span>
+<span id="cb1-103"><a href="#cb1-103"></a>  drawLeg();</span>
+<span id="cb1-104"><a href="#cb1-104"></a>  glPopMatrix();</span>
+<span id="cb1-105"><a href="#cb1-105"></a>}</span>
+<span id="cb1-106"><a href="#cb1-106"></a></span>
+<span id="cb1-107"><a href="#cb1-107"></a><span class="co">/**</span></span>
+<span id="cb1-108"><a href="#cb1-108"></a><span class="co"> * </span><span class="an">@brief</span><span class="co"> draw the whole scene</span></span>
+<span id="cb1-109"><a href="#cb1-109"></a><span class="co"> *</span></span>
+<span id="cb1-110"><a href="#cb1-110"></a><span class="co"> * </span><span class="an">@see</span><span class="co"> drawDesk()</span></span>
+<span id="cb1-111"><a href="#cb1-111"></a><span class="co"> */</span></span>
+<span id="cb1-112"><a href="#cb1-112"></a><span class="dt">void</span> drawScene() {</span>
+<span id="cb1-113"><a href="#cb1-113"></a>  drawDesk();</span>
+<span id="cb1-114"><a href="#cb1-114"></a>  glPushMatrix();</span>
+<span id="cb1-115"><a href="#cb1-115"></a>  glTranslatef(teapotX, teapotY, teapotZ);</span>
+<span id="cb1-116"><a href="#cb1-116"></a>  glRotatef(teapotRotateY, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>);</span>
+<span id="cb1-117"><a href="#cb1-117"></a>  glutSolidTeapot(<span class="fl">1.0</span>);</span>
+<span id="cb1-118"><a href="#cb1-118"></a>  glPopMatrix();</span>
+<span id="cb1-119"><a href="#cb1-119"></a>}</span>
+<span id="cb1-120"><a href="#cb1-120"></a></span>
+<span id="cb1-121"><a href="#cb1-121"></a><span class="co">/**</span></span>
+<span id="cb1-122"><a href="#cb1-122"></a><span class="co"> * </span><span class="an">@brief</span><span class="co"> display the three sides of the desktop</span></span>
+<span id="cb1-123"><a href="#cb1-123"></a><span class="co"> *</span></span>
+<span id="cb1-124"><a href="#cb1-124"></a><span class="co"> * </span><span class="an">@see</span><span class="co"> drawScene();</span></span>
+<span id="cb1-125"><a href="#cb1-125"></a><span class="co"> */</span></span>
+<span id="cb1-126"><a href="#cb1-126"></a><span class="dt">void</span> display() {</span>
+<span id="cb1-127"><a href="#cb1-127"></a>  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);</span>
+<span id="cb1-128"><a href="#cb1-128"></a></span>
+<span id="cb1-129"><a href="#cb1-129"></a>  glColor3f(<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>);</span>
+<span id="cb1-130"><a href="#cb1-130"></a>  glLoadIdentity();</span>
+<span id="cb1-131"><a href="#cb1-131"></a></span>
+<span id="cb1-132"><a href="#cb1-132"></a>  gluLookAt(cameraX, cameraY, cameraZ, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>);</span>
+<span id="cb1-133"><a href="#cb1-133"></a></span>
+<span id="cb1-134"><a href="#cb1-134"></a>  <span class="cf">if</span>(drawMethod == SOLID) {</span>
+<span id="cb1-135"><a href="#cb1-135"></a>    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);</span>
+<span id="cb1-136"><a href="#cb1-136"></a>  }</span>
+<span id="cb1-137"><a href="#cb1-137"></a>  <span class="cf">else</span> {</span>
+<span id="cb1-138"><a href="#cb1-138"></a>    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);</span>
+<span id="cb1-139"><a href="#cb1-139"></a>  }</span>
+<span id="cb1-140"><a href="#cb1-140"></a></span>
+<span id="cb1-141"><a href="#cb1-141"></a>  glEnable(GL_DEPTH_TEST);</span>
+<span id="cb1-142"><a href="#cb1-142"></a></span>
+<span id="cb1-143"><a href="#cb1-143"></a>  glEnable(GL_LIGHTING);</span>
+<span id="cb1-144"><a href="#cb1-144"></a>  GLfloat white[] = {<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>};</span>
+<span id="cb1-145"><a href="#cb1-145"></a>  GLfloat light_pos[] = {<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">1</span>};</span>
+<span id="cb1-146"><a href="#cb1-146"></a></span>
+<span id="cb1-147"><a href="#cb1-147"></a>  glLightfv(GL_LIGHT0, GL_POSITION, light_pos);</span>
+<span id="cb1-148"><a href="#cb1-148"></a>  glLightfv(GL_LIGHT0, GL_AMBIENT, white);</span>
+<span id="cb1-149"><a href="#cb1-149"></a>  glEnable(GL_LIGHT0);</span>
+<span id="cb1-150"><a href="#cb1-150"></a></span>
+<span id="cb1-151"><a href="#cb1-151"></a>  drawScene();</span>
+<span id="cb1-152"><a href="#cb1-152"></a></span>
+<span id="cb1-153"><a href="#cb1-153"></a>  glFlush();</span>
+<span id="cb1-154"><a href="#cb1-154"></a></span>
+<span id="cb1-155"><a href="#cb1-155"></a>  glutSwapBuffers();</span>
+<span id="cb1-156"><a href="#cb1-156"></a>}</span>
+<span id="cb1-157"><a href="#cb1-157"></a></span>
+<span id="cb1-158"><a href="#cb1-158"></a><span class="co">/**</span></span>
+<span id="cb1-159"><a href="#cb1-159"></a><span class="co"> * </span><span class="an">@brief</span><span class="co"> update the viewport of the whole scene when press a special key</span></span>
+<span id="cb1-160"><a href="#cb1-160"></a><span class="co"> *</span></span>
+<span id="cb1-161"><a href="#cb1-161"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">width</span><span class="co"> the width of the new viewport</span></span>
+<span id="cb1-162"><a href="#cb1-162"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">height</span><span class="co"> the height of the new viewport</span></span>
+<span id="cb1-163"><a href="#cb1-163"></a><span class="co"> */</span></span>
+<span id="cb1-164"><a href="#cb1-164"></a><span class="dt">void</span> updateView(<span class="dt">int</span> width, <span class="dt">int</span> height) {</span>
+<span id="cb1-165"><a href="#cb1-165"></a>  glViewport(<span class="dv">0</span>, <span class="dv">0</span>, (GLint)width, (GLint)height);</span>
+<span id="cb1-166"><a href="#cb1-166"></a>  glMatrixMode(GL_PROJECTION);</span>
+<span id="cb1-167"><a href="#cb1-167"></a>  glLoadIdentity();</span>
+<span id="cb1-168"><a href="#cb1-168"></a></span>
+<span id="cb1-169"><a href="#cb1-169"></a>  <span class="cf">if</span> (projection == PERS) {</span>
+<span id="cb1-170"><a href="#cb1-170"></a>    glFrustum(-<span class="fl">1.0</span>, <span class="fl">1.0</span>, -<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">0.5</span>, <span class="fl">40.0</span>);</span>
+<span id="cb1-171"><a href="#cb1-171"></a>  }</span>
+<span id="cb1-172"><a href="#cb1-172"></a>  <span class="cf">else</span> <span class="cf">if</span> (projection == ORTHO) {</span>
+<span id="cb1-173"><a href="#cb1-173"></a>    glOrtho(-<span class="fl">10.0</span>, <span class="fl">10.0</span>, -<span class="fl">10.0</span>, <span class="fl">10.0</span>, <span class="fl">0.5</span>, <span class="fl">40.0</span>);</span>
+<span id="cb1-174"><a href="#cb1-174"></a>  }</span>
+<span id="cb1-175"><a href="#cb1-175"></a>  <span class="cf">else</span> {</span>
+<span id="cb1-176"><a href="#cb1-176"></a>    projection = PERS;</span>
+<span id="cb1-177"><a href="#cb1-177"></a>  }</span>
+<span id="cb1-178"><a href="#cb1-178"></a></span>
+<span id="cb1-179"><a href="#cb1-179"></a>  glMatrixMode(GL_MODELVIEW);</span>
+<span id="cb1-180"><a href="#cb1-180"></a>}</span>
+<span id="cb1-181"><a href="#cb1-181"></a></span>
+<span id="cb1-182"><a href="#cb1-182"></a><span class="co">/**</span></span>
+<span id="cb1-183"><a href="#cb1-183"></a><span class="co"> * </span><span class="an">@brief</span><span class="co"> glut reshape function</span></span>
+<span id="cb1-184"><a href="#cb1-184"></a><span class="co"> *</span></span>
+<span id="cb1-185"><a href="#cb1-185"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">width</span></span>
+<span id="cb1-186"><a href="#cb1-186"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">height</span></span>
+<span id="cb1-187"><a href="#cb1-187"></a><span class="co"> * </span><span class="an">@see</span><span class="co"> updateView()</span></span>
+<span id="cb1-188"><a href="#cb1-188"></a><span class="co"> */</span></span>
+<span id="cb1-189"><a href="#cb1-189"></a><span class="dt">void</span> reshape(<span class="dt">int</span> width, <span class="dt">int</span> height) {</span>
+<span id="cb1-190"><a href="#cb1-190"></a>  <span class="cf">if</span> (height == <span class="dv">0</span>) {</span>
+<span id="cb1-191"><a href="#cb1-191"></a>    height = <span class="dv">1</span>;</span>
+<span id="cb1-192"><a href="#cb1-192"></a>  }</span>
+<span id="cb1-193"><a href="#cb1-193"></a></span>
+<span id="cb1-194"><a href="#cb1-194"></a>  winWidth = width;</span>
+<span id="cb1-195"><a href="#cb1-195"></a>  winHeight = height;</span>
+<span id="cb1-196"><a href="#cb1-196"></a></span>
+<span id="cb1-197"><a href="#cb1-197"></a>  updateView(winWidth, winHeight);</span>
+<span id="cb1-198"><a href="#cb1-198"></a>}</span>
+<span id="cb1-199"><a href="#cb1-199"></a></span>
+<span id="cb1-200"><a href="#cb1-200"></a><span class="co">/**</span></span>
+<span id="cb1-201"><a href="#cb1-201"></a><span class="co"> * </span><span class="an">@brief</span><span class="co"> glut idle function</span></span>
+<span id="cb1-202"><a href="#cb1-202"></a><span class="co"> *</span></span>
+<span id="cb1-203"><a href="#cb1-203"></a><span class="co"> */</span></span>
+<span id="cb1-204"><a href="#cb1-204"></a><span class="dt">void</span> idle() {</span>
+<span id="cb1-205"><a href="#cb1-205"></a>  glutPostRedisplay();</span>
+<span id="cb1-206"><a href="#cb1-206"></a>}</span>
+<span id="cb1-207"><a href="#cb1-207"></a></span>
+<span id="cb1-208"><a href="#cb1-208"></a><span class="co">/**</span></span>
+<span id="cb1-209"><a href="#cb1-209"></a><span class="co"> * </span><span class="an">@brief</span><span class="co"> control the keyboard interactive actions</span></span>
+<span id="cb1-210"><a href="#cb1-210"></a><span class="co"> *</span></span>
+<span id="cb1-211"><a href="#cb1-211"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">key</span><span class="co"> the key which pressed</span></span>
+<span id="cb1-212"><a href="#cb1-212"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">x</span><span class="co"> the x mouse position</span></span>
+<span id="cb1-213"><a href="#cb1-213"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">y</span><span class="co"> the y mouse position</span></span>
+<span id="cb1-214"><a href="#cb1-214"></a><span class="co"> */</span></span>
+<span id="cb1-215"><a href="#cb1-215"></a></span>
+<span id="cb1-216"><a href="#cb1-216"></a><span class="dt">void</span> keyboard(<span class="dt">unsigned</span> <span class="dt">char</span> key, <span class="dt">int</span> x, <span class="dt">int</span> y) {</span>
+<span id="cb1-217"><a href="#cb1-217"></a>  <span class="cf">switch</span>(key) {</span>
+<span id="cb1-218"><a href="#cb1-218"></a>  <span class="cf">case</span> <span class="dv">27</span>:</span>
+<span id="cb1-219"><a href="#cb1-219"></a>  <span class="cf">case</span> <span class="ch">&#39;q&#39;</span>:                   <span class="co">/**&lt; press q or ESC to quit this program */</span></span>
+<span id="cb1-220"><a href="#cb1-220"></a>    exit(<span class="dv">0</span>);</span>
+<span id="cb1-221"><a href="#cb1-221"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-222"><a href="#cb1-222"></a></span>
+<span id="cb1-223"><a href="#cb1-223"></a>  <span class="cf">case</span> <span class="ch">&#39;p&#39;</span>:                   <span class="co">/**&lt; press x to switch between perspective and oothogonal view */</span></span>
+<span id="cb1-224"><a href="#cb1-224"></a>    projection = (projection + <span class="dv">1</span>) % <span class="dv">2</span>;</span>
+<span id="cb1-225"><a href="#cb1-225"></a>    updateView(winWidth, winHeight);</span>
+<span id="cb1-226"><a href="#cb1-226"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-227"><a href="#cb1-227"></a></span>
+<span id="cb1-228"><a href="#cb1-228"></a>  <span class="cf">case</span> <span class="ch">&#39;t&#39;</span>:</span>
+<span id="cb1-229"><a href="#cb1-229"></a>    drawMethod = (drawMethod + <span class="dv">1</span>) % <span class="dv">2</span>;</span>
+<span id="cb1-230"><a href="#cb1-230"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-231"><a href="#cb1-231"></a></span>
+<span id="cb1-232"><a href="#cb1-232"></a>  <span class="cf">case</span> <span class="ch">&#39;a&#39;</span>:                   <span class="co">/**&lt; press a to adjust camera position along negative x axis */</span></span>
+<span id="cb1-233"><a href="#cb1-233"></a>    cameraX--;</span>
+<span id="cb1-234"><a href="#cb1-234"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-235"><a href="#cb1-235"></a></span>
+<span id="cb1-236"><a href="#cb1-236"></a>  <span class="cf">case</span> <span class="ch">&#39;d&#39;</span>:</span>
+<span id="cb1-237"><a href="#cb1-237"></a>    cameraX++;</span>
+<span id="cb1-238"><a href="#cb1-238"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-239"><a href="#cb1-239"></a></span>
+<span id="cb1-240"><a href="#cb1-240"></a>  <span class="cf">case</span> <span class="ch">&#39;w&#39;</span>:</span>
+<span id="cb1-241"><a href="#cb1-241"></a>    cameraY++;</span>
+<span id="cb1-242"><a href="#cb1-242"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-243"><a href="#cb1-243"></a></span>
+<span id="cb1-244"><a href="#cb1-244"></a>  <span class="cf">case</span> <span class="ch">&#39;s&#39;</span>:</span>
+<span id="cb1-245"><a href="#cb1-245"></a>    cameraY--;</span>
+<span id="cb1-246"><a href="#cb1-246"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-247"><a href="#cb1-247"></a></span>
+<span id="cb1-248"><a href="#cb1-248"></a>  <span class="cf">case</span> <span class="ch">&#39;z&#39;</span>:</span>
+<span id="cb1-249"><a href="#cb1-249"></a>    cameraZ++;</span>
+<span id="cb1-250"><a href="#cb1-250"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-251"><a href="#cb1-251"></a></span>
+<span id="cb1-252"><a href="#cb1-252"></a>  <span class="cf">case</span> <span class="ch">&#39;c&#39;</span>:</span>
+<span id="cb1-253"><a href="#cb1-253"></a>    cameraZ--;</span>
+<span id="cb1-254"><a href="#cb1-254"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-255"><a href="#cb1-255"></a>    <span class="co">/**</span></span>
+<span id="cb1-256"><a href="#cb1-256"></a><span class="co">     * operations about teapot</span></span>
+<span id="cb1-257"><a href="#cb1-257"></a><span class="co">     *</span></span>
+<span id="cb1-258"><a href="#cb1-258"></a><span class="co">     */</span></span>
+<span id="cb1-259"><a href="#cb1-259"></a>  <span class="cf">case</span> <span class="ch">&#39;l&#39;</span>:                   <span class="co">/**&lt; move the teapot along positive x axis */</span></span>
+<span id="cb1-260"><a href="#cb1-260"></a>    <span class="cf">if</span> (teapotX &gt;= <span class="fl">2.5</span>) {    <span class="co">/**&lt; the teapot cannot be moved out of the desktop */</span></span>
+<span id="cb1-261"><a href="#cb1-261"></a>      teapotX -= <span class="fl">2.5</span>;</span>
+<span id="cb1-262"><a href="#cb1-262"></a>    }</span>
+<span id="cb1-263"><a href="#cb1-263"></a>    teapotX += <span class="fl">0.1</span>;</span>
+<span id="cb1-264"><a href="#cb1-264"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-265"><a href="#cb1-265"></a></span>
+<span id="cb1-266"><a href="#cb1-266"></a>  <span class="cf">case</span> <span class="ch">&#39;j&#39;</span>:</span>
+<span id="cb1-267"><a href="#cb1-267"></a>    <span class="cf">if</span> (teapotX &lt;= -<span class="fl">2.5</span>) {</span>
+<span id="cb1-268"><a href="#cb1-268"></a>      teapotX += <span class="fl">2.5</span>;</span>
+<span id="cb1-269"><a href="#cb1-269"></a>    }</span>
+<span id="cb1-270"><a href="#cb1-270"></a>    teapotX -= <span class="fl">0.1</span>;</span>
+<span id="cb1-271"><a href="#cb1-271"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-272"><a href="#cb1-272"></a></span>
+<span id="cb1-273"><a href="#cb1-273"></a>  <span class="cf">case</span> <span class="ch">&#39;i&#39;</span>:</span>
+<span id="cb1-274"><a href="#cb1-274"></a>    <span class="cf">if</span> (teapotZ &gt;= <span class="fl">2.0</span>) {</span>
+<span id="cb1-275"><a href="#cb1-275"></a>      teapotZ -= <span class="fl">2.0</span>;</span>
+<span id="cb1-276"><a href="#cb1-276"></a>    }</span>
+<span id="cb1-277"><a href="#cb1-277"></a>    teapotZ += <span class="fl">0.1</span>;</span>
+<span id="cb1-278"><a href="#cb1-278"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-279"><a href="#cb1-279"></a></span>
+<span id="cb1-280"><a href="#cb1-280"></a>  <span class="cf">case</span> <span class="ch">&#39;k&#39;</span>:</span>
+<span id="cb1-281"><a href="#cb1-281"></a>    <span class="cf">if</span> (teapotZ &lt;= -<span class="fl">2.0</span>) {</span>
+<span id="cb1-282"><a href="#cb1-282"></a>      teapotZ += <span class="fl">2.0</span>;</span>
+<span id="cb1-283"><a href="#cb1-283"></a>    }</span>
+<span id="cb1-284"><a href="#cb1-284"></a>    teapotZ -= <span class="fl">0.1</span>;</span>
+<span id="cb1-285"><a href="#cb1-285"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-286"><a href="#cb1-286"></a></span>
+<span id="cb1-287"><a href="#cb1-287"></a>  <span class="cf">case</span> <span class="ch">&#39;e&#39;</span>:</span>
+<span id="cb1-288"><a href="#cb1-288"></a>    teapotRotateY ++;</span>
+<span id="cb1-289"><a href="#cb1-289"></a>    <span class="cf">break</span>;</span>
+<span id="cb1-290"><a href="#cb1-290"></a></span>
+<span id="cb1-291"><a href="#cb1-291"></a>  <span class="cf">case</span> <span class="ch">&#39;o&#39;</span>:                   <span class="co">/**&lt; make the teapot jump on the desktop */</span></span>
+<span id="cb1-292"><a href="#cb1-292"></a>    teapotY = ty[i++];</span>
+<span id="cb1-293"><a href="#cb1-293"></a>    <span class="cf">if</span> (i &gt;= <span class="dv">15</span>) {</span>
+<span id="cb1-294"><a href="#cb1-294"></a>      i -= <span class="dv">15</span>;</span>
+<span id="cb1-295"><a href="#cb1-295"></a>    }</span>
+<span id="cb1-296"><a href="#cb1-296"></a>  }</span>
+<span id="cb1-297"><a href="#cb1-297"></a></span>
+<span id="cb1-298"><a href="#cb1-298"></a>  glutPostRedisplay();</span>
+<span id="cb1-299"><a href="#cb1-299"></a>}</span>
+<span id="cb1-300"><a href="#cb1-300"></a></span>
+<span id="cb1-301"><a href="#cb1-301"></a><span class="co">/**</span></span>
+<span id="cb1-302"><a href="#cb1-302"></a><span class="co"> * </span><span class="an">@brief</span><span class="co"> main function</span></span>
+<span id="cb1-303"><a href="#cb1-303"></a><span class="co"> *</span></span>
+<span id="cb1-304"><a href="#cb1-304"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">argc</span></span>
+<span id="cb1-305"><a href="#cb1-305"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">argv</span></span>
+<span id="cb1-306"><a href="#cb1-306"></a><span class="co"> *</span></span>
+<span id="cb1-307"><a href="#cb1-307"></a><span class="co"> * </span><span class="an">@return</span><span class="co"> 0</span></span>
+<span id="cb1-308"><a href="#cb1-308"></a><span class="co"> */</span></span>
+<span id="cb1-309"><a href="#cb1-309"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span>** argv) {</span>
+<span id="cb1-310"><a href="#cb1-310"></a>  glutInit(&amp;argc, argv);</span>
+<span id="cb1-311"><a href="#cb1-311"></a>  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);</span>
+<span id="cb1-312"><a href="#cb1-312"></a></span>
+<span id="cb1-313"><a href="#cb1-313"></a>  glutInitWindowSize(<span class="dv">500</span>, <span class="dv">500</span>);</span>
+<span id="cb1-314"><a href="#cb1-314"></a>  glutInitWindowPosition(<span class="dv">100</span>, <span class="dv">100</span>);</span>
+<span id="cb1-315"><a href="#cb1-315"></a></span>
+<span id="cb1-316"><a href="#cb1-316"></a>  glutCreateWindow(<span class="st">&quot;Simple opengl 3d modelview program&quot;</span>);</span>
+<span id="cb1-317"><a href="#cb1-317"></a></span>
+<span id="cb1-318"><a href="#cb1-318"></a>  init();</span>
+<span id="cb1-319"><a href="#cb1-319"></a></span>
+<span id="cb1-320"><a href="#cb1-320"></a>  glutDisplayFunc(display);</span>
+<span id="cb1-321"><a href="#cb1-321"></a>  glutReshapeFunc(reshape);</span>
+<span id="cb1-322"><a href="#cb1-322"></a>  glutKeyboardFunc(keyboard);</span>
+<span id="cb1-323"><a href="#cb1-323"></a>  glutIdleFunc(idle);</span>
+<span id="cb1-324"><a href="#cb1-324"></a></span>
+<span id="cb1-325"><a href="#cb1-325"></a>  glutMainLoop();</span>
+<span id="cb1-326"><a href="#cb1-326"></a></span>
+<span id="cb1-327"><a href="#cb1-327"></a>  <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb1-328"><a href="#cb1-328"></a>}</span></code></pre></div>
 <p>思路还是蛮清晰的。理解起来也不是很难。这三天看了很多的资料，觉得自学的好处就是可以接触大量的资料，从多方面对同一个问题有更好的理解，但是缺点就是太耗费时间了。有些问题老师一句话就可以点明白，但是自己探索却要好长时间。不过我很享受这种探索的乐趣。</p>
 <p>前几日耗费了一天多的时间看完了开复自传《世界以你不同》，感慨颇多。毫无疑问，开复是幸运的，他有着良好的家庭条件，及早的接受了美国先进的教育，在那里又碰到了很多对他未来起着决定性作用的好老师，如教他英语的中学老师，他的大学课上说了那句“make a difference"的哲学老师，“不同意却支持他”的博士导师。正是这些人将开复推向了人生的顶峰。最喜欢的是开复的座右铭：</p>
 <blockquote>

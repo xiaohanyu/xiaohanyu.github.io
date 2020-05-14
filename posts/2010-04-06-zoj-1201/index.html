@@ -59,78 +59,78 @@
 <div class="row article-body">
   <section class="twelve wide column"><p>继续刷水题。看到这道题目有印象，想想，貌似当初算法是想出来了。就是自己想写个链表却有 bug，结果一直拖着没有解决。好歹前几天又研究了下 STL，这下派上用场了。不过代码写的很乱，感觉不够优美，不 beautiful。最后的输入输出有些小问题，导致第一次提交是 Presentation Error。后来仔细看了看搞定。算了，先糊弄着看吧。15 道了。还有 285 道。一道一道的啃。</p>
 <p>具体解题思路就不写了。大概如下，如果是 <code>P</code> ，就进行双层循环，然后搞一个数组的索引（不知道该怎么说哎……）；如果是 <code>I</code> ，建立一个链表，从 <code>Inversion[]</code> 的最后一个元素开始循环，然后分别处理每个元素。根据 <code>Inversion[i]</code> 的数值遍历链表并插入合适的元素。最后的输入输出有问题。仔细看一下就行了。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="pp">#include </span><span class="im">&lt;list&gt;</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
-<a class="sourceLine" id="cb1-4" title="4"></a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="at">const</span> <span class="dt">int</span> max_size = <span class="dv">50</span>;</a>
-<a class="sourceLine" id="cb1-6" title="6"></a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[])</a>
-<a class="sourceLine" id="cb1-8" title="8">{</a>
-<a class="sourceLine" id="cb1-9" title="9">  <span class="dt">int</span> cases;</a>
-<a class="sourceLine" id="cb1-10" title="10">  <span class="dt">char</span> method;</a>
-<a class="sourceLine" id="cb1-11" title="11"></a>
-<a class="sourceLine" id="cb1-12" title="12">  <span class="cf">while</span> (<span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb1-13" title="13">    cin &gt;&gt; cases;</a>
-<a class="sourceLine" id="cb1-14" title="14"></a>
-<a class="sourceLine" id="cb1-15" title="15">    <span class="cf">if</span> (cases == <span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb1-16" title="16">      <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-17" title="17">    }</a>
-<a class="sourceLine" id="cb1-18" title="18"></a>
-<a class="sourceLine" id="cb1-19" title="19">    cin &gt;&gt; method;</a>
-<a class="sourceLine" id="cb1-20" title="20">    <span class="cf">if</span> (method == <span class="ch">&#39;P&#39;</span>) {</a>
-<a class="sourceLine" id="cb1-21" title="21">      <span class="dt">int</span> P[max_size], I[max_size];</a>
-<a class="sourceLine" id="cb1-22" title="22"></a>
-<a class="sourceLine" id="cb1-23" title="23">      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases; ++i) {</a>
-<a class="sourceLine" id="cb1-24" title="24">        cin &gt;&gt; P[i];</a>
-<a class="sourceLine" id="cb1-25" title="25">        I[i] = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb1-26" title="26">      }</a>
-<a class="sourceLine" id="cb1-27" title="27">      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases; ++i) {</a>
-<a class="sourceLine" id="cb1-28" title="28">        <span class="cf">for</span> (<span class="dt">int</span> j = i + <span class="dv">1</span>; j &lt; cases; ++j) {</a>
-<a class="sourceLine" id="cb1-29" title="29">          <span class="cf">if</span> (P[i] &gt; P[j]) {</a>
-<a class="sourceLine" id="cb1-30" title="30">            I[P[j]-<span class="dv">1</span>]++;</a>
-<a class="sourceLine" id="cb1-31" title="31">          }</a>
-<a class="sourceLine" id="cb1-32" title="32">        }</a>
-<a class="sourceLine" id="cb1-33" title="33">      }</a>
-<a class="sourceLine" id="cb1-34" title="34">      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases - <span class="dv">1</span>; ++i) {</a>
-<a class="sourceLine" id="cb1-35" title="35">        cout &lt;&lt; I[i] &lt;&lt; <span class="st">&quot; &quot;</span>;</a>
-<a class="sourceLine" id="cb1-36" title="36">      }</a>
-<a class="sourceLine" id="cb1-37" title="37">      cout &lt;&lt; I[cases - <span class="dv">1</span>] &lt;&lt; endl;</a>
-<a class="sourceLine" id="cb1-38" title="38">    }</a>
-<a class="sourceLine" id="cb1-39" title="39">    <span class="cf">else</span> <span class="cf">if</span> (method == <span class="ch">&#39;I&#39;</span>) {</a>
-<a class="sourceLine" id="cb1-40" title="40">      list&lt;<span class="dt">int</span>&gt; P;</a>
-<a class="sourceLine" id="cb1-41" title="41">      <span class="dt">int</span> I[max_size];</a>
-<a class="sourceLine" id="cb1-42" title="42"></a>
-<a class="sourceLine" id="cb1-43" title="43">      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases; ++i) {</a>
-<a class="sourceLine" id="cb1-44" title="44">        cin &gt;&gt; I[i];</a>
-<a class="sourceLine" id="cb1-45" title="45">      }</a>
-<a class="sourceLine" id="cb1-46" title="46"></a>
-<a class="sourceLine" id="cb1-47" title="47">      P.push_back(cases);</a>
-<a class="sourceLine" id="cb1-48" title="48"></a>
-<a class="sourceLine" id="cb1-49" title="49">      <span class="cf">for</span> (<span class="dt">int</span> i = cases - <span class="dv">2</span>; i &gt;= <span class="dv">0</span>; --i) {</a>
-<a class="sourceLine" id="cb1-50" title="50">        list&lt;<span class="dt">int</span>&gt;::iterator it = P.begin();</a>
-<a class="sourceLine" id="cb1-51" title="51">        <span class="cf">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; I[i]; j++) {</a>
-<a class="sourceLine" id="cb1-52" title="52">          it++;</a>
-<a class="sourceLine" id="cb1-53" title="53">        }</a>
-<a class="sourceLine" id="cb1-54" title="54">        P.insert(it, i+<span class="dv">1</span>);</a>
-<a class="sourceLine" id="cb1-55" title="55">      }</a>
-<a class="sourceLine" id="cb1-56" title="56"></a>
-<a class="sourceLine" id="cb1-57" title="57">      list&lt;<span class="dt">int</span>&gt;::iterator it;</a>
-<a class="sourceLine" id="cb1-58" title="58">      <span class="dt">int</span> i;</a>
-<a class="sourceLine" id="cb1-59" title="59"></a>
-<a class="sourceLine" id="cb1-60" title="60">      <span class="cf">for</span> (i = <span class="dv">0</span>, it = P.begin(); i &lt; P.size() - <span class="dv">1</span>; ++it, ++i) {</a>
-<a class="sourceLine" id="cb1-61" title="61">        cout &lt;&lt; *it &lt;&lt; <span class="st">&quot; &quot;</span>;</a>
-<a class="sourceLine" id="cb1-62" title="62">      }</a>
-<a class="sourceLine" id="cb1-63" title="63"></a>
-<a class="sourceLine" id="cb1-64" title="64">      cout &lt;&lt; *it &lt;&lt; endl;</a>
-<a class="sourceLine" id="cb1-65" title="65">    }</a>
-<a class="sourceLine" id="cb1-66" title="66">    <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb1-67" title="67">      <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb1-68" title="68">    }</a>
-<a class="sourceLine" id="cb1-69" title="69">  }</a>
-<a class="sourceLine" id="cb1-70" title="70"></a>
-<a class="sourceLine" id="cb1-71" title="71">  <span class="cf">return</span> <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb1-72" title="72">}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="pp">#include </span><span class="im">&lt;list&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">using</span> <span class="kw">namespace</span> std;</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="at">const</span> <span class="dt">int</span> max_size = <span class="dv">50</span>;</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[])</span>
+<span id="cb1-8"><a href="#cb1-8"></a>{</span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="dt">int</span> cases;</span>
+<span id="cb1-10"><a href="#cb1-10"></a>  <span class="dt">char</span> method;</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="cf">while</span> (<span class="dv">1</span>) {</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    cin &gt;&gt; cases;</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a>    <span class="cf">if</span> (cases == <span class="dv">0</span>) {</span>
+<span id="cb1-16"><a href="#cb1-16"></a>      <span class="cf">break</span>;</span>
+<span id="cb1-17"><a href="#cb1-17"></a>    }</span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a>    cin &gt;&gt; method;</span>
+<span id="cb1-20"><a href="#cb1-20"></a>    <span class="cf">if</span> (method == <span class="ch">&#39;P&#39;</span>) {</span>
+<span id="cb1-21"><a href="#cb1-21"></a>      <span class="dt">int</span> P[max_size], I[max_size];</span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a>      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases; ++i) {</span>
+<span id="cb1-24"><a href="#cb1-24"></a>        cin &gt;&gt; P[i];</span>
+<span id="cb1-25"><a href="#cb1-25"></a>        I[i] = <span class="dv">0</span>;</span>
+<span id="cb1-26"><a href="#cb1-26"></a>      }</span>
+<span id="cb1-27"><a href="#cb1-27"></a>      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases; ++i) {</span>
+<span id="cb1-28"><a href="#cb1-28"></a>        <span class="cf">for</span> (<span class="dt">int</span> j = i + <span class="dv">1</span>; j &lt; cases; ++j) {</span>
+<span id="cb1-29"><a href="#cb1-29"></a>          <span class="cf">if</span> (P[i] &gt; P[j]) {</span>
+<span id="cb1-30"><a href="#cb1-30"></a>            I[P[j]-<span class="dv">1</span>]++;</span>
+<span id="cb1-31"><a href="#cb1-31"></a>          }</span>
+<span id="cb1-32"><a href="#cb1-32"></a>        }</span>
+<span id="cb1-33"><a href="#cb1-33"></a>      }</span>
+<span id="cb1-34"><a href="#cb1-34"></a>      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases - <span class="dv">1</span>; ++i) {</span>
+<span id="cb1-35"><a href="#cb1-35"></a>        cout &lt;&lt; I[i] &lt;&lt; <span class="st">&quot; &quot;</span>;</span>
+<span id="cb1-36"><a href="#cb1-36"></a>      }</span>
+<span id="cb1-37"><a href="#cb1-37"></a>      cout &lt;&lt; I[cases - <span class="dv">1</span>] &lt;&lt; endl;</span>
+<span id="cb1-38"><a href="#cb1-38"></a>    }</span>
+<span id="cb1-39"><a href="#cb1-39"></a>    <span class="cf">else</span> <span class="cf">if</span> (method == <span class="ch">&#39;I&#39;</span>) {</span>
+<span id="cb1-40"><a href="#cb1-40"></a>      list&lt;<span class="dt">int</span>&gt; P;</span>
+<span id="cb1-41"><a href="#cb1-41"></a>      <span class="dt">int</span> I[max_size];</span>
+<span id="cb1-42"><a href="#cb1-42"></a></span>
+<span id="cb1-43"><a href="#cb1-43"></a>      <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; cases; ++i) {</span>
+<span id="cb1-44"><a href="#cb1-44"></a>        cin &gt;&gt; I[i];</span>
+<span id="cb1-45"><a href="#cb1-45"></a>      }</span>
+<span id="cb1-46"><a href="#cb1-46"></a></span>
+<span id="cb1-47"><a href="#cb1-47"></a>      P.push_back(cases);</span>
+<span id="cb1-48"><a href="#cb1-48"></a></span>
+<span id="cb1-49"><a href="#cb1-49"></a>      <span class="cf">for</span> (<span class="dt">int</span> i = cases - <span class="dv">2</span>; i &gt;= <span class="dv">0</span>; --i) {</span>
+<span id="cb1-50"><a href="#cb1-50"></a>        list&lt;<span class="dt">int</span>&gt;::iterator it = P.begin();</span>
+<span id="cb1-51"><a href="#cb1-51"></a>        <span class="cf">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; I[i]; j++) {</span>
+<span id="cb1-52"><a href="#cb1-52"></a>          it++;</span>
+<span id="cb1-53"><a href="#cb1-53"></a>        }</span>
+<span id="cb1-54"><a href="#cb1-54"></a>        P.insert(it, i+<span class="dv">1</span>);</span>
+<span id="cb1-55"><a href="#cb1-55"></a>      }</span>
+<span id="cb1-56"><a href="#cb1-56"></a></span>
+<span id="cb1-57"><a href="#cb1-57"></a>      list&lt;<span class="dt">int</span>&gt;::iterator it;</span>
+<span id="cb1-58"><a href="#cb1-58"></a>      <span class="dt">int</span> i;</span>
+<span id="cb1-59"><a href="#cb1-59"></a></span>
+<span id="cb1-60"><a href="#cb1-60"></a>      <span class="cf">for</span> (i = <span class="dv">0</span>, it = P.begin(); i &lt; P.size() - <span class="dv">1</span>; ++it, ++i) {</span>
+<span id="cb1-61"><a href="#cb1-61"></a>        cout &lt;&lt; *it &lt;&lt; <span class="st">&quot; &quot;</span>;</span>
+<span id="cb1-62"><a href="#cb1-62"></a>      }</span>
+<span id="cb1-63"><a href="#cb1-63"></a></span>
+<span id="cb1-64"><a href="#cb1-64"></a>      cout &lt;&lt; *it &lt;&lt; endl;</span>
+<span id="cb1-65"><a href="#cb1-65"></a>    }</span>
+<span id="cb1-66"><a href="#cb1-66"></a>    <span class="cf">else</span> {</span>
+<span id="cb1-67"><a href="#cb1-67"></a>      <span class="cf">break</span>;</span>
+<span id="cb1-68"><a href="#cb1-68"></a>    }</span>
+<span id="cb1-69"><a href="#cb1-69"></a>  }</span>
+<span id="cb1-70"><a href="#cb1-70"></a></span>
+<span id="cb1-71"><a href="#cb1-71"></a>  <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb1-72"><a href="#cb1-72"></a>}</span></code></pre></div>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">

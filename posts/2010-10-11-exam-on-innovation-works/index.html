@@ -62,39 +62,39 @@
 <ul>
 <li>关于 c union type，求下列程序的输出结果（具体程序既不清楚了，考点在于 union type 的内存分布）</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></a>
-<a class="sourceLine" id="cb1-2" title="2"></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="kw">union</span> u</a>
-<a class="sourceLine" id="cb1-4" title="4">{</a>
-<a class="sourceLine" id="cb1-5" title="5">  <span class="dt">int</span> i;</a>
-<a class="sourceLine" id="cb1-6" title="6">  <span class="dt">char</span> x[<span class="dv">2</span>];</a>
-<a class="sourceLine" id="cb1-7" title="7">} a;</a>
-<a class="sourceLine" id="cb1-8" title="8"></a>
-<a class="sourceLine" id="cb1-9" title="9"><span class="dt">int</span> main()</a>
-<a class="sourceLine" id="cb1-10" title="10">{</a>
-<a class="sourceLine" id="cb1-11" title="11">  a.x[<span class="dv">0</span>] = <span class="ch">&#39;1&#39;</span>;</a>
-<a class="sourceLine" id="cb1-12" title="12">  a.x[<span class="dv">1</span>] = <span class="ch">&#39;2&#39;</span>;</a>
-<a class="sourceLine" id="cb1-13" title="13">  printf(<span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span>, a.i);</a>
-<a class="sourceLine" id="cb1-14" title="14">  <span class="cf">return</span> <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb1-15" title="15">}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">union</span> u</span>
+<span id="cb1-4"><a href="#cb1-4"></a>{</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="dt">int</span> i;</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="dt">char</span> x[<span class="dv">2</span>];</span>
+<span id="cb1-7"><a href="#cb1-7"></a>} a;</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="dt">int</span> main()</span>
+<span id="cb1-10"><a href="#cb1-10"></a>{</span>
+<span id="cb1-11"><a href="#cb1-11"></a>  a.x[<span class="dv">0</span>] = <span class="ch">&#39;1&#39;</span>;</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  a.x[<span class="dv">1</span>] = <span class="ch">&#39;2&#39;</span>;</span>
+<span id="cb1-13"><a href="#cb1-13"></a>  printf(<span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span>, a.i);</span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb1-15"><a href="#cb1-15"></a>}</span></code></pre></div>
 <ul>
 <li>关于什么叫数据库主键。</li>
 <li>关于路由器和交换机的区别，哪个用来连接不同网段、分隔子网或者是分隔不同网段、连接子网。</li>
 <li>进程和线程的区别（调度、控制、共享内存、通讯方式）。</li>
-<li>排序复杂度哪个不是 $O(n lg  n)$（二分插入排序、快速排序、归并排序、堆排序）。</li>
+<li>排序复杂度哪个不是 $O(n ≶ n)$（二分插入排序、快速排序、归并排序、堆排序）。</li>
 <li>KMP 算法填空（略微记得一点原理，忘差不多了……）。</li>
 <li>有 5 道工序，其中有一道工序不能放在最后，问有多少种排列方法（<span class="math inline">\(5!-4! = 96\)</span>)。</li>
 <li>内存分页算法的缺页次数（先进先出、最近最少、理想页面置换算法，完全不会……）。</li>
 <li>TCP 和 UDP 的区别</li>
 <li>递归函数：</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" title="1"><span class="dt">int</span> f(<span class="dt">int</span> n)</a>
-<a class="sourceLine" id="cb2-2" title="2">{</a>
-<a class="sourceLine" id="cb2-3" title="3">  <span class="cf">if</span> (n == <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb2-4" title="4">    <span class="cf">return</span> <span class="dv">3</span>;</a>
-<a class="sourceLine" id="cb2-5" title="5">  <span class="cf">else</span></a>
-<a class="sourceLine" id="cb2-6" title="6">    <span class="cf">return</span> f(n - <span class="dv">2</span>) + f(n - <span class="dv">1</span>);</a>
-<a class="sourceLine" id="cb2-7" title="7">}</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a><span class="dt">int</span> f(<span class="dt">int</span> n)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>{</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="cf">if</span> (n == <span class="dv">0</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="cf">return</span> <span class="dv">3</span>;</span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="cf">else</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="cf">return</span> f(n - <span class="dv">2</span>) + f(n - <span class="dv">1</span>);</span>
+<span id="cb2-7"><a href="#cb2-7"></a>}</span></code></pre></div>
 <p>求 <code>f(10)</code> （我的答案是没结果，应该是唬人的题目）</p>
 <p>编程题</p>
 <p>给定一个字符串，字符串中可能含有包含 <code class="sourceCode cpp"><span class="ch">&#39;(&#39;</span></code>, <code class="sourceCode cpp"><span class="ch">&#39;)&#39;</span></code>, <code class="sourceCode cpp"><span class="ch">&#39;[&#39;</span></code>, <code class="sourceCode cpp"><span class="ch">&#39;]&#39;</span></code>，判定条件如下：</p>
