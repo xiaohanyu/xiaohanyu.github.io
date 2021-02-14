@@ -97,9 +97,9 @@
 <li>Eshell是可以直接调用 Elisp 函数的（这是我无意间发现的，惭愧），结合 el-get，使得 Emacs 扩展的安装可以像 debian 的 <code>apt-get</code> 一般简单。比如说，你可以通过如下的 Elisp 代码“一键安装” AUCTeX、auto-complete、CDLaTeX-mode、Slime、 YASnippet：</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1" data-org-language="lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1"></a>(<span class="kw">let</span> ((pkgs &#39;(auctex auto-complete cdlatex-mode slime yasnippet)))</span>
-<span id="cb1-2"><a href="#cb1-2"></a>  (<span class="kw">dolist</span> (pkg pkgs )</span>
-<span id="cb1-3"><a href="#cb1-3"></a>    (el-get-install pkg)))</span></code></pre></div>
+<div class="sourceCode" id="cb1" data-org-language="lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb1-1" title="1">(<span class="kw">let</span> ((pkgs &#39;(auctex auto-complete cdlatex-mode slime yasnippet)))</a>
+<a class="sourceLine" id="cb1-2" title="2">  (<span class="kw">dolist</span> (pkg pkgs )</a>
+<a class="sourceLine" id="cb1-3" title="3">    (el-get-install pkg)))</a></code></pre></div>
 <h2 id="slime">SLIME</h2>
 <ul>
 <li>学习计算机四年有余，用过的编程工具 IDE 环境没有上百也有一打，但从来没有任何一种编程环境，能够像 SLIME 那样，让我印象深刻，彻底颠覆我的编程方法学和世界观。</li>
@@ -123,28 +123,28 @@
 <li><a href="http://www.quicklisp.org">Quicklisp</a> 是推荐的 Lisp 库管理工具，Quicklisp 之于 Common Lisp 相当于 CPAN 之于 Perl.</li>
 <li>在 Emacs 中装好 SLIME 后（推荐用 El-Get)，将下列代码放入 SBCL 的初始化文件 <code>.sbclrc</code> 或者 CCL 的初始化文件 <code>ccl-init.lisp</code> 中。启动 SBCL 或者 CCL 开启 swank，然后在 Emacs slime 中用 <code>M-x slime-connect</code> 连接即可（swank 可以是远程机器）。</li>
 </ul>
-<div class="sourceCode" id="cb2" data-org-language="lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">;;; The following lines added by ql:add-to-init-file:</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>#-quicklisp</span>
-<span id="cb2-3"><a href="#cb2-3"></a>(<span class="kw">let</span> ((quicklisp-init (<span class="kw">merge-pathnames</span> <span class="st">&quot;quicklisp/setup.lisp&quot;</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>                                       (<span class="kw">user-homedir-pathname</span>))))</span>
-<span id="cb2-5"><a href="#cb2-5"></a>  (<span class="kw">when</span> (<span class="kw">probe-file</span> quicklisp-init)</span>
-<span id="cb2-6"><a href="#cb2-6"></a>    (<span class="kw">load</span> quicklisp-init)))</span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co">;;; swank for emacs slime to connect</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>(<span class="kw">load</span> <span class="st">&quot;~/.emacs.d/el-get/slime/swank-loader.lisp&quot;</span>)</span>
-<span id="cb2-10"><a href="#cb2-10"></a>(swank-loader:init)</span>
-<span id="cb2-11"><a href="#cb2-11"></a>(swank:create-server :port <span class="dv">4005</span> :dont-close <span class="kw">t</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2" data-org-language="lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb2-1" title="1"><span class="co">;;; The following lines added by ql:add-to-init-file:</span></a>
+<a class="sourceLine" id="cb2-2" title="2">#-quicklisp</a>
+<a class="sourceLine" id="cb2-3" title="3">(<span class="kw">let</span> ((quicklisp-init (<span class="kw">merge-pathnames</span> <span class="st">&quot;quicklisp/setup.lisp&quot;</span></a>
+<a class="sourceLine" id="cb2-4" title="4">                                       (<span class="kw">user-homedir-pathname</span>))))</a>
+<a class="sourceLine" id="cb2-5" title="5">  (<span class="kw">when</span> (<span class="kw">probe-file</span> quicklisp-init)</a>
+<a class="sourceLine" id="cb2-6" title="6">    (<span class="kw">load</span> quicklisp-init)))</a>
+<a class="sourceLine" id="cb2-7" title="7"></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="co">;;; swank for emacs slime to connect</span></a>
+<a class="sourceLine" id="cb2-9" title="9">(<span class="kw">load</span> <span class="st">&quot;~/.emacs.d/el-get/slime/swank-loader.lisp&quot;</span>)</a>
+<a class="sourceLine" id="cb2-10" title="10">(swank-loader:init)</a>
+<a class="sourceLine" id="cb2-11" title="11">(swank:create-server :port <span class="dv">4005</span> :dont-close <span class="kw">t</span>)</a></code></pre></div>
 <ul>
 <li>LispWorks 公司为 Common Lisp 提供有一份非常详尽的 <a href="http://www.lispworks.com/documentation/HyperSpec/Front/">HyperSpec</a> 文档，在 Arch Linux 中，你可以通过 AUR 来安装 (<code>yaourt -S cl-hyperspec</code>)。</li>
 <li>SLIME对 HyperSpec 提供了良好的支持： <code>slime-hyperspec-lookup</code> 。配置好 Emacs-w3m，就可以在 Emacs 通过 w3m 查询 Common Lisp 语言文档的，很方便。我的配置片段如下：</li>
 </ul>
-<div class="sourceCode" id="cb3" data-org-language="lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb3-1"><a href="#cb3-1"></a>(add-to-list &#39;load-path <span class="st">&quot;~/.emacs.d/el-get/emacs-w3m&quot;</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>(<span class="kw">require</span> &#39;w3m-load)</span>
-<span id="cb3-3"><a href="#cb3-3"></a>(<span class="kw">setq</span> browse-url-browser-function &#39;w3m)</span>
-<span id="cb3-4"><a href="#cb3-4"></a></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">;; view common lisp hyperspec documentation</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>(global-set-key <span class="st">&quot;\C-ch&quot;</span> &#39;slime-hyperspec-lookup)</span>
-<span id="cb3-7"><a href="#cb3-7"></a>(<span class="kw">setq</span> common-lisp-hyperspec-root <span class="st">&quot;file:/usr/share/doc/HyperSpec/&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3" data-org-language="lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb3-1" title="1">(add-to-list &#39;load-path <span class="st">&quot;~/.emacs.d/el-get/emacs-w3m&quot;</span>)</a>
+<a class="sourceLine" id="cb3-2" title="2">(<span class="kw">require</span> &#39;w3m-load)</a>
+<a class="sourceLine" id="cb3-3" title="3">(<span class="kw">setq</span> browse-url-browser-function &#39;w3m)</a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="co">;; view common lisp hyperspec documentation</span></a>
+<a class="sourceLine" id="cb3-6" title="6">(global-set-key <span class="st">&quot;\C-ch&quot;</span> &#39;slime-hyperspec-lookup)</a>
+<a class="sourceLine" id="cb3-7" title="7">(<span class="kw">setq</span> common-lisp-hyperspec-root <span class="st">&quot;file:/usr/share/doc/HyperSpec/&quot;</span>)</a></code></pre></div>
 <ul>
 <li><code>M-x slime-connect</code> 之后，几个常用的功能：
 <ul>
@@ -154,27 +154,27 @@
 </ul></li>
 <li>绝大多数 Lisp 实现均支持 <code>trace</code> 函数，可以用来跟踪递归过程，形象化地展示递归的运行机理，是深入学习理解递归的良好工具。比如下面的 SBCL 的 REPL 中的代码展示：</li>
 </ul>
-<div class="sourceCode" id="cb4" data-org-language="lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb4-1"><a href="#cb4-1"></a>CL-USER&gt; (<span class="kw">defun</span><span class="fu"> just-return </span>(n) (<span class="kw">if</span> (<span class="kw">zerop</span> n) <span class="dv">0</span> (<span class="op">+</span> <span class="dv">1</span> (just-return (<span class="op">-</span> n <span class="dv">1</span>)))))</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a>JUST-RETURN</span>
-<span id="cb4-4"><a href="#cb4-4"></a>CL-USER&gt; (<span class="kw">trace</span> just-return)</span>
-<span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a>(JUST-RETURN)</span>
-<span id="cb4-7"><a href="#cb4-7"></a>CL-USER&gt; (just-return <span class="dv">5</span>)</span>
-<span id="cb4-8"><a href="#cb4-8"></a>  <span class="dv">0</span>: (JUST-RETURN <span class="dv">5</span>)</span>
-<span id="cb4-9"><a href="#cb4-9"></a>    <span class="dv">1</span>: (JUST-RETURN <span class="dv">4</span>)</span>
-<span id="cb4-10"><a href="#cb4-10"></a>      <span class="dv">2</span>: (JUST-RETURN <span class="dv">3</span>)</span>
-<span id="cb4-11"><a href="#cb4-11"></a>        <span class="dv">3</span>: (JUST-RETURN <span class="dv">2</span>)</span>
-<span id="cb4-12"><a href="#cb4-12"></a>          <span class="dv">4</span>: (JUST-RETURN <span class="dv">1</span>)</span>
-<span id="cb4-13"><a href="#cb4-13"></a>            <span class="dv">5</span>: (JUST-RETURN <span class="dv">0</span>)</span>
-<span id="cb4-14"><a href="#cb4-14"></a>            <span class="dv">5</span>: JUST-RETURN returned <span class="dv">0</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a>          <span class="dv">4</span>: JUST-RETURN returned <span class="dv">1</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a>        <span class="dv">3</span>: JUST-RETURN returned <span class="dv">2</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a>      <span class="dv">2</span>: JUST-RETURN returned <span class="dv">3</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a>    <span class="dv">1</span>: JUST-RETURN returned <span class="dv">4</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a>  <span class="dv">0</span>: JUST-RETURN returned <span class="dv">5</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="dv">5</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a>CL-USER&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb4" data-org-language="lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb4-1" title="1">CL-USER&gt; (<span class="kw">defun</span><span class="fu"> just-return </span>(n) (<span class="kw">if</span> (<span class="kw">zerop</span> n) <span class="dv">0</span> (<span class="op">+</span> <span class="dv">1</span> (just-return (<span class="op">-</span> n <span class="dv">1</span>)))))</a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3">JUST-RETURN</a>
+<a class="sourceLine" id="cb4-4" title="4">CL-USER&gt; (<span class="kw">trace</span> just-return)</a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6">(JUST-RETURN)</a>
+<a class="sourceLine" id="cb4-7" title="7">CL-USER&gt; (just-return <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="dv">0</span>: (JUST-RETURN <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb4-9" title="9">    <span class="dv">1</span>: (JUST-RETURN <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb4-10" title="10">      <span class="dv">2</span>: (JUST-RETURN <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb4-11" title="11">        <span class="dv">3</span>: (JUST-RETURN <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb4-12" title="12">          <span class="dv">4</span>: (JUST-RETURN <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb4-13" title="13">            <span class="dv">5</span>: (JUST-RETURN <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb4-14" title="14">            <span class="dv">5</span>: JUST-RETURN returned <span class="dv">0</span></a>
+<a class="sourceLine" id="cb4-15" title="15">          <span class="dv">4</span>: JUST-RETURN returned <span class="dv">1</span></a>
+<a class="sourceLine" id="cb4-16" title="16">        <span class="dv">3</span>: JUST-RETURN returned <span class="dv">2</span></a>
+<a class="sourceLine" id="cb4-17" title="17">      <span class="dv">2</span>: JUST-RETURN returned <span class="dv">3</span></a>
+<a class="sourceLine" id="cb4-18" title="18">    <span class="dv">1</span>: JUST-RETURN returned <span class="dv">4</span></a>
+<a class="sourceLine" id="cb4-19" title="19">  <span class="dv">0</span>: JUST-RETURN returned <span class="dv">5</span></a>
+<a class="sourceLine" id="cb4-20" title="20"><span class="dv">5</span></a>
+<a class="sourceLine" id="cb4-21" title="21">CL-USER&gt;</a></code></pre></div>
 <ul>
 <li>书的话，伞哥的<a href="http://tianchunbinghe.blog.163.com/blog/static/7001200692314249376/">博客</a>已经给出了很好的建议，我再加一本 Paul Graham 的《<a href="http://book.douban.com/subject/1456906/">Ansi Common Lisp</a>》，一本一本的看吧。“LISP is worth learning for a different reason — the profound enlightenment experience you will have when you finally get it. That experience will make you a better programmer for the rest of your days, even if you never actually use LISP itself a lot<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>”。</li>
 </ul>
@@ -182,17 +182,17 @@
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>《<a href="http://book.douban.com/subject/4743790/">The Joy of Clojure</a>》有这样一段话：“Writing code is often a constant struggle against distraction, and every time a language requires you to think about syntax, operator precedence, or inheritance hierarchies, it exacerbates the problem. ”任何反紧凑的语言，其繁杂的语言特性往往会使得人们在解决问题的过程中脱离问题本身而陷入语言细节的泥沼，要么是像 C++ 那样到处是坑到处是禁忌到处是编程规范，要么是像 Java 那样到处是架屋叠床的类。问题域和实现域是我最近常常思考的问题，其深度超越于编程语言的范畴，后续我会再写文章深入探讨下这个主题。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p><a href="http://www.techcn.com.cn/index.php?doc-view-132647.html">http://www.techcn.com.cn/index.php?doc-view-132647.html</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>"The only thing the emacs OS lacks is a really good editor"，更多的八卦，<a href="http://www.reddit.com/r/programming/comments/ai71t/vlc_developers_have_started_working_on_a_video/c0holsd">这里</a>。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4" role="doc-endnote"><p>坦白的讲，如果以击键次数为标准，单单比较文本编辑的效率，我认为 Vim 的效率确实比Emacs 强很多。考虑可扩展性的话，我认为 Emacs 的elisp还是要比 Vim 的vimscript 强很多的。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p><a href="http://www.ibm.com/developerworks/linux/tutorials/l-emacs/">Living in Emacs</a>，这篇 Emacs 之所以如此出名，完全在于它起了一个好名字，简明扼要的给出了这篇教程的终极目标。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6" role="doc-endnote"><p>不擅长干并不代表不能干，比如<a href="http://www.reddit.com/r/programming/comments/ai71t/vlc_developers_have_started_working_on_a_vdeo/c0holsd">这里</a>、<a href="http://www.gnu.org/software/emms/">这里</a>、还有<a href="http://www.emacswiki.org/emacs-ja/EmacsPlugin">这里</a>。<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7" role="doc-endnote"><p>这个主要是解决 Emacs 中文输入法的问题，细节可以参考<a href="http://blog.pluskid.org/?p=328">解决 IBus 在 gVim/Emacs下不能使用的问题</a>、还有<a href="https://www.csslayer.info/wordpress/fcitx-dev/input-method-env-story/">输入法环境变量的故事</a>。<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8" role="doc-endnote"><p>架屋叠床这么有创造力的词来源于<a href="http://blog.csdn.net/myan/article/details/5928531">function/bind 的救赎</a>，“尽管如此，Java还是沾染上了“面向类设计”的癌症，基础类库里就有很多架床叠屋的设计……”<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn9" role="doc-endnote"><p><a href="http://www.reddit.com/r/programming/comments/7ij3j/why_there_is_no_slime_for_python_or_ruby_or/">Why there is no SLIME for Python (or Ruby or…)?</a><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn10" role="doc-endnote"><p><a href="http://tianchunbinghe.blog.163.com/blog/static/700120089175316746/">All Common Lisp Implementations</a>，伞哥的博客有很多关于 Lisp 极有价值的文章，他对 Lisp 的执着和不断学习的精神也让我很是景仰。<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn11" role="doc-endnote"><p><a href="http://www.catb.org/~esr/faqs/hacker-howto.html">How to Become a Hacker</a><a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>《<a href="http://book.douban.com/subject/4743790/">The Joy of Clojure</a>》有这样一段话：“Writing code is often a constant struggle against distraction, and every time a language requires you to think about syntax, operator precedence, or inheritance hierarchies, it exacerbates the problem. ”任何反紧凑的语言，其繁杂的语言特性往往会使得人们在解决问题的过程中脱离问题本身而陷入语言细节的泥沼，要么是像 C++ 那样到处是坑到处是禁忌到处是编程规范，要么是像 Java 那样到处是架屋叠床的类。问题域和实现域是我最近常常思考的问题，其深度超越于编程语言的范畴，后续我会再写文章深入探讨下这个主题。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="http://www.techcn.com.cn/index.php?doc-view-132647.html">http://www.techcn.com.cn/index.php?doc-view-132647.html</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn3" role="doc-endnote"><p>"The only thing the emacs OS lacks is a really good editor"，更多的八卦，<a href="http://www.reddit.com/r/programming/comments/ai71t/vlc_developers_have_started_working_on_a_video/c0holsd">这里</a>。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn4" role="doc-endnote"><p>坦白的讲，如果以击键次数为标准，单单比较文本编辑的效率，我认为 Vim 的效率确实比Emacs 强很多。考虑可扩展性的话，我认为 Emacs 的elisp还是要比 Vim 的vimscript 强很多的。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn5" role="doc-endnote"><p><a href="http://www.ibm.com/developerworks/linux/tutorials/l-emacs/">Living in Emacs</a>，这篇 Emacs 之所以如此出名，完全在于它起了一个好名字，简明扼要的给出了这篇教程的终极目标。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn6" role="doc-endnote"><p>不擅长干并不代表不能干，比如<a href="http://www.reddit.com/r/programming/comments/ai71t/vlc_developers_have_started_working_on_a_vdeo/c0holsd">这里</a>、<a href="http://www.gnu.org/software/emms/">这里</a>、还有<a href="http://www.emacswiki.org/emacs-ja/EmacsPlugin">这里</a>。<a href="#fnref6" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn7" role="doc-endnote"><p>这个主要是解决 Emacs 中文输入法的问题，细节可以参考<a href="http://blog.pluskid.org/?p=328">解决 IBus 在 gVim/Emacs下不能使用的问题</a>、还有<a href="https://www.csslayer.info/wordpress/fcitx-dev/input-method-env-story/">输入法环境变量的故事</a>。<a href="#fnref7" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn8" role="doc-endnote"><p>架屋叠床这么有创造力的词来源于<a href="http://blog.csdn.net/myan/article/details/5928531">function/bind 的救赎</a>，“尽管如此，Java还是沾染上了“面向类设计”的癌症，基础类库里就有很多架床叠屋的设计……”<a href="#fnref8" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn9" role="doc-endnote"><p><a href="http://www.reddit.com/r/programming/comments/7ij3j/why_there_is_no_slime_for_python_or_ruby_or/">Why there is no SLIME for Python (or Ruby or…)?</a><a href="#fnref9" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn10" role="doc-endnote"><p><a href="http://tianchunbinghe.blog.163.com/blog/static/700120089175316746/">All Common Lisp Implementations</a>，伞哥的博客有很多关于 Lisp 极有价值的文章，他对 Lisp 的执着和不断学习的精神也让我很是景仰。<a href="#fnref10" class="footnote-back" role="doc-backlink">↩</a></p></li>
+<li id="fn11" role="doc-endnote"><p><a href="http://www.catb.org/~esr/faqs/hacker-howto.html">How to Become a Hacker</a><a href="#fnref11" class="footnote-back" role="doc-backlink">↩</a></p></li>
 </ol>
 </section>
 

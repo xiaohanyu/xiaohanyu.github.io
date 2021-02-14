@@ -91,14 +91,14 @@
 <p>第一道题大意是给定一个目录，目录里有很多 HTML 文件，每个 HTML 文件里可能会包含一些 email 地址，让你写个程序，把该目录下所有 HTML 文件中所有的 email 地址 obfuscate 一下，比如，把 <code>somebody@somewhere.com</code> 变成 <code>nobody@somewhere.com</code> 。</p>
 <p>这个题目相当简单，考查的主要的点是文件处理和正则表达式，即如何在一个目录中找出特定的文件并应用正则表达式。Bash 和 Python 均可以解决。核心代码样例：</p>
 <p>Bash：</p>
-<div class="sourceCode" id="cb1" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">for</span> <span class="ex">HTML_FILE</span> in find <span class="va">$HTML_DIR</span> -name <span class="st">&#39;*.html&#39;</span><span class="kw">;</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">do</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">sed</span> ... <span class="va">$HTML_FILE</span><span class="kw">;</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb1" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">for</span> <span class="ex">HTML_FILE</span> in find <span class="va">$HTML_DIR</span> -name <span class="st">&#39;*.html&#39;</span><span class="kw">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">do</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="fu">sed</span> ... <span class="va">$HTML_FILE</span><span class="kw">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">done</span></a></code></pre></div>
 <p>Python：</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> os</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="cf">for</span> root, dirs, files <span class="kw">in</span> os.walk(top):</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    <span class="co"># handle files with regexp</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="im">import</span> os</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="cf">for</span> root, dirs, files <span class="kw">in</span> os.walk(top):</a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="co"># handle files with regexp</span></a></code></pre></div>
 <p>第二道题也很简单，大意是给定一个文件，找出文件中出现次数最多的 n 个单词。直观思路就是统计单词数量，然后排序；进一步的话，用最大堆即可。这个题目考查重点除了基础算法，还有现场写代码的能力。过程中，我提到 Python 标准库中有一个很好用的 <a href="https://docs.python.org/3/library/collections.html#collections.Counter">Counter</a> 类，用来计数很好用，面试官表示同意，然后让我不要用 Counter 类，自己手写，最好做到 bug free。</p>
 <p>第三道题大意是让你用 Bash，监控 <a href="https://en.wikipedia.org/wiki/Vmstat">vmstat</a> 工具的流式输出，然后根据一些设定的条件，发报警邮件。这个题目也很简单，稍有些运维经验，写过一些 Bash 脚本的人，很容易就能做出来。</p>
 <h2 id="第三轮技术电话面试">第三轮技术电话面试</h2>
@@ -115,17 +115,17 @@
 <li>抢占式内核</li>
 <li>free/buff/cache memory 区别</li>
 </ul>
-<div class="sourceCode" id="cb3" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">procs</span>  -----------memory------------  -swap-  -----io----  ----system----  -------cpu--------</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">r</span>  b   swpd free    buff    cache     si  so  bi    bo     in      cs      us  sy  id  wa  st</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="ex">22</span> 2   0    1146652 1607684 71245896  0   0   887   924    1       0       14  5   80  1   0</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="ex">16</span> 1   0    1146636 1607684 71250720  0   0   60972 43424  87328   101211  59  10  29  2   0</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="ex">25</span> 1   0    1140640 1607684 71254816  0   0   67480 44743  90786   105712  59  11  28  2   0</span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="ex">22</span> 3   0    1150448 1607684 71259792  0   0   71562 50304  103124  118792  62  11  25  2   0</span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="ex">19</span> 2   0    1147256 1607684 71265472  0   0   66002 44296  97948   108877  61  11  25  2   0</span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="ex">20</span> 1   0    1168160 1607684 71240872  0   0   61886 38201  88580   104312  59  10  29  2   0</span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="ex">16</span> 3   0    1163068 1607684 71245152  0   0   62196 37134  86042   99712   60  10  28  2   0</span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="ex">17</span> 3   0    1164736 1607684 71245072  0   0   66038 40845  89598   101818  60  11  27  2   0</span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="ex">25</span> 1   0    1152988 1607684 71249792  0   0   60422 39748  89534   112812  57  11  29  3   0</span></code></pre></div>
+<div class="sourceCode" id="cb3" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">procs</span>  -----------memory------------  -swap-  -----io----  ----system----  -------cpu--------</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">r</span>  b   swpd free    buff    cache     si  so  bi    bo     in      cs      us  sy  id  wa  st</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="ex">22</span> 2   0    1146652 1607684 71245896  0   0   887   924    1       0       14  5   80  1   0</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="ex">16</span> 1   0    1146636 1607684 71250720  0   0   60972 43424  87328   101211  59  10  29  2   0</a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="ex">25</span> 1   0    1140640 1607684 71254816  0   0   67480 44743  90786   105712  59  11  28  2   0</a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="ex">22</span> 3   0    1150448 1607684 71259792  0   0   71562 50304  103124  118792  62  11  25  2   0</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="ex">19</span> 2   0    1147256 1607684 71265472  0   0   66002 44296  97948   108877  61  11  25  2   0</a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="ex">20</span> 1   0    1168160 1607684 71240872  0   0   61886 38201  88580   104312  59  10  29  2   0</a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="ex">16</span> 3   0    1163068 1607684 71245152  0   0   62196 37134  86042   99712   60  10  28  2   0</a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="ex">17</span> 3   0    1164736 1607684 71245072  0   0   66038 40845  89598   101818  60  11  27  2   0</a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="ex">25</span> 1   0    1152988 1607684 71249792  0   0   60422 39748  89534   112812  57  11  29  3   0</a></code></pre></div>
 <p>第三道题是考查系统编程中的 <a href="http://man7.org/linux/man-pages/man7/signal.7.html">signal</a>。面试官先是问了我一些 signal 都是什么意思，有哪些作用，我大体上都答上来了。然后问我，对于一个进程而言，具体哪些 signal 是不能被屏蔽的；我回答说 <a href="https://zh.wikipedia.org/wiki/SIGKILL">SIGKILL</a> 肯定是不能被屏蔽的。面试官不满意，还要我继续做答，但是当时我实在是答不上来了。考这么细节，我感觉是需要把 <a href="http://www.apuebook.com/">APUE</a> 整体背下来才能让面试官满意。</p>
 <p>话虽如此，我自评这轮面试还是不错的，想着也许没准可以去 Facebook London onsite 下，哈。</p>
 <h2 id="总结">总结</h2>

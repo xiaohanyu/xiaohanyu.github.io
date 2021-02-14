@@ -60,10 +60,10 @@
   <section class="twelve wide column"><p>折腾的一天，两场面试，感觉都还凑合。</p>
 <p>第一场是华数淘宝的面试，关于华数淘宝和淘宝之间有什么区别和联系，我也没有细究，反正上午十点到了西湖国际大厦后只看到了 Taobao 的字样。来到了前台，填写了一份履历表，一会一位男员工走了出来带着我来到了一个沙发处。有好几个桌子，都是面试官和学生们面对面地谈。</p>
 <p>首先还是自我介绍。我就毫不客气巴拉巴拉地说了一通，连自己骑车玩户外的事情都吹了一通。面试官微笑，蛮厉害的嘛。接下来就开始考题目了。第一道题目是 C 语言指针的问题。问：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1"></a><span class="dt">char</span> *p = <span class="st">&quot;abcd&quot;</span>;</span>
-<span id="cb1-2"><a href="#cb1-2"></a>printf(<span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span>, <span class="kw">sizeof</span>(p));</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="dt">char</span> p1[] = <span class="st">&quot;abcd&quot;</span>;</span>
-<span id="cb1-4"><a href="#cb1-4"></a>printf(<span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span>, <span class="kw">sizeof</span>(p1));</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1"><span class="dt">char</span> *p = <span class="st">&quot;abcd&quot;</span>;</a>
+<a class="sourceLine" id="cb1-2" title="2">printf(<span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span>, <span class="kw">sizeof</span>(p));</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="dt">char</span> p1[] = <span class="st">&quot;abcd&quot;</span>;</a>
+<a class="sourceLine" id="cb1-4" title="4">printf(<span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span>, <span class="kw">sizeof</span>(p1));</a></code></pre></div>
 <p>我大概是脑子进水了，两个简单的问题都答错了，弄了一个非常尴尬的开端。然后又问我有没有用过内存拷贝函数？“ <code class="sourceCode c">memset</code> ？” 我问。“不是， <code class="sourceCode c">memcpy</code> 。算了，有没有用过 <code class="sourceCode c">strcpy</code> ”。“这个，用过”。“那你写一下这个函数的实现”。然个后我就很不争气的写了一个非常糙的实现，还是在面试官的提醒下才改对的，两个明显的 bug。尴尬。</p>
 <p>接下来问我对排序了解多少，知道哪些排序。我说我对那种 <span class="math inline">\(O(n \lg n)\)</span> 的排序比较熟，他让我举例，我就把能想到的选择排序、冒泡排序、插入排序、快速排序、归并排序、希尔排序等等都说了。然后他让我描述一下快速排序的实现，我就 balabala 讲了一通—— 其实要让我写，短时间内我还真不一定能写出来。快排到此为止。又问我那些是稳定排序和不稳定排序，我说这个我真不清楚了，可能要看具体实现——很尴尬。“还有别的排序方法吗”， “有，当然有，比如桶排序——还是创新工厂的面试时学会的……”。我又 balabala 的吹了一通，把决策树都说上了，这些排序总算是问完了。</p>
 <p>问我了解设计模式不？我说看过几页《大话设计模式》。然后他问了一个单例模式？我就傻眼了，嘟囔着说不出来。其实这东西一直想去研究，一直在拖。接下来问我程序的内存空间是如何管理的。我就说栈和堆的东西。蒙混过关。然后问我“给你两个栈，如何模拟一个全功能的队列？”我想了想，给了一两套方案，不过终究不完美。</p>

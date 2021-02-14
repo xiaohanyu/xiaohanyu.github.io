@@ -60,75 +60,75 @@
   <section class="twelve wide column"><p><a href="/static/image/2009/linux_opengl.jpg"><img src="/static/image/2009/linux_opengl.jpg" /></a></p>
 <p>还是蛮漂亮的。</p>
 <p>Linux 的 OpenGL 的开发配置可以参见 <a href="http://hi.baidu.com/xoxoxo/blog/item/01b1a76e94a525d381cb4aaa.html">这篇文章</a>。还是蛮简单的。开发环境和程序的完成大概用了一下午的时间。不过我现在还不太 OpenGL 和 Mesa、FreeGLUT 之间到底是啥关系。不管了。先用着吧。Arch Linux 下的开发配置非常简单：</p>
-<div class="sourceCode" id="cb1" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">sudo</span> pacman -S freeglut mesa</span></code></pre></div>
+<div class="sourceCode" id="cb1" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">sudo</span> pacman -S freeglut mesa</a></code></pre></div>
 <p>源代码如下：</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">#include </span><span class="im">&lt;GL/glut.h&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="pp">#include </span><span class="im">&lt;math.h&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="pp">#define PI 3.1415926</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="pp">#define R 1</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="pp">#define r (sqrt(3) / 3 * R)</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="dt">void</span> redraw()</span>
-<span id="cb2-10"><a href="#cb2-10"></a>{</span>
-<span id="cb2-11"><a href="#cb2-11"></a>  <span class="dt">double</span> origin[] = {<span class="fl">0.0</span>, <span class="fl">0.0</span>};</span>
-<span id="cb2-12"><a href="#cb2-12"></a>  <span class="dt">double</span> colorMode1[<span class="dv">6</span>][<span class="dv">3</span>] = {       <span class="co">//六角星最外层顶点各自的颜色</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a>    {<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>},</span>
-<span id="cb2-14"><a href="#cb2-14"></a>    {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>},</span>
-<span id="cb2-15"><a href="#cb2-15"></a>    {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>},</span>
-<span id="cb2-16"><a href="#cb2-16"></a>    {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>},</span>
-<span id="cb2-17"><a href="#cb2-17"></a>    {<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>},</span>
-<span id="cb2-18"><a href="#cb2-18"></a>    {<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>}</span>
-<span id="cb2-19"><a href="#cb2-19"></a>  };</span>
-<span id="cb2-20"><a href="#cb2-20"></a></span>
-<span id="cb2-21"><a href="#cb2-21"></a>  <span class="dt">double</span> colorMode2[<span class="dv">6</span>][<span class="dv">3</span>] = {       <span class="co">// 六角星内层顶点各自的颜色</span></span>
-<span id="cb2-22"><a href="#cb2-22"></a>    {<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="dv">0</span>},</span>
-<span id="cb2-23"><a href="#cb2-23"></a>    {<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>},</span>
-<span id="cb2-24"><a href="#cb2-24"></a>    {<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.5</span>},</span>
-<span id="cb2-25"><a href="#cb2-25"></a>    {<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>},</span>
-<span id="cb2-26"><a href="#cb2-26"></a>    {<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>},</span>
-<span id="cb2-27"><a href="#cb2-27"></a>    {<span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.5</span>}</span>
-<span id="cb2-28"><a href="#cb2-28"></a>  };</span>
-<span id="cb2-29"><a href="#cb2-29"></a></span>
-<span id="cb2-30"><a href="#cb2-30"></a>  glClear(GL_COLOR_BUFFER_BIT);</span>
-<span id="cb2-31"><a href="#cb2-31"></a>  <span class="dt">int</span> i;</span>
-<span id="cb2-32"><a href="#cb2-32"></a>  <span class="co">// 把这个凹多边形分解成为六个菱形旋转变换组合而成，通过给每个顶点设定不同的颜色达到颜色渐变的效果</span></span>
-<span id="cb2-33"><a href="#cb2-33"></a>  <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; <span class="dv">6</span>; ++i) {</span>
-<span id="cb2-34"><a href="#cb2-34"></a>    glBegin(GL_POLYGON);</span>
-<span id="cb2-35"><a href="#cb2-35"></a>    glColor3f(colorMode1[i][<span class="dv">0</span>], colorMode1[i][<span class="dv">1</span>],</span>
-<span id="cb2-36"><a href="#cb2-36"></a>              colorMode1[i][<span class="dv">2</span>]);</span>
-<span id="cb2-37"><a href="#cb2-37"></a>    glVertex2d((R * cos(PI / <span class="dv">2</span> + (i * PI) / <span class="dv">3</span>)),</span>
-<span id="cb2-38"><a href="#cb2-38"></a>               R * sin(PI / <span class="dv">2</span> + (i * PI) / <span class="dv">3</span>));</span>
-<span id="cb2-39"><a href="#cb2-39"></a>    glColor3f(colorMode2[(i + <span class="dv">5</span>) % <span class="dv">6</span>][<span class="dv">0</span>],</span>
-<span id="cb2-40"><a href="#cb2-40"></a>              colorMode2[(i + <span class="dv">5</span>) % <span class="dv">6</span>][<span class="dv">1</span>], colorMode2[(i + <span class="dv">5</span>) % <span class="dv">6</span>][<span class="dv">2</span>]);</span>
-<span id="cb2-41"><a href="#cb2-41"></a>    glVertex2d(r * cos(PI / <span class="dv">3</span> + (i * PI) / <span class="dv">3</span>),</span>
-<span id="cb2-42"><a href="#cb2-42"></a>               r * sin(PI / <span class="dv">3</span> + (i * PI) / <span class="dv">3</span>));</span>
-<span id="cb2-43"><a href="#cb2-43"></a>    glColor3f(<span class="fl">1.0</span><span class="bu">f</span>, <span class="fl">1.0</span><span class="bu">f</span>, <span class="fl">1.0</span><span class="bu">f</span>);</span>
-<span id="cb2-44"><a href="#cb2-44"></a>    glVertex2dv(origin);</span>
-<span id="cb2-45"><a href="#cb2-45"></a>    glColor3f(colorMode2[i][<span class="dv">0</span>], colorMode2[i][<span class="dv">1</span>],</span>
-<span id="cb2-46"><a href="#cb2-46"></a>              colorMode2[i][<span class="dv">2</span>]);</span>
-<span id="cb2-47"><a href="#cb2-47"></a>    glVertex2d(r * cos(<span class="dv">2</span> * PI / <span class="dv">3</span> + (i * PI) /<span class="dv">3</span>),</span>
-<span id="cb2-48"><a href="#cb2-48"></a>               r * sin(<span class="dv">2</span> * PI / <span class="dv">3</span> + (i * PI) / <span class="dv">3</span>));</span>
-<span id="cb2-49"><a href="#cb2-49"></a>    glEnd();</span>
-<span id="cb2-50"><a href="#cb2-50"></a>  }</span>
-<span id="cb2-51"><a href="#cb2-51"></a>  glutSwapBuffers();</span>
-<span id="cb2-52"><a href="#cb2-52"></a>}</span>
-<span id="cb2-53"><a href="#cb2-53"></a></span>
-<span id="cb2-54"><a href="#cb2-54"></a><span class="dt">int</span> main (<span class="dt">int</span> argc,  <span class="dt">char</span> *argv[])</span>
-<span id="cb2-55"><a href="#cb2-55"></a>{</span>
-<span id="cb2-56"><a href="#cb2-56"></a>  glutInit(&amp;argc, argv);</span>
-<span id="cb2-57"><a href="#cb2-57"></a>  glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);</span>
-<span id="cb2-58"><a href="#cb2-58"></a>  <span class="dt">int</span> windowHandle = glutCreateWindow(<span class="st">&quot;Simple GLUT App&quot;</span>);</span>
-<span id="cb2-59"><a href="#cb2-59"></a></span>
-<span id="cb2-60"><a href="#cb2-60"></a>  glutDisplayFunc(redraw);</span>
-<span id="cb2-61"><a href="#cb2-61"></a></span>
-<span id="cb2-62"><a href="#cb2-62"></a>  glutMainLoop();</span>
-<span id="cb2-63"><a href="#cb2-63"></a></span>
-<span id="cb2-64"><a href="#cb2-64"></a>  <span class="cf">return</span> <span class="dv">0</span>;</span>
-<span id="cb2-65"><a href="#cb2-65"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" title="1"><span class="pp">#include </span><span class="im">&lt;GL/glut.h&gt;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="pp">#include </span><span class="im">&lt;math.h&gt;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="pp">#define PI 3.1415926</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="pp">#define R 1</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="pp">#define r (sqrt(3) / 3 * R)</span></a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="dt">void</span> redraw()</a>
+<a class="sourceLine" id="cb2-10" title="10">{</a>
+<a class="sourceLine" id="cb2-11" title="11">  <span class="dt">double</span> origin[] = {<span class="fl">0.0</span>, <span class="fl">0.0</span>};</a>
+<a class="sourceLine" id="cb2-12" title="12">  <span class="dt">double</span> colorMode1[<span class="dv">6</span>][<span class="dv">3</span>] = {       <span class="co">//六角星最外层顶点各自的颜色</span></a>
+<a class="sourceLine" id="cb2-13" title="13">    {<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>},</a>
+<a class="sourceLine" id="cb2-14" title="14">    {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>},</a>
+<a class="sourceLine" id="cb2-15" title="15">    {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>},</a>
+<a class="sourceLine" id="cb2-16" title="16">    {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>},</a>
+<a class="sourceLine" id="cb2-17" title="17">    {<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>},</a>
+<a class="sourceLine" id="cb2-18" title="18">    {<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>}</a>
+<a class="sourceLine" id="cb2-19" title="19">  };</a>
+<a class="sourceLine" id="cb2-20" title="20"></a>
+<a class="sourceLine" id="cb2-21" title="21">  <span class="dt">double</span> colorMode2[<span class="dv">6</span>][<span class="dv">3</span>] = {       <span class="co">// 六角星内层顶点各自的颜色</span></a>
+<a class="sourceLine" id="cb2-22" title="22">    {<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="dv">0</span>},</a>
+<a class="sourceLine" id="cb2-23" title="23">    {<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>},</a>
+<a class="sourceLine" id="cb2-24" title="24">    {<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.5</span>},</a>
+<a class="sourceLine" id="cb2-25" title="25">    {<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>},</a>
+<a class="sourceLine" id="cb2-26" title="26">    {<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>},</a>
+<a class="sourceLine" id="cb2-27" title="27">    {<span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.5</span>}</a>
+<a class="sourceLine" id="cb2-28" title="28">  };</a>
+<a class="sourceLine" id="cb2-29" title="29"></a>
+<a class="sourceLine" id="cb2-30" title="30">  glClear(GL_COLOR_BUFFER_BIT);</a>
+<a class="sourceLine" id="cb2-31" title="31">  <span class="dt">int</span> i;</a>
+<a class="sourceLine" id="cb2-32" title="32">  <span class="co">// 把这个凹多边形分解成为六个菱形旋转变换组合而成，通过给每个顶点设定不同的颜色达到颜色渐变的效果</span></a>
+<a class="sourceLine" id="cb2-33" title="33">  <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; <span class="dv">6</span>; ++i) {</a>
+<a class="sourceLine" id="cb2-34" title="34">    glBegin(GL_POLYGON);</a>
+<a class="sourceLine" id="cb2-35" title="35">    glColor3f(colorMode1[i][<span class="dv">0</span>], colorMode1[i][<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb2-36" title="36">              colorMode1[i][<span class="dv">2</span>]);</a>
+<a class="sourceLine" id="cb2-37" title="37">    glVertex2d((R * cos(PI / <span class="dv">2</span> + (i * PI) / <span class="dv">3</span>)),</a>
+<a class="sourceLine" id="cb2-38" title="38">               R * sin(PI / <span class="dv">2</span> + (i * PI) / <span class="dv">3</span>));</a>
+<a class="sourceLine" id="cb2-39" title="39">    glColor3f(colorMode2[(i + <span class="dv">5</span>) % <span class="dv">6</span>][<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2-40" title="40">              colorMode2[(i + <span class="dv">5</span>) % <span class="dv">6</span>][<span class="dv">1</span>], colorMode2[(i + <span class="dv">5</span>) % <span class="dv">6</span>][<span class="dv">2</span>]);</a>
+<a class="sourceLine" id="cb2-41" title="41">    glVertex2d(r * cos(PI / <span class="dv">3</span> + (i * PI) / <span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb2-42" title="42">               r * sin(PI / <span class="dv">3</span> + (i * PI) / <span class="dv">3</span>));</a>
+<a class="sourceLine" id="cb2-43" title="43">    glColor3f(<span class="fl">1.0</span><span class="bu">f</span>, <span class="fl">1.0</span><span class="bu">f</span>, <span class="fl">1.0</span><span class="bu">f</span>);</a>
+<a class="sourceLine" id="cb2-44" title="44">    glVertex2dv(origin);</a>
+<a class="sourceLine" id="cb2-45" title="45">    glColor3f(colorMode2[i][<span class="dv">0</span>], colorMode2[i][<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb2-46" title="46">              colorMode2[i][<span class="dv">2</span>]);</a>
+<a class="sourceLine" id="cb2-47" title="47">    glVertex2d(r * cos(<span class="dv">2</span> * PI / <span class="dv">3</span> + (i * PI) /<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb2-48" title="48">               r * sin(<span class="dv">2</span> * PI / <span class="dv">3</span> + (i * PI) / <span class="dv">3</span>));</a>
+<a class="sourceLine" id="cb2-49" title="49">    glEnd();</a>
+<a class="sourceLine" id="cb2-50" title="50">  }</a>
+<a class="sourceLine" id="cb2-51" title="51">  glutSwapBuffers();</a>
+<a class="sourceLine" id="cb2-52" title="52">}</a>
+<a class="sourceLine" id="cb2-53" title="53"></a>
+<a class="sourceLine" id="cb2-54" title="54"><span class="dt">int</span> main (<span class="dt">int</span> argc,  <span class="dt">char</span> *argv[])</a>
+<a class="sourceLine" id="cb2-55" title="55">{</a>
+<a class="sourceLine" id="cb2-56" title="56">  glutInit(&amp;argc, argv);</a>
+<a class="sourceLine" id="cb2-57" title="57">  glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);</a>
+<a class="sourceLine" id="cb2-58" title="58">  <span class="dt">int</span> windowHandle = glutCreateWindow(<span class="st">&quot;Simple GLUT App&quot;</span>);</a>
+<a class="sourceLine" id="cb2-59" title="59"></a>
+<a class="sourceLine" id="cb2-60" title="60">  glutDisplayFunc(redraw);</a>
+<a class="sourceLine" id="cb2-61" title="61"></a>
+<a class="sourceLine" id="cb2-62" title="62">  glutMainLoop();</a>
+<a class="sourceLine" id="cb2-63" title="63"></a>
+<a class="sourceLine" id="cb2-64" title="64">  <span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb2-65" title="65">}</a></code></pre></div>
 <p>编译：</p>
-<div class="sourceCode" id="cb3" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">gcc</span> -I/usr/include -L/usr/local/lib -L/usr/lib -lglut -lGLU -lGL -lX11 -lXext -lXmu -lXi -lm filename.c -o filename</span></code></pre></div>
+<div class="sourceCode" id="cb3" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">gcc</span> -I/usr/include -L/usr/local/lib -L/usr/lib -lglut -lGLU -lGL -lX11 -lXext -lXmu -lXi -lm filename.c -o filename</a></code></pre></div>
 
     <div class="ui divider"></div>
     <div class="ui small one item menu">

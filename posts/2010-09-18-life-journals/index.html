@@ -141,154 +141,154 @@ Sample Output</p>
 <p>49</p>
 </blockquote>
 <p>第一提看上去比较悬，但仔细一想其实是个最大子段和的问题，核心算法可以参考 <a href="http://blog.csdn.net/dangwenliang/archive/2010/07/17/5741615.aspx">ZOJ 1074</a>——我就是这么干的……应用之前需要预处理，就是扫描下整个矩阵，然后用 1 表示奇数而用 -1 表示偶数，最后算“矩阵的最大子段和”，这样做下来基本上可以通过 4–5 个测试点，弥补的方法就是对称性，考虑到奇数和偶数的平等性，用 -1 表示奇数而用 1 表示偶数再算一下。整个程序如下：</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="pp">#include </span><span class="im">&lt;string.h&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="pp">#include </span><span class="im">&lt;math.h&gt;</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="pp">#define size 102</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="dt">int</span> DP(<span class="dt">int</span> a[],<span class="dt">int</span> n);</span>
-<span id="cb2-9"><a href="#cb2-9"></a></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="dt">int</span> main(<span class="dt">void</span>) {</span>
-<span id="cb2-11"><a href="#cb2-11"></a>  <span class="dt">int</span> m, n;</span>
-<span id="cb2-12"><a href="#cb2-12"></a>  <span class="dt">int</span> i, j, k;</span>
-<span id="cb2-13"><a href="#cb2-13"></a>  <span class="dt">int</span> he;</span>
-<span id="cb2-14"><a href="#cb2-14"></a>  <span class="dt">int</span> max1, max2;</span>
-<span id="cb2-15"><a href="#cb2-15"></a></span>
-<span id="cb2-16"><a href="#cb2-16"></a>  <span class="dt">int</span> a[size][size];</span>
-<span id="cb2-17"><a href="#cb2-17"></a>  <span class="dt">int</span> b[size][size];</span>
-<span id="cb2-18"><a href="#cb2-18"></a>  <span class="dt">int</span> sum1[size];</span>
-<span id="cb2-19"><a href="#cb2-19"></a>  <span class="dt">int</span> sum2[size];</span>
-<span id="cb2-20"><a href="#cb2-20"></a></span>
-<span id="cb2-21"><a href="#cb2-21"></a>  scanf(<span class="st">&quot;%d%d&quot;</span>,&amp;m, &amp;n);</span>
-<span id="cb2-22"><a href="#cb2-22"></a></span>
-<span id="cb2-23"><a href="#cb2-23"></a>  <span class="cf">for</span>(i = <span class="dv">1</span>; i &lt;= m; i++)</span>
-<span id="cb2-24"><a href="#cb2-24"></a>    <span class="cf">for</span>(j = <span class="dv">1</span>; j &lt;= n; j++) {</span>
-<span id="cb2-25"><a href="#cb2-25"></a>      scanf(<span class="st">&quot;%d&quot;</span>,&amp;a[i][j]);</span>
-<span id="cb2-26"><a href="#cb2-26"></a></span>
-<span id="cb2-27"><a href="#cb2-27"></a>      <span class="cf">if</span> (a[i][j] % <span class="dv">2</span> == <span class="dv">0</span>) {</span>
-<span id="cb2-28"><a href="#cb2-28"></a>        a[i][j] = -<span class="dv">1</span>;</span>
-<span id="cb2-29"><a href="#cb2-29"></a>        b[i][j] = <span class="dv">1</span>;</span>
-<span id="cb2-30"><a href="#cb2-30"></a>      }</span>
-<span id="cb2-31"><a href="#cb2-31"></a>      <span class="cf">else</span> {</span>
-<span id="cb2-32"><a href="#cb2-32"></a>        a[i][j] = <span class="dv">1</span>;</span>
-<span id="cb2-33"><a href="#cb2-33"></a>        b[i][j] = -<span class="dv">1</span>;</span>
-<span id="cb2-34"><a href="#cb2-34"></a>      }</span>
-<span id="cb2-35"><a href="#cb2-35"></a>    }</span>
-<span id="cb2-36"><a href="#cb2-36"></a></span>
-<span id="cb2-37"><a href="#cb2-37"></a>  max1 = max2 = -<span class="dv">200000000</span>;</span>
-<span id="cb2-38"><a href="#cb2-38"></a></span>
-<span id="cb2-39"><a href="#cb2-39"></a>  <span class="cf">for</span>(i = <span class="dv">1</span>; i &lt;= m; i++) {</span>
-<span id="cb2-40"><a href="#cb2-40"></a>    memset(sum1, <span class="dv">0</span>, <span class="kw">sizeof</span>(sum1));</span>
-<span id="cb2-41"><a href="#cb2-41"></a></span>
-<span id="cb2-42"><a href="#cb2-42"></a>    <span class="cf">for</span>(j = i; j &lt;= m; j++) {</span>
-<span id="cb2-43"><a href="#cb2-43"></a>      <span class="cf">for</span>(k = <span class="dv">1</span> ; k &lt;= n ; k++)</span>
-<span id="cb2-44"><a href="#cb2-44"></a>        sum1[k] += a[j][k];</span>
-<span id="cb2-45"><a href="#cb2-45"></a></span>
-<span id="cb2-46"><a href="#cb2-46"></a>      he = DP(sum1, n);</span>
-<span id="cb2-47"><a href="#cb2-47"></a></span>
-<span id="cb2-48"><a href="#cb2-48"></a>      <span class="cf">if</span>(he &gt; max1)</span>
-<span id="cb2-49"><a href="#cb2-49"></a>        max1 = he;</span>
-<span id="cb2-50"><a href="#cb2-50"></a>    }</span>
-<span id="cb2-51"><a href="#cb2-51"></a>  }</span>
-<span id="cb2-52"><a href="#cb2-52"></a></span>
-<span id="cb2-53"><a href="#cb2-53"></a>  <span class="cf">for</span>(i = <span class="dv">1</span>; i &lt;= m; i++) {</span>
-<span id="cb2-54"><a href="#cb2-54"></a>    memset(sum2, <span class="dv">0</span>, <span class="kw">sizeof</span>(sum2));</span>
-<span id="cb2-55"><a href="#cb2-55"></a></span>
-<span id="cb2-56"><a href="#cb2-56"></a>    <span class="cf">for</span>(j = i; j &lt;= m; j++) {</span>
-<span id="cb2-57"><a href="#cb2-57"></a>      <span class="cf">for</span>(k = <span class="dv">1</span> ; k &lt;= n ; k++)</span>
-<span id="cb2-58"><a href="#cb2-58"></a>        sum2[k] += b[j][k];</span>
-<span id="cb2-59"><a href="#cb2-59"></a></span>
-<span id="cb2-60"><a href="#cb2-60"></a>      he = DP(sum2, n);</span>
-<span id="cb2-61"><a href="#cb2-61"></a></span>
-<span id="cb2-62"><a href="#cb2-62"></a>      <span class="cf">if</span>(he &gt; max2)</span>
-<span id="cb2-63"><a href="#cb2-63"></a>        max2 = he;</span>
-<span id="cb2-64"><a href="#cb2-64"></a>    }</span>
-<span id="cb2-65"><a href="#cb2-65"></a>  }</span>
-<span id="cb2-66"><a href="#cb2-66"></a></span>
-<span id="cb2-67"><a href="#cb2-67"></a>  <span class="cf">if</span> (max1 &gt; max2)</span>
-<span id="cb2-68"><a href="#cb2-68"></a>    printf(<span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span>,max1);</span>
-<span id="cb2-69"><a href="#cb2-69"></a>  <span class="cf">else</span></span>
-<span id="cb2-70"><a href="#cb2-70"></a>    printf(<span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span>, max2);</span>
-<span id="cb2-71"><a href="#cb2-71"></a>  <span class="cf">return</span> <span class="dv">0</span>;</span>
-<span id="cb2-72"><a href="#cb2-72"></a>}</span>
-<span id="cb2-73"><a href="#cb2-73"></a></span>
-<span id="cb2-74"><a href="#cb2-74"></a><span class="dt">int</span> DP(<span class="dt">int</span> a[],<span class="dt">int</span> n) {</span>
-<span id="cb2-75"><a href="#cb2-75"></a>  <span class="dt">int</span> i, f[<span class="dv">101</span>];</span>
-<span id="cb2-76"><a href="#cb2-76"></a>  <span class="dt">int</span> max = -<span class="dv">200000000</span>;</span>
-<span id="cb2-77"><a href="#cb2-77"></a></span>
-<span id="cb2-78"><a href="#cb2-78"></a>  <span class="cf">for</span>(i = <span class="dv">2</span>, f[<span class="dv">1</span>] = a[<span class="dv">1</span>]; i &lt;= n; i++) {</span>
-<span id="cb2-79"><a href="#cb2-79"></a>    <span class="cf">if</span> (f[i - <span class="dv">1</span>] &gt; <span class="dv">0</span>)</span>
-<span id="cb2-80"><a href="#cb2-80"></a>      f[i] = f[i - <span class="dv">1</span>] + a[i];</span>
-<span id="cb2-81"><a href="#cb2-81"></a>    <span class="cf">else</span></span>
-<span id="cb2-82"><a href="#cb2-82"></a>      f[i] = a[i];</span>
-<span id="cb2-83"><a href="#cb2-83"></a></span>
-<span id="cb2-84"><a href="#cb2-84"></a>    <span class="cf">if</span> (f[i] &gt; max)</span>
-<span id="cb2-85"><a href="#cb2-85"></a>      max = f[i];</span>
-<span id="cb2-86"><a href="#cb2-86"></a>  }</span>
-<span id="cb2-87"><a href="#cb2-87"></a></span>
-<span id="cb2-88"><a href="#cb2-88"></a>  <span class="cf">return</span> max;</span>
-<span id="cb2-89"><a href="#cb2-89"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" title="1"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="pp">#include </span><span class="im">&lt;string.h&gt;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="pp">#include </span><span class="im">&lt;math.h&gt;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="pp">#define size 102</span></a>
+<a class="sourceLine" id="cb2-7" title="7"></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="dt">int</span> DP(<span class="dt">int</span> a[],<span class="dt">int</span> n);</a>
+<a class="sourceLine" id="cb2-9" title="9"></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="dt">int</span> main(<span class="dt">void</span>) {</a>
+<a class="sourceLine" id="cb2-11" title="11">  <span class="dt">int</span> m, n;</a>
+<a class="sourceLine" id="cb2-12" title="12">  <span class="dt">int</span> i, j, k;</a>
+<a class="sourceLine" id="cb2-13" title="13">  <span class="dt">int</span> he;</a>
+<a class="sourceLine" id="cb2-14" title="14">  <span class="dt">int</span> max1, max2;</a>
+<a class="sourceLine" id="cb2-15" title="15"></a>
+<a class="sourceLine" id="cb2-16" title="16">  <span class="dt">int</span> a[size][size];</a>
+<a class="sourceLine" id="cb2-17" title="17">  <span class="dt">int</span> b[size][size];</a>
+<a class="sourceLine" id="cb2-18" title="18">  <span class="dt">int</span> sum1[size];</a>
+<a class="sourceLine" id="cb2-19" title="19">  <span class="dt">int</span> sum2[size];</a>
+<a class="sourceLine" id="cb2-20" title="20"></a>
+<a class="sourceLine" id="cb2-21" title="21">  scanf(<span class="st">&quot;%d%d&quot;</span>,&amp;m, &amp;n);</a>
+<a class="sourceLine" id="cb2-22" title="22"></a>
+<a class="sourceLine" id="cb2-23" title="23">  <span class="cf">for</span>(i = <span class="dv">1</span>; i &lt;= m; i++)</a>
+<a class="sourceLine" id="cb2-24" title="24">    <span class="cf">for</span>(j = <span class="dv">1</span>; j &lt;= n; j++) {</a>
+<a class="sourceLine" id="cb2-25" title="25">      scanf(<span class="st">&quot;%d&quot;</span>,&amp;a[i][j]);</a>
+<a class="sourceLine" id="cb2-26" title="26"></a>
+<a class="sourceLine" id="cb2-27" title="27">      <span class="cf">if</span> (a[i][j] % <span class="dv">2</span> == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb2-28" title="28">        a[i][j] = -<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb2-29" title="29">        b[i][j] = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb2-30" title="30">      }</a>
+<a class="sourceLine" id="cb2-31" title="31">      <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb2-32" title="32">        a[i][j] = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb2-33" title="33">        b[i][j] = -<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb2-34" title="34">      }</a>
+<a class="sourceLine" id="cb2-35" title="35">    }</a>
+<a class="sourceLine" id="cb2-36" title="36"></a>
+<a class="sourceLine" id="cb2-37" title="37">  max1 = max2 = -<span class="dv">200000000</span>;</a>
+<a class="sourceLine" id="cb2-38" title="38"></a>
+<a class="sourceLine" id="cb2-39" title="39">  <span class="cf">for</span>(i = <span class="dv">1</span>; i &lt;= m; i++) {</a>
+<a class="sourceLine" id="cb2-40" title="40">    memset(sum1, <span class="dv">0</span>, <span class="kw">sizeof</span>(sum1));</a>
+<a class="sourceLine" id="cb2-41" title="41"></a>
+<a class="sourceLine" id="cb2-42" title="42">    <span class="cf">for</span>(j = i; j &lt;= m; j++) {</a>
+<a class="sourceLine" id="cb2-43" title="43">      <span class="cf">for</span>(k = <span class="dv">1</span> ; k &lt;= n ; k++)</a>
+<a class="sourceLine" id="cb2-44" title="44">        sum1[k] += a[j][k];</a>
+<a class="sourceLine" id="cb2-45" title="45"></a>
+<a class="sourceLine" id="cb2-46" title="46">      he = DP(sum1, n);</a>
+<a class="sourceLine" id="cb2-47" title="47"></a>
+<a class="sourceLine" id="cb2-48" title="48">      <span class="cf">if</span>(he &gt; max1)</a>
+<a class="sourceLine" id="cb2-49" title="49">        max1 = he;</a>
+<a class="sourceLine" id="cb2-50" title="50">    }</a>
+<a class="sourceLine" id="cb2-51" title="51">  }</a>
+<a class="sourceLine" id="cb2-52" title="52"></a>
+<a class="sourceLine" id="cb2-53" title="53">  <span class="cf">for</span>(i = <span class="dv">1</span>; i &lt;= m; i++) {</a>
+<a class="sourceLine" id="cb2-54" title="54">    memset(sum2, <span class="dv">0</span>, <span class="kw">sizeof</span>(sum2));</a>
+<a class="sourceLine" id="cb2-55" title="55"></a>
+<a class="sourceLine" id="cb2-56" title="56">    <span class="cf">for</span>(j = i; j &lt;= m; j++) {</a>
+<a class="sourceLine" id="cb2-57" title="57">      <span class="cf">for</span>(k = <span class="dv">1</span> ; k &lt;= n ; k++)</a>
+<a class="sourceLine" id="cb2-58" title="58">        sum2[k] += b[j][k];</a>
+<a class="sourceLine" id="cb2-59" title="59"></a>
+<a class="sourceLine" id="cb2-60" title="60">      he = DP(sum2, n);</a>
+<a class="sourceLine" id="cb2-61" title="61"></a>
+<a class="sourceLine" id="cb2-62" title="62">      <span class="cf">if</span>(he &gt; max2)</a>
+<a class="sourceLine" id="cb2-63" title="63">        max2 = he;</a>
+<a class="sourceLine" id="cb2-64" title="64">    }</a>
+<a class="sourceLine" id="cb2-65" title="65">  }</a>
+<a class="sourceLine" id="cb2-66" title="66"></a>
+<a class="sourceLine" id="cb2-67" title="67">  <span class="cf">if</span> (max1 &gt; max2)</a>
+<a class="sourceLine" id="cb2-68" title="68">    printf(<span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span>,max1);</a>
+<a class="sourceLine" id="cb2-69" title="69">  <span class="cf">else</span></a>
+<a class="sourceLine" id="cb2-70" title="70">    printf(<span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span>, max2);</a>
+<a class="sourceLine" id="cb2-71" title="71">  <span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb2-72" title="72">}</a>
+<a class="sourceLine" id="cb2-73" title="73"></a>
+<a class="sourceLine" id="cb2-74" title="74"><span class="dt">int</span> DP(<span class="dt">int</span> a[],<span class="dt">int</span> n) {</a>
+<a class="sourceLine" id="cb2-75" title="75">  <span class="dt">int</span> i, f[<span class="dv">101</span>];</a>
+<a class="sourceLine" id="cb2-76" title="76">  <span class="dt">int</span> max = -<span class="dv">200000000</span>;</a>
+<a class="sourceLine" id="cb2-77" title="77"></a>
+<a class="sourceLine" id="cb2-78" title="78">  <span class="cf">for</span>(i = <span class="dv">2</span>, f[<span class="dv">1</span>] = a[<span class="dv">1</span>]; i &lt;= n; i++) {</a>
+<a class="sourceLine" id="cb2-79" title="79">    <span class="cf">if</span> (f[i - <span class="dv">1</span>] &gt; <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb2-80" title="80">      f[i] = f[i - <span class="dv">1</span>] + a[i];</a>
+<a class="sourceLine" id="cb2-81" title="81">    <span class="cf">else</span></a>
+<a class="sourceLine" id="cb2-82" title="82">      f[i] = a[i];</a>
+<a class="sourceLine" id="cb2-83" title="83"></a>
+<a class="sourceLine" id="cb2-84" title="84">    <span class="cf">if</span> (f[i] &gt; max)</a>
+<a class="sourceLine" id="cb2-85" title="85">      max = f[i];</a>
+<a class="sourceLine" id="cb2-86" title="86">  }</a>
+<a class="sourceLine" id="cb2-87" title="87"></a>
+<a class="sourceLine" id="cb2-88" title="88">  <span class="cf">return</span> max;</a>
+<a class="sourceLine" id="cb2-89" title="89">}</a></code></pre></div>
 <p>第二题的思路比较清晰了，需要注意的是负数的情况，考虑四个正数 <span class="math inline">\(a \le b, c \le d\)</span> ，显然 <span class="math inline">\(ac + bd \ge ad + bc\)</span> ，就是要得到最大值，大大相乘优先。如果遇到负数，负负为正是可以考虑的，正负相乘则需要舍弃。按照这个原则进行排序、分割，在处理下去就不难了。有一个 Test Case 是 "Segmentation Fault" ，最后找到原因了，可惜没有时间了，程序如下：</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="pp">#include </span><span class="im">&lt;functional&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="kw">using</span> <span class="kw">namespace</span> std;</span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="dt">int</span> main() {</span>
-<span id="cb3-8"><a href="#cb3-8"></a>  <span class="dt">int</span> m, n;</span>
-<span id="cb3-9"><a href="#cb3-9"></a>  vector&lt;<span class="dt">int</span>&gt; a;</span>
-<span id="cb3-10"><a href="#cb3-10"></a>  vector&lt;<span class="dt">int</span>&gt; b;</span>
-<span id="cb3-11"><a href="#cb3-11"></a></span>
-<span id="cb3-12"><a href="#cb3-12"></a>  <span class="dt">int</span> i, j;</span>
-<span id="cb3-13"><a href="#cb3-13"></a>  <span class="dt">int</span> item;</span>
-<span id="cb3-14"><a href="#cb3-14"></a>  <span class="dt">int</span> s, sum;</span>
-<span id="cb3-15"><a href="#cb3-15"></a>  <span class="dt">int</span> ai, bi;</span>
-<span id="cb3-16"><a href="#cb3-16"></a></span>
-<span id="cb3-17"><a href="#cb3-17"></a>  cin &gt;&gt; m;</span>
-<span id="cb3-18"><a href="#cb3-18"></a>  <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; m; i++) {</span>
-<span id="cb3-19"><a href="#cb3-19"></a>    cin &gt;&gt; item;</span>
-<span id="cb3-20"><a href="#cb3-20"></a>    a.push_back(item);</span>
-<span id="cb3-21"><a href="#cb3-21"></a>  }</span>
-<span id="cb3-22"><a href="#cb3-22"></a></span>
-<span id="cb3-23"><a href="#cb3-23"></a>  cin &gt;&gt; n;</span>
-<span id="cb3-24"><a href="#cb3-24"></a>  <span class="cf">for</span> (j = <span class="dv">0</span>; j &lt; n; j++) {</span>
-<span id="cb3-25"><a href="#cb3-25"></a>    cin &gt;&gt; item;</span>
-<span id="cb3-26"><a href="#cb3-26"></a>    b.push_back(item);</span>
-<span id="cb3-27"><a href="#cb3-27"></a>  }</span>
-<span id="cb3-28"><a href="#cb3-28"></a></span>
-<span id="cb3-29"><a href="#cb3-29"></a>  sort(a.begin(), a.end());</span>
-<span id="cb3-30"><a href="#cb3-30"></a>  sort(b.begin(), b.end());</span>
-<span id="cb3-31"><a href="#cb3-31"></a></span>
-<span id="cb3-32"><a href="#cb3-32"></a>  <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; a.size(); i++) {</span>
-<span id="cb3-33"><a href="#cb3-33"></a>    <span class="cf">if</span> (a[i] &gt;= <span class="dv">0</span>) {</span>
-<span id="cb3-34"><a href="#cb3-34"></a>      ai = i;</span>
-<span id="cb3-35"><a href="#cb3-35"></a>      <span class="cf">break</span>;</span>
-<span id="cb3-36"><a href="#cb3-36"></a>    }</span>
-<span id="cb3-37"><a href="#cb3-37"></a>  }</span>
-<span id="cb3-38"><a href="#cb3-38"></a></span>
-<span id="cb3-39"><a href="#cb3-39"></a>  <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; b.size(); i++) {</span>
-<span id="cb3-40"><a href="#cb3-40"></a>    <span class="cf">if</span> (b[i] &gt;= <span class="dv">0</span>) {</span>
-<span id="cb3-41"><a href="#cb3-41"></a>      bi = i;</span>
-<span id="cb3-42"><a href="#cb3-42"></a>      <span class="cf">break</span>;</span>
-<span id="cb3-43"><a href="#cb3-43"></a>    }</span>
-<span id="cb3-44"><a href="#cb3-44"></a>  }</span>
-<span id="cb3-45"><a href="#cb3-45"></a></span>
-<span id="cb3-46"><a href="#cb3-46"></a>  sum = <span class="dv">0</span>;</span>
-<span id="cb3-47"><a href="#cb3-47"></a>  <span class="cf">for</span>(i = <span class="dv">0</span>, j = <span class="dv">0</span>; (i &lt; ai) &amp;&amp; (j &lt; bi); i++, j++) {</span>
-<span id="cb3-48"><a href="#cb3-48"></a>    sum += a[i] * b[j];</span>
-<span id="cb3-49"><a href="#cb3-49"></a>  }</span>
-<span id="cb3-50"><a href="#cb3-50"></a></span>
-<span id="cb3-51"><a href="#cb3-51"></a>  <span class="cf">for</span>(i = a.size() - <span class="dv">1</span>, j = b.size() - <span class="dv">1</span>; (i &gt;= ai) &amp;&amp; (j &gt;= bi); i--, j--) {</span>
-<span id="cb3-52"><a href="#cb3-52"></a>    sum += a[i] * b[j];</span>
-<span id="cb3-53"><a href="#cb3-53"></a>  }</span>
-<span id="cb3-54"><a href="#cb3-54"></a></span>
-<span id="cb3-55"><a href="#cb3-55"></a>  cout &lt;&lt; sum &lt;&lt; endl;</span>
-<span id="cb3-56"><a href="#cb3-56"></a></span>
-<span id="cb3-57"><a href="#cb3-57"></a>  <span class="cf">return</span> <span class="dv">0</span>;</span>
-<span id="cb3-58"><a href="#cb3-58"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" title="1"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="pp">#include </span><span class="im">&lt;functional&gt;</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="dt">int</span> main() {</a>
+<a class="sourceLine" id="cb3-8" title="8">  <span class="dt">int</span> m, n;</a>
+<a class="sourceLine" id="cb3-9" title="9">  vector&lt;<span class="dt">int</span>&gt; a;</a>
+<a class="sourceLine" id="cb3-10" title="10">  vector&lt;<span class="dt">int</span>&gt; b;</a>
+<a class="sourceLine" id="cb3-11" title="11"></a>
+<a class="sourceLine" id="cb3-12" title="12">  <span class="dt">int</span> i, j;</a>
+<a class="sourceLine" id="cb3-13" title="13">  <span class="dt">int</span> item;</a>
+<a class="sourceLine" id="cb3-14" title="14">  <span class="dt">int</span> s, sum;</a>
+<a class="sourceLine" id="cb3-15" title="15">  <span class="dt">int</span> ai, bi;</a>
+<a class="sourceLine" id="cb3-16" title="16"></a>
+<a class="sourceLine" id="cb3-17" title="17">  cin &gt;&gt; m;</a>
+<a class="sourceLine" id="cb3-18" title="18">  <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; m; i++) {</a>
+<a class="sourceLine" id="cb3-19" title="19">    cin &gt;&gt; item;</a>
+<a class="sourceLine" id="cb3-20" title="20">    a.push_back(item);</a>
+<a class="sourceLine" id="cb3-21" title="21">  }</a>
+<a class="sourceLine" id="cb3-22" title="22"></a>
+<a class="sourceLine" id="cb3-23" title="23">  cin &gt;&gt; n;</a>
+<a class="sourceLine" id="cb3-24" title="24">  <span class="cf">for</span> (j = <span class="dv">0</span>; j &lt; n; j++) {</a>
+<a class="sourceLine" id="cb3-25" title="25">    cin &gt;&gt; item;</a>
+<a class="sourceLine" id="cb3-26" title="26">    b.push_back(item);</a>
+<a class="sourceLine" id="cb3-27" title="27">  }</a>
+<a class="sourceLine" id="cb3-28" title="28"></a>
+<a class="sourceLine" id="cb3-29" title="29">  sort(a.begin(), a.end());</a>
+<a class="sourceLine" id="cb3-30" title="30">  sort(b.begin(), b.end());</a>
+<a class="sourceLine" id="cb3-31" title="31"></a>
+<a class="sourceLine" id="cb3-32" title="32">  <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; a.size(); i++) {</a>
+<a class="sourceLine" id="cb3-33" title="33">    <span class="cf">if</span> (a[i] &gt;= <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb3-34" title="34">      ai = i;</a>
+<a class="sourceLine" id="cb3-35" title="35">      <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb3-36" title="36">    }</a>
+<a class="sourceLine" id="cb3-37" title="37">  }</a>
+<a class="sourceLine" id="cb3-38" title="38"></a>
+<a class="sourceLine" id="cb3-39" title="39">  <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; b.size(); i++) {</a>
+<a class="sourceLine" id="cb3-40" title="40">    <span class="cf">if</span> (b[i] &gt;= <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb3-41" title="41">      bi = i;</a>
+<a class="sourceLine" id="cb3-42" title="42">      <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb3-43" title="43">    }</a>
+<a class="sourceLine" id="cb3-44" title="44">  }</a>
+<a class="sourceLine" id="cb3-45" title="45"></a>
+<a class="sourceLine" id="cb3-46" title="46">  sum = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb3-47" title="47">  <span class="cf">for</span>(i = <span class="dv">0</span>, j = <span class="dv">0</span>; (i &lt; ai) &amp;&amp; (j &lt; bi); i++, j++) {</a>
+<a class="sourceLine" id="cb3-48" title="48">    sum += a[i] * b[j];</a>
+<a class="sourceLine" id="cb3-49" title="49">  }</a>
+<a class="sourceLine" id="cb3-50" title="50"></a>
+<a class="sourceLine" id="cb3-51" title="51">  <span class="cf">for</span>(i = a.size() - <span class="dv">1</span>, j = b.size() - <span class="dv">1</span>; (i &gt;= ai) &amp;&amp; (j &gt;= bi); i--, j--) {</a>
+<a class="sourceLine" id="cb3-52" title="52">    sum += a[i] * b[j];</a>
+<a class="sourceLine" id="cb3-53" title="53">  }</a>
+<a class="sourceLine" id="cb3-54" title="54"></a>
+<a class="sourceLine" id="cb3-55" title="55">  cout &lt;&lt; sum &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb3-56" title="56"></a>
+<a class="sourceLine" id="cb3-57" title="57">  <span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb3-58" title="58">}</a></code></pre></div>
 <p>最后的结果还是不错的，这也让我感到惊喜，好久都没有如此开心过了，期待面试通知。</p>
 <p>另外，现在所在的实习公司已经有了口头上的 offer，给我一个月的时间考虑，在实习结束之前给答复，待遇和淘宝应届是差不多的，而且创业阶段，发展空间还是非常大的，我在部门也受到重视，我相信继续实习一年，毕业后我会处于一个比较高的起点，这样的结果，对于我这么一个挂科达到两位数的刚毕业的本科来说，应该算很不多的了，但是我还是在犹豫。老实说我还是想去大的公司体验两年，体验下大的平台和大的气质；妈妈每次打电话都让我回北京，家近、方便。所以我还在继续投简历。</p>
 <p>18 号下去 2:00–3:00，百度大牛<a href="http://forum.netbig.com/bbscs/read.bbscs?bid=1&amp;id=7011392">徐串</a>的技术讲座；19号下午 2:00，百度内推小型见面会； 20号晚 6:30，MSTC 主席 Pluskid 大神的小课堂，各种大牛，膜拜。</p>

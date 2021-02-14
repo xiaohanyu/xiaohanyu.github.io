@@ -78,9 +78,9 @@
 <p>For Arch Linux, just type <code>pacman -S conky</code> and for Ubuntu and Debian, maybe <code>apt-get install conky</code>. Refer to your system handbook.</p>
 <h2 id="cofiguration">Cofiguration</h2>
 <p>Usually there is a sample configuration file located in /etc. My file is <code>/etc/conky/conky.conf</code>, just copy this file into your home diretory and rename it to <code>.conkyrc</code>:</p>
-<div class="sourceCode" id="cb2" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">sudo</span> cp /etc/conky/conky.conf ~/.conkyrc</span></code></pre></div>
+<div class="sourceCode" id="cb2" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">sudo</span> cp /etc/conky/conky.conf ~/.conkyrc</a></code></pre></div>
 <p>then let Conky startup with the system. If you use <code>startx</code>, add this line to your <code>/.xinitrc</code></p>
-<div class="sourceCode" id="cb3" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">conky</span> -d</span></code></pre></div>
+<div class="sourceCode" id="cb3" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">conky</span> -d</a></code></pre></div>
 <p><code>-d</code> means Conky would run as a daemon process.</p>
 <p>If you use a desktop environment such as GNOME or KDE, use the graphical tools, easy job.</p>
 <p>And if you feel disappointed about the ugly default configuration, you can configure it by yourself. First you should refer to the man page to know some details about the configuration grammer and configuration choices. Then, I think you'd better refer to google to download a sample <code>.conkyrc</code> and modify it. Here is a sample configuration file:</p>

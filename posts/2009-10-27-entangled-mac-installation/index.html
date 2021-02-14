@@ -133,11 +133,11 @@ vga=773
 <ul>
 <li>XeTeX 的字体问题。直接将下载的字体 <code>cp</code> 到 <code>/usr/share/fonts</code> 里面，最好建一个目录来存放自己的字体，然后</li>
 </ul>
-<div class="sourceCode" id="cb6" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">fc-cache</span> -f -v</span></code></pre></div>
+<div class="sourceCode" id="cb6" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">fc-cache</span> -f -v</a></code></pre></div>
 <ul>
 <li><a href="https://okular.kde.org/">Okular</a>、<a href="https://wiki.gnome.org/Apps/Evince">Evince</a> 不能显示中文问题。据说二者都是基于 <a href="https://poppler.freedesktop.org/">Poppler</a> 的，安装 poppler-data 即可完美解决这个问题：</li>
 </ul>
-<div class="sourceCode" id="cb7" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">sudo</span> pacman -S poppler-data</span></code></pre></div>
+<div class="sourceCode" id="cb7" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="fu">sudo</span> pacman -S poppler-data</a></code></pre></div>
 <ul>
 <li>从普通用户到 root 用户 GUI 程序无法启动的问题：</li>
 </ul>
