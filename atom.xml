@@ -2,13 +2,192 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://xiaohanyu.me/</id>
   <title>行者无疆 始于足下</title>
-  <updated>2020-05-14T12:26:17Z</updated>
+  <updated>2021-04-18T10:06:14Z</updated>
   <link rel="alternate" href="http://xiaohanyu.me/"/>
   <link rel="self" href="http://xiaohanyu.me/atom.xml"/>
   <author>
     <name>Xiao Hanyu</name>
     <uri>http://xiaohanyu.me</uri>
   </author>
+  <entry>
+    <id>tag:xiaohanyu.me,2021-02-14:/posts/2021-02-14-2020-summary/</id>
+    <title type="html">2020，新生</title>
+    <published>2021-02-14T12:26:17Z</published>
+    <updated>2021-04-18T10:06:14Z</updated>
+    <link rel="alternate" href="http://xiaohanyu.me/posts/2021-02-14-2020-summary/"/>
+    <content type="html">&lt;h2 id="序"&gt;序&lt;/h2&gt;
+&lt;p&gt;与往年不同，2020 年的日子可以说是繁冗多变，意外频发。先来捋一捋第一季度的时间线，交待下这篇总结的基调背景。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1 月 13 日，得知岳父罹患直肠癌。&lt;/li&gt;
+&lt;li&gt;1 月 14 日，紧急回国，乘坐红眼航班，凌晨四点落地上海浦东，高铁回杭，直奔杭州半山肿瘤医院。&lt;/li&gt;
+&lt;li&gt;1 月 15 日–18 日，在医院远程工作；疫情消息开始满天飞；在肿瘤医院买了 10 袋共 100 个医用口罩，这就是全家人所有的储备。&lt;/li&gt;
+&lt;li&gt;1 月 19 日，岳父的直肠癌病理报告分期为 T4aN2Mx：
+&lt;ul&gt;
+&lt;li&gt;T4a：肿瘤通过内脏腹膜侵入（包括肿瘤引起的肠道大穿孔，和通过炎症区域持续侵入内脏腹膜表面的肿瘤），这意味着它已经生长到肠壁的各个层面&lt;/li&gt;
+&lt;li&gt;N2：4个或更多区域淋巴结转移&lt;/li&gt;
+&lt;li&gt;Mx：远处转移无法确定&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;1 月 21 日：带岳父回台州老家。&lt;/li&gt;
+&lt;li&gt;1 月 23 日，武汉封城，事情开始有了变化，一时间风声鹤唳。&lt;/li&gt;
+&lt;li&gt;1 月 25 日，春节。&lt;/li&gt;
+&lt;li&gt;1 月 26 日–27 日，回宁波家中休息，仅有的一日岁月静好，刷了革命爱情剧《&lt;a href="https://movie.douban.com/subject/2248707/"&gt;激情燃烧的岁月&lt;/a&gt;》。&lt;/li&gt;
+&lt;li&gt;1 月 30 日，全副武装回新加坡，三百舱位的飞机上只坐了二十几个人。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20200130-flight.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20200130-flight.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1 月 31 日–2 月 14 日，在新加坡居家隔离——学了个新词：quarantine。远程工作。期间购置了 3000 新币的口罩，给国内亲友寄了约 1000 新币的口罩。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/singapore-20200208-commonwealth-mask.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/singapore-20200208-commonwealth-mask.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2 月 8 日，给杭州红十字会捐款 1000 人民币。&lt;/li&gt;
+&lt;li&gt;2 月 16 日，验孕棒两道杠，备孕了两年，这个小生命在最不该来的时候来了。&lt;/li&gt;
+&lt;li&gt;3 月 2 日，妞有出血症状，一个人去医院做产检 B 超。&lt;/li&gt;
+&lt;li&gt;3 月 7 日，又给国内亲友寄了价值约 1000 新币的 1000 个口罩。&lt;/li&gt;
+&lt;li&gt;3 月 13 日，妞一个人开车两百公里去杭州办各种手续，14 日一个人开车两百公里回宁波。同日公司宣布开始远程工作一个月。&lt;/li&gt;
+&lt;li&gt;3 月 14 日晚，订机票，海关登记，报备回国。&lt;/li&gt;
+&lt;li&gt;3 月 15 日晚 9:00 落地浦东，机舱检疫 40 分钟后出机，报备入境。护照被贴了个绿码。过关看到浙江接待队伍，问循是否需要坐检疫大巴回杭州，被告知不用。多方租车无果，找了家酒店报备入住。&lt;/li&gt;
+&lt;li&gt;3 月 16 日乘坐顺风车直接回杭，居家休息一晚。&lt;/li&gt;
+&lt;li&gt;3 月 17 日社区打电话通知去集中隔离。&lt;/li&gt;
+&lt;li&gt;4 月 1 日隔离结束，略做休整，随即奔赴杭州半山肿瘤医院，岳父当日进行直肠癌切除手术。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;癌、疫、孕，一个月内接踵而至。种种变故猝然而来，中年生活没有迟到，提前到来了。&lt;/p&gt;
+&lt;h2 id="工作"&gt;工作&lt;/h2&gt;
+&lt;p&gt;今年生活锁事繁多，Github 上更新甚少。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/github-2020.png"&gt;&lt;img src="/static/image/2021/2020-summary/github-2020.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;工作上，上半年工作重心偏后端，同时着手入门 iOS 的开发，在 Udemy 上完成了一门 iOS 的课 &lt;a href="https://www.udemy.com/course/ios-13-app-development-bootcamp/"&gt;iOS &amp;amp; Swift - The Complete iOS App Development Bootcamp&lt;/a&gt;，下半年开始参与组内一些 iOS 的开发工作。学习 iOS 主要是补充下移动端的开发知识，同时从端到端的视角下深入理解下公司的业务和技术。参考书籍是 &lt;a href="https://www.oreilly.com/library/view/ios-13-programming/9781492074526/"&gt;iOS 13 Programming Fundamentals with Swift&lt;/a&gt;，书的内容很全，但是行文和内容都比较晦涩，对初学者并不太友好。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/hangzhou-20200712-udemy-ios-certificate.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/hangzhou-20200712-udemy-ios-certificate.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;12 月组内调整，带队做了两次 web 开发的 hackathon。第一个 hackathon 是实现一个 &lt;a href="https://gofood-lite-eight.vercel.app/"&gt;GoFood&lt;/a&gt; 点餐下单的流程，第二个 hackathon 是做一个小游戏 &lt;a href="https://gofoodhunter.web.app/"&gt;The Great Food Chase&lt;/a&gt;。两次 hackathon 每次为期两周，主要目的是让团队了解下 web 前端的开发技术、流程，及其与移动端 native 开发的一些对比。&lt;/p&gt;
+&lt;p&gt;由于疫情的原因，3 月中旬起，公司新加坡 office 开始全面远程办公——先是宣布远程办公到 4 月中旬，之后又顺延到 9 月、12 月，再之后就宣布可以远程工作到 21 年底了。由于岳父患癌定于 4 月初手术，加上妻子怀孕的缘故，3 月 13 日公司宣布远程工作之后，我就跟老板商定，要紧急回国一段时间，时长不定，没想到一下子就在国内一直工作到了 20 年底，并且很有可能继续远程工作到 21 年底。&lt;/p&gt;
+&lt;p&gt;种种机缘之下，这一年得以在各种奇奇怪怪的地点体验远程工作。比如，3 月份刚回国的时候在杭州之江某个镇的隔离点工作，房间里连一套桌椅都没有，搞得我每天腰酸背痛。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/remote/hangzhou-20200318-zhijiang-putang.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/remote/hangzhou-20200318-zhijiang-putang.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/remote/hangzhou-20200323-zhijiang-putang.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/remote/hangzhou-20200323-zhijiang-putang.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;回到宁波是 4 月上旬，那时刚陪岳父做完手术，把岳父送回台州老家。这之后没几天，岳父术后肠梗阻，我再回台州，在台州属县一家医院里的图书馆里工作了一天。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/remote/tiantai-20200413-renmin-hospital.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/remote/tiantai-20200413-renmin-hospital.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;回到宁波，草长莺飞，天气晴好，去了一次鄞州公园里的镜湖茶馆。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/remote/ningbo-20200428-yinzhou-park-1.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/remote/ningbo-20200428-yinzhou-park-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/remote/ningbo-20200428-yinzhou-park-2.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/remote/ningbo-20200428-yinzhou-park-2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;六月份去杭州办事，在钱江新城的酒店里工作。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/remote/hangzhou-20200601-qianjiangxincheng.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/remote/hangzhou-20200601-qianjiangxincheng.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这之后就是宁波 7、8、9 三个月的暑热时节，大部分时间闷在家中。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20200827-home.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20200827-home.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20200902-home.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20200902-home.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;9 月份妞因孕入院，我又时不时地在医院开开会，写写代码，还把 herman miller sayl 的座椅推到了医院病房里，被医生夸了又夸。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20200911-mingzhou-hospital.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20200911-mingzhou-hospital.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;10 月份鸟枪换炮，启用了朋友从新加坡扛回来的 iMac，购置了飞利浦轩泰台灯，着实赏心悦目。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20201024-home.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20201024-home.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我个人还是非常喜欢远程工作的，在私，远程工作时间相对自由一些，可以兼顾家庭；在公，在家办公可以按照自己心意打造趁手的工作台，再加上家中宽敞的空间，静谧的环境——当然有娃以后可能不那么静谧了……工作效率比起在嘈杂的办公室只高不低。&lt;/p&gt;
+&lt;p&gt;某种意义上来说，我还要感谢这次疫情，让我有机会陪伴、照顾妞走完整个生产流程。引用豆瓣某位友邻的一句话：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你如果没有失业的顾虑，有储蓄，有房住，有充足的食物储备，年纪不大，没基础疾病，还可以在家工作，你真的是这次全球大流行中最幸运风险最小的一群人了。&lt;/p&gt;
+&lt;p&gt;— &lt;a href="https://www.douban.com/people/wudingzhe/status/2864374110/"&gt;https://www.douban.com/people/wudingzhe/status/2864374110/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="学习"&gt;学习&lt;/h2&gt;
+&lt;p&gt;学习方面，除了上文提到的 iOS 的学习，另外看了半本《&lt;a href="https://book.douban.com/subject/26745156/"&gt;操作系统真象还原&lt;/a&gt;》，动手实践到了中断部分，书很不错，最大的亮点是考证详实，解释细致。操作系统的书籍都挺枯燥的，这本书算是算是国内原创中非常好的一本讲操作系统的书了。再就是在年底看完了 &lt;a href="https://thorstenball.com/"&gt;Thorsten Ball&lt;/a&gt; 写的《&lt;a href="https://interpreterbook.com/"&gt;Writing An Interpreter In Go&lt;/a&gt;》和《&lt;a href="https://compilerbook.com/"&gt;Writing A Compiler In Go&lt;/a&gt;》，两本书写得都非常不错，行文流畅，难度适中，可操作性也非常强，是我读过的市面上最好的解释器和编译器的入门书籍。&lt;/p&gt;
+&lt;h2 id="生活"&gt;生活&lt;/h2&gt;
+&lt;h3 id="癌"&gt;癌&lt;/h3&gt;
+&lt;p&gt;1 月 13 日中午我在办公室收到妞的消息，得知岳父罹患直肠癌，从片子和症状上来推断，至少是中期，犹豫一天之后，14 日我买机票紧急回国，协助妞处理各种事宜。之后在国内远程工作几日，再之后就请假，照顾家人，过春节。期间疫情爆发，武汉封城，形势瞬息万变，晚走一天我们可能就回不了宁波了。&lt;/p&gt;
+&lt;p&gt;1 月 30 日，全副武装回新加坡，三百舱位的小飞机上只坐了二十几人，阵势上像是包机飞回新加坡了……落地后在家自行隔离两周，之后去办公室一直工作到 3 月中旬。这期间新加坡疫情也日趋严重， 3 月 13 日公司同幢楼有确诊病例，于是公司立即宣布开始远程办公。值此“契机”，我又再度飞回国内（细节后表），在杭州之江隔离两周后，去杭州半山肿瘤医院，照顾岳父手术。&lt;/p&gt;
+&lt;p&gt;岳父 1 月份查出直肠癌之前，有几个月一直拉肚子，人迅速的消瘦了几十斤；确诊之后，遵循医嘱，做了几期化疗，吃营养粉，补充体力，准备手术。期间国内的疫情迅速的爆发，又迅速的被压制了下去，这样捱到了 3 月中下旬，等到医院通知说可以在 4 月初进行手术。&lt;/p&gt;
+&lt;p&gt;我 3 月 14 日落地上海浦东，16 日接到通知去隔离，31 日隔离结束拿到绿码重回“自由身”， 4 月 1 日在杭州半山肿瘤医院等候岳父手术。疫情期间，手术室外不让等待，于是我和家人只能在病房里等。等了几个小时，人躺在床上被拉了回来，导尿管导血管插着，肚子上多了一个刀口，还有一个瘘口。&lt;/p&gt;
+&lt;p&gt;老岳父在医院住到了 4 月 9 日，期间，工作日我就在肿瘤医院的上岛咖啡叫点茶水，坐上一天，远程工作。咖啡馆里人声鼎沸，降噪耳机是个好东西。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/hangzhou-20200401-banshan-hospital.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/hangzhou-20200401-banshan-hospital.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;4 月中旬老岳父肠梗阻，再度入院，我又回到县城里探视，在医院的图书馆里工作了一天。再之后就是 7 月上旬，回杭州半山肿瘤医院入院——老岳父还算比较幸运，4 月份的手术保住了肛门，这次来是二次手术重新接上肛门。&lt;/p&gt;
+&lt;p&gt;总得来说，岳父的病情算是有惊无险，直肠癌的五年生存率还算比较高的。有病早医是颠扑不变的真理。&lt;/p&gt;
+&lt;h3 id="疫"&gt;疫&lt;/h3&gt;
+&lt;p&gt;疫，hmmm，想必不用我再多说什么了……新的时代，post-COVID。&lt;/p&gt;
+&lt;p&gt;1 月初在新加坡的时候，那真是岁月静好，新年几日的晚霞特别漂亮。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/singapore-20200108-commonwealth-sunset.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/singapore-20200108-commonwealth-sunset.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;1 月 13 日回国的时候，关于 COVID 可以说是一点风声都没有，10 天之后，武汉就封城了，紧接着，浙江各地也开始陆续封城。妞的家人朋友回乡过年，好多被困在家乡。我跟妞在家乡封城前一两日内驱车回了宁波，在宁波休整几日，然后我一个人全副武装飞新加坡，在新加坡居家隔离，远程工作。&lt;/p&gt;
+&lt;p&gt;整个 2 月份，新加坡的疫情犹如温水煮青蛙，每天十几例到几十例的样子，2 月 7 日还发生了疫情期间第一次&lt;a href="https://www.zaobao.com/znews/singapore/story20200208-1027147"&gt;抢购潮&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/singapore-20200207-commonwealth-supermarket.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/singapore-20200207-commonwealth-supermarket.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;新加坡早期的抗疫政策并不推荐健康人戴口罩，部分原因可能是因为口罩库存有限，这也为后面的疫情爆发埋下了伏笔——事后来看，新加坡确有对自己早期抗疫政策的&lt;a href="https://www.channelnewsasia.com/news/singapore/covid-19-pm-lee-hsien-loong-parliament-errors-13075260"&gt;反思&lt;/a&gt;——“Mr Lee said the Government would have recommended everyone to wear face masks sooner than it did, but it had taken the "best available scientific advice" at the time.”。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/singapore-20200313-mrt.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/singapore-20200313-mrt.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如前文所述，种种机缘之下，3 月中旬，新加坡疫情彻底爆发之前，我飞往上海浦东。那时国内还没有出所谓“五个一”的民航管控政策，因此上飞机前扫码登记海关报备一下就成了。下飞机时，隔离政策也不是很明晰。我入境的时候看见浙江的防疫接机团队，去问了下“我要回浙江，要不要去隔离”，结果并没有被“接收”。无奈之下在上海找了家宾馆入住，休整了一晚，第二天打了哈罗顺风车回杭州，自我隔离一天，之后才接到各个社区打来的电话，通知我去集中隔离。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/singapore-20200314-changi-airport.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/singapore-20200314-changi-airport.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/shanghai-20200314-pudong-airport.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/shanghai-20200314-pudong-airport.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;隔离的地方在杭州之江双浦镇浦塘村。隔离点设施非常简陋，配置标准相当于八线小县城的低端旅馆。最让我无奈的是房间内没有桌椅，搞得我每天只能坐在床上办公，腰椎压力骤增。 WIFI 信号接近于无，只能花钱买流量用手机热点办公开会，流量费花了上百块。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/hangzhou-20200315-zhijiang.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/hangzhou-20200315-zhijiang.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/hangzhou-20200316-zhijiang-putang.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/hangzhou-20200316-zhijiang-putang.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/hangzhou-20200328-zhijiang-putang.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/hangzhou-20200328-zhijiang-putang.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;不过按当时的政策，海外回国人员隔离还是免费的。因此隔离快结束的时候我又给杭州红十字会捐了 1000 元人民币。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/hangzhou-20200401-hongshizi-donation.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/hangzhou-20200401-hongshizi-donation.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;隔离结束前两天，被捅了次鼻子，做核酸检测。3 月 31 号隔离结束，拿到国家认证的绿码，恢复自由身，休整一日去杭州半山肿瘤医院。&lt;/p&gt;
+&lt;p&gt;4 月份，国内的疫情已经走向结尾，新加坡的疫情开始爆发。6 月，我回趟老家省亲，参观了下大兴机场，在老家待了小一周后，13 日从北京出发回宁波，同一日北京丰台区启动战时机制应对新发地疫情。于是我回到宁波后，派出所的同志上门盘查，让我去做核酸检测，这是 20 年第二次做核酸检测。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/beijing-20200606-daxing-airport.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/beijing-20200606-daxing-airport.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我发现整个 20 年，我总是能完美的避开每个地方的 COVID 爆发，1 月份在封城之前回到宁波返回新加坡，然后整个 2 月待在新加坡，国内疫情迎来拐点；3 月中旬又当机立断回国兼顾家庭，没几日国家开始施行“五个一”政策管控民航，4 月份新加坡疫情爆发开始 lock down；6 月份省亲经过北京，又“完美”踩着&lt;a href="https://zh.wikipedia.org/wiki/2020%E5%B9%B4%E5%8C%97%E4%BA%AC%E6%96%B0%E5%8F%91%E5%9C%B0%E5%86%9C%E4%BA%A7%E5%93%81%E6%89%B9%E5%8F%91%E5%B8%82%E5%9C%BA%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E7%97%85%E8%81%9A%E9%9B%86%E6%80%A7%E7%96%AB%E6%83%85#%E5%8F%8D%E5%BA%94%E5%8F%8A%E5%BD%B1%E5%93%8D"&gt;新发地疫情&lt;/a&gt;爆发的尾巴回到宁波。我实在是不知道是上天眷顾，还是我自己就是另一个世界的瘟神转世而来……&lt;/p&gt;
+&lt;p&gt;10 月 18 日是妞的预产期，入院前按疫情防控要求又做了一次核酸检测，这是 20 年第三次被捅鼻子。&lt;/p&gt;
+&lt;p&gt;可以说，COVID 完全打乱了我的生活轨迹，让我在 20 年经过了两次隔离——一次是在新加坡两周的居家隔离，一次是在杭州乡下的隔离点，同时，公司的涨薪招聘全面冻结，这直接影响到了我的收入并间接影响到了我的职业晋升。但另一方面，COVID 也意外地给了我机会让我得以在家工作一整年兼顾家庭，陪伴妞走完整个怀孕生产流程。虽说福祸相依，但很可惜，对于在这场战后最大的公共卫生危机中逝去的几百万条生命而言，他们所经历的就只有祸。&lt;/p&gt;
+&lt;p&gt;Take care and stay safe to everyone.&lt;/p&gt;
+&lt;h3 id="孕"&gt;孕&lt;/h3&gt;
+&lt;p&gt;20 年底在新加坡跨年的时候，几个朋友吃了顿火锅然后步行去东海岸公园扯淡聊天，还搞了个许愿仪式，我么，说随口说了句希望新的一年顺利完成“造人”计划——不成想这次灵验的很， 2 月 16 日我就收到了妞妞二道杠杠的“通知”。彼时老岳父确诊直肠癌回家调养身体，国内疫情正在高潮，新加坡疫情尚属萌芽，我则刚刚结束居家隔离。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/singapore-20210101-new-year-east-coast.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/singapore-20210101-new-year-east-coast.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如前文所述，过了小一个月，新加坡疫情日趋严重，公司开始全面居家办公，我便当机立断飞回国内，准备岳父 4 月份的手术，且要陪伴妞走完怀孕生产这段路。&lt;/p&gt;
+&lt;p&gt;年龄到了，也算有一定的经济基础了，怀孕于我们而言，是件自然而然的事情了。但我真正看到那张两道杠杠的照片，心里还是不免泛起一丝紧张——我真的准备好了么？COVID 肆虐，前景不明，岳父患癌，而我又在新加坡，工作还算开心，难道要放弃工作回国陪妞？又或是让妞来新加坡生产？那家人又该怎么办？&lt;/p&gt;
+&lt;p&gt;犹豫了几周，新加坡疫情开始爆发，公司也开始全面远程办公，于是我也就当机立断，买了机票飞回上海浦东，一方面是准备岳父的手术，但主要还是照顾妞。&lt;/p&gt;
+&lt;p&gt;整个孕期各种产检跑医院累计下来接近有二十次，具体数量我实在是记不清楚了，但平均下来一周多一点总要跑一趟医院。到了孕中期，妞查出来患有孕期糖尿病，因此我们也几乎彻底告别了外卖，我每天在家给妞做饭吃，清淡控油低糖。每天晚饭后公园散步，这个是必备的项目，自不必说。&lt;/p&gt;
+&lt;p&gt;期间还考查了宁波的几家月子中心，最终还是敲定了离家最近的明州医院月子中心。&lt;/p&gt;
+&lt;p&gt;8 月份的时候还搬了次家，搬到了大一点的房子，准备迎接宝宝的到来。&lt;/p&gt;
+&lt;p&gt;9 月 5 日，妞因为怀孕引起的耻骨联合痛住进了医院。这个痛还是有些征兆的，因为那几日妞走路越来越困难了，到了 9 月 4 日早，愈发严重，妞还想要去工地上班踩盘，被我严肃批评了一顿，这才请了假待在家里，在沙发上窝了一整天。到了 5 日凌晨，妞把我摇醒，说自己痛得不行，我们这种头胎夫妇也没有经验，不知是不是要早产，于是果断起床，驱车去医院挂急疹。妞耻骨痛得下不了床走不动路，我灵机一动，发挥我的聪明才智，用我平时办公用的 herman miller sayl 椅子，推着妞上了车，把椅子塞到了后备箱，到医院后又推着妞上了五楼的急疹。&lt;/p&gt;
+&lt;p&gt;到了医院急疹室，进行了宫口内检，确认并没有早产的迹象，只是纯粹的耻骨联合痛。比较麻烦的是，按照医生的说法，这种痛没办法治疗，只能用医学手段暂时缓解，彻底治愈唯一的办法就是——把娃生下来。&lt;/p&gt;
+&lt;p&gt;鉴于妞年过三十，有些高危因素，加上患有孕期糖尿病，因此我们还是听众医生建议，住院治疗。医生问我们是订单间病房还是双人间，我想也没想就订了单间 VIP 病房——后面打听才知道原来单间病房床位费一天要小一千块，好家伙，我们住了小半个月，还是有些肉痛的。&lt;/p&gt;
+&lt;p&gt;妞在医院调理了两周，期间为了控糖，还上了胰岛素，之后又查出了肝功能异常，但经过调理，总算稳定了下来。白天妞坐着我的办公椅在医院打打电话，跟公司同事开开会。我么，大部分时间，白天的时候回家里办公，晚上回医院照顾妞。偶尔也在医院开个会，写点代码啥的。&lt;/p&gt;
+&lt;p&gt;值得一提的趣事是我们自带的 herman miller sayl 的椅子给在院医生护士留下了深刻的印象，被他们夸了又夸。&lt;/p&gt;
+&lt;p&gt;住院十二天后出院回家，期间妞的耻骨联合痛有所减轻，但还是不能自己下床走路，晚饭后我会用 sayl 椅子推着妞在小区走廊里散散步。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20200905-mingzhou-hospital-1.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20200905-mingzhou-hospital-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20200905-mingzhou-hospital-2.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20200905-mingzhou-hospital-2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;10 月 3 日凌晨，妞半夜感到阵阵宫缩，保险起见我们又去了医院，检查下来，宫缩曲线很漂亮但是宫口不开，诈胡一场，住了两天院后再度回家待产。&lt;/p&gt;
+&lt;p&gt;妞的预产期是 10 月 18 日。我们在家捱到了 10 月 16 日，妞的耻骨联合痛竟然自行缓解了许多，可以自行走一段路了。为了避免像 10 月初那次订不到单间病房的情况，这次我们提前 2 天就住了进来。17 日晚上了催产球，18 日上午进产房。&lt;/p&gt;
+&lt;p&gt;产程还是挺顺利的，几个小时就结束了战斗，嗯，是个仔。具体细节我就不再细述了，妞作为第一当事人，写得比我详细深刻的多。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20201018-mingzhou-hospital-1.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20201018-mingzhou-hospital-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20201018-mingzhou-hospital-2.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20201018-mingzhou-hospital-2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20201018-mingzhou-hospital-3.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20201018-mingzhou-hospital-3.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20201018-mingzhou-hospital-4.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20201018-mingzhou-hospital-4.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;产房观察一个多小时后转回到产科病房，我其实还是一脸懵逼状，完全不太清楚接下来要做什么。护士进来问了一句月嫂有没有请好，我说订了月子中心但是住院的这几日还没有请人。护士估计内心是一脸黑人问号吧。亏得还是妞拿起手机联系了月子中心，临时指派了一位月嫂过来，解了我的燃眉之急——是的，晚上睡觉我还打起了呼——作为第二当事人，无论关系如何亲密，但身体上的疼痛经历实难感同身受。女人生育的确是很不容易，是一道关口。&lt;/p&gt;
+&lt;p&gt;话说回来，新生儿皮肤的手感是出奇的好，皮肤表面盖有一层薄薄的绒毛，摸起来手感让我不禁想起一个词——美人凝玉。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20201019-mingzhou-hospital-zhichu-1.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20201019-mingzhou-hospital-zhichu-1.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20201019-mingzhou-hospital-zhichu-2.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20201019-mingzhou-hospital-zhichu-2.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在月子中心住了 4 周后，回到家中，新生爸妈毕竟没有经验，家人父母亦不在身边，时间仓促，住家保姆也还没有安排好，因此又把在月子中心的月嫂请回家中照顾了 4 周。这期间开始准备面试住家保姆的事情，一直到 12 月中旬才安排好。但很可惜第一位住家保姆可以说是相当差劲，职业素养非常低，到家第一天没跟我打声招呼就直接用上了我的牙杯，搞得我一脸黑人问号，唯一的好处是这个保姆哄娃入睡非常有一套。干到第三天，这位保姆自己辞职走人了。同一家中介表示意外和抱歉后，又紧急调了另一个住家保姆过来，我们一直处到现在，还算不错，人有经验，态度也好，也很勤劳。&lt;/p&gt;
+&lt;p&gt;一切安排妥当之后，剩下就是只是的带娃哄娃遛娃打疫苗了。12 月末的时候带娃去社区医院打疫苗，母上大人发来了我百天的照片，对比下来，颇有一种世道轮回之感。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/static/image/2021/2020-summary/ningbo-20201225-shounan-hospital.jpg"&gt;&lt;img src="/static/image/2021/2020-summary/ningbo-20201225-shounan-hospital.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;经济方面，光产前就花了小十万块——各种产检约一万，产前住院两周约两万，顺产无痛加陪护估摸有一万多，娃住院五天小五千，月子中心三万六七，这还不算各种耗材以及为此耗费的时间精力。累计去了有二十趟医院，他老爹我勤勤恳恳做了半年的饭，每天还要花一两小时的时间散步等等。产后，费用大头是请住家保姆每月八千的工资，外加保姆的吃住宝宝日常的尿片奶粉玩具疫苗之类的，估计每个月也得一万来块。城市化带来生育率的下降真是，不可逆转啊。&lt;/p&gt;
+&lt;p&gt;附上妞产后住院写的记录，权作存档和参考。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;都说怀孕的时候想着卸货，卸货之后想着把娃塞回去。恍恍惚惚，生下小雨滴已一周整，没两天就被送进了新生儿科，除了前两天哭肿了眼，这样的烦恼尚未体验到。每天的工作大头，成了三小时一次的吸奶以努力跟上娃的进程，还有儿科医生护士每日的电话视频及无限的思念等待。深夜里的挤奶越发难挨，刷厌了某宝与某乎，看完了大半本孕育百科，战友呼吁着记录下产程，再过些时日遗忘就将悄悄爬上进程。&lt;/p&gt;
+&lt;p&gt;孕期多梦，某天晚上梦见了小雨滴在天上选妈妈，醒来就和战友约定好，小名叫小雨滴，大名当爹的好好去翻字典，男女各得准备十个名字。他爹拿院士公园的名字打马虎眼，最后只定了个男女通用的中性名。&lt;/p&gt;
+&lt;p&gt;小雨滴是个求关注的主，一月挤着外公查出癌症的日子到来，二月确定妊娠没多久就赶上先兆流产，三月他爹当机立断在国外疫情蔓延苗头刚起之时就申请回国远程工作陪娘俩。回来后也没闲着，外公动手术里里外外都是他代替娘俩尽孝操持跑断腿。四五月考虑到小雨滴出生后的居住环境，在为娘公司对面买了套看公园的二手房，同时把杭州的酒店式公寓托管了。然后六月的某一天，受小雨滴压迫为娘的腰腿不行了，自此远庖厨。紧接着七月就查出妊娠糖尿病，糖妈妈开启扎手指的艰难旅程，他爹开启每日下厨和公园陪着散步的Hard模式。八月终于搬进了园景房，小雨滴肚子里闹腾的厉害，是个特别好动的主，准备自然等开奖结果的我们，为娘意识里觉得那是个仔，生不出那么能动的妞。次卧的房间里开始堆满小雨滴的日用，他爹彼时还嘲笑，马爸爸就是全靠女子与小人支撑起来的。&lt;/p&gt;
+&lt;p&gt;好在那时备得差不多，九月一开始，为娘就因耻骨分离痛得走不了路，半夜实在难熬坐着他爹的办公转椅推进了医院。耻骨痛引发了宫缩，第二天上了促胎肺成熟针，直接导致为娘血糖飙升，又上了胰岛素。一周后宫缩消失，准备出院又查出肝功能异常，护肝治疗又一周。为娘整天坐着爹的办公椅在医院里转悠，还跟公司申请了远程工作关起门来开会，整个科室的医生护士自此印象深刻。出院后38周又因半夜宫缩频繁入院，以为要生了，宫缩曲线很漂亮，可宫口就是不开。第二天又要求出院，单人间住满了，双人间里实在受不了隔壁床四张嘴整夜的喧嚣，睡不着觉神经衰弱，还被医生吼了你哭什么。本和他爹说好了39周就剖了，身体却是越来越争气，竟自己又能站起来走路了。医生建议顺产，挨到快40周，迫不及待地提前两天住进来，占好单人间的坑位，花钱买个舒心。&lt;/p&gt;
+&lt;p&gt;入院第一天晃晃悠悠抽血做检查，基本就是来送钱占坑位的；第二天上了水囊，一夜后宫口开了0.5指，医生说宫颈条件很好，早八点半进产房挂催产素。当周围一排待产母亲都在呻吟的时候，我让他爹送了苹果坚果进来啃得欢畅，彼时宫缩已到规律3分钟每次了，内检还是0.5，我依旧一脸轻松还教隔壁床腹式呼吸放松。主任说我挺能忍痛的，当时还不觉得这竟然一语成谶，自我感觉疼痛阈值挺低的，只是宫缩曲线一直漂亮。直至下午三点，产房外显示屏上一直0.5指，他爹还在跟朋友扯淡要到晚上了。实际上上午三分钟规律宫缩后挂了青霉素一小时，宫缩减弱。复挂后恢复五分钟一次，主任为加快产程两点人工破水，宫缩再度减弱至消失。三点再上催产素，上了十分钟疼痛感骤然加剧，跟医生汇报想拉大便。恰逢主任上楼有个高危产妇异常不在，值班医生经验主义的内检说和之前差不多啊，还让继续往上加催产素滴速。疼得想哭，挨了十分钟后再次汇报便意，医生让自己调整姿势和呼吸，刚检查过没有大便，宫缩强度五分钟一次，还不如上午呢，继续加了催产素滴速。十分钟后实在难挨，汇报说要上厕所，厕所里空无一物，但让搀扶的护士见证了痛的走不动道的真实情况。回去挨了五分钟实在要崩溃了，带着哭腔汇报即使一指我也想上无痛。两床外等无痛的开三指产妇已经等了近两个小时了，终于有位置护工在准备挪床。耽搁了几分钟护士来内检惊呆了，当场愣住，开了八指。值班医生听闻慌了，你开玩笑吧，再次内检，实在耐不住开始疼痛嚎叫。医生让不要叫，问开了八指了还要不要上无痛，痛得只嚎出一个打字。当场医生指挥准备移两床外的护工，先移这开了八指的。随后基本就是痛的恍惚的状态。恍惚间知道让我签字只能等事后，护工一路小跑推向多人产房前问要不要老公陪产，残存的意识里蹦出一个要，然后调转方向去了单人产房。单人产房里助产士让自己挪床，哭喊着痛挪不动。挪过去了才能上无痛，才能生孩子，痛也只得挪，强撑着过去后已经睁不开眼了。听到医生说麻醉师在准备了，打了无痛我还可以舒服半小时。弓腰脊椎用药后还是痛，但知道自己慢慢平静下来了，痛的嚎叫变成了我想拉大便的呻吟。知道老公进来了，在和家人视频说上无痛了。知道助产士说想拉大便没关系，顺着调整呼吸，不要用力就好，现在还没到生产的时候使劲了一会容易撕裂。知道老公问在产房怎么了，突然进程这么快。知道他在尝试转移我的注意力，断断续续恍惚地给他叙述。完全平静后助产士问要不要吃点东西，提议包里有巧克力被否了，说我妊娠糖尿病，想吃的话医院有专门的高能量饮料，摇头不想吃。宫缩强度上来后，助产士开始教生产姿势。困扰一个多月的耻骨痛在麻药作用下已经很微弱了，之前练习的瑜伽也让呼吸调整的很顺畅。助产士夸姿势标准，加上本身便意就强，生产会很顺畅。过了近半小时宫缩强度上来了，助产士让摆好姿势，随着宫缩来临深呼吸一口气，眼睛看着肚脐眼，再上下大腿手臂腰部一起用劲，使劲拉大便。小雨滴是很正的头位，头就抵着宫口，前几次用劲的时候，头出来一点还会缩回去，随着产程的进行，逐渐拉出来就卡住了，老公实时给我播报，看到头了，有小石子那么大了……有鸡蛋那么大了。助产士直夸配合得很好，顺带玩笑问，打不打算二胎，看样子会是个二胎生路上的主。老公乐得在旁打哈哈，这是生娃专业户啊。等到鸡蛋大小后，产科医生来接班，让不用等宫缩了，产程太长娃容易呼吸不畅，配合她的节奏用劲。怕娃待的时间长，每次都尽最大力，在麻药作用下也感觉不到疼痛，只是开始觉得头晕了。连续发力之后，说尽量不侧切的医生，有口子内部已经裂开了，给我剪了一刀，没多久娃的头就出来了。医生即时地说宝妈可以歇着了，后面她会把娃接出来的。这是世上最动听的话，当场绷紧了那么久的神经整个人就歇下了，虚脱感遍布全身。接着，感受到医生柔柔的手推动下，娃兹溜就出来了。接着，恍惚听医生给爸爸看，恭喜是个男孩子；恍惚听老公问，娃怎么不哭；恍惚听医生说，别急马上就哭了，应是剪了脐带拍了脚底，嘹亮的哭声响起，就有护士接走了。医生接着处理我的下身，只记得一直按肚子一直往外排暖流，胎盘出来后还是如是，血尿混合着一起，实在止不住最后上了导尿管。进产房带的产褥垫不够用了，娃的尿不湿隔尿垫都没带。意识还清醒，哼哼着说病房里都有，老公问要出去取吗？之前也没说这些。穿着防菌服肯定是不能出去的，护士说先用医院的吧，尿不湿还是问隔壁已经生产的借的，只是没想到我们只有一个陪护。产后观察了两小时，娃3460也不小了，红突突的贴在身边还觉得不真实。血压升高到临界值，出血在插导尿管后慢慢止住，就推回了病房。&lt;/p&gt;
+&lt;p&gt;往后，就该是妈妈的角色了。&lt;/p&gt;
+&lt;p&gt;回到病房，医生护士轮番来查房，看完小的看大的，问只有爸爸陪护吗？赶紧给你老婆擦擦身，下身要及时清洁的。爸爸问，那先要去楼下买脸盆毛巾吗？妈妈有气无力地说，行李箱里都有。拿出来后爸爸问，这么浅怎么用啊。妈妈没好气地说，那是折叠的，一按就下去了。一旁护士看不下去，指导了一下这是折叠脸盆，又开启了新世界吧。看着两眼一摸黑的爸爸，东西都不知道在哪，妈妈完全虚脱躺床上，依旧处于头昏脑胀状态，娃闹起来可怎么办。赶紧联系了楼上月子中心，让派月嫂过来。自此，又开启了丧偶式养娃历程。月嫂真是比亲妈还靠谱，来了之后轻车熟路给妈妈擦身上药，给娃铺床换尿不湿，爸爸退居一侧晚上呼噜震天响。娃有风吹草动妈妈都第一时间醒来，夜里睡不着听着爸爸的呼噜特想一脚踹醒他。那又是属于妈妈的修炼了。&lt;/p&gt;
+&lt;p&gt;回顾整个孕期，磕磕碰碰，最明智的决定是拒绝了双方家长的陪护。三家不同的养育理念，必是掐架不可。生娃已经够辛苦了，晚我两天分娩的高中同学，真是弄得身心俱疲，除了身体上巨大的劳累，还得顶着双方家长的巨大精神压力。女方一定要剖腹产，不能让女儿走在生死鬼门关；男方坚持顺产，剖腹产的娃抵抗力太弱。各种鸡毛蒜皮的事，同时爆发就是山崩地裂。&lt;/p&gt;
+&lt;p&gt;二是医院的选择。公立医院医疗技术有保障，碰到高危紧急情况可以及时转诊，适合奉行安全第一原则的人。同时，花费少一些，硬件设施差，医护态度口碑不佳，人满为患，耗时巨大。前期有次去公立产检，赶了个大早排了个很前面的号，我都被医生打发出来了战友才刚停好车过来。老口碑的公立医院往往都在市中心，交通和停车都是个问题。私立自然是花费高，硬件好，态度佳，医疗水平看情况。早期产检两个都体验了之后，我们选了离家近的私立，真有什么处理不了的大问题，私立医院肯定会建议你转诊的。相比而言，整个孕期十几二十次产检，时间比金钱珍贵，花钱买舒心吧。虽是私立，也是家三乙的综合性医院，把心还是放在肚子里的。&lt;/p&gt;
+&lt;p&gt;三是住院单人间与多人间。战友在刷卡机这个角色上，还是很到位的，第一次耻骨痛住院，没问价格直接上了单人间，光床位费是双人间的五六倍，小半个月的时间住得我肉痛。条件是好的，等同于住了个医护24小时的酒店，有问题随时呼叫，主任医生值班医生夜班医生营养师骨科会诊医生瑜伽调理师轮番来；入住送全套洗护用品，衣服床单天天换，战友陪护类酒店的单人床，住得也是很是舒心。后期我自己能在轮椅上转悠后白天他就回家了。第二次宫缩住院因为单人间满房，虽是双人间，隔壁床产妇不顾医院产后最多两人陪护的规定，偷摸着连着小孩一起带过来，小学模样的孩子还流了一晚上鼻涕，我真是担心自己娃没生出来传染了感冒；老公婆婆小孩白天还有个亲戚四张嘴没停过，倒是刚出生的娃不吃不喝也不闹，这当妈妈的还不遵医嘱不给娃喂配方奶。房间里的人员高密度和噪声轰炸直接让我神经衰弱，本就为一晚上宫缩没睡好觉而住院，第二天一早就对护士站说没单人间的话我们想出院，宫口未开，一时半会生不了。一护士还说生了孩子你们也这样的，相互间需要体谅；我的情绪嗖地就上来了，他们不仅人多还带着感冒，同时眼泪止不住开闸。另一护士紧急帮我另安排了一个病房，暂时只有我们一床住着。周围是安静了，战友还是睡陪护椅，一晚上也是折腾得他精疲力尽。由俭入奢易，由奢入俭难，在自己经济能力能承受的范围内，花钱买省心，毕竟生娃一生可能就这么一次。所以最后入院待产，我们为了占坑提前就住进去了。&lt;/p&gt;
+&lt;p&gt;四是所有能让你省心的设施人员，包含但不限于无痛分娩、陪产、月嫂、妇幼营养厨房等。虽然最后这些让战友彻底成为了刷卡机和信息物件中转站的角色，但他着实省心，晚上陪护睡大觉，白天精神抖擞去上班——全程重在体验，用他的标志性语言就是刷卡提娃。对我而言，这些也是很大程度上能更好恢复，产后中度贫血，整个人床上躺了两天才慢慢缓过神来。真的老公来照顾也必会有诸多矛盾，他差不多就行了的护理和我坚持娃单独洗衣机分开的原则，怕是劳累还遭挑剔。当时躺床上月嫂帮忙擦身子时，真是觉得多贵我都请，亲妈来护理都做不到这样细致的程度。&lt;/p&gt;
+&lt;p&gt;此时，准妈妈的历程也就结束了。产后头两天一直觉得不真实，怎么就多了这么个小人在身边。自此生命有了软肋吗？可能吧，最大的转变是什么都不想管，一心就想着照顾好小雨滴。所以当第三天我终于可以下床活动而小雨滴却因为一个感染指标异常被送进新生儿科时，眼泪刷刷刷下来止都止不住，想着自己当时坚持剖会不会就不会感染，想着自己都还没抱过娃呢就被送走，想着真的感染了什么重大炎症可怎么办……第二天一想起来还是眼泪止不住，眼睛肿得跟两个小核桃似的。本来婆婆就对我们出生后第二天就洗澡打疫苗单独睡小床等各种养育有意见，此时更是直接心急地说都是被你们祸害的。婆婆从未对我说过重话，此时的我正水漫河山，战友秉着有问题解决问题的态度，并未顾及到我的敏感情绪起伏，我直接把语音转过去，不接电话。事后在好友的安慰下才逐步缓过来，新生儿科毕竟24小时医护照顾，真有什么事肯定比待在我们身边安全，真得什么脑膜炎自己的娃咬碎牙也会努力让他快乐长大。这个时期，我能做的就是养好自己的身体，尽职挤奶给娃送过去。然后以最好的姿态迎接娃的归来。一直对家庭观念淡薄的我，也从未意识到竟会对一个小生命如此上心。或许，万物确有轮回，彼时缺失抑或被埋葬的那份情感，在新的土壤上修炼成形，慢慢长大。&lt;/p&gt;
+&lt;p&gt;— &lt;a href="https://www.douban.com/note/782112225/"&gt;准妈妈的修炼&lt;/a&gt; by &lt;a href="https://www.douban.com/people/nepmomo/"&gt;莫莫&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;有娃之后，工作之余的个人时间被极大的压缩了，即使在请了住家保姆的情况下，我跟妞每人每天也要至少花两到三个小时的时间陪娃。但换个角度讲，你在陪伴娃的时候，娃何尝不是也在陪伴你？娃的笑容是超强的治愈良药，想到这里，个中辛苦自然就化作嘴角一笑了。&lt;/p&gt;
+&lt;h2 id="尾"&gt;尾&lt;/h2&gt;
+&lt;p&gt;20 年是写年终总结的第十年了。如果说生活是一部电影，那 20 年于我而言就是一部多线叙事的纪实电影，剧情有些许悬念，有些许挑战，但并不悲情。虽然过程是有些吞金灭土，但结果还算是有惊无险，一关一关的，都被我顺利闯了过来。&lt;/p&gt;
+&lt;p&gt;我想我还是很幸运的，有家人守望相助，有软肋心生牵挂，有工作领份薪水，有书桌窗含西岭。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;世界在急剧塌缩，能守住的东西就越来越小，但是书桌前应该是有窗的，可以听到万籁。&lt;/p&gt;
+&lt;p&gt;— &lt;a href="https://www.douban.com/note/778528487/"&gt;十年&lt;/a&gt; by &lt;a href="https://www.douban.com/people/CrusaderTan/"&gt;crusader&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="ref"&gt;Ref&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2012-01-01-2011-summary/"&gt;再见，2011&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2013-01-11-2012-summary/"&gt;2012，静水深流&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2014-03-03-2013-summary/"&gt;2013，青春绝版&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2015-04-10-2014-summary/"&gt;2014，漫步&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2016-04-20-2015-summary/"&gt;2015，徘徊&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2017-05-23-2016-summary/"&gt;2016，清风徐来&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://xiaohanyu.me/posts/2018-01-14-2017-summary/"&gt;2017，迈向未知&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xiaohanyu.me/posts/2019-04-10-2018-summary/"&gt;2018，两点一线&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://xiaohanyu.me/posts/2020-04-18-2019-summary/"&gt;2019，飘来荡去&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:xiaohanyu.me,2020-04-17:/posts/2020-04-18-2019-summary/</id>
     <title type="html">2019，飘来荡去</title>
@@ -2092,51 +2271,6 @@ solution passes the test cases, it will be removed from your home folder.
 &lt;p&gt;文至尾声，想起一小句英文：“Education is what survives when what has been learned has been forgotten.” 大意是，当你把所学的“知识”都忘记的时候，剩下的就是教育本身。那么剩下来的到底是些什么呢？我想了想，这至少应该包含自信、自知、自制、个人努力、 制定计划的能力、超强的执行力、应对挫折的能力、懂得劳逸结合、善于利用手上的资源，等等吧。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;人这一生，抛去自己的喜乐悲愁，最终还是要归于尘土，所留下的，无非就是一个或长或短的故事而已。所以你到底想给这个世界留下怎样的一个故事呢&lt;/strong&gt; ？&lt;/p&gt;
 &lt;p&gt;这次真的是 over 了。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:xiaohanyu.me,2016-09-08:/posts/2016-09-08-ppresume-a-new-start/</id>
-    <title type="html">PPResume，新的起点</title>
-    <published>2016-09-08T15:29:37Z</published>
-    <updated>2017-04-29T08:08:52Z</updated>
-    <link rel="alternate" href="http://xiaohanyu.me/posts/2016-09-08-ppresume-a-new-start/"/>
-    <content type="html">&lt;h2 id="缘起"&gt;缘起&lt;/h2&gt;
-&lt;p&gt;转瞬间，从事自由职业达三年之久。&lt;/p&gt;
-&lt;p&gt;这个时间甚至超过了我在商业公司“服役”的时长。&lt;/p&gt;
-&lt;p&gt;完全是计划之外。&lt;/p&gt;
-&lt;p&gt;三年间睡了 80% 的自然醒，做了 15% 的饭，熬了 5% 的夜；平均每年任性两次说走就走的旅行；做了各种各样但实际上都不怎么样的项目，服务了北京、长沙、香港、加拿大等各地的客户；读了几百本书看了几百部电影；唯一不变的，应该就是那永远空空如也的钱包了。&lt;/p&gt;
-&lt;p&gt;看上去还不错？也许吧。但自由职业的最大弊端在于，你的认真你的态度客户看不到，甚至根本就不想去看。单元测试？代码风格检查？更好的文档？规范的 Git Commit？别逗了…… 事实是，这些东西很好，但是，nobody cares。客户想要的，更多的是物美价廉。&lt;/p&gt;
-&lt;p&gt;职业生涯终归不能在散碎的项目中消磨殆尽。&lt;/p&gt;
-&lt;p&gt;我能做什么？我擅长做什么？我喜欢做什么？什么样的事情是我能做且有可能做好但是别人不能做或者想做也有可能做不好的事呢？What's the difference between the world with and without you?&lt;/p&gt;
-&lt;p&gt;我不是一个优秀的后端工程师，因为我从未有机会直面过大规模的生产系统；我也不是一个合格的前端工程师，你现在看到的还算干净整洁的页面是我花了无数时间一点一点 Google 打磨出来的；我也不是一个设计师，虽然上个月才买了套正版的 Adobe CC，来补习一些设计基础。&lt;/p&gt;
-&lt;p&gt;“你可以去搞大数据人工智能呀！”&lt;/p&gt;
-&lt;p&gt;“别逗了，我已经十年没有碰过数学了好不好！”&lt;/p&gt;
-&lt;p&gt;或许，我真正的长处在于整合。我当下的技术水准可以覆盖一个中小型网站前后端 80% 的需求；我深入理解开源软件的理念，对以 Github 为中心的开源软件工作流程有着深刻的理解；我擅长自动化，可以使用已有工具甚至重新发明一套工具来自动化手头的工作；我懂一些字体排印方面的知识，也许更准确的说法是，我是工程师中最懂字体排印的，设计师中写程序写得最好的；我可以写出不错的文案，多年来坚持的阅读思考与不间断的写作，让我有了缜密的思维和将事情条分缕析清晰阐述的能力。&lt;/p&gt;
-&lt;p&gt;三年的自由职业生涯最大的好处在于，让我有了充足的时间在方方面面强化自己的能力。所以我终于有时间也有能力，一个人写代码、做设计、写文案，唯愿在自己的全盘掌控下能做出一个还不错的产品吧。&lt;/p&gt;
-&lt;h2 id="选择"&gt;选择&lt;/h2&gt;
-&lt;p&gt;温饱之后是什么？小康。小康之后呢？是更宽敞的房子？更智能的家电？更遥远的旅行？&lt;/p&gt;
-&lt;p&gt;二十年前，我们对产品的要求是：基本可用。&lt;/p&gt;
-&lt;p&gt;二十年后，我们对产品的要求是：做到极致。&lt;/p&gt;
-&lt;p&gt;一代人的时间，我们的消费观已经从追求功能上的可用，逐渐转变成了追求品质上的卓越。&lt;/p&gt;
-&lt;p&gt;所以 Apple 能够在智能手机市场上一骑绝尘、雄霸天下；所以绿城可以在杭城锦绣之地木秀于林、树大根深。&lt;/p&gt;
-&lt;p&gt;在这样的潮流下，“什么样的事情是我能做且有可能做好但是别人不能做或者想做也有可能做不好的事呢？”&lt;/p&gt;
-&lt;p&gt;上下求索多年，最终的答案是：数字出版。&lt;/p&gt;
-&lt;p&gt;这是一个非常小众的行业。因为小众，所以不需要资本运作，这就意味着我不用花太多的时间去担心资本运作问题，唯一的投入就是我的时间成本。&lt;/p&gt;
-&lt;p&gt;这是一个需要深耕的行业。小众并不意味着简单，在“看上去简单”的土地上深耕，也有可能耕种出不错的收成。&lt;/p&gt;
-&lt;p&gt;这是一个需要匠人的行业。数字出版的核心是什么？是精益求精的品质追求，是匠人打磨的一丝不苟。&lt;/p&gt;
-&lt;p&gt;友问，如果 BAT 或是任何一个资本雄厚的团队参与进来，你能有多大赢面？&lt;/p&gt;
-&lt;p&gt;我答，一个产品最后做成什么形态，基本上只取决于创始人的品味偏好。互联网上充斥满屏的排版混乱的文章，何尝不是一个新的产品种子成长的土壤？&lt;/p&gt;
-&lt;p&gt;未来几年，我会专注于数字出版服务，致力于让我们目之所视、赖以生存的数字空间，变得更好。&lt;/p&gt;
-&lt;h2 id="ppresume"&gt;PPResume&lt;/h2&gt;
-&lt;p&gt;PPResume，Pretty Print Resume, Pretty Print World。是我在数字出版领域内的第一款产品&lt;/p&gt;
-&lt;p&gt;PPResume 提供专业的简历定制服务，以市面上罕见的极高品质的排版质量，助力各应届毕业生、职场人士开启新的人生篇章。&lt;/p&gt;
-&lt;p&gt;“极高品质的排版质量”？是的，你一定会有这个疑问。所以我写了一份《&lt;a href="http://ppresume.com/notes/guide-zh.html"&gt;中英文简历撰写排版指南&lt;/a&gt;》，用来解答你的疑问。&lt;/p&gt;
-&lt;p&gt;“本指南将系统地阐述中英文简历撰写与排版的要点，并在排版方面有所侧重，力求帮助读者做出一份形神兼备的简历。针对特定议题，本指南首先会阐述是什么（What），接下来论述为什么（Why），最后说明怎样做（How）。”&lt;/p&gt;
-&lt;p&gt;这份文案发布以后，收到了极好的&lt;a href="https://www.v2ex.com/t/303896"&gt;反馈&lt;/a&gt;，我甚至收到了来自陌生人的一笔捐款。还有很我相识的朋友和不相识的网友给我提交 typo fix，并且我还成功地卖出了几份 PDF，实现了 PPResume 的第一笔收入。这些鼓励也让我相信，用诚意做好的产品，会有人认可，会有人买单。&lt;/p&gt;
-&lt;p&gt;&lt;a href="/static/image/ppresume/ppresume-v2ex-comments.png"&gt;&lt;img src="/static/image/ppresume/ppresume-v2ex-comments.png" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;整份《&lt;a href="http://ppresume.com/notes/guide-zh.html"&gt;中英文简历撰写排版指南&lt;/a&gt;》大约有两万字，读起来“也许”会蛮累的吧……所以我又写了一份《&lt;a href="http://ppresume.com/notes/cheatsheet-zh.html"&gt;中英文简历撰写排版指南-备忘单&lt;/a&gt;》，提炼出只有 4 页的大纲，并提供离线 PDF 格式下载，这样读者需要撰写简历的时候可以有一份简洁明晰的参考。&lt;/p&gt;
-&lt;p&gt;如果你觉得我的文案写得不错，欢迎打赏购买 &lt;a href="https://item.taobao.com/item.htm?spm=a1z10.1-c.w10836671-12595401221.2.BjL3qM&amp;amp;id=538120928825"&gt;PDF&lt;/a&gt; 版本，来支持我继续开发 PPResume。附上 PDF 目录及样张，希望喜欢。&lt;/p&gt;
-&lt;p&gt;&lt;a href="/static/image/ppresume/ppresume-guide-1.jpg"&gt;&lt;img src="/static/image/ppresume/ppresume-guide-1.jpg" /&gt;&lt;/a&gt; &lt;a href="/static/image/ppresume/ppresume-guide-2.jpg"&gt;&lt;img src="/static/image/ppresume/ppresume-guide-2.jpg" /&gt;&lt;/a&gt; &lt;a href="/static/image/ppresume/ppresume-guide-3.jpg"&gt;&lt;img src="/static/image/ppresume/ppresume-guide-3.jpg" /&gt;&lt;/a&gt; &lt;a href="/static/image/ppresume/ppresume-guide-4.jpg"&gt;&lt;img src="/static/image/ppresume/ppresume-guide-4.jpg" /&gt;&lt;/a&gt; &lt;a href="/static/image/ppresume/ppresume-guide-9.jpg"&gt;&lt;img src="/static/image/ppresume/ppresume-guide-9.jpg" /&gt;&lt;/a&gt; &lt;a href="/static/image/ppresume/ppresume-guide-26.jpg"&gt;&lt;img src="/static/image/ppresume/ppresume-guide-26.jpg" /&gt;&lt;/a&gt; &lt;a href="/static/image/ppresume/ppresume-guide-27.jpg"&gt;&lt;img src="/static/image/ppresume/ppresume-guide-27.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>
